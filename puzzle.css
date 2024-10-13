@@ -6,15 +6,11 @@
 }
 
 #Puzzlespage .puzzle2-image {
-    position: relative;
-    width: 220px;
-    height: 220px; /* اجعل العرض والارتفاع متساويين لضمان شكل دائري */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    width: 180px;
+    height: auto;
     margin: 0 auto 10px;
     display: block;
-    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.5), /* ظل داخلي */
-                0 0 20px rgba(0, 0, 0, 0.5); /* ظل خارجي خفيف من الحواف */
-    border-radius: 50%; /* يجعل الصورة دائرية بالكامل */
-    overflow: hidden; /* للتأكد من أن المحتوى داخل الحدود الدائرية */
 }
 
 #Puzzlespage #Puzzles {
