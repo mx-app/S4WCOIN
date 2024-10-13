@@ -225,8 +225,8 @@
 
 .attempts-display {
     font-size: 16px; /* حجم الخط */
-    color: #9f0000; /* لون النص */
-    margin-bottom: 10px; /* مسافة تحت العنوان */
+    color: red; /* لون النص */
+    margin-bottom: 1px; /* مسافة تحت العنوان */
     text-align: center; /* توسيط النص */
 }
  
