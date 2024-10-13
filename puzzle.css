@@ -5,6 +5,14 @@
     display: block;
 }
 
+#Puzzlespage .puzzle2-image {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    width: 130px;
+    height: auto;
+    margin: 0 auto 10px;
+    display: block;
+}
+
 #Puzzlespage #Puzzles {
     color: #fff; 
     font-size: 20px; 
