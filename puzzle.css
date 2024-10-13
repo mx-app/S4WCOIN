@@ -6,11 +6,12 @@
 }
 
 #Puzzlespage .puzzle2-image {
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    position: relative;
     width: 180px;
     height: auto;
     margin: 0 auto 10px;
     display: block;
+    filter: drop-shadow(0 0 30px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 60px rgba(0, 0, 0, 0.5));
 }
 
 #Puzzlespage #Puzzles {
