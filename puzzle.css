@@ -26,6 +26,7 @@
     color: #fff;
     border-radius: 10px;
     font-size: 18px;
+    font-weight: bold;
     cursor: pointer;
     border: 2px solid #343434; 
     width: 88%; /* العرض 90% */
@@ -141,6 +142,7 @@
     color: #fff;
     border-radius: 10px;
     font-size: 18px;
+    font-weight: bold;
     cursor: pointer;
     border: 2px solid #343434; 
     width: 88%;
