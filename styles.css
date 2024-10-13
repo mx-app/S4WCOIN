@@ -418,7 +418,7 @@ body {
 } 
 
 .invite-more {
-    width: 73%; 
+    width: 60%; 
     background: linear-gradient(180deg, #000, #9f0000);
     color: #fff;
     border: 2px solid #343434; 
@@ -444,7 +444,7 @@ body {
 } 
 
 .invite-copy {
-    width: 15%; 
+    width: 20%; 
     background: linear-gradient(180deg, #000, #9f0000);
     color: #fff;
     border: 2px solid #343434; 
