@@ -237,8 +237,10 @@
     text-align: center;
 }
 
-.puzzleQuestion {
-    font-size: 30px;
-    color: #fff; 
+#puzzleQuestion {
+    font-size: 30px; /* حجم الخط أكبر */
+    font-weight: bold; /* لجعل النص عريض */
+    margin-bottom: 15px; /* إضافة بعض المسافة تحت السؤال */
+    text-align: center; /* لتوسيط السؤال */
 }
 
