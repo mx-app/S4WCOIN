@@ -158,14 +158,15 @@
 .puzzle-options {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* ثلاث أعمدة في الصف الأول */
-    gap: 10px; /* مسافة بين الأزرار */
+    gap: 8px; /* مسافة بين الأزرار */
     justify-items: center; /* محاذاة الأزرار في المنتصف */
-    margin-top: 10px;
+    margin-top: 8px;
 }
 
 .puzzle-options button {
-    padding: 3px 3px;
+    padding: 5px 3px;
     font-size: 10px;
+    font-weight: bold; 
     cursor: pointer;
     border: 2px solid #343434; 
     border-radius: 15px;
