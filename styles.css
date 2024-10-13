@@ -1,0 +1,867 @@
+:root {
+    --primary-color: #000;
+    --secondary-color: #ff00f0;
+    --background-color-dark: #1c1c1c;
+    --text-color-dark: #fff;
+    --text-color-light: #fff;
+    --button-bg: #003366;
+    --button-text-color: #fff;
+    --accent-color: #003366;
+    --hover-color: #0085ff;
+    --boost-item-bg: #fff;
+    --task-item-bg: #f0f0f0;
+    --claimed-bg: #00ffea;
+    --claimed-text-color: #000;
+    --task-font-size: 14px;
+    --boost-font-size: 14px;
+    --claim-button-size: 12px;
+    --small-text-size: 12px;
+    --current-level-border: #fff; /* لون حواف المستوي الحالي */
+}
+
+/* إزالة تأثير التركيز */
+button, input, select, textarea, img, a {
+    outline: none;
+    box-shadow: none;
+    border: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 800;
+    background-color: var(--background-color-dark);
+    color: var(--text-color-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.container {
+    width: 100%;
+    max-width: 450px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    background-image: url('i/sk3.png');
+    background-size: cover;
+    background-position: center;
+    border-top-left-radius: 0; /* لجعل الزاوية العلوية اليسرى دائرية */
+    border-top-right-radius: 0; /* لجعل الزاوية العلوية اليمنى دائرية */
+} 
+ 
+.screen-content {
+    flex: 1;
+    display: none;
+    padding: 10px;
+    position: relative;
+    background: inherit;
+    overflow: hidden;
+}
+
+.screen-content.scrollable {
+    overflow-y: auto;
+}
+
+.screen-content.active {
+    display: block;
+}
+
+.splash-screen {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-image: url('i/sp2.png'); 
+    background-size: cover; 
+    background-position: center; 
+    position: absolute;
+}
+
+.splash-image {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    animation: float 3s ease-in-out infinite;
+}
+
+
+.loading-text {
+    color: #fff;
+    font-size: 25px;
+    margin-top: 10px;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.status-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px 30px;
+    border-bottom-left-radius: 20px; /* حواف دائرية في الزاوية السفلية اليسرى */
+    border-bottom-right-radius: 20px; /* حواف دائرية في الزاوية السفلية اليمنى */
+    border-bottom: 4px solid #343434; /* إضافة حدود في الجزء السفلي */
+   /* border-radius: 15px 15px 15px 15px;*/
+   /* border: 2px solid #343434;*/
+    background: transparent;
+   /* background: linear-gradient(180deg, #000, #9f0000);*/
+    background-position: center;
+    position: relative;
+    width: %;
+    height: auto; 
+    margin: 0 auto;
+    margin-left: 0;
+    margin-right: 0;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 4px 8px rgba(0, 0, 0, 1); /* إضافة الظل */
+} 
+ 
+
+ .game-title {
+    font-size: 20px;
+    color: #fff;
+}  
+
+.user-id {
+    font-size: 15px;
+    color: #fff;
+} 
+
+.user-name {
+    font-size: 18px;
+    color: #fff;
+} 
+
+.balance-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background: linear-gradient(180deg, #000, #9f0000);
+    font-size: 15px; 
+    margin: 10px;
+    color: #fff; 
+    width: 83%;
+    padding: 8px 15px;
+    border-radius: 12px;
+    border: 2px solid #343434; 
+}
+
+#balanceTitle {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 15px; /* Larger font for balance title */
+    color: #fff; 
+    display: block;
+    /*border-bottom: 2px solid #fff;*/
+    padding-bottom: 2px; /* مسافة بين النص والخط */
+}
+
+#balanceAmount {
+    margin: 0 auto;
+    font-size: 40px;
+    color: #fff;
+    display: flex; /* استخدام flexbox للمحاذاة */
+    align-items: center; /* محاذاة العناصر عموديًا */
+    justify-content: center; /* محاذاة العناصر أفقيًا */
+}
+
+#balanceAmount::before {
+    content: "";
+    display: inline-block;
+    width: 30px; /* عرض الصورة */
+    height: 30px; /* ارتفاع الصورة */
+    background-image: url('i/coinsaw.png'); /* رابط الصورة */
+    background-size: contain; /* يجعل الصورة تناسب الحجم المحدد */
+    background-repeat: no-repeat;
+    margin-right: 5px; /* مسافة بين الصورة والرقم */
+    vertical-align: middle; /* ضبط المحاذاة الرأسية */
+}
+
+/*.user-level {
+    position: fixed;
+    top: 20px; 
+    left: -100px; 
+    text-align: center; 
+    font-size: 18px; 
+    width: 100%;
+    padding-top: 10px;
+    color: #fff; 
+    z-index: 5;
+}*/
+
+.energy-bar-container {
+    display: flex;
+    flex-direction: column; /* ترتيب العناصر عموديًا */
+    justify-content: flex-start; /* الاحتفاظ بمحاذاة إلى اليسار */
+    align-items: flex-start; /* الشريط والمعلومات في نفس المحاذاة على اليسار */
+    position: absolute; /* تثبيت الحاوية في مكان محدد */
+    bottom: 110px; /* ضبطه ليكون في الجزء السفلي */
+    left: 20px; /* مسافة من الجانب الأيسر */
+    margin-left: 0px;
+}
+
+.progress-bar {
+    width: 170px; /* عرض الشريط */
+    height: 15px; /* ارتفاع الشريط */
+    background-color: #555555; /* خلفية الشريط شفافة */
+    border-radius: 50px; /* شكل الشريط */
+    overflow: hidden; /* قص المحتوى الزائد */
+    margin-top: 5px; /* مسافة بسيطة بين المعلومات والشريط */
+}
+
+.progress-bar-inner {
+    height: 100%; /* ارتفاع الشريط الداخلي */
+    width: 100%; /* عرض الشريط الداخلي */
+    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c); 
+    transition: width 0.5s ease; /* تأثير انتقال العرض */
+}
+
+#energyInfo {
+    font-size: 19px; /* حجم الخط */
+    font-weight: bold; /* سمك الخط */
+    color: #fff; /* لون النص */
+    text-align: left; /* المحاذاة لليسار */
+    margin-left: 0px;
+    direction: rtl; /* الحفاظ على الاتجاه من اليمين لليسار */
+    white-space: nowrap;
+}
+ 
+ 
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(96.0% - 69px);
+}
+
+.clickable-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    z-index: 5000;
+}
+
+.clickable-image img {
+    width: 300px;
+    height: 300px;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.2s ease-in-out, filter 0.3s ease-in-out;
+    cursor: pointer;
+    margin-top: -20px; 
+    transform: translateY(-5px);
+    
+}
+
+.clickable-image img:active {
+    transform: scale(0.95);
+    filter: brightness(1.2);
+}
+
+@keyframes coin-bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.diamond-coin {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    pointer-events: none;
+    animation: coin-bounce 1s infinite, fade-out 1s forwards; /* استخدام forwards هنا */
+    z-index: 9999;
+}
+
+.diamond-coin span {
+    position: absolute;
+    top: -20px;
+    right: -10px;
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    border: 2px solid #343434; 
+    background: linear-gradient(180deg, #000, #9f0000);
+    background-position: center;
+    position: fixed;
+    bottom: 15px;
+    box-sizing: border-box; 
+    width: calc(100% - 20px);
+    left: 10px;
+    right: 10px;
+    border-radius: 15px;
+    z-index: 100;
+}
+
+.menu button {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    padding: 5px;
+    box-sizing: border-box; 
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    transition: transform 0.3s ease, background-color 0.3s ease; /* إضافة التحول والتكبير */
+    border-radius: 25px;
+    position: relative;
+}
+
+.menu button:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    height: 60%;
+    width: 2px;
+    background-color: #fff;
+    top: 18%;
+}
+ 
+.menu button img {
+    width: 35px;
+    height: 35px;
+    margin-bottom: 3px;
+}
+
+.menu button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    /*border: 2px solid #343434;*/
+}
+
+.menu button.active {
+    transform: scale(1.2);
+    border: 2px solid #fff;
+    border-radius: 12px;
+}
+
+#accountPage {
+    overflow-y: auto; /* لجعل الصفحة قابلة للتمرير */
+    height: calc(100vh - 150px); /* تحديد ارتفاع مناسب مع الاحتفاظ بالمساحة للأجزاء الأخرى */
+    padding: 10px; /* إضافة مسافة داخلية */
+    padding-bottom: 120px;
+}
+
+.invite-section {
+    display: flex;
+    justify-content: center; /* يضع الزرين في المنتصف أفقياً */
+    gap: 10px; /* يضبط المسافة بين الزرين */
+    margin-top: 10px; /* إذا كنت بحاجة إلى مسافة من الأعلى */
+}
+
+.invite-image {
+    width: 120px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+} 
+
+.invite-more {
+    width: 73%; 
+    background: linear-gradient(180deg, #000, #9f0000);
+    color: #fff;
+    border: 2px solid #343434; 
+    padding: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+   /* margin: 5px;*/
+}
+
+.invite-more:hover {
+    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
+} 
+
+#inviteInfo {
+    font-size: 15px;
+    color: #fff;
+    text-align: center;
+    margin-top: 10px;
+
+} 
+
+.invite-copy {
+    width: 15%; 
+    background: linear-gradient(180deg, #000, #9f0000);
+    color: #fff;
+    border: 2px solid #343434; 
+    padding: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+} 
+
+.invite-copy:hover {
+   background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
+} 
+
+.friends-list {
+    margin-top: 10px;
+    border: 2px solid #343434; 
+    padding: 8px;
+    list-style: none;
+    color: #fff;
+    width: 89%;
+    background: linear-gradient(180deg, #000, #9f0000);
+    border-radius: 15px;
+    display: block;
+    left: 10px;
+    right: 10px;
+}
+
+.friends-list li {
+    padding: 10px;
+    border-bottom: 1px solid var(--text-color-dark);
+}
+
+.friends-list li:last-child {
+    border-bottom: none;
+}
+
+#tasksPage {
+    overflow-y: auto; /* لجعل الصفحة قابلة للتمرير */
+    height: calc(100vh - 150px); /* تحديد ارتفاع مناسب مع الاحتفاظ بالمساحة للأجزاء الأخرى */
+    padding: 10px; /* إضافة مسافة داخلية */
+    padding-bottom: 120px;
+}
+
+.boosts-container, .task-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: none;
+    border-radius: 12px;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    max-width: 320px;
+    padding-bottom: 5px; 
+} 
+
+.boost-item, .task-item {
+    width: 90%;
+    max-width: 300px;
+    margin: 10px 0;
+    padding: 10px;
+    border: 2px solid #343434; 
+    background: linear-gradient(180deg, #000, #9f0000);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boost-item p, .task-item p {
+    margin: 0;
+    padding: 0;
+    width: 60%;
+    text-align: left;
+    color: #fff;
+    font-size: var(--task-font-size);
+}
+
+.boost-item img, .task-item img {
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+}
+
+.boost-item button, .task-item button {
+    background-color: #000;
+    color: #fff;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 30%;
+    transition: background-color 0.3s;
+    border: none;
+    font-size: var(--claim-button-size);
+    border: 1px solid #fff;
+}
+
+.boost-item button:hover, .task-item button:hover {
+    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
+}
+
+.task-item button.inactive {
+    background-color: #9f0000;
+}
+
+.task-item button.claimed {
+    background-color: #000;
+    color: #fff;
+}
+
+.task-image {
+    width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.bos-image {
+    width: 130px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+
+}
+ 
+.confirmation-modal {
+    background-color: rgba(0, 0, 0, 0.90); /* خلفية شفافة */
+    padding: 20px;
+    border-radius: 25px 25px 0 0; /* حواف علوية دائرية فقط */
+    border-top: 4px solid #343434;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    transform: translateY(0); /* يظهر من الأسفل */
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* توزيع العناصر بين الأعلى والأسفل */
+}
+
+.modal-image img {
+    width: 200px; /* حجم الصورة */
+    height: 200px;
+    margin: 10px auto; /* موازنة الصورة في المنتصف */
+    display: block;
+    flex-grow: 5;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+/* الأزرار في أسفل النافذة */
+.confirmation-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+    margin-top: auto; /* لجعل الأزرار في الأسفل */
+    padding: 10px 0; /* إضافة مسافة للأزرار من الأسفل */
+}
+
+.confirmation-buttons .game-button {
+    padding: 15px 25px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 2px solid #343434; 
+    cursor: pointer;
+    background: linear-gradient(180deg, #9f0000, #000);
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.confirmation-buttons .game-button:hover {
+    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
+}
+ 
+
+.notification {
+    position: fixed;
+    top: -100px; /* البداية من فوق الشاشة */
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(180deg, #000, #343434);
+    color: #fff;
+    padding: 10px 20px; /* زيادة padding لجعل الإشعار طويل */
+    border-radius: 15px;
+    border: 1px solid #000;
+    font-size: 14px;
+    z-index: 1000;
+    transition: top 0.5s ease, opacity 0.5s ease; /* انتقال لعناصر الظهور والانزلاق */
+    opacity: 0; /* البداية غير مرئية */
+    width: 300px; /* عرض ثابت للإشعار */
+    max-width: 85%; /* الحد الأقصى لعرض الإشعار بنسبة 90% من الشاشة */
+    text-align: center; /* محاذاة النص إلى المنتصف */
+}
+
+.notification.show {
+    top: 10px; /* موقع الإشعار عند الظهور */
+    opacity: 1; /* مرئية */
+}
+ 
+.level-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; 
+    align-items: center;
+    justify-content: center;
+    padding: 5px; 
+    padding-bottom: 100px; 
+}
+
+.level-icon img { 
+    width: 120px;
+    height: 120px;
+    display: block;
+    margin: 0 auto;
+}
+
+.level-item {
+    margin: 10px; /* هامش بين العناصر */
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; /* تصحيح القيمة لتكون "center" بدلاً من "column" */
+    text-align: center;
+    background: linear-gradient(180deg, #000, #9f0000);
+    color: #fff;
+    padding: 4px; /* تقليل الحشوة */
+    border: 2px solid #343434; 
+    border-radius: 20px;
+    width: 100%;
+    max-width: 250px; /* تقليل العرض الأقصى */
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    font-size: 14px; /* تقليل حجم الخط */
+    letter-spacing: -0.2px; /* تقليل المسافة بين الحروف */
+}
+ 
+.level-item img {
+    width: 125px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.level5-image {
+    width: 125px;
+    height: auto;
+    margin-bottom: 10px;
+} 
+
+.level-item.current-level {
+    border: 2px solid var(--current-level-border);
+    box-shadow: 0 0 15px #343434;
+}
+
+.wallet-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.wallet-image {
+    width: 120px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+} 
+
+.wallet-button {
+    background: linear-gradient(180deg, #000, #9f0000);
+    color: #fff;
+    border: 2px solid #343434; 
+    padding: 15px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    width: 100%;
+    max-width: 300px;
+}
+
+.wallet-button:hover {
+    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
+}
+
+.coming-soon {
+    color: #fff;
+    font-size: 12px;
+    margin-top: -10px;
+}
+
+.withdraw-input {
+    width: 100%;
+    max-width: 300px;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #fff;
+    background-color: #1c1c1c;
+    color: var(--text-color-light);
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.withdraw-input-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.max-button {
+    background-color: #003366;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.max-button:hover {
+    background-color: var(--hover-color);
+}
+
+.level-button-floating {
+    position: fixed;
+    top: 11px; 
+    left: 155px;
+    background-color: transparent;
+    color: #fff; 
+    font-size: 20px;
+    padding: 5px 5px;
+/*   border-radius: 50%;*/
+  /*  border-bottom: 2px solid #fff;*/
+    cursor: pointer;
+    box-shadow: 0 3px 1px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    z-index: 5;  
+
+} 
+.level-button-floating:hover {
+    background-color: transparent;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.level-image {
+    width: 50px;
+    height: auto;
+    margin-bottom: 10px;
+} 
+
+#l, #w, #t, #info, #b, #lev, #currentLevelInfo, #i {
+    color: #fff; 
+    font-size: 20px; 
+    margin: 10px 0;
+    text-align: center;
+ }
+
+.boosts-button {
+    position: fixed;
+    top: 77.5vh; 
+    right: 2.5vw; /* المسافة من الجانب الأيمن */
+    background: linear-gradient(180deg, #000, #9f0000);
+    color: #fff;
+    border: 2px solid #343434;
+    padding: 10px 8px;
+    border-radius: 15px; 
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 0;
+    cursor: pointer;
+    z-index: 1000;  
+}
+
+.boosts-button:hover {
+    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
+}
+ 
+.boosts-button img {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+ 
+/* .Logo-image {
+    width: 20px;
+    margin-right: 10px;
+}*/
+
