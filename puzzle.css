@@ -229,4 +229,11 @@
     margin-bottom: 1px; /* مسافة تحت العنوان */
     text-align: center; /* توسيط النص */
 }
- 
+
+#pu {
+    color: #fff; 
+    font-size: 10px; 
+    margin: 10px 0;
+    text-align: center;
+}
+
