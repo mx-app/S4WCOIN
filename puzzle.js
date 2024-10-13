@@ -126,7 +126,8 @@ function handlePuzzleWrongAnswer() {
 
 // تحديث عرض المحاولات المتبقية
 function updateRemainingAttempts() {
-    remainingAttemptsDisplay.innerText = `Attempts remaining: ${maxAttempts - attempts}`;
+    const attemptsDisplay = document.getElementById('attemptsDisplay');
+    attemptsDisplay.innerText = `${maxAttempts - attempts}/${maxAttempts} attempts remaining`;
 }
 
 // تحديث الرصيد
