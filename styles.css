@@ -250,7 +250,7 @@ body {
 }
 
 #energyInfo {
-    font-size: 19px; /* حجم الخط */
+    font-size: 16.5px; /* حجم الخط */
     font-weight: bold; /* سمك الخط */
     color: #fff; /* لون النص */
     text-align: left; /* المحاذاة لليسار */
@@ -843,7 +843,8 @@ body {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 14px;
+    font-size: 15px;
+    font-weight: bold;
     margin: 0;
     cursor: pointer;
     z-index: 1000;  
