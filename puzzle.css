@@ -238,9 +238,9 @@
 }
 
 #puzzleQuestion {
-    font-size: 30px; /* حجم الخط أكبر */
+    font-size: 25px; /* حجم الخط أكبر */
     font-weight: bold; /* لجعل النص عريض */
-    margin-bottom: 15px; /* إضافة بعض المسافة تحت السؤال */
+    margin-bottom: 2px; /* إضافة بعض المسافة تحت السؤال */
     text-align: center; /* لتوسيط السؤال */
 }
 
