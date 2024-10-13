@@ -106,7 +106,7 @@
     margin-top: 20px;
     font-size: 14px;
     color: red;
-    z-index: 5000000000;
+    z-index: 500000;
 }
 
 #Puzzlespage .success {
@@ -158,15 +158,15 @@
     grid-template-columns: repeat(3, 1fr); /* ثلاث أعمدة في الصف الأول */
     gap: 10px; /* مسافة بين الأزرار */
     justify-items: center; /* محاذاة الأزرار في المنتصف */
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .puzzle-options button {
     padding: 3px 3px;
-    font-size: 15px;
+    font-size: 10px;
     cursor: pointer;
     border: 2px solid #343434; 
-    border-radius: 10px;
+    border-radius: 15px;
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
     transition: background-color 0.3s ease;
 }
@@ -182,7 +182,7 @@
 }
 
 #puzzleHint {
-    margin-top: 20px; /* مسافة بين التلميح والأزرار */
+    margin-top: 15px; /* مسافة بين التلميح والأزرار */
 }
 
 /* Countdown timer container styling */
