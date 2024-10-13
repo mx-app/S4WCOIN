@@ -222,3 +222,11 @@
     margin-right: 10px; /* مسافة بين النص والمؤقت */
     text-align: center;
 }
+
+.attempts-display {
+    font-size: 16px; /* حجم الخط */
+    color: #9f0000; /* لون النص */
+    margin-bottom: 10px; /* مسافة تحت العنوان */
+    text-align: center; /* توسيط النص */
+}
+ 
