@@ -160,12 +160,12 @@
     grid-template-columns: repeat(3, 1fr); /* ثلاث أعمدة في الصف الأول */
     gap: 8px; /* مسافة بين الأزرار */
     justify-items: center; /* محاذاة الأزرار في المنتصف */
-    margin-top: 8px;
+    margin-top: 5px;
 }
 
 .puzzle-options button {
-    padding: 5px 3px;
-    font-size: 10px;
+    padding: 8px 4px;
+    font-size: 12px;
     font-weight: bold; 
     cursor: pointer;
     border: 2px solid #343434; 
@@ -185,7 +185,7 @@
 }
 
 #puzzleHint {
-    margin-top: 15px; /* مسافة بين التلميح والأزرار */
+    margin-top: 10px; /* مسافة بين التلميح والأزرار */
 }
 
 /* Countdown timer container styling */
