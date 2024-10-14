@@ -169,16 +169,20 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
-    background: linear-gradient(180deg, #000, #9f0000);
-    font-size: 15px; 
+    align-items: flex-start;
+/*    background: linear-gradient(135deg, #000, #343434,#9f0000);*/
+    background-color: transparent;
+    font-size: 10px; 
     margin: 10px;
-    color: #fff; 
-    width: 83%;
-    padding: 8px 15px;
+    color: transparent; 
+    width: 90%;
+    padding: 5px 5px;
     border-radius: 12px;
-    border: 2px solid #343434; 
-}
+/*   border: 2px solid #343434;*/
+    position: absolute; /* يجعل النص خارج تدفق التخطيط */
+    opacity: 0; /* يجعل النص شفافاً */
+    pointer-events: none; /* يمنع التفاعل مع النص */
+} 
 
 #balanceTitle {
     font-weight: bold;
