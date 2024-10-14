@@ -216,7 +216,7 @@ body {
 }
 
 .user-level {
-    font-size: 12px; 
+    font-size: 14px; 
     color: #fff; 
 }  
 
@@ -791,7 +791,7 @@ body {
 .level-button-floating {
     position: fixed;
     top: 11px; 
-    left: 155px;
+    left: 150px;
     background-color: transparent;
     color: #fff; 
     font-size: 20px;
