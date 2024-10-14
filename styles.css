@@ -188,7 +188,7 @@ body {
     font-weight: bold;
     margin-bottom: 5px;
     font-size: 15px; /* Larger font for balance title */
-    color: #fff; 
+    color: #555555; 
     display: block;
     /*border-bottom: 2px solid #fff;*/
     padding-bottom: 2px; /* مسافة بين النص والخط */
@@ -215,17 +215,10 @@ body {
     vertical-align: middle; /* ضبط المحاذاة الرأسية */
 }
 
-/*.user-level {
-    position: fixed;
-    top: 20px; 
-    left: -100px; 
-    text-align: center; 
-    font-size: 18px; 
-    width: 100%;
-    padding-top: 10px;
+.user-level {
+    font-size: 16px; 
     color: #fff; 
-    z-index: 5;
-}*/
+}  
 
 .energy-bar-container {
     display: flex;
