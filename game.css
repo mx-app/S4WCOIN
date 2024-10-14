@@ -1,0 +1,104 @@
+/* Game page */
+.Play-game-button {
+    position: fixed;
+    top: 76vh; 
+    right: 20vw; /* المسافة من الجانب الأيمن */
+    background: linear-gradient(180deg, #000, #9f0000);
+    color: #fff;
+    border: 2px solid #343434;
+    padding: 10px 8px;
+    border-radius: 10px; 
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0;
+    cursor: pointer;
+    z-index: 10000;  
+}
+
+.Play-game-button:hover {
+    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
+}
+ 
+.Play-game-button img {
+    width: 25px;
+    height: 25px;
+    display: block; /* تغيير هذا لجعل الصورة تظهر فوق النص */
+    margin: 0 auto; /* مركز الصورة */
+}
+  
+#gamePage {
+    padding: 20px;
+    overflow-y: auto;
+    padding-bottom: 100px; 
+}
+
+#gamePage .game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 10px;
+}
+
+#gamePage .gamePage-image {
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+#GA {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+#currentGameInfo {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+#gamePage .game-item {
+    background: linear-gradient(180deg, #000, #9f0000);
+    border: 2px solid #343434;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+#gamePage .game-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+#gamePage .game-item p {
+    font-size: 1rem;
+    color: #fff;
+    margin: 5px 0;
+}
+
+#gamePage .game-button {
+    background-color: #1c1c1c;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 10px; 
+    border: 2px solid #343434;
+}
+
+#gamePage .game-button:hover {
+    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
+}
