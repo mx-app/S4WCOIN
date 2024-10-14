@@ -34,20 +34,26 @@ fetch('tasks.json')
         const taskId = task.link; // استخدام الرابط كمعرف فريد
         let taskProgress = parseInt(localStorage.getItem(taskId) || '0');
 
-        button.textContent = taskProgress >= 2 ? 'Completed' : taskProgress === 1 ? 'Claim' : 'Go to Task';
+        // إعداد النصوص حسب تقدم المهمة
+        button.textContent = taskProgress >= 2 ? 'Completed' : taskProgress === 1 ? 'Verify' : 'Go to Task';
         button.disabled = taskProgress >= 2;
 
+        // عند الضغط على الزر
         button.onclick = () => {
-            taskProgress++;
-            localStorage.setItem(taskId, taskProgress);
-
-            if (taskProgress === 1) {
+            if (taskProgress === 0) {
                 window.open(task.link, '_blank'); // فتح الرابط عند أول نقر
-                button.textContent = 'Claim';
+                taskProgress++;
+                localStorage.setItem(taskId, taskProgress); // حفظ التقدم
+                button.textContent = 'Verify'; // تحويل النص إلى تحقق
+            } else if (taskProgress === 1) {
+                window.open(task.link, '_blank'); // فتح الرابط عند النقر الثاني
+                taskProgress++;
+                localStorage.setItem(taskId, taskProgress); // حفظ التقدم
+                button.textContent = 'Claim'; // تحويل النص إلى Claim
             } else if (taskProgress === 2) {
-                // إضافة المكافأة بعد النقر الثاني
-                addCoins(task.reward); // إضافة المكافأة إلى الرصيد باستخدام نفس الطريقة لديك
-                button.textContent = 'Completed';
+                addCoins(task.reward); // إضافة المكافأة إلى الرصيد
+                showNotification('Task completed and reward added!'); // إظهار إشعار
+                button.textContent = 'Completed'; // تغيير النص إلى "Completed"
                 button.disabled = true; // تعطيل الزر بعد إتمام المهمة
             }
         };
@@ -58,23 +64,34 @@ fetch('tasks.json')
 })
 .catch(error => console.error('Error loading tasks:', error));
 
-// دالة لإضافة المكافأة إلى رصيد المستخدم
+// دالة لإضافة المكافأة إلى رصيد المستخدم (باستخدام نفس الطريقة من الملف الرئيسي)
 function addCoins(amount) {
-    // افترض أن لديك دالة موجودة لإدارة الرصيد مثل هذه
-    let currentBalance = gameState.balance || 0; // استخدم الرصيد الحالي من حالة اللعبة
+    let currentBalance = gameState.balance || 0; // جلب الرصيد الحالي من حالة اللعبة
     gameState.balance = currentBalance + amount; // تحديث الرصيد في حالة اللعبة
     
-    // احفظ حالة اللعبة أو قم بالتحديث المباشر لقاعدة البيانات
+    // احفظ حالة اللعبة
     saveGameState(); // احفظ حالة اللعبة بعد تحديث الرصيد
 
-    // يمكن أن تقوم بتحديث العرض بشكل تلقائي إذا كان العرض يعتمد على حالة اللعبة
+    // إذا كان هناك تكامل مع قاعدة بيانات، قم بتحديث الرصيد في قاعدة البيانات
+    // updateUserData(); // تأكد من وجود هذه الدالة في ملفك الرئيسي
 }
 
-// دالة لحفظ حالة اللعبة في قاعدة البيانات أو localStorage
-function saveGameState() {
-    // حفظ حالة اللعبة بعد التحديث
-    localStorage.setItem('gameState', JSON.stringify(gameState));
+// دالة لإظهار الإشعارات (نفس الطريقة من الملف الرئيسي)
+function showNotification(message) {
+    const notificationElement = document.getElementById('purchaseNotification'); // احصل على عنصر الإشعار
+    if (notificationElement) {
+        notificationElement.innerText = message;
+        notificationElement.classList.add('show');
+        setTimeout(() => {
+            notificationElement.classList.remove('show');
+        }, 4000);
+    }
+}
 
-    // إذا كان هناك تكامل مع قاعدة بيانات، استخدمه هنا
-     updateUserData(); // إذا كانت لديك دالة موجودة لتحديث البيانات في قاعدة البيانات
+// دالة لحفظ حالة اللعبة
+function saveGameState() {
+    localStorage.setItem('gameState', JSON.stringify(gameState)); // حفظ حالة اللعبة في localStorage
+
+    // إذا كنت تستخدم قاعدة بيانات، قم بتحديث البيانات فيها
+     updateUserData(); // استدعاء دالة التحديث للبيانات إذا كانت موجودة
 }
