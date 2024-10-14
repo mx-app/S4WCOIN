@@ -1,8 +1,11 @@
 #Puzzlespage .puzzle-image {
-    width: 130px;
-    height: auto;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    width: 140px;
+    height: 140px; /* اجعل الارتفاع مساويًا للعرض لتكون الصورة دائرية */
     margin: 0 auto 10px;
     display: block;
+    border-radius: 50%; /* لجعل الصورة دائرية */
+    object-fit: cover; /* لضمان أن الصورة تبقى متناسقة داخل الدائرة */
 }
 
 #Puzzlespage .puzzle2-image {
@@ -248,4 +251,3 @@
     margin-bottom: 2px; /* إضافة بعض المسافة تحت السؤال */
     text-align: center; /* لتوسيط السؤال */
 }
-
