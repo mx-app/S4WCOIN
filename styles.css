@@ -55,8 +55,9 @@ body {
     flex-direction: column;
     position: relative;
     overflow: hidden;
-    background-image: url('i/sk3.png');
-    background-size: cover;
+    background: linear-gradient(180deg, #000, #343434);
+/*    background-image: url('i/sk3.png');
+    background-size: cover; */
     background-position: center;
     border-top-left-radius: 0; /* لجعل الزاوية العلوية اليسرى دائرية */
     border-top-right-radius: 0; /* لجعل الزاوية العلوية اليمنى دائرية */
