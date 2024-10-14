@@ -92,6 +92,7 @@ function showNotification(message) {
 function saveGameState() {
     localStorage.setItem('gameState', JSON.stringify(gameState)); // حفظ حالة اللعبة في localStorage
 
-    // إذا كنت تستخدم قاعدة بيانات، قم بتحديث البيانات فيها
-     updateUserData(); // استدعاء دالة التحديث للبيانات إذا كانت موجودة
+    updateUI();
+    updateUserData();
+    saveGameState(); 
 }
