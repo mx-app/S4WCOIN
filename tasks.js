@@ -1,3 +1,10 @@
+// مسح بيانات localStorage المرتبطة بالمهام عند تغيير الروابط
+function clearTaskProgress() {
+    tasks.forEach(task => {
+        localStorage.removeItem(task.link); // مسح التقدم لكل رابط
+    });
+}
+
 // تحميل المهام من ملف JSON
 fetch('tasks.json')
 .then(response => response.json())
