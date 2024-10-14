@@ -863,3 +863,33 @@ body {
     margin-right: 10px;
 }*/
 
+.game-button {
+    position: fixed;
+    top: 70.5vh; 
+    right: 2.5vw; /* المسافة من الجانب الأيمن */
+    background: linear-gradient(180deg, #000, #9f0000);
+    color: #fff;
+    border: 2px solid #343434;
+    padding: 10px 8px;
+    border-radius: 15px; 
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0;
+    cursor: pointer;
+    z-index: 1000;  
+}
+
+.game-button:hover {
+    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
+}
+ 
+.game-button img {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    margin-right: 5px;
+} 
+
