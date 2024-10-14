@@ -233,7 +233,7 @@ body {
 
 .progress-bar {
     width: 170px; /* عرض الشريط */
-    height: 15px; /* ارتفاع الشريط */
+    height: 12px; /* ارتفاع الشريط */
     background-color: #555555; /* خلفية الشريط شفافة */
     border-radius: 50px; /* شكل الشريط */
     overflow: hidden; /* قص المحتوى الزائد */
