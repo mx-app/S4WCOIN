@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="SgT4PAGADooer2kIL_VItepZXIvIqUBTNGJVRuF8Cz0" />
-    <link rel="icon" type="i/png" href="i/Logo.png" />
+    <link rel="icon" type="i/png" href="/Logo.png" />
     <title> Jigsaw's Game </title>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
@@ -34,7 +34,7 @@
                 <div id="balanceTitle"> Coins Balance: </div>
                 <div id="balanceAmount">0</div>
                 <div class="clickable-image">
-                    <img id="clickableImg" src="i/sawcoin-s.png" alt="Clickable Image">
+                    <img id="clickableImg" src="i/coinsaw.png" alt="Clickable Image">
                 </div>
                 <div class="energy-bar-container">
                  <div id="energyInfo">10,000/10,000 <span class="icon-energy">⚡</span></div> <!-- النص فوق الشريط -->
@@ -51,13 +51,12 @@
 
        <!-- Account Page -->
         <div id="accountPage" class="screen-content scrollable">
-            <img src="i/friends3.png" alt="invite Image" class="invite-image">
-              <p id="info">info</p>
+            <img src="i/money.gif" alt="invite Image" class="invite-image">
+              <p id="inviteInfo">Invite a friend and you both get 50,000 coins! 💸</p>
                <div class="user-info">
-                <div class="user-name"><span id="userTelegramName">Username</span></div>
+               <div class="user-name"><span id="userTelegramName">Username</span></div>
                <div class="user-id"><span id="userTelegramId">123456</span></div>
-            </div> 
-            <p id="inviteInfo">Invite a friend and you both get 50,000 coins!</p>
+            </div>
             <p id="i">Invited Friends</p>
             <div class="invite-section">
                 <button class="invite-more" id="inviteFriendsBtn">Invite Friends</button>
@@ -79,7 +78,7 @@
                 </div>
                 <div class="boost-item">
                     <img src="i/b.png" alt="Coin Boost Image" class="boost-icon">
-                    <p>Click energy: <span id="coinBoostLevel">10,000</span></p>
+                    <p>Energy coins: <span id="coinBoostLevel">10,000</span></p>
                     <p><span id="coinUpgradeCost">4500</span> Coins</p>
                     <button id="coinUpgradeBtn">Upgrade</button>
                 </div>
@@ -123,22 +122,20 @@
               <p id="Puzzles"> Puzzles </p>
                <h2>"Full features will be available soon."</h2>
                <p id="Puzzles"> Win or lose, the choice is yours</p>
-          <button id="openPuzzleBtn" class="puzzle-btn">Daily puzzle</button>
+          <button id="openPuzzleBtn" class="puzzle-btn">today's puzzle</button>
          <!-- <button id="RoomPuzzleBtn" class="room-puzzle">room puzzle</button>
          <!-- <button id="TheneverendingpuzzlePuzzleBtn" class="The-never-ending-puzzle">The never ending puzzle</button> --> 
             <!-- Puzzle Container -->
             <div id="puzzleContainer" class="puzzle-container hidden">
                 <div class="puzzle-content">
                   <span id="puzzlecloseModal" class="close">&times;</span>
-                    <h2>Daily puzzle</h2>
+                    <h2>Today's Puzzle</h2>
                     <div id="puzzleQuestion"></div>
                     <img src="i/numbers.gif" alt="puzzle2 Image" class="puzzle2-image">
                     <div id="countdownTimer">
                         <span id="timeText">remaining :</span> 
                         <span id="timer">60.00</span>
                     </div>
-                    <div id="attemptsDisplay" class="attempts-display">3/3 attempts remaining</div>
-                    <p id="Pu"> Know that the answer will always be in front of you.</p>
                     <div id="puzzleOptions" class="puzzle-options"></div> <!-- مكان عرض الخيارات -->
                     <div id="puzzleNotification" class="notification"></div>
                     <div id="puzzleHint"></div>
@@ -257,17 +254,16 @@
         <div id="purchaseNotification" class="notification top-notification"></div>
 
         <!-- Bottom Sheet Modal -->
-        <div id="upgradeConfirmation" class="confirmation-modal" style="display: none;">
-        <span id="closeModal" class="close">&times;</span> <!-- زر الإغلاق -->
-        <div class="modal-image">
-         <img src="i/Boosts3.png" alt="Centered Image"> <!-- صورة في المنتصف -->
-      </div>
-        <p id="upgradeText">"Are you sure you want to upgrade? Please note that the upgrade cost will be deducted from your coins.</p>
-        <div class="confirmation-buttons">
-        <button id="confirmUpgradeBtn" class="game-button">Upgrade</button>
-     <!--   <button id="cancelUpgradeBtn" class="game-button">Close</button> -->
-      </div>
-   </div>
+         <div id="upgradeConfirmation" class="confirmation-modal" style="display: none;">
+         <span id="closeModal" class="close">&times;</span> <!-- زر الإغلاق -->
+         <div class="modal-image">
+          <img src="i/Boosts3.png" alt="Centered Image"> <!-- صورة في المنتصف -->
+        </div>
+          <p id="upgradeText">"Are you sure you want to upgrade? Please note that the upgrade cost will be deducted from your coins.</p>
+          <div class="confirmation-buttons">
+          <button id="confirmUpgradeBtn" class="game-button">Upgrade</button>
+       </div>
+    </div>
 
         <!-- Bottom Navigation -->
         <nav class="menu">
@@ -288,7 +284,7 @@
             </button>
          </nav>
      </div>
- 
+  
       <script type="module" src="tasks.js"></script>
      <script type="module" src="puzzle.js"></script>
     <script type="module" src="script.js"></script>
