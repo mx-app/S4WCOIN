@@ -791,11 +791,11 @@ body {
 .level-button-floating {
     position: fixed;
     top: 11px; 
-    left: 150px;
+    left: 140px;
     background-color: transparent;
     color: #fff; 
-    font-size: 20px;
-    padding: 5px 5px;
+    font-size: 18px;
+    padding: 4px 4px;
 /*   border-radius: 50%;*/
     border-bottom: 2px solid #343434;
     cursor: pointer;
