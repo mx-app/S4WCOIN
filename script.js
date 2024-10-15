@@ -772,11 +772,30 @@ document.getElementById('closeModal').addEventListener('click', function() {
 
 
 
+let currentLevelIndex = 0;
+
 document.addEventListener('DOMContentLoaded', function() {
-    let currentLevelIndex = 0;
+    const container = document.querySelector('.level-container');
+    const totalLevels = document.querySelectorAll('.level-item').length;
+    const leftArrow = document.querySelector('.arrow-btn.left');
+    const rightArrow = document.querySelector('.arrow-btn.right');
+
+    // تحديث حالة الأزرار
+    function updateArrows() {
+        if (currentLevelIndex === 0) {
+            leftArrow.classList.add('disabled');
+        } else {
+            leftArrow.classList.remove('disabled');
+        }
+
+        if (currentLevelIndex === totalLevels - 1) {
+            rightArrow.classList.add('disabled');
+        } else {
+            rightArrow.classList.remove('disabled');
+        }
+    }
 
     function scrollLeft() {
-        const container = document.querySelector('.level-container');
         const levelWidth = container.clientWidth;
         if (currentLevelIndex > 0) {
             currentLevelIndex--;
@@ -785,12 +804,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 behavior: 'smooth'
             });
         }
+        updateArrows();
     }
 
     function scrollRight() {
-        const container = document.querySelector('.level-container');
         const levelWidth = container.clientWidth;
-        const totalLevels = document.querySelectorAll('.level-item').length;
         if (currentLevelIndex < totalLevels - 1) {
             currentLevelIndex++;
             container.scrollTo({
@@ -798,12 +816,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 behavior: 'smooth'
             });
         }
+        updateArrows();
     }
 
-    // Attach event listeners to the arrow buttons
-    document.querySelector('.arrow-btn.left').addEventListener('click', scrollLeft);
-    document.querySelector('.arrow-btn.right').addEventListener('click', scrollRight);
+    // إرفاق الأحداث للأزرار
+    leftArrow.addEventListener('click', scrollLeft);
+    rightArrow.addEventListener('click', scrollRight);
+
+    // تحديث حالة الأزرار عند البدء
+    updateArrows();
 });
+
 
 
 // تهيئة تكامل Telegram
