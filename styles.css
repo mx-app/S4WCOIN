@@ -134,8 +134,9 @@ body {
     border-bottom: 4px solid #343434; /* إضافة حدود في الجزء السفلي */
    /*border-radius: 15px 15px 15px 15px;
     border: 2px solid #343434;*/
-    background-color: transparent;
+   /* background-color: transparent;*/
    /* background: linear-gradient(180deg, #000, #9f0000);*/
+    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);
     background-position: center;
     position: relative;
     width: %;
@@ -686,8 +687,9 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-   /* background: linear-gradient(180deg, #000, #9f0000);*/
-    background: transparent;
+   /* background: linear-gradient(180deg, #000, #9f0000);
+    background: transparent;*/
+    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);
     color: #fff;
     padding: 4px;
     border: 2px solid #343434;
