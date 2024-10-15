@@ -670,6 +670,7 @@ body {
     position: relative;
     width: 100%; /* عرض الحاوية بالكامل */
     justify-content: center; /* لتمركز المحتوى */
+    padding: 0 20px;
 }
 
 
@@ -695,10 +696,11 @@ body {
     border-radius: 15px;
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
     font-size: 12px; /* تصغير النص */
+    margin: 0 10px;
 }
 
 .level-item img {
-    width: 60%;
+    width: 70%;
     height: auto;
     margin-bottom: 10px;
 }
