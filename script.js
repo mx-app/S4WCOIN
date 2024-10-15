@@ -828,15 +828,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-document.addEventListener('DOMContentLoaded', function() {
-  const playGameButton = document.getElementById('playGameButton');
-
-  playGameButton.addEventListener('click', function() {
-    window.open('Dog.html', '_blank'); // فتح اللعبة في تبويب جديد
-  });
-});
-
-
 // تهيئة تكامل Telegram
 function initializeTelegramIntegration() {
     const telegramApp = window.Telegram.WebApp;
