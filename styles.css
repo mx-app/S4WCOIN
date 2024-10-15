@@ -859,6 +859,10 @@ body {
     text-align: center;
  }
 
+.levels-info p#l {
+    margin-top: 30px; /* يمكنك ضبط القيمة حسب المسافة المطلوبة */
+}
+ 
 .boosts-button {
     position: fixed;
     top: 76vh; 
