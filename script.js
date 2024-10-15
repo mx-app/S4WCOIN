@@ -837,11 +837,11 @@ document.addEventListener('DOMContentLoaded', function() {
    fetch('Dog.html')
    .then(response => response.text())
    .then(data => {
-    gameContainer.innerHTML = data; // تحميل محتوى اللعبة
-    gameContainer.style.display = 'block'; // عرض اللعبة
- });
-
-
+             gameContainer.innerHTML = data; // تحميل محتوى اللعبة
+             gameContainer.style.display = 'block'; // عرض اللعبة
+         });
+     }); 
+    
 // تهيئة تكامل Telegram
 function initializeTelegramIntegration() {
     const telegramApp = window.Telegram.WebApp;
