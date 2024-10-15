@@ -669,7 +669,6 @@ body {
     scroll-behavior: smooth; /* التمرير بسلاسة */
     position: relative; /* لضمان أن الأزرار في مكانها */
     width: 100%; /* عرض الحاوية بالكامل */ /* لتمركز المحتوى */
-    padding: 0 20px;
 }
 
 
