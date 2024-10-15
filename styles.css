@@ -224,9 +224,13 @@ body {
 }
 
 .user-level {
-    font-size: 14px; 
-    color: #fff;
+    font-size: 15px; 
+    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c); /* التدرج اللوني */
+    -webkit-background-clip: text; /* قص الخلفية للنص */
+    background-clip: text;
+    color: transparent; /* جعل النص شفافًا لعرض التدرج */
 }
+ 
 
 .energy-bar-container {
     display: flex;
