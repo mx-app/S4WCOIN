@@ -827,9 +827,21 @@ document.addEventListener('DOMContentLoaded', function() {
     updateArrows();
 });
 
-function openGame(gameFile) {
-            window.open(gameFile, '_blank'); // يفتح الملف في نافذة جديدة
-}
+
+
+// إضافة حدث للزر بعد تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            const playGameButton = document.getElementById('playGameButton');
+            playGameButton.addEventListener('click', function() {
+                startGame('Dog.html'); // استبدل 'gameTwo.html' باسم ملف اللعبة الخاص بك
+            });
+        });
+
+        function startGame(gameFile) {
+            window.open(gameFile, '_blank'); // يفتح ملف اللعبة في نافذة جديدة
+        }
+
+
 
 // تهيئة تكامل Telegram
 function initializeTelegramIntegration() {
