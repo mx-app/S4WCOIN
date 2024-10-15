@@ -716,6 +716,28 @@ body {
     box-shadow: 0 0 15px #343434;
 }
 
+.arrow-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1;
+}
+
+.arrow-btn.left {
+    left: 0;
+}
+
+.arrow-btn.right {
+    right: 0;
+} 
+
+
 .wallet-container {
     display: flex;
     flex-direction: column;
@@ -814,27 +836,6 @@ body {
     background-color: transparent;
 }
 
-/* الأسلوب الخاص بالأزرار الجانبية */
-.arrow-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    border: none;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-    padding: 10px;
-    z-index: 1;
-}
-
-.arrow-btn.left {
-    left: 0;
-}
-
-.arrow-btn.right {
-    right: 0;
-}
 
 .centered {
     display: flex;
