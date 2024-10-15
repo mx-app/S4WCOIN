@@ -194,7 +194,7 @@ body {
     font-weight: bold;
     margin-bottom: 5px;
     font-size: 15px; /* Larger font for balance title */
-    color: #555555; 
+    color: #1c1c1c; 
     display: block;
     /*border-bottom: 2px solid #fff;*/
     padding-bottom: 2px; /* مسافة بين النص والخط */
@@ -425,7 +425,7 @@ body {
 
 .invite-more {
     width: 73%; 
-    background: linear-gradient(180deg, #000, #9f0000);
+    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);
     color: #fff;
     border: 2px solid #343434; 
     padding: 20px;
@@ -451,8 +451,7 @@ body {
 
 .invite-copy {
     width: 18%; 
-    background: linear-gradient(180deg, #000, #9f0000);
-    color: #fff;
+    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    color: #fff;
     border: 2px solid #343434; 
     padding: 7px;
     font-size: 15px;
@@ -474,8 +473,7 @@ body {
     color: #fff;
     width: 95%;
     padding: 8px; 
-    background: linear-gradient(180deg, #000, #9f0000);
-    border-radius: 10px;
+    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    border-radius: 10px;
     display: block;
 }
 
@@ -515,8 +513,7 @@ body {
     margin: 10px 0;
     padding: 10px;
     border: 2px solid #343434; 
-    background: linear-gradient(180deg, #000, #9f0000);
-    border-radius: 10px;
+    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -630,7 +627,7 @@ body {
     border-radius: 10px;
     border: 2px solid #343434; 
     cursor: pointer;
-    background: linear-gradient(180deg, #9f0000, #000);
+    background: linear-gradient(180deg, #1c1c1c, #000);
     color: #fff;
     transition: background-color 0.3s ease;
 }
@@ -759,8 +756,7 @@ body {
 } 
 
 .wallet-button {
-    background: linear-gradient(180deg, #000, #9f0000);
-    color: #fff;
+    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    color: #fff;
     border: 2px solid #343434; 
     padding: 15px 20px;
     border-radius: 10px;
@@ -869,8 +865,7 @@ body {
     position: fixed;
     top: 76vh; 
     right: 2.5vw; /* المسافة من الجانب الأيمن */
-    background: linear-gradient(180deg, #000, #9f0000);
-    color: #fff;
+    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    color: #fff;
     border: 2px solid #343434;
     padding: 10px 8px;
     border-radius: 10px; 
