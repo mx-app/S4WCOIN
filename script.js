@@ -780,6 +780,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const leftArrow = document.querySelector('.arrow-btn.left');
     const rightArrow = document.querySelector('.arrow-btn.right');
 
+    // تحديث حالة الأزرار
     function updateArrows() {
         if (currentLevelIndex === 0) {
             leftArrow.classList.add('disabled');
@@ -795,7 +796,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function scrollLeft() {
-        const levelWidth = container.clientWidth / 4; // حساب عرض المستوى بعد تصغيره ليكون ربع الشاشة
+        const levelWidth = container.clientWidth;
         if (currentLevelIndex > 0) {
             currentLevelIndex--;
             container.scrollTo({
@@ -807,7 +808,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function scrollRight() {
-        const levelWidth = container.clientWidth / 4; // حساب عرض المستوى بعد تصغيره ليكون ربع الشاشة
+        const levelWidth = container.clientWidth;
         if (currentLevelIndex < totalLevels - 1) {
             currentLevelIndex++;
             container.scrollTo({
@@ -818,11 +819,14 @@ document.addEventListener('DOMContentLoaded', function() {
         updateArrows();
     }
 
+    // إرفاق الأحداث للأزرار
     leftArrow.addEventListener('click', scrollLeft);
     rightArrow.addEventListener('click', scrollRight);
 
+    // تحديث حالة الأزرار عند البدء
     updateArrows();
 });
+
 
 
 // تهيئة تكامل Telegram
