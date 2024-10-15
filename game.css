@@ -3,8 +3,7 @@
     position: fixed;
     top: 76vh; 
     right: 20vw; /* المسافة من الجانب الأيمن */
-    background: linear-gradient(180deg, #000, #9f0000);
-    color: #fff;
+    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    color: #fff;
     border: 2px solid #343434;
     padding: 10px 8px;
     border-radius: 10px; 
@@ -64,8 +63,7 @@
 }
 
 #gamePage .game-item {
-    background: linear-gradient(180deg, #000, #9f0000);
-    border: 2px solid #343434;
+    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    border: 2px solid #343434;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 10px 0;
