@@ -689,7 +689,7 @@ body {
     margin: 10px; /* هامش بين العناصر */
     display: flex; 
     flex-direction: row; /* تصحيح القيمة لتكون "row" */
-    align-items: flex-start; 
+    align-items: center; /* تغيير من flex-start إلى center لتوسيع المحاذاة */
     justify-content: center; /* تصحيح القيمة لتكون "center" */
     text-align: center;
     background: linear-gradient(180deg, #000, #9f0000);
