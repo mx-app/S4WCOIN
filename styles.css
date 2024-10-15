@@ -344,7 +344,8 @@ body {
     justify-content: space-between;
     padding: 8px;
     border: 2px solid #343434; 
-    background: linear-gradient(45deg, #000, #9f0000, #000);
+/*   background: linear-gradient(45deg, #000, #9f0000, #000);*/
+    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);
     background-position: center;
     position: fixed;
     bottom: 15px;
