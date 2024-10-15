@@ -688,9 +688,9 @@ body {
 .level-item {
     margin: 10px; /* هامش بين العناصر */
     display: flex; 
-    flex-direction: flex-start; 
+    flex-direction: row; /* تصحيح القيمة لتكون "row" */
     align-items: flex-start; 
-    justify-content: space-between; /* تصحيح القيمة لتكون "center" بدلاً من "column" */
+    justify-content: center; /* تصحيح القيمة لتكون "center" */
     text-align: center;
     background: linear-gradient(180deg, #000, #9f0000);
     color: #fff;
