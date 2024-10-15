@@ -674,14 +674,14 @@ body {
 
 
 .level-icon img { 
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     display: block;
     margin: 0 auto;
 }
 
 .level-item {
-    min-width: 100vw; /* كل مستوى يأخذ عرض الشاشة بالكامل */
+    min-width: 90vw; /* كل مستوى يأخذ عرض الشاشة بالكامل */
     min-height: 25vw;
     display: flex;
     flex-direction: column;
@@ -700,13 +700,13 @@ body {
 }
 
 .level-item img {
-    width: 70%;
+    width: 50%;
     height: auto;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .level5-image {
-    width: 125px;
+    width: 150px;
     height: auto;
     margin-bottom: 10px;
 } 
