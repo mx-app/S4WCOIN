@@ -771,6 +771,21 @@ document.getElementById('closeModal').addEventListener('click', function() {
 });
 
 
+function scrollLeft() {
+    document.querySelector('.level-container').scrollBy({
+        left: -250, // المسافة التي تريد التمرير إليها
+        behavior: 'smooth'
+    });
+}
+
+function scrollRight() {
+    document.querySelector('.level-container').scrollBy({
+        left: 250, // المسافة التي تريد التمرير إليها
+        behavior: 'smooth'
+    });
+}
+
+
 // تهيئة تكامل Telegram
 function initializeTelegramIntegration() {
     const telegramApp = window.Telegram.WebApp;
