@@ -165,36 +165,34 @@ async function fetchUserDataFromTelegram() {
     telegramApp.ready();
 
     const userTelegramId = telegramApp.initDataUnsafe.user?.id;
-    const userTelegramName = telegramApp.initDataUnsafe.user?.username;
+    let userTelegramName = telegramApp.initDataUnsafe.user?.username;
 
-    if (!userTelegramId || !userTelegramName) {
-        throw new Error("Failed to fetch Telegram user data.");
+    if (!userTelegramId) {
+        throw new Error("Failed to fetch Telegram user ID.");
+    }
+
+    // إذا لم يتوفر اسم المستخدم، استخدم الـ ID كاسم المستخدم
+    if (!userTelegramName) {
+        userTelegramName = `User_${userTelegramId}`;
     }
 
     uiElements.userTelegramIdDisplay.innerText = userTelegramId;
     uiElements.userTelegramNameDisplay.innerText = userTelegramName;
 
-    // تحقق من المستخدم في قاعدة البيانات، سجل إذا لم يكن موجودًا
+    // تحقق من المستخدم أو سجل المستخدم إذا لم يكن موجودًا
     const { data, error } = await supabase
         .from('users')
         .select('*')
         .eq('telegram_id', userTelegramId)
-        .maybeSingle(); 
-
-    if (error) {
-        console.error('Error fetching user data:', error);
-        throw new Error('Failed to fetch user data');
-    }
+        .maybeSingle();
 
     if (data) {
-        // المستخدم مسجل مسبقاً
-        gameState = { ...gameState, ...data };
-        saveGameState();
-        loadFriendsList(); // تحميل قائمة الأصدقاء بعد جلب البيانات
-        updateTasksProgress(); // تحديث المهام بناءً على البيانات المسترجعة
+        gameState = { ...gameState, ...data };  // تحديث حالة اللعبة
+        saveGameState();  // حفظ حالة اللعبة
+        loadFriendsList();  // تحميل قائمة الأصدقاء
+        updateTasksProgress();  // تحديث تقدم المهام
     } else {
-        // تسجيل مستخدم جديد
-        await registerNewUser(userTelegramId, userTelegramName);
+        await registerNewUser(userTelegramId, userTelegramName);  // تسجيل مستخدم جديد
     }
 }
 
@@ -608,25 +606,31 @@ function updateBoostsDisplay() {
 async function loadFriendsList() {
     const userId = uiElements.userTelegramIdDisplay.innerText;
 
-    if (!userId) {
-        console.error("User ID is missing.");
-        uiElements.friendsListDisplay.innerHTML = `<li>Error: Unable to load friends list. Please try again later.</li>`;
-        return;
-    }
-
     try {
-        // جلب قائمة الأصدقاء الذين تمت دعوتهم بواسطة المستخدم الحالي فقط
         const { data, error } = await supabase
             .from('users')
             .select('invites')
             .eq('telegram_id', userId)
             .single();
 
-        if (error) {
-            console.error('Error fetching friends list:', error.message);
-            uiElements.friendsListDisplay.innerHTML = `<li>Error: Unable to fetch friends at the moment.</li>`;
-            return;
+        if (!error && data && data.invites) {
+            gameState.friends = data.invites.length;  // تحديث عدد الأصدقاء
+            updateTasksProgress();  // تحديث تقدم المهام
+
+            uiElements.friendsListDisplay.innerHTML = '';  // مسح القائمة القديمة
+            data.invites.forEach(friend => {
+                const li = document.createElement('li');
+                li.innerText = friend;
+                uiElements.friendsListDisplay.appendChild(li);
+            });
+        } else {
+            uiElements.friendsListDisplay.innerHTML = '<li>No friends invited yet.</li>';
         }
+    } catch (err) {
+        console.error("Unexpected error loading friends list:", err);
+        uiElements.friendsListDisplay.innerHTML = `<li>Error: Unexpected issue occurred while loading friends.</li>`;
+    }
+ }
 
         // التأكد من أن الدعوات تخص المستخدم الحالي فقط
         if (data && data.invites && data.invites.length > 0) {
