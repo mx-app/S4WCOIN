@@ -162,6 +162,7 @@ async function initializeApp() {
 async function fetchUserDataFromTelegram() {
     const telegramApp = window.Telegram.WebApp;
     telegramApp.ready();
+
     const userTelegramId = telegramApp.initDataUnsafe.user?.id;
     let userTelegramName = telegramApp.initDataUnsafe.user?.username;
 
@@ -185,12 +186,12 @@ async function fetchUserDataFromTelegram() {
         .maybeSingle();
 
     if (data) {
-        gameState = { ...gameState, ...data };
-        saveGameState();
-        loadFriendsList();
-        updateTasksProgress();
+        gameState = { ...gameState, ...data };  // تحديث حالة اللعبة
+        saveGameState();  // حفظ حالة اللعبة
+        loadFriendsList();  // تحميل قائمة الأصدقاء
+        updateTasksProgress();  // تحديث تقدم المهام
     } else {
-        await registerNewUser(userTelegramId, userTelegramName);
+        await registerNewUser(userTelegramId, userTelegramName);  // تسجيل مستخدم جديد
     }
 }
 
@@ -603,17 +604,33 @@ function updateBoostsDisplay() {
 // تحسين عرض قائمة الأصدقاء
 async function loadFriendsList() {
     const userId = uiElements.userTelegramIdDisplay.innerText;
-    const { data, error } = await supabase
-        .from('users')
-        .select('invites')
-        .eq('telegram_id', userId)
-        .single();
 
-    if (!error && data && data.invites) {
-        gameState.friends = data.invites.length;
-        updateTasksProgress();
+    try {
+        const { data, error } = await supabase
+            .from('users')
+            .select('invites')
+            .eq('telegram_id', userId)
+            .single();
+
+        if (!error && data && data.invites) {
+            gameState.friends = data.invites.length;  // تحديث عدد الأصدقاء
+            updateTasksProgress();  // تحديث تقدم المهام
+
+            uiElements.friendsListDisplay.innerHTML = '';  // مسح القائمة القديمة
+            data.invites.forEach(friend => {
+                const li = document.createElement('li');
+                li.innerText = friend;
+                uiElements.friendsListDisplay.appendChild(li);
+            });
+        } else {
+            uiElements.friendsListDisplay.innerHTML = '<li>No friends invited yet.</li>';
+        }
+    } catch (err) {
+        console.error("Unexpected error loading friends list:", err);
+        uiElements.friendsListDisplay.innerHTML = `<li>Error: Unexpected issue occurred while loading friends.</li>`;
     }
 }
+
 
         // التأكد من أن الدعوات تخص المستخدم الحالي فقط
         if (data && data.invites && data.invites.length > 0) {
@@ -659,7 +676,7 @@ function updateTaskBtnState(button, isActive) {
 
 // المطالبة بمكافأة المهمة
 function claimTaskReward(friendsRequired) {
-    const friendsCount = gameState.friends || 0;
+    const friendsCount = gameState.friends || 0;  // تأكد من أن gameState.friends تم تعريفه مسبقًا.
 
     if (friendsCount >= friendsRequired && !gameState.claimedRewards.tasks.includes(friendsRequired)) {
         let reward = 0;
@@ -670,11 +687,11 @@ function claimTaskReward(friendsRequired) {
         }
 
         gameState.balance += reward;
-        gameState.claimedRewards.tasks.push(friendsRequired);
-        updateUI();
+        gameState.claimedRewards.tasks.push(friendsRequired);  // تحديث المهام المكتملة
+        updateUI();  // تحديث واجهة المستخدم
         showNotification(uiElements.purchaseNotification, `Successfully claimed ${formatNumber(reward)} reward!`);
-        updateUserData();
-        saveGameState();
+        updateUserData();  // تحديث البيانات في قاعدة البيانات
+        saveGameState();  // حفظ حالة اللعبة
     } else {
         showNotification(uiElements.purchaseNotification, `Invite ${friendsRequired - friendsCount} more friends to claim the reward.`);
     }
