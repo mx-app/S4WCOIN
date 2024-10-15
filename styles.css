@@ -688,11 +688,12 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(180deg, #000, #9f0000);
+   /* background: linear-gradient(180deg, #000, #9f0000);*/
+    background: transparent;
     color: #fff;
     padding: 4px;
     border: 2px solid #343434;
-    border-radius: 15px;
+    border-radius: 10px;
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
     font-size: 14px;
     letter-spacing: -0.2px; 
