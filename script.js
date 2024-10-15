@@ -772,33 +772,38 @@ document.getElementById('closeModal').addEventListener('click', function() {
 
 
 
-let currentLevelIndex = 0;
+document.addEventListener('DOMContentLoaded', function() {
+    let currentLevelIndex = 0;
 
-function scrollLeft() {
-    const container = document.querySelector('.level-container');
-    const levelWidth = container.clientWidth;
-    if (currentLevelIndex > 0) {
-        currentLevelIndex--;
-        container.scrollTo({
-            left: currentLevelIndex * levelWidth,
-            behavior: 'smooth'
-        });
+    function scrollLeft() {
+        const container = document.querySelector('.level-container');
+        const levelWidth = container.clientWidth;
+        if (currentLevelIndex > 0) {
+            currentLevelIndex--;
+            container.scrollTo({
+                left: currentLevelIndex * levelWidth,
+                behavior: 'smooth'
+            });
+        }
     }
-}
 
-function scrollRight() {
-    const container = document.querySelector('.level-container');
-    const levelWidth = container.clientWidth;
-    const totalLevels = document.querySelectorAll('.level-item').length;
-    if (currentLevelIndex < totalLevels - 1) {
-        currentLevelIndex++;
-        container.scrollTo({
-            left: currentLevelIndex * levelWidth,
-            behavior: 'smooth'
-        });
+    function scrollRight() {
+        const container = document.querySelector('.level-container');
+        const levelWidth = container.clientWidth;
+        const totalLevels = document.querySelectorAll('.level-item').length;
+        if (currentLevelIndex < totalLevels - 1) {
+            currentLevelIndex++;
+            container.scrollTo({
+                left: currentLevelIndex * levelWidth,
+                behavior: 'smooth'
+            });
+        }
     }
-}
 
+    // Attach event listeners to the arrow buttons
+    document.querySelector('.arrow-btn.left').addEventListener('click', scrollLeft);
+    document.querySelector('.arrow-btn.right').addEventListener('click', scrollRight);
+});
 
 
 // تهيئة تكامل Telegram
