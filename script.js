@@ -827,7 +827,9 @@ document.addEventListener('DOMContentLoaded', function() {
     updateArrows();
 });
 
-
+function openGame(gameFile) {
+            window.open(gameFile, '_blank'); // يفتح الملف في نافذة جديدة
+}
 
 // تهيئة تكامل Telegram
 function initializeTelegramIntegration() {
