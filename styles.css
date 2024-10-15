@@ -682,7 +682,6 @@ body {
 }
 
 .level-item {
-    min-width: 80vw; /* تصغير عرض المستوى ليصبح 25% من عرض الشاشة */
     min-height: 80vw; /* الحفاظ على نسبة العرض والطول */
     display: flex;
     flex-direction: column;
