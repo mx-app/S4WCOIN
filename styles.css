@@ -668,12 +668,9 @@ body {
     flex-direction: row; /* تغيير الاتجاه ليصبح أفقياً */
     justify-content: center;
     align-items: center;
-    overflow-x: auto; /* السماح بالتمرير الأفقي */
+    overflow-x: hidden; /* منع ظهور شريط التمرير الأفقي */
     scroll-behavior: smooth; /* التمرير بشكل سلس */
-    padding: 10px;
-    width: 100%;
-    max-width: 100%; /* عرض كامل الحاوية */
-    white-space: nowrap; /* تجنب التفاف العناصر */
+    width: 100vw; /* عرض الحاوية بالكامل بقدر عرض الشاشة */
     position: relative; /* ضروري للأسهم */
 }
 
@@ -696,7 +693,7 @@ body {
     padding: 4px;
     border: 2px solid #343434;
     border-radius: 15px;
-    width: 200px; /* عرض العناصر */
+    width: 100vw; /* كل مستوى يعرض بعرض كامل الشاشة */
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
     font-size: 14px;
     letter-spacing: -0.2px;
