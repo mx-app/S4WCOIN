@@ -1561,7 +1561,15 @@ Trunc = function(){
   
   this.mesh.castShadow = true;
 }
-    
+
+
+ // إذا كانت الشاشة أصغر من 1024 بكسل، ضبط حجم العرض تلقائيًا
+    window.addEventListener('load', function() {
+      if (window.innerWidth < 1024) {
+        document.body.style.zoom = window.innerWidth / 1024;
+      }
+    });
+	  
   </script>
 
 </body>
