@@ -667,9 +667,8 @@ body {
     display: flex;
     overflow-x: hidden; /* إخفاء التمرير الأفقي */
     scroll-behavior: smooth; /* التمرير بسلاسة */
-    position: relative;
-    width: 100%; /* عرض الحاوية بالكامل */
-    justify-content: center; /* لتمركز المحتوى */
+    position: relative; /* لضمان أن الأزرار في مكانها */
+    width: 100%; /* عرض الحاوية بالكامل */ /* لتمركز المحتوى */
     padding: 0 20px;
 }
 
@@ -682,7 +681,7 @@ body {
 }
 
 .level-item {
-    min-height: 100vw; /* الحفاظ على نسبة العرض والطول */
+    min-width: 100vw; /* كل مستوى يأخذ عرض الشاشة بالكامل */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -690,12 +689,13 @@ body {
     text-align: center;
     background: linear-gradient(180deg, #000, #9f0000);
     color: #fff;
-    padding: 10px;
+    padding: 4px;
     border: 2px solid #343434;
     border-radius: 15px;
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
-    font-size: 15px; /* تصغير النص */
-    margin: 0 40px;
+    font-size: 14px;
+    letter-spacing: -0.2px; 
+    margin: 0 20px;
 }
 
 .level-item img {
