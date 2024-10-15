@@ -682,6 +682,7 @@ body {
 
 .level-item {
     min-width: 100vw; /* كل مستوى يأخذ عرض الشاشة بالكامل */
+    min-height: 25vw;
     display: flex;
     flex-direction: column;
     align-items: center;
