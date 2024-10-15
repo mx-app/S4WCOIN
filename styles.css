@@ -665,8 +665,6 @@ body {
  
 .level-container {
     display: flex;
-    flex-direction: column; /* ضبط الاتجاه عموديًا */
-    justify-content: center;
     overflow-x: hidden; /* إخفاء التمرير الأفقي */
     scroll-behavior: smooth; /* التمرير بسلاسة */
     position: relative; /* لضمان أن الأزرار في مكانها */
