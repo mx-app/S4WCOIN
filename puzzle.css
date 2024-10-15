@@ -27,8 +27,7 @@
 
 #Puzzlespage .puzzle-btn {
     padding: 15px;
-    background: linear-gradient(180deg, #000, #9f0000);
-    color: #fff;
+    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    color: #fff;
     border-radius: 10px;
     font-size: 18px;
     font-weight: bold;
@@ -96,8 +95,7 @@
 }
 
 #Puzzlespage button {
-    background: linear-gradient(180deg, #000, #9f0000);
-    background-position: center;
+    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    background-position: center;
     color: #fff;
     border-radius: 10px;
     border: 2px solid #343434; 
@@ -143,8 +141,7 @@
 
 #Puzzlespage .room-puzzle .The-never-ending-puzzle {
     padding: 15px ;
-    background: linear-gradient(180deg, #000, #9f0000);
-    color: #fff;
+    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    color: #fff;
     border-radius: 10px;
     font-size: 18px;
     font-weight: bold;
@@ -180,7 +177,7 @@
 }
 
 .puzzle-options button:hover {
-    background: linear-gradient(180deg, #000, #9f0000);
+    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);
 }
 
 /* تخصيص الزرين الأخيرين ليظهرا في الصف الثاني */
