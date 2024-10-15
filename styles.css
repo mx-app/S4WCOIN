@@ -665,13 +665,13 @@ body {
  
 .level-container {
     display: flex;
-    flex-direction: row; /* تغيير الاتجاه ليصبح أفقياً */
-    justify-content: center;
+    flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
-    overflow-x: hidden; /* منع ظهور شريط التمرير الأفقي */
-    scroll-behavior: smooth; /* التمرير بشكل سلس */
-    width: 100vw; /* عرض الحاوية بالكامل بقدر عرض الشاشة */
-    position: relative; /* ضروري للأسهم */
+    overflow-x: hidden; /* منع ظهور شريط التمرير */
+    scroll-behavior: smooth;
+    width: 100vw; /* عرض كامل الحاوية */
+    position: relative;
 }
 
 .level-icon img { 
@@ -682,8 +682,8 @@ body {
 }
 
 .level-item {
-    margin: 10px;
-    display: inline-flex; /* تغيير إلى inline-flex ليتلاءم مع العرض الأفقي */
+    flex: 0 0 100vw; /* عرض كل مستوى بالكامل بقدر عرض الشاشة */
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -693,7 +693,6 @@ body {
     padding: 4px;
     border: 2px solid #343434;
     border-radius: 15px;
-    width: 100vw; /* كل مستوى يعرض بعرض كامل الشاشة */
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
     font-size: 14px;
     letter-spacing: -0.2px;
@@ -720,23 +719,26 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
     border: none;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
     padding: 10px;
-    z-index: 1;
+    cursor: pointer;
+    z-index: 1000;
+    display: block; /* تأكد من أنها مرئية */
 }
 
 .arrow-btn.left {
-    left: 0;
+    left: 10px;
 }
 
 .arrow-btn.right {
-    right: 0;
-} 
+    right: 10px;
+}
 
+.arrow-btn.hidden {
+    display: none; /* إخفاء الأسهم عند الضرورة */
+} 
 
 .wallet-container {
     display: flex;
