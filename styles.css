@@ -666,13 +666,11 @@ body {
 .level-container {
     display: flex;
     flex-direction: column; /* ضبط الاتجاه عموديًا */
-    justify-content: center; /* تمركز العناصر عموديًا */
-    align-items: center; /* تمركز العناصر أفقيًا */
+    justify-content: center;
     overflow-x: hidden; /* إخفاء التمرير الأفقي */
     scroll-behavior: smooth; /* التمرير بسلاسة */
     position: relative; /* لضمان أن الأزرار في مكانها */
-    width: 100%; /* عرض الحاوية بالكامل */
-    height: 100vh; /* اجعل الحاوية تأخذ ارتفاع الشاشة بالكامل */
+    width: 100%; /* عرض الحاوية بالكامل */ /* لتمركز المحتوى */
     padding: 0 50px;
 }
 
@@ -700,7 +698,7 @@ body {
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
     font-size: 14px;
     letter-spacing: -0.2px; 
-    margin: 20px 0; /* ضبط الهوامش بين العناصر */
+    margin: 0 20px;
 }
 
 .level-item img {
@@ -722,7 +720,7 @@ body {
 
 .arrow-btn {
     position: fixed; /* الأزرار ثابتة على جوانب الشاشة */
-    top: 65%; /* في منتصف الشاشة رأسيًا */
+    top: 50%; /* في منتصف الشاشة رأسيًا */
     transform: translateY(-50%);
     background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
@@ -892,4 +890,3 @@ body {
     display: block; /* تغيير هذا لجعل الصورة تظهر فوق النص */
     margin: 0 auto; /* مركز الصورة */
 }
-
