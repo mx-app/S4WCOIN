@@ -771,19 +771,34 @@ document.getElementById('closeModal').addEventListener('click', function() {
 });
 
 
+
+let currentLevelIndex = 0;
+
 function scrollLeft() {
-    document.querySelector('.level-container').scrollBy({
-        left: -250, // المسافة التي تريد التمرير إليها
-        behavior: 'smooth'
-    });
+    const container = document.querySelector('.level-container');
+    const levelWidth = container.clientWidth;
+    if (currentLevelIndex > 0) {
+        currentLevelIndex--;
+        container.scrollTo({
+            left: currentLevelIndex * levelWidth,
+            behavior: 'smooth'
+        });
+    }
 }
 
 function scrollRight() {
-    document.querySelector('.level-container').scrollBy({
-        left: 250, // المسافة التي تريد التمرير إليها
-        behavior: 'smooth'
-    });
+    const container = document.querySelector('.level-container');
+    const levelWidth = container.clientWidth;
+    const totalLevels = document.querySelectorAll('.level-item').length;
+    if (currentLevelIndex < totalLevels - 1) {
+        currentLevelIndex++;
+        container.scrollTo({
+            left: currentLevelIndex * levelWidth,
+            behavior: 'smooth'
+        });
+    }
 }
+
 
 
 // تهيئة تكامل Telegram
