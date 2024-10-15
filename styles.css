@@ -681,7 +681,7 @@ body {
 }
 
 .level-item {
-    min-width: 90vw; /* كل مستوى يأخذ عرض الشاشة بالكامل */
+    min-width: 80vw; /* كل مستوى يأخذ عرض الشاشة بالكامل */
     min-height: 25vw;
     display: flex;
     flex-direction: column;
@@ -708,7 +708,7 @@ body {
 .level5-image {
     width: 150px;
     height: auto;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 } 
 
 .level-item.current-level {
@@ -718,7 +718,7 @@ body {
 
 .arrow-btn {
     position: fixed; /* الأزرار ثابتة على جوانب الشاشة */
-    top: 50%; /* في منتصف الشاشة رأسيًا */
+    top: 65%; /* في منتصف الشاشة رأسيًا */
     transform: translateY(-50%);
     background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
