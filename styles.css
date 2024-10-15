@@ -675,7 +675,7 @@ body {
     width: 100%;
     max-width: 320px;
     padding-bottom: 5px; 
-} 
+    margin: auto;
 }
 
 .level-icon img { 
@@ -688,7 +688,7 @@ body {
 .level-item {
     margin: 10px; /* هامش بين العناصر */
     display: flex; 
-    flex-direction: row; /* تصحيح القيمة لتكون "row" */
+    flex-direction: column; /* تصحيح القيمة لتكون "row" */
     align-items: center; /* تغيير من flex-start إلى center لتوسيع المحاذاة */
     justify-content: center; /* تصحيح القيمة لتكون "center" */
     text-align: center;
