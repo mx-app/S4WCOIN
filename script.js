@@ -159,41 +159,37 @@ async function initializeApp() {
     }
 }
 
-// جلب بيانات المستخدم من Telegram والتحقق في قاعدة البيانات
 async function fetchUserDataFromTelegram() {
     const telegramApp = window.Telegram.WebApp;
     telegramApp.ready();
-
     const userTelegramId = telegramApp.initDataUnsafe.user?.id;
-    const userTelegramName = telegramApp.initDataUnsafe.user?.username;
+    let userTelegramName = telegramApp.initDataUnsafe.user?.username;
 
-    if (!userTelegramId || !userTelegramName) {
-        throw new Error("Failed to fetch Telegram user data.");
+    if (!userTelegramId) {
+        throw new Error("Failed to fetch Telegram user ID.");
+    }
+
+    // إذا لم يتوفر اسم المستخدم، استخدم الـ ID كاسم المستخدم
+    if (!userTelegramName) {
+        userTelegramName = `User_${userTelegramId}`;
     }
 
     uiElements.userTelegramIdDisplay.innerText = userTelegramId;
     uiElements.userTelegramNameDisplay.innerText = userTelegramName;
 
-    // تحقق من المستخدم في قاعدة البيانات، سجل إذا لم يكن موجودًا
+    // تحقق من المستخدم أو سجل المستخدم إذا لم يكن موجودًا
     const { data, error } = await supabase
         .from('users')
         .select('*')
         .eq('telegram_id', userTelegramId)
-        .maybeSingle(); 
-
-    if (error) {
-        console.error('Error fetching user data:', error);
-        throw new Error('Failed to fetch user data');
-    }
+        .maybeSingle();
 
     if (data) {
-        // المستخدم مسجل مسبقاً
         gameState = { ...gameState, ...data };
         saveGameState();
-        loadFriendsList(); // تحميل قائمة الأصدقاء بعد جلب البيانات
-        updateTasksProgress(); // تحديث المهام بناءً على البيانات المسترجعة
+        loadFriendsList();
+        updateTasksProgress();
     } else {
-        // تسجيل مستخدم جديد
         await registerNewUser(userTelegramId, userTelegramName);
     }
 }
@@ -607,26 +603,17 @@ function updateBoostsDisplay() {
 // تحسين عرض قائمة الأصدقاء
 async function loadFriendsList() {
     const userId = uiElements.userTelegramIdDisplay.innerText;
+    const { data, error } = await supabase
+        .from('users')
+        .select('invites')
+        .eq('telegram_id', userId)
+        .single();
 
-    if (!userId) {
-        console.error("User ID is missing.");
-        uiElements.friendsListDisplay.innerHTML = `<li>Error: Unable to load friends list. Please try again later.</li>`;
-        return;
+    if (!error && data && data.invites) {
+        gameState.friends = data.invites.length;
+        updateTasksProgress();
     }
-
-    try {
-        // جلب قائمة الأصدقاء الذين تمت دعوتهم بواسطة المستخدم الحالي فقط
-        const { data, error } = await supabase
-            .from('users')
-            .select('invites')
-            .eq('telegram_id', userId)
-            .single();
-
-        if (error) {
-            console.error('Error fetching friends list:', error.message);
-            uiElements.friendsListDisplay.innerHTML = `<li>Error: Unable to fetch friends at the moment.</li>`;
-            return;
-        }
+}
 
         // التأكد من أن الدعوات تخص المستخدم الحالي فقط
         if (data && data.invites && data.invites.length > 0) {
@@ -672,7 +659,7 @@ function updateTaskBtnState(button, isActive) {
 
 // المطالبة بمكافأة المهمة
 function claimTaskReward(friendsRequired) {
-    const friendsCount = gameState.friends.length;
+    const friendsCount = gameState.friends || 0;
 
     if (friendsCount >= friendsRequired && !gameState.claimedRewards.tasks.includes(friendsRequired)) {
         let reward = 0;
@@ -683,11 +670,11 @@ function claimTaskReward(friendsRequired) {
         }
 
         gameState.balance += reward;
-        gameState.claimedRewards.tasks.push(friendsRequired); // تسجيل المكافأة فقط للمرة الأولى
+        gameState.claimedRewards.tasks.push(friendsRequired);
         updateUI();
         showNotification(uiElements.purchaseNotification, `Successfully claimed ${formatNumber(reward)} reward!`);
         updateUserData();
-        saveGameState(); // التأكد من حفظ المكافأة
+        saveGameState();
     } else {
         showNotification(uiElements.purchaseNotification, `Invite ${friendsRequired - friendsCount} more friends to claim the reward.`);
     }
