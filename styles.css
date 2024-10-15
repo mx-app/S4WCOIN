@@ -860,7 +860,7 @@ body {
  }
 
 .levels-info p#l {
-    margin-top: 30px; /* يمكنك ضبط القيمة حسب المسافة المطلوبة */
+    margin-top: 150px; /* يمكنك ضبط القيمة حسب المسافة المطلوبة */
 }
  
 .boosts-button {
