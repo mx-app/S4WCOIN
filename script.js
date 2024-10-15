@@ -831,19 +831,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener('DOMContentLoaded', function() {
   const playGameButton = document.getElementById('playGameButton');
+  const gamePage = document.getElementById('gamePage');
   const gameContainer = document.getElementById('gameContainer');
 
   playGameButton.addEventListener('click', function() {
     fetch('Dog.html')
       .then(response => response.text())
       .then(data => {
-        gameContainer.innerHTML = data; // تحميل محتوى اللعبة
-        gameContainer.style.display = 'block'; // عرض اللعبة
+        // إخفاء باقي عناصر الصفحة
+        gamePage.style.display = 'none';
+
+        // عرض اللعبة بشكل كامل
+        gameContainer.innerHTML = data;
+        gameContainer.style.display = 'block';
+        gameContainer.style.position = 'fixed';
+        gameContainer.style.top = '0';
+        gameContainer.style.left = '0';
+        gameContainer.style.width = '100vw';
+        gameContainer.style.height = '100vh';
+        gameContainer.style.zIndex = '9999'; // التأكد من أن اللعبة فوق جميع العناصر
       });
   });
 });
 
-    
+
 // تهيئة تكامل Telegram
 function initializeTelegramIntegration() {
     const telegramApp = window.Telegram.WebApp;
