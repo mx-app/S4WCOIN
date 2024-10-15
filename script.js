@@ -829,18 +829,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-// إضافة حدث للزر بعد تحميل الصفحة
-        document.addEventListener('DOMContentLoaded', function() {
-            const playGameButton = document.getElementById('playGameButton');
-            playGameButton.addEventListener('click', function() {
-                startGame('Dog.html'); // استبدل 'gameTwo.html' باسم ملف اللعبة الخاص بك
-            });
-        });
+document.addEventListener('DOMContentLoaded', function() {
+  const playGameButton = document.getElementById('playGameButton');
+  const gameContainer = document.getElementById('gameContainer');
 
-        function startGame(gameFile) {
-            window.open(gameFile, '_blank'); // يفتح ملف اللعبة في نافذة جديدة
-        }
-
+   playGameButton.addEventListener('click', function() {
+   fetch('Dog.html')
+   .then(response => response.text())
+   .then(data => {
+    gameContainer.innerHTML = data; // تحميل محتوى اللعبة
+    gameContainer.style.display = 'block'; // عرض اللعبة
+ });
 
 
 // تهيئة تكامل Telegram
