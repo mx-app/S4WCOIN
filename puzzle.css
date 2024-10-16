@@ -9,13 +9,10 @@
 }
 
 #Puzzlespage .puzzle2-image {
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    width: 170px;
-    height: 170px; /* اجعل الارتفاع مساويًا للعرض لتكون الصورة دائرية */
-    margin: 0 auto 10px;
+    width: 150px;
+    height: 150px; /* اجعل الارتفاع مساويًا للعرض لتكون الصورة دائرية */
+    margin: 0 auto ;
     display: block;
-    border-radius: 50%; /* لجعل الصورة دائرية */
-    object-fit: cover; /* لضمان أن الصورة تبقى متناسقة داخل الدائرة */
 }
 
 #Puzzlespage #Puzzles {
