@@ -1,6 +1,5 @@
 #Puzzlespage .puzzle-image {
     width: 150px;
-    height: 150px; /* اجعل الارتفاع مساويًا للعرض لتكون الصورة دائرية */
     margin: 0 auto ;
     display: block;
 }
