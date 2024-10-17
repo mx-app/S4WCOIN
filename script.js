@@ -848,7 +848,8 @@ function claimTaskReward(taskId, reward) {
     updateUserData(); // Sync user data with the server
     saveGameState(); // Ensure the game state is saved
     showNotification(uiElements.purchaseNotification, `Successfully claimed ${formatNumber(reward)} reward!`);
-}
+  }
+} 
 
 
 
