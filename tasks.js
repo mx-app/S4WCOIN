@@ -31,13 +31,13 @@ fetch('tasks.json')
         button.className = 'task-button';
 
         const taskId = task.id;
-        const userId = uiElements.userTelegramIdDisplay.innerText;
+        const userId = uiElements.userTelegramIdDisplay.innerText; // الحصول على Telegram ID
 
         // جلب تقدم المهمة من قاعدة البيانات
         const { data: userTaskData, error: taskError } = await supabase
             .from('users')
             .select('tasks_progress')
-            .eq('telegram_id', userTelegramId)
+            .eq('telegram_id', userId)
             .single();
 
         if (taskError) {
@@ -81,7 +81,7 @@ async function updateTaskProgress(taskId, userId, progress) {
     const { data: user, error } = await supabase
         .from('users')
         .select('tasks_progress')
-        .eq('telegram_id', userTelegramId)
+        .eq('telegram_id', userId)
         .single();
     
     if (error) {
@@ -103,7 +103,7 @@ async function updateTaskProgress(taskId, userId, progress) {
     const { error: updateError } = await supabase
         .from('users')
         .update({ tasks_progress: tasksProgress })
-        .eq('telegram_id', userTelegramId);
+        .eq('telegram_id', userId);
 
     if (updateError) {
         console.error('Error updating task progress:', updateError);
@@ -118,7 +118,7 @@ async function claimReward(taskId, reward) {
     const { data: user, error } = await supabase
         .from('users')
         .select('tasks_progress')
-        .eq('telegram_id', userTelegramId)
+        .eq('telegram_id', userId)
         .single();
 
     if (error) {
@@ -149,7 +149,7 @@ async function claimReward(taskId, reward) {
     const { error: updateError } = await supabase
         .from('users')
         .update({ tasks_progress: tasksProgress })
-        .eq('telegram_id', userTelegramId);
+        .eq('telegram_id', userId);
 
     if (updateError) {
         console.error('Error updating claimed rewards:', updateError);
@@ -158,17 +158,14 @@ async function claimReward(taskId, reward) {
     }
 }
 
-updateUserData();
-saveGameState();
-
 // دالة لإضافة الرصيد
 async function addbalanceToDatabase(amount) {
     const userId = uiElements.userTelegramIdDisplay.innerText;
 
     const { error } = await supabase
         .from('users')
-        .update({ balance: supabase.rpc('increment_balance', { amount }) })
-        .eq('telegram_id', userTelegramId);
+        .update({ balance: supabase.rpc('increment_balance', { amount }) }) // تأكد أن الـ RPC متاحة
+        .eq('telegram_id', userId);
 
     if (error) {
         console.error('Error updating balance:', error);
