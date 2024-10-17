@@ -119,7 +119,7 @@ body {
 .energy-bars-container {
     width: 120px; /* عرض الشريط */
     height: 15px; /* ارتفاع الشريط */
-    border: 5px solid #343434; /* الخط المحيط بالشريط */
+    border: 3px solid #343434; /* الخط المحيط بالشريط */
     border-radius: 15px; /* زوايا منحنية */
     overflow: hidden; /* إخفاء الأجزاء التي تخرج عن الحدود */
     position: relative; /* لجعل الحشو داخل الشريط */
