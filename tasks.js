@@ -1,174 +1,174 @@
-// تحميل المهام من ملف JSON
+// تحميل المهام المتغيرة من ملف JSON
 fetch('tasks.json')
 .then(response => response.json())
-.then(tasks => {
-    const taskContainer = document.getElementById('taskcontainer');
-    if (!taskContainer) {
-        console.error('Task container element not found.');
+.then(dynamicTasks => {
+    const dynamicTaskContainer = document.getElementById('dynamicTaskContainer');
+    if (!dynamicTaskContainer) {
+        console.error('Dynamic task container element not found.');
         return;
     }
 
-    taskContainer.innerHTML = ''; // تنظيف المحتوى قبل إضافة المهام
+    dynamicTaskContainer.innerHTML = ''; // تنظيف المحتوى قبل إضافة المهام
 
-    tasks.forEach(async task => {
+    dynamicTasks.forEach(async dynamicTask => {
         const taskItem = document.createElement('div');
-        taskItem.className = 'task-item';
+        taskItem.className = 'dynamic-task-item';
 
         // إضافة الصورة
         const img = document.createElement('img');
-        img.src = task.image;
-        img.alt = task.task;
-        img.className = 'task-image';
+        img.src = dynamicTask.image;
+        img.alt = dynamicTask.task;
+        img.className = 'dynamic-task-image';
         taskItem.appendChild(img);
 
         // إضافة النص
         const taskText = document.createElement('p');
-        taskText.textContent = `${task.task} - Reward: ${task.reward || 5000} coins`;
+        taskText.textContent = `${dynamicTask.task} - Reward: ${dynamicTask.reward || 5000} coins`;
         taskItem.appendChild(taskText);
 
         // إضافة الزر
         const button = document.createElement('button');
-        button.className = 'task-button';
+        button.className = 'dynamic-task-button';
 
-        const taskId = task.id;
-        const userId = uiElements.userTelegramIdDisplay.innerText; // الحصول على Telegram ID
+        const dynamicTaskId = dynamicTask.id;
+        const dynamicUserId = uiElements.userTelegramIdDisplay.innerText; // الحصول على Telegram ID
 
         // جلب تقدم المهمة من قاعدة البيانات
-        const { data: userTaskData, error: taskError } = await supabase
+        const { data: userDynamicTaskData, error: taskError } = await supabase
             .from('users')
-            .select('tasks_progress')
-            .eq('telegram_id', userId)
+            .select('dynamic_tasks_progress') // تعديل حقل المهام المتغيرة
+            .eq('telegram_id', dynamicUserId)
             .single();
 
         if (taskError) {
-            console.error('Error fetching task progress:', taskError);
+            console.error('Error fetching dynamic task progress:', taskError);
             return;
         }
 
-        const tasksProgress = userTaskData?.tasks_progress || [];
-        const taskProgressData = tasksProgress.find(t => t.task_id === taskId);
-        let taskProgress = taskProgressData ? taskProgressData.progress : 0;
+        const dynamicTasksProgress = userDynamicTaskData?.dynamic_tasks_progress || [];
+        const dynamicTaskProgressData = dynamicTasksProgress.find(t => t.task_id === dynamicTaskId);
+        let dynamicTaskProgress = dynamicTaskProgressData ? dynamicTaskProgressData.progress : 0;
 
         // إعداد النصوص حسب تقدم المهمة
-        button.textContent = taskProgress >= 2 ? 'Completed' : taskProgress === 1 ? 'Verify' : 'Go to Task';
-        button.disabled = taskProgress >= 2;
+        button.textContent = dynamicTaskProgress >= 2 ? 'Completed' : dynamicTaskProgress === 1 ? 'Verify' : 'Go to Task';
+        button.disabled = dynamicTaskProgress >= 2;
 
         // عند الضغط على الزر
         button.onclick = async () => {
-            if (taskProgress === 0) {
-                window.open(task.link, '_blank');
-                taskProgress = 1;
-                await updateTaskProgress(taskId, userId, taskProgress); // تحديث التقدم في قاعدة البيانات
+            if (dynamicTaskProgress === 0) {
+                window.open(dynamicTask.link, '_blank');
+                dynamicTaskProgress = 1;
+                await updateDynamicTaskProgress(dynamicTaskId, dynamicUserId, dynamicTaskProgress); // تحديث التقدم في قاعدة البيانات
                 button.textContent = 'Verify';
-            } else if (taskProgress === 1) {
-                window.open(task.link, '_blank');
-                taskProgress = 2;
-                await updateTaskProgress(taskId, userId, taskProgress);
+            } else if (dynamicTaskProgress === 1) {
+                window.open(dynamicTask.link, '_blank');
+                dynamicTaskProgress = 2;
+                await updateDynamicTaskProgress(dynamicTaskId, dynamicUserId, dynamicTaskProgress);
                 button.textContent = 'Claim';
-            } else if (taskProgress === 2) {
-                await claimReward(taskId, task.reward); // المطالبة بالمكافأة
+            } else if (dynamicTaskProgress === 2) {
+                await claimDynamicReward(dynamicTaskId, dynamicTask.reward); // المطالبة بالمكافأة
             }
         };
 
         taskItem.appendChild(button);
-        taskContainer.appendChild(taskItem);
+        dynamicTaskContainer.appendChild(taskItem);
     });
 })
-.catch(error => console.error('Error loading tasks:', error));
+.catch(error => console.error('Error loading dynamic tasks:', error));
 
-// دالة لتحديث تقدم المهمة في قاعدة البيانات
-async function updateTaskProgress(taskId, userId, progress) {
+// دالة لتحديث تقدم المهام المتغيرة في قاعدة البيانات
+async function updateDynamicTaskProgress(dynamicTaskId, dynamicUserId, progress) {
     const { data: user, error } = await supabase
         .from('users')
-        .select('tasks_progress')
-        .eq('telegram_id', userId)
+        .select('dynamic_tasks_progress') // تعديل الحقل ليكون خاص بالمهام المتغيرة
+        .eq('telegram_id', dynamicUserId)
         .single();
     
     if (error) {
-        console.error('Error fetching user tasks:', error);
+        console.error('Error fetching user dynamic tasks:', error);
         return;
     }
 
-    const tasksProgress = user.tasks_progress || [];
+    const dynamicTasksProgress = user.dynamic_tasks_progress || [];
 
-    // تحديث أو إضافة المهمة الحالية
-    const taskIndex = tasksProgress.findIndex(task => task.task_id === taskId);
+    // تحديث أو إضافة المهمة المتغيرة الحالية
+    const taskIndex = dynamicTasksProgress.findIndex(task => task.task_id === dynamicTaskId);
     if (taskIndex > -1) {
-        tasksProgress[taskIndex].progress = progress;
+        dynamicTasksProgress[taskIndex].progress = progress;
     } else {
-        tasksProgress.push({ task_id: taskId, progress: progress, claimed: false });
+        dynamicTasksProgress.push({ task_id: dynamicTaskId, progress: progress, claimed: false });
     }
 
     // تحديث البيانات في قاعدة البيانات
     const { error: updateError } = await supabase
         .from('users')
-        .update({ tasks_progress: tasksProgress })
-        .eq('telegram_id', userId);
+        .update({ dynamic_tasks_progress: dynamicTasksProgress }) // تعديل الحقل ليكون خاص بالمهام المتغيرة
+        .eq('telegram_id', dynamicUserId);
 
     if (updateError) {
-        console.error('Error updating task progress:', updateError);
+        console.error('Error updating dynamic task progress:', updateError);
     }
 }
 
-// دالة للمطالبة بالمكافأة وتحديث الرصيد
-async function claimReward(taskId, reward) {
-    const userId = uiElements.userTelegramIdDisplay.innerText;
+// دالة للمطالبة بالمكافأة وتحديث الرصيد للمهام المتغيرة
+async function claimDynamicReward(dynamicTaskId, reward) {
+    const dynamicUserId = uiElements.userTelegramIdDisplay.innerText;
 
-    // جلب المهام المكتملة من قاعدة البيانات
+    // جلب المهام المتغيرة المكتملة من قاعدة البيانات
     const { data: user, error } = await supabase
         .from('users')
-        .select('tasks_progress')
-        .eq('telegram_id', userId)
+        .select('dynamic_tasks_progress') // تعديل الحقل ليكون خاص بالمهام المتغيرة
+        .eq('telegram_id', dynamicUserId)
         .single();
 
     if (error) {
-        console.error('Error fetching tasks progress:', error);
+        console.error('Error fetching dynamic tasks progress:', error);
         return;
     }
 
-    const tasksProgress = user.tasks_progress || [];
+    const dynamicTasksProgress = user.dynamic_tasks_progress || [];
 
     // تحقق مما إذا تم المطالبة بالمكافأة
-    const task = tasksProgress.find(task => task.task_id === taskId);
-    if (task && task.claimed) {
+    const dynamicTask = dynamicTasksProgress.find(task => task.task_id === dynamicTaskId);
+    if (dynamicTask && dynamicTask.claimed) {
         showNotification('You have already claimed this reward.');
         return;
     }
 
     // إضافة المكافأة إلى رصيد المستخدم
-    await addbalanceToDatabase(reward);
+    await addDynamicBalanceToDatabase(reward);
 
     // تحديث حالة المطالبة بالمكافأة
-    if (task) {
-        task.claimed = true;
+    if (dynamicTask) {
+        dynamicTask.claimed = true;
     } else {
-        tasksProgress.push({ task_id: taskId, progress: 2, claimed: true });
+        dynamicTasksProgress.push({ task_id: dynamicTaskId, progress: 2, claimed: true });
     }
 
-    // تحديث المهام في قاعدة البيانات
+    // تحديث المهام المتغيرة في قاعدة البيانات
     const { error: updateError } = await supabase
         .from('users')
-        .update({ tasks_progress: tasksProgress })
-        .eq('telegram_id', userId);
+        .update({ dynamic_tasks_progress: dynamicTasksProgress }) // تعديل الحقل ليكون خاص بالمهام المتغيرة
+        .eq('telegram_id', dynamicUserId);
 
     if (updateError) {
-        console.error('Error updating claimed rewards:', updateError);
+        console.error('Error updating claimed dynamic rewards:', updateError);
     } else {
-        showNotification('Reward claimed!');
+        showNotification('Dynamic reward claimed!');
     }
 }
 
-// دالة لإضافة الرصيد
-async function addbalanceToDatabase(amount) {
-    const userId = uiElements.userTelegramIdDisplay.innerText;
+// دالة لإضافة الرصيد للمهام المتغيرة
+async function addDynamicBalanceToDatabase(amount) {
+    const dynamicUserId = uiElements.userTelegramIdDisplay.innerText;
 
     const { error } = await supabase
         .from('users')
         .update({ balance: supabase.rpc('increment_balance', { amount }) }) // تأكد أن الـ RPC متاحة
-        .eq('telegram_id', userId);
+        .eq('telegram_id', dynamicUserId);
 
     if (error) {
-        console.error('Error updating balance:', error);
+        console.error('Error updating balance for dynamic tasks:', error);
     }
 }
 
