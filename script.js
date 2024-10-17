@@ -77,7 +77,7 @@ let gameState = {
     freeEnergyFillTime: null,
     invites: [],
     claimedRewards: { levels: [], tasks: [] }, 
-    : [],
+    tasksProgress: [],
     
 };
 
