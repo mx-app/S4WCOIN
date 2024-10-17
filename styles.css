@@ -95,7 +95,7 @@ body {
     height: 100vh;
     width: 100vw;
   /*  background: #000;*/
-    background-image: url('i/Splash1.jpg'); 
+    background-image: url('i/Splash2.jpg'); 
     background-size: cover; 
     background-position: center;
     position: absolute;
@@ -118,7 +118,7 @@ body {
 /* شريط الطاقة */
 .energy-bars-container {
     width: 100px; /* عرض الشريط */
-    height: 20px; /* ارتفاع الشريط */
+    height: 18px; /* ارتفاع الشريط */
     border: 2px solid #343434; /* الخط المحيط بالشريط */
     border-radius: 15px; /* زوايا منحنية */
     overflow: hidden; /* إخفاء الأجزاء التي تخرج عن الحدود */
