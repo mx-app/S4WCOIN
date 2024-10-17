@@ -745,6 +745,8 @@ async function updateUserData() {
 
 
 
+
+
 // Loading tasks from JSON file
 fetch('tasks.json')
     .then(response => response.json())
@@ -848,8 +850,7 @@ function claimTaskReward(taskId, reward) {
     updateUserData(); // Sync user data with the server
     saveGameState(); // Ensure the game state is saved
     showNotification(uiElements.purchaseNotification, `Successfully claimed ${formatNumber(reward)} reward!`);
-  }
-} 
+}
 
 
 
