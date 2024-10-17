@@ -10,7 +10,7 @@ fetch('tasks.json')
 
     taskContainer.innerHTML = ''; // تنظيف المحتوى قبل إضافة المهام
 
-    tasks.forEach(task => {
+    tasks.forEach(async task => {
         const taskItem = document.createElement('div');
         taskItem.className = 'task-item';
 
@@ -29,32 +29,44 @@ fetch('tasks.json')
         // إضافة الزر
         const button = document.createElement('button');
         button.className = 'task-button';
-        
-        // احصل على تقدم المهمة من localStorage
-        const taskId = task.link; // استخدام الرابط كمعرف فريد
-        let taskProgress = parseInt(localStorage.getItem(taskId) || '0');
+
+        const taskId = task.id;
+        const userId = uiElements.userTelegramIdDisplay.innerText;
+
+        // جلب تقدم المهمة من قاعدة البيانات
+        const { data: userTaskData, error: taskError } = await supabase
+            .from('users')
+            .select('tasks_progress')
+            .eq('telegram_id', userId)
+            .single();
+
+        if (taskError) {
+            console.error('Error fetching task progress:', taskError);
+            return;
+        }
+
+        const tasksProgress = userTaskData?.tasks_progress || [];
+        const taskProgressData = tasksProgress.find(t => t.task_id === taskId);
+        let taskProgress = taskProgressData ? taskProgressData.progress : 0;
 
         // إعداد النصوص حسب تقدم المهمة
         button.textContent = taskProgress >= 2 ? 'Completed' : taskProgress === 1 ? 'Verify' : 'Go to Task';
         button.disabled = taskProgress >= 2;
 
         // عند الضغط على الزر
-        button.onclick = () => {
+        button.onclick = async () => {
             if (taskProgress === 0) {
-                window.open(task.link, '_blank'); // فتح الرابط عند أول نقر
-                taskProgress++;
-                localStorage.setItem(taskId, taskProgress); // حفظ التقدم
-                button.textContent = 'Verify'; // تحويل النص إلى تحقق
+                window.open(task.link, '_blank');
+                taskProgress = 1;
+                await updateTaskProgress(taskId, userId, taskProgress); // تحديث التقدم في قاعدة البيانات
+                button.textContent = 'Verify';
             } else if (taskProgress === 1) {
-                window.open(task.link, '_blank'); // فتح الرابط عند النقر الثاني
-                taskProgress++;
-                localStorage.setItem(taskId, taskProgress); // حفظ التقدم
-                button.textContent = 'Claim'; // تحويل النص إلى Claim
+                window.open(task.link, '_blank');
+                taskProgress = 2;
+                await updateTaskProgress(taskId, userId, taskProgress);
+                button.textContent = 'Claim';
             } else if (taskProgress === 2) {
-                addCoins(task.reward); // إضافة المكافأة إلى الرصيد
-                showNotification('Task completed and reward added!'); // إظهار إشعار
-                button.textContent = 'Completed'; // تغيير النص إلى "Completed"
-                button.disabled = true; // تعطيل الزر بعد إتمام المهمة
+                await claimReward(taskId, task.reward); // المطالبة بالمكافأة
             }
         };
 
@@ -64,35 +76,99 @@ fetch('tasks.json')
 })
 .catch(error => console.error('Error loading tasks:', error));
 
-// دالة لإضافة المكافأة إلى رصيد المستخدم (باستخدام نفس الطريقة من الملف الرئيسي)
-function addBalance(amount) {
-    let currentBalance = gameState.balance || 0; // جلب الرصيد الحالي من حالة اللعبة
-    gameState.balance = currentBalance + amount; // تحديث الرصيد في حالة اللعبة
+// دالة لتحديث تقدم المهمة في قاعدة البيانات
+async function updateTaskProgress(taskId, userId, progress) {
+    const { data: user, error } = await supabase
+        .from('users')
+        .select('tasks_progress')
+        .eq('telegram_id', userId)
+        .single();
     
-    // احفظ حالة اللعبة
-    saveGameState(); // احفظ حالة اللعبة بعد تحديث الرصيد
+    if (error) {
+        console.error('Error fetching user tasks:', error);
+        return;
+    }
 
-    // إذا كان هناك تكامل مع قاعدة بيانات، قم بتحديث الرصيد في قاعدة البيانات
-    updateUserData(); // تأكد من وجود هذه الدالة في ملفك الرئيسي
-}
+    const tasksProgress = user.tasks_progress || [];
 
-// دالة لإظهار الإشعارات (نفس الطريقة من الملف الرئيسي)
-function showNotification(message) {
-    const notificationElement = document.getElementById('purchaseNotification'); // احصل على عنصر الإشعار
-    if (notificationElement) {
-        notificationElement.innerText = message;
-        notificationElement.classList.add('show');
-        setTimeout(() => {
-            notificationElement.classList.remove('show');
-        }, 4000);
+    // تحديث أو إضافة المهمة الحالية
+    const taskIndex = tasksProgress.findIndex(task => task.task_id === taskId);
+    if (taskIndex > -1) {
+        tasksProgress[taskIndex].progress = progress;
+    } else {
+        tasksProgress.push({ task_id: taskId, progress: progress, claimed: false });
+    }
+
+    // تحديث البيانات في قاعدة البيانات
+    const { error: updateError } = await supabase
+        .from('users')
+        .update({ tasks_progress: tasksProgress })
+        .eq('telegram_id', userId);
+
+    if (updateError) {
+        console.error('Error updating task progress:', updateError);
     }
 }
 
-// دالة لحفظ حالة اللعبة
-function saveGameState() {
-    localStorage.setItem('gameState', JSON.stringify(gameState)); // حفظ حالة اللعبة في localStorage
+// دالة للمطالبة بالمكافأة وتحديث الرصيد
+async function claimReward(taskId, reward) {
+    const userId = uiElements.userTelegramIdDisplay.innerText;
 
-    updateUI();
-    updateUserData();
-    saveGameState(); 
+    // جلب المهام المكتملة من قاعدة البيانات
+    const { data: user, error } = await supabase
+        .from('users')
+        .select('tasks_progress')
+        .eq('telegram_id', userId)
+        .single();
+
+    if (error) {
+        console.error('Error fetching tasks progress:', error);
+        return;
+    }
+
+    const tasksProgress = user.tasks_progress || [];
+
+    // تحقق مما إذا تم المطالبة بالمكافأة
+    const task = tasksProgress.find(task => task.task_id === taskId);
+    if (task && task.claimed) {
+        showNotification('You have already claimed this reward.');
+        return;
+    }
+
+    // إضافة المكافأة إلى رصيد المستخدم
+    await addCoinsToDatabase(reward);
+
+    // تحديث حالة المطالبة بالمكافأة
+    if (task) {
+        task.claimed = true;
+    } else {
+        tasksProgress.push({ task_id: taskId, progress: 2, claimed: true });
+    }
+
+    // تحديث المهام في قاعدة البيانات
+    const { error: updateError } = await supabase
+        .from('users')
+        .update({ tasks_progress: tasksProgress })
+        .eq('telegram_id', userId);
+
+    if (updateError) {
+        console.error('Error updating claimed rewards:', updateError);
+    } else {
+        showNotification('Reward claimed!');
+    }
 }
+
+// دالة لإضافة الرصيد
+async function addCoinsToDatabase(amount) {
+    const userId = uiElements.userTelegramIdDisplay.innerText;
+
+    const { error } = await supabase
+        .from('users')
+        .update({ balance: supabase.rpc('increment_balance', { amount }) })
+        .eq('telegram_id', userId);
+
+    if (error) {
+        console.error('Error updating balance:', error);
+    }
+}
+
