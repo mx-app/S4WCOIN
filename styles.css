@@ -117,7 +117,7 @@ body {
 }
  
 /* شريط الطاقة */
-.energy-bar-container {
+.energy-bars-container {
     width: 100px; /* عرض الشريط */
     height: 20px; /* ارتفاع الشريط */
     border: 2px solid #343434; /* الخط المحيط بالشريط */
@@ -127,7 +127,7 @@ body {
     margin: 20px auto; /* لتوسيط شريط الطاقة */
 }
 
-.energy-bar-fill {
+.energy-bar-s {
     height: 100%; /* ليملأ ارتفاع الحاوية بالكامل */
     width: 0%; /* العرض يبدأ من 0% */
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c); /* التدرج اللوني */
