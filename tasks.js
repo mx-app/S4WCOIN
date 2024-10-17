@@ -158,6 +158,9 @@ async function claimReward(taskId, reward) {
     }
 }
 
+updateUserData();
+saveGameState();
+
 // دالة لإضافة الرصيد
 async function addCoinsToDatabase(amount) {
     const userId = uiElements.userTelegramIdDisplay.innerText;
@@ -172,3 +175,5 @@ async function addCoinsToDatabase(amount) {
     }
 }
 
+updateUserData();
+saveGameState();
