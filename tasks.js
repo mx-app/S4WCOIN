@@ -2,7 +2,7 @@
 fetch('tasks.json')
 .then(response => response.json())
 .then(dynamicTasks => {
-    const dynamicTaskContainer = document.getElementById('dynamicTaskContainer');
+    const taskContainer = document.getElementById('taskcontainer');
     if (!dynamicTaskContainer) {
         console.error('Dynamic task container element not found.');
         return;
@@ -12,7 +12,7 @@ fetch('tasks.json')
 
     dynamicTasks.forEach(async dynamicTask => {
         const taskItem = document.createElement('div');
-        taskItem.className = 'dynamic-task-item';
+        taskItem.className = 'task-item';
 
         // إضافة الصورة
         const img = document.createElement('img');
