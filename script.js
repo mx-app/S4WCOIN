@@ -780,20 +780,8 @@ fetch('tasks.json')
             const taskId = task.id;
             const userId = uiElements.userTelegramIdDisplay.innerText; // Get Telegram ID
 
-            // Fetch task progress from the database
-            const { data: userTaskData, error: taskError } = await supabase
-                .from('users')
-                .select('tasks_progress')
-                .eq('telegram_id', userId)
-                .single();
-
-            if (taskError) {
-                console.error('Error fetching task progress:', taskError);
-                return;
-            }
-
-            const tasksProgress = userTaskData?.tasks_progress || [];
-            const taskProgressData = tasksProgress.find(t => t.task_id === taskId);
+            // Fetch task progress from the gameState
+            const taskProgressData = gameState.tasksProgress.find(t => t.task_id === taskId);
             let taskProgress = taskProgressData ? taskProgressData.progress : 0;
 
             // Set button text based on task progress
@@ -805,20 +793,20 @@ fetch('tasks.json')
                 if (taskProgress === 0) {
                     window.open(task.link, '_blank');
                     taskProgress = 1;
-                    await updateTaskProgress(taskId, userId, taskProgress); // Update progress in the database
+                    updateTaskProgressInGameState(taskId, taskProgress); // Update progress in the gameState
                     button.textContent = 'Verify';
-                    showNotification('Task opened, verify to claim your reward.');
+                    showNotification(uiElements.purchaseNotification, 'Task opened, verify to claim your reward.');
                 } else if (taskProgress === 1) {
                     window.open(task.link, '_blank');
                     taskProgress = 2;
-                    await updateTaskProgress(taskId, userId, taskProgress);
+                    updateTaskProgressInGameState(taskId, taskProgress);
                     button.textContent = 'Claim';
-                    showNotification('Task verified, claim your reward.');
+                    showNotification(uiElements.purchaseNotification, 'Task verified, claim your reward.');
                 } else if (taskProgress === 2) {
-                    await claimReward(taskId, task.reward); // Claim reward
+                    claimTaskReward(taskId, task.reward); // Claim reward
                     button.textContent = 'Completed';
                     button.disabled = true;
-                    showNotification('Reward claimed successfully!');
+                    showNotification(uiElements.purchaseNotification, 'Reward claimed successfully!');
                 }
             };
 
@@ -828,103 +816,39 @@ fetch('tasks.json')
     })
     .catch(error => console.error('Error loading tasks:', error));
 
-// Function to update task progress in the database
-async function updateTaskProgress(taskId, userId, progress) {
-    const { data: user, error } = await supabase
-        .from('users')
-        .select('tasks_progress')
-        .eq('telegram_id', userId)
-        .single();
-    
-    if (error) {
-        console.error('Error fetching user tasks:', error);
-        showNotification('Error updating task progress.', true); // Show error notification
-        return;
-    }
-
-    const tasksProgress = user.tasks_progress || [];
-
-    const taskIndex = tasksProgress.findIndex(task => task.task_id === taskId);
+// Function to update task progress in the gameState
+function updateTaskProgressInGameState(taskId, progress) {
+    const taskIndex = gameState.tasksProgress.findIndex(task => task.task_id === taskId);
     if (taskIndex > -1) {
-        tasksProgress[taskIndex].progress = progress;
+        gameState.tasksProgress[taskIndex].progress = progress;
     } else {
-        tasksProgress.push({ task_id: taskId, progress: progress, claimed: false });
+        gameState.tasksProgress.push({ task_id: taskId, progress: progress, claimed: false });
     }
-
-    const { error: updateError } = await supabase
-        .from('users')
-        .update({ tasks_progress: tasksProgress })
-        .eq('telegram_id', userId);
-
-    if (updateError) {
-        console.error('Error updating task progress:', updateError);
-        showNotification('Error saving task progress.', true); // Show error notification
-    }
+    saveGameState(); // Save the updated game state
 }
 
 // Function to claim a reward and update the balance
-async function claimReward(taskId, reward) {
-    const userId = uiElements.userTelegramIdDisplay.innerText;
-
-    const { data: user, error } = await supabase
-        .from('users')
-        .select('tasks_progress, balance') // Fetch task progress and balance
-        .eq('telegram_id', userId)
-        .single();
-
-    if (error) {
-        console.error('Error fetching tasks progress or balance:', error);
-        showNotification('Error claiming reward.', true); // Show error notification
-        return;
-    }
-
-    const tasksProgress = user.tasks_progress || [];
-    const task = tasksProgress.find(task => task.task_id === taskId);
+function claimTaskReward(taskId, reward) {
+    const task = gameState.tasksProgress.find(task => task.task_id === taskId);
 
     if (task && task.claimed) {
-        showNotification('You have already claimed this reward.');
+        showNotification(uiElements.purchaseNotification, 'You have already claimed this reward.');
         return;
     }
 
-    // Update the user's balance
-    const newBalance = user.balance + reward; // Add the reward to the current balance
-    await updateBalanceInDatabase(newBalance);
-
-    // Mark the task as claimed
+    // Update the user's balance in gameState
+    gameState.balance += reward;
     if (task) {
         task.claimed = true;
     } else {
-        tasksProgress.push({ task_id: taskId, progress: 2, claimed: true });
+        gameState.tasksProgress.push({ task_id: taskId, progress: 2, claimed: true });
     }
 
-    const { error: updateError } = await supabase
-        .from('users')
-        .update({ tasks_progress: tasksProgress, balance: newBalance }) // Update balance and task progress
-        .eq('telegram_id', userId);
-
-    if (updateError) {
-        console.error('Error updating claimed rewards:', updateError);
-        showNotification('Error saving claimed reward.', true); // Show error notification
-    } else {
-        showNotification('Reward claimed!');
-    }
+    updateUI(); // Update UI to reflect new balance
+    updateUserData(); // Sync user data with the server
+    saveGameState(); // Ensure the game state is saved
+    showNotification(uiElements.purchaseNotification, `Successfully claimed ${formatNumber(reward)} reward!`);
 }
-
-// Function to update the user's balance in the database
-async function updateBalanceInDatabase(newBalance) {
-    const userId = uiElements.userTelegramIdDisplay.innerText;
-
-    const { error } = await supabase
-        .from('users')
-        .update({ balance: newBalance }) // Update the balance directly
-        .eq('telegram_id', userId);
-
-    if (error) {
-        console.error('Error updating balance:', error);
-        showNotification('Error updating balance.', true); // Show error notification
-    }
-}
-
 
 
 
