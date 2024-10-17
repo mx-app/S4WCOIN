@@ -900,7 +900,6 @@ function showNotification(notificationElement, message) {
     setTimeout(() => {
         notificationElement.classList.remove('show');
     }, 4000);
-  }
 }
 
 
