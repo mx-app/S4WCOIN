@@ -744,6 +744,7 @@ async function updateUserData() {
 
 
 
+
 // Loading tasks from JSON file
 fetch('tasks.json')
     .then(response => response.json())
@@ -806,13 +807,18 @@ fetch('tasks.json')
                     taskProgress = 1;
                     await updateTaskProgress(taskId, userId, taskProgress); // Update progress in the database
                     button.textContent = 'Verify';
+                    showNotification('Task opened, verify to claim your reward.');
                 } else if (taskProgress === 1) {
                     window.open(task.link, '_blank');
                     taskProgress = 2;
                     await updateTaskProgress(taskId, userId, taskProgress);
                     button.textContent = 'Claim';
+                    showNotification('Task verified, claim your reward.');
                 } else if (taskProgress === 2) {
                     await claimReward(taskId, task.reward); // Claim reward
+                    button.textContent = 'Completed';
+                    button.disabled = true;
+                    showNotification('Reward claimed successfully!');
                 }
             };
 
@@ -832,6 +838,7 @@ async function updateTaskProgress(taskId, userId, progress) {
     
     if (error) {
         console.error('Error fetching user tasks:', error);
+        showNotification('Error updating task progress.', true); // Show error notification
         return;
     }
 
@@ -851,6 +858,7 @@ async function updateTaskProgress(taskId, userId, progress) {
 
     if (updateError) {
         console.error('Error updating task progress:', updateError);
+        showNotification('Error saving task progress.', true); // Show error notification
     }
 }
 
@@ -860,12 +868,13 @@ async function claimReward(taskId, reward) {
 
     const { data: user, error } = await supabase
         .from('users')
-        .select('tasks_progress')
+        .select('tasks_progress, balance') // Fetch task progress and balance
         .eq('telegram_id', userId)
         .single();
 
     if (error) {
-        console.error('Error fetching tasks progress:', error);
+        console.error('Error fetching tasks progress or balance:', error);
+        showNotification('Error claiming reward.', true); // Show error notification
         return;
     }
 
@@ -877,8 +886,11 @@ async function claimReward(taskId, reward) {
         return;
     }
 
-    await addBalanceToDatabase(reward);
+    // Update the user's balance
+    const newBalance = user.balance + reward; // Add the reward to the current balance
+    await updateBalanceInDatabase(newBalance);
 
+    // Mark the task as claimed
     if (task) {
         task.claimed = true;
     } else {
@@ -887,29 +899,44 @@ async function claimReward(taskId, reward) {
 
     const { error: updateError } = await supabase
         .from('users')
-        .update({ tasks_progress: tasksProgress })
+        .update({ tasks_progress: tasksProgress, balance: newBalance }) // Update balance and task progress
         .eq('telegram_id', userId);
 
     if (updateError) {
         console.error('Error updating claimed rewards:', updateError);
+        showNotification('Error saving claimed reward.', true); // Show error notification
     } else {
         showNotification('Reward claimed!');
     }
 }
 
-// Function to add balance
-async function addBalanceToDatabase(amount) {
+// Function to update the user's balance in the database
+async function updateBalanceInDatabase(newBalance) {
     const userId = uiElements.userTelegramIdDisplay.innerText;
 
     const { error } = await supabase
         .from('users')
-        .update({ balance: supabase.rpc('increment_balance', { amount }) })
+        .update({ balance: newBalance }) // Update the balance directly
         .eq('telegram_id', userId);
 
     if (error) {
         console.error('Error updating balance:', error);
+        showNotification('Error updating balance.', true); // Show error notification
     }
-        }
+}
+
+// Function to show notifications to the user
+function showNotification(message, isError = false) {
+    const notification = document.createElement('div');
+    notification.className = isError ? 'notification error' : 'notification success';
+    notification.textContent = message;
+    document.body.appendChild(notification);
+
+    setTimeout(() => {
+        notification.remove();
+    }, 4000);
+}
+
 
 
 
