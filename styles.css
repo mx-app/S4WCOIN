@@ -132,7 +132,8 @@ body {
     width: 0%; /* العرض يبدأ من 0% */
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c); /* التدرج اللوني */
     position: absolute; /* لجعل التحرك ضمن الشريط فقط */
-    animation: moveEnergy 5s linear infinite; /* الحركة المتكررة للطاقة */
+    animation: moveEnergy 3s linear infinite; /* الحركة المتكررة للطاقة */
+    border-radius: 15px;
 }
 
 @keyframes moveEnergy {
