@@ -130,3 +130,37 @@ async function claimReward(taskId, reward) {
         showNotification('You have already claimed this reward.');
         return;
     }
+
+    await addBalanceToDatabase(reward);
+
+    if (task) {
+        task.claimed = true;
+    } else {
+        tasksProgress.push({ task_id: taskId, progress: 2, claimed: true });
+    }
+
+    const { error: updateError } = await supabase
+        .from('users')
+        .update({ tasks_progress: tasksProgress })
+        .eq('telegram_id', userId);
+
+    if (updateError) {
+        console.error('Error updating claimed rewards:', updateError);
+    } else {
+        showNotification('Reward claimed!');
+    }
+}
+
+// Function to add balance
+async function addBalanceToDatabase(amount) {
+    const userId = uiElements.userTelegramIdDisplay.innerText;
+
+    const { error } = await supabase
+        .from('users')
+        .update({ balance: supabase.rpc('increment_balance', { amount }) })
+        .eq('telegram_id', userId);
+
+    if (error) {
+        console.error('Error updating balance:', error);
+    }
+}
