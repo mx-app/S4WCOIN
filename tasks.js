@@ -37,7 +37,7 @@ fetch('tasks.json')
         const { data: userTaskData, error: taskError } = await supabase
             .from('users')
             .select('tasks_progress')
-            .eq('telegram_id', userId)
+            .eq('telegram_id', userTelegramId)
             .single();
 
         if (taskError) {
@@ -81,7 +81,7 @@ async function updateTaskProgress(taskId, userId, progress) {
     const { data: user, error } = await supabase
         .from('users')
         .select('tasks_progress')
-        .eq('telegram_id', userId)
+        .eq('telegram_id', userTelegramId)
         .single();
     
     if (error) {
@@ -103,7 +103,7 @@ async function updateTaskProgress(taskId, userId, progress) {
     const { error: updateError } = await supabase
         .from('users')
         .update({ tasks_progress: tasksProgress })
-        .eq('telegram_id', userId);
+        .eq('telegram_id', userTelegramId);
 
     if (updateError) {
         console.error('Error updating task progress:', updateError);
@@ -118,7 +118,7 @@ async function claimReward(taskId, reward) {
     const { data: user, error } = await supabase
         .from('users')
         .select('tasks_progress')
-        .eq('telegram_id', userId)
+        .eq('telegram_id', userTelegramId)
         .single();
 
     if (error) {
@@ -136,7 +136,7 @@ async function claimReward(taskId, reward) {
     }
 
     // إضافة المكافأة إلى رصيد المستخدم
-    await addCoinsToDatabase(reward);
+    await addbalanceToDatabase(reward);
 
     // تحديث حالة المطالبة بالمكافأة
     if (task) {
@@ -149,7 +149,7 @@ async function claimReward(taskId, reward) {
     const { error: updateError } = await supabase
         .from('users')
         .update({ tasks_progress: tasksProgress })
-        .eq('telegram_id', userId);
+        .eq('telegram_id', userTelegramId);
 
     if (updateError) {
         console.error('Error updating claimed rewards:', updateError);
@@ -162,13 +162,13 @@ updateUserData();
 saveGameState();
 
 // دالة لإضافة الرصيد
-async function addCoinsToDatabase(amount) {
+async function addbalanceToDatabase(amount) {
     const userId = uiElements.userTelegramIdDisplay.innerText;
 
     const { error } = await supabase
         .from('users')
         .update({ balance: supabase.rpc('increment_balance', { amount }) })
-        .eq('telegram_id', userId);
+        .eq('telegram_id', userTelegramId);
 
     if (error) {
         console.error('Error updating balance:', error);
