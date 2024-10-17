@@ -35,10 +35,10 @@ const uiElements = {
     withdrawAmountInput: document.getElementById('withdrawAmount'),
     userTelegramNameDisplay: document.getElementById('userTelegramName'),
     userTelegramIdDisplay: document.getElementById('userTelegramId'),
-    taskTwoBtn: document.getElementById('taskTwoBtn'),
-    taskThreeBtn: document.getElementById('taskThreeBtn'),
-    taskTwoProgress: document.getElementById('taskTwoProgress'),
-    taskThreeProgress: document.getElementById('taskThreeProgress'),
+   // taskTwoBtn: document.getElementById('taskTwoBtn'),
+   // taskThreeBtn: document.getElementById('taskThreeBtn'),
+   // taskTwoProgress: document.getElementById('taskTwoProgress'),
+   // taskThreeProgress: document.getElementById('taskThreeProgress'),
     levelInfoDisplay: document.getElementById('currentLevelInfo') || { innerText: '' },
     friendsListDisplay: document.getElementById('friendsList') || { innerHTML: '' },
     displayedLevel: document.getElementById('displayedLevel'),
@@ -196,7 +196,7 @@ async function fetchUserDataFromTelegram() {
         gameState = { ...gameState, ...data };
         saveGameState();
         loadFriendsList(); // تحميل قائمة الأصدقاء بعد جلب البيانات
-        updateTasksProgress(); // تحديث المهام بناءً على البيانات المسترجعة
+       // updateTasksProgress(); // تحديث المهام بناءً على البيانات المسترجعة
     } else {
         // تسجيل مستخدم جديد
         await registerNewUser(userTelegramId, userTelegramName);
@@ -258,7 +258,7 @@ function updateUI() {
     }
 
     updateBoostsDisplay();
-    updateTasksProgress();
+  //  updateTasksProgress();
     updateLevelDisplay();
 }
 
