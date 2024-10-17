@@ -746,7 +746,7 @@ async function updateUserData() {
 
 
 
-// Loading tasks from JSON file
+// Loading tasks from JSON file and updating UI
 fetch('tasks.json')
     .then(response => response.json())
     .then(tasks => {
@@ -758,160 +758,150 @@ fetch('tasks.json')
 
         taskContainer.innerHTML = ''; // Clean the content before adding tasks
 
-        tasks.forEach(async task => {
-            const taskItem = document.createElement('div');
-            taskItem.className = 'task-item';
-
-            // Add the image
-            const img = document.createElement('img');
-            img.src = task.image;
-            img.alt = task.task;
-            img.className = 'task-image';
-            taskItem.appendChild(img);
-
-            // Add the task text
-            const taskText = document.createElement('p');
-            taskText.textContent = `${task.task} - Reward: ${task.reward || 5000} coins`;
-            taskItem.appendChild(taskText);
-
-            // Add the button
-            const button = document.createElement('button');
-            button.className = 'task-button';
-
-            const taskId = task.id;
-            const userId = uiElements.userTelegramIdDisplay.innerText; // Get Telegram ID
-
-            // Fetch task progress from the database
-            const { data: userTaskData, error: taskError } = await supabase
-                .from('users')
-                .select('tasks_progress')
-                .eq('telegram_id', userId)
-                .single();
-
-            if (taskError) {
-                console.error('Error fetching task progress:', taskError);
-                return;
-            }
-
-            const tasksProgress = userTaskData?.tasks_progress || [];
-            const taskProgressData = tasksProgress.find(t => t.task_id === taskId);
-            let taskProgress = taskProgressData ? taskProgressData.progress : 0;
-
-            // Set button text based on task progress
-            button.textContent = taskProgress >= 2 ? 'Completed' : taskProgress === 1 ? 'Verify' : 'Go to Task';
-            button.disabled = taskProgress >= 2;
-
-            // Button click handling
-            button.onclick = async () => {
-                if (taskProgress === 0) {
-                    window.open(task.link, '_blank');
-                    taskProgress = 1;
-                    await updateTaskProgress(taskId, userId, taskProgress); // Update progress in the database
-                    button.textContent = 'Verify';
-                } else if (taskProgress === 1) {
-                    window.open(task.link, '_blank');
-                    taskProgress = 2;
-                    await updateTaskProgress(taskId, userId, taskProgress);
-                    button.textContent = 'Claim';
-                } else if (taskProgress === 2) {
-                    await claimReward(taskId, task.reward); // Claim reward
-                }
-            };
-
-            taskItem.appendChild(button);
-            taskContainer.appendChild(taskItem);
-        });
+        // Fetch all task progress for the user at once
+        const userId = uiElements.userTelegramIdDisplay.innerText;
+        fetchUserTasksProgress(userId)
+            .then(userTasks => {
+                tasks.forEach(task => {
+                    createTaskItem(task, userTasks, userId, taskContainer);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching tasks progress:', error);
+            });
     })
     .catch(error => console.error('Error loading tasks:', error));
 
-// Function to update task progress in the database
-async function updateTaskProgress(taskId, userId, progress) {
-    const { data: user, error } = await supabase
+// Function to fetch all tasks progress for a user
+async function fetchUserTasksProgress(userId) {
+    const { data: userTaskData, error } = await supabase
         .from('users')
         .select('tasks_progress')
         .eq('telegram_id', userId)
         .single();
-    
+
     if (error) {
-        console.error('Error fetching user tasks:', error);
-        return;
+        throw new Error('Error fetching task progress from the database');
     }
 
-    const tasksProgress = user.tasks_progress || [];
+    return userTaskData?.tasks_progress || [];
+}
 
-    const taskIndex = tasksProgress.findIndex(task => task.task_id === taskId);
-    if (taskIndex > -1) {
-        tasksProgress[taskIndex].progress = progress;
-    } else {
-        tasksProgress.push({ task_id: taskId, progress: progress, claimed: false });
-    }
+// Function to create a task item and add it to the UI
+function createTaskItem(task, userTasks, userId, taskContainer) {
+    const taskItem = document.createElement('div');
+    taskItem.className = 'task-item';
 
-    const { error: updateError } = await supabase
-        .from('users')
-        .update({ tasks_progress: tasksProgress })
-        .eq('telegram_id', userId);
+    // Add the image
+    const img = document.createElement('img');
+    img.src = task.image;
+    img.alt = task.task;
+    img.className = 'task-image';
+    taskItem.appendChild(img);
 
-    if (updateError) {
-        console.error('Error updating task progress:', updateError);
+    // Add the task text
+    const taskText = document.createElement('p');
+    taskText.textContent = `${task.task} - Reward: ${task.reward || 5000} coins`;
+    taskItem.appendChild(taskText);
+
+    // Add the button
+    const button = document.createElement('button');
+    button.className = 'task-button';
+
+    // Check task progress
+    const taskProgressData = userTasks.find(t => t.task_id === task.id);
+    let taskProgress = taskProgressData ? taskProgressData.progress : 0;
+
+    // Set button text based on task progress
+    button.textContent = taskProgress >= 2 ? 'Completed' : taskProgress === 1 ? 'Verify' : 'Go to Task';
+    button.disabled = taskProgress >= 2;
+
+    // Handle button click
+    button.onclick = async () => {
+        if (taskProgress === 0) {
+            window.open(task.link, '_blank');
+            taskProgress = 1;
+            await updateTaskProgress(task.id, userId, taskProgress, button);
+        } else if (taskProgress === 1) {
+            window.open(task.link, '_blank');
+            taskProgress = 2;
+            await updateTaskProgress(task.id, userId, taskProgress, button);
+        } else if (taskProgress === 2) {
+            await claimReward(task.id, task.reward, userId, button);
+        }
+    };
+
+    taskItem.appendChild(button);
+    taskContainer.appendChild(taskItem);
+}
+
+// Function to update task progress and UI
+async function updateTaskProgress(taskId, userId, progress, button) {
+    try {
+        await supabase
+            .from('users')
+            .update({ tasks_progress: supabase.literal(`array_append(tasks_progress, '{ "task_id": ${taskId}, "progress": ${progress}, "claimed": false }')`) })
+            .eq('telegram_id', userId);
+
+        button.textContent = progress === 1 ? 'Verify' : 'Claim';
+        showNotification(uiElements.purchaseNotification, `Task progress updated: ${progress === 1 ? 'Verify' : 'Claim your reward'}`);
+    } catch (error) {
+        console.error('Error updating task progress:', error);
+        showNotification(uiElements.purchaseNotification, 'Failed to update task progress.');
     }
 }
 
 // Function to claim a reward and update the balance
-async function claimReward(taskId, reward) {
-    const userId = uiElements.userTelegramIdDisplay.innerText;
+async function claimReward(taskId, reward, userId, button) {
+    try {
+        // Fetch current balance
+        const { data: user, error } = await supabase
+            .from('users')
+            .select('balance, tasks_progress')
+            .eq('telegram_id', userId)
+            .single();
 
-    const { data: user, error } = await supabase
-        .from('users')
-        .select('tasks_progress')
-        .eq('telegram_id', userId)
-        .single();
+        if (error || !user) {
+            throw new Error('Error fetching user balance');
+        }
 
-    if (error) {
-        console.error('Error fetching tasks progress:', error);
-        return;
-    }
+        // Check if reward is already claimed
+        const task = user.tasks_progress.find(t => t.task_id === taskId);
+        if (task && task.claimed) {
+            showNotification(uiElements.purchaseNotification, 'Reward already claimed.');
+            return;
+        }
 
-    const tasksProgress = user.tasks_progress || [];
-    const task = tasksProgress.find(task => task.task_id === taskId);
+        // Update balance and mark task as claimed
+        const newBalance = user.balance + reward;
+        await supabase
+            .from('users')
+            .update({
+                balance: newBalance,
+                tasks_progress: supabase.literal(`array_replace(tasks_progress, '{ "task_id": ${taskId}, "progress": 2, "claimed": true }')`)
+            })
+            .eq('telegram_id', userId);
 
-    if (task && task.claimed) {
-        showNotification('You have already claimed this reward.');
-        return;
-    }
-
-    await addBalanceToDatabase(reward);
-
-    if (task) {
-        task.claimed = true;
-    } else {
-        tasksProgress.push({ task_id: taskId, progress: 2, claimed: true });
-    }
-
-    const { error: updateError } = await supabase
-        .from('users')
-        .update({ tasks_progress: tasksProgress })
-        .eq('telegram_id', userId);
-
-    if (updateError) {
-        console.error('Error updating claimed rewards:', updateError);
-    } else {
-        showNotification('Reward claimed!');
+        // Update UI and show success notification
+        button.textContent = 'Completed';
+        button.disabled = true;
+        showNotification(uiElements.purchaseNotification, `Reward claimed! ${reward} coins added to your balance.`);
+    } catch (error) {
+        console.error('Error claiming reward:', error);
+        showNotification(uiElements.purchaseNotification, 'Failed to claim reward.');
     }
 }
 
-// Function to add balance
-async function addBalanceToDatabase(amount) {
-    const userId = uiElements.userTelegramIdDisplay.innerText;
-
-    const { error } = await supabase
-        .from('users')
-        .update({ balance: supabase.rpc('increment_balance', { amount }) })
-        .eq('telegram_id', userId);
-
-    if (error) {
-        console.error('Error updating balance:', error);
-    }
+// Function to display notifications to the user
+function showNotification(notificationElement, message) {
+    if (!notificationElement) return;
+    notificationElement.innerText = message;
+    notificationElement.classList.add('show');
+    setTimeout(() => {
+        notificationElement.classList.remove('show');
+    }, 4000);
 }
+
 
 
 
