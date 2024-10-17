@@ -139,9 +139,12 @@ async function initializeApp() {
         await fetchUserDataFromTelegram();
 
         // إخفاء شاشة البداية وعرض المحتوى الرئيسي
-        if (uiElements.splashScreen) uiElements.splashScreen.style.display = 'none';
-        if (uiElements.mainContainer) uiElements.mainContainer.style.display = 'flex';
+         setTimeout(() => {
+       if (uiElements.splashScreen) uiElements.splashScreen.style.display = 'none';
+       if (uiElements.mainContainer) uiElements.mainContainer.style.display = 'flex';
+    }, 7000); // 10000 ميلي ثانية تعني 10 ثوانٍ
 
+        
         // استمع إلى التغييرات في البيانات
         listenToRealtimeChanges();
 
