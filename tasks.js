@@ -1,10 +1,3 @@
-// مسح بيانات localStorage المرتبطة بالمهام عند تغيير الروابط
-function clearTaskProgress() {
-    tasks.forEach(task => {
-        localStorage.removeItem(task.link); // مسح التقدم لكل رابط
-    });
-}
-
 // تحميل المهام من ملف JSON
 fetch('tasks.json')
 .then(response => response.json())
@@ -72,7 +65,7 @@ fetch('tasks.json')
 .catch(error => console.error('Error loading tasks:', error));
 
 // دالة لإضافة المكافأة إلى رصيد المستخدم (باستخدام نفس الطريقة من الملف الرئيسي)
-function addCoins(amount) {
+function addBalance(amount) {
     let currentBalance = gameState.balance || 0; // جلب الرصيد الحالي من حالة اللعبة
     gameState.balance = currentBalance + amount; // تحديث الرصيد في حالة اللعبة
     
@@ -80,7 +73,7 @@ function addCoins(amount) {
     saveGameState(); // احفظ حالة اللعبة بعد تحديث الرصيد
 
     // إذا كان هناك تكامل مع قاعدة بيانات، قم بتحديث الرصيد في قاعدة البيانات
-    // updateUserData(); // تأكد من وجود هذه الدالة في ملفك الرئيسي
+    updateUserData(); // تأكد من وجود هذه الدالة في ملفك الرئيسي
 }
 
 // دالة لإظهار الإشعارات (نفس الطريقة من الملف الرئيسي)
