@@ -99,19 +99,24 @@ body {
     background-size: cover; 
     background-position: center;*/
     position: absolute;
+} 
+
+.splash-title {
+    margin-top: 20px;
+    font-size: 24px;
 }
 
-.splash-image {
-    width: 200px;
-}
-
-
-.loading-text {
-    color: #fff;
-    font-size: 25px;
+.splash-subtitle {
     margin-top: 10px;
+    font-size: 18px;
 }
 
+.splash-loading img {
+    margin-top: 20px;
+    width: 50px;
+    height: 50px;
+}
+ 
 .status-bar {
     display: flex;
     flex-direction: column;
