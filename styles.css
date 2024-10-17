@@ -116,6 +116,40 @@ body {
     width: 300px;
 }
  
+/* شريط الطاقة */
+.energy-bar-container {
+    width: 100px; /* عرض الشريط */
+    height: 20px; /* ارتفاع الشريط */
+    border: 2px solid #343434; /* الخط المحيط بالشريط */
+    border-radius: 15px; /* زوايا منحنية */
+    overflow: hidden; /* إخفاء الأجزاء التي تخرج عن الحدود */
+    position: relative; /* لجعل الحشو داخل الشريط */
+    margin: 20px auto; /* لتوسيط شريط الطاقة */
+}
+
+.energy-bar-fill {
+    height: 100%; /* ليملأ ارتفاع الحاوية بالكامل */
+    width: 0%; /* العرض يبدأ من 0% */
+    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c); /* التدرج اللوني */
+    position: absolute; /* لجعل التحرك ضمن الشريط فقط */
+    animation: moveEnergy 5s linear infinite; /* الحركة المتكررة للطاقة */
+}
+
+@keyframes moveEnergy {
+    0% {
+        width: 0%;
+        left: 0;
+    }
+    50% {
+        width: 100%; /* تملأ الشريط */
+        left: 0;
+    }
+    100% {
+        width: 0%;
+        left: 100%; /* تتحرك للخروج من الشريط */
+    }
+}
+
 .status-bar {
     display: flex;
     flex-direction: column;
