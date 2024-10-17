@@ -107,12 +107,12 @@ body {
 }
 
 .splash-subtitle {
-    top: 70%; 
     margin-top: 10px;
     font-size: 30px;
 }
 
 .splash-loading img {
+    top: 70%; 
     margin-top: 20px;
     width: 300px;
 }
