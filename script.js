@@ -142,7 +142,7 @@ async function initializeApp() {
          setTimeout(() => {
        if (uiElements.splashScreen) uiElements.splashScreen.style.display = 'none';
        if (uiElements.mainContainer) uiElements.mainContainer.style.display = 'flex';
-    }, 7000); // 10000 ميلي ثانية تعني 10 ثوانٍ
+    }, 5000); // 10000 ميلي ثانية تعني 10 ثوانٍ
 
         
         // استمع إلى التغييرات في البيانات
