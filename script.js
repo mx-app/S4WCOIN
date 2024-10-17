@@ -77,7 +77,7 @@ let gameState = {
     freeEnergyFillTime: null,
     invites: [],
     claimedRewards: { levels: [], tasks: [] }, 
-    dynamicTasksProgress: [],
+    : [],
     
 };
 
@@ -647,54 +647,6 @@ async function loadFriendsList() {
     } catch (err) {
         console.error("Unexpected error loading friends list:", err);
         uiElements.friendsListDisplay.innerHTML = `<li>Error: Unexpected issue occurred while loading friends.</li>`;
-    }
-}
-
-// تحديث تقدم المهام
-function updateTasksProgress() {
-    const friendsCount = gameState.friends.length || 0;  // استخدم 0 إذا لم يكن هناك أصدقاء
-    if (uiElements.taskTwoProgress) {
-        uiElements.taskTwoProgress.innerText = `${friendsCount}/3`;
-    }
-    if (uiElements.taskThreeProgress) {
-        uiElements.taskThreeProgress.innerText = `${friendsCount}/10`;
-    }
-
-    updateTaskBtnState(uiElements.taskTwoBtn, friendsCount >= 3);
-    updateTaskBtnState(uiElements.taskThreeBtn, friendsCount >= 10);
-}
-
-// تحديث حالة زر المهمة
-function updateTaskBtnState(button, isActive) {
-    if (button) {
-        if (isActive) {
-            button.classList.remove('inactive');
-        } else {
-            button.classList.add('inactive');
-        }
-    }
-}
-
-// المطالبة بمكافأة المهمة
-function claimTaskReward(friendsRequired) {
-    const friendsCount = gameState.friends.length;
-
-    if (friendsCount >= friendsRequired && !gameState.claimedRewards.tasks.includes(friendsRequired)) {
-        let reward = 0;
-        if (friendsRequired === 3) {
-            reward = 300000;
-        } else if (friendsRequired === 10) {
-            reward = 2000000;
-        }
-
-        gameState.balance += reward;
-        gameState.claimedRewards.tasks.push(friendsRequired); // تسجيل المكافأة فقط للمرة الأولى
-        updateUI();
-        showNotification(uiElements.purchaseNotification, `Successfully claimed ${formatNumber(reward)} reward!`);
-        updateUserData();
-        saveGameState(); // التأكد من حفظ المكافأة
-    } else {
-        showNotification(uiElements.purchaseNotification, `Invite ${friendsRequired - friendsCount} more friends to claim the reward.`);
     }
 }
 
