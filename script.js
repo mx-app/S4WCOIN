@@ -77,6 +77,8 @@ let gameState = {
     freeEnergyFillTime: null,
     invites: [],
     claimedRewards: { levels: [], tasks: [] }
+    tasksprogress: [],
+    
 };
 
 // استعادة حالة اللعبة من localStorage إذا كانت موجودة
