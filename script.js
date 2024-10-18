@@ -650,7 +650,6 @@ async function loadFriendsList() {
     }
 }
 
-
 // تحديث تقدم المهام
 function updateTasksProgress() {
     const friendsCount = gameState.friends.length || 0;  // استخدم 0 إذا لم يكن هناك أصدقاء
@@ -678,7 +677,7 @@ function updateTaskBtnState(button, isActive) {
 
 // المطالبة بمكافأة المهمة
 function claimTaskReward(friendsRequired) {
-   const friendsCount = gameState.friends.length;
+    const friendsCount = gameState.friends.length;
 
     if (friendsCount >= friendsRequired && !gameState.claimedRewards.tasks.includes(friendsRequired)) {
         let reward = 0;
@@ -698,8 +697,6 @@ function claimTaskReward(friendsRequired) {
         showNotification(uiElements.purchaseNotification, `Invite ${friendsRequired - friendsCount} more friends to claim the reward.`);
     }
 }
-
-
 
 // نسخ رابط الدعوة
 function copyInviteLink() {
@@ -744,6 +741,7 @@ async function updateUserData() {
         console.error('Error updating user data:', error);
     }
 }
+
 
 
 
@@ -929,7 +927,6 @@ async function updateBalanceInDatabase(newBalance) {
 
 
 
-
 //const inviteButton = document.getElementById("inviteFriendsBtn");
 
 //let scale = 1;
@@ -1049,3 +1046,4 @@ function initializeTelegramIntegration() {
 }
 
 initializeApp();
+
