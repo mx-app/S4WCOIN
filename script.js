@@ -734,7 +734,7 @@ async function updateUserData() {
             last_fill_time: new Date(gameState.lastFillTime).toISOString(),
             invites: gameState.invites,
             claimed_rewards: gameState.claimedRewards, // حفظ المكافآت المحصلة في قاعدة البيانات
-            tasksprogress: gameState.tasksprogress
+            tasks_progress: gameState.tasksprogress
         })
         .eq('telegram_id', userId);
 
