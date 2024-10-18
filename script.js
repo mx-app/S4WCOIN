@@ -745,8 +745,6 @@ async function updateUserData() {
 
 
 
-
-
 // Loading tasks from JSON file
 fetch('tasks.json')
     .then(response => response.json())
