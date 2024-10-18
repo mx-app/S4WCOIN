@@ -685,11 +685,11 @@ body {
     top: -100px; /* البداية من فوق الشاشة */
     left: 50%;
     transform: translateX(-50%);
-    background: #343434; /*linear-gradient(180deg, #000, #343434);*/
+    background: #000; /*linear-gradient(180deg, #000, #343434);*/
     color: #fff;
-    padding: 12px 20px; /* زيادة padding لجعل الإشعار طويل */
+    padding: 11px 20px; /* زيادة padding لجعل الإشعار طويل */
     border-radius: 5px;
-    border: 2px solid #000;
+    border: 2px solid #343434;
     font-size: 15px;
     z-index: 1000;
     transition: top 0.5s ease, opacity 0.5s ease; /* انتقال لعناصر الظهور والانزلاق */
