@@ -33,6 +33,7 @@ button, input, select, textarea, img, a {
     -webkit-tap-highlight-color: transparent;
 }
 
+
 body {
     margin: 0;
     font-family: 'Rubik', sans-serif;
@@ -62,6 +63,7 @@ body {
     border-top-left-radius: 0; /* لجعل الزاوية العلوية اليسرى دائرية */
     border-top-right-radius: 0; /* لجعل الزاوية العلوية اليمنى دائرية */
 } 
+
 
  @media only screen and (max-width: 768px) {
   .container {
@@ -221,11 +223,14 @@ body {
 #balanceTitle {
     font-weight: bold;
     margin-bottom: 5px;
-    font-size: 15px; /* Larger font for balance title */
-    color: #fff; 
+    font-size: 15px; 
     display: block;
-    /*border-bottom: 2px solid #fff;*/
-    padding-bottom: 2px; /* مسافة بين النص والخط */
+    padding-bottom: 2px;
+    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c); /* التدرج اللوني */
+    -webkit-background-clip: text; /* قص الخلفية للنص */
+    background-clip: text;
+    color: transparent; /* جعل النص شفافًا لعرض التدرج */
+
 }
 
 #balanceAmount {
