@@ -904,6 +904,8 @@ buttons.forEach(button => {
 
 //
 
+window.Telegram.WebApp.setHeaderColor('#000000'); 
+    
 // تهيئة تكامل Telegram
 function initializeTelegramIntegration() {
     const telegramApp = window.Telegram.WebApp;
