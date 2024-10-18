@@ -744,7 +744,6 @@ async function updateUserData() {
 
 
 
-
 // Loading tasks from JSON file
 fetch('tasks.json')
     .then(response => response.json())
@@ -753,8 +752,9 @@ fetch('tasks.json')
         if (!taskContainer) {
             console.error('Task container element not found.');
             return;
-        }
-
+    }
+    
+} 
         taskContainer.innerHTML = ''; // Clean the content before adding tasks
 
         tasks.forEach(async task => {
