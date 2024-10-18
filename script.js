@@ -902,11 +902,18 @@ buttons.forEach(button => {
 });
 
 
-//
 
+//رجوع زر 
+
+Telegram.WebApp.onEvent('backButtonClicked', callback);
+
+// عند الحاجة، يمكنك إزالة الحدث
+function removeBackButtonEvent() {
+    Telegram.WebApp.offEvent('backButtonClicked', callback);
+}
+
+// تهيئه تكامل تليجرام 
 window.Telegram.WebApp.setHeaderColor('#000000'); 
-    
-// تهيئة تكامل Telegram
 function initializeTelegramIntegration() {
     const telegramApp = window.Telegram.WebApp;
 
