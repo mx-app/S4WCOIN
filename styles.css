@@ -121,7 +121,7 @@ body {
 .energy-bars-container {
     width: 70px; /* عرض الشريط */
     height: 12px; /* ارتفاع الشريط */
-    border: 3px solid #000; /* الخط المحيط بالشريط */
+    border: 3px solid #fff; /* الخط المحيط بالشريط */
     border-radius: 15px; /* زوايا منحنية */
     overflow: hidden; /* إخفاء الأجزاء التي تخرج عن الحدود */
     position: relative; /* لجعل الحشو داخل الشريط */
@@ -417,7 +417,7 @@ body {
 
 .menu button.active {
     transform: scale(1.2);
-    border: 2px solid #fff;
+    border: none;
     border-radius: 12px;
     color: transparent;
     background: linear-gradient(90deg, #d69a1c, #794106, #9f620c, #d69a1c);
