@@ -747,97 +747,72 @@ async function updateUserData() {
 
 
 
+// Load tasks from JSON file
+fetch('tasks.json')
+    .then(response => response.json())
+    .then(tasks => {
+        const taskContainer = document.getElementById('taskcontainer');
+        if (!taskContainer) {
+            console.error('Task container element not found.');
+            return;
+        }
 
+        taskContainer.innerHTML = ''; // Clear the content before adding new tasks
 
+        tasks.forEach(task => {
+            const taskItem = document.createElement('div');
+            taskItem.className = 'task-item';
 
-// Define tasks directly in the code
-const tasks = [
-    {
-        "id": 1,
-        "task": "Follow Telegram",
-        "reward": "5000",
-        "image": "i/tel.png",
-        "link": "https://t.me/Jigsaw_News"
-    },
-    {
-        "id": 2,
-        "task": "Follow Telegram saw",
-        "reward": "5000",
-        "image": "i/tel.png",
-        "link": "https://t.me/SAW_COIN"
-    },
-    {
-        "id": 3,
-        "task": "Follow Telegram",
-        "reward": "5000",
-        "image": "i/tel.png",
-        "link": "https://t.me/SAWCOIN_BOT?start=6793556284"
-    }
-];
+            // Add the image
+            const img = document.createElement('img');
+            img.src = task.image;
+            img.alt = task.task;
+            img.className = 'task-image';
+            taskItem.appendChild(img);
 
-// Load tasks from the defined array
-function loadTasks() {
-    const taskContainer = document.getElementById('taskcontainer');
-    if (!taskContainer) {
-        console.error('Task container element not found.');
-        return;
-    }
+            // Add the task text
+            const taskText = document.createElement('p');
+            taskText.textContent = `${task.task} - Reward: ${task.reward || 5000} coins`;
+            taskItem.appendChild(taskText);
 
-    taskContainer.innerHTML = ''; // Clear the content before adding new tasks
+            // Add the button
+            const button = document.createElement('button');
+            button.className = 'task-button';
 
-    tasks.forEach(task => {
-        const taskItem = document.createElement('div');
-        taskItem.className = 'task-item';
+            const taskId = task.id;
+            const taskProgressData = gameState.tasksprogress.find(t => t.task_id === taskId);
+            let taskProgress = taskProgressData ? taskProgressData.progress : 0;
 
-        // Add the image
-        const img = document.createElement('img');
-        img.src = task.image;
-        img.alt = task.task;
-        img.className = 'task-image';
-        taskItem.appendChild(img);
+            // Set button text based on task progress
+            button.textContent = taskProgress >= 2 ? 'Completed' : taskProgress === 1 ? 'Verify' : 'Go to Task';
+            button.disabled = taskProgress >= 2;
 
-        // Add the task text
-        const taskText = document.createElement('p');
-        taskText.textContent = `${task.task} - Reward: ${task.reward || 5000} coins`;
-        taskItem.appendChild(taskText);
+            // Button click handling
+            button.onclick = () => {
+                if (taskProgress === 0) {
+                    window.open(task.link, '_blank');
+                    taskProgress = 1;
+                    updateTaskProgressInGameState(taskId, taskProgress);
+                    button.textContent = 'Verify';
+                    showNotification(uiElements.purchaseNotification, 'Task opened. Verify to claim your reward.');
+                } else if (taskProgress === 1) {
+                    taskProgress = 2;
+                    updateTaskProgressInGameState(taskId, taskProgress);
+                    button.textContent = 'Claim Reward';
+                    showNotification(uiElements.purchaseNotification, 'Task verified. You can now claim the reward.');
+                } else if (taskProgress === 2) {
+                    claimTaskReward(taskId, task.reward);
+                    button.textContent = 'Completed';
+                    button.disabled = true;
+                    showNotification(uiElements.purchaseNotification, 'Reward successfully claimed!');
+                }
+            };
 
-        // Add the button
-        const button = document.createElement('button');
-        button.className = 'task-button';
-
-        const taskId = task.id;
-        const taskProgressData = gameState.tasksprogress.find(t => t.task_id === taskId);
-        let taskProgress = taskProgressData ? taskProgressData.progress : 0;
-
-        // Set button text based on task progress
-        button.textContent = taskProgress >= 2 ? 'Completed' : taskProgress === 1 ? 'Verify' : 'Go to Task';
-        button.disabled = taskProgress >= 2;
-
-        // Button click handling
-        button.onclick = () => {
-            if (taskProgress === 0) {
-                window.open(task.link, '_blank');
-                taskProgress = 1;
-                updateTaskProgressInGameState(taskId, taskProgress);
-                button.textContent = 'Verify';
-                showNotification(uiElements.purchaseNotification, 'Task opened. Verify to claim your reward.');
-            } else if (taskProgress === 1) {
-                taskProgress = 2;
-                updateTaskProgressInGameState(taskId, taskProgress);
-                button.textContent = 'Claim Reward';
-                showNotification(uiElements.purchaseNotification, 'Task verified. You can now claim the reward.');
-            } else if (taskProgress === 2) {
-                claimTaskReward(taskId, task.reward);
-                button.textContent = 'Completed';
-                button.disabled = true;
-                showNotification(uiElements.purchaseNotification, 'Reward successfully claimed!');
-            }
-        };
-
-        taskItem.appendChild(button);
-        taskContainer.appendChild(taskItem);
-    });
-}
+            taskItem.appendChild(button);
+            taskContainer.appendChild(taskItem);
+        });
+    })
+    .catch(error => console.error('Error loading tasks:', error));
 
 // Update task progress in gameState
 function updateTaskProgressInGameState(taskId, progress) {
@@ -860,7 +835,7 @@ function claimTaskReward(taskId, reward) {
     }
 
     // Update the user's balance in gameState
-    gameState.balance += parseInt(reward, 10); // Convert reward to integer if it's a string
+    gameState.balance += reward;
     if (task) {
         task.claimed = true;
     } else {
@@ -872,13 +847,6 @@ function claimTaskReward(taskId, reward) {
     saveGameState(); // Ensure the game state is saved
     showNotification(uiElements.purchaseNotification, `Successfully claimed ${formatNumber(reward)} coins!`);
 }
-
-// Load tasks when the page loads
-document.addEventListener('DOMContentLoaded', function() {
-    loadTasks(); // Call loadTasks function when the page loads
-});
-
-
 
 
 
