@@ -686,18 +686,23 @@ body {
     left: 50%;
     transform: translateX(-50%);
     background: linear-gradient(180deg, #000, #343434);
-    color: #fff;
     padding: 10px 20px; /* زيادة padding لجعل الإشعار طويل */
-    border-radius: 10px;
-    border: 1px solid #000;
+    border-radius: 5px;
+    border: 2px solid #000;
     font-size: 14px;
     z-index: 1000;
     transition: top 0.5s ease, opacity 0.5s ease; /* انتقال لعناصر الظهور والانزلاق */
     opacity: 0; /* البداية غير مرئية */
     width: 300px; /* عرض ثابت للإشعار */
-    max-width: 85%; /* الحد الأقصى لعرض الإشعار بنسبة 90% من الشاشة */
+    max-width: 85%; /* الحد الأقصى لعرض الإشعار بنسبة 85% من الشاشة */
     text-align: center; /* محاذاة النص إلى المنتصف */
+    color: transparent; /* لجعل النص شفافًا حتى يظهر التدرج */
+    background-clip: text; /* حيلة لإنشاء التدرج على النص */
+    -webkit-background-clip: text; /* دعم لتصفح Webkit */
+    background: linear-gradient(90deg, #d69a1c, #794106, #9f620c, #d69a1c); /* التدرج الذهبي */
+    -webkit-text-fill-color: transparent; /* دعم للمتصفحات التي تستخدم WebKit */
 }
+ 
 
 .notification.show {
     top: 10px; /* موقع الإشعار عند الظهور */
