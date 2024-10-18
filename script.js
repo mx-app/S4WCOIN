@@ -745,76 +745,11 @@ async function updateUserData() {
 
 
 
+//
 
 
-// Load tasks from JSON file
-fetch('tasks.json')
-    .then(response => response.json())
-    .then(tasks => {
-        const taskContainer = document.getElementById('taskcontainer');
-        if (!taskContainer) {
-            console.error('Task container element not found.');
-            return;
-        }
 
-        taskContainer.innerHTML = ''; // Clear the content before adding new tasks
-
-        tasks.forEach(task => {
-            const taskItem = document.createElement('div');
-            taskItem.className = 'task-item';
-
-            // Add the image
-            const img = document.createElement('img');
-            img.src = task.image;
-            img.alt = task.task;
-            img.className = 'task-image';
-            taskItem.appendChild(img);
-
-            // Add the task text
-            const taskText = document.createElement('p');
-            taskText.textContent = `${task.task} - Reward: ${task.reward || 5000} coins`;
-            taskItem.appendChild(taskText);
-
-            // Add the button
-            const button = document.createElement('button');
-            button.className = 'task-button';
-
-            const taskId = task.id;
-            const taskProgressData = gameState.tasksprogress.find(t => t.task_id === taskId);
-            let taskProgress = taskProgressData ? taskProgressData.progress : 0;
-
-            // Set button text based on task progress
-            button.textContent = taskProgress >= 2 ? 'Completed' : taskProgress === 1 ? 'Verify' : 'Go';
-            button.disabled = taskProgress >= 2;
-
-            // Button click handling
-            button.onclick = () => {
-                if (taskProgress === 0) {
-                    window.open(task.link, '_blank');
-                    taskProgress = 1;
-                    updateTaskProgressInGameState(taskId, taskProgress);
-                    button.textContent = 'Verify';
-                    showNotification(uiElements.purchaseNotification, 'Task opened. Verify to claim your reward.');
-                } else if (taskProgress === 1) {
-                    taskProgress = 2;
-                    updateTaskProgressInGameState(taskId, taskProgress);
-                    button.textContent = 'Claim Reward';
-                    showNotification(uiElements.purchaseNotification, 'Task verified. You can now claim the reward.');
-                } else if (taskProgress === 2) {
-                    claimTaskReward(taskId, task.reward);
-                    button.textContent = 'Completed';
-                    button.disabled = true;
-                    showNotification(uiElements.purchaseNotification, 'Reward successfully claimed!');
-                }
-            };
-
-            taskItem.appendChild(button);
-            taskContainer.appendChild(taskItem);
-        });
-    })
-    .catch(error => console.error('Error loading tasks:', error));
-
-// Update task progress in gameState
+// Function to update task progress in gameState
 function updateTaskProgressInGameState(taskId, progress) {
     const taskIndex = gameState.tasksprogress.findIndex(task => task.task_id === taskId);
     if (taskIndex > -1) {
@@ -822,15 +757,15 @@ function updateTaskProgressInGameState(taskId, progress) {
     } else {
         gameState.tasksprogress.push({ task_id: taskId, progress: progress, claimed: false });
     }
-    saveGameState(); // Save the updated game state
+    saveGameState(); // Save the updated game state (you can implement this function to save in localStorage or server)
 }
 
-// Claim the task reward and update balance
+// Function to claim task reward and update balance
 function claimTaskReward(taskId, reward) {
     const task = gameState.tasksprogress.find(task => task.task_id === taskId);
 
     if (task && task.claimed) {
-        showNotification(uiElements.purchaseNotification, 'You have already claimed this reward.');
+        showNotification('You have already claimed this reward.');
         return;
     }
 
@@ -842,11 +777,98 @@ function claimTaskReward(taskId, reward) {
         gameState.tasksprogress.push({ task_id: taskId, progress: 2, claimed: true });
     }
 
-    updateUI(); // Update the UI
-    updateUserData(); // Sync user data with the server
-    saveGameState(); // Ensure the game state is saved
-    showNotification(uiElements.purchaseNotification, `Successfully claimed ${formatNumber(reward)} coins!`);
+    updateUI(); // Update the UI (you may need to implement this function)
+    updateUserData(); // Sync user data with the server (you may need to implement this function)
+    saveGameState(); // Ensure the game state is saved (localStorage or API call)
+    showNotification(`Successfully claimed ${reward} coins!`);
 }
+
+// Function to handle task button clicks
+function handleTaskButtonClick(button) {
+    const taskId = parseInt(button.getAttribute('data-task-id'));
+    const taskLink = button.getAttribute('data-link');
+    const taskReward = parseInt(button.getAttribute('data-reward'));
+
+    const taskProgressData = gameState.tasksprogress.find(t => t.task_id === taskId);
+    let taskProgress = taskProgressData ? taskProgressData.progress : 0;
+
+    // Handle button click logic based on task progress
+    if (taskProgress === 0) {
+        // Open task link and update progress
+        window.open(taskLink, '_blank');
+        taskProgress = 1;
+        updateTaskProgressInGameState(taskId, taskProgress);
+        button.textContent = 'Verify';
+        showNotification('Task opened. Verify to claim your reward.');
+    } else if (taskProgress === 1) {
+        // Verify task and enable reward claiming
+        taskProgress = 2;
+        updateTaskProgressInGameState(taskId, taskProgress);
+        button.textContent = 'Claim Reward';
+        showNotification('Task verified. You can now claim the reward.');
+    } else if (taskProgress === 2) {
+        // Claim the reward
+        claimTaskReward(taskId, taskReward);
+        button.textContent = 'Completed';
+        button.disabled = true;
+    }
+}
+
+// Function to show notifications (you can customize this)
+function showNotification(message) {
+    alert(message); // Simple alert, you can replace this with a custom notification system
+}
+
+// Function to save game state (you can modify this to save in localStorage or API)
+function saveGameState() {
+    localStorage.setItem('gameState', JSON.stringify(gameState)); // Save to localStorage for example
+}
+
+// Function to load game state (you can modify this to load from localStorage or API)
+function loadGameState() {
+    const savedState = localStorage.getItem('gameState');
+    if (savedState) {
+        gameState = JSON.parse(savedState);
+    }
+}
+
+// Load game state when the page is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    loadGameState();
+
+    // Add event listeners to all task buttons
+    const taskButtons = document.querySelectorAll('.task-button');
+    taskButtons.forEach(button => {
+        button.addEventListener('click', () => handleTaskButtonClick(button));
+
+        const taskId = parseInt(button.getAttribute('data-task-id'));
+        const taskProgressData = gameState.tasksprogress.find(t => t.task_id === taskId);
+        let taskProgress = taskProgressData ? taskProgressData.progress : 0;
+
+        // Update button text based on task progress
+        if (taskProgress >= 2) {
+            button.textContent = 'Completed';
+            button.disabled = true;
+        } else if (taskProgress === 1) {
+            button.textContent = 'Verify';
+        } else {
+            button.textContent = 'Go to Task';
+        }
+    });
+});
+
+// Example of updating the UI (implement based on your design)
+function updateUI() {
+    document.getElementById('balance').textContent = `Balance: ${gameState.balance} coins`;
+}
+
+// Example of syncing user data with the server (implement this if needed)
+function updateUserData() {
+    // Make an API call to sync the data (you can implement the actual API logic here)
+    console.log('User data synced with server.');
+}
+
+
 
 
 
