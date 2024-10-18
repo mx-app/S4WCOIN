@@ -76,8 +76,8 @@ let gameState = {
     lastFillTime: Date.now(),
     freeEnergyFillTime: null,
     invites: [],
-    claimedRewards: { levels: [], tasks: [] }, 
-    tasksprogress: [],
+    claimedRewards: { levels: [] }, 
+    tasksprogress: [], 
     
 };
 
@@ -196,7 +196,6 @@ async function fetchUserDataFromTelegram() {
         gameState = { ...gameState, ...data };
         saveGameState();
         loadFriendsList(); // تحميل قائمة الأصدقاء بعد جلب البيانات
-        updateTasksProgress(); // تحديث المهام بناءً على البيانات المسترجعة
     } else {
         // تسجيل مستخدم جديد
         await registerNewUser(userTelegramId, userTelegramName);
@@ -258,7 +257,6 @@ function updateUI() {
     }
 
     updateBoostsDisplay();
-    updateTasksProgress();
     updateLevelDisplay();
 }
 
@@ -331,14 +329,6 @@ function registerEventHandlers() {
         uiElements.fillEnergyUpgradeBtn.addEventListener('click', () => {
             showUpgradeModal('energy');
         });
-    }
-
-    if (uiElements.taskTwoBtn) {
-        uiElements.taskTwoBtn.addEventListener('click', () => claimTaskReward(3));
-    }
-
-    if (uiElements.taskThreeBtn) {
-        uiElements.taskThreeBtn.addEventListener('click', () => claimTaskReward(10));
     }
 
     if (uiElements.withdrawBtn) {
