@@ -827,33 +827,19 @@ function claimTaskReward(taskId, reward) {
     }
 
     updateUI(); // Update the UI
+    showNotification(uiElements.purchaseNotification, `Successfully claimed ${reward} coins!`);
     updateUserData(); // Sync user data with the server
     saveGameState(); // Ensure the game state is saved
-    showNotification(uiElements.purchaseNotification, `Successfully claimed ${reward} coins!`);
 }
-
-
-// Save game state (you can customize it to save in the database)
-function saveGameState() {
-    // Your implementation to save the game state
-}
-
-// Update UI
-function updateUI() {
-    // Your implementation to update the user interface
-}
-
-// Update user data in the server (if needed)
-function updateUserData() {
-    // Your implementation to sync user data with the server
-}
-
-
 
 
 
 
 //
+
+
+
+
 
 
 document.querySelectorAll('button[data-target]').forEach(button => {
