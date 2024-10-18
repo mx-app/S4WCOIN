@@ -409,10 +409,23 @@ body {
     flex-direction: column;
     align-items: center;
     flex: 1;
-    transition: transform 0.3s ease, background-color 0.3s ease; /* إضافة التحول والتكبير */
-    border-radius: 25px;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* إضافة التحول للتدرج */
+    border-radius: 15px;
     position: relative;
+    background: none; /* إزالة الخلفية الافتراضية */
 }
+
+.menu button.active {
+    transform: scale(1.2);
+    border: 2px solid #fff;
+    border-radius: 12px;
+    color: transparent;
+    background: linear-gradient(90deg, #d69a1c, #794106, #9f620c, #d69a1c);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* تفعيل التدرج للنص */
+}
+
 
 .menu button:not(:last-child)::after {
     content: '';
