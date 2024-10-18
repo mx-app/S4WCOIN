@@ -927,6 +927,42 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+
+
+// أولاً: الحصول على جميع الأزرار داخل القائمة
+const buttons = document.querySelectorAll('.menu button');
+
+// ثانياً: إضافة مستمع للأحداث (Event Listener) لكل زر بحيث يستمع للنقرات
+buttons.forEach(button => {
+    button.addEventListener('click', function() {
+        // عند النقر على زر، يتم إزالة الصف "active" من جميع الأزرار
+        buttons.forEach(btn => btn.classList.remove('active'));
+        
+        // إضافة الصف "active" للزر الذي تم النقر عليه
+        this.classList.add('active');
+        
+        // الحصول على اسم الصفحة أو القسم المستهدف من الزر الذي تم النقر عليه
+        const targetPage = this.getAttribute('data-target');
+        
+        // هنا يمكنك وضع المنطق الذي يقوم بتغيير الصفحة بناءً على الزر (استبدل هذا المنطق إذا لزم الأمر)
+        // مثال: الانتقال إلى صفحة معينة بناءً على اسم الـ "data-target"
+        // window.location.href = targetPage + ".html";
+        console.log("التنقل إلى الصفحة:", targetPage); // هذا فقط للعرض في الكونسول
+    });
+});
+
+// ثالثاً: اختياري: تفعيل الزر النشط بناءً على الصفحة الحالية
+const currentPage = window.location.pathname; // هذا يحصل على اسم الصفحة الحالية من الـ URL
+buttons.forEach(button => {
+    const target = button.getAttribute('data-target'); // الحصول على قيمة "data-target" من كل زر
+    if (currentPage.includes(target)) {
+        button.classList.add('active'); // إضافة الصف "active" للزر الذي يتطابق مع الصفحة الحالية
+    }
+});
+
+
+
+
 // تهيئة تكامل Telegram
 function initializeTelegramIntegration() {
     const telegramApp = window.Telegram.WebApp;
