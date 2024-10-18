@@ -31,7 +31,7 @@
 #gamePage {
     padding: 20px;
     overflow-y: auto;
-    padding-bottom: 100px; 
+    padding-bottom: 110px; 
     transition: all 0.3s ease; /* لتحسين التحولات */
 }
 
