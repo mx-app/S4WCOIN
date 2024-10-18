@@ -706,7 +706,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     buttons.forEach(button => {
         const taskId = parseInt(button.getAttribute('data-task-id'));
-        const taskLink = button.getAttribute('data-link');
+        const taskurl = button.getAttribute('data-url');
         const taskReward = parseInt(button.getAttribute('data-reward'));
 
         const taskProgressData = gameState.tasksprogress.find(t => t.task_id === taskId);
@@ -721,10 +721,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (taskProgress === 0) {
                 // Open task link using Telegram's WebApp API
                 if (typeof Telegram !== 'undefined' && Telegram.WebApp) {
-                    Telegram.WebApp.openLink(taskLink); // Use Telegram API to open the link
+                    Telegram.WebApp.openurl(taskurl); // Use Telegram API to open the link
                 } else {
                     // Fallback to window.open if not in Telegram WebApp
-                    window.open(taskLink, '_blank');
+                    window.open(taskurl, '_blank');
                 }
                 taskProgress = 1;
                 updateTaskProgressInGameState(taskId, taskProgress);
@@ -734,7 +734,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Verify task and enable reward claiming
                 taskProgress = 2;
                 updateTaskProgressInGameState(taskId, taskProgress);
-                button.textContent = 'Claim Reward';
+                button.textContent = 'Claim';
                 showNotification(uiElements.purchaseNotification, 'Task verified. You can now claim the reward.');
             } else if (taskProgress === 2) {
                 // Claim the reward
