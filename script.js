@@ -676,7 +676,7 @@ function updateTaskBtnState(button, isActive) {
 }
 
 // المطالبة بمكافأة المهمة
-function claimTaskReward(friendsRequired) {
+function claimTasksReward(friendsRequired) {
     const friendsCount = gameState.friends.length;
 
     if (friendsCount >= friendsRequired && !gameState.claimedRewards.tasks.includes(friendsRequired)) {
