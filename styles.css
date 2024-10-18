@@ -226,7 +226,7 @@ body {
     font-size: 15px; 
     display: block;
     padding-bottom: 2px;
-    background: linear-gradient(90deg, #d69a1c, #794106, #9f620c, #d69a1c); /* التدرج اللوني */
+    background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c); /* التدرج اللوني */
     -webkit-background-clip: text; /* قص الخلفية للنص */
     background-clip: text;
     color: transparent; /* جعل النص شفافًا لعرض التدرج */
@@ -257,7 +257,7 @@ body {
 
 .user-level {
     font-size: 14px; 
-    background: linear-gradient(90deg, #d69a1c, #794106, #9f620c, #d69a1c); /* التدرج اللوني */
+    background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c); /* التدرج اللوني */
     -webkit-background-clip: text; /* قص الخلفية للنص */
     background-clip: text;
     color: transparent; /* جعل النص شفافًا لعرض التدرج */
@@ -686,11 +686,11 @@ body {
     left: 50%;
     transform: translateX(-50%);
     background: linear-gradient(180deg, #000, #343434);
-    color: #d69a1c;
-    padding: 10px 20px; /* زيادة padding لجعل الإشعار طويل */
+    color: #fff;
+    padding: 12px 20px; /* زيادة padding لجعل الإشعار طويل */
     border-radius: 5px;
     border: 2px solid #000;
-    font-size: 14px;
+    font-size: 15px;
     z-index: 1000;
     transition: top 0.5s ease, opacity 0.5s ease; /* انتقال لعناصر الظهور والانزلاق */
     opacity: 0; /* البداية غير مرئية */
