@@ -675,7 +675,7 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.confirmation-buttons .game-button:hover {
+.confirmation-buttons game-button:hover {
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
 }
  
@@ -685,8 +685,8 @@ body {
     top: -100px; /* البداية من فوق الشاشة */
     left: 50%;
     transform: translateX(-50%);
-    background: linear-gradient(180deg, #000, #343434);
-    padding: 10px 20px; /* زيادة padding لجعل الإشعار طويل */
+    background: linear-gradient(180deg, #000, #343434); /* الخلفية الداكنة */
+    padding: 10px 20px; /* زيادة padding لجعل الإشعار أطول */
     border-radius: 5px;
     border: 2px solid #000;
     font-size: 14px;
@@ -696,14 +696,20 @@ body {
     width: 300px; /* عرض ثابت للإشعار */
     max-width: 85%; /* الحد الأقصى لعرض الإشعار بنسبة 85% من الشاشة */
     text-align: center; /* محاذاة النص إلى المنتصف */
-    color: transparent; /* لجعل النص شفافًا حتى يظهر التدرج */
-    background-clip: text; /* حيلة لإنشاء التدرج على النص */
-    -webkit-background-clip: text; /* دعم لتصفح Webkit */
-    background: linear-gradient(90deg, #d69a1c, #794106, #9f620c, #d69a1c); /* التدرج الذهبي */
-    -webkit-text-fill-color: transparent; /* دعم للمتصفحات التي تستخدم WebKit */
+    color: transparent; /* النص شفاف حتى يظهر التدرج */
+    background-clip: text;
+    -webkit-background-clip: text; /* دعم WebKit */
+    background: none; /* إزالة الخلفية للتدرج على النص */
+}
+
+.notification span {
+    background: linear-gradient(90deg, #d69a1c, #794106, #9f620c, #d69a1c); /* التدرج الذهبي للنص */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent; /* ملء النص بالتدرج */
+    text-fill-color: transparent;
 }
  
-
 .notification.show {
     top: 10px; /* موقع الإشعار عند الظهور */
     opacity: 1; /* مرئية */
