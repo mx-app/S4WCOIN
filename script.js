@@ -750,21 +750,116 @@ async function updateUserData() {
 
 
 
-//const inviteButton = document.getElementById("inviteFriendsBtn");
 
-//let scale = 1;
-//let growing = true;
 
-//setInterval(() => {
-   // if (growing) {
-      //  scale += 0.05;
-      //  if (scale >= 1.2) growing = false; 
-  //  } else {
-      //  scale -= 0.05;
-       // if (scale <= 1) growing = true;
-  //  }
-//   inviteButton.style.transform = `scale(${scale})`;
-// }, 280);
+// تحميل المهام من ملف JSON
+fetch('tasks.json')
+    .then(response => response.json())
+    .then(tasks => {
+        const taskContainer = document.getElementById('taskcontainer');
+        if (!taskContainer) {
+            console.error('Task container element not found.');
+            return;
+        }
+
+        taskContainer.innerHTML = ''; // تنظيف المحتوى قبل إضافة المهام الجديدة
+
+        tasks.forEach(task => {
+            const taskItem = document.createElement('div');
+            taskItem.className = 'task-item';
+
+            // إضافة الصورة
+            const img = document.createElement('img');
+            img.src = task.image;
+            img.alt = task.task;
+            img.className = 'task-image';
+            taskItem.appendChild(img);
+
+            // إضافة النص الخاص بالمهمة
+            const taskText = document.createElement('p');
+            taskText.textContent = `${task.task} - مكافأة: ${task.reward || 5000} عملة`;
+            taskItem.appendChild(taskText);
+
+            // إضافة الزر
+            const button = document.createElement('button');
+            button.className = 'task-button';
+
+            const taskId = task.id;
+            const taskProgressData = gameState.tasksprogress.find(t => t.task_id === taskId);
+            let taskProgress = taskProgressData ? taskProgressData.progress : 0;
+
+            // تحديد نص الزر بناءً على تقدم المهمة
+            button.textContent = taskProgress >= 2 ? 'مكتملة' : taskProgress === 1 ? 'تحقق' : 'اذهب للمهمة';
+            button.disabled = taskProgress >= 2;
+
+            // التعامل مع النقر على الزر
+            button.onclick = () => {
+                if (taskProgress === 0) {
+                    window.open(task.link, '_blank');
+                    taskProgress = 1;
+                    updateTaskProgressInGameState(taskId, taskProgress);
+                    button.textContent = 'تحقق';
+                    showNotification(uiElements.purchaseNotification, 'تم فتح المهمة، تحقق للمطالبة بالمكافأة.');
+                } else if (taskProgress === 1) {
+                    taskProgress = 2;
+                    updateTaskProgressInGameState(taskId, taskProgress);
+                    button.textContent = 'اطلب المكافأة';
+                    showNotification(uiElements.purchaseNotification, 'تم التحقق من المهمة، يمكنك الآن المطالبة بالمكافأة.');
+                } else if (taskProgress === 2) {
+                    claimTaskReward(taskId, task.reward);
+                    button.textContent = 'مكتملة';
+                    button.disabled = true;
+                    showNotification(uiElements.purchaseNotification, 'تم المطالبة بالمكافأة بنجاح!');
+                }
+            };
+
+            taskItem.appendChild(button);
+            taskContainer.appendChild(taskItem);
+        });
+    })
+    .catch(error => console.error('Error loading tasks:', error));
+
+// تحديث تقدم المهمة في gameState
+function updateTaskProgressInGameState(taskId, progress) {
+    const taskIndex = gameState.tasksprogress.findIndex(task => task.task_id === taskId);
+    if (taskIndex > -1) {
+        gameState.tasksprogress[taskIndex].progress = progress;
+    } else {
+        gameState.tasksprogress.push({ task_id: taskId, progress: progress, claimed: false });
+    }
+    saveGameState(); // حفظ حالة اللعبة المحدثة
+}
+
+// المطالبة بمكافأة المهمة وتحديث الرصيد
+function claimTaskReward(taskId, reward) {
+    const task = gameState.tasksprogress.find(task => task.task_id === taskId);
+
+    if (task && task.claimed) {
+        showNotification(uiElements.purchaseNotification, 'لقد قمت بالمطالبة بهذه المكافأة بالفعل.');
+        return;
+    }
+
+    // تحديث رصيد المستخدم في gameState
+    gameState.balance += reward;
+    if (task) {
+        task.claimed = true;
+    } else {
+        gameState.tasksprogress.push({ task_id: taskId, progress: 2, claimed: true });
+    }
+
+    updateUI(); // تحديث واجهة المستخدم
+    updateUserData(); // مزامنة بيانات المستخدم مع السيرفر
+    saveGameState(); // حفظ حالة اللعبة
+    showNotification(uiElements.purchaseNotification, `تمت المطالبة بنجاح بمكافأة ${formatNumber(reward)} عملة!`);
+}
+
+
+
+
+
+
+
+
 
 
 document.querySelectorAll('button[data-target]').forEach(button => {
