@@ -748,7 +748,8 @@ async function updateUserData() {
 
 
 
-// تٌحًمًيَلَ آلَمًهّآمً مًنِ مًلَفُ JSON
+
+// Load tasks from JSON file
 fetch('tasks.json')
     .then(response => response.json())
     .then(tasks => {
@@ -758,25 +759,25 @@ fetch('tasks.json')
             return;
         }
 
-        taskContainer.innerHTML = ''; // تٌنِظُيَفُ آلَمًحًتٌوٌﮯ قُبًلَ إضآفُةّ آلَمًهّآمً آلَجّدٍيَدٍةّ
+        taskContainer.innerHTML = ''; // Clear the content before adding new tasks
 
         tasks.forEach(task => {
             const taskItem = document.createElement('div');
             taskItem.className = 'task-item';
 
-            // إضآفُةّ آلَصّوٌرةّ
+            // Add the image
             const img = document.createElement('img');
             img.src = task.image;
             img.alt = task.task;
             img.className = 'task-image';
             taskItem.appendChild(img);
 
-            // إضآفُةّ آلَنِصّ آلَخِآصّ بًآلَمًهّمًةّ
+            // Add the task text
             const taskText = document.createElement('p');
-            taskText.textContent = `${task.task} - مًکْآفُأةّ: ${task.reward || 5000} عٌمًلَةّ`;
+            taskText.textContent = `${task.task} - Reward: ${task.reward || 5000} coins`;
             taskItem.appendChild(taskText);
 
-            // إضآفُةّ آلَزٍر
+            // Add the button
             const button = document.createElement('button');
             button.className = 'task-button';
 
@@ -784,28 +785,28 @@ fetch('tasks.json')
             const taskProgressData = gameState.tasksprogress.find(t => t.task_id === taskId);
             let taskProgress = taskProgressData ? taskProgressData.progress : 0;
 
-            // تٌحًدٍيَدٍ نِصّ آلَزٍر بًنِآءً عٌلَﮯ تٌقُدٍمً آلَمًهّمًةّ
-            button.textContent = taskProgress >= 2 ? 'مًکْتٌمًلَةّ' : taskProgress === 1 ? 'تٌحًقُقُ' : 'آذِهّبً لَلَمًهّمًةّ';
+            // Set button text based on task progress
+            button.textContent = taskProgress >= 2 ? 'Completed' : taskProgress === 1 ? 'Verify' : 'Go';
             button.disabled = taskProgress >= 2;
 
-            // آلَتٌعٌآمًلَ مًعٌ آلَنِقُر عٌلَﮯ آلَزٍر
+            // Button click handling
             button.onclick = () => {
                 if (taskProgress === 0) {
                     window.open(task.link, '_blank');
                     taskProgress = 1;
                     updateTaskProgressInGameState(taskId, taskProgress);
-                    button.textContent = 'تٌحًقُقُ';
-                    showNotification(uiElements.purchaseNotification, 'تٌمً فُتٌحً آلَمًهّمًةّ، تٌحًقُقُ لَلَمًطِآلَبًةّ بًآلَمًکْآفُأةّ.');
+                    button.textContent = 'Verify';
+                    showNotification(uiElements.purchaseNotification, 'Task opened. Verify to claim your reward.');
                 } else if (taskProgress === 1) {
                     taskProgress = 2;
                     updateTaskProgressInGameState(taskId, taskProgress);
-                    button.textContent = 'آطِلَبً آلَمًکْآفُأةّ';
-                    showNotification(uiElements.purchaseNotification, 'تٌمً آلَتٌحًقُقُ مًنِ آلَمًهّمًةّ، يَمًکْنِکْ آلَآنِ آلَمًطِآلَبًةّ بًآلَمًکْآفُأةّ.');
+                    button.textContent = 'Claim';
+                    showNotification(uiElements.purchaseNotification, 'Task verified. You can now claim the reward.');
                 } else if (taskProgress === 2) {
                     claimTaskReward(taskId, task.reward);
-                    button.textContent = 'مًکْتٌمًلَةّ';
+                    button.textContent = 'Completed';
                     button.disabled = true;
-                    showNotification(uiElements.purchaseNotification, 'تٌمً آلَمًطِآلَبًةّ بًآلَمًکْآفُأةّ بًنِجّآحً!');
+                    showNotification(uiElements.purchaseNotification, 'Reward successfully claimed!');
                 }
             };
 
@@ -815,7 +816,7 @@ fetch('tasks.json')
     })
     .catch(error => console.error('Error loading tasks:', error));
 
-// تٌحًدٍيَثً تٌقُدٍمً آلَمًهّمًةّ فُيَ gameState
+// Update task progress in gameState
 function updateTaskProgressInGameState(taskId, progress) {
     const taskIndex = gameState.tasksprogress.findIndex(task => task.task_id === taskId);
     if (taskIndex > -1) {
@@ -823,19 +824,19 @@ function updateTaskProgressInGameState(taskId, progress) {
     } else {
         gameState.tasksprogress.push({ task_id: taskId, progress: progress, claimed: false });
     }
-    saveGameState(); // حًفُظُ حًآلَةّ آلَلَعٌبًةّ آلَمًحًدٍثًةّ
+    saveGameState(); // Save the updated game state
 }
 
-// آلَمًطِآلَبًةّ بًمًکْآفُأةّ آلَمًهّمًةّ وٌتٌحًدٍيَثً آلَرصّيَدٍ
+// Claim the task reward and update balance
 function claimTaskReward(taskId, reward) {
     const task = gameState.tasksprogress.find(task => task.task_id === taskId);
 
     if (task && task.claimed) {
-        showNotification(uiElements.purchaseNotification, 'لَقُدٍ قُمًتٌ بًآلَمًطِآلَبًةّ بًهّذِهّ آلَمًکْآفُأةّ بًآلَفُعٌلَ.');
+        showNotification(uiElements.purchaseNotification, 'You have already claimed this reward.');
         return;
     }
 
-    // تٌحًدٍيَثً رصّيَدٍ آلَمًسِتٌخِدٍمً فُيَ gameState
+    // Update the user's balance in gameState
     gameState.balance += reward;
     if (task) {
         task.claimed = true;
@@ -843,11 +844,12 @@ function claimTaskReward(taskId, reward) {
         gameState.tasksprogress.push({ task_id: taskId, progress: 2, claimed: true });
     }
 
-    updateUI(); // تٌحًدٍيَثً وٌآجّهّةّ آلَمًسِتٌخِدٍمً
-    showNotification(uiElements.purchaseNotification, `تٌمًتٌ آلَمًطِآلَبًةّ بًنِجّآحً بًمًکْآفُأةّ ${formatNumber(reward)} عٌمًلَةّ!`);
-    updateUserData(); // مًزٍآمًنِةّ بًيَآنِآتٌ آلَمًسِتٌخِدٍمً مًعٌ آلَسِيَرفُر
-    saveGameState(); // حًفُظُ حًآلَةّ آلَلَعٌبًةّ
- }
+    updateUI(); // Update the UI
+    showNotification(uiElements.purchaseNotification, `Successfully claimed ${formatNumber(reward)} coins!`);
+    updateUserData(); // Sync user data with the server
+    saveGameState(); // Ensure the game state is saved
+}
+
 
 
 
