@@ -721,7 +721,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (taskProgress === 0) {
                 // Open task link using Telegram's WebApp API
                 if (typeof Telegram !== 'undefined' && Telegram.WebApp) {
-                    Telegram.WebApp.openLink(taskurl); // Use Telegram API to open the link
+                    Telegram.WebApp.openLink(taskurl, { try_instant_view: true });
                 } else {
                     // Fallback to window.open if not in Telegram WebApp
                     window.open(taskurl, '_blank');
