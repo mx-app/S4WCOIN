@@ -784,7 +784,7 @@ fetch('tasks.json')
             let taskProgress = taskProgressData ? taskProgressData.progress : 0;
 
             // Set button text based on task progress
-            button.textContent = taskProgress >= 2 ? 'Completed' : taskProgress === 1 ? 'Verify' : 'Go to Task';
+            button.textContent = taskProgress >= 2 ? 'Completed' : taskProgress === 1 ? 'Verify' : 'Go';
             button.disabled = taskProgress >= 2;
 
             // Button click handling
@@ -850,7 +850,7 @@ function claimTaskReward(taskId, reward) {
 
 
 
-
+//
 
 
 document.querySelectorAll('button[data-target]').forEach(button => {
@@ -927,6 +927,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+//
 
 
 // أولاً: الحصول على جميع الأزرار داخل القائمة
@@ -961,7 +962,7 @@ buttons.forEach(button => {
 });
 
 
-
+//
 
 // تهيئة تكامل Telegram
 function initializeTelegramIntegration() {
