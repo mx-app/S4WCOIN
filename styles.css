@@ -685,7 +685,7 @@ body {
     top: -100px; /* البداية من فوق الشاشة */
     left: 50%;
     transform: translateX(-50%);
-    background: linear-gradient(180deg, #000, #343434);
+    background: #343434; /*linear-gradient(180deg, #000, #343434);*/
     color: #fff;
     padding: 12px 20px; /* زيادة padding لجعل الإشعار طويل */
     border-radius: 5px;
