@@ -749,7 +749,56 @@ async function updateUserData() {
 
 
 
-// Function to update task progress in gameState
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const taskContainer = document.getElementById('taskcontainer');
+    if (!taskContainer) {
+        console.error('Task container element not found.');
+        return;
+    }
+
+    const buttons = taskContainer.querySelectorAll('.task-button');
+
+    buttons.forEach(button => {
+        const taskId = parseInt(button.getAttribute('data-task-id'));
+        const taskLink = button.getAttribute('data-link');
+        const taskReward = parseInt(button.getAttribute('data-reward'));
+
+        const taskProgressData = gameState.tasksprogress.find(t => t.task_id === taskId);
+        let taskProgress = taskProgressData ? taskProgressData.progress : 0;
+
+        // Set button text based on task progress
+        button.textContent = taskProgress >= 2 ? 'Completed' : taskProgress === 1 ? 'Verify' : 'Go to Task';
+        button.disabled = taskProgress >= 2;
+
+        // Button click handling
+        button.onclick = () => {
+            if (taskProgress === 0) {
+                // Open task link and update progress
+                window.open(taskLink, '_blank');
+                taskProgress = 1;
+                updateTaskProgressInGameState(taskId, taskProgress);
+                button.textContent = 'Verify';
+                showNotification(uiElements.purchaseNotification, 'Task opened. Verify to claim your reward.');
+            } else if (taskProgress === 1) {
+                // Verify task and enable reward claiming
+                taskProgress = 2;
+                updateTaskProgressInGameState(taskId, taskProgress);
+                button.textContent = 'Claim Reward';
+                showNotification(uiElements.purchaseNotification, 'Task verified. You can now claim the reward.');
+            } else if (taskProgress === 2) {
+                // Claim the reward
+                claimTaskReward(taskId, taskReward);
+                button.textContent = 'Completed';
+                button.disabled = true;
+                showNotification(uiElements.purchaseNotification, 'Reward successfully claimed!');
+            }
+        };
+    });
+});
+
+// Update task progress in gameState
 function updateTaskProgressInGameState(taskId, progress) {
     const taskIndex = gameState.tasksprogress.findIndex(task => task.task_id === taskId);
     if (taskIndex > -1) {
@@ -757,15 +806,15 @@ function updateTaskProgressInGameState(taskId, progress) {
     } else {
         gameState.tasksprogress.push({ task_id: taskId, progress: progress, claimed: false });
     }
-    saveGameState(); // Save the updated game state (you can implement this function to save in localStorage or server)
+    saveGameState(); // Save the updated game state
 }
 
-// Function to claim task reward and update balance
+// Claim the task reward and update balance
 function claimTaskReward(taskId, reward) {
     const task = gameState.tasksprogress.find(task => task.task_id === taskId);
 
     if (task && task.claimed) {
-        showNotification('You have already claimed this reward.');
+        showNotification(uiElements.purchaseNotification, 'You have already claimed this reward.');
         return;
     }
 
@@ -777,96 +826,28 @@ function claimTaskReward(taskId, reward) {
         gameState.tasksprogress.push({ task_id: taskId, progress: 2, claimed: true });
     }
 
-    updateUI(); // Update the UI (you may need to implement this function)
-    updateUserData(); // Sync user data with the server (you may need to implement this function)
-    saveGameState(); // Ensure the game state is saved (localStorage or API call)
-    showNotification(`Successfully claimed ${reward} coins!`);
+    updateUI(); // Update the UI
+    updateUserData(); // Sync user data with the server
+    saveGameState(); // Ensure the game state is saved
+    showNotification(uiElements.purchaseNotification, `Successfully claimed ${reward} coins!`);
 }
 
-// Function to handle task button clicks
-function handleTaskButtonClick(button) {
-    const taskId = parseInt(button.getAttribute('data-task-id'));
-    const taskLink = button.getAttribute('data-link');
-    const taskReward = parseInt(button.getAttribute('data-reward'));
 
-    const taskProgressData = gameState.tasksprogress.find(t => t.task_id === taskId);
-    let taskProgress = taskProgressData ? taskProgressData.progress : 0;
-
-    // Handle button click logic based on task progress
-    if (taskProgress === 0) {
-        // Open task link and update progress
-        window.open(taskLink, '_blank');
-        taskProgress = 1;
-        updateTaskProgressInGameState(taskId, taskProgress);
-        button.textContent = 'Verify';
-        showNotification('Task opened. Verify to claim your reward.');
-    } else if (taskProgress === 1) {
-        // Verify task and enable reward claiming
-        taskProgress = 2;
-        updateTaskProgressInGameState(taskId, taskProgress);
-        button.textContent = 'Claim Reward';
-        showNotification('Task verified. You can now claim the reward.');
-    } else if (taskProgress === 2) {
-        // Claim the reward
-        claimTaskReward(taskId, taskReward);
-        button.textContent = 'Completed';
-        button.disabled = true;
-    }
-}
-
-// Function to show notifications (you can customize this)
-function showNotification(message) {
-    alert(message); // Simple alert, you can replace this with a custom notification system
-}
-
-// Function to save game state (you can modify this to save in localStorage or API)
+// Save game state (you can customize it to save in the database)
 function saveGameState() {
-    localStorage.setItem('gameState', JSON.stringify(gameState)); // Save to localStorage for example
+    // Your implementation to save the game state
 }
 
-// Function to load game state (you can modify this to load from localStorage or API)
-function loadGameState() {
-    const savedState = localStorage.getItem('gameState');
-    if (savedState) {
-        gameState = JSON.parse(savedState);
-    }
-}
-
-// Load game state when the page is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    loadGameState();
-
-    // Add event listeners to all task buttons
-    const taskButtons = document.querySelectorAll('.task-button');
-    taskButtons.forEach(button => {
-        button.addEventListener('click', () => handleTaskButtonClick(button));
-
-        const taskId = parseInt(button.getAttribute('data-task-id'));
-        const taskProgressData = gameState.tasksprogress.find(t => t.task_id === taskId);
-        let taskProgress = taskProgressData ? taskProgressData.progress : 0;
-
-        // Update button text based on task progress
-        if (taskProgress >= 2) {
-            button.textContent = 'Completed';
-            button.disabled = true;
-        } else if (taskProgress === 1) {
-            button.textContent = 'Verify';
-        } else {
-            button.textContent = 'Go to Task';
-        }
-    });
-});
-
-// Example of updating the UI (implement based on your design)
+// Update UI
 function updateUI() {
-    document.getElementById('balance').textContent = `Balance: ${gameState.balance} coins`;
+    // Your implementation to update the user interface
 }
 
-// Example of syncing user data with the server (implement this if needed)
+// Update user data in the server (if needed)
 function updateUserData() {
-    // Make an API call to sync the data (you can implement the actual API logic here)
-    console.log('User data synced with server.');
+    // Your implementation to sync user data with the server
 }
+
 
 
 
