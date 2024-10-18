@@ -1,7 +1,7 @@
 // تحميل الأحجية من ملف JSON
 async function loadPuzzles() {
     try {
-        const response = await fetch('puzzles.json'); // جلب الأحجيات من ملف JSON
+        const response = await fetch('puzzles.json');
         if (!response.ok) throw new Error('Failed to load puzzles');
         const data = await response.json();
         return data.puzzles;
