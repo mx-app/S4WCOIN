@@ -745,6 +745,7 @@ async function updateUserData() {
 
 
 
+
 //
 
 
@@ -769,14 +770,19 @@ document.addEventListener('DOMContentLoaded', () => {
         let taskProgress = taskProgressData ? taskProgressData.progress : 0;
 
         // Set button text based on task progress
-        button.textContent = taskProgress >= 2 ? 'Completed' : taskProgress === 1 ? 'Verify' : 'Go to Task';
+        button.textContent = taskProgress >= 2 ? 'Completed' : taskProgress === 1 ? 'Verify' : ' Go ';
         button.disabled = taskProgress >= 2;
 
         // Button click handling
         button.onclick = () => {
             if (taskProgress === 0) {
-                // Open task link and update progress
-                window.open(taskLink, '_blank');
+                // Open task link using Telegram's WebApp API
+                if (typeof Telegram !== 'undefined' && Telegram.WebApp) {
+                    Telegram.WebApp.openLink(taskLink); // Use Telegram API to open the link
+                } else {
+                    // Fallback to window.open if not in Telegram WebApp
+                    window.open(taskLink, '_blank');
+                }
                 taskProgress = 1;
                 updateTaskProgressInGameState(taskId, taskProgress);
                 button.textContent = 'Verify';
@@ -831,6 +837,8 @@ function claimTaskReward(taskId, reward) {
     updateUserData(); // Sync user data with the server
     saveGameState(); // Ensure the game state is saved
 }
+
+
 
 
 
