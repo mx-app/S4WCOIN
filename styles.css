@@ -158,8 +158,8 @@ body {
     justify-content: flex-start;
     align-items: flex-start;
     padding: 20px 30px;
-    border-bottom-left-radius: 12px; /* حواف دائرية في الزاوية السفلية اليسرى */
-    border-bottom-right-radius: 12px; /* حواف دائرية في الزاوية السفلية اليمنى */
+    border-bottom-left-radius: 10px; /* حواف دائرية في الزاوية السفلية اليسرى */
+    border-bottom-right-radius: 10px; /* حواف دائرية في الزاوية السفلية اليمنى */
     border-bottom: 3px solid #343434; /* إضافة حدود في الجزء السفلي */
    /*border-radius: 15px 15px 15px 15px;
     border: 2px solid #343434;*/
@@ -171,8 +171,8 @@ body {
     width: %;
     height: auto; 
     margin: 0 auto;
-    margin-left: 0;
-    margin-right: 0;
+    margin-left: 2px;
+    margin-right: 2px;
     z-index: 100;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 4px 8px rgba(0, 0, 0, 1); /* إضافة الظل */
 }  
@@ -429,9 +429,9 @@ body {
     content: '';
     position: absolute;
     right: 0;
-    height: 70%;
-    width: 3px;
-    background-color: #343434;
+    height: 65%;
+    width: 2px;
+    background: linear-gradient(90deg, #d69a1c, #794106, #9f620c, #d69a1c);
     top: 18%;
 }
 
