@@ -763,14 +763,19 @@ body {
     position: fixed; /* الأزرار ثابتة على جوانب الشاشة */
     top: 55%; /* في منتصف الشاشة رأسيًا */
     transform: translateY(-50%);
-    background-color: none;
-    color: #fff;
-    font-size: 20px;
-    border: none;
-    padding: 20px;
+    background-color: transparent; /* الخلفية شفافة */
+    color: #fff; /* لون السهم أبيض */
+    font-size: 30px; /* تكبير حجم السهم */
+    border: none; /* إزالة الحدود */
+    padding: 10px;
     cursor: pointer;
     z-index: 1000; /* لضمان أن الأزرار فوق العناصر الأخرى */
+    opacity: 0.8; /* تحسين شفافية السهم */
 }
+.arrow-btn:hover {
+    opacity: 1; /* إظهار السهم بالكامل عند التمرير عليه */
+}
+ 
 
 .arrow-btn.left {
     left: 5px; /* زر الاتجاه الأيسر على الجانب الأيسر من الشاشة */
