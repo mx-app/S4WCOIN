@@ -223,7 +223,7 @@ body {
 #balanceTitle {
     font-weight: bold;
     margin-bottom: 5px;
-    font-size: 15px; 
+    font-size: 16px; 
     display: block;
     padding-bottom: 2px;
     background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c); /* التدرج اللوني */
@@ -293,7 +293,7 @@ body {
 } 
 
 #energyInfo {
-    font-size: 15px; /* حجم الخط */
+    font-size: 16px; /* حجم الخط */
     font-weight: bold; /* سمك الخط */
     color: #fff; /* لون النص */
     text-align: left; /* المحاذاة لليسار */
