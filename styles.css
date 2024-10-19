@@ -939,3 +939,18 @@ body {
     display: block; /* تغيير هذا لجعل الصورة تظهر فوق النص */
     margin: 0 auto; /* مركز الصورة */
 }
+
+
+.settings-button {
+    background-color: transparent; /* خلفية شفافة */
+    border: none; /* بدون حدود */
+    cursor: pointer; /* تغيير المؤشر عند التمرير */
+    padding: 0; /* إزالة الهوامش الداخلية */
+    margin-left: 10px; /* مسافة بين الأزرار */
+}
+
+.settings-icon {
+    width: 24px; /* عرض الصورة */
+    height: 24px; /* ارتفاع الصورة */
+}
+ 
