@@ -256,6 +256,7 @@ body {
 }
 
 .user-level {
+    left: 25px;
     font-size: 14px; 
     background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c); /* التدرج اللوني */
     -webkit-background-clip: text; /* قص الخلفية للنص */
@@ -867,8 +868,8 @@ body {
 
 .level-button-floating {
     position: fixed;
-    top: 15px; 
-    left: 15px;
+    top: 16px; 
+    left: 18px;
     background-color: transparent;
     color: #fff; 
     font-size: 18px;
