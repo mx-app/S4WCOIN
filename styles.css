@@ -588,6 +588,7 @@ body {
     border: none;
     font-size: var(--claim-button-size);
     border: 1px solid #fff;
+    z-index: 1000;
 }
 
 .boost-item button:hover, .task-item button:hover {
