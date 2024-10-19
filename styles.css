@@ -155,8 +155,8 @@ body {
 .status-bar {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     padding: 20px 30px;
     border-bottom-left-radius: 12px; /* حواف دائرية في الزاوية السفلية اليسرى */
     border-bottom-right-radius: 12px; /* حواف دائرية في الزاوية السفلية اليمنى */
@@ -175,7 +175,7 @@ body {
     margin-right: 0;
     z-index: 100;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 4px 8px rgba(0, 0, 0, 1); /* إضافة الظل */
-} 
+}  
  
 
  .game-title {
@@ -951,7 +951,7 @@ body {
     border: none;
     cursor: pointer;
     padding: 0; 
-    margin-left: 10px; 
+    margin-left: 90px; 
 }
 
 .settings-icon {
