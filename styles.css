@@ -949,7 +949,7 @@ body {
 .settings-button {
     position: fixed;
     top: 12px; 
-    left: 10px;
+    left: 300px;
     background-color: transparent;
     border: none;
     cursor: pointer;
