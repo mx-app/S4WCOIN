@@ -913,10 +913,10 @@ body {
  
 .boosts-button {
     position: fixed;
-    top: 75.2vh; 
+    top: 75.5vh; 
     right: 2.5vw; /* المسافة من الجانب الأيمن */
     background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    color: #fff;
-    border: 2px solid #343434;
+    border: 3px solid #343434;
     padding: 10px 8px;
     border-radius: 10px; 
     text-align: center;
