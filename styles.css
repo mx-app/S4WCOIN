@@ -763,10 +763,11 @@ body {
     position: fixed; /* الأزرار ثابتة على جوانب الشاشة */
     top: 55%; /* في منتصف الشاشة رأسيًا */
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: none;
     color: #fff;
+    font-size: 20px;
     border: none;
-    padding: 10px;
+    padding: 20px;
     cursor: pointer;
     z-index: 1000; /* لضمان أن الأزرار فوق العناصر الأخرى */
 }
