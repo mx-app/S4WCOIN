@@ -719,13 +719,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // Button click handling
         button.onclick = () => {
             if (taskProgress === 0) {
-                // Open task link using Telegram's WebApp API
-                if (typeof Telegram !== 'undefined' && Telegram.WebApp) {
-                    Telegram.WebApp.openLink(taskurl, { try_instant_view: true });
-                } else {
-                    // Fallback to window.open if not in Telegram WebApp
-                    window.open(taskurl, '_blank');
-                }
                 taskProgress = 1;
                 updateTaskProgressInGameState(taskId, taskProgress);
                 button.textContent = 'Verify';
