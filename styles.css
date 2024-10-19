@@ -940,6 +940,10 @@ body {
     margin: 0 auto; /* مركز الصورة */
 }
 
+.settings-container {
+    display: flex;
+    justify-content: flex-end; /* لتحديد الزر في أقصى اليمين */
+} 
 
 .settings-button {
     background-color: transparent;
