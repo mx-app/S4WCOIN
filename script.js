@@ -698,6 +698,8 @@ async function updateUserData() {
 
 
 
+ 
+
 document.addEventListener('DOMContentLoaded', () => {
     const taskContainer = document.getElementById('taskcontainer');
     if (!taskContainer) {
@@ -709,73 +711,55 @@ document.addEventListener('DOMContentLoaded', () => {
 
     buttons.forEach(button => {
         const taskId = parseInt(button.getAttribute('data-task-id'));
-        const taskUrl = button.getAttribute('data-url').trim(); // إزالة المسافات الزائدة
+        const taskurl = button.getAttribute('data-url');
         const taskReward = parseInt(button.getAttribute('data-reward'));
+
         const taskProgressData = gameState.tasksprogress.find(t => t.task_id === taskId);
         let taskProgress = taskProgressData ? taskProgressData.progress : 0;
 
-        // إعداد نص الزر بناءً على التقدم
-        button.textContent = getTaskButtonText(taskProgress);
+        // Set button text based on task progress
+        button.textContent = taskProgress >= 2 ? 'Completed' : taskProgress === 1 ? 'Verify' : ' Go ';
         button.disabled = taskProgress >= 2;
 
-        // ربط حدث النقر على الزر
-        button.addEventListener('click', () => handleTaskButtonClick(taskId, taskUrl, taskReward, taskProgress, button));
+        // Button click handling
+        button.onclick = () => {
+            if (taskProgress === 0) {
+                // Fallback to window.open if not in Telegram WebApp
+                window.open(taskurl, '_blank');
+                taskProgress = 1;
+                updateTaskProgressInGameState(taskId, taskProgress);
+                button.textContent = 'Verify';
+                showNotification(uiElements.purchaseNotification, 'Task opened. Verify to claim your reward.');
+            } else if (taskProgress === 1) {
+                // Verify task and enable reward claiming
+                taskProgress = 2;
+                updateTaskProgressInGameState(taskId, taskProgress);
+                button.textContent = 'Claim';
+                showNotification(uiElements.purchaseNotification, 'Task verified. You can now claim the reward.');
+            } else if (taskProgress === 2) {
+                // Claim the reward
+                claimTaskReward(taskId, taskReward);
+                button.textContent = 'Completed';
+                button.disabled = true;
+                showNotification(uiElements.purchaseNotification, 'Reward successfully claimed!');
+            }
+        };
     });
 });
 
-// دالة لتحديد نص الزر بناءً على حالة التقدم
-function getTaskButtonText(taskProgress) {
-    if (taskProgress >= 2) {
-        return 'Completed';
-    } else if (taskProgress === 1) {
-        return 'Verify';
-    } else {
-        return 'Go';
-    }
-}
-
-// التعامل مع النقر على زر المهمة
-function handleTaskButtonClick(taskId, taskUrl, taskReward, taskProgress, button) {
-    if (taskProgress === 0) {
-        openTask(taskUrl); // فتح رابط المهمة
-        taskProgress = 1;
-        button.textContent = 'Verify';
-        showNotification(uiElements.purchaseNotification, 'Task opened. Verify to claim your reward.');
-    } else if (taskProgress === 1) {
-        taskProgress = 2;
-        button.textContent = 'Claim';
-        showNotification(uiElements.purchaseNotification, 'Task verified. You can now claim the reward.');
-    } else if (taskProgress === 2) {
-        claimTaskReward(taskId, taskReward, button);
-        return;
-    }
-    
-    updateTaskProgressInGameState(taskId, taskProgress); // تحديث التقدم في اللعبة
-}
-
-// فتح رابط المهمة باستخدام Telegram WebApp أو نافذة جديدة
-function openTask(taskUrl) {
-    if (Telegram.WebApp) {
-        Telegram.WebApp.openLink(taskUrl, { try_instant_view: true });
-    } else {
-        window.open(taskUrl, '_blank');
-    }
-}
-
-// تحديث التقدم في المهام داخل حالة اللعبة (gameState)
-function updateTaskProgressInGameState(taskId, progress, claimed = false) {
+// Update task progress in gameState
+function updateTaskProgressInGameState(taskId, progress) {
     const taskIndex = gameState.tasksprogress.findIndex(task => task.task_id === taskId);
     if (taskIndex > -1) {
         gameState.tasksprogress[taskIndex].progress = progress;
-        gameState.tasksprogress[taskIndex].claimed = claimed;
     } else {
-        gameState.tasksprogress.push({ task_id: taskId, progress, claimed });
+        gameState.tasksprogress.push({ task_id: taskId, progress: progress, claimed: false });
     }
-    saveGameState(); // حفظ حالة اللعبة
+    saveGameState(); // Save the updated game state
 }
 
-// المطالبة بالمكافأة وتحديث الرصيد
-function claimTaskReward(taskId, reward, button) {
+// Claim the task reward and update balance
+function claimTaskReward(taskId, reward) {
     const task = gameState.tasksprogress.find(task => task.task_id === taskId);
 
     if (task && task.claimed) {
@@ -783,18 +767,21 @@ function claimTaskReward(taskId, reward, button) {
         return;
     }
 
-    gameState.balance += reward; // تحديث الرصيد
-    updateTaskProgressInGameState(taskId, 2, true); // تحديث المهمة والمطالبة بالمكافأة
+    // Update the user's balance in gameState
+    gameState.balance += reward;
+    if (task) {
+        task.claimed = true;
+    } else {
+        gameState.tasksprogress.push({ task_id: taskId, progress: 2, claimed: true });
+    }
 
-    // تحديث الواجهة وتعطيل الزر بعد المطالبة بالمكافأة
-    button.textContent = 'Completed';
-    button.disabled = true;
-
-    updateUI(); // تحديث واجهة المستخدم
+    updateUI(); // Update the UI
     showNotification(uiElements.purchaseNotification, `Successfully claimed ${reward} coins!`);
-    updateUserData(); // مزامنة بيانات المستخدم مع الخادم
-    saveGameState(); // حفظ حالة اللعبة بعد المطالبة
+    updateUserData(); // Sync user data with the server
+    saveGameState(); // Ensure the game state is saved
 }
+
+
         
 
 
