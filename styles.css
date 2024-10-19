@@ -256,13 +256,12 @@ body {
 }
 
 .user-level {
-    left: 50px;
-    font-size: 14px; 
+    font-size: 15px; 
     background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c); /* التدرج اللوني */
     -webkit-background-clip: text; /* قص الخلفية للنص */
     background-clip: text;
     color: transparent; /* جعل النص شفافًا لعرض التدرج */
-    margin-left: 2px;
+    margin-left: 20px;
 }
  
 
