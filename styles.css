@@ -868,7 +868,7 @@ body {
 .level-button-floating {
     position: fixed;
     top: 15px; 
-    left: 138px;
+    left: 15px;
     background-color: transparent;
     color: #fff; 
     font-size: 18px;
