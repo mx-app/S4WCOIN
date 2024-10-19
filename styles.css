@@ -943,6 +943,7 @@ body {
 .settings-container {
     display: flex;
     justify-content: flex-end; /* لتحديد الزر في أقصى اليمين */
+    align-items: center;
 } 
 
 .settings-button {
