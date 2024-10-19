@@ -261,7 +261,7 @@ body {
     -webkit-background-clip: text; /* قص الخلفية للنص */
     background-clip: text;
     color: transparent; /* جعل النص شفافًا لعرض التدرج */
-    margin-left: 19px;
+    margin-left: 19.5px;
 }
  
 
@@ -868,7 +868,7 @@ body {
 .level-button-floating {
     position: fixed;
     top: 15px; 
-    left: 18px;
+    left: 17px;
     background-color: transparent;
     color: #fff; 
     font-size: 18px;
