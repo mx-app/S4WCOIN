@@ -903,21 +903,23 @@ buttons.forEach(button => {
 
 
 
-//رجوع زر 
-
-Telegram.WebApp.onEvent('backButtonClicked', callback);
-
-// عند الحاجة، يمكنك إزالة الحدث
-function removeBackButtonEvent() {
-    Telegram.WebApp.offEvent('backButtonClicked', callback);
-}
-
-// تهيئه تكامل تليجرام 
-window.Telegram.WebApp.setHeaderColor('#000000'); 
+// تهيئة تكامل Telegram
 function initializeTelegramIntegration() {
     const telegramApp = window.Telegram.WebApp;
 
     telegramApp.ready();
+    
+    // إظهار زر الرجوع
+    telegramApp.BackButton.show();
+
+    // تفعيل حدث زر الرجوع
+    telegramApp.onEvent('backButtonClicked', () => {
+        // تنفيذ الإجراء المطلوب عند النقر على زر الرجوع
+        // مثال: العودة إلى الشاشة السابقة أو إغلاق النافذة الحالية
+        history.back(); // العودة للصفحة السابقة
+    });
+
+    // إعدادات اللون والاسم
     if (uiElements.userTelegramNameDisplay) {
         uiElements.userTelegramNameDisplay.innerText = telegramApp.initDataUnsafe.user?.username || '';
     }
@@ -939,7 +941,12 @@ function initializeTelegramIntegration() {
     });
 }
 
-initializeApp();
+// إزالة حدث زر الرجوع عند الحاجة
+function removeBackButtonEvent() {
+    window.Telegram.WebApp.offEvent('backButtonClicked', callback);
+}
 
+// تفعيل التطبيق
+initializeApp();
 
 
