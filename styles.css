@@ -765,9 +765,9 @@ body {
     transform: translateY(-50%);
     background-color: transparent; /* الخلفية شفافة */
     color: #fff; /* لون السهم أبيض */
-    font-size: 30px; /* تكبير حجم السهم */
+    font-size: 45px; /* تكبير حجم السهم */
     border: none; /* إزالة الحدود */
-    padding: 10px;
+    padding: 15px;
     cursor: pointer;
     z-index: 1000; /* لضمان أن الأزرار فوق العناصر الأخرى */
     opacity: 0.8; /* تحسين شفافية السهم */
