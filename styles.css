@@ -941,16 +941,16 @@ body {
 }
 
 
-.settings-button {
-    background-color: transparent; /* خلفية شفافة */
-    border: none; /* بدون حدود */
-    cursor: pointer; /* تغيير المؤشر عند التمرير */
-    padding: 0; /* إزالة الهوامش الداخلية */
-    margin-left: 10px; /* مسافة بين الأزرار */
+/*.settings-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0; 
+    margin-left: 10px; 
 }
 
 .settings-icon {
-    width: 24px; /* عرض الصورة */
-    height: 24px; /* ارتفاع الصورة */
-}
+    width: 24px; 
+    height: 24px;
+}*/
  
