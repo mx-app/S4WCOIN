@@ -1,7 +1,7 @@
 /* Game page */
 .Play-game-button {
     position: fixed;
-    top: 76vh; 
+    top: 75vh; 
     right: 20vw; /* المسافة من الجانب الأيمن */
     background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    color: #fff;
     border: 2px solid #343434;
