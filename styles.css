@@ -947,15 +947,17 @@ body {
 } 
 
 .settings-button {
+    position: fixed;
+    top: 11px; 
+    left: 138px;
     background-color: transparent;
     border: none;
     cursor: pointer;
     padding: 0; 
-    margin-left: 400px; 
 }
 
 .settings-icon {
-    width: 24px; 
-    height: 24px;
+    width: 25px; 
+    height: 25px;
 }
  
