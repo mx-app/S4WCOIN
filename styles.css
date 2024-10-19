@@ -261,7 +261,7 @@ body {
     -webkit-background-clip: text; /* قص الخلفية للنص */
     background-clip: text;
     color: transparent; /* جعل النص شفافًا لعرض التدرج */
-    margin-left: 20px;
+    margin-left: 19px;
 }
  
 
@@ -885,8 +885,8 @@ body {
 }
 
 .levels-icon {
-    width: 25px; 
-    height: 25px;
+    width: 27px; 
+    height: 27px;
 }
   
 .centered {
