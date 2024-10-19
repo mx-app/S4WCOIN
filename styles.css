@@ -941,7 +941,7 @@ body {
 }
 
 
-/*.settings-button {
+.settings-button {
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -952,5 +952,5 @@ body {
 .settings-icon {
     width: 24px; 
     height: 24px;
-}*/
+}
  
