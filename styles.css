@@ -261,7 +261,7 @@ body {
     -webkit-background-clip: text; /* قص الخلفية للنص */
     background-clip: text;
     color: transparent; /* جعل النص شفافًا لعرض التدرج */
-    margin-left: 19.5px;
+    margin-left: 20px;
 }
  
 
@@ -935,8 +935,8 @@ body {
 }
  
 .boosts-button img {
-    width: 27px;
-    height: 27px;
+    width: 25px;
+    height: 25px;
     display: block; /* تغيير هذا لجعل الصورة تظهر فوق النص */
     margin: 0 auto; /* مركز الصورة */
 }
