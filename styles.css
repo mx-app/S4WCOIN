@@ -948,8 +948,8 @@ body {
 
 .settings-button {
     position: fixed;
-    top: 11px; 
-    left: 138px;
+    top: 12px; 
+    left: 10px;
     background-color: transparent;
     border: none;
     cursor: pointer;
