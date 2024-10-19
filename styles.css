@@ -872,12 +872,10 @@ body {
     background-color: transparent;
     color: #fff; 
     font-size: 18px;
-    padding: 4px 4px;
+    padding: 0;
 /*   border-radius: 50%;*/
     border-bottom: 2px solid #343434;
     cursor: pointer;
-    box-shadow: 0 3px 1px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease;
     z-index: 5;  
 
 }  
@@ -938,8 +936,8 @@ body {
 }
  
 .boosts-button img {
-    width: 25px;
-    height: 25px;
+    width: 27px;
+    height: 27px;
     display: block; /* تغيير هذا لجعل الصورة تظهر فوق النص */
     margin: 0 auto; /* مركز الصورة */
 }
@@ -958,10 +956,11 @@ body {
     border: none;
     cursor: pointer;
     padding: 0; 
+    z-index: 5;  
 }
 
 .settings-icon {
-    width: 25px; 
-    height: 25px;
+    width: 27px; 
+    height: 27px;
 }
  
