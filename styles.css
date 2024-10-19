@@ -868,7 +868,7 @@ body {
 
 .level-button-floating {
     position: fixed;
-    top: 16px; 
+    top: 13px; 
     left: 15px;
     background-color: transparent;
     background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c); /* التدرج اللوني */
