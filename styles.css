@@ -381,7 +381,7 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 8px;
-    border: 2px solid #343434; 
+    border: 3px solid #343434; 
 /*   background: linear-gradient(45deg, #000, #9f0000, #000);*/
     background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);
     background-position: center;
@@ -429,7 +429,7 @@ body {
     content: '';
     position: absolute;
     right: 0;
-    height: 60%;
+    height: 70%;
     width: 3px;
     background-color: #343434;
     top: 18%;
