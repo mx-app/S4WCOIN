@@ -158,7 +158,7 @@
     grid-template-columns: repeat(3, 1fr); /* ثلاث أعمدة في الصف الأول */
     gap: 8px; /* مسافة بين الأزرار */
     justify-items: center; /* محاذاة الأزرار في المنتصف */
-    margin-top: 5px;
+    margin-top: 4px;
 }
 
 .puzzle-options button {
@@ -239,7 +239,7 @@
 }
 
 #puzzleQuestion {
-    font-size: 28px; /* حجم الخط أكبر */
+    font-size: 25px; /* حجم الخط أكبر */
     font-weight: bold; /* لجعل النص عريض */
     margin-bottom: 5px; /* إضافة بعض المسافة تحت السؤال */
     text-align: center; /* لتوسيط السؤال */
