@@ -244,3 +244,7 @@
     margin-bottom: 2px; /* إضافة بعض المسافة تحت السؤال */
     text-align: center; /* لتوسيط السؤال */
 }
+
+#closePuzzleBtn {
+    display: none;
+}
