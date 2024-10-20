@@ -1,7 +1,7 @@
 {
   "puzzles": [
     {
-      "id": 2,
+      "id": 3,
       "difficulty": "medium",
       "question": "Complete the sequence: 3, 6, 9, 12,",
       "options": ["2", "15", "80", "13", "7", "11"],
