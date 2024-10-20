@@ -903,6 +903,8 @@ function claimTaskReward(taskId, reward) {
 }
 
 
+localStorage.removeItem('gameState'); // مسح حالة اللعبة
+loadGameState(); // إعادة تحميل حالة اللعبة
 
 
 
