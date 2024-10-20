@@ -849,7 +849,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 taskContainer.appendChild(taskElement);
 
                 // Handle task progress and button click
-                let taskProgress = gameState.tasksprogress.find(t => t.task_id === task.id)?.progress || 0;
+                const taskProgressData = gameState.tasksprogress.find(t => t.task_id === task.id);
+                let taskProgress = taskProgressData ? taskProgressData.progress : 0;
 
                 // Set button text based on task progress
                 button.textContent = taskProgress >= 2 ? 'Completed' : taskProgress === 1 ? 'Verify' : 'Go';
@@ -872,8 +873,7 @@ function handleTaskClick(taskId, taskurl, taskReward, button, taskProgress) {
         button.textContent = 'Verify';
         showNotification(uiElements.purchaseNotification, 'Task opened. Verify to claim your reward.');
     } else if (taskProgress === 1) {
-        // Open the task link again to verify and change to claim
-        openTaskLink(taskurl);
+        // Verify task and enable reward claiming
         taskProgress = 2;
         updateTaskProgressInGameState(taskId, taskProgress);
         button.textContent = 'Claim';
@@ -929,6 +929,8 @@ function claimTaskReward(taskId, reward) {
     updateUserData(); // Sync user data with the server
     saveGameState(); // Ensure the game state is saved
 }
+
+
 
 
 
