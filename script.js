@@ -946,12 +946,10 @@ function initializeTelegramIntegration() {
     });
 }
 
-// إزالة حدث زر الرجوع عند الحاجة
-function removeBackButtonEvent() {
-    window.Telegram.WebApp.offEvent('backButtonClicked', callback);
-}
 
 // تفعيل التطبيق
 initializeApp();
+
+
 
 
