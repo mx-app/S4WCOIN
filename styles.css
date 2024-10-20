@@ -261,7 +261,7 @@ body {
     -webkit-background-clip: text; /* قص الخلفية للنص */
     background-clip: text;
     color: transparent; /* جعل النص شفافًا لعرض التدرج */
-    margin-left: 25px;
+    margin-left: 30px;
 }
  
 
@@ -865,14 +865,14 @@ body {
 
 .level-button-floating {
     position: fixed;
-    top: 13px; 
+    top: 17px; 
     left: 30px;
     background-color: transparent;
     background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c); /* التدرج اللوني */
     -webkit-background-clip: text; /* قص الخلفية للنص */
     background-clip: text;
     color: transparent;
-    font-size: 15px;
+    font-size: 17px;
     font-weight: bold;
     padding: 0;
 /*    border-bottom: 2px solid #343434;*/
