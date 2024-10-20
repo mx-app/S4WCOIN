@@ -1125,9 +1125,9 @@ function handlePuzzleSuccess() {
 
     puzzleSolved = true;
     document.querySelectorAll('.option-btn').forEach(btn => btn.disabled = true);
-
-    closePuzzle(); // إغلاق الأحجية بعد النجاح
+    
 }
+
 
 // التعامل مع الإجابة الخاطئة
 function handlePuzzleWrongAnswer() {
