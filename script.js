@@ -991,9 +991,6 @@ function initializeTelegramIntegration() {
 
 
 
-
-
-
 // تعريف عناصر DOM
 const puzzlecloseModal = document.getElementById('puzzlecloseModal');
 const puzzleContainer = document.getElementById('puzzleContainer');
@@ -1052,7 +1049,7 @@ async function displayTodaysPuzzle() {
         return;
     }
 
-    const puzzlesProgress = data?.puzzlesprogress || {};
+    const puzzlesProgress = data?.puzzles_progress || {};
     const puzzleProgress = puzzlesProgress[currentPuzzle.id];
 
     // التحقق مما إذا كان المستخدم قد حل هذه الأحجية أو استنفد محاولاته لهذا اليوم
@@ -1102,15 +1099,12 @@ function handlePuzzleTimeout() {
 
 // التحقق من إجابة المستخدم
 function checkPuzzleAnswer(selectedOption) {
-    const puzzleProgress = gameState.puzzlesprogress?.find(p => p.puzzle_id === currentPuzzle.id);
-    const userAttempts = puzzleProgress?.attempts || 0;
+    const userAnswer = selectedOption.innerText.trim();
 
-    if (userAttempts >= maxAttempts || puzzleSolved) {
+    if (attempts >= maxAttempts || puzzleSolved) {
         showNotification(puzzleNotification, 'You have already solved or failed today\'s puzzle.');
         return;
     }
-
-    const userAnswer = selectedOption.innerText.trim();
 
     if (userAnswer === currentPuzzle.answer) {
         handlePuzzleSuccess();
@@ -1131,6 +1125,8 @@ function handlePuzzleSuccess() {
 
     puzzleSolved = true;
     document.querySelectorAll('.option-btn').forEach(btn => btn.disabled = true);
+
+    closePuzzle(); // إغلاق الأحجية بعد النجاح
 }
 
 // التعامل مع الإجابة الخاطئة
@@ -1165,7 +1161,7 @@ async function updatePuzzleProgressInDatabase(puzzleId, solved, attempts) {
         return;
     }
 
-    let puzzlesProgress = data?.puzzlesprogress || {};
+    let puzzlesProgress = data?.puzzles_progress || {};
 
     // تحديث أو إضافة تقدم الأحجية الحالي
     puzzlesProgress[puzzleId] = {
