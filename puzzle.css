@@ -246,10 +246,10 @@
 }
 
 .reward-display {
-    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
+    background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c); /* التدرج اللوني */
     -webkit-background-clip: text; /* قص الخلفية داخل النص */
     color: transparent; /* إخفاء النص ليظهر التدرج */
-    padding: 20px 0; /* إضافة مسافة من الأعلى والأسفل */
+    padding: 10px 0; /* إضافة مسافة من الأعلى والأسفل */
     text-align: center; /* توسيط النص داخل العنصر */
 }
  
