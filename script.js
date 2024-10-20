@@ -986,6 +986,10 @@ function initializeTelegramIntegration() {
 
 
 
+
+
+
+
 // تحميل الأحجية من ملف JSON
 async function loadPuzzles() {
     try {
@@ -1018,6 +1022,11 @@ const remainingAttemptsDisplay = document.createElement('div');
 remainingAttemptsDisplay.id = 'attemptsDisplay';
 document.querySelector('.puzzle-content').appendChild(remainingAttemptsDisplay);
 
+// خانة عرض المكافأة
+const puzzleRewardDisplay = document.createElement('div');
+puzzleRewardDisplay.id = 'puzzleRewardDisplay';
+document.querySelector('.puzzle-content').appendChild(puzzleRewardDisplay);
+
 // حالة اللعبة
 let currentPuzzle;
 let attempts = 0;
@@ -1031,18 +1040,17 @@ async function displayTodaysPuzzle() {
     const puzzles = await loadPuzzles();
     currentPuzzle = getTodaysPuzzle(puzzles);
 
-    // التحقق مما إذا كان المستخدم قد حل هذه الأحجية من قبل
+    // التحقق مما إذا كان المستخدم قد حل هذه الأحجية أو استنفد محاولاته لهذا اليوم
     const puzzleProgress = gameState.puzzlesprogress?.find(p => p.puzzle_id === currentPuzzle.id);
-    puzzleSolved = puzzleProgress?.solved || false;
-
-    if (puzzleSolved) {
-        showNotification(puzzleNotification, 'You have already solved today\'s puzzle.');
+    if (puzzleProgress?.attempts >= maxAttempts || puzzleProgress?.solved) {
+        showNotification(puzzleNotification, 'You have already solved or failed today\'s puzzle. Please try again tomorrow.');
         return;
     }
 
-    // عرض السؤال والتلميح
+    // عرض السؤال والتلميح والمكافأة
     puzzleQuestion.innerText = currentPuzzle.question;
-    puzzleHint.innerText = `Hint : ${currentPuzzle.hint}`;
+    puzzleHint.innerText = `Hint: ${currentPuzzle.hint}`;
+    puzzleRewardDisplay.innerText = `Reward: ${currentPuzzle.reward} coins`; // عرض المكافأة
 
     // عرض الخيارات كأزرار
     const optionsHtml = currentPuzzle.options.map(option => `<button class="option-btn">${option}</button>`).join('');
@@ -1050,7 +1058,7 @@ async function displayTodaysPuzzle() {
 
     puzzleContainer.classList.remove('hidden');
     closePuzzleBtn.classList.add('hidden');
-    updateRemainingAttempts();
+    updateRemainingAttempts(puzzleProgress?.attempts || 0);
     startCountdown();
 }
 
@@ -1081,14 +1089,17 @@ function handlePuzzleTimeout() {
 
 // التحقق من إجابة المستخدم
 function checkPuzzleAnswer(selectedOption) {
-    if (puzzleSolved || attempts >= maxAttempts) {
-        showNotification(puzzleNotification, puzzleSolved ? 'You have already solved this puzzle.' : 'You have failed. Please try again later.');
+    const puzzleProgress = gameState.puzzlesprogress?.find(p => p.puzzle_id === currentPuzzle.id);
+    const userAttempts = puzzleProgress?.attempts || 0;
+
+    if (userAttempts >= maxAttempts || puzzleSolved) {
+        showNotification(puzzleNotification, 'You have already solved or failed today\'s puzzle.');
         return;
     }
 
     const userAnswer = selectedOption.innerText.trim();
 
-    if (userAnswer === currentPuzzle.answer && !puzzleSolved) {
+    if (userAnswer === currentPuzzle.answer) {
         handlePuzzleSuccess();
     } else {
         handlePuzzleWrongAnswer();
@@ -1098,11 +1109,18 @@ function checkPuzzleAnswer(selectedOption) {
 // التعامل مع الإجابة الصحيحة
 function handlePuzzleSuccess() {
     clearInterval(countdownInterval);
+
+    const puzzleProgress = gameState.puzzlesprogress?.find(p => p.puzzle_id === currentPuzzle.id);
+    if (!puzzleProgress?.solved) {
+        const puzzleReward = currentPuzzle.reward; // مكافأة من ملف الأحجية
+        showNotification(puzzleNotification, `Correct! You've earned ${puzzleReward} coins.`);
+        updateBalance(puzzleReward); // إضافة المكافأة
+        updatePuzzleProgressInGameState(currentPuzzle.id, true, attempts); // تحديث حالة الأحجية
+    } else {
+        showNotification(puzzleNotification, 'You have already received the reward for this puzzle.');
+    }
+
     puzzleSolved = true;
-    const puzzleReward = currentPuzzle.reward; // مكافأة من ملف الأحجية
-    showNotification(puzzleNotification, `Correct! You've earned ${puzzleReward} coins.`);
-    updateBalance(puzzleReward); // إضافة المكافأة
-    updatePuzzleProgressInGameState(currentPuzzle.id, true, attempts); // تحديث حالة الأحجية
     closePuzzleBtn.classList.remove('hidden');
     document.querySelectorAll('.option-btn').forEach(btn => btn.disabled = true);
 }
@@ -1124,7 +1142,7 @@ function handlePuzzleWrongAnswer() {
 }
 
 // تحديث عرض المحاولات المتبقية
-function updateRemainingAttempts() {
+function updateRemainingAttempts(attempts) {
     remainingAttemptsDisplay.innerText = `${maxAttempts - attempts}/${maxAttempts} Attempts`;
 }
 
@@ -1177,6 +1195,8 @@ document.getElementById('openPuzzleBtn').addEventListener('click', function() {
     document.getElementById('puzzleContainer').classList.remove('hidden');
 });
     
+
+
 
 
 
