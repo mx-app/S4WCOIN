@@ -872,7 +872,7 @@ body {
     -webkit-background-clip: text; /* قص الخلفية للنص */
     background-clip: text;
     color: transparent;
-    font-size: 25px;
+    font-size: 15px;
     padding: 0;
     border-bottom: 2px solid #343434;
     cursor: pointer;
