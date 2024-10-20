@@ -66,7 +66,7 @@
     right: 0;
     z-index: 9999; /* قيمة z-index عالية جداً */
     transform: translateY(0); /* يظهر من الأسفل */
-    height: 80vh;
+    height: 70vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start; /* تقريب العناصر ببعضها */
@@ -255,6 +255,8 @@
 
 
  #Puz-to {
-    margin-bottom: 30px; /* يمكنك تغيير القيمة حسب المسافة التي تريدها */
+    margin-bottom: 35px; /* يمكنك تغيير القيمة حسب المسافة التي تريدها */
+    font-weight: bold;
+    font-size: 45px; 
 }
 
