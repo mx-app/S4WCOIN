@@ -1041,8 +1041,8 @@ async function displayTodaysPuzzle() {
 
     // عرض السؤال والتلميح والمكافأة
     puzzleQuestion.innerText = currentPuzzle.question;
-    puzzleHint.innerText = `Hint: ${currentPuzzle.hint}`;
-    puzzleRewardDisplay.innerText = `Reward: ${currentPuzzle.reward} coins`;
+    puzzleHint.innerText = `Hint : ${currentPuzzle.hint}`;
+    puzzleRewardDisplay.innerText = `Reward : ${currentPuzzle.reward} `;
 
     // عرض الخيارات كأزرار
     const optionsHtml = currentPuzzle.options.map(option => `<button class="option-btn">${option}</button>`).join('');
@@ -1133,7 +1133,7 @@ function handlePuzzleWrongAnswer() {
 
 // تحديث عرض المحاولات المتبقية
 function updateRemainingAttempts(attempts = 0) {
-    remainingAttemptsDisplay.innerText = `${maxAttempts - attempts}/${maxAttempts} Attempts`;
+    remainingAttemptsDisplay.innerText = `${maxAttempts - attempts}/${maxAttempts} `;
 }
 
 
