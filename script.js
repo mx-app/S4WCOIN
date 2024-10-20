@@ -1161,9 +1161,13 @@ puzzleOptions.addEventListener('click', function (event) {
     }
 });
 openPuzzleBtn.addEventListener('click', displayTodaysPuzzle);
-puzzlecloseModal.addEventListener('click', closePuzzle);
 
-
+document.getElementById('puzzlecloseModal').addEventListener('click', function() {
+    document.getElementById('puzzleContainer').classList.add('hidden');
+});
+document.getElementById('openPuzzleBtn').addEventListener('click', function() {
+    document.getElementById('puzzleContainer').classList.remove('hidden');
+});
 
 
 
