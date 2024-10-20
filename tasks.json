@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "url": "https://example.com/task1",
+    "reward": 1000000,
+    "description": "Complete this task to earn 1,000,000 coins.",
+    "image": "i/tele.png"
+  },
+  {
+    "id": 2,
+    "url": "",
+    "reward": 500,
+    "description": "Telegram follower",
+    "image": "i/tele.png"
+  },
+  {
+    "id": 3,
+    "url": "https://example.com/task3",
+    "reward": 25000,
+    "description": "Complete this task to earn 25,000 coins.",
+    "image": "i/tele.png"
+  }
+]
