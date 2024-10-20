@@ -801,7 +801,6 @@ buttons.forEach(button => {
 
 
 
-    
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -812,13 +811,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Fetch tasks from JSON file
-    fetch('tasks.json')  // تأكد من وضع المسار الصحيح لملف JSON
+    fetch('tasks.json')
         .then(response => response.json())
         .then(tasks => {
             tasks.forEach(task => {
                 // Create task element
                 const taskElement = document.createElement('div');
-                taskElement.classList.add('task-item'); // استخدام task-item
+                taskElement.classList.add('task-item');
 
                 // Add task image
                 const img = document.createElement('img');
@@ -834,7 +833,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Add task reward text
                 const rewardText = document.createElement('p');
-                rewardText.textContent = `Reward : ${task.reward} `;
+                rewardText.textContent = `Reward: ${task.reward} coins`;
                 taskElement.appendChild(rewardText);
 
                 // Create the button for the task
@@ -843,13 +842,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 button.setAttribute('data-task-id', task.id);
                 button.setAttribute('data-url', task.url);
                 button.setAttribute('data-reward', task.reward);
-                button.textContent = 'Go';
                 taskElement.appendChild(button);
 
                 taskContainer.appendChild(taskElement);
 
                 // Handle task progress and button click
-                const taskProgressData = gameState.tasksprogress.find(t => t.task_id === task.id);
+                const taskId = task.id;
+                const taskurl = task.url;
+                const taskReward = task.reward;
+
+                const taskProgressData = gameState.tasksprogress.find(t => t.task_id === taskId);
                 let taskProgress = taskProgressData ? taskProgressData.progress : 0;
 
                 // Set button text based on task progress
@@ -857,35 +859,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 button.disabled = taskProgress >= 2;
 
                 // Button click handling
-                button.onclick = () => handleTaskClick(task.id, task.url, task.reward, button, taskProgress);
+                button.onclick = () => {
+                    if (taskProgress === 0) {
+                        // Open task link using Telegram's WebApp API
+                        openTaskLink(taskurl);
+                        taskProgress = 1;
+                        updateTaskProgressInGameState(taskId, taskProgress);
+                        button.textContent = 'Verify';
+                        showNotification(uiElements.purchaseNotification, 'Task opened. Verify to claim your reward.');
+                    } else if (taskProgress === 1) {
+                        taskProgress = 2;
+                        updateTaskProgressInGameState(taskId, taskProgress);
+                        button.textContent = 'Claim';
+                        showNotification(uiElements.purchaseNotification, 'Task verified. You can now claim the reward.');
+                    } else if (taskProgress === 2) {
+                        claimTaskReward(taskId, taskReward);
+                        button.textContent = 'Completed';
+                        button.disabled = true;
+                        showNotification(uiElements.purchaseNotification, 'Reward successfully claimed!');
+                    }
+                };
             });
         })
         .catch(error => console.error('Error fetching tasks:', error));
 });
-
-// Handle task button click
-function handleTaskClick(taskId, taskurl, taskReward, button, taskProgress) {
-    if (taskProgress === 0) {
-        // Open task link using Telegram's WebApp API or window.open
-        openTaskLink(taskurl);
-        taskProgress = 1;
-        updateTaskProgressInGameState(taskId, taskProgress);
-        button.textContent = 'Verify';
-        showNotification(uiElements.purchaseNotification, 'Task opened. Verify to claim your reward.');
-    } else if (taskProgress === 1) {
-        // Verify task and enable reward claiming
-        taskProgress = 2;
-        updateTaskProgressInGameState(taskId, taskProgress);
-        button.textContent = 'Claim';
-        showNotification(uiElements.purchaseNotification, 'Task verified. You can now claim the reward.');
-    } else if (taskProgress === 2) {
-        // Claim the reward and mark as completed
-        claimTaskReward(taskId, taskReward);
-        button.textContent = 'Completed';
-        button.disabled = true;
-        showNotification(uiElements.purchaseNotification, 'Reward successfully claimed!');
-    }
-}
 
 // Open task link function
 function openTaskLink(taskurl) {
@@ -929,9 +926,6 @@ function claimTaskReward(taskId, reward) {
     updateUserData(); // Sync user data with the server
     saveGameState(); // Ensure the game state is saved
 }
-
-
-
 
 
 
