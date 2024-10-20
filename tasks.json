@@ -1,23 +1,23 @@
 [
   {
     "id": 1,
-    "url": "https://example.com/task1",
-    "reward": 1000000,
-    "description": "Complete this task to earn 1,000,000 coins.",
-    "image": "i/tele.png"
+    "url": "https://t.me/Jigsaw_News",
+    "reward": 10000,
+    "description": "Telegram follow",
+    "image": "i/tel.png"
   },
   {
     "id": 2,
-    "url": "",
-    "reward": 500,
-    "description": "Telegram follower",
-    "image": "i/tele.png"
+    "url": "https://t.me/Qyros_wallet",
+    "reward": 10000,
+    "description": "Telegram follow",
+    "image": "i/tel.png"
   },
   {
     "id": 3,
-    "url": "https://example.com/task3",
-    "reward": 25000,
-    "description": "Complete this task to earn 25,000 coins.",
-    "image": "i/tele.png"
+    "url": "https://t.me/SAW_COIN",
+    "reward": 5000,
+    "description": "Telegram follow",
+    "image": "i/tel.png"
   }
 ]
