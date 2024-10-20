@@ -1017,15 +1017,10 @@ const puzzleOptions = document.getElementById('puzzleOptions');
 const puzzleNotification = document.getElementById('puzzleNotification');
 const puzzleHint = document.getElementById('puzzleHint');
 const timerDisplay = document.getElementById('timer');
-const closePuzzleBtn = document.getElementById('closePuzzleBtn');
-const remainingAttemptsDisplay = document.createElement('div');
-remainingAttemptsDisplay.id = 'attemptsDisplay';
-document.querySelector('.puzzle-content').appendChild(remainingAttemptsDisplay);
 
-// خانة عرض المكافأة
-const puzzleRewardDisplay = document.createElement('div');
-puzzleRewardDisplay.id = 'puzzleRewardDisplay';
-document.querySelector('.puzzle-content').appendChild(puzzleRewardDisplay);
+// استخدام العناصر الموجودة بدلاً من إنشاءها
+const remainingAttemptsDisplay = document.getElementById('attemptsDisplay');
+const puzzleRewardDisplay = document.getElementById('puzzleRewardDisplay');
 
 // حالة اللعبة
 let currentPuzzle;
@@ -1057,7 +1052,6 @@ async function displayTodaysPuzzle() {
     puzzleOptions.innerHTML = optionsHtml;
 
     puzzleContainer.classList.remove('hidden');
-    closePuzzleBtn.classList.add('hidden');
     updateRemainingAttempts(puzzleProgress?.attempts || 0);
     startCountdown();
 }
@@ -1121,7 +1115,6 @@ function handlePuzzleSuccess() {
     }
 
     puzzleSolved = true;
-    closePuzzleBtn.classList.remove('hidden');
     document.querySelectorAll('.option-btn').forEach(btn => btn.disabled = true);
 }
 
@@ -1174,7 +1167,6 @@ function closePuzzle() {
     puzzleContainer.classList.add('hidden');
     puzzleOptions.innerHTML = '';
     puzzleNotification.innerText = '';
-    closePuzzleBtn.classList.remove('hidden');
     attempts = 0;
     puzzleSolved = false;
 }
@@ -1186,7 +1178,6 @@ puzzleOptions.addEventListener('click', function (event) {
     }
 });
 openPuzzleBtn.addEventListener('click', displayTodaysPuzzle);
-closePuzzleBtn.addEventListener('click', closePuzzle);
 
 document.getElementById('puzzlecloseModal').addEventListener('click', function() {
     document.getElementById('puzzleContainer').classList.add('hidden');
@@ -1194,7 +1185,7 @@ document.getElementById('puzzlecloseModal').addEventListener('click', function()
 document.getElementById('openPuzzleBtn').addEventListener('click', function() {
     document.getElementById('puzzleContainer').classList.remove('hidden');
 });
-    
+
 
 
 
