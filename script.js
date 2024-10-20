@@ -77,7 +77,8 @@ let gameState = {
     freeEnergyFillTime: null,
     invites: [],
     claimedRewards: { levels: [] }, 
-    tasksprogress: [], 
+    tasksprogress: [],
+    puzzlesprogress:[], 
     
 };
 
@@ -677,7 +678,8 @@ async function updateUserData() {
             last_fill_time: new Date(gameState.lastFillTime).toISOString(),
             invites: gameState.invites,
             claimed_rewards: gameState.claimedRewards, // حفظ المكافآت المحصلة في قاعدة البيانات
-            tasks_progress: gameState.tasksprogress
+            tasks_progress: gameState.tasksprogress, 
+            puzzles_progress: gameState.puzzlesprogress
         })
         .eq('telegram_id', userId);
 
