@@ -1131,15 +1131,9 @@ function handlePuzzleWrongAnswer() {
     }
 }
 
-function updateRemainingAttempts(attempts) {
-    const attemptBars = document.querySelectorAll('.attempt-bar');
-    for (let i = 0; i < attemptBars.length; i++) {
-        if (i < maxAttempts - attempts) {
-            attemptBars[i].classList.remove('empty');
-        } else {
-            attemptBars[i].classList.add('empty');
-        }
-    }
+// تحديث عرض المحاولات المتبقية
+function updateRemainingAttempts(attempts = 0) {
+    remainingAttemptsDisplay.innerText = `${maxAttempts - attempts}/${maxAttempts} Attempts`;
 }
 
 
