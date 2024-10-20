@@ -802,6 +802,8 @@ buttons.forEach(button => {
 
 
     
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const taskContainer = document.getElementById('taskcontainer');
     if (!taskContainer) {
@@ -816,7 +818,7 @@ document.addEventListener('DOMContentLoaded', () => {
             tasks.forEach(task => {
                 // Create task element
                 const taskElement = document.createElement('div');
-                taskElement.classList.add('task');
+                taskElement.classList.add('task-item'); // استخدام task-item
 
                 // Add task image
                 const img = document.createElement('img');
@@ -927,6 +929,7 @@ function claimTaskReward(taskId, reward) {
     updateUserData(); // Sync user data with the server
     saveGameState(); // Ensure the game state is saved
 }
+
 
 
 
