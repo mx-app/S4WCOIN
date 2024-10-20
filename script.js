@@ -1042,7 +1042,7 @@ async function displayTodaysPuzzle() {
     // جلب تقدم المستخدم في الألغاز من قاعدة البيانات
     const { data, error } = await supabase
         .from('users')
-        .select('puzzlesprogress')
+        .select('puzzles_progress')
         .eq('telegram_id', userTelegramId)
         .maybeSingle();
 
@@ -1156,7 +1156,7 @@ async function updatePuzzleProgressInDatabase(puzzleId, solved, attempts) {
     // جلب تقدم المستخدم الحالي من قاعدة البيانات
     const { data, error } = await supabase
         .from('users')
-        .select('puzzlesprogress')
+        .select('puzzles_progress')
         .eq('telegram_id', userTelegramId)
         .maybeSingle();
 
@@ -1176,7 +1176,7 @@ async function updatePuzzleProgressInDatabase(puzzleId, solved, attempts) {
     // تحديث البيانات في قاعدة البيانات
     const { updateError } = await supabase
         .from('users')
-        .update({ puzzlesprogress: puzzlesProgress })
+        .update({ puzzles_progress: puzzlesProgress })
         .eq('telegram_id', userTelegramId);
 
     if (updateError) {
