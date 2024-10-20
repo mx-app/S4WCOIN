@@ -1015,7 +1015,7 @@ const puzzleHint = document.getElementById('puzzleHint');
 const timerDisplay = document.getElementById('timer');
 const closePuzzleBtn = document.getElementById('closePuzzleBtn');
 const remainingAttemptsDisplay = document.createElement('div');
-remainingAttemptsDisplay.id = 'remainingAttempts';
+remainingAttemptsDisplay.id = 'attemptsDisplay';
 document.querySelector('.puzzle-content').appendChild(remainingAttemptsDisplay);
 
 // حالة اللعبة
