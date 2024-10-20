@@ -1049,8 +1049,8 @@ async function displayTodaysPuzzle() {
 
     // عرض السؤال والتلميح والمكافأة
     puzzleQuestion.innerText = currentPuzzle.question;
-    puzzleHint.innerText = `Hint: ${currentPuzzle.hint}`;
-    puzzleRewardDisplay.innerText = `Reward: ${currentPuzzle.reward} coins`; // عرض المكافأة
+    puzzleHint.innerText = `Hint : ${currentPuzzle.hint}`;
+    puzzleRewardDisplay.innerText = `Reward : ${currentPuzzle.reward} `; // عرض المكافأة
 
     // عرض الخيارات كأزرار
     const optionsHtml = currentPuzzle.options.map(option => `<button class="option-btn">${option}</button>`).join('');
