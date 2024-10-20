@@ -245,6 +245,33 @@
     text-align: center; /* لتوسيط السؤال */
 }
 
-#closePuzzleBtn {
-    display: none;
+
+#attemptsDisplay {
+    display: flex;
+    justify-content: space-between;
+    width: 300px; /* عرض الشريط بالكامل */
+    height: 30px; /* ارتفاع الشريط */
+    border: 2px solid #333; /* إطار الشريط */
+    border-radius: 5px;
+    overflow: hidden; /* منع تجاوز المحتوى للإطار */
+}
+
+.attempt-bar {
+    flex: 1;
+    height: 100%;
+    margin: 0 2px; /* مسافة صغيرة بين الأجزاء */
+    background-color: lightgreen; /* لون الجزء الافتراضي */
+    transition: background-color 0.3s ease; /* تأثير الانتقال لتغيير اللون */
+}
+
+.attempt-bar:nth-child(2) {
+    background-color: yellow; /* اللون الافتراضي للجزء الثاني */
+}
+
+.attempt-bar:nth-child(3) {
+    background-color: red; /* اللون الافتراضي للجزء الثالث */
+}
+
+.empty {
+    background-color: #ccc; /* لون عند استنفاد المحاولة */
 }
