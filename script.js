@@ -989,23 +989,10 @@ function initializeTelegramIntegration() {
 
 
 
-// تحميل الأحجية من ملف JSON
-async function loadPuzzles() {
-    try {
-        const response = await fetch('puzzles.json');
-        if (!response.ok) throw new Error('Failed to load puzzles');
-        const data = await response.json();
-        return data.puzzles.slice(0, 3); // اختيار 3 أحجيات يومية فقط
-    } catch (error) {
-        console.error(error);
-        showNotification(puzzleNotification, 'Error loading puzzle. Please try again later.');
-    }
-}
 
-// الحصول على أحجية اليوم
-function getTodaysPuzzle(puzzles) {
-    return puzzles[0]; // افتراضًا نختار أول أحجية
-}
+
+
+
 
 // تعريف عناصر DOM
 const puzzlecloseModal = document.getElementById('puzzlecloseModal');
@@ -1027,13 +1014,48 @@ let countdownInterval;
 const maxAttempts = 3;
 const penaltyAmount = 500; // العقوبة عند الإجابة الخاطئة
 
+// تحميل الأحجية من ملف JSON
+async function loadPuzzles() {
+    try {
+        const response = await fetch('puzzles.json');
+        if (!response.ok) throw new Error('Failed to load puzzles');
+        const data = await response.json();
+        return data.puzzles.slice(0, 3); // اختيار 3 أحجيات يومية فقط
+    } catch (error) {
+        console.error(error);
+        showNotification(puzzleNotification, 'Error loading puzzle. Please try again later.');
+    }
+}
+
+// الحصول على أحجية اليوم
+function getTodaysPuzzle(puzzles) {
+    return puzzles[0]; // افتراضًا نختار أول أحجية
+}
+
 // تحميل الأحجية وعرضها
 async function displayTodaysPuzzle() {
     const puzzles = await loadPuzzles();
     currentPuzzle = getTodaysPuzzle(puzzles);
 
+    const userTelegramId = uiElements.userTelegramIdDisplay.innerText;
+
+    // جلب تقدم المستخدم في الألغاز من قاعدة البيانات
+    const { data, error } = await supabase
+        .from('users')
+        .select('puzzlesprogress')
+        .eq('telegram_id', userTelegramId)
+        .maybeSingle();
+
+    if (error) {
+        console.error('Error fetching puzzle progress:', error);
+        showNotification(puzzleNotification, 'Error loading puzzle progress. Please try again later.');
+        return;
+    }
+
+    const puzzlesProgress = data?.puzzlesprogress || {};
+    const puzzleProgress = puzzlesProgress[currentPuzzle.id];
+
     // التحقق مما إذا كان المستخدم قد حل هذه الأحجية أو استنفد محاولاته لهذا اليوم
-    const puzzleProgress = gameState.puzzlesprogress?.find(p => p.puzzle_id === currentPuzzle.id);
     if (puzzleProgress?.attempts >= maxAttempts || puzzleProgress?.solved) {
         showNotification(puzzleNotification, 'You have already solved or failed today\'s puzzle. Please try again tomorrow.');
         return;
@@ -1074,7 +1096,7 @@ function handlePuzzleTimeout() {
     clearInterval(countdownInterval);
     showNotification(puzzleNotification, "Time's up! You failed to solve the puzzle.");
     updateBalance(-penaltyAmount); // خصم العملات
-    updatePuzzleProgressInGameState(currentPuzzle.id, false, maxAttempts); // تحديث حالة الأحجية
+    updatePuzzleProgressInDatabase(currentPuzzle.id, false, maxAttempts); // تحديث حالة الأحجية
     closePuzzle();
 }
 
@@ -1099,20 +1121,16 @@ function checkPuzzleAnswer(selectedOption) {
 
 // التعامل مع الإجابة الصحيحة
 function handlePuzzleSuccess() {
-    clearInterval(countdownInterval); // إيقاف المؤقت
+    clearInterval(countdownInterval);
 
-    const puzzleProgress = gameState.puzzlesprogress?.find(p => p.puzzle_id === currentPuzzle.id);
-    if (!puzzleProgress?.solved) {
-        const puzzleReward = currentPuzzle.reward; // مكافأة من ملف الأحجية
-        showNotification(puzzleNotification, `Correct! You've earned ${puzzleReward} coins.`);
-        updateBalance(puzzleReward); // إضافة المكافأة
-        updatePuzzleProgressInGameState(currentPuzzle.id, true, attempts); // تحديث حالة الأحجية
-    } else {
-        showNotification(puzzleNotification, 'You have already received the reward for this puzzle.');
-    }
+    const puzzleReward = currentPuzzle.reward;
+    showNotification(puzzleNotification, `Correct! You've earned ${puzzleReward} coins.`);
+    updateBalance(puzzleReward);
+
+    updatePuzzleProgressInDatabase(currentPuzzle.id, true, attempts); // تحديث حالة الأحجية في قاعدة البيانات
 
     puzzleSolved = true;
-    document.querySelectorAll('.option-btn').forEach(btn => btn.disabled = true); // تعطيل الأزرار
+    document.querySelectorAll('.option-btn').forEach(btn => btn.disabled = true);
 }
 
 // التعامل مع الإجابة الخاطئة
@@ -1121,35 +1139,54 @@ function handlePuzzleWrongAnswer() {
     updateRemainingAttempts(attempts);
 
     if (attempts === maxAttempts) {
-        clearInterval(countdownInterval); // إيقاف المؤقت
+        clearInterval(countdownInterval);
         showNotification(puzzleNotification, 'You have used all attempts. 500 coins have been deducted.');
-        updateBalance(-penaltyAmount); // خصم العملات
-        updatePuzzleProgressInGameState(currentPuzzle.id, false, maxAttempts); // تسجيل فشل المحاولة
+        updateBalance(-penaltyAmount);
+        updatePuzzleProgressInDatabase(currentPuzzle.id, false, maxAttempts); // تسجيل المحاولة الفاشلة
         closePuzzle();
     } else {
         showNotification(puzzleNotification, `Wrong answer. You have ${maxAttempts - attempts} attempts remaining.`);
     }
 }
 
+// دالة لتحديث تقدم الأحجية في قاعدة البيانات
+async function updatePuzzleProgressInDatabase(puzzleId, solved, attempts) {
+    const userTelegramId = uiElements.userTelegramIdDisplay.innerText;
+
+    // جلب تقدم المستخدم الحالي من قاعدة البيانات
+    const { data, error } = await supabase
+        .from('users')
+        .select('puzzlesprogress')
+        .eq('telegram_id', userTelegramId)
+        .maybeSingle();
+
+    if (error) {
+        console.error('Error fetching puzzle progress:', error);
+        return;
+    }
+
+    let puzzlesProgress = data?.puzzlesprogress || {};
+
+    // تحديث أو إضافة تقدم الأحجية الحالي
+    puzzlesProgress[puzzleId] = {
+        solved: solved,
+        attempts: attempts
+    };
+
+    // تحديث البيانات في قاعدة البيانات
+    const { updateError } = await supabase
+        .from('users')
+        .update({ puzzlesprogress: puzzlesProgress })
+        .eq('telegram_id', userTelegramId);
+
+    if (updateError) {
+        console.error('Error updating puzzle progress:', updateError);
+    }
+}
+
 // تحديث عرض المحاولات المتبقية
 function updateRemainingAttempts(attempts = 0) {
     remainingAttemptsDisplay.innerText = `${maxAttempts - attempts}/${maxAttempts} `;
-}
-
-
-// تحديث تقدم الأحجية في gameState
-function updatePuzzleProgressInGameState(puzzleId, solved, attempts) {
-    const puzzleIndex = gameState.puzzlesprogress?.findIndex(p => p.puzzle_id === puzzleId);
-    if (puzzleIndex > -1) {
-        gameState.puzzlesprogress[puzzleIndex].solved = solved;
-        gameState.puzzlesprogress[puzzleIndex].attempts = attempts;
-    } else {
-        if (!gameState.puzzlesprogress) {
-            gameState.puzzlesprogress = [];
-        }
-        gameState.puzzlesprogress.push({ puzzle_id: puzzleId, solved: solved, attempts: attempts });
-    }
-    saveGameState(); // حفظ حالة اللعبة
 }
 
 // دالة لتحديث الرصيد في gameState
@@ -1183,6 +1220,11 @@ document.getElementById('puzzlecloseModal').addEventListener('click', function()
 document.getElementById('openPuzzleBtn').addEventListener('click', function() {
     document.getElementById('puzzleContainer').classList.remove('hidden');
 });
+
+
+
+
+
 
 
 
