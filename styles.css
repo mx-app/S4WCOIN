@@ -397,7 +397,7 @@ body {
 }
 
 .menu button {
-    background-color: transparent;
+    background-color: none;
     color: #fff;
     border: none;
     padding: 5px;
@@ -412,7 +412,7 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease; /* حذف التحويل المتعلق بالتكبير */
     border-radius: 15px;
     position: relative;
-    background: transparent; /* إزالة الخلفية الافتراضية */
+    background: none; /* إزالة الخلفية الافتراضية */
 }
 
 .menu button.active {
