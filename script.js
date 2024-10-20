@@ -833,7 +833,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Add task reward text
                 const rewardText = document.createElement('p');
-                rewardText.textContent = `Reward: ${task.reward} coins`;
+                rewardText.textContent = `Reward : ${task.reward} `;
                 taskElement.appendChild(rewardText);
 
                 // Create the button for the task
