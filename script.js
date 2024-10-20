@@ -991,7 +991,9 @@ function initializeTelegramIntegration() {
 
 
 
-// تعريف عناصر DOM
+
+    
+// DOM Elements
 const puzzlecloseModal = document.getElementById('puzzlecloseModal');
 const puzzleContainer = document.getElementById('puzzleContainer');
 const openPuzzleBtn = document.getElementById('openPuzzleBtn');
@@ -1003,40 +1005,40 @@ const timerDisplay = document.getElementById('timer');
 const remainingAttemptsDisplay = document.getElementById('attemptsDisplay');
 const puzzleRewardDisplay = document.getElementById('puzzleRewardDisplay');
 
-// حالة اللعبة
+// Game state
 let currentPuzzle;
 let attempts = 0;
 let puzzleSolved = false;
 let countdownInterval;
 const maxAttempts = 3;
-const penaltyAmount = 500; // العقوبة عند الإجابة الخاطئة
+const penaltyAmount = 500; // Penalty for wrong answer
 
-// تحميل الأحجية من ملف JSON
+// Load puzzles from JSON file
 async function loadPuzzles() {
     try {
         const response = await fetch('puzzles.json');
         if (!response.ok) throw new Error('Failed to load puzzles');
         const data = await response.json();
-        return data.puzzles.slice(0, 3); // اختيار 3 أحجيات يومية فقط
+        return data.puzzles.slice(0, 3); // Select 3 daily puzzles
     } catch (error) {
         console.error(error);
         showNotification(puzzleNotification, 'Error loading puzzle. Please try again later.');
     }
 }
 
-// الحصول على أحجية اليوم
+// Get today's puzzle
 function getTodaysPuzzle(puzzles) {
-    return puzzles[0]; // افتراضًا نختار أول أحجية
+    return puzzles[0]; // Assuming the first puzzle is today's puzzle
 }
 
-// تحميل الأحجية وعرضها
+// Display today's puzzle
 async function displayTodaysPuzzle() {
     const puzzles = await loadPuzzles();
     currentPuzzle = getTodaysPuzzle(puzzles);
 
     const userTelegramId = uiElements.userTelegramIdDisplay.innerText;
 
-    // جلب تقدم المستخدم في الألغاز من قاعدة البيانات
+    // Fetch user puzzle progress from database
     const { data, error } = await supabase
         .from('users')
         .select('puzzles_progress')
@@ -1052,18 +1054,18 @@ async function displayTodaysPuzzle() {
     const puzzlesProgress = data?.puzzles_progress || {};
     const puzzleProgress = puzzlesProgress[currentPuzzle.id];
 
-    // التحقق مما إذا كان المستخدم قد حل هذه الأحجية أو استنفد محاولاته لهذا اليوم
+    // Check if the user has solved or exhausted attempts for today's puzzle
     if (puzzleProgress?.attempts >= maxAttempts || puzzleProgress?.solved) {
-        showNotification(puzzleNotification, 'You have already solved or failed today\'s puzzle. Please try again tomorrow.');
+        showNotification(puzzleNotification, 'You have already solved or failed today\'s puzzle. Please come back tomorrow.');
         return;
     }
 
-    // عرض السؤال والتلميح والمكافأة
+    // Display question, hint, and reward
     puzzleQuestion.innerText = currentPuzzle.question;
     puzzleHint.innerText = `Hint : ${currentPuzzle.hint}`;
-    puzzleRewardDisplay.innerText = `Reward : ${currentPuzzle.reward} `;
+    puzzleRewardDisplay.innerText = `Reward : ${currentPuzzle.reward} coins`;
 
-    // عرض الخيارات كأزرار
+    // Display options as buttons
     const optionsHtml = currentPuzzle.options.map(option => `<button class="option-btn">${option}</button>`).join('');
     puzzleOptions.innerHTML = optionsHtml;
 
@@ -1072,7 +1074,7 @@ async function displayTodaysPuzzle() {
     startCountdown();
 }
 
-// دالة المؤقت
+// Timer function
 function startCountdown() {
     let timeLeft = 60.00;
     timerDisplay.innerText = timeLeft.toFixed(2);
@@ -1088,16 +1090,16 @@ function startCountdown() {
     }, 10);
 }
 
-// التعامل مع انتهاء الوقت
+// Handle puzzle timeout
 function handlePuzzleTimeout() {
     clearInterval(countdownInterval);
     showNotification(puzzleNotification, "Time's up! You failed to solve the puzzle.");
-    updateBalance(-penaltyAmount); // خصم العملات
-    updatePuzzleProgressInDatabase(currentPuzzle.id, false, maxAttempts); // تحديث حالة الأحجية
+    updateBalance(-penaltyAmount); // Deduct coins
+    updatePuzzleProgressInDatabase(currentPuzzle.id, false, maxAttempts); // Update puzzle progress
     closePuzzle();
 }
 
-// التحقق من إجابة المستخدم
+// Check user's answer
 function checkPuzzleAnswer(selectedOption) {
     const userAnswer = selectedOption.innerText.trim();
 
@@ -1113,7 +1115,7 @@ function checkPuzzleAnswer(selectedOption) {
     }
 }
 
-// التعامل مع الإجابة الصحيحة
+// Handle correct answer
 function handlePuzzleSuccess() {
     clearInterval(countdownInterval);
 
@@ -1121,15 +1123,13 @@ function handlePuzzleSuccess() {
     showNotification(puzzleNotification, `Correct! You've earned ${puzzleReward} coins.`);
     updateBalance(puzzleReward);
 
-    updatePuzzleProgressInDatabase(currentPuzzle.id, true, attempts); // تحديث حالة الأحجية في قاعدة البيانات
+    updatePuzzleProgressInDatabase(currentPuzzle.id, true, attempts); // Update puzzle progress in database
 
     puzzleSolved = true;
     document.querySelectorAll('.option-btn').forEach(btn => btn.disabled = true);
-    
 }
 
-
-// التعامل مع الإجابة الخاطئة
+// Handle wrong answer
 function handlePuzzleWrongAnswer() {
     attempts++;
     updateRemainingAttempts(attempts);
@@ -1138,18 +1138,18 @@ function handlePuzzleWrongAnswer() {
         clearInterval(countdownInterval);
         showNotification(puzzleNotification, 'You have used all attempts. 500 coins have been deducted.');
         updateBalance(-penaltyAmount);
-        updatePuzzleProgressInDatabase(currentPuzzle.id, false, maxAttempts); // تسجيل المحاولة الفاشلة
+        updatePuzzleProgressInDatabase(currentPuzzle.id, false, maxAttempts); // Record failed attempt
         closePuzzle();
     } else {
         showNotification(puzzleNotification, `Wrong answer. You have ${maxAttempts - attempts} attempts remaining.`);
     }
 }
 
-// دالة لتحديث تقدم الأحجية في قاعدة البيانات
+// Update puzzle progress in database
 async function updatePuzzleProgressInDatabase(puzzleId, solved, attempts) {
     const userTelegramId = uiElements.userTelegramIdDisplay.innerText;
 
-    // جلب تقدم المستخدم الحالي من قاعدة البيانات
+    // Fetch user's current progress from database
     const { data, error } = await supabase
         .from('users')
         .select('puzzles_progress')
@@ -1163,13 +1163,13 @@ async function updatePuzzleProgressInDatabase(puzzleId, solved, attempts) {
 
     let puzzlesProgress = data?.puzzles_progress || {};
 
-    // تحديث أو إضافة تقدم الأحجية الحالي
+    // Update or add current puzzle progress
     puzzlesProgress[puzzleId] = {
         solved: solved,
         attempts: attempts
     };
 
-    // تحديث البيانات في قاعدة البيانات
+    // Update data in the database
     const { updateError } = await supabase
         .from('users')
         .update({ puzzles_progress: puzzlesProgress })
@@ -1180,21 +1180,21 @@ async function updatePuzzleProgressInDatabase(puzzleId, solved, attempts) {
     }
 }
 
-// تحديث عرض المحاولات المتبقية
+// Update remaining attempts display
 function updateRemainingAttempts(attempts = 0) {
     remainingAttemptsDisplay.innerText = `${maxAttempts - attempts}/${maxAttempts} `;
 }
 
-// دالة لتحديث الرصيد في gameState
+// Update balance in gameState
 function updateBalance(amount) {
     gameState.balance += amount;
-    updateUI(); // تحديث واجهة المستخدم
-    saveGameState(); // حفظ حالة اللعبة
+    updateUI(); // Update UI
+    saveGameState(); // Save game state
 }
 
-// دالة لإغلاق الأحجية
+// Close puzzle
 function closePuzzle() {
-    clearInterval(countdownInterval); // إيقاف المؤقت عند الإغلاق
+    clearInterval(countdownInterval); // Stop timer on close
     puzzleContainer.classList.add('hidden');
     puzzleOptions.innerHTML = '';
     puzzleNotification.innerText = '';
@@ -1202,7 +1202,7 @@ function closePuzzle() {
     puzzleSolved = false;
 }
 
-// ربط الأحداث مع الأزرار
+// Event listeners
 puzzleOptions.addEventListener('click', function (event) {
     if (event.target.classList.contains('option-btn')) {
         checkPuzzleAnswer(event.target);
@@ -1216,6 +1216,7 @@ document.getElementById('puzzlecloseModal').addEventListener('click', function()
 document.getElementById('openPuzzleBtn').addEventListener('click', function() {
     document.getElementById('puzzleContainer').classList.remove('hidden');
 });
+
 
 
 
