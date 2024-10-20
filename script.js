@@ -765,7 +765,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //
 
-
 // أولاً: الحصول على جميع الأزرار داخل القائمة
 const buttons = document.querySelectorAll('.menu button');
 
@@ -803,7 +802,6 @@ buttons.forEach(button => {
 
 
     
-
 document.addEventListener('DOMContentLoaded', () => {
     const taskContainer = document.getElementById('taskcontainer');
     if (!taskContainer) {
@@ -811,62 +809,90 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    const buttons = taskContainer.querySelectorAll('.task-button');
+    // Fetch tasks from JSON file
+    fetch('tasks.json')  // تأكد من وضع المسار الصحيح لملف JSON
+        .then(response => response.json())
+        .then(tasks => {
+            tasks.forEach(task => {
+                // Create task element
+                const taskElement = document.createElement('div');
+                taskElement.classList.add('task');
 
-    // Define task URLs by task ID
-    const taskUrls = {
-        5: "https://t.me/Jigsaw_News",
-        6: "https://t.me/SAW_COIN",
-        7: "https://t.me/SAWCOIN_BOT?start=6793556284"
-    };
+                // Add task image
+                const img = document.createElement('img');
+                img.src = task.image;
+                img.alt = 'Task Image';
+                img.classList.add('task-img');
+                taskElement.appendChild(img);
 
-    buttons.forEach(button => {
-        const taskId = parseInt(button.getAttribute('data-task-id'));
-        const taskReward = parseInt(button.getAttribute('data-reward'));
+                // Add task description
+                const description = document.createElement('p');
+                description.textContent = task.description;
+                taskElement.appendChild(description);
 
-        const taskProgressData = gameState.tasksprogress.find(t => t.task_id === taskId);
-        let taskProgress = taskProgressData ? taskProgressData.progress : 0;
+                // Add task reward text
+                const rewardText = document.createElement('p');
+                rewardText.textContent = `Reward: ${task.reward} coins`;
+                taskElement.appendChild(rewardText);
 
-        // Set button text based on task progress
-        button.textContent = taskProgress >= 2 ? 'Completed' : taskProgress === 1 ? 'Verify' : 'Go';
-        button.disabled = taskProgress >= 2;
+                // Create the button for the task
+                const button = document.createElement('button');
+                button.classList.add('task-button');
+                button.setAttribute('data-task-id', task.id);
+                button.setAttribute('data-url', task.url);
+                button.setAttribute('data-reward', task.reward);
+                button.textContent = 'Go';
+                taskElement.appendChild(button);
 
-        // Button click handling
-        button.onclick = () => {
-            const taskUrl = taskUrls[taskId];
-            if (!taskUrl) {
-                console.error(`Task URL for task ID ${taskId} not found.`);
-                return;
-            }
+                taskContainer.appendChild(taskElement);
 
-            if (taskProgress === 0) {
-                // Use Telegram WebApp API if available, otherwise fallback to window.open
-                if (typeof Telegram !== 'undefined' && Telegram.WebApp) {
-                    Telegram.WebApp.openTelegramLink(taskUrl);
-                } else {
-                    window.open(taskUrl, '_blank');
-                }
-                
-                taskProgress = 1;
-                updateTaskProgressInGameState(taskId, taskProgress);
-                button.textContent = 'Verify';
-                showNotification(uiElements.purchaseNotification, 'Task opened. Verify to claim your reward.');
-            } else if (taskProgress === 1) {
-                // Verify task and enable reward claiming
-                taskProgress = 2;
-                updateTaskProgressInGameState(taskId, taskProgress);
-                button.textContent = 'Claim';
-                showNotification(uiElements.purchaseNotification, 'Task verified. You can now claim the reward.');
-            } else if (taskProgress === 2) {
-                // Claim the reward
-                claimTaskReward(taskId, taskReward);
-                button.textContent = 'Completed';
-                button.disabled = true;
-                showNotification(uiElements.purchaseNotification, 'Reward successfully claimed!');
-            }
-        };
-    });
+                // Handle task progress and button click
+                let taskProgress = gameState.tasksprogress.find(t => t.task_id === task.id)?.progress || 0;
+
+                // Set button text based on task progress
+                button.textContent = taskProgress >= 2 ? 'Completed' : taskProgress === 1 ? 'Verify' : 'Go';
+                button.disabled = taskProgress >= 2;
+
+                // Button click handling
+                button.onclick = () => handleTaskClick(task.id, task.url, task.reward, button, taskProgress);
+            });
+        })
+        .catch(error => console.error('Error fetching tasks:', error));
 });
+
+// Handle task button click
+function handleTaskClick(taskId, taskurl, taskReward, button, taskProgress) {
+    if (taskProgress === 0) {
+        // Open task link using Telegram's WebApp API or window.open
+        openTaskLink(taskurl);
+        taskProgress = 1;
+        updateTaskProgressInGameState(taskId, taskProgress);
+        button.textContent = 'Verify';
+        showNotification(uiElements.purchaseNotification, 'Task opened. Verify to claim your reward.');
+    } else if (taskProgress === 1) {
+        // Open the task link again to verify and change to claim
+        openTaskLink(taskurl);
+        taskProgress = 2;
+        updateTaskProgressInGameState(taskId, taskProgress);
+        button.textContent = 'Claim';
+        showNotification(uiElements.purchaseNotification, 'Task verified. You can now claim the reward.');
+    } else if (taskProgress === 2) {
+        // Claim the reward and mark as completed
+        claimTaskReward(taskId, taskReward);
+        button.textContent = 'Completed';
+        button.disabled = true;
+        showNotification(uiElements.purchaseNotification, 'Reward successfully claimed!');
+    }
+}
+
+// Open task link function
+function openTaskLink(taskurl) {
+    if (typeof Telegram !== 'undefined' && Telegram.WebApp) {
+        Telegram.WebApp.openLink(taskurl, { try_instant_view: true });
+    } else {
+        window.open(taskurl, '_blank');
+    }
+}
 
 // Update task progress in gameState
 function updateTaskProgressInGameState(taskId, progress) {
@@ -903,11 +929,13 @@ function claimTaskReward(taskId, reward) {
 }
 
 
-//localStorage.removeItem('gameState'); // مسح حالة اللعبة
-//loadGameState(); // إعادة تحميل حالة اللعبة
 
 
 
+
+
+
+//
 
 window.Telegram.WebApp.setHeaderColor('#000000'); 
 // تهيئة تكامل Telegram
@@ -947,6 +975,13 @@ function initializeTelegramIntegration() {
         saveGameState();
     });
 }
+
+
+
+//localStorage.removeItem('gameState'); // مسح حالة اللعبة
+//loadGameState(); // إعادة تحميل حالة اللعبة
+
+
 
 
 // تفعيل التطبيق
