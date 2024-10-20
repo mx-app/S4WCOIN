@@ -117,7 +117,6 @@ function handlePuzzleWrongAnswer() {
     if (attempts === maxAttempts) {
         clearInterval(countdownInterval); // إيقاف المؤقت بعد الخسارة
         showNotification(puzzleNotification, 'You have used all attempts. 500 coins have been deducted.');
-        updateBalance(-penaltyAmount); // خصم العملات
         closePuzzle(); // إغلاق الأحجية بعد استنفاذ المحاولات
     } else {
         showNotification(puzzleNotification, `Wrong answer. You have ${maxAttempts - attempts} attempts remaining.`);
@@ -128,44 +127,6 @@ function handlePuzzleWrongAnswer() {
 function updateRemainingAttempts() {
     const attemptsDisplay = document.getElementById('attemptsDisplay');
     attemptsDisplay.innerText = `${maxAttempts - attempts}/${maxAttempts} Attempts`;
-}
-
-// تحديث الرصيد
-function updateBalance(amount) {
-    gameState.balance += amount;
-    updateBalanceInDB(amount)
-        .then(() => {
-            updateUI(); // تحديث واجهة المستخدم بعد تحديث الرصيد بنجاح
-        })
-        .catch(() => {
-            showNotification(puzzleNotification, 'Error updating balance. Please try again later.');
-        });
-}
-
-// دالة لتحديث الرصيد في قاعدة البيانات
-async function updateBalanceInDB(amount) {
-    try {
-        const { error } = await supabase
-            .from('users')
-            .update({ balance: gameState.balance })
-            .eq('telegram_id', gameState.userTelegramId);
-
-        if (error) {
-            throw new Error('Error updating balance');
-        }
-    } catch (error) {
-        console.error('Database error:', error);
-        throw error;
-    }
-}
-
-// دالة لإظهار الإشعارات
-function showNotification(notificationElement, message) {
-    notificationElement.innerText = message; // تعيين نص الإشعار
-    notificationElement.classList.add('show'); // إظهار الإشعار
-    setTimeout(() => {
-        notificationElement.classList.remove('show'); // إخفاء الإشعار بعد 4 ثوانٍ
-    }, 4000);
 }
 
 // دالة لإغلاق الأحجية وإعادة تعيين الحالة
@@ -188,10 +149,6 @@ puzzleOptions.addEventListener('click', function (event) {
 openPuzzleBtn.addEventListener('click', displayTodaysPuzzle); // فتح الأحجية عند الضغط على الزر
 closePuzzleBtn.addEventListener('click', closePuzzle); // إغلاق الأحجية عند الضغط على زر الإغلاق
 
-// تحديث واجهة المستخدم
-function updateUI() {
-    document.getElementById('balanceDisplay').innerText = gameState.balance.toLocaleString(); // عرض الرصيد الحالي
-}
 
 document.getElementById('puzzlecloseModal').addEventListener('click', function() {
     document.getElementById('puzzleContainer').classList.add('hidden'); // استخدام classList لإضافة 'hidden'
