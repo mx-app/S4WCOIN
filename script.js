@@ -802,10 +802,7 @@ buttons.forEach(button => {
 
 
 
-
-
-
-
+    
 
 document.addEventListener('DOMContentLoaded', () => {
     const taskContainer = document.getElementById('taskcontainer');
@@ -831,7 +828,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let taskProgress = taskProgressData ? taskProgressData.progress : 0;
 
         // Set button text based on task progress
-        button.textContent = taskProgress >= 2 ? 'Completed' : taskProgress === 1 ? 'Verify' : ' Go ';
+        button.textContent = taskProgress >= 2 ? 'Completed' : taskProgress === 1 ? 'Verify' : 'Go';
         button.disabled = taskProgress >= 2;
 
         // Button click handling
@@ -843,8 +840,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             if (taskProgress === 0) {
-                // Fallback to window.open if not in Telegram WebApp
-                window.open(taskUrl, '_blank');
+                // Use Telegram WebApp API if available, otherwise fallback to window.open
+                if (typeof Telegram !== 'undefined' && Telegram.WebApp) {
+                    Telegram.WebApp.openTelegramLink(taskUrl);
+                } else {
+                    window.open(taskUrl, '_blank');
+                }
+                
                 taskProgress = 1;
                 updateTaskProgressInGameState(taskId, taskProgress);
                 button.textContent = 'Verify';
@@ -899,7 +901,6 @@ function claimTaskReward(taskId, reward) {
     updateUserData(); // Sync user data with the server
     saveGameState(); // Ensure the game state is saved
 }
-
 
 
 
