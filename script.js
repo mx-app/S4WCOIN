@@ -1358,6 +1358,7 @@ function displayNextCaesarPuzzle() {
     }
 }
 
+
 // التحقق من الحل
 async function checkCaesarSolution() {
     const userSolution = CaesarSolutionInput.value.trim().toLowerCase();
@@ -1369,6 +1370,7 @@ async function checkCaesarSolution() {
         showNotification(CaesarNotification, 'Incorrect solution. Try again!');
     }
 }
+
 
 // التعامل مع الحل الصحيح
 async function handleCorrectCaesarSolution() {
@@ -1427,13 +1429,6 @@ document.addEventListener('DOMContentLoaded', loadCaesarPuzzles);
 
 
 
-
-
-
-
-
-
-///////////////////////////////////////  
 
 // تفعيل التطبيق
 initializeApp();
