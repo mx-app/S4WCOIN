@@ -1433,12 +1433,9 @@ async function saveSolvedPuzzle() {
     // إضافة الشيفرة الحالية إلى قائمة الشيفرات المحلولة
     solvedCiphers.push(currentPuzzle.CaesarPuzzleID);
 
-    // تحديث قاعدة البيانات بإضافة الشيفرة المحلولة
     const { updateError } = await supabase
         .from('users')
-        .update({
-            caesar_ciphers: solvedCiphers // تحديث العمود في قاعدة البيانات
-        })
+        .update({ caesar_ciphers: caesarciphers })
         .eq('telegram_id', userTelegramId);
 
     if (updateError) {
@@ -1448,7 +1445,6 @@ async function saveSolvedPuzzle() {
         caesarNotification.textContent = `Correct! You've earned ${currentPuzzle.reward} coins.`;
         updateUserBalance(currentPuzzle.reward); // إضافة المكافأة مرة واحدة
     }
-}
 
 // تحديث رصيد المستخدم بعد حل الأحجية بنجاح
 function updateBalance (reward) {
