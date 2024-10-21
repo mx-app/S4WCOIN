@@ -22,7 +22,6 @@
 }
 
 #Puzzlespage .puzzle-btn {
-    padding: 15px;
     background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    color: #fff;
     border-radius: 10px;
     font-size: 18px;
@@ -32,6 +31,7 @@
     width: 88%; /* العرض 90% */
     display: block; /* لجعل العنصر يعمل ككتلة */
     margin: 0 auto 15px; /* لمركزة الزر في المنتصف */
+    height: 60px;
 }
 
 #Puzzlespage .puzzle-btn:hover {
