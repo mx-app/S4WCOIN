@@ -916,7 +916,7 @@ body {
     margin-bottom: 10px;
 } 
 
-#l, #w, #t, #info, #b, #lev, #currentLevelInfo, #i {
+#l, #t, #info, #b, #lev, #currentLevelInfo, #i {
     color: #fff; 
     font-size: 20px; 
     margin: 10px 0;
@@ -986,3 +986,9 @@ body {
     margin-top: 0; /* إزالة المسافة من الأعلى */
     margin-bottom: 0; 
 }
+ #w {
+    color: white; /* لون النص */
+    font-size: 20px; /* حجم الخط */
+    margin-top: 0; /* إزالة المسافة من الأعلى */
+    margin-bottom: 0; 
+ }
