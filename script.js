@@ -79,6 +79,7 @@ let gameState = {
     claimedRewards: { levels: [] }, 
     tasksprogress: [],
     puzzlesprogress:[], 
+    usedPromoCodes: [],
     
 };
 
@@ -679,7 +680,8 @@ async function updateUserData() {
             invites: gameState.invites,
             claimed_rewards: gameState.claimedRewards, // حفظ المكافآت المحصلة في قاعدة البيانات
             tasks_progress: gameState.tasksprogress, 
-            puzzles_progress: gameState.puzzlesprogress
+            puzzles_progress: gameState.puzzlesprogress, 
+            used_Promo_Codes:gameState.usedPromoCodes
         })
         .eq('telegram_id', userId);
 
@@ -1226,7 +1228,6 @@ document.getElementById('openPuzzleBtn').addEventListener('click', function() {
 
 
 
-
 // إظهار النافذة المنبثقة عند الضغط على زر البرومو كود
 document.getElementById('promoCodeBtn').addEventListener('click', () => {
     document.getElementById('promoCodeModal').style.display = 'block';
@@ -1246,20 +1247,61 @@ document.getElementById('applyPromoCode').addEventListener('click', async () => 
     const promoData = await response.json();
     const promoCodes = promoData.promoCodes;
 
+    // تحقق مما إذا كان المستخدم قد استخدم هذا البرومو كود من قبل
+    if (gameState.usedPromoCodes && gameState.usedPromoCodes.includes(enteredCode)) {
+        showNotification(uiElements.purchaseNotification, 'You have already used this promo code.');
+        return;
+    }
+
     // التحقق مما إذا كان البرومو كود صحيحًا
     if (promoCodes[enteredCode]) {
         const reward = promoCodes[enteredCode];
 
         // إضافة المكافأة إلى رصيد المستخدم
         gameState.balance += reward;
-        updateUI(); // تحديث واجهة المستخدم
 
-        alert(`Successfully added ${reward} coins to your balance!`);
-        document.getElementById('promoCodeModal').style.display = 'none'; // إخفاء النافذة
+        // تحديث واجهة المستخدم
+        updateUI();
+
+        // حفظ البرومو كود المستخدم
+        if (!gameState.usedPromoCodes) {
+            gameState.usedPromoCodes = [];
+        }
+        gameState.usedPromoCodes.push(enteredCode);
+
+        // تحديث الأكواد المستخدمة في قاعدة البيانات
+        await updateUsedPromoCodesInDB(gameState.usedPromoCodes);
+
+        // إظهار إشعار بالنجاح
+        showNotification(uiElements.purchaseNotification, `Successfully added ${reward} coins to your balance!`);
+
+        // إخفاء النافذة بعد الاستخدام
+        document.getElementById('promoCodeModal').style.display = 'none';
+
+        // حفظ حالة اللعبة بعد إضافة المكافأة
+        saveGameState();
     } else {
-        alert('Invalid promo code.');
+        showNotification(uiElements.purchaseNotification, 'Invalid promo code.');
     }
 });
+
+// تحديث الأكواد المستخدمة في قاعدة البيانات
+async function updateUsedPromoCodesInDB(usedPromoCodes) {
+    const userId = uiElements.userTelegramIdDisplay.innerText;
+
+    const { error } = await supabase
+        .from('users')
+        .update({
+            used_Promo_Codes: usedPromoCodes  // تحديث الأكواد المستخدمة
+        })
+        .eq('telegram_id', userId);
+
+    if (error) {
+        console.error('Error updating used promo codes:', error);
+        showNotification(uiElements.purchaseNotification, 'Failed to update promo codes in database.', true);
+    }
+}
+
 
 
 
