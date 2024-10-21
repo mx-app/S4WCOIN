@@ -7,7 +7,6 @@ const caesarPuzzleQuestion = document.getElementById("CaesarPuzzleQuestion");
 const caesarSolutionInput = document.getElementById("CaesarSolutionInput");
 const caesarSubmitBtn = document.getElementById("CaesarSubmitBtn");
 const caesarRewardDisplay = document.getElementById("CaesarRewardDisplay");
-const caesarNotification = document.getElementById("CaesarNotification");
 
 // المتغيرات
 let currentPuzzle = null;
