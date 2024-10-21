@@ -982,16 +982,6 @@ function initializeTelegramIntegration() {
 //
 
 
-
-
-
-
-
-
-
-
-
-
     
 // DOM Elements
 const puzzlecloseModal = document.getElementById('puzzlecloseModal');
@@ -1218,6 +1208,58 @@ document.getElementById('openPuzzleBtn').addEventListener('click', function() {
 });
 
 
+//////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// إظهار النافذة المنبثقة عند الضغط على زر البرومو كود
+document.getElementById('promoCodeBtn').addEventListener('click', () => {
+    document.getElementById('promoCodeModal').style.display = 'block';
+});
+
+// إغلاق النافذة عند الضغط على زر الإغلاق
+document.getElementById('closeModal').addEventListener('click', () => {
+    document.getElementById('promoCodeModal').style.display = 'none';
+});
+
+// التحقق من البرومو كود عند الضغط على زر "Apply"
+document.getElementById('applyPromoCode').addEventListener('click', async () => {
+    const enteredCode = document.getElementById('promoCodeInput').value;
+
+    // تحميل البرومو كود من ملف JSON
+    const response = await fetch('promocodes.json');
+    const promoData = await response.json();
+    const promoCodes = promoData.promoCodes;
+
+    // التحقق مما إذا كان البرومو كود صحيحًا
+    if (promoCodes[enteredCode]) {
+        const reward = promoCodes[enteredCode];
+
+        // إضافة المكافأة إلى رصيد المستخدم
+        gameState.balance += reward;
+        updateUI(); // تحديث واجهة المستخدم
+
+        alert(`Successfully added ${reward} coins to your balance!`);
+        document.getElementById('promoCodeModal').style.display = 'none'; // إخفاء النافذة
+    } else {
+        alert('Invalid promo code.');
+    }
+});
 
 
 
