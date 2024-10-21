@@ -18,14 +18,14 @@
     gap: 5px; /* تقليل المسافة بين العناصر */
 }
 
-
-
 .closepromoBtn {
     margin-top: 10px;
     color: white;
     padding: 10px;
     border-radius: 10px;
     border: none;
+    font-size: 20px;
+
 }
 
 .modal-content {
@@ -59,20 +59,3 @@
     background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c); /* التدرج اللوني */
 
 }
-.promo_CodeBtn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-   background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    color: #fff;
-    border: 2px solid #343434; 
-    padding: 15px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    font-size: 16px;
-    font-weight: bold;
-    margin: 0;
-    width: 100%;
-    max-width: 300px;
-}
-
