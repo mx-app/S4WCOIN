@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "CaesarPuzzleID": 1,
     "puzzle": "Sgd lzfqhb zqd gzkkzqm hm sgd vddj.",
     "shift": 25,
     "solution": "The magics are hidden in the week.",
@@ -8,7 +8,7 @@
     "description": "Decrypt this cipher and find the hidden magics!"
   },
   {
-    "id": 2,
+    "CaesarPuzzleID": 2,
     "puzzle": "Vjku ku kv, crrn{rqogt gzvgtpcnkv{.",
     "shift": 2,
     "solution": "This is it, apply proper externality.",
@@ -16,7 +16,7 @@
     "description": "A puzzle of strategic importance, decrypt it for a reward."
   },
   {
-    "id": 3,
+    "CaesarPuzzleID": 3,
     "puzzle": "Ymnx nx f xzqflj tk ymfy rnyz!",
     "shift": 5,
     "solution": "This is a proof of that shift!",
@@ -24,7 +24,7 @@
     "description": "Prove your skill by decrypting this tough one!"
   },
   {
-    "id": 4,
+    "CaesarPuzzleID": 4,
     "puzzle": "Uifsf jt b tfdsfu pme epddvnfou xjuijo.",
     "shift": 1,
     "solution": "There is a secret old document within.",
@@ -32,7 +32,7 @@
     "description": "A secret is hidden in the old document."
   },
   {
-    "id": 5,
+    "CaesarPuzzleID": 5,
     "puzzle": "Nzxm xzzvn kzrrmrk yb droo blfi.",
     "shift": 10,
     "solution": "Jump ahead forward to the next clue.",
@@ -40,7 +40,7 @@
     "description": "Advance by solving this tricky cipher."
   },
   {
-    "id": 6,
+    "CaesarPuzzleID": 6,
     "puzzle": "Dro esle vn kbommn gsv Uilnvm.",
     "shift": 25,
     "solution": "The path is hidden behind the mirror.",
@@ -48,7 +48,7 @@
     "description": "A reflection holds the solution!"
   },
   {
-    "id": 7,
+    "CaesarPuzzleID": 7,
     "puzzle": "Qeb obclro fp kbuq ltkzov qeb qovmq!",
     "shift": 3,
     "solution": "The secret is four layers deep down!",
@@ -56,7 +56,7 @@
     "description": "Can you uncover the layers and find the secret?"
   },
   {
-    "id": 8,
+    "CaesarPuzzleID": 8,
     "puzzle": "Yjcv ku vjg dtgcm kuvj?",
     "shift": 2,
     "solution": "What is the break shift?",
@@ -64,7 +64,7 @@
     "description": "Find the break shift and solve the puzzle."
   },
   {
-    "id": 9,
+    "CaesarPuzzleID": 9,
     "puzzle": "Gsv xlmgzrmh ziv xlfihg zmbgsrmt!",
     "shift": 25,
     "solution": "The operations are inside mysteries!",
@@ -72,7 +72,7 @@
     "description": "This cipher holds many mysteries within."
   },
   {
-    "id": 10,
+    "CaesarPuzzleID": 10,
     "puzzle": "Sgd jdkx kzr vhsg bqdzmr ldvrzx.",
     "shift": 25,
     "solution": "The keys are with crazy mystery.",
