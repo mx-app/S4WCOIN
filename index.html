@@ -113,12 +113,25 @@
           </div>
 
                  <!-- Tasks Page -->
-      <div id="tasksPage" class="screen-content scrollable">
-       <img src="i/heart.gif" alt="Tasks Image" class="task-image">
-        <p id="t">Complete daily tasks to earn more rewards! 🎁</p>
-          <section id="taskcontainer" class="task-container">
+          <div id="tasksPage" class="screen-content scrollable">
+             <img src="i/heart.gif" alt="Tasks Image" class="task-image">
+                 <p id="t">Complete daily tasks to earn more rewards! 🎁</p>
+                 <!-- Promo Code Button -->
+                 <button id="promoCodeBtn">Use Promo Code</button>
+                 <div id="promoCodeModal" style="display: none;">
+                 <span class="closeBtn" id="closeModal">&times;</span>
+                  <div class="modal-content">
+                   <h2>Enter Promo Code</h2>
+                   <input type="text" id="promoCodeInput" placeholder="Enter promo code">
+                   <button id="applyPromoCode">Apply</button>
+                </div>
+             </div>
 
-  </div>
+                <section id="taskcontainer" class="task-container">
+             <!-- المهام ستظهر هنا -->
+         </section>
+       </div>
+
         
          <!-- Puzzle Page -->
          <div id="Puzzlespage" class="screen-content scrollable">
