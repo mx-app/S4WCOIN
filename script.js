@@ -1234,7 +1234,7 @@ document.getElementById('promoCodeBtn').addEventListener('click', () => {
 });
 
 // إغلاق النافذة عند الضغط على زر الإغلاق
-document.getElementById('closeModal').addEventListener('click', () => {
+document.getElementById('closepromoBtn').addEventListener('click', () => {
     document.getElementById('promoCodeModal').style.display = 'none';
 });
 
