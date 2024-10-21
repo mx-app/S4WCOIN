@@ -87,3 +87,14 @@
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
 
 } 
+
+.promo-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px; /* مسافة بين الصورة والنص */
+}
+
+.promo_CodeBtn img {
+    vertical-align: middle;
+} 
+
