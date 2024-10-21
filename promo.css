@@ -22,7 +22,6 @@
 
 .closepromoBtn {
     margin-top: 10px;
-    background-color: red;
     color: white;
     padding: 10px;
     border-radius: 10px;
@@ -61,6 +60,9 @@
 
 }
 .promo_CodeBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    color: #fff;
     border: 2px solid #343434; 
     padding: 15px 20px;
