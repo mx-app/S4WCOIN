@@ -73,7 +73,6 @@
     width: 90%;
     background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);  
     color: #fff;
-    padding: 15px;
     border: 2px solid #343434;
     border-radius: 10px;
     font-size: 18px;
@@ -81,6 +80,7 @@
     transition: background-color 0.3s ease;
     font-weight: bold;
     text-align: center;
+    height: 15px;
 }
 
 .promo_CodeBtn:hover {
@@ -92,6 +92,7 @@
     width: 40px;
     height: 40px;
     margin-right: 5px; /* مسافة بين الصورة والنص */
+    flex-shrink: 0;
 }
 
 .promo_CodeBtn img {
