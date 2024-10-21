@@ -819,7 +819,6 @@ body {
 .wallet-button {
     background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    color: #fff;
     border: 2px solid #343434; 
-    padding: 15px 20px;
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -828,6 +827,7 @@ body {
     margin: 0;
     width: 100%;
     max-width: 300px;
+    height: 60px;
 }
 
 .wallet-button:hover {
