@@ -983,5 +983,6 @@ body {
     margin-left: -220px; /* تحريك النص قليلاً لليسار */
     color: white; /* لون النص */
     font-size: 20px; /* حجم الخط */
-    margin: 0; 
+    margin-top: 0; /* إزالة المسافة من الأعلى */
+    margin-bottom: 0; 
 }
