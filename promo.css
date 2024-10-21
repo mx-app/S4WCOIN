@@ -50,12 +50,14 @@
 
 }
 .promo_CodeBtn {
-background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c); /* التدرج اللوني */
-margin: 0 auto;
-padding: 10px 10px;
-border: 2px solid #343434;
-    
-}
-
-
-
+   width: 90%;
+    max-width: 300px;
+    margin: 10px 0;
+    padding: 10px;
+    border: 2px solid #343434; 
+    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);  
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
