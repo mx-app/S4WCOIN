@@ -803,6 +803,19 @@ body {
     margin: 0 auto;
 } 
 
+
+.wallet-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 5px; /* مسافة بين الصورة والنص */
+    flex-shrink: 0;
+}
+
+.wallet-button img {
+    vertical-align: middle;
+}  
+
+
 .wallet-button {
     background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    color: #fff;
     border: 2px solid #343434; 
