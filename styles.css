@@ -983,12 +983,17 @@ body {
     margin-left: -220px; /* تحريك النص قليلاً لليسار */
     color: white; /* لون النص */
     font-size: 20px; /* حجم الخط */
-    margin-top: 0; /* إزالة المسافة من الأعلى */
+    margin-top: 8px; /* إزالة المسافة من الأعلى */
     margin-bottom: 0; 
 }
+
  #w {
     color: white; /* لون النص */
     font-size: 20px; /* حجم الخط */
     margin-top: 0; /* إزالة المسافة من الأعلى */
     margin-bottom: 0; 
+    text-align: center;
  }
+
+
+
