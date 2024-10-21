@@ -1451,7 +1451,7 @@ async function saveSolvedPuzzle() {
 }
 
 // تحديث رصيد المستخدم بعد حل الأحجية بنجاح
-function updateUserBalance(reward) {
+function updateBalance (reward) {
     gameState.balance += reward;
     saveGameState(); // حفظ حالة اللعبة بعد التحديث
 }
