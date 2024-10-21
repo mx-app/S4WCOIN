@@ -980,11 +980,12 @@ body {
 }
  
 #task {
-    margin-left: -220px; /* تحريك النص قليلاً لليسار */
+  /*  margin-left: -220px; */
     color: white; /* لون النص */
-    font-size: 20px; /* حجم الخط */
+    font-size: 23px; /* حجم الخط */
     margin-top: 8px; /* إزالة المسافة من الأعلى */
-    margin-bottom: 0; 
+    margin-bottom: 0;
+    text-align: center;
 }
 
  #w {
