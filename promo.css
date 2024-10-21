@@ -27,19 +27,6 @@
     max-width: 400px;
 }
 
-.closeBtn {
-    color: #fff;
-    float: right;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.closeBtn:hover, .closeBtn:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
 #promoCodeInput {
     width: 100%;
     padding: 10px;
@@ -62,3 +49,13 @@
     background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c); /* التدرج اللوني */
 
 }
+.promo_CodeBtn {
+background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c); /* التدرج اللوني */
+margin: 0 auto;
+padding: 10px 10px;
+border: 2px solid #343434;
+    
+}
+
+
+
