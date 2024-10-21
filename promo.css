@@ -30,7 +30,7 @@
 .closeBtn {
     color: #fff;
     float: right;
-    font-size: 28px;
+    font-size: 20px;
     font-weight: bold;
 }
 
@@ -50,14 +50,15 @@
 #applyPromoCode {
     padding: 10px;
     margin-top: 10px;
-    background-color: #4CAF50;
+    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);
     color: white;
-    border: none;
+    
     cursor: pointer;
     width: 100%;
     font-size: 16px;
 }
 
 #applyPromoCode:hover {
-    background-color: #45a049;
+    background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c); /* التدرج اللوني */
+
 }
