@@ -980,7 +980,7 @@ body {
 }
  
 #task {
-    margin-left: -20px; /* تحريك النص قليلاً لليسار */
+    margin-left: -60px; /* تحريك النص قليلاً لليسار */
     color: white; /* لون النص */
     font-size: 20px; /* حجم الخط */
 }
