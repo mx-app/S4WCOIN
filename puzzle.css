@@ -135,7 +135,7 @@
     border: none;
 }
 
-#Puzzlespage .room-puzzle .The-never-ending-puzzle {
+#Puzzlespage #RoomPuzzleBtn {
     background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    color: #fff;
     border-radius: 10px;
     font-size: 18px;
