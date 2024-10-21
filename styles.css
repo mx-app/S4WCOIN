@@ -983,8 +983,8 @@ body {
   /*  margin-left: -220px; */
     color: white; /* لون النص */
     font-size: 23px; /* حجم الخط */
-    margin-top: 8px; /* إزالة المسافة من الأعلى */
-    margin-bottom: 0;
+    margin-top: 5px; /* إزالة المسافة من الأعلى */
+    margin-bottom: 8px;
     text-align: center;
 }
 
