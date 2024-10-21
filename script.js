@@ -80,7 +80,7 @@ let gameState = {
     tasksprogress: [],
     puzzlesprogress:[], 
     usedPromoCodes: [],
-    CaesarSolvedPuzzles:[],
+    caesarciphers:[],
     
 };
 
@@ -683,7 +683,7 @@ async function updateUserData() {
             tasks_progress: gameState.tasksprogress, 
             puzzles_progress: gameState.puzzlesprogress, 
             used_Promo_Codes: gameState.usedPromoCodes, 
-            CaesarSolvedPuzzles: [...gameState.CaesarSolvedPuzzles]  // تأكد من أنه مصفوفة
+            caesar_ciphers: gameState.caesarciphers
             
         })
         .eq('telegram_id', userId);
@@ -1317,109 +1317,181 @@ async function updateUsedPromoCodesInDB(usedPromoCodes) {
 
 
 
-// تعريف عناصر DOM لشيفرة قيصر
-const CaesarPuzzleBtn = document.getElementById('CaesarPuzzleBtn');
-const CaesarPuzzleContainer = document.getElementById('CaesarPuzzleContainer');
-const CaesarPuzzleQuestion = document.getElementById('CaesarPuzzleQuestion');
-const CaesarSolutionInput = document.getElementById('CaesarSolutionInput');
-const CaesarSubmitBtn = document.getElementById('CaesarSubmitBtn');
-const CaesarNotification = document.getElementById('CaesarNotification');
-const CaesarRewardDisplay = document.getElementById('CaesarRewardDisplay');
 
-// حالة اللعبة لشيفرة قيصر
-let currentCaesarPuzzle;
-let caesarPuzzles = [];
-let solvedCaesarPuzzles = new Set(); // تخزين الألغاز التي تم حلها
 
-// جلب الألغاز من ملف JSON
-async function loadCaesarPuzzles() {
+
+
+
+// عناصر DOM
+const caesarPuzzleBtn = document.getElementById("CaesarPuzzleBtn");
+const caesarPuzzleContainer = document.getElementById("CaesarPuzzleContainer");
+const caesarPuzzleQuestion = document.getElementById("CaesarPuzzleQuestion");
+const caesarSolutionInput = document.getElementById("CaesarSolutionInput");
+const caesarSubmitBtn = document.getElementById("CaesarSubmitBtn");
+const caesarRewardDisplay = document.getElementById("CaesarRewardDisplay");
+const caesarNotification = document.getElementById("CaesarNotification");
+
+// المتغيرات
+let currentPuzzle = null;
+let remainingAttempts = 3;
+let solvedPuzzles = []; // لتخزين الـID للشيفرات المحلولة
+let puzzleData = [];
+const maxAttempts = 3;
+
+// جلب شيفرات القيصر من ملف JSON
+async function fetchPuzzles() {
     try {
-        const response = await fetch('caesar.json');
-        if (!response.ok) throw new Error('Failed to load puzzles'); // تحقق من استجابة fetch
-        caesarPuzzles = await response.json();
-        displayNextCaesarPuzzle();  // عرض اللغز التالي
+        const response = await fetch('Caesar.json');
+        puzzleData = await response.json();
+        loadNextPuzzle();
     } catch (error) {
-        console.error('Error loading Caesar puzzles:', error);
-        showNotification(CaesarNotification, 'Error loading Caesar puzzles.');
+        caesarPuzzleQuestion.textContent = 'Failed to load puzzles.';
+        console.error(error);
     }
 }
 
-// عرض اللغز التالي الذي لم يتم حله من قبل المستخدم
-function displayNextCaesarPuzzle() {
-    const nextPuzzle = caesarPuzzles.find(puzzle => !solvedCaesarPuzzles.has(puzzle.CaesarPuzzleID));
-
-    if (nextPuzzle) {
-        currentCaesarPuzzle = nextPuzzle;
-        CaesarPuzzleQuestion.innerText = nextPuzzle.puzzle;
-        CaesarRewardDisplay.innerText = `Reward: ${nextPuzzle.reward} coins`;
-        CaesarPuzzleContainer.classList.remove('hidden');
+// تحميل الأحجية التالية غير المحلولة
+function loadNextPuzzle() {
+    const availablePuzzles = puzzleData.filter(puzzle => !solvedPuzzles.includes(puzzle.CaesarPuzzleID));
+    if (availablePuzzles.length > 0) {
+        currentPuzzle = availablePuzzles[0];
+        displayPuzzle();
     } else {
-        showNotification(CaesarNotification, 'All puzzles have been solved!');
+        caesarPuzzleQuestion.textContent = 'No more puzzles available.';
     }
 }
 
+// عرض الأحجية الحالية
+function displayPuzzle() {
+    caesarPuzzleQuestion.textContent = currentPuzzle.puzzle;
+    caesarRewardDisplay.textContent = `Reward: ${currentPuzzle.reward} coins`;
+    caesarSolutionInput.value = '';
+    caesarNotification.textContent = '';
+}
 
-// التحقق من الحل
-async function checkCaesarSolution() {
-    const userSolution = CaesarSolutionInput.value.trim().toLowerCase();
-    const correctSolution = currentCaesarPuzzle.solution.trim().toLowerCase();
-    
-    if (userSolution === correctSolution) {
-        await handleCorrectCaesarSolution();
+// التحقق من الحل المدخل من المستخدم
+function checkSolution() {
+    const userSolution = caesarSolutionInput.value.trim();
+    if (userSolution === currentPuzzle.solution) {
+        handleCorrectSolution();
     } else {
-        showNotification(CaesarNotification, 'Incorrect solution. Try again!');
+        handleWrongSolution();
     }
 }
-
 
 // التعامل مع الحل الصحيح
-async function handleCorrectCaesarSolution() {
-    const CaesarPuzzleID = currentCaesarPuzzle.CaesarPuzzleID;
+function handleCorrectSolution() {
+    solvedPuzzles.push(currentPuzzle.CaesarPuzzleID);
+    caesarNotification.textContent = `Correct! You've earned ${currentPuzzle.reward} coins.`;
+    updateUserBalance(currentPuzzle.reward);
+    saveSolvedPuzzle(); // حفظ الشيفرة المحلولة
+    loadNextPuzzle();
+}
 
-    if (!solvedCaesarPuzzles.has(CaesarPuzzleID)) {
-        solvedCaesarPuzzles.add(CaesarPuzzleID);
-        updateBalance(currentCaesarPuzzle.reward);
-        await updateUserCaesarPuzzleProgress(CaesarPuzzleID);
-        displayNextCaesarPuzzle();
+// التعامل مع الحل الخاطئ
+function handleWrongSolution() {
+    remainingAttempts--;
+    if (remainingAttempts > 0) {
+        caesarNotification.textContent = `Wrong answer. You have ${remainingAttempts} attempts remaining.`;
     } else {
-        showNotification(CaesarNotification, 'You have already solved this puzzle.');
+        caesarNotification.textContent = 'You have used all your attempts. Please try again tomorrow.';
+        disablePuzzle();
     }
 }
 
-// تحديث الرصيد
-function updateBalance(amount) {
-    gameState.balance += amount;
-    updateUI();  // تحديث واجهة المستخدم
-    saveGameState();  // حفظ حالة اللعبة
+// تعطيل الأحجية بعد استنفاد المحاولات
+function disablePuzzle() {
+    caesarSubmitBtn.disabled = true;
+    caesarSolutionInput.disabled = true;
 }
 
-// حفظ تقدم المستخدم في قاعدة البيانات
-async function updateUserCaesarPuzzleProgress(CaesarPuzzleID) {
-    const userTelegramId = uiElements.userTelegramIdDisplay.innerText;
+// حفظ الشيفرة المحلولة في قاعدة البيانات للمستخدم
+async function saveSolvedPuzzle() {
+    const userTelegramId = uiElements.userTelegramIdDisplay.innerText; // الحصول على ID المستخدم من Telegram
+    if (!userTelegramId || !currentPuzzle) return;
 
-    const { error } = await supabase
+    // جلب بيانات المستخدم للتحقق من الشيفرات المحلولة
+    const { data, error } = await supabase
+        .from('users')
+        .select('caesar_ciphers') // العمود الجديد 'caesar_ciphers' في قاعدة البيانات
+        .eq('telegram_id', userTelegramId)
+        .single();
+
+    if (error) {
+        console.error('Error fetching Caesar Cipher progress:', error);
+        return;
+    }
+
+    let solvedCiphers = data.caesar_ciphers || []; // الشيفرات المحلولة
+
+    // تحقق إذا كانت الشيفرة قد تم حلها بالفعل
+    if (solvedCiphers.includes(currentPuzzle.CaesarPuzzleID)) {
+        caesarNotification.textContent = 'You have already solved this puzzle and received the reward.';
+        return;
+    }
+
+    // إضافة الشيفرة الحالية إلى قائمة الشيفرات المحلولة
+    solvedCiphers.push(currentPuzzle.CaesarPuzzleID);
+
+    // تحديث قاعدة البيانات بإضافة الشيفرة المحلولة
+    const { updateError } = await supabase
         .from('users')
         .update({
-            CaesarSolvedPuzzles: [...solvedCaesarPuzzles] // حفظ الألغاز التي تم حلها
+            caesar_ciphers: solvedCiphers // تحديث العمود في قاعدة البيانات
         })
         .eq('telegram_id', userTelegramId);
 
-    if (error) {
-        console.error('Error updating Caesar puzzle progress:', error);
+    if (updateError) {
+        console.error('Error updating Caesar Cipher progress:', updateError);
+        caesarNotification.textContent = 'Error saving your progress. Please try again.';
+    } else {
+        caesarNotification.textContent = `Correct! You've earned ${currentPuzzle.reward} coins.`;
+        updateUserBalance(currentPuzzle.reward); // إضافة المكافأة مرة واحدة
     }
 }
 
-// إضافة حدث لزر "CaesarPuzzleBtn" لعرض اللغز
-CaesarPuzzleBtn.addEventListener('click', function() {
-    CaesarPuzzleContainer.classList.remove('hidden');
-    displayNextCaesarPuzzle();
+// تحديث رصيد المستخدم بعد حل الأحجية بنجاح
+function updateUserBalance(reward) {
+    gameState.balance += reward;
+    saveGameState(); // حفظ حالة اللعبة بعد التحديث
+}
+
+// تحميل حالة المستخدم (إذا كان هناك أحجيات تم حلها بالفعل)
+async function loadUserProgress() {
+    const userTelegramId = uiElements.userTelegramIdDisplay.innerText;
+
+    const { data, error } = await supabase
+        .from('users')
+        .select('caesar_ciphers') // استرجاع الشيفرات المحلولة
+        .eq('telegram_id', userTelegramId)
+        .single();
+
+    if (error) {
+        console.error('Error loading user progress:', error);
+        return;
+    }
+
+    solvedPuzzles = data.caesar_ciphers || [];
+}
+
+// استدعاء هذه الدالة عند بدء اللعبة أو عند الضغط على زر الشيفرة
+caesarPuzzleBtn.addEventListener("click", () => {
+    caesarPuzzleContainer.classList.toggle("hidden");
+    loadUserProgress(); // تحميل الشيفرات المحلولة للمستخدم
+    fetchPuzzles(); // جلب الأحجيات عند الضغط على الزر
 });
 
-// إضافة حدث عند الضغط على زر "Submit"
-CaesarSubmitBtn.addEventListener('click', checkCaesarSolution);
+// التحقق من الحل عند الضغط على زر الإرسال
+caesarSubmitBtn.addEventListener("click", () => {
+    checkSolution();
+});
 
-// تحميل الألغاز عند تحميل الصفحة
-document.addEventListener('DOMContentLoaded', loadCaesarPuzzles);
+
+
+
+
+
+
 
 
 
