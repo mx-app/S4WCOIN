@@ -11,7 +11,7 @@
     right: 0;
     z-index: 9999; /* قيمة z-index عالية جداً */
     transform: translateY(0); /* يظهر من الأسفل */
-    height: 50vh;
+    height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start; /* تقريب العناصر ببعضها */
@@ -22,8 +22,8 @@
     background-color: transparent;
     margin: 15% auto;
     padding: 20px;
-    border: 2px solid #343434;
-    width: 100%;
+/*    border: 2px solid #343434;*/
+    width: 75%;
     max-width: 400px;
 }
 
