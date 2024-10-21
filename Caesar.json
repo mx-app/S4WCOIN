@@ -1,7 +1,7 @@
 [
   {
     "CaesarPuzzleID": 1,
-    "puzzle": "Sgd lzfqhb zqd gzkkzqm hm sgd vddj.",
+    "ciphers": "Sgd lzfqhb zqd gzkkzqm hm sgd vddj.",
     "shift": 25,
     "solution": "The magics are hidden in the week.",
     "reward": 100,
@@ -9,7 +9,7 @@
   },
   {
     "CaesarPuzzleID": 2,
-    "puzzle": "Vjku ku kv, crrn{rqogt gzvgtpcnkv{.",
+    "ciphers": "Vjku ku kv, crrn{rqogt gzvgtpcnkv{.",
     "shift": 2,
     "solution": "This is it, apply proper externality.",
     "reward": 150,
@@ -17,7 +17,7 @@
   },
   {
     "CaesarPuzzleID": 3,
-    "puzzle": "Ymnx nx f xzqflj tk ymfy rnyz!",
+    "ciphers": "Ymnx nx f xzqflj tk ymfy rnyz!",
     "shift": 5,
     "solution": "This is a proof of that shift!",
     "reward": 200,
@@ -25,7 +25,7 @@
   },
   {
     "CaesarPuzzleID": 4,
-    "puzzle": "Uifsf jt b tfdsfu pme epddvnfou xjuijo.",
+    "ciphers": "Uifsf jt b tfdsfu pme epddvnfou xjuijo.",
     "shift": 1,
     "solution": "There is a secret old document within.",
     "reward": 180,
@@ -33,7 +33,7 @@
   },
   {
     "CaesarPuzzleID": 5,
-    "puzzle": "Nzxm xzzvn kzrrmrk yb droo blfi.",
+    "ciphers": "Nzxm xzzvn kzrrmrk yb droo blfi.",
     "shift": 10,
     "solution": "Jump ahead forward to the next clue.",
     "reward": 220,
@@ -41,7 +41,7 @@
   },
   {
     "CaesarPuzzleID": 6,
-    "puzzle": "Dro esle vn kbommn gsv Uilnvm.",
+    "ciphers": "Dro esle vn kbommn gsv Uilnvm.",
     "shift": 25,
     "solution": "The path is hidden behind the mirror.",
     "reward": 250,
@@ -49,7 +49,7 @@
   },
   {
     "CaesarPuzzleID": 7,
-    "puzzle": "Qeb obclro fp kbuq ltkzov qeb qovmq!",
+    "ciphers": "Qeb obclro fp kbuq ltkzov qeb qovmq!",
     "shift": 3,
     "solution": "The secret is four layers deep down!",
     "reward": 300,
@@ -57,7 +57,7 @@
   },
   {
     "CaesarPuzzleID": 8,
-    "puzzle": "Yjcv ku vjg dtgcm kuvj?",
+    "ciphers": "Yjcv ku vjg dtgcm kuvj?",
     "shift": 2,
     "solution": "What is the break shift?",
     "reward": 180,
@@ -65,7 +65,7 @@
   },
   {
     "CaesarPuzzleID": 9,
-    "puzzle": "Gsv xlmgzrmh ziv xlfihg zmbgsrmt!",
+    "ciphers": "Gsv xlmgzrmh ziv xlfihg zmbgsrmt!",
     "shift": 25,
     "solution": "The operations are inside mysteries!",
     "reward": 350,
@@ -73,7 +73,7 @@
   },
   {
     "CaesarPuzzleID": 10,
-    "puzzle": "Sgd jdkx kzr vhsg bqdzmr ldvrzx.",
+    "ciphers": "Sgd jdkx kzr vhsg bqdzmr ldvrzx.",
     "shift": 25,
     "solution": "The keys are with crazy mystery.",
     "reward": 400,
