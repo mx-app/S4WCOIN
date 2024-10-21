@@ -683,7 +683,7 @@ async function updateUserData() {
             tasks_progress: gameState.tasksprogress, 
             puzzles_progress: gameState.puzzlesprogress, 
             used_Promo_Codes: gameState.usedPromoCodes, 
-            CaesarSolvedPuzzles: gameState.CaesarSolvedPuzzles
+            CaesarSolvedPuzzles: [...gameState.CaesarSolvedPuzzles]  // تأكد من أنه مصفوفة
             
         })
         .eq('telegram_id', userId);
