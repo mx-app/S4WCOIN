@@ -61,14 +61,16 @@
 
 }
 .promo_CodeBtn {
-   width: 90%;
-    max-width: 300px;
-    margin: 10px 0;
-    padding: 10px;
+   background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    color: #fff;
     border: 2px solid #343434; 
-    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);  
+    padding: 15px 20px;
     border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} 
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    width: 100%;
+    max-width: 300px;
+}
+
