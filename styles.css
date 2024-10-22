@@ -618,7 +618,7 @@ body {
  
 .confirmation-modal {
    /* background-color: rgba(0, 0, 0, 0.90);*//* خلفية شفافة */
-    background-image: url('i/sk3.png');
+    background-image: url('i/background.jpg');
     background-size: cover;
     background-position: center;
     padding: 20px;
