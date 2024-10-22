@@ -80,7 +80,7 @@ let gameState = {
     tasksprogress: [],
     puzzlesprogress:[], 
     usedPromoCodes: [],
-    caesarciphers:[],
+    ciphersProgress:[],
     
 };
 
@@ -683,7 +683,7 @@ async function updateUserData() {
             tasks_progress: gameState.tasksprogress, 
             puzzles_progress: gameState.puzzlesprogress, 
             used_Promo_Codes: gameState.usedPromoCodes, 
-            caesar_ciphers: gameState.caesarciphers
+            morse_ciphers_progress: gameState.ciphersProgress
             
         })
         .eq('telegram_id', userId);
@@ -1335,7 +1335,7 @@ const morsePenaltyAmount = 500; // Penalty for wrong answer
 // Load Morse ciphers from JSON file
 async function loadMorseCiphers() {
     try {
-        const response = await fetch('morse_ciphers.json');
+        const response = await fetch('Caesar.json');
         if (!response.ok) throw new Error('Failed to load ciphers');
         const data = await response.json();
         return data.morse_ciphers; // Return all ciphers
