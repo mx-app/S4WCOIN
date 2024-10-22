@@ -246,8 +246,8 @@ body {
 #balanceAmount::before {
     content: "";
     display: inline-block;
-    width: 40px; /* عرض الصورة */
-    height: 40px; /* ارتفاع الصورة */
+    width: 35px; /* عرض الصورة */
+    height: 35px; /* ارتفاع الصورة */
     background-image: url('i/coinsaw.png'); /* رابط الصورة */
     background-size: contain; /* يجعل الصورة تناسب الحجم المحدد */
     background-repeat: no-repeat;
