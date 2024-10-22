@@ -160,7 +160,7 @@ body {
     padding: 15px 30px;
     border-bottom-left-radius: 10px; /* حواف دائرية في الزاوية السفلية اليسرى */
     border-bottom-right-radius: 10px; /* حواف دائرية في الزاوية السفلية اليمنى */
-/*   border-bottom: 3px solid #343434;*/ /* إضافة حدود في الجزء السفلي */
+    border-bottom: 2px solid #343434; /* إضافة حدود في الجزء السفلي */
    /*border-radius: 15px 15px 15px 15px;
     border: 2px solid #343434;*/
   /*  background-color: transparent;*/
@@ -381,7 +381,7 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 8px;
-  /*  border: 3px solid #343434;*/
+    border: 2px solid #343434;
 /*   background: linear-gradient(45deg, #000, #9f0000, #000);*/
     background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);
     background-position: center;
@@ -932,7 +932,7 @@ body {
     top: 75.5vh; 
     right: 2.5vw; /* المسافة من الجانب الأيمن */
     background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    color: #fff;
-    border: 3px solid #343434;
+    border: 2px solid #343434;
     padding: 10px 8px;
     border-radius: 10px; 
     text-align: center;
