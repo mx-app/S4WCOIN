@@ -135,7 +135,7 @@
     border: none;
 }
 
-#Puzzlespage #CaesarPuzzleBtn {
+#Puzzlespage #MorsecodeBtn {
     background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    color: #fff;
     border-radius: 10px;
     font-size: 18px;
@@ -148,7 +148,7 @@
     height: 60px;
 }
 
-#Puzzlespage #CaesarPuzzleBtn:hover {
+#Puzzlespage #MorsecodeBtn:hover {
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
     background-position: center;
 }
