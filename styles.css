@@ -879,7 +879,7 @@ body {
 .level-button-floating {
     position: fixed;
     top: 13.1px; 
-    left: 30px;
+    left: 29px;
     background-color: transparent;
     background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c); /* التدرج اللوني */
     -webkit-background-clip: text; /* قص الخلفية للنص */
@@ -971,7 +971,7 @@ body {
     cursor: pointer;
     padding: 0; 
     z-index: 10;  
-    border-bottom: 2px solid #343434;
+   /* border-bottom: 2px solid #343434;*/
 }
 
 .settings-icon {
