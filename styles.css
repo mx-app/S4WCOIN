@@ -163,9 +163,9 @@ body {
 /*   border-bottom: 3px solid #343434;*/ /* إضافة حدود في الجزء السفلي */
    /*border-radius: 15px 15px 15px 15px;
     border: 2px solid #343434;*/
-    background-color: transparent;
+  /*  background-color: transparent;*/
    /* background: linear-gradient(180deg, #000, #9f0000);*/
-/*   background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
+    background: linear-gradient(4deg, #000, #343434, #000, #343434,#000);
     background-position: center;
     position: relative;
     width: %;
@@ -174,7 +174,7 @@ body {
     margin-left: 2px;
     margin-right: 2px;
     z-index: 100;
-    /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 4px 8px rgba(0, 0, 0, 1);*/ /* إضافة الظل */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 4px 8px rgba(0, 0, 0, 1); /* إضافة الظل */
 }  
  
 
