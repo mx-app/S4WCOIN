@@ -635,8 +635,8 @@ body {
 }
 
 .modal-image img {
-    width: 200px; /* حجم الصورة */
-    height: 200px;
+    width: 140px; /* حجم الصورة */
+    height: 140px;
     margin: 10px auto; /* موازنة الصورة في المنتصف */
     display: block;
     flex-grow: 5;
