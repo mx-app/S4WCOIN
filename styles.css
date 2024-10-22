@@ -617,7 +617,10 @@ body {
 }
  
 .confirmation-modal {
-    background-color: rgba(0, 0, 0, 0.90); /* خلفية شفافة */
+   /* background-color: rgba(0, 0, 0, 0.90);*//* خلفية شفافة */
+    background-image: url('i/sk3.png');
+    background-size: cover;
+    background-position: center;
     padding: 20px;
     border-radius: 25px 25px 0 0; /* حواف علوية دائرية فقط */
     border-top: 4px solid #343434;
