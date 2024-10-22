@@ -55,7 +55,10 @@
 }
 
 #Puzzlespage .puzzle-content {
-    background-color: rgba(0, 0, 0, 1); /* خلفية غير شفافة */
+    background-image: url('i/background.jpg');
+    background-size: cover;
+    background-position: center;
+   /* background-color: rgba(0, 0, 0, 1);*//* خلفية غير شفافة */
     padding: 10px; /* تقليل الحواف الداخلية */
     border-radius: 25px 25px 0 0; /* حواف علوية دائرية فقط */
     border-top: 4px solid #343434;
