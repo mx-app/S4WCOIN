@@ -386,7 +386,7 @@ body {
     background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);
     background-position: center;
     position: fixed;
-    bottom: 15px;
+    bottom: 20px;
     box-sizing: border-box; 
     width: calc(100% - 20px);
     left: 10px;
