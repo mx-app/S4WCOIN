@@ -628,7 +628,7 @@ body {
     right: 0;
     z-index: 10000;
     transform: translateY(0); /* يظهر من الأسفل */
-    height: 70vh;
+    height: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* توزيع العناصر بين الأعلى والأسفل */
