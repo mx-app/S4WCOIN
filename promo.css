@@ -19,7 +19,7 @@
     right: 0;
     z-index: 9999; /* قيمة z-index عالية جداً */
     transform: translateY(0); /* يظهر من الأسفل */
-    height: 60vh;
+    height: 40vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start; /* تقريب العناصر ببعضها */
