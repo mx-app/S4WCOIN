@@ -261,9 +261,9 @@
 }
 
 .puzzle-icon {
-    width: 40px;
-    height: 40px;
-    margin-right: 5px; /* مسافة بين الصورة والنص */
+    width: 30px;
+    height: 30px;
+    margin-right: 2px; /* مسافة بين الصورة والنص */
     flex-shrink: 0;
 }
 
