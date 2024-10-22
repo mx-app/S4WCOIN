@@ -1,82 +1,24 @@
-[
-  {
-    "CaesarPuzzleID": 1,
-    "ciphers": "Sgd lzfqhb zqd gzkkzqm hm sgd vddj.",
-    "shift": 25,
-    "solution": "The magics are hidden in the week.",
-    "reward": 100,
-    "description": "Decrypt this cipher and find the hidden magics!"
-  },
-  {
-    "CaesarPuzzleID": 2,
-    "ciphers": "Vjku ku kv, crrn{rqogt gzvgtpcnkv{.",
-    "shift": 2,
-    "solution": "This is it, apply proper externality.",
-    "reward": 150,
-    "description": "A puzzle of strategic importance, decrypt it for a reward."
-  },
-  {
-    "CaesarPuzzleID": 3,
-    "ciphers": "Ymnx nx f xzqflj tk ymfy rnyz!",
-    "shift": 5,
-    "solution": "This is a proof of that shift!",
-    "reward": 200,
-    "description": "Prove your skill by decrypting this tough one!"
-  },
-  {
-    "CaesarPuzzleID": 4,
-    "ciphers": "Uifsf jt b tfdsfu pme epddvnfou xjuijo.",
-    "shift": 1,
-    "solution": "There is a secret old document within.",
-    "reward": 180,
-    "description": "A secret is hidden in the old document."
-  },
-  {
-    "CaesarPuzzleID": 5,
-    "ciphers": "Nzxm xzzvn kzrrmrk yb droo blfi.",
-    "shift": 10,
-    "solution": "Jump ahead forward to the next clue.",
-    "reward": 220,
-    "description": "Advance by solving this tricky cipher."
-  },
-  {
-    "CaesarPuzzleID": 6,
-    "ciphers": "Dro esle vn kbommn gsv Uilnvm.",
-    "shift": 25,
-    "solution": "The path is hidden behind the mirror.",
-    "reward": 250,
-    "description": "A reflection holds the solution!"
-  },
-  {
-    "CaesarPuzzleID": 7,
-    "ciphers": "Qeb obclro fp kbuq ltkzov qeb qovmq!",
-    "shift": 3,
-    "solution": "The secret is four layers deep down!",
-    "reward": 300,
-    "description": "Can you uncover the layers and find the secret?"
-  },
-  {
-    "CaesarPuzzleID": 8,
-    "ciphers": "Yjcv ku vjg dtgcm kuvj?",
-    "shift": 2,
-    "solution": "What is the break shift?",
-    "reward": 180,
-    "description": "Find the break shift and solve the puzzle."
-  },
-  {
-    "CaesarPuzzleID": 9,
-    "ciphers": "Gsv xlmgzrmh ziv xlfihg zmbgsrmt!",
-    "shift": 25,
-    "solution": "The operations are inside mysteries!",
-    "reward": 350,
-    "description": "This cipher holds many mysteries within."
-  },
-  {
-    "CaesarPuzzleID": 10,
-    "ciphers": "Sgd jdkx kzr vhsg bqdzmr ldvrzx.",
-    "shift": 25,
-    "solution": "The keys are with crazy mystery.",
-    "reward": 400,
-    "description": "Unlock the craziest mysteries hidden in this cipher."
-  }
-]
+{
+  "morse_ciphers": [
+    { "id": 1, "morse_code": "... --- ...", "answer": "SOS", "hint": "Distress signal", "reward": 100 },
+    { "id": 2, "morse_code": "- .... .", "answer": "THE", "hint": "Definite article", "reward": 50 },
+    { "id": 3, "morse_code": ".- .--. .--.", "answer": "APP", "hint": "Mobile software", "reward": 70 },
+    { "id": 4, "morse_code": ".--. .-. --- --. .-. .- --", "answer": "PROGRAM", "hint": "Set of instructions", "reward": 90 },
+    { "id": 5, "morse_code": "--. --- --- -..", "answer": "GOOD", "hint": "Positive term", "reward": 60 },
+    { "id": 6, "morse_code": "..-. .-. .. . -. -..", "answer": "FRIEND", "hint": "A companion", "reward": 80 },
+    { "id": 7, "morse_code": "-.-. --- -.. .", "answer": "CODE", "hint": "Programming", "reward": 50 },
+    { "id": 8, "morse_code": ".. -. - . .-. -. . -", "answer": "INTERNET", "hint": "Global network", "reward": 120 },
+    { "id": 9, "morse_code": ".--. --- .--. ..- .- .-.", "answer": "POPULAR", "hint": "Widely liked", "reward": 75 },
+    { "id": 10, "morse_code": ".--. .-. --- .--- . -.-. -", "answer": "PROJECT", "hint": "Work or task", "reward": 100 },
+    { "id": 11, "morse_code": "-. --- .--. .", "answer": "NOPE", "hint": "Negative response", "reward": 40 },
+    { "id": 12, "morse_code": "- . .- --", "answer": "TEAM", "hint": "Group effort", "reward": 90 },
+    { "id": 13, "morse_code": "-- .- -.-. .... .. -. .", "answer": "MACHINE", "hint": "Mechanical device", "reward": 110 },
+    { "id": 14, "morse_code": "-.-. .... .- .-.. .-.. . -. --. .", "answer": "CHALLENGE", "hint": "Difficult task", "reward": 130 },
+    { "id": 15, "morse_code": "... .--. . .- -.-", "answer": "SPEAK", "hint": "To talk", "reward": 50 },
+    { "id": 16, "morse_code": ".. -. ...- . -. -", "answer": "INVENT", "hint": "To create something new", "reward": 100 },
+    { "id": 17, "morse_code": ".--. .-.. .- -. . -", "answer": "PLANET", "hint": "A celestial body", "reward": 60 },
+    { "id": 18, "morse_code": "..-. .- -- .. .-.. -.--", "answer": "FAMILY", "hint": "Relatives", "reward": 80 },
+    { "id": 19, "morse_code": ".-- --- .-. -.-", "answer": "WORK", "hint": "Labor or job", "reward": 90 },
+    { "id": 20, "morse_code": "...- .. -.-. - --- .-. -.--", "answer": "VICTORY", "hint": "Success", "reward": 150 }
+  ]
+}
