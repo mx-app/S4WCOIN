@@ -73,6 +73,20 @@ body {
   }
 }
 
+
+.line {
+    position: relative;
+    top: -20px; /* تعديل هذا الرقم لتحريك الخط لأعلى أو أسفل حسب الحاجة */
+    left: 50%;
+    width: 80%; /* عرض الخط */
+    height: 5px; /* سمك الخط */
+    background-color: #000; /* لون الخط */
+    border-radius: 10px; /* لجعل الحواف دائرية */
+    transform: translateX(-50%); /* لتوسيع الخط أفقياً */
+}
+ 
+
+
 .screen-content {
     flex: 1;
     display: none;
