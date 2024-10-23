@@ -138,7 +138,7 @@
     border: none;
 }
 
-#Puzzlespage #MorsecodeBtn {
+#Puzzlespage #CaesarcodeBtn {
     background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    color: #fff;
     border-radius: 10px;
     font-size: 18px;
@@ -151,7 +151,7 @@
     height: 60px;
 }
 
-#Puzzlespage #MorsecodeBtn:hover {
+#Puzzlespage #CaesarcodeBtn:hover {
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
     background-position: center;
 }
@@ -290,7 +290,7 @@
     font-weight: bold;
     cursor: pointer;
     border: 2px solid #343434; 
-    width: 80%; /* العرض 90% */
+    width: 50%; /* العرض 90% */
     display: block; /* لجعل العنصر يعمل ككتلة */
     margin: 0 auto 15px; /* لمركزة الزر في المنتصف */
     height: 60px;
