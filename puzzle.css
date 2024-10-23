@@ -283,7 +283,7 @@
     text-align: center;
 }
 
-#Puzzlespage .Morse-code .Caesar-btu {
+#Puzzlespage .Morse-code {
     background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    color: #fff;
     border-radius: 10px;
     font-size: 18px;
@@ -297,7 +297,7 @@
     bottom: 0;
 }
 
-#Puzzlespage .Morse-code .Caesar-btu:hover {
+#Puzzlespage .Morse-code:hover {
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
 }
 
@@ -383,3 +383,21 @@
     margin-top: 5px; /* تباعد أعلى الشيفرة */
 }
 
+#Puzzlespage .Caesar-btu {
+    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    color: #fff;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid #343434; 
+    display: block; /* لجعل العنصر يعمل ككتلة */
+    margin: 0 auto 15px; /* لمركزة الزر في المنتصف */
+    height: 60px;
+    width: 88%;
+    bottom: 0;
+}
+ 
+#Puzzlespage .Caesar-btu:hover {
+    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
+}
+ 
