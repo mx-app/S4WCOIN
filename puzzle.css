@@ -344,7 +344,7 @@
 }
 
 #Puzzlespage #submitMorseAnswerBtn {
-    padding: 15px;
+    padding: 12px;
     margin-top: 15px;
     background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);
     color: white;
@@ -371,8 +371,9 @@
 }
 
 
-#Puzzlespage #morseCipherQuestion {
+#morseCipherQuestion {
     font-size: 50px; /* حجم خط السؤال */
     margin-bottom: 10px; /* تباعد أسفل السؤال */
+    
 }
 
