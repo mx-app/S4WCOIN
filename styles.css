@@ -48,21 +48,22 @@ body {
     transition: background-color 0.5s, color 0.5s;
 }
 
+
 .container {
     width: 100%;
     max-width: 450px;
-    height: calc(100% - 50px); /* تقليل الارتفاع */
-    margin-top: 50px; /* إضافة مسافة من الأعلى */
+    height: 100%;
     display: flex;
     flex-direction: column;
     position: relative;
     overflow: hidden;
     background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);
+    /*background-image: url('i/sk3.png');
+    background-size: cover;*/
     background-position: center;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-}
- 
+    border-top-left-radius: 0; /* لجعل الزاوية العلوية اليسرى دائرية */
+    border-top-right-radius: 0; /* لجعل الزاوية العلوية اليمنى دائرية */
+} 
 
 
  @media only screen and (max-width: 768px) {
