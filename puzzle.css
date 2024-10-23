@@ -283,7 +283,7 @@
     text-align: center;
 }
 
-#Puzzlespage .Morse-code {
+#Puzzlespage .Morse-code .Caesar-btu {
     background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    color: #fff;
     border-radius: 10px;
     font-size: 18px;
@@ -297,7 +297,7 @@
     bottom: 0;
 }
 
-#Puzzlespage .Morse-code:hover {
+#Puzzlespage .Morse-code .Caesar-btu:hover {
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
 }
 
