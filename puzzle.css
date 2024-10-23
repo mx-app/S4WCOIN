@@ -316,8 +316,8 @@
     transform: translateY(0); /* يظهر من الأسفل */
     height: 70vh;
     display: flex;
-    flex-direction: center; /* العناصر ستترتب عموديًا */
-    justify-content: center; /* مركزية العناصر عموديًا */
+    flex-direction: column; /* العناصر ستترتب عموديًا */
+    justify-content: column; /* مركزية العناصر عموديًا */
     gap: 10px; /* تقليل المسافة بين العناصر */
 }
 
