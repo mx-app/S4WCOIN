@@ -1308,7 +1308,6 @@ async function updateUsedPromoCodesInDB(usedPromoCodes) {
     
         
 
-
 document.addEventListener('DOMContentLoaded', () => {
     // DOM Elements
     const morseCipherContainer = document.getElementById('morseCipherContainer');
@@ -1320,7 +1319,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const morseAttemptsDisplay = document.getElementById('morseRemainingAttempts');
     const morseCipherRewardDisplay = document.getElementById('morseCipherRewardDisplay');
     const openMorseCipherBtn = document.getElementById('openMorseCipherBtn');
-    const countdownDisplay = document.getElementById('countdownDisplay'); // عنصر لعرض العد التنازلي
+    const countdownDisplay = document.getElementById('countdownDisplay'); // عنصر لعرض العد التنازلي على الزر
 
     let currentMorseCipher;
     let morseAttempts = 0;
@@ -1369,13 +1368,13 @@ document.addEventListener('DOMContentLoaded', () => {
             // Check for 24-hour cooldown
             if (lastSolvedTime && new Date() - new Date(lastSolvedTime) < 24 * 60 * 60 * 1000) {
                 showNotification(morseCipherNotification, 'Please wait until tomorrow for a new cipher.');
-                startCountdown(24 * 60 * 60); // بدء العد التنازلي لمدة 24 ساعة
+                startCountdownOnButton(24 * 60 * 60); // بدء العد التنازلي على الزر لمدة 24 ساعة
                 return null;
             }
 
             if (solvedToday || attemptsToday >= morseMaxAttempts) {
                 showNotification(morseCipherNotification, 'You have used all attempts today or already solved the cipher.');
-                startCountdown(24 * 60 * 60); // بدء العد التنازلي
+                startCountdownOnButton(24 * 60 * 60); // بدء العد التنازلي على الزر
                 return null;
             }
 
@@ -1444,7 +1443,7 @@ document.addEventListener('DOMContentLoaded', () => {
             morseSolved = true;
             await updateMorseCipherProgress(currentMorseCipher.id, true, morseAttempts);
             closeMorseCipher();
-            startCountdown(24 * 60 * 60); // بدء العد التنازلي بعد الفوز
+            startCountdownOnButton(24 * 60 * 60); // بدء العد التنازلي بعد الفوز على الزر
         } else {
             morseAttempts++;
             updateMorseRemainingAttempts(morseAttempts);
@@ -1470,7 +1469,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateBalance(-morsePenaltyAmount);
         updateMorseCipherProgress(currentMorseCipher.id, false, morseMaxAttempts);
         closeMorseCipher();
-        startCountdown(24 * 60 * 60); // بدء العد التنازلي بعد الخسارة
+        startCountdownOnButton(24 * 60 * 60); // بدء العد التنازلي بعد الخسارة على الزر
     }
 
     // Update user progress in database
@@ -1523,28 +1522,31 @@ document.addEventListener('DOMContentLoaded', () => {
         morseCipherContainer.classList.add('hidden');
     }
 
-    // Start countdown for next cipher (24 hours)
-    function startCountdown(seconds) {
-        countdownDisplay.classList.remove('hidden');
-        morseCipherContainer.classList.add('hidden');
+    // Start countdown for next cipher (24 hours) on the button
+    function startCountdownOnButton(seconds) {
+        openMorseCipherBtn.disabled = true;
+        openMorseCipherBtn.innerText = `Next cipher in: ${formatTime(seconds)}`;
 
-        function updateCountdown() {
-            const hours = Math.floor(seconds / 3600);
-            const minutes = Math.floor((seconds % 3600) / 60);
-            const remainingSeconds = seconds % 60;
-
-            countdownDisplay.innerText = `${hours}:${minutes}:${remainingSeconds}`;
-
+        function updateButtonCountdown() {
             if (seconds > 0) {
                 seconds--;
-                countdownTimeout = setTimeout(updateCountdown, 1000);
+                openMorseCipherBtn.innerText = `Next cipher in: ${formatTime(seconds)}`;
+                countdownTimeout = setTimeout(updateButtonCountdown, 1000);
             } else {
-                countdownDisplay.classList.add('hidden');
-                displayTodaysMorseCipher(); // عرض الشيفرة الجديدة بعد انتهاء العد التنازلي
+                openMorseCipherBtn.disabled = false;
+                openMorseCipherBtn.innerText = 'Open Morse Cipher';
             }
         }
 
-        updateCountdown();
+        updateButtonCountdown();
+    }
+
+    // Format time for display (HH:MM:SS)
+    function formatTime(seconds) {
+        const hours = Math.floor(seconds / 3600);
+        const minutes = Math.floor((seconds % 3600) / 60);
+        const remainingSeconds = seconds % 60;
+        return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
     }
 
     // Event Listeners
@@ -1553,16 +1555,8 @@ document.addEventListener('DOMContentLoaded', () => {
     morsecloseModal.addEventListener('click', closeMorseCipher);
 
 });
-        
 
-
-
-
-
-                
-
-
-
+ 
 
 
     
