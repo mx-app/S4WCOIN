@@ -337,3 +337,10 @@
     z-index: 10000;
  }
 
+#morseText {
+    color: white; /* لون النص */
+    font-size: 16px; /* حجم الخط */
+    margin-top: 5px; /* إزالة المسافة من الأعلى */
+    margin-bottom: 10px; 
+    text-align: center;
+}
