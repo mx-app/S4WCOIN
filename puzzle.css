@@ -284,13 +284,13 @@
 }
 
 #openMorseCipherBtn {
+    padding: 10px 10px; 
     background: linear-gradient(45deg, #000, #343434, #000, #343434,#000); 
     color: #fff;
     border-radius: 10px;
     font-size: 18px;
     font-weight: bold;
     border: 2px solid #343434; 
-    width: 80%; /* العرض 90% */
     display: block; /* لجعل العنصر يعمل ككتلة */
     margin: 0 auto; /* لمركزة الزر في المنتصف */
     box-sizing: border-box; 
