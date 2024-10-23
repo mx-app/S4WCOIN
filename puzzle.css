@@ -229,7 +229,7 @@
 
 .attempts-display {
     font-size: 16px; /* حجم الخط */
-    color: red; /* لون النص */
+    color: #fff; /* لون النص */
     margin-bottom: 1px; /* مسافة تحت العنوان */
     text-align: center; /* توسيط النص */
 }
@@ -283,7 +283,7 @@
     text-align: center;
 }
 
-#Puzzlespage .Morse-code {
+#Morse-code {
     background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    color: #fff;
     border-radius: 10px;
     font-size: 18px;
@@ -297,7 +297,7 @@
     bottom: 0;
 }
 
-#Puzzlespage .Morse-code:hover {
+#Morse-code:hover {
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
 }
 
