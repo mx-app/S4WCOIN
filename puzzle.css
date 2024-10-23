@@ -317,7 +317,8 @@
     height: 70vh;
     display: flex;
     flex-direction: column; /* العناصر ستترتب عموديًا */
-    justify-content: column; /* مركزية العناصر عموديًا */
+    justify-content: center; /* مركزية العناصر عموديًا */
+    align-items: center;
     gap: 10px; /* تقليل المسافة بين العناصر */
 }
 
