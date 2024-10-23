@@ -342,3 +342,35 @@
     margin-bottom: 50px; 
     font-weight: bold;
 }
+
+#submitMorseAnswerBtn {
+    background-color: #343434; /* لون خلفية الزر */
+    color: #fff; /* لون النص */
+    border: none; /* إزالة الحدود */
+    border-radius: 5px; /* حواف دائرية */
+    padding: 10px; /* تباعد داخلي */
+    cursor: pointer; /* تغيير المؤشر عند التحويم */
+    font-size: 16px; /* حجم الخط */
+    transition: background-color 0.3s; /* تأثير الانتقال */
+}
+
+/* تأثير التحويم على الزر */
+#submitMorseAnswerBtn:hover {
+    background-color: #562a04; /* لون مختلف عند التحويم */
+}
+
+#morseAnswerInput {
+    width: 100%; /* عرض الحقل 100% من الحاوية */
+    padding: 10px; /* تباعد داخلي */
+    border: 2px solid #343434; /* حد */
+    border-radius: 5px; /* حواف دائرية */
+    margin-bottom: 15px; /* تباعد أسفل الحقل */
+    font-size: 16px; /* حجم خط النص */
+}
+
+
+#morseCipherQuestion {
+    font-size: 20px; /* حجم خط السؤال */
+    margin-bottom: 20px; /* تباعد أسفل السؤال */
+}
+
