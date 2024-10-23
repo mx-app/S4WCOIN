@@ -316,9 +316,9 @@
     transform: translateY(0); /* يظهر من الأسفل */
     height: 70vh;
     display: flex;
-    flex-direction: column; /* العناصر ستترتب عموديًا */
+    flex-direction: center; /* العناصر ستترتب عموديًا */
     justify-content: center; /* مركزية العناصر عموديًا */
-    gap: 5px; /* تقليل المسافة بين العناصر */
+    gap: 10px; /* تقليل المسافة بين العناصر */
 }
 
 #morseCipherContainer {
