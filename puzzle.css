@@ -344,14 +344,16 @@
 }
 
 #submitMorseAnswerBtn {
-    background-color: #343434; /* لون خلفية الزر */
-    color: #fff; /* لون النص */
-    border: none; /* إزالة الحدود */
-    border-radius: 5px; /* حواف دائرية */
-    padding: 10px; /* تباعد داخلي */
-    cursor: pointer; /* تغيير المؤشر عند التحويم */
-    font-size: 16px; /* حجم الخط */
-    transition: background-color 0.3s; /* تأثير الانتقال */
+    padding: 10px;
+    margin-top: 20px;
+    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 2px solid #343434;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
 }
 
 /* تأثير التحويم على الزر */
@@ -360,12 +362,12 @@
 }
 
 #morseAnswerInput {
-    width: 100%; /* عرض الحقل 100% من الحاوية */
-    padding: 10px; /* تباعد داخلي */
-    border: 2px solid #343434; /* حد */
-    border-radius: 5px; /* حواف دائرية */
-    margin-bottom: 15px; /* تباعد أسفل الحقل */
-    font-size: 16px; /* حجم خط النص */
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 2px solid #343434;
 }
 
 
