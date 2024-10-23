@@ -1304,8 +1304,8 @@ async function updateUsedPromoCodesInDB(usedPromoCodes) {
 
 
 
-
-
+    
+        
 
 document.addEventListener('DOMContentLoaded', () => {
     // DOM Elements
@@ -1318,7 +1318,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const morseCipherRewardDisplay = document.getElementById('morseCipherRewardDisplay');
     const morseHintDisplay = document.getElementById('morseHint');
     const countdownDisplay = document.getElementById('morseCountdownDisplay');
-    const openMorseCipherBtn = document.getElementById('openMorseCipherBtn');
+    const openMorseCipherBtn = document.getElementById('openMorseCipherBtn'); // زر فتح الشيفرة
 
     let currentMorseCipher;
     let morseAttempts = 0;
@@ -1345,7 +1345,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function getTodaysMorseCipher() {
         try {
             const ciphers = await loadMorseCiphers();
-            const userTelegramId = uiElements.userTelegramIdDisplay.innerText;
+            const userTelegramId = document.getElementById('userTelegramId').innerText; // احصل على معرف Telegram
 
             const { data, error } = await supabase
                 .from('users')
@@ -1374,7 +1374,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const availableCiphers = ciphers.filter(c => !usedCiphers.includes(c.id));
 
             if (lastCipherId === null) {
-                nextCipher = availableCiphers[0]; // بدء من الشيفرة الأولى
+                nextCipher = availableCiphers[0];
             } else {
                 const currentCipherIndex = availableCiphers.findIndex(c => c.id === lastCipherId);
                 nextCipher = availableCiphers[(currentCipherIndex + 1) % availableCiphers.length];
@@ -1405,11 +1405,19 @@ document.addEventListener('DOMContentLoaded', () => {
         morseCipherRewardDisplay.innerText = `Reward: ${currentMorseCipher.reward} coins`;
         morseHintDisplay.innerText = `Hint: ${currentMorseCipher.hint}`;
 
+        // عرض العناصر عند فتح الشيفرة
         morseCipherContainer.classList.remove('hidden');
+        morseCodeDisplay.style.display = 'block';
+        morseAnswerInput.style.display = 'block';
+        submitMorseAnswerBtn.style.display = 'block';
+        morseCipherRewardDisplay.style.display = 'block';
+        morseHintDisplay.style.display = 'block';
+        countdownDisplay.style.display = 'none'; // إخفاء العد التنازلي
+
         updateMorseRemainingAttempts(morseAttempts);
     }
 
-    // التحقق من وجود الإدخال قبل إنقاص المحاولات
+    // التحقق من إدخال الإجابة قبل إرسالها
     submitMorseAnswerBtn.addEventListener('click', async () => {
         const userAnswer = morseAnswerInput.value.trim().toUpperCase();
         if (!userAnswer) {
@@ -1446,7 +1454,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateBalance(currentMorseCipher.reward);
         morseSolved = true;
         await updateMorseCipherProgress(currentMorseCipher.id, true, morseAttempts);
-        start24HourCountdown(); // ابدأ مؤقت العد التنازلي بعد الفوز
+        start24HourCountdown(); // ابدأ العد التنازلي
         closeMorseCipher();
     }
 
@@ -1457,7 +1465,7 @@ document.addEventListener('DOMContentLoaded', () => {
             updateBalance(-morsePenaltyAmount);
         }
         await updateMorseCipherProgress(currentMorseCipher.id, false, morseMaxAttempts);
-        start24HourCountdown(); // ابدأ مؤقت العد التنازلي بعد الفشل
+        start24HourCountdown(); // ابدأ العد التنازلي بعد الفشل
         closeMorseCipher();
     }
 
@@ -1468,8 +1476,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // تحديث حالة الشيفرة في قاعدة البيانات
     async function updateMorseCipherProgress(cipherId, solved, attempts) {
-        const userTelegramId = uiElements.userTelegramIdDisplay.innerText;
-        const lastSolvedTime = solved ? new Date().toISOString() : null;
+        const userTelegramId = document.getElementById('userTelegramId').innerText;
 
         const { data, error } = await supabase
             .from('users')
@@ -1487,7 +1494,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ciphersProgress[cipherId] = {
             solved: solved,
             attempts: attempts,
-            last_solved_time: lastSolvedTime,
+            last_solved_time: new Date().toISOString(),
         };
 
         const usedCiphers = ciphersProgress.used_ciphers || [];
@@ -1515,17 +1522,10 @@ document.addEventListener('DOMContentLoaded', () => {
         morseCipherContainer.classList.add('hidden');
     }
 
-    // عرض الإشعارات
-    function showNotification(element, message) {
-        element.innerText = message;
-        element.classList.add('show');
-        setTimeout(() => {
-            element.classList.remove('show');
-        }, 4000);
-    }
 
     // عرض المؤقت وإخفاء باقي العناصر
     function displayCountdown() {
+        morseCipherContainer.classList.remove('hidden');
         morseCodeDisplay.style.display = 'none';
         morseAnswerInput.style.display = 'none';
         submitMorseAnswerBtn.style.display = 'none';
@@ -1570,14 +1570,21 @@ document.addEventListener('DOMContentLoaded', () => {
         return `${hours}:${minutes}:${secs}`;
     }
 
+    // التأكد من استجابة زر فتح الشيفرة
     openMorseCipherBtn.addEventListener('click', () => {
-        displayTodaysMorseCipher(); // عرض الشيفرة عند النقر
+        displayTodaysMorseCipher();
     });
 
-    displayTodaysMorseCipher(); // عرض الشيفرة فور التحميل
+    // عرض الشيفرة تلقائياً عند التحميل
+    displayTodaysMorseCipher();
 });
 
 
+
+
+
+
+    
 
 
 
