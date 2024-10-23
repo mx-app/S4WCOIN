@@ -293,10 +293,8 @@
     display: block; /* لجعل العنصر يعمل ككتلة */
     margin: 0 auto 15px; /* لمركزة الزر في المنتصف */
     height: 60px;
-    width: 60%;
+    width: 88%;
     bottom: 0;
-    left: 10px;
-    right: 10px;
 }
 
 #Puzzlespage .Morse-code:hover {
@@ -343,7 +341,7 @@
     font-weight: bold;
 }
 
-#Puzzlespage #submitMorseAnswerBtn {
+#submitMorseAnswerBtn {
     padding: 10px;
     margin-top: 20px;
     background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);
@@ -357,12 +355,12 @@
 }
 
 /* تأثير التحويم على الزر */
-#Puzzlespage #submitMorseAnswerBtn:hover {
-    background-color: #562a04; /* لون مختلف عند التحويم */
+ #submitMorseAnswerBtn:hover {
+    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
 }
 
 #Puzzlespage #morseAnswerInput {
-    width: 100%;
+    width: 70%;
     padding: 10px;
     margin-top: 15px;
     font-size: 16px;
