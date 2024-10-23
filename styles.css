@@ -386,7 +386,7 @@ body {
     background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);
     background-position: center;
     position: fixed;
-    bottom: 20px;
+    bottom: 18px;
     box-sizing: border-box; 
     width: calc(100% - 20px);
     left: 10px;
@@ -932,7 +932,7 @@ body {
  
 .boosts-button {
     position: fixed;
-    top: 75.1vh; 
+    top: 75.3vh; 
     right: 2.5vw; /* المسافة من الجانب الأيمن */
     background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    color: #fff;
     border: 2px solid #343434;
