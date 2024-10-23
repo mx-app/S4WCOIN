@@ -316,10 +316,10 @@
     transform: translateY(0); /* يظهر من الأسفل */
     height: 70vh;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* تقريب العناصر ببعضها */
+    flex-direction: column; /* العناصر ستترتب عموديًا */
+    justify-content: center; /* مركزية العناصر عموديًا */
     gap: 5px; /* تقليل المسافة بين العناصر */
-} 
+}
 
 #morseCipherContainer {
     position: fixed;
