@@ -1306,10 +1306,10 @@ async function updateUsedPromoCodesInDB(usedPromoCodes) {
 
 
 
+
 document.addEventListener('DOMContentLoaded', () => {
     // DOM Elements
     const morseCipherContainer = document.getElementById('morseCipherContainer');
-    const morsecloseModal = document.getElementById('morsecloseModal');
     const morseCodeDisplay = document.getElementById('morseCode');
     const morseAnswerInput = document.getElementById('morseAnswerInput');
     const submitMorseAnswerBtn = document.getElementById('submitMorseAnswerBtn');
@@ -1317,7 +1317,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const morseAttemptsDisplay = document.getElementById('morseRemainingAttempts');
     const morseCipherRewardDisplay = document.getElementById('morseCipherRewardDisplay');
     const morseHintDisplay = document.getElementById('morseHint');
-    const countdownDisplay = document.getElementById('morseCountdownDisplay'); // عنصر جديد للعد التنازلي
+    const countdownDisplay = document.getElementById('morseCountdownDisplay');
     const openMorseCipherBtn = document.getElementById('openMorseCipherBtn');
 
     let currentMorseCipher;
@@ -1334,56 +1334,62 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await fetch('Caesar.json');
             if (!response.ok) throw new Error('Failed to load ciphers');
             const data = await response.json();
-            return data.morse_ciphers; // إرجاع الشيفرات
+            return data.morse_ciphers;
         } catch (error) {
             console.error(error);
             showNotification(morseCipherNotification, 'Error loading cipher. Please try again later.');
         }
     }
 
-    // الحصول على شيفرة اليوم بدون تكرار
+    // الحصول على شيفرة اليوم
     async function getTodaysMorseCipher() {
-        const ciphers = await loadMorseCiphers();
-        const userTelegramId = uiElements.userTelegramIdDisplay.innerText;
+        try {
+            const ciphers = await loadMorseCiphers();
+            const userTelegramId = uiElements.userTelegramIdDisplay.innerText;
 
-        const { data, error } = await supabase
-            .from('users')
-            .select('morse_ciphers_progress')
-            .eq('telegram_id', userTelegramId)
-            .maybeSingle();
+            const { data, error } = await supabase
+                .from('users')
+                .select('morse_ciphers_progress')
+                .eq('telegram_id', userTelegramId)
+                .maybeSingle();
 
-        if (error) {
-            console.error('Error fetching Morse cipher progress:', error);
-            showNotification(morseCipherNotification, 'Error loading Morse cipher progress. Please try again later.');
+            if (error) {
+                console.error('Error fetching Morse cipher progress:', error);
+                showNotification(morseCipherNotification, 'Error loading Morse cipher progress. Please try again later.');
+                return null;
+            }
+
+            const ciphersProgress = data?.morse_ciphers_progress || {};
+            const lastCipherId = ciphersProgress.last_cipher_id || null;
+            const attemptsToday = ciphersProgress.attempts_today || 0;
+            const solvedToday = ciphersProgress.solved_today || false;
+
+            if (solvedToday || attemptsToday >= morseMaxAttempts) {
+                showNotification(morseCipherNotification, 'You have used all attempts today or already solved the cipher.');
+                return null;
+            }
+
+            let nextCipher;
+            const usedCiphers = ciphersProgress.used_ciphers || [];
+            const availableCiphers = ciphers.filter(c => !usedCiphers.includes(c.id));
+
+            if (lastCipherId === null) {
+                nextCipher = availableCiphers[0]; // بدء من الشيفرة الأولى
+            } else {
+                const currentCipherIndex = availableCiphers.findIndex(c => c.id === lastCipherId);
+                nextCipher = availableCiphers[(currentCipherIndex + 1) % availableCiphers.length];
+            }
+
+            return {
+                cipher: nextCipher,
+                attempts: attemptsToday,
+                solved: solvedToday,
+            };
+        } catch (err) {
+            console.error('Error in getTodaysMorseCipher:', err);
+            showNotification(morseCipherNotification, 'Unexpected error. Please try again later.');
             return null;
         }
-
-        const ciphersProgress = data?.morse_ciphers_progress || {};
-        const lastCipherId = ciphersProgress.last_cipher_id || null;
-        const attemptsToday = ciphersProgress.attempts_today || 0;
-        const solvedToday = ciphersProgress.solved_today || false;
-
-        if (solvedToday || attemptsToday >= morseMaxAttempts) {
-            showNotification(morseCipherNotification, 'You have used all attempts today or already solved the cipher.');
-            return null;
-        }
-
-        let nextCipher;
-        const usedCiphers = ciphersProgress.used_ciphers || [];
-        const availableCiphers = ciphers.filter(c => !usedCiphers.includes(c.id));
-
-        if (lastCipherId === null) {
-            nextCipher = availableCiphers[0]; // بدء من الشيفرة الأولى
-        } else {
-            const currentCipherIndex = availableCiphers.findIndex(c => c.id === lastCipherId);
-            nextCipher = availableCiphers[(currentCipherIndex + 1) % availableCiphers.length];
-        }
-
-        return {
-            cipher: nextCipher,
-            attempts: attemptsToday,
-            solved: solvedToday,
-        };
     }
 
     // عرض شيفرة اليوم
@@ -1564,13 +1570,12 @@ document.addEventListener('DOMContentLoaded', () => {
         return `${hours}:${minutes}:${secs}`;
     }
 
-    openMorseCipherBtn.addEventListener('click', displayTodaysMorseCipher);
+    openMorseCipherBtn.addEventListener('click', () => {
+        displayTodaysMorseCipher(); // عرض الشيفرة عند النقر
+    });
 
-    // البدء في عرض الشيفرة
-    displayTodaysMorseCipher();
+    displayTodaysMorseCipher(); // عرض الشيفرة فور التحميل
 });
-
-
 
 
 
