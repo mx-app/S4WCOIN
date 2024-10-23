@@ -372,8 +372,8 @@
 }
 
 
-#morseCipherQuestion {
-    font-size: 50px; /* حجم خط السؤال */
+#morseCode {
+    font-size: 32px; /* حجم خط السؤال */
     margin-bottom: 10px; /* تباعد أسفل السؤال */
     
 }
