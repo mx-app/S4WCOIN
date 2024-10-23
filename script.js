@@ -1412,8 +1412,8 @@ document.addEventListener('DOMContentLoaded', () => {
         morseSolved = cipherData.solved;
 
         morseCodeDisplay.innerText = currentMorseCipher.morse_code;
-        morseCipherRewardDisplay.innerText = `Reward: ${currentMorseCipher.reward} coins`;
-        showNotification(morseCipherNotification, `Hint: ${currentMorseCipher.hint}`);
+        morseCipherRewardDisplay.innerText = `Reward : ${currentMorseCipher.reward} coins`;
+        showNotification(morseCipherNotification, `Hint : ${currentMorseCipher.hint}`);
 
         morseCipherContainer.classList.remove('hidden');
         updateMorseRemainingAttempts(morseAttempts);
