@@ -1306,6 +1306,7 @@ async function updateUsedPromoCodesInDB(usedPromoCodes) {
 document.addEventListener('DOMContentLoaded', () => {
     // DOM Elements
     const morseCipherContainer = document.getElementById('morseCipherContainer');
+    const morsecloseModal = document.getElementById('morsecloseModal');
     const morseCodeDisplay = document.getElementById('morseCode');
     const morseAnswerInput = document.getElementById('morseAnswerInput');
     const submitMorseAnswerBtn = document.getElementById('submitMorseAnswerBtn');
@@ -1497,7 +1498,11 @@ document.addEventListener('DOMContentLoaded', () => {
             element.classList.remove('show');
         }, 4000);
     }
+    
 
+    document.getElementById('morsecloseModal').addEventListener('click', function() {
+    document.getElementById('morseCipherContainer').classList.add('hidden');
+});
     // Event listeners
     submitMorseAnswerBtn.addEventListener('click', checkMorseCipherAnswer);
     openMorseCipherBtn.addEventListener('click', displayTodaysMorseCipher);
