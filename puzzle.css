@@ -372,9 +372,14 @@
 }
 
 
+.morseCipherQuestion {
+    display: flex; /* استخدام الفليكس */
+    flex-direction: column; /* ترتيب العناصر عمودياً */
+    align-items: flex-start; /* محاذاة العناصر إلى اليسار */
+}
+
 #morseCode {
-    font-size: 32px; /* حجم خط السؤال */
-    margin-bottom: 10px; /* تباعد أسفل السؤال */
-    
+    font-size: 32px; /* حجم خط الشيفرة */
+    margin-top: 5px; /* تباعد أعلى الشيفرة */
 }
 
