@@ -283,7 +283,7 @@
     text-align: center;
 }
 
-#openMorseCipherBtn {
+،Morse-code {
     background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    color: #fff;
     border-radius: 10px;
     font-size: 18px;
@@ -299,7 +299,7 @@
     right: 10px;
 }
 
-#openMorseCipherBtn:hover {
+.Morse-code:hover {
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
 }
 
