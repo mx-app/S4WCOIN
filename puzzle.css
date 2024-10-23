@@ -336,13 +336,13 @@
  }
 
 #Puzzlespage #morseText {
-    font-size: 30px; /* حجم الخط */
+    font-size: 35px; /* حجم الخط */
     margin-bottom: 50px; 
     font-weight: bold;
 }
 
-#submitMorseAnswerBtn {
-    padding: 10px;
+#Puzzlespage #submitMorseAnswerBtn {
+    padding: 15px;
     margin-top: 20px;
     background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);
     color: white;
@@ -350,12 +350,12 @@
     border-radius: 10px;
     border: 2px solid #343434;
     cursor: pointer;
-    width: 100%;
+    width: 80%;
     font-size: 16px;
 }
 
 /* تأثير التحويم على الزر */
- #submitMorseAnswerBtn:hover {
+#Puzzlespage #submitMorseAnswerBtn:hover {
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
 }
 
@@ -370,7 +370,7 @@
 
 
 #Puzzlespage #morseCipherQuestion {
-    font-size: 20px; /* حجم خط السؤال */
+    font-size: 30px; /* حجم خط السؤال */
     margin-bottom: 20px; /* تباعد أسفل السؤال */
 }
 
