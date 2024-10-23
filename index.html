@@ -160,6 +160,20 @@
                </div>
            </div>
 
+            <button id="CaesarBtn" class="Caesar-btu"> Caesar Cipher </button>
+              <div id="CaesarContainer" class="hidden">
+               <div class="Caesar-content">
+                <h3 id="CaesarQuestion">Loading Caesar Cipher puzzle...</h3>
+                 <p id="CaesarCipherDisplay">Cipher: </p> <!-- عرض الشيفرة هنا -->
+                  <p id="CaesarShiftDisplay">Shift: </p> <!-- عرض عدد التخطيات هنا -->
+                   <input type="text" id="CaesarSolutionInput" placeholder="Enter your solution">
+                    <button id="CaesarSubmitBtn">Submit</button>
+                    <p id="CaesarRewardDisplay">Reward: </p>
+                     <p id="CaesarAttemptsDisplay">Attempts left: 3</p> <!-- عرض المحاولات المتبقية -->
+                     <p id="CaesarCountdownDisplay" class="hidden">Next puzzle available in: </p> <!-- عد تنازلي في حالة الخسارة -->
+                 </div>
+             </div>
+
              <!-- Puzzle Container -->
             <div id="puzzleContainer" class="puzzle-container hidden">
                 <div class="puzzle-content">
