@@ -145,16 +145,19 @@
          <button id="openMorseCipherBtn" class="Morse-code"> Morse Cipher</button>
              
         <div id="morseCipherContainer" class="hidden">
-         <div id="morseCipherQuestion">Morse Code: <span id="morseCode"></span></div>
+         <div class="morse-content">
+          <span id="puzzlecloseModal" class="close">&times;</span>
+           <div id="morseCipherQuestion">Morse Code: <span id="morseCode"></span></div>
             <input type="text" id="morseAnswerInput" placeholder="Enter the decoded word">
              <button id="submitMorseAnswerBtn">Submit</button>
                <div id="morseAttemptsDisplay">Attempts left: <span id="morseRemainingAttempts"></span></div>
                 <div id="morseCipherRewardDisplay"></div>
                  <div id="morseCipherNotification"></div>
-                 </div>
                   <div id="morseTimerDisplay"></div>
+             </div>
+          </div>
+       </div>
   
-
             <!-- Puzzle Container -->
             <div id="puzzleContainer" class="puzzle-container hidden">
                 <div class="puzzle-content">
