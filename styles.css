@@ -46,9 +46,6 @@ body {
     height: 100vh;
     overflow: hidden;
     transition: background-color 0.5s, color 0.5s;
-    border-bottom-left-radius: 10px; /* حواف دائرية في الزاوية السفلية اليسرى */
-    border-bottom-right-radius: 10px; /* حواف دائرية في الزاوية السفلية اليمنى */
-
 }
 
 
@@ -66,6 +63,7 @@ body {
     background-position: center;
     border-top-left-radius: 0; /* لجعل الزاوية العلوية اليسرى دائرية */
     border-top-right-radius: 0; /* لجعل الزاوية العلوية اليمنى دائرية */
+    border-bottom: 2px solid #343434
 } 
 
 
@@ -123,8 +121,8 @@ body {
  
 /* شريط الطاقة */
 .energy-bars-container {
-    width: 70px; /* عرض الشريط */
-    height: 12px; /* ارتفاع الشريط */
+    width: 60px; /* عرض الشريط */
+    height: 15px; /* ارتفاع الشريط */
     border: 3px solid #fff; /* الخط المحيط بالشريط */
     border-radius: 15px; /* زوايا منحنية */
     overflow: hidden; /* إخفاء الأجزاء التي تخرج عن الحدود */
