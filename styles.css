@@ -46,6 +46,9 @@ body {
     height: 100vh;
     overflow: hidden;
     transition: background-color 0.5s, color 0.5s;
+    border-bottom-left-radius: 10px; /* حواف دائرية في الزاوية السفلية اليسرى */
+    border-bottom-right-radius: 10px; /* حواف دائرية في الزاوية السفلية اليمنى */
+
 }
 
 
@@ -63,9 +66,6 @@ body {
     background-position: center;
     border-top-left-radius: 0; /* لجعل الزاوية العلوية اليسرى دائرية */
     border-top-right-radius: 0; /* لجعل الزاوية العلوية اليمنى دائرية */
-    border-bottom-left-radius: 10px; /* حواف دائرية في الزاوية السفلية اليسرى */
-    border-bottom-right-radius: 10px; /* حواف دائرية في الزاوية السفلية اليمنى */
-
 } 
 
 
