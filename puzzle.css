@@ -291,10 +291,11 @@
     font-weight: bold;
     cursor: pointer;
     border: 2px solid #343434; 
-    width: 50px; /* العرض 90% */
+    width: 80%; /* العرض 90% */
     display: block; /* لجعل العنصر يعمل ككتلة */
     margin: 0 auto 15px; /* لمركزة الزر في المنتصف */
     height: 60px;
+    box-sizing: border-box; 
 }
 
 #openMorseCipherBtn:hover {
