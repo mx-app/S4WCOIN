@@ -58,7 +58,7 @@
    /* background-image: url('i/background.jpg');
     background-size: cover;
     background-position: center;*/
-    background-color: rgba(0, 0, 0, 0.80);/* خلفية غير شفافة */
+    background-color: rgba(0, 0, 0, 1);/* خلفية غير شفافة */
     padding: 10px; /* تقليل الحواف الداخلية */
     border-radius: 25px 25px 0 0; /* حواف علوية دائرية فقط */
     border-top: 4px solid #343434;
@@ -303,7 +303,7 @@
 
 
 .morse-content {
-    background-color: rgba(0, 0, 0, 0.80);/* خلفية غير شفافة */
+    background-color: rgba(0, 0, 0, 1);/* خلفية غير شفافة */
     padding: 10px; /* تقليل الحواف الداخلية */
     border-radius: 25px 25px 0 0; /* حواف علوية دائرية فقط */
     border-top: 4px solid #343434;
@@ -314,12 +314,12 @@
     right: 0;
     z-index: 9999; /* قيمة z-index عالية جداً */
     transform: translateY(0); /* يظهر من الأسفل */
-    height: 70vh;
+    height: 65vh;
     display: flex;
     flex-direction: column; /* العناصر ستترتب عموديًا */
     justify-content: center; /* مركزية العناصر عموديًا */
     align-items: center;
-    gap: 10px; /* تقليل المسافة بين العناصر */
+    gap: 8px; /* تقليل المسافة بين العناصر */
 }
 
 #morseCipherContainer {
@@ -337,6 +337,7 @@
  }
 
 #Puzzlespage #morseText {
+    top: 10px; 
     font-size: 35px; /* حجم الخط */
     margin-bottom: 50px; 
     font-weight: bold;
@@ -344,7 +345,7 @@
 
 #Puzzlespage #submitMorseAnswerBtn {
     padding: 15px;
-    margin-top: 20px;
+    margin-top: 15px;
     background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);
     color: white;
     font-weight: bold;
@@ -361,7 +362,7 @@
 }
 
 #Puzzlespage #morseAnswerInput {
-    width: 70%;
+    width: 80%;
     padding: 10px;
     margin-top: 15px;
     font-size: 16px;
@@ -371,7 +372,7 @@
 
 
 #Puzzlespage #morseCipherQuestion {
-    font-size: 30px; /* حجم خط السؤال */
-    margin-bottom: 20px; /* تباعد أسفل السؤال */
+    font-size: 50px; /* حجم خط السؤال */
+    margin-bottom: 10px; /* تباعد أسفل السؤال */
 }
 
