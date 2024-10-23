@@ -340,5 +340,5 @@
 #morseText {
     font-size: 30px; /* حجم الخط */
     margin-bottom: 50px; 
-    text-align: center;
+    font-weight: bold;
 }
