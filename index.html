@@ -131,7 +131,7 @@
      </div>
         
          <!-- Puzzle Page -->
-         <div id="Puzzlespage" class="screen-content scrollable">
+        <div id="Puzzlespage" class="screen-content scrollable">
            <img src="i/puzzle-s.gif" alt="puzzle Image" class="puzzle-image">
               <p id="Puzzles"> Puzzles </p>
                <p id="Puzzles"> Win or lose, the choice is yours</p>
@@ -140,24 +140,7 @@
             <img src="i/fire.png" alt="puzzle Icon" class="puzzle-icon"> Daily puzzle </button>
              <p id="room"> Various puzzles </p>
 
-         <button id="openMorseCipherBtn" class="Morse-code"> Morse Cipher</button>
-           <button id="CaesarcodeBtn" class="Caesar-code"> Caesar's Blade </button>
-          
-        <div id="morseCipherContainer" class="hidden">
-         <div class="morse-content">
-          <span id="morsecloseModal" class="close">&times;</span>
-           <p id="Puz-to"> Today's morse Cipher </p>
-            <div id="morseCipherQuestion">Morse Code: <span id="morseCode"></span></div>
-            <input type="text" id="morseAnswerInput" placeholder="Enter the decoded word">
-             <button id="submitMorseAnswerBtn">Submit</button>
-               <div id="morseAttemptsDisplay">Attempts left: <span id="morseRemainingAttempts"></span></div>
-                <div id="morseCipherRewardDisplay"></div>
-                 <div id="morseCipherNotification"></div>
-                  <div id="morseTimerDisplay"></div>
-             </div>
-          </div>
-  
-            <!-- Puzzle Container -->
+             <!-- Puzzle Container -->
             <div id="puzzleContainer" class="puzzle-container hidden">
                 <div class="puzzle-content">
                   <span id="puzzlecloseModal" class="close">&times;</span>
@@ -177,7 +160,24 @@
                     <button id="closePuzzleBtn" class="close-btn hidden">Close</button>
                 </div>
             </div>
-        </div>
+         </div>
+
+          <button id="openMorseCipherBtn" class="Morse-code"> Morse Cipher</button>
+          <div id="morseCipherContainer" class="hidden">
+             <div class="morse-content">
+              <span id="morsecloseModal" class="close">&times;</span>
+               <p id="Puz-to"> Today's morse Cipher </p>
+                <div id="morseCipherQuestion">Morse Code: <span id="morseCode"></span></div>
+                 <input type="text" id="morseAnswerInput" placeholder="Enter the answer">
+                  <button id="submitMorseAnswerBtn">Submit</button>
+                    <div id="morseAttemptsDisplay">Attempts left: <span id="morseRemainingAttempts"></span></div>
+                     <div id="morseCipherRewardDisplay"></div>
+                      <div id="morseCipherNotification"></div>
+                       <div id="morseTimerDisplay"></div>
+                </div>
+            </div>
+  
+            
 
         <!-- Wallet Page -->
         <div id="walletPage" class="screen-content scrollable">
