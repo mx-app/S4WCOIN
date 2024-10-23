@@ -1503,11 +1503,14 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('morsecloseModal').addEventListener('click', function() {
     document.getElementById('morseCipherContainer').classList.add('hidden');
 });
-    // Event listeners
+    
     submitMorseAnswerBtn.addEventListener('click', checkMorseCipherAnswer);
-    openMorseCipherBtn.addEventListener('click', displayTodaysMorseCipher);
-});
 
+    // Open the Morse cipher modal when clicking the button
+    openMorseCipherBtn.addEventListener('click', () => {
+        displayTodaysMorseCipher(); // Ensure this function is only called on button click
+    });
+});
 
 
 
