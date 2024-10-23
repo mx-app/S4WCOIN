@@ -1292,6 +1292,7 @@ async function updateUsedPromoCodesInDB(usedPromoCodes) {
         showNotification(uiElements.purchaseNotification, 'Failed to update promo codes in database.', true);
     }
 }
+//////////////////////////////////////////////
 
 
 
@@ -1303,18 +1304,7 @@ async function updateUsedPromoCodesInDB(usedPromoCodes) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-// DOM Elements for Morse Cipher
+// DOM Elements
 const morseCipherContainer = document.getElementById('morseCipherContainer');
 const morseCodeDisplay = document.getElementById('morseCode');
 const morseAnswerInput = document.getElementById('morseAnswerInput');
@@ -1322,13 +1312,11 @@ const submitMorseAnswerBtn = document.getElementById('submitMorseAnswerBtn');
 const morseCipherNotification = document.getElementById('morseCipherNotification');
 const morseAttemptsDisplay = document.getElementById('morseRemainingAttempts');
 const morseCipherRewardDisplay = document.getElementById('morseCipherRewardDisplay');
-const morseTimerDisplay = document.getElementById('morseTimerDisplay');
 const openMorseCipherBtn = document.getElementById('openMorseCipherBtn');
 
 let currentMorseCipher;
 let morseAttempts = 0;
 let morseSolved = false;
-let morseCountdownInterval;
 const morseMaxAttempts = 3;
 const morsePenaltyAmount = 500; // Penalty for wrong answer
 
@@ -1370,11 +1358,8 @@ async function getTodaysMorseCipher() {
     const solvedToday = ciphersProgress.solved_today || false;
 
     if (solvedToday || attemptsToday >= morseMaxAttempts) {
-        const timeRemaining = calculateTimeRemaining(lastSolvedTime);
-        if (timeRemaining > 0) {
-            showNotification(morseCipherNotification, `Please wait ${formatTime(timeRemaining)} before trying the next cipher.`);
-            return;
-        }
+        showNotification(morseCipherNotification, 'You have used all attempts today or already solved the cipher.');
+        return;
     }
 
     let nextCipher;
@@ -1392,15 +1377,6 @@ async function getTodaysMorseCipher() {
     };
 }
 
-// Calculate time remaining until the next cipher can be solved
-function calculateTimeRemaining(lastSolvedTime) {
-    const now = new Date().getTime();
-    const lastSolved = new Date(lastSolvedTime).getTime();
-    const timePassed = now - lastSolved;
-    const timeRemaining = 86400000 - timePassed; // 24 hours in milliseconds
-    return timeRemaining > 0 ? timeRemaining : 0;
-}
-
 // Display today's Morse cipher
 async function displayTodaysMorseCipher() {
     const cipherData = await getTodaysMorseCipher();
@@ -1415,26 +1391,6 @@ async function displayTodaysMorseCipher() {
 
     morseCipherContainer.classList.remove('hidden');
     updateMorseRemainingAttempts(morseAttempts);
-
-    if (!morseSolved) {
-        startMorseCountdown();
-    }
-}
-
-// Timer function for Morse cipher
-function startMorseCountdown() {
-    let timeLeft = calculateTimeRemaining(new Date());
-    morseTimerDisplay.innerText = formatTime(timeLeft);
-
-    morseCountdownInterval = setInterval(() => {
-        timeLeft -= 1000;
-        morseTimerDisplay.innerText = formatTime(timeLeft);
-
-        if (timeLeft <= 0) {
-            clearInterval(morseCountdownInterval);
-            handleMorseCipherTimeout();
-        }
-    }, 1000);
 }
 
 // Check user's Morse cipher answer
@@ -1471,10 +1427,9 @@ function updateMorseRemainingAttempts(attempts) {
     morseAttemptsDisplay.innerText = morseMaxAttempts - attempts;
 }
 
-// Handle Morse cipher timeout
+// Handle Morse cipher timeout or failed attempt
 function handleMorseCipherTimeout() {
-    clearInterval(morseCountdownInterval);
-    showNotification(morseCipherNotification, "Time's up! You failed to solve the Morse cipher.");
+    showNotification(morseCipherNotification, "You've failed to solve the Morse cipher.");
     updateBalance(-morsePenaltyAmount); 
     updateMorseCipherProgress(currentMorseCipher.id, false, morseMaxAttempts); 
     closeMorseCipher();
@@ -1542,13 +1497,10 @@ openMorseCipherBtn.addEventListener('click', displayTodaysMorseCipher);
 
 
 
-
-
-
-
-
-
 /////////////////////////////////////
 
 // تفعيل التطبيق
 initializeApp();
+
+
+
