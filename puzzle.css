@@ -283,7 +283,7 @@
     text-align: center;
 }
 
-،Morse-code {
+#Puzzlespage .Morse-code {
     background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    color: #fff;
     border-radius: 10px;
     font-size: 18px;
@@ -299,12 +299,12 @@
     right: 10px;
 }
 
-.Morse-code:hover {
+#Puzzlespage .Morse-code:hover {
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
 }
 
 
-.morse-content {
+#Puzzlespage .morse-content {
     background-color: rgba(0, 0, 0, 0.80);/* خلفية غير شفافة */
     padding: 10px; /* تقليل الحواف الداخلية */
     border-radius: 25px 25px 0 0; /* حواف علوية دائرية فقط */
@@ -323,7 +323,7 @@
     gap: 5px; /* تقليل المسافة بين العناصر */
 } 
 
- #morseCipherContainer {
+#Puzzlespage #morseCipherContainer {
     position: fixed;
     top: 0;
     left: 0;
@@ -337,13 +337,13 @@
     z-index: 10000;
  }
 
-#morseText {
+#Puzzlespage #morseText {
     font-size: 30px; /* حجم الخط */
     margin-bottom: 50px; 
     font-weight: bold;
 }
 
-#submitMorseAnswerBtn {
+#Puzzlespage #submitMorseAnswerBtn {
     padding: 10px;
     margin-top: 20px;
     background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);
@@ -357,11 +357,11 @@
 }
 
 /* تأثير التحويم على الزر */
-#submitMorseAnswerBtn:hover {
+#Puzzlespage #submitMorseAnswerBtn:hover {
     background-color: #562a04; /* لون مختلف عند التحويم */
 }
 
-#morseAnswerInput {
+#Puzzlespage #morseAnswerInput {
     width: 100%;
     padding: 10px;
     margin-top: 15px;
@@ -371,7 +371,7 @@
 }
 
 
-#morseCipherQuestion {
+#Puzzlespage #morseCipherQuestion {
     font-size: 20px; /* حجم خط السؤال */
     margin-bottom: 20px; /* تباعد أسفل السؤال */
 }
