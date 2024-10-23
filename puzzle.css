@@ -339,8 +339,8 @@
 
 #morseText {
     color: white; /* لون النص */
-    font-size: 35px; /* حجم الخط */
+    font-size: 30px; /* حجم الخط */
     margin-top: 5px; /* إزالة المسافة من الأعلى */
-    margin-bottom: 10px; 
+    margin-bottom: 40px; 
     text-align: center;
 }
