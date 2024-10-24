@@ -251,7 +251,7 @@ body {
 
 #balanceAmount {
     margin: 0 auto;
-    font-size: 40px;
+    font-size: 35px;
     color: #fff;
     display: block;
     position: relative;
@@ -262,8 +262,8 @@ body {
 #balanceAmount::before {
     content: "";
     display: inline-block;
-    width: 35px; /* عرض الصورة */
-    height: 35px; /* ارتفاع الصورة */
+    width: 30px; /* عرض الصورة */
+    height: 30px; /* ارتفاع الصورة */
     background-image: url('i/coinsaw.png'); /* رابط الصورة */
     background-size: contain; /* يجعل الصورة تناسب الحجم المحدد */
     background-repeat: no-repeat;
@@ -284,12 +284,12 @@ body {
 .energy-bar-container {
     display: flex;
     flex-direction: column; /* ترتيب العناصر عموديًا */
-    justify-content: flex-start; /* الاحتفاظ بمحاذاة إلى اليسار */
-    align-items: flex-start; /* الشريط والمعلومات في نفس المحاذاة على اليسار */
+    justify-content: center; /* الاحتفاظ بمحاذاة إلى اليسار */
+    align-items: center; /* الشريط والمعلومات في نفس المحاذاة على اليسار */
     position: absolute; /* تثبيت الحاوية في مكان محدد */
     bottom: 110px; /* ضبطه ليكون في الجزء السفلي */
-    left: 20px; /* مسافة من الجانب الأيسر */
-    margin-left: 0px;
+    /*left: 20px; 
+    margin-left: 0px;*/
 }
 
 .progress-bar {
@@ -309,7 +309,7 @@ body {
 } 
 
 #energyInfo {
-    font-size: 16px; /* حجم الخط */
+    font-size: 15px; /* حجم الخط */
     font-weight: bold; /* سمك الخط */
     color: #fff; /* لون النص */
     text-align: left; /* المحاذاة لليسار */
@@ -336,8 +336,8 @@ body {
 }
 
 .clickable-image img {
-    width: 310px;
-    height: 310px;
+    width: 270px;
+    height: 270px;
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
@@ -397,7 +397,7 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 8px;
-   /* border: 2px solid #343434;*/
+    border: 2px solid #343434;
     background: rgba(0, 0, 0, 0); /* لجعل الخلفية زجاجية */
     position: fixed;
     bottom: 18px;
@@ -407,7 +407,7 @@ body {
     transform: translateX(-50%); /* لجعل العنصر في منتصف الشاشة */
     border-radius: 10px;
     z-index: 100;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 1);
+  /*  box-shadow: 0px 4px 10px rgba(0, 0, 0, 1);*/
 }
  
 
@@ -417,7 +417,7 @@ body {
     border: none;
     padding: 5px;
     box-sizing: border-box; 
-    font-size: 13px;
+    font-size: 14px;
     font-weight: bold;
     cursor: pointer;
     display: flex;
@@ -456,13 +456,7 @@ body {
     margin-bottom: 3px;
 }
 
- 
-#accountPage {
-    overflow-y: auto; /* لجعل الصفحة قابلة للتمرير */
-    height: calc(100vh - 150px); /* تحديد ارتفاع مناسب مع الاحتفاظ بالمساحة للأجزاء الأخرى */
-    padding: 10px; /* إضافة مسافة داخلية */
-    padding-bottom: 120px;
-}
+
 
 .invite-section {
     display: flex;
@@ -541,12 +535,6 @@ body {
     border-bottom: none;
 }
 
-#tasksPage {
-    overflow-y: auto; /* لجعل الصفحة قابلة للتمرير */
-    height: calc(100vh - 150px); /* تحديد ارتفاع مناسب مع الاحتفاظ بالمساحة للأجزاء الأخرى */
-    padding: 10px; /* إضافة مسافة داخلية */
-    padding-bottom: 120px;
-}
 
 .boosts-container, .task-container {
     display: flex;
@@ -681,7 +669,7 @@ body {
 
 .confirmation-buttons .game-button {
     padding: 10px 20px;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: bold;
     border-radius: 10px;
     border: 2px solid #343434; 
@@ -703,7 +691,7 @@ body {
     transform: translateX(-50%);
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);  
     color: #fff;
-    padding: 11px 20px; /* زيادة padding لجعل الإشعار طويل */
+    padding: 10px 20px; /* زيادة padding لجعل الإشعار طويل */
     border-radius: 5px;
     border: 2px solid #343434;
     font-size: 15px;
@@ -711,7 +699,7 @@ body {
     transition: top 0.5s ease, opacity 0.5s ease; /* انتقال لعناصر الظهور والانزلاق */
     opacity: 0; /* البداية غير مرئية */
     width: 300px; /* عرض ثابت للإشعار */
-    max-width: 85%; /* الحد الأقصى لعرض الإشعار بنسبة 90% من الشاشة */
+    max-width: 88%; /* الحد الأقصى لعرض الإشعار بنسبة 90% من الشاشة */
     text-align: center; /* محاذاة النص إلى المنتصف */
 }
  
@@ -840,7 +828,7 @@ body {
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: bold;
     margin: 0;
     width: 100%;
@@ -850,12 +838,6 @@ body {
 
 .wallet-button:hover {
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
-}
-
-.coming-soon {
-    color: #fff;
-    font-size: 12px;
-    margin-top: -10px;
 }
 
 .withdraw-input {
@@ -897,13 +879,13 @@ body {
 .level-button-floating {
     position: fixed;
     top: 100px; 
-    left: 60px; 
+    left: 65px; 
     background-color: transparent;
     background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c); /* التدرج اللوني */
     -webkit-background-clip: text; /* قص الخلفية للنص */
     background-clip: text;
     color: transparent;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: bold;
     padding: 0;
 /*    border-bottom: 2px solid #343434;*/
@@ -936,7 +918,7 @@ body {
 
 #l, #t, #info, #b, #lev, #currentLevelInfo, #i {
     color: #fff; 
-    font-size: 20px; 
+    font-size: 18px; 
     margin: 10px 0;
     text-align: center;
  }
@@ -948,7 +930,7 @@ body {
 .boosts-button {
     position: fixed;
     top: 99px; 
-    right: 60px;
+    right: 65px;
     background: rgba(0, 0, 0, 0); 
     /*border: 2px solid #343434;*/
     text-align: center;
@@ -959,7 +941,7 @@ body {
     -webkit-background-clip: text; /* قص الخلفية للنص */
     background-clip: text;
     color: transparent;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: bold;
     margin: 0;
     cursor: pointer;
@@ -992,7 +974,7 @@ body {
 #task {
   /*  margin-left: -220px; */
     color: white; /* لون النص */
-    font-size: 23px; /* حجم الخط */
+    font-size: 20px; /* حجم الخط */
     margin-top: 5px; /* إزالة المسافة من الأعلى */
     margin-bottom: 10px;
     text-align: center;
@@ -1000,7 +982,7 @@ body {
 
  #w {
     color: white; /* لون النص */
-    font-size: 20px; /* حجم الخط */
+    font-size: 18px; /* حجم الخط */
     margin-top: 0; /* إزالة المسافة من الأعلى */
     margin-bottom: 0; 
     text-align: center;
