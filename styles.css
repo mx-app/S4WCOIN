@@ -370,8 +370,8 @@ body {
 .menu {
     display: flex;
     justify-content: space-between;
-    padding: 8px;
-    border: 2px solid #fff;
+    padding: 7px;
+   /* border: 2px solid #fff;*/
     background: rgba(0, 0, 0, 0); /* لجعل الخلفية زجاجية */
     position: fixed;
     bottom: 18px;
@@ -382,6 +382,10 @@ body {
     border-radius: 10px;
     z-index: 100;
   /*  box-shadow: 0px 4px 10px rgba(0, 0, 0, 1);*/
+    border: 1px solid transparent; /* لإزالة اللون الثابت للحدود */
+    background-clip: padding-box; /* لضمان أن التدرج لا يغطي المحتوى الداخلي */
+    border-image: linear-gradient(90deg, #d69a1c, #794106, #9f620c, #d69a1c) 1;
+    
 }
  
 
@@ -419,7 +423,7 @@ body {
     position: absolute;
     right: 0;
     height: 65%;
-    width: 2px;
+    width: 1px;
     background: linear-gradient(90deg, #d69a1c, #794106, #9f620c, #d69a1c);
     top: 18%;
 }
