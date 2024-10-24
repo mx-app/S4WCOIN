@@ -941,19 +941,15 @@ body {
 
 .settings-button {
     position: fixed;
-    top: 16.5px; 
+    top: 16px; 
     left: 315px;
     background-color: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0; 
-    z-index: 10;  
-   /* border-bottom: 2px solid #343434;*/
-}
-
-.settings-icon {
-    width: 23px; 
-    height: 23px;
+    background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c); /* التدرج اللوني */
+    -webkit-background-clip: text; /* قص الخلفية للنص */
+    background-clip: text;
+    color: transparent;
+    font-size: 18px;
+    z-index: 100;  
 }
  
 #task {
@@ -972,9 +968,6 @@ body {
     margin-bottom: 0; 
     text-align: center;
  }
-
-
-
 
 .app-info {
     display: flex;
