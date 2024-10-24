@@ -1,7 +1,7 @@
 :root {
     --primary-color: #000;
-    --secondary-color: #ff00f0;
-    --background-color-dark: #343434;
+    --secondary-color: #000;
+    --background-color-dark: #000;
     --text-color-dark: #fff;
     --text-color-light: #fff;
     --button-bg: #003366;
