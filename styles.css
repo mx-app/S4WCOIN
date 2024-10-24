@@ -48,8 +48,15 @@ body {
     transition: background-color 0.5s, color 0.5s;
 }
 
-#Page {
-    margin-top: 100px;
+#levelPage,
+#gamePage,
+#walletPage,
+#PuzzlesPage,
+#tasksPage,
+#boostsPage,
+#accountPage,
+#mainPage {
+    margin-top: 80px; /* يمكنك تغيير القيمة حسب الحاجة */
 }
 
 
