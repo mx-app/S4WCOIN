@@ -46,6 +46,7 @@ body {
     height: 100vh;
     overflow: hidden;
     transition: background-color 0.5s, color 0.5s;
+    margin-top: 100px;
 }
 
 
@@ -226,7 +227,6 @@ body {
     -webkit-background-clip: text; /* قص الخلفية للنص */
     background-clip: text;
     color: transparent; /* جعل النص شفافًا لعرض التدرج */
-    margin-top: 100px;
 
 }
 
