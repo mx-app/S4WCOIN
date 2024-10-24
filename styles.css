@@ -1010,7 +1010,7 @@ body {
     justify-content: center;
     margin-bottom: 10px;
     position: absolute; 
-    top: 5px; 
+    top: 0; 
     left: 15px;
 }
 
