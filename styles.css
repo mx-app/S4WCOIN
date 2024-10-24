@@ -397,16 +397,17 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 8px;
-    border: 2px solid #343434;
-/*   background: linear-gradient(45deg, #000, #9f0000, #000);*/
-    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);
+    background: #000;
+   /* border: 2px solid #343434;
+    background: linear-gradient(45deg, #000, #9f0000, #000);
+    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
     background-position: center;
     position: fixed;
-    bottom: 18px;
+    bottom: 0px;
     box-sizing: border-box; 
     width: calc(100% - 20px);
-    left: 10px;
-    right: 10px;
+    left: 0px;
+    right: 0px;
     border-radius: 10px;
     z-index: 100;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 1);
