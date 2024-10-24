@@ -399,9 +399,9 @@ body {
     justify-content: space-between;
     padding: 6px;
     background: #000;
-    border-top-left-radius: 15px; 
-    border-top-right-radius: 15px; 
-    border: 2px solid #343434;
+    border-top-left-radius: 12px; 
+    border-top-right-radius: 12px; 
+    border-top: 2px solid #343434;
     /*background: linear-gradient(45deg, #000, #9f0000, #000);
     background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
     background-position: center;
