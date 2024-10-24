@@ -263,8 +263,8 @@ body {
 #balanceAmount::before {
     content: "";
     display: inline-block;
-    width: 38px; /* عرض الصورة */
-    height: 38px; /* ارتفاع الصورة */
+    width: 40px; /* عرض الصورة */
+    height: 40px; /* ارتفاع الصورة */
     background-image: url('i/sawcoin0.png'); /* رابط الصورة */
     background-size: contain; /* يجعل الصورة تناسب الحجم المحدد */
     background-repeat: no-repeat;
@@ -325,7 +325,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: calc(100.0% - 69px);
+    height: calc(99.5% - 69px);
 }
 
 .clickable-image {
@@ -337,8 +337,8 @@ body {
 }
 
 .clickable-image img {
-    width: 340px;
-    height: 340px;
+    width: 350px;
+    height: 350px;
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
@@ -418,7 +418,7 @@ body {
     border: none;
     padding: 5px;
     box-sizing: border-box; 
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
     cursor: pointer;
     display: flex;
@@ -969,7 +969,7 @@ body {
 
 .settings-button {
     position: fixed;
-    top: 16px; 
+    top: 18px; 
     left: 315px;
     background-color: transparent;
     border: none;
