@@ -56,7 +56,8 @@ body {
 #boostsPage,
 #accountPage,
 #mainPage {
-    margin-top: 80px; /* يمكنك تغيير القيمة حسب الحاجة */
+    padding-top: 80px; /* يمكنك تغيير القيمة حسب الحاجة */
+    background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
 }
 
 
