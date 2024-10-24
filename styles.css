@@ -48,15 +48,6 @@ body {
     transition: background-color 0.5s, color 0.5s;
 }
 
-#levelPage,
-#walletPage,
-#boostsPage,
-#mainPage {
-    padding-top: 80px; /* يمكنك تغيير القيمة حسب الحاجة */
-    background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
-}
-
-
 .container {
     width: 100%;
     max-width: 450px;
@@ -446,15 +437,6 @@ body {
     margin-bottom: 2px;
 }
 
- 
-#accountPage {
-    padding-top: 80px; /* يمكنك تغيير القيمة حسب الحاجة */
-    background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
-    overflow-y: auto; /* لجعل الصفحة قابلة للتمرير */
-    height: calc(100vh - 150px); /* تحديد ارتفاع مناسب مع الاحتفاظ بالمساحة للأجزاء الأخرى */
-    padding: 10px; /* إضافة مسافة داخلية */
-    padding-bottom: 120px;
-}
 
 .invite-section {
     display: flex;
@@ -533,14 +515,6 @@ body {
     border-bottom: none;
 }
 
-#tasksPage {
-    padding-top: 80px; /* يمكنك تغيير القيمة حسب الحاجة */
-    background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
-    overflow-y: auto; /* لجعل الصفحة قابلة للتمرير */
-    height: calc(100vh - 150px); /* تحديد ارتفاع مناسب مع الاحتفاظ بالمساحة للأجزاء الأخرى */
-    padding: 10px; /* إضافة مسافة داخلية */
-    padding-bottom: 120px;
-}
 
 .boosts-container, .task-container {
     display: flex;
