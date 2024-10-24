@@ -267,7 +267,7 @@ body {
     justify-content: flex-start; /* الاحتفاظ بمحاذاة إلى اليسار */
     align-items: flex-start; /* الشريط والمعلومات في نفس المحاذاة على اليسار */
     position: absolute; /* تثبيت الحاوية في مكان محدد */
-    bottom: 90px; /* ضبطه ليكون في الجزء السفلي */
+    bottom: 80px; /* ضبطه ليكون في الجزء السفلي */
     left: 20px; /* مسافة من الجانب الأيسر */
     margin-left: 0px;
 }
@@ -380,7 +380,7 @@ body {
     background: #000;
     border-top-left-radius: 12px; 
     border-top-right-radius: 12px; 
-    border-top: 2px solid #343434;
+   /* border-top: 2px solid #343434;*/
     /*background: linear-gradient(45deg, #000, #9f0000, #000);
     background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
     background-position: center;
@@ -391,6 +391,7 @@ body {
     left: 0px;
     right: 0px;
     z-index: 100;
+    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.5); /* ظل من فوق */
 }
 
 .menu button {
