@@ -182,7 +182,7 @@ body {
   /*  background-color: transparent;*/
    /* background: linear-gradient(180deg, #000, #9f0000);
     background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
-    background: #000;
+    background: none;
     background-position: center;
     position: relative;
     width: %;
