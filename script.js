@@ -986,8 +986,21 @@ function initializeTelegramIntegration() {
 //loadGameState(); // إعادة تحميل حالة اللعبة
 //
 
+//////////////////////////////////////////////////////////
+
+
+
+
+
 
     
+ 
+    
+        
+
+
+
+
 // DOM Elements
 const puzzlecloseModal = document.getElementById('puzzlecloseModal');
 const puzzleContainer = document.getElementById('puzzleContainer');
@@ -1007,6 +1020,7 @@ let puzzleSolved = false;
 let countdownInterval;
 const maxAttempts = 3;
 const penaltyAmount = 500; // Penalty for wrong answer
+const countdownDuration = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
 
 // Load puzzles from JSON file
 async function loadPuzzles() {
@@ -1071,18 +1085,27 @@ async function displayTodaysPuzzle() {
 
 // Timer function
 function startCountdown() {
-    let timeLeft = 60.00;
-    timerDisplay.innerText = timeLeft.toFixed(2);
+    let timeLeft = countdownDuration; // 24 hours
+    timerDisplay.innerText = formatTime(timeLeft);
 
     countdownInterval = setInterval(() => {
-        timeLeft -= 0.01;
-        timerDisplay.innerText = timeLeft.toFixed(2);
+        timeLeft -= 1000; // Decrement by 1 second
 
         if (timeLeft <= 0) {
             clearInterval(countdownInterval);
             handlePuzzleTimeout();
+        } else {
+            timerDisplay.innerText = formatTime(timeLeft);
         }
-    }, 10);
+    }, 1000);
+}
+
+// Format time for display
+function formatTime(milliseconds) {
+    const hours = Math.floor((milliseconds / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((milliseconds / (1000 * 60)) % 60);
+    const seconds = Math.floor((milliseconds / 1000) % 60);
+    return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 }
 
 // Handle puzzle timeout
@@ -1122,6 +1145,9 @@ function handlePuzzleSuccess() {
 
     puzzleSolved = true;
     document.querySelectorAll('.option-btn').forEach(btn => btn.disabled = true);
+
+    // Start countdown timer for the next puzzle
+    startCountdown();
 }
 
 // Handle wrong answer
@@ -1161,7 +1187,8 @@ async function updatePuzzleProgressInDatabase(puzzleId, solved, attempts) {
     // Update or add current puzzle progress
     puzzlesProgress[puzzleId] = {
         solved: solved,
-        attempts: attempts
+        attempts: attempts,
+        lastAttemptTime: new Date().toISOString() // Store last attempt time
     };
 
     // Update data in the database
@@ -1208,13 +1235,20 @@ openPuzzleBtn.addEventListener('click', displayTodaysPuzzle);
 document.getElementById('puzzlecloseModal').addEventListener('click', function() {
     document.getElementById('puzzleContainer').classList.add('hidden');
 });
-document.getElementById('openPuzzleBtn').addEventListener('click', function() {
-    document.getElementById('puzzleContainer').classList.remove('hidden');
-});
+
+
+
+
+
+
+
+
+
+
+
+
 
 ///////////////////////////////////////////////////
-
-
 
 
 
@@ -1293,7 +1327,12 @@ async function updateUsedPromoCodesInDB(usedPromoCodes) {
     }
 }
 
+
+
 //////////////////////////////////////////////
+
+
+
 
 
  document.addEventListener('DOMContentLoaded', () => {
