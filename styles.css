@@ -226,14 +226,12 @@ body {
 
 #balanceAmount {
     margin-top: 40px;
-   /* margin: 0 auto;*/
     font-size: 39px;
     color: #fff;
-    display: block;
-    position: relative;
-    text-align: center;
+    display: flex;
+    align-items: center; /* لضبط المحاذاة الرأسية بين الصورة والنص */
+    justify-content: center; /* لجعل النص والصورة في المنتصف */
 }
-
 
 #balanceAmount::before {
     content: "";
@@ -241,11 +239,11 @@ body {
     width: 40px; /* عرض الصورة */
     height: 40px; /* ارتفاع الصورة */
     background-image: url('i/sawcoin0.png'); /* رابط الصورة */
-    background-size: contain; /* يجعل الصورة تناسب الحجم المحدد */
+    background-size: contain;
     background-repeat: no-repeat;
     margin-right: 5px; /* مسافة بين الصورة والرقم */
-    vertical-align: middle; /* ضبط المحاذاة الرأسية */
 }
+
 
 .user-level {
     font-size: 16px; 
@@ -538,8 +536,8 @@ body {
     margin: 10px 0;
     padding: 10px;
     border: 2px solid #343434; 
-    background: rgba(0, 0, 0, 0);
-   /* background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
+   /* background: rgba(0, 0, 0, 0);*/
+    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);
     border-radius: 10px;
     display: flex;
     justify-content: center;
