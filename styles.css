@@ -897,7 +897,7 @@ body {
 .level-button-floating {
     position: fixed;
     top: 100px; 
-    left: 20px; 
+    left: 40px; 
     background-color: transparent;
     background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c); /* التدرج اللوني */
     -webkit-background-clip: text; /* قص الخلفية للنص */
@@ -948,7 +948,7 @@ body {
 .boosts-button {
     position: fixed;
     top: 100px; 
-    right: 10px;
+    right: 40px;
     background: rgba(0, 0, 0, 0); 
     /*border: 2px solid #343434;*/
     padding: 8px 20px;
@@ -956,7 +956,11 @@ body {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 15px;
+    background-color: transparent;
+    background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c); /* التدرج اللوني */
+    -webkit-background-clip: text; /* قص الخلفية للنص */
+    background-clip: text;
+    font-size: 16px;
     font-weight: bold;
     margin: 0;
     cursor: pointer;
