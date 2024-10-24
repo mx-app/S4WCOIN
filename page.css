@@ -2,12 +2,12 @@
 #walletPage,
 #boostsPage,
 #mainPage {
-    padding-top: 60px; /* يمكنك تغيير القيمة حسب الحاجة */
+    padding-top: 50px; /* يمكنك تغيير القيمة حسب الحاجة */
     background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
 }
 
 #tasksPage {
-    padding-top: 80px; /* يمكنك تغيير القيمة حسب الحاجة */
+    padding-top: 50px; /* يمكنك تغيير القيمة حسب الحاجة */
     background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
     overflow-y: auto; /* لجعل الصفحة قابلة للتمرير */
     padding-bottom: 120px; /* مسافة سفلية */
@@ -22,14 +22,14 @@
 
 
 #Puzzlespage  {
-    padding-top: 80px; /* يمكنك تغيير القيمة حسب الحاجة */
+    padding-top: 60px; /* يمكنك تغيير القيمة حسب الحاجة */
     background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
    
 }
 
 
 #gamePage {
-    padding-top: 60px; /* يمكنك تغيير القيمة حسب الحاجة */
+    padding-top: 40px; /* يمكنك تغيير القيمة حسب الحاجة */
     background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
     overflow-y: auto;
     padding-bottom: 110px; 
