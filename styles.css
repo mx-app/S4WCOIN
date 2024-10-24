@@ -371,7 +371,8 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 7px;
-   /* border: 2px solid #fff;*/
+    border: 1px solid #fff;
+    border-radius: 10px;
     background: rgba(0, 0, 0, 0); /* لجعل الخلفية زجاجية */
     position: fixed;
     bottom: 18px;
@@ -380,28 +381,8 @@ body {
     left: 50%; /* لضبطه في المنتصف */
     transform: translateX(-50%); /* لجعل العنصر في منتصف الشاشة */
     z-index: 100;
-    position: relative;
+    
 }
- 
-.menu::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 10px; /* الحدود المستديرة */
-    padding: 1px; /* عرض الحدود */
-    background: linear-gradient(90deg, #d69a1c, #794106, #9f620c, #d69a1c); /* التدرج */
-    -webkit-mask: 
-        linear-gradient(#fff 0 0) content-box, 
-        linear-gradient(#fff 0 0); /* لإخفاء التدرج في الداخل */
-    -webkit-mask-composite: destination-out;
-    mask-composite: exclude;
-    z-index: -1; /* خلف المحتوى */
-} 
-
-
 
 .menu button {
     background-color: none;
