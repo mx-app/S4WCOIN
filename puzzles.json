@@ -1,13 +1,274 @@
 {
   "puzzles": [
     {
-      "id": 4,
+      "id": 1,
+      "difficulty": "easy",
+      "question": "What comes after the letter 'E' in the alphabet?",
+      "options": ["F", "G", "H", "I"],
+      "answer": "F",
+      "hint": "Think of the alphabet order.",
+      "reward": 2000
+    },
+    {
+      "id": 2,
       "difficulty": "medium",
-      "question": "Complete the sequence: 3, 6, 9, 12,",
-      "options": ["2", "15", "80", "13", "7", "11"],
-      "answer": "15",
-      "hint": "Add the same number each time .",
-      "reward": 10000 
+      "question": "I speak without a mouth and hear without ears. What am I?",
+      "options": ["Echo", "Shadow", "Wind", "Dream"],
+      "answer": "Echo",
+      "hint": "It repeats sound.",
+      "reward": 5000
+    },
+    {
+      "id": 3,
+      "difficulty": "hard",
+      "question": "What 3 positive numbers give the same result when multiplied and added together?",
+      "options": ["1, 2, 3", "1, 1, 1", "2, 2, 2", "3, 3, 3"],
+      "answer": "1, 2, 3",
+      "hint": "Think of basic arithmetic operations.",
+      "reward": 15000
+    },
+    {
+      "id": 4,
+      "difficulty": "easy",
+      "question": "Complete the sequence: 2, 4, 6, 8,",
+      "options": ["9", "10", "12", "14"],
+      "answer": "10",
+      "hint": "It's an even number.",
+      "reward": 3000
+    },
+    {
+      "id": 5,
+      "difficulty": "medium",
+      "question": "Which is heavier: a ton of feathers or a ton of bricks?",
+      "options": ["Feathers", "Bricks", "Same", "Neither"],
+      "answer": "Same",
+      "hint": "They both weigh a ton.",
+      "reward": 4000
+    },
+    {
+      "id": 6,
+      "difficulty": "hard",
+      "question": "A farmer has 17 sheep, and all but 9 die. How many are left?",
+      "options": ["8", "9", "0", "17"],
+      "answer": "9",
+      "hint": "Focus on the 'all but' part.",
+      "reward": 12000
+    },
+    {
+      "id": 7,
+      "difficulty": "easy",
+      "question": "What has keys but can't open locks?",
+      "options": ["Piano", "Locksmith", "Keyboard", "Lock"],
+      "answer": "Piano",
+      "hint": "It plays music.",
+      "reward": 2500
+    },
+    {
+      "id": 8,
+      "difficulty": "medium",
+      "question": "What gets wetter as it dries?",
+      "options": ["Sponge", "Towel", "Water", "Ice"],
+      "answer": "Towel",
+      "hint": "You use it after a bath.",
+      "reward": 6000
+    },
+    {
+      "id": 9,
+      "difficulty": "hard",
+      "question": "If you have me, you want to share me. If you share me, you no longer have me. What am I?",
+      "options": ["Secret", "Love", "Money", "Time"],
+      "answer": "Secret",
+      "hint": "It's something you keep hidden.",
+      "reward": 10000
+    },
+    {
+      "id": 10,
+      "difficulty": "easy",
+      "question": "What is always in front of you but can't be seen?",
+      "options": ["Air", "Future", "Time", "Past"],
+      "answer": "Future",
+      "hint": "It hasn't happened yet.",
+      "reward": 3500
+    },
+    {
+      "id": 11,
+      "difficulty": "medium",
+      "question": "Which word is spelled incorrectly in every dictionary?",
+      "options": ["Incorrectly", "Right", "Dictionary", "Word"],
+      "answer": "Incorrectly",
+      "hint": "It's a play on words.",
+      "reward": 5000
+    },
+    {
+      "id": 12,
+      "difficulty": "hard",
+      "question": "I am an odd number. Take away one letter, and I become even. What number am I?",
+      "options": ["Seven", "Nine", "Eleven", "Five"],
+      "answer": "Seven",
+      "hint": "It's an odd prime number.",
+      "reward": 9000
+    },
+    {
+      "id": 13,
+      "difficulty": "easy",
+      "question": "How many months have 28 days?",
+      "options": ["1", "6", "12", "None"],
+      "answer": "12",
+      "hint": "Every month has at least 28 days.",
+      "reward": 4000
+    },
+    {
+      "id": 14,
+      "difficulty": "medium",
+      "question": "What has a heart that doesn’t beat?",
+      "options": ["Rock", "Tree", "Artichoke", "Sun"],
+      "answer": "Artichoke",
+      "hint": "It's a vegetable.",
+      "reward": 7000
+    },
+    {
+      "id": 15,
+      "difficulty": "hard",
+      "question": "Two fathers and two sons went fishing. They caught three fish. How is that possible?",
+      "options": ["They are 3 people", "They lost one", "Magic", "Coincidence"],
+      "answer": "They are 3 people",
+      "hint": "Think of generations.",
+      "reward": 8000
+    },
+    {
+      "id": 16,
+      "difficulty": "easy",
+      "question": "How many sides does a triangle have?",
+      "options": ["1", "2", "3", "4"],
+      "answer": "3",
+      "hint": "Basic geometry.",
+      "reward": 2000
+    },
+    {
+      "id": 17,
+      "difficulty": "medium",
+      "question": "What can travel around the world while staying in the same spot?",
+      "options": ["Sun", "Moon", "Stamp", "Shadow"],
+      "answer": "Stamp",
+      "hint": "It goes on a letter.",
+      "reward": 5000
+    },
+    {
+      "id": 18,
+      "difficulty": "hard",
+      "question": "What number comes next in the sequence: 1, 1, 2, 3, 5, 8,?",
+      "options": ["10", "12", "13", "11"],
+      "answer": "13",
+      "hint": "Fibonacci sequence.",
+      "reward": 9000
+    },
+    {
+      "id": 19,
+      "difficulty": "easy",
+      "question": "What is 5 + 3?",
+      "options": ["6", "7", "8", "9"],
+      "answer": "8",
+      "hint": "Simple addition.",
+      "reward": 1500
+    },
+    {
+      "id": 20,
+      "difficulty": "medium",
+      "question": "If you drop a yellow hat in the Red Sea, what does it become?",
+      "options": ["Yellow", "Wet", "Blue", "Gone"],
+      "answer": "Wet",
+      "hint": "Think about water.",
+      "reward": 4500
+    },
+    {
+      "id": 21,
+      "difficulty": "hard",
+      "question": "What comes once in a minute, twice in a moment, but never in a thousand years?",
+      "options": ["M", "O", "E", "I"],
+      "answer": "M",
+      "hint": "It's related to letters.",
+      "reward": 12000
+    },
+    {
+      "id": 22,
+      "difficulty": "easy",
+      "question": "What is the capital of France?",
+      "options": ["London", "Berlin", "Paris", "Rome"],
+      "answer": "Paris",
+      "hint": "City of lights.",
+      "reward": 2000
+    },
+    {
+      "id": 23,
+      "difficulty": "medium",
+      "question": "I’m tall when I’m young, and I’m short when I’m old. What am I?",
+      "options": ["Tree", "Candle", "Person", "Animal"],
+      "answer": "Candle",
+      "hint": "It gives light.",
+      "reward": 7000
+    },
+    {
+      "id": 24,
+      "difficulty": "hard",
+      "question": "What 4-letter word can be written forward, backward, or upside down, and can still be read from left to right?",
+      "options": ["NOON", "DAD", "MOM", "WOW"],
+      "answer": "NOON",
+      "hint": "It represents time.",
+      "reward": 9000
+    },
+    {
+      "id": 25,
+      "difficulty": "easy",
+      "question": "Which planet is known as the Red Planet?",
+      "options": ["Mars", "Earth", "Jupiter", "Venus"],
+      "answer": "Mars",
+      "hint": "It's red.",
+      "reward": 3000
+    },
+    {
+      "id": 26,
+      "difficulty": "medium",
+      "question": "What has hands but can't clap?",
+      "options": ["Person", "Robot", "Clock", "Toy"],
+      "answer": "Clock",
+      "hint": "It tells time.",
+      "reward": 6000
+    },
+    {
+      "id": 27,
+      "difficulty": "hard",
+      "question": "If a plane crashes on the border of the US and Canada, where do they bury the survivors?",
+      "options": ["US", "Canada", "Nowhere", "Mexico"],
+      "answer": "Nowhere",
+      "hint": "Survivors are alive.",
+      "reward": 9500
+    },
+    {
+      "id": 28,
+      "difficulty": "easy",
+      "question": "How many legs does a spider have?",
+      "options": ["6", "8", "10", "12"],
+      "answer": "8",
+      "hint": "Think of insects.",
+      "reward": 2500
+    },
+    {
+      "id": 29,
+      "difficulty": "medium",
+      "question": "What room has no doors or windows?",
+      "options": ["Bathroom", "Mushroom", "Bedroom", "Living room"],
+      "answer": "Mushroom",
+      "hint": "It's a fungus.",
+      "reward": 7000
+    },
+    {
+      "id": 30,
+      "difficulty": "hard",
+      "question": "If it takes 5 machines 5 minutes to make 5 widgets, how long would it take 100 machines to make 100 widgets?",
+      "options": ["100 minutes", "20 minutes", "5 minutes", "50 minutes"],
+      "answer": "5 minutes",
+      "hint": "The rate is constant.",
+      "reward": 12000
     }
   ]
 }
