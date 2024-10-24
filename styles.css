@@ -405,7 +405,7 @@ body {
     position: fixed;
     bottom: 0px;
     box-sizing: border-box; 
-    width: calc(100% - 20px);
+    width: 100%;
     left: 0px;
     right: 0px;
     border-radius: 10px;
