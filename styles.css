@@ -378,7 +378,7 @@ body {
     height: 20px;
     background-size: cover;
     pointer-events: none;
-    animation: coin-bounce 1s infinite, fade-out 1s forwards; /* استخدام forwards هنا */
+    animation: coin-bounce 1s infinite, fade-out 1s forwards;
     z-index: 9999;
 }
 
@@ -897,8 +897,8 @@ body {
 
 .level-button-floating {
     position: fixed;
-    top: 13.1px; 
-    left: 29px;
+    top: 100px; 
+   /* left: 29px;*/
     background-color: transparent;
     background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c); /* التدرج اللوني */
     -webkit-background-clip: text; /* قص الخلفية للنص */
@@ -909,7 +909,7 @@ body {
     padding: 0;
 /*    border-bottom: 2px solid #343434;*/
     cursor: pointer;
-    z-index: 10;  
+    z-index: 100000;  
 
 }  
 
@@ -1014,5 +1014,4 @@ body {
     margin-bottom: 0; 
     text-align: center;
  }
-
 
