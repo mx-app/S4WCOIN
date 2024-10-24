@@ -28,25 +28,36 @@
     </div>
   </div>
 
-
-
-    
+      <!-- Main Container -->
     <div class="container" style="display: none;">
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <div id="balanceContainer" class="balance-container">
+             
+                <div id="userLevel" class="user-level">
+                    : <span id="currentLevelName"></span>
+                </div>
+                <button id="levelFloatingBtn" class="level-button-floating"> Level </button>
+            </div>
+                <div class="settings-container">
+               <button id="settingsButton" class="settings-button">
+              <img src="i/Settings.png" alt="Settings" class="settings-icon">
+             </button>
+           </div>
+       </div>
+ <!--  <img src="i/level0.webp" alt="levels" class="levels-icon"> -->
+     
        <!-- Main Page --> 
         <div id="mainPage" class="screen-content active">
             <main class="main-content">
-                 <div id="balanceContainer" class="balance-container">
-                  <div class="settings-container">
-                   <button id="settingsButton" class="settings-button">
-                      <img src="i/Settings.png" alt="Settings" class="settings-icon">
-                </button>
-             </div>
+                <!-- خانة سرعة التعدين فوق الرصيد -->
+              <div id="miningSpeedContainer" style="display: flex; align-items: center; margin-bottom: 10px;">
+              <div id="miningSpeedTitle" style="margin-right: 5px;">Mining Speed:</div>
+              <div id="miningSpeedAmount">0 coins/hour</div>
+            </div>
+               <!-- <div class="line"></div>  هنا يتم إضافة الخط -->
                 <div id="balanceTitle"> Coins Balance : </div>
                 <div id="balanceAmount">0</div>
-                <button id="levelFloatingBtn" class="level-button-floating">
-                 🏆 <span id="currentLevelName"></span>
-               </button>
-            </div>
                 <div class="clickable-image">
                     <img id="clickableImg" src="i/sawcoin-s.png" alt="Clickable Image">
                 </div>
@@ -58,15 +69,15 @@
                   <span id="energyText"></span>
                  </div>
 
+                
                   <button data-target="gamePage" class="Play-game-button">
                     <img src="i/100.png" alt="Game"> Game 
-                
-                   <button data-target="boostsPage" class="boosts-button">
+            
+                    <button data-target="boostsPage" class="boosts-button">
                     <img src="i/Boostss.png" alt="Boosts"> Boost
               </button>
            </main>
         </div>
-        
 
        <!-- Account Page -->
         <div id="accountPage" class="screen-content scrollable">
