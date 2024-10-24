@@ -1,7 +1,7 @@
 :root {
     --primary-color: #000;
-    --secondary-color: #000;
-    --background-color-dark: #000;
+    --secondary-color: #ff00f0;
+    --background-color-dark: #1c1c1c;
     --text-color-dark: #fff;
     --text-color-light: #fff;
     --button-bg: #003366;
@@ -48,6 +48,7 @@ body {
     transition: background-color 0.5s, color 0.5s;
 }
 
+
 .container {
     width: 100%;
     max-width: 450px;
@@ -62,7 +63,7 @@ body {
     background-position: center;
     border-top-left-radius: 0; /* لجعل الزاوية العلوية اليسرى دائرية */
     border-top-right-radius: 0; /* لجعل الزاوية العلوية اليمنى دائرية */
-    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.5); /* ظل من فوق */
+    border-bottom: 2px solid #343434
 } 
 
 
@@ -167,8 +168,7 @@ body {
     }
 }
 
-
- .status-bar {
+.status-bar {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -191,7 +191,8 @@ body {
     margin-right: 2px;
     z-index: 100;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 4px 8px rgba(0, 0, 0, 1); /* إضافة الظل */
-}   
+}  
+ 
 
  .game-title {
     font-size: 20px;
@@ -286,7 +287,7 @@ body {
     justify-content: flex-start; /* الاحتفاظ بمحاذاة إلى اليسار */
     align-items: flex-start; /* الشريط والمعلومات في نفس المحاذاة على اليسار */
     position: absolute; /* تثبيت الحاوية في مكان محدد */
-    bottom: 80px; /* ضبطه ليكون في الجزء السفلي */
+    bottom: 110px; /* ضبطه ليكون في الجزء السفلي */
     left: 20px; /* مسافة من الجانب الأيسر */
     margin-left: 0px;
 }
@@ -393,26 +394,22 @@ body {
 }
 
 .menu {
-    background-color: rgba(0, 0, 0, 0.0);/* خلفية شفافة */
-
     display: flex;
     justify-content: space-between;
-    padding: 6px;
-   /* background: #000;*/
-    border-top-left-radius: 12px; 
-    border-top-right-radius: 12px; 
-   /* border-top: 2px solid #343434;*/
-    /*background: linear-gradient(45deg, #000, #9f0000, #000);
-    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
+    padding: 8px;
+    border: 2px solid #343434;
+/*   background: linear-gradient(45deg, #000, #9f0000, #000);*/
+    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);
     background-position: center;
     position: fixed;
-    bottom: 0px;
+    bottom: 18px;
     box-sizing: border-box; 
-    width: 100%;
-    left: 0px;
-    right: 0px;
+    width: calc(100% - 20px);
+    left: 10px;
+    right: 10px;
+    border-radius: 10px;
     z-index: 100;
-    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.5); /* ظل من فوق */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 1);
 }
 
 .menu button {
@@ -429,14 +426,14 @@ body {
     align-items: center;
     flex: 1;
     transition: background-color 0.3s ease, color 0.3s ease; /* حذف التحويل المتعلق بالتكبير */
-    border-radius: 10px;
+    border-radius: 15px;
     position: relative;
     background: none; /* إزالة الخلفية الافتراضية */
 }
 
 .menu button.active {
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
     color: transparent;
     background: linear-gradient(90deg, #d69a1c, #794106, #9f620c, #d69a1c);
     background-clip: text;
@@ -455,11 +452,18 @@ body {
 }
 
 .menu button img {
-    width: 30px;
-    height: 30px;
-    margin-bottom: 2px;
+    width: 35px;
+    height: 35px;
+    margin-bottom: 3px;
 }
 
+ 
+#accountPage {
+    overflow-y: auto; /* لجعل الصفحة قابلة للتمرير */
+    height: calc(100vh - 150px); /* تحديد ارتفاع مناسب مع الاحتفاظ بالمساحة للأجزاء الأخرى */
+    padding: 10px; /* إضافة مسافة داخلية */
+    padding-bottom: 120px;
+}
 
 .invite-section {
     display: flex;
@@ -538,6 +542,12 @@ body {
     border-bottom: none;
 }
 
+#tasksPage {
+    overflow-y: auto; /* لجعل الصفحة قابلة للتمرير */
+    height: calc(100vh - 150px); /* تحديد ارتفاع مناسب مع الاحتفاظ بالمساحة للأجزاء الأخرى */
+    padding: 10px; /* إضافة مسافة داخلية */
+    padding-bottom: 120px;
+}
 
 .boosts-container, .task-container {
     display: flex;
@@ -886,16 +896,15 @@ body {
 }
 
 .level-button-floating {
-    top: 135px;
     position: fixed;
-   /* top: 13.1px; 
-    left: 29px;*/
+    top: 13.1px; 
+    left: 29px;
     background-color: transparent;
     background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c); /* التدرج اللوني */
     -webkit-background-clip: text; /* قص الخلفية للنص */
     background-clip: text;
     color: transparent;
-    font-size: 15px;
+    font-size: 17px;
     font-weight: bold;
     padding: 0;
 /*    border-bottom: 2px solid #343434;*/
@@ -939,7 +948,7 @@ body {
  
 .boosts-button {
     position: fixed;
-    top: 80vh; 
+    top: 75.3vh; 
     right: 2.5vw; /* المسافة من الجانب الأيمن */
     background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    color: #fff;
     border: 2px solid #343434;
@@ -1005,6 +1014,5 @@ body {
     margin-bottom: 0; 
     text-align: center;
  }
-
 
 
