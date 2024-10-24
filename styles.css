@@ -393,7 +393,7 @@ body {
 }
 
 .menu {
-    background-color: rgba(0, 0, 0, 0.1);/* خلفية شفافة */
+    background-color: rgba(0, 0, 0, 0.0);/* خلفية شفافة */
 
     display: flex;
     justify-content: space-between;
@@ -886,7 +886,7 @@ body {
 }
 
 .level-button-floating {
-    top: 150px;
+    top: 135px;
     position: fixed;
    /* top: 13.1px; 
     left: 29px;*/
