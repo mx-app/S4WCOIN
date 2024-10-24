@@ -23,3 +23,20 @@
     padding: 10px; /* إضافة مسافة داخلية */
     padding-bottom: 120px; /* مسافة سفلية */
 }
+
+
+#Puzzlespage  {
+    padding-top: 80px; /* يمكنك تغيير القيمة حسب الحاجة */
+    background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
+   
+}
+
+
+#gamePage {
+    padding-top: 80px; /* يمكنك تغيير القيمة حسب الحاجة */
+    background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
+    padding: 20px;
+    overflow-y: auto;
+    padding-bottom: 110px; 
+    transition: all 0.3s ease; /* لتحسين التحولات */
+}
