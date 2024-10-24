@@ -947,8 +947,8 @@ body {
  
 .boosts-button {
     position: fixed;
-    top: 75.3vh; 
-    right: 2.5vw; /* المسافة من الجانب الأيمن */
+    top: 100px; 
+   /* right: 2.5vw;*/ /* المسافة من الجانب الأيمن */
     background: rgba(0, 0, 0, 0); 
     /*border: 2px solid #343434;*/
     padding: 8px 20px;
