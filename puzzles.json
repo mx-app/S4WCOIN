@@ -1,7 +1,7 @@
 {
   "puzzles": [
     {
-      "id": 1,
+      "id": 5,
       "difficulty": "easy",
       "question": "What comes after the letter 'E' in the alphabet?",
       "options": ["F", "G", "H", "I"],
@@ -10,7 +10,7 @@
       "reward": 2000
     },
     {
-      "id": 2,
+      "id": 6,
       "difficulty": "medium",
       "question": "I speak without a mouth and hear without ears. What am I?",
       "options": ["Echo", "Shadow", "Wind", "Dream"],
@@ -19,7 +19,7 @@
       "reward": 5000
     },
     {
-      "id": 3,
+      "id": 7,
       "difficulty": "hard",
       "question": "What 3 positive numbers give the same result when multiplied and added together?",
       "options": ["1, 2, 3", "1, 1, 1", "2, 2, 2", "3, 3, 3"],
@@ -28,7 +28,7 @@
       "reward": 15000
     },
     {
-      "id": 4,
+      "id": 8,
       "difficulty": "easy",
       "question": "Complete the sequence: 2, 4, 6, 8,",
       "options": ["9", "10", "12", "14"],
@@ -37,7 +37,7 @@
       "reward": 3000
     },
     {
-      "id": 5,
+      "id": 9,
       "difficulty": "medium",
       "question": "Which is heavier: a ton of feathers or a ton of bricks?",
       "options": ["Feathers", "Bricks", "Same", "Neither"],
@@ -46,7 +46,7 @@
       "reward": 4000
     },
     {
-      "id": 6,
+      "id": 10,
       "difficulty": "hard",
       "question": "A farmer has 17 sheep, and all but 9 die. How many are left?",
       "options": ["8", "9", "0", "17"],
@@ -55,7 +55,7 @@
       "reward": 12000
     },
     {
-      "id": 7,
+      "id": 11,
       "difficulty": "easy",
       "question": "What has keys but can't open locks?",
       "options": ["Piano", "Locksmith", "Keyboard", "Lock"],
@@ -64,7 +64,7 @@
       "reward": 2500
     },
     {
-      "id": 8,
+      "id": 12,
       "difficulty": "medium",
       "question": "What gets wetter as it dries?",
       "options": ["Sponge", "Towel", "Water", "Ice"],
@@ -73,7 +73,7 @@
       "reward": 6000
     },
     {
-      "id": 9,
+      "id": 13,
       "difficulty": "hard",
       "question": "If you have me, you want to share me. If you share me, you no longer have me. What am I?",
       "options": ["Secret", "Love", "Money", "Time"],
@@ -82,7 +82,7 @@
       "reward": 10000
     },
     {
-      "id": 10,
+      "id": 14,
       "difficulty": "easy",
       "question": "What is always in front of you but can't be seen?",
       "options": ["Air", "Future", "Time", "Past"],
@@ -91,7 +91,7 @@
       "reward": 3500
     },
     {
-      "id": 11,
+      "id": 15,
       "difficulty": "medium",
       "question": "Which word is spelled incorrectly in every dictionary?",
       "options": ["Incorrectly", "Right", "Dictionary", "Word"],
@@ -100,7 +100,7 @@
       "reward": 5000
     },
     {
-      "id": 12,
+      "id": 16,
       "difficulty": "hard",
       "question": "I am an odd number. Take away one letter, and I become even. What number am I?",
       "options": ["Seven", "Nine", "Eleven", "Five"],
@@ -109,7 +109,7 @@
       "reward": 9000
     },
     {
-      "id": 13,
+      "id": 17,
       "difficulty": "easy",
       "question": "How many months have 28 days?",
       "options": ["1", "6", "12", "None"],
@@ -118,7 +118,7 @@
       "reward": 4000
     },
     {
-      "id": 14,
+      "id": 18,
       "difficulty": "medium",
       "question": "What has a heart that doesn’t beat?",
       "options": ["Rock", "Tree", "Artichoke", "Sun"],
@@ -127,7 +127,7 @@
       "reward": 7000
     },
     {
-      "id": 15,
+      "id": 19,
       "difficulty": "hard",
       "question": "Two fathers and two sons went fishing. They caught three fish. How is that possible?",
       "options": ["They are 3 people", "They lost one", "Magic", "Coincidence"],
@@ -136,7 +136,7 @@
       "reward": 8000
     },
     {
-      "id": 16,
+      "id": 20,
       "difficulty": "easy",
       "question": "How many sides does a triangle have?",
       "options": ["1", "2", "3", "4"],
@@ -145,7 +145,7 @@
       "reward": 2000
     },
     {
-      "id": 17,
+      "id": 21,
       "difficulty": "medium",
       "question": "What can travel around the world while staying in the same spot?",
       "options": ["Sun", "Moon", "Stamp", "Shadow"],
@@ -154,7 +154,7 @@
       "reward": 5000
     },
     {
-      "id": 18,
+      "id": 22,
       "difficulty": "hard",
       "question": "What number comes next in the sequence: 1, 1, 2, 3, 5, 8,?",
       "options": ["10", "12", "13", "11"],
@@ -163,7 +163,7 @@
       "reward": 9000
     },
     {
-      "id": 19,
+      "id": 23,
       "difficulty": "easy",
       "question": "What is 5 + 3?",
       "options": ["6", "7", "8", "9"],
@@ -172,7 +172,7 @@
       "reward": 1500
     },
     {
-      "id": 20,
+      "id": 24,
       "difficulty": "medium",
       "question": "If you drop a yellow hat in the Red Sea, what does it become?",
       "options": ["Yellow", "Wet", "Blue", "Gone"],
@@ -181,7 +181,7 @@
       "reward": 4500
     },
     {
-      "id": 21,
+      "id": 25,
       "difficulty": "hard",
       "question": "What comes once in a minute, twice in a moment, but never in a thousand years?",
       "options": ["M", "O", "E", "I"],
@@ -190,7 +190,7 @@
       "reward": 12000
     },
     {
-      "id": 22,
+      "id": 26,
       "difficulty": "easy",
       "question": "What is the capital of France?",
       "options": ["London", "Berlin", "Paris", "Rome"],
@@ -199,7 +199,7 @@
       "reward": 2000
     },
     {
-      "id": 23,
+      "id": 27,
       "difficulty": "medium",
       "question": "I’m tall when I’m young, and I’m short when I’m old. What am I?",
       "options": ["Tree", "Candle", "Person", "Animal"],
@@ -208,7 +208,7 @@
       "reward": 7000
     },
     {
-      "id": 24,
+      "id": 28,
       "difficulty": "hard",
       "question": "What 4-letter word can be written forward, backward, or upside down, and can still be read from left to right?",
       "options": ["NOON", "DAD", "MOM", "WOW"],
@@ -217,7 +217,7 @@
       "reward": 9000
     },
     {
-      "id": 25,
+      "id": 29,
       "difficulty": "easy",
       "question": "Which planet is known as the Red Planet?",
       "options": ["Mars", "Earth", "Jupiter", "Venus"],
@@ -226,7 +226,7 @@
       "reward": 3000
     },
     {
-      "id": 26,
+      "id": 30,
       "difficulty": "medium",
       "question": "What has hands but can't clap?",
       "options": ["Person", "Robot", "Clock", "Toy"],
@@ -235,7 +235,7 @@
       "reward": 6000
     },
     {
-      "id": 27,
+      "id": 31,
       "difficulty": "hard",
       "question": "If a plane crashes on the border of the US and Canada, where do they bury the survivors?",
       "options": ["US", "Canada", "Nowhere", "Mexico"],
@@ -244,7 +244,7 @@
       "reward": 9500
     },
     {
-      "id": 28,
+      "id": 32,
       "difficulty": "easy",
       "question": "How many legs does a spider have?",
       "options": ["6", "8", "10", "12"],
@@ -253,7 +253,7 @@
       "reward": 2500
     },
     {
-      "id": 29,
+      "id": 33,
       "difficulty": "medium",
       "question": "What room has no doors or windows?",
       "options": ["Bathroom", "Mushroom", "Bedroom", "Living room"],
@@ -262,7 +262,7 @@
       "reward": 7000
     },
     {
-      "id": 30,
+      "id": 34,
       "difficulty": "hard",
       "question": "If it takes 5 machines 5 minutes to make 5 widgets, how long would it take 100 machines to make 100 widgets?",
       "options": ["100 minutes", "20 minutes", "5 minutes", "50 minutes"],
