@@ -393,7 +393,7 @@ body {
 }
 
 .menu {
-    background-color: rgba(0, 0, 0, 0.80);/* خلفية شفافة */
+    background-color: rgba(0, 0, 0, 0.1);/* خلفية شفافة */
 
     display: flex;
     justify-content: space-between;
