@@ -46,6 +46,9 @@ body {
     height: 100vh;
     overflow: hidden;
     transition: background-color 0.5s, color 0.5s;
+}
+
+#Page {
     margin-top: 100px;
 }
 
