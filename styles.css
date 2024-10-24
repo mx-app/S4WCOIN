@@ -63,8 +63,6 @@ body {
     background-position: center;
     border-top-left-radius: 0; /* لجعل الزاوية العلوية اليسرى دائرية */
     border-top-right-radius: 0; /* لجعل الزاوية العلوية اليمنى دائرية */
-    border-bottom: 2px solid #343434;
-    padding-top: 200px;
 } 
 
 
@@ -228,6 +226,7 @@ body {
     -webkit-background-clip: text; /* قص الخلفية للنص */
     background-clip: text;
     color: transparent; /* جعل النص شفافًا لعرض التدرج */
+    margin-top: 100px;
 
 }
 
