@@ -897,7 +897,7 @@ body {
 .level-button-floating {
     position: fixed;
     top: 100px; 
-    left: 40px; 
+    left: 50px; 
     background-color: transparent;
     background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c); /* التدرج اللوني */
     -webkit-background-clip: text; /* قص الخلفية للنص */
@@ -947,12 +947,10 @@ body {
  
 .boosts-button {
     position: fixed;
-    top: 100px; 
-    right: 40px;
+    top: 95px; 
+    right: 50px;
     background: rgba(0, 0, 0, 0); 
     /*border: 2px solid #343434;*/
-    padding: 8px 20px;
-    border-radius: 10px; 
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -960,15 +958,12 @@ body {
     background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c); /* التدرج اللوني */
     -webkit-background-clip: text; /* قص الخلفية للنص */
     background-clip: text;
+    color: transparent;
     font-size: 16px;
     font-weight: bold;
     margin: 0;
     cursor: pointer;
     z-index: 9999;  
-}
-
-.boosts-button:hover {
-    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
 }
 
 .settings-container {
