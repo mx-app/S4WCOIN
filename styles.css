@@ -51,7 +51,6 @@ body {
 #levelPage,
 #walletPage,
 #boostsPage,
-#accountPage,
 #mainPage {
     padding-top: 80px; /* يمكنك تغيير القيمة حسب الحاجة */
     background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
@@ -537,7 +536,6 @@ body {
 #tasksPage {
     padding-top: 80px; /* يمكنك تغيير القيمة حسب الحاجة */
     background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
-   
     overflow-y: auto; /* لجعل الصفحة قابلة للتمرير */
     height: calc(100vh - 150px); /* تحديد ارتفاع مناسب مع الاحتفاظ بالمساحة للأجزاء الأخرى */
     padding: 10px; /* إضافة مسافة داخلية */
