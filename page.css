@@ -10,8 +10,6 @@
     padding-top: 80px; /* يمكنك تغيير القيمة حسب الحاجة */
     background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
     overflow-y: auto; /* لجعل الصفحة قابلة للتمرير */
-    height: calc(100vh - 150px - 80px); /* خصم المساحة العلوية */
-    padding: 10px; /* إضافة مسافة داخلية */
     padding-bottom: 120px; /* مسافة سفلية */
 }
 
@@ -19,8 +17,6 @@
     padding-top: 80px; /* يمكنك تغيير القيمة حسب الحاجة */
     background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
     overflow-y: auto; /* لجعل الصفحة قابلة للتمرير */
-    height: calc(100vh - 150px - 80px); /* خصم المساحة العلوية */
-    padding: 10px; /* إضافة مسافة داخلية */
     padding-bottom: 120px; /* مسافة سفلية */
 }
 
@@ -35,7 +31,6 @@
 #gamePage {
     padding-top: 80px; /* يمكنك تغيير القيمة حسب الحاجة */
     background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
-    padding: 20px;
     overflow-y: auto;
     padding-bottom: 110px; 
     transition: all 0.3s ease; /* لتحسين التحولات */
