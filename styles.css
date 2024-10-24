@@ -180,15 +180,16 @@ body {
    /*border-radius: 15px 15px 15px 15px;
     border: 2px solid #343434;*/
   /*  background-color: transparent;*/
-   /* background: linear-gradient(180deg, #000, #9f0000);*/
-    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);
+   /* background: linear-gradient(180deg, #000, #9f0000);
+    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
+    background: #000;
     background-position: center;
     position: relative;
     width: %;
     height: auto; 
     margin: 0 auto;
-    margin-left: 2px;
-    margin-right: 2px;
+    margin-left: 1px;
+    margin-right: 1px;
     z-index: 100;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 4px 8px rgba(0, 0, 0, 1); /* إضافة الظل */
 }  
@@ -396,8 +397,10 @@ body {
 .menu {
     display: flex;
     justify-content: space-between;
-    padding: 8px;
+    padding: 6px;
     background: #000;
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 10px; 
    /* border: 2px solid #343434;
     background: linear-gradient(45deg, #000, #9f0000, #000);
     background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
@@ -408,9 +411,7 @@ body {
     width: 100%;
     left: 0px;
     right: 0px;
-    border-radius: 10px;
     z-index: 100;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 1);
 }
 
 .menu button {
@@ -427,14 +428,14 @@ body {
     align-items: center;
     flex: 1;
     transition: background-color 0.3s ease, color 0.3s ease; /* حذف التحويل المتعلق بالتكبير */
-    border-radius: 15px;
+    border-radius: 10px;
     position: relative;
     background: none; /* إزالة الخلفية الافتراضية */
 }
 
 .menu button.active {
     border: none;
-    border-radius: 12px;
+    border-radius: 10px;
     color: transparent;
     background: linear-gradient(90deg, #d69a1c, #794106, #9f620c, #d69a1c);
     background-clip: text;
@@ -453,9 +454,9 @@ body {
 }
 
 .menu button img {
-    width: 35px;
-    height: 35px;
-    margin-bottom: 3px;
+    width: 30px;
+    height: 30px;
+    margin-bottom: 2px;
 }
 
  
