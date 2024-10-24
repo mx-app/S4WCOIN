@@ -397,8 +397,8 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 8px;
-    border: 2px solid #343434;
-    background: rgba(0, 0, 0, 0.5); /* لجعل الخلفية زجاجية */
+   /* border: 2px solid #343434;*/
+    background: rgba(0, 0, 0, 0); /* لجعل الخلفية زجاجية */
     position: fixed;
     bottom: 18px;
     box-sizing: border-box; 
@@ -526,7 +526,7 @@ body {
     padding: 0;
     list-style: none;
     color: #fff;
-    width: 80%; /* لجعل العرض 80% */
+    width: 88%; /* لجعل العرض 80% */
     padding: 8px; 
     background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    border-radius: 10px;
     display: block;
@@ -563,7 +563,7 @@ body {
 } 
 
 .boost-item, .task-item {
-    width: 80%; /* لجعل العرض 80% */
+    width: 88%; /* لجعل العرض 80% */
     max-width: 300px;
     margin: 10px 0;
     padding: 10px;
@@ -949,9 +949,9 @@ body {
     position: fixed;
     top: 75.3vh; 
     right: 2.5vw; /* المسافة من الجانب الأيمن */
-    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    color: #fff;
-    border: 2px solid #343434;
-    padding: 10px 8px;
+    background: rgba(0, 0, 0, 0); 
+    /*border: 2px solid #343434;*/
+    padding: 8px 20px;
     border-radius: 10px; 
     text-align: center;
     text-decoration: none;
@@ -965,13 +965,6 @@ body {
 
 .boosts-button:hover {
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
-}
- 
-.boosts-button img {
-    width: 25px;
-    height: 25px;
-    display: block; /* تغيير هذا لجعل الصورة تظهر فوق النص */
-    margin: 0 auto; /* مركز الصورة */
 }
 
 .settings-container {
