@@ -999,8 +999,6 @@ function initializeTelegramIntegration() {
         
 
 
-
-
 // DOM Elements
 const puzzlecloseModal = document.getElementById('puzzlecloseModal');
 const puzzleContainer = document.getElementById('puzzleContainer');
@@ -1020,7 +1018,58 @@ let puzzleSolved = false;
 let countdownInterval;
 const maxAttempts = 3;
 const penaltyAmount = 500; // Penalty for wrong answer
-const countdownDuration = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+const countdownKey = 'puzzleCountdownEndTime'; // Key for saving the countdown end time
+let countdownTimeout = null;
+
+// Save countdown end time to local storage
+function start24HourCountdown() {
+    const countdownEndTime = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(); // 24 hours from now
+    localStorage.setItem(countdownKey, countdownEndTime);
+    startCountdownOnButton(24 * 60 * 60); // Start 24-hour countdown
+}
+
+// Start countdown on the button
+function startCountdownOnButton(seconds) {
+    openPuzzleBtn.disabled = true;
+    openPuzzleBtn.innerText = `Next puzzle in: ${formatTime(seconds)}`;
+
+    function updateButtonCountdown() {
+        if (seconds > 0) {
+            seconds--;
+            openPuzzleBtn.innerText = `Next puzzle in: ${formatTime(seconds)}`;
+            countdownTimeout = setTimeout(updateButtonCountdown, 1000);
+        } else {
+            openPuzzleBtn.disabled = false;
+            openPuzzleBtn.innerText = 'Open Puzzle';
+            localStorage.removeItem(countdownKey); // Clear countdown when finished
+        }
+    }
+
+    updateButtonCountdown();
+}
+
+// Check if countdown is active and resume if necessary
+function checkCountdown() {
+    const countdownEndTime = localStorage.getItem(countdownKey);
+    if (countdownEndTime) {
+        const remainingTime = new Date(countdownEndTime) - new Date();
+        if (remainingTime > 0) {
+            startCountdownOnButton(Math.floor(remainingTime / 1000));
+            return true; // Countdown is still active
+        } else {
+            localStorage.removeItem(countdownKey); // Clear expired countdown
+        }
+    }
+    return false; // No active countdown
+}
+
+// Format time for display (HH:MM:SS)
+function formatTime(seconds) {
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const remainingSeconds = seconds % 60;
+    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+}
 
 // Load puzzles from JSON file
 async function loadPuzzles() {
@@ -1042,6 +1091,8 @@ function getTodaysPuzzle(puzzles) {
 
 // Display today's puzzle
 async function displayTodaysPuzzle() {
+    if (checkCountdown()) return; // If countdown is active, don't show the puzzle
+
     const puzzles = await loadPuzzles();
     currentPuzzle = getTodaysPuzzle(puzzles);
 
@@ -1085,27 +1136,18 @@ async function displayTodaysPuzzle() {
 
 // Timer function
 function startCountdown() {
-    let timeLeft = countdownDuration; // 24 hours
-    timerDisplay.innerText = formatTime(timeLeft);
+    let timeLeft = 60.00;
+    timerDisplay.innerText = timeLeft.toFixed(2);
 
     countdownInterval = setInterval(() => {
-        timeLeft -= 1000; // Decrement by 1 second
+        timeLeft -= 0.01;
+        timerDisplay.innerText = timeLeft.toFixed(2);
 
         if (timeLeft <= 0) {
             clearInterval(countdownInterval);
             handlePuzzleTimeout();
-        } else {
-            timerDisplay.innerText = formatTime(timeLeft);
         }
-    }, 1000);
-}
-
-// Format time for display
-function formatTime(milliseconds) {
-    const hours = Math.floor((milliseconds / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((milliseconds / (1000 * 60)) % 60);
-    const seconds = Math.floor((milliseconds / 1000) % 60);
-    return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    }, 10);
 }
 
 // Handle puzzle timeout
@@ -1115,6 +1157,7 @@ function handlePuzzleTimeout() {
     updateBalance(-penaltyAmount); // Deduct coins
     updatePuzzleProgressInDatabase(currentPuzzle.id, false, maxAttempts); // Update puzzle progress
     closePuzzle();
+    start24HourCountdown(); // Start 24-hour cooldown
 }
 
 // Check user's answer
@@ -1145,9 +1188,7 @@ function handlePuzzleSuccess() {
 
     puzzleSolved = true;
     document.querySelectorAll('.option-btn').forEach(btn => btn.disabled = true);
-
-    // Start countdown timer for the next puzzle
-    startCountdown();
+    start24HourCountdown(); // Start 24-hour cooldown
 }
 
 // Handle wrong answer
@@ -1161,6 +1202,7 @@ function handlePuzzleWrongAnswer() {
         updateBalance(-penaltyAmount);
         updatePuzzleProgressInDatabase(currentPuzzle.id, false, maxAttempts); // Record failed attempt
         closePuzzle();
+        start24HourCountdown(); // Start 24-hour cooldown
     } else {
         showNotification(puzzleNotification, `Wrong answer. You have ${maxAttempts - attempts} attempts remaining.`);
     }
@@ -1169,6 +1211,7 @@ function handlePuzzleWrongAnswer() {
 // Update puzzle progress in database
 async function updatePuzzleProgressInDatabase(puzzleId, solved, attempts) {
     const userTelegramId = uiElements.userTelegramIdDisplay.innerText;
+    const lastSolvedTime = solved ? new Date().toISOString() : null;
 
     // Fetch user's current progress from database
     const { data, error } = await supabase
@@ -1188,7 +1231,7 @@ async function updatePuzzleProgressInDatabase(puzzleId, solved, attempts) {
     puzzlesProgress[puzzleId] = {
         solved: solved,
         attempts: attempts,
-        lastAttemptTime: new Date().toISOString() // Store last attempt time
+        last_solved_time: lastSolvedTime || data?.puzzles_progress?.last_solved_time,
     };
 
     // Update data in the database
@@ -1207,11 +1250,22 @@ function updateRemainingAttempts(attempts = 0) {
     remainingAttemptsDisplay.innerText = `${maxAttempts - attempts}/${maxAttempts} `;
 }
 
-// Update balance in gameState
-function updateBalance(amount) {
-    gameState.balance += amount;
-    updateUI(); // Update UI
-    saveGameState(); // Save game state
+// Update user's balance
+async function updateBalance(amount) {
+    const userTelegramId = uiElements.userTelegramIdDisplay.innerText;
+
+    const { data, error } = await supabase
+        .rpc('increment_balance', {
+            telegram_id_input: userTelegramId,
+            amount_input: amount,
+        });
+
+    if (error) {
+        console.error('Error updating balance:', error);
+        return;
+    }
+
+    uiElements.balanceDisplay.innerText = data[0].balance; // Update balance display in UI
 }
 
 // Close puzzle
@@ -1235,9 +1289,14 @@ openPuzzleBtn.addEventListener('click', displayTodaysPuzzle);
 document.getElementById('puzzlecloseModal').addEventListener('click', function() {
     document.getElementById('puzzleContainer').classList.add('hidden');
 });
+document.getElementById('openPuzzleBtn').addEventListener('click', function() {
+    document.getElementById('puzzleContainer').classList.remove('hidden');
+});
 
 
 
+
+ 
 
 
 
