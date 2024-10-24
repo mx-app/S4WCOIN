@@ -2,7 +2,7 @@
 .Play-game-button {
     position: fixed;
     top: 16px; 
-    left: 270px;
+    left: 275px;
     background-color: transparent;
     background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c); /* التدرج اللوني */
     -webkit-background-clip: text; /* قص الخلفية للنص */
