@@ -69,8 +69,8 @@ body {
     /*background-image: url('i/sk3.png');
     background-size: cover;*/
     background-position: center;
-    border-top-left-radius: 0; /* لجعل الزاوية العلوية اليسرى دائرية */
-    border-top-right-radius: 0; /* لجعل الزاوية العلوية اليمنى دائرية */
+    border-top-left-radius: 15px; /* لجعل الزاوية العلوية اليسرى دائرية */
+    border-top-right-radius: 15px; /* لجعل الزاوية العلوية اليمنى دائرية */
 } 
 
 
