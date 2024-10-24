@@ -113,7 +113,7 @@ body {
     height: 100vh;
     width: 100vw;
   /*  background: #000;*/
-    background-image: url('i/Splash22.jpg'); 
+    background-image: url('i/spor.jpg'); 
     background-size: cover; 
     background-position: center;
     position: absolute;
@@ -250,8 +250,9 @@ body {
 }
 
 #balanceAmount {
-    margin: 0 auto;
-    font-size: 35px;
+    margin-top: 40px;
+   /* margin: 0 auto;*/
+    font-size: 39px;
     color: #fff;
     display: block;
     position: relative;
@@ -262,8 +263,8 @@ body {
 #balanceAmount::before {
     content: "";
     display: inline-block;
-    width: 30px; /* عرض الصورة */
-    height: 30px; /* ارتفاع الصورة */
+    width: 38px; /* عرض الصورة */
+    height: 38px; /* ارتفاع الصورة */
     background-image: url('i/sawcoin0.png'); /* رابط الصورة */
     background-size: contain; /* يجعل الصورة تناسب الحجم المحدد */
     background-repeat: no-repeat;
@@ -324,7 +325,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: calc(90.0% - 69px);
+    height: calc(100.0% - 69px);
 }
 
 .clickable-image {
@@ -336,8 +337,8 @@ body {
 }
 
 .clickable-image img {
-    width: 270px;
-    height: 270px;
+    width: 340px;
+    height: 340px;
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
@@ -474,7 +475,8 @@ body {
 
 .invite-more {
     width: 73%; 
-    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);
+    /*background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
+    background: rgba(0, 0, 0, 0);
     color: #fff;
     border: 2px solid #343434; 
     padding: 20px;
@@ -500,7 +502,9 @@ body {
 
 .invite-copy {
     width: 18%; 
-    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    color: #fff;
+    background: rgba(0, 0, 0, 0);
+   /* background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
+    color: #fff;
     border: 2px solid #343434; 
     padding: 7px;
     font-size: 15px;
@@ -522,7 +526,10 @@ body {
     color: #fff;
     width: 88%; /* لجعل العرض 80% */
     padding: 8px; 
-    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    border-radius: 10px;
+    background: rgba(0, 0, 0, 0);
+
+    /* background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);   */
+    border-radius: 10px;      
     display: block;
 }
 
@@ -556,7 +563,9 @@ body {
     margin: 10px 0;
     padding: 10px;
     border: 2px solid #343434; 
-    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    border-radius: 10px;
+    background: rgba(0, 0, 0, 0);
+   /* background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -689,7 +698,8 @@ body {
     top: -100px; /* البداية من فوق الشاشة */
     left: 50%;
     transform: translateX(-50%);
-    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);  
+    background: #1c1c1c;
+/*   background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);  */
     color: #fff;
     padding: 10px 20px; /* زيادة padding لجعل الإشعار طويل */
     border-radius: 5px;
@@ -735,7 +745,8 @@ body {
     text-align: center;
    /* background: linear-gradient(180deg, #000, #9f0000);
     background: transparent;*/
-    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);
+    /*background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
+    background: rgba(0, 0, 0, 0);
     color: #fff;
     padding: 4px;
     border: 2px solid #343434;
@@ -823,7 +834,9 @@ body {
 
 
 .wallet-button {
-    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    color: #fff;
+    background: rgba(0, 0, 0, 0);
+   /* background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);  */
+    color: #fff;
     border: 2px solid #343434; 
     border-radius: 10px;
     cursor: pointer;
@@ -878,8 +891,8 @@ body {
 
 .level-button-floating {
     position: fixed;
-    top: 108px; 
-    left: 80px; 
+    top: 140px; 
+    left: 100px; 
     background-color: transparent;
     background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c); /* التدرج اللوني */
     -webkit-background-clip: text; /* قص الخلفية للنص */
@@ -929,8 +942,8 @@ body {
  
 .boosts-button {
     position: fixed;
-    top: 108px; 
-    right: 80px;
+    top: 140px; 
+    right: 100px;
     background: rgba(0, 0, 0, 0); 
     /*border: 2px solid #343434;*/
     text-align: center;
@@ -956,7 +969,7 @@ body {
 
 .settings-button {
     position: fixed;
-    top: 13.8px; 
+    top: 18px; 
     left: 315px;
     background-color: transparent;
     border: none;
@@ -987,4 +1000,30 @@ body {
     margin-bottom: 0; 
     text-align: center;
  }
+
+
+
+
+.app-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    position: absolute; 
+    top: 5px; 
+    left: 15px;
+}
+
+.app-logo {
+    width: 25px;
+    height: 25px;
+    margin-right: 5px; /* مسافة بين الصورة والاسم */
+}
+
+.app-name {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff; /* اختر اللون المناسب */
+}
+
 
