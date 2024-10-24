@@ -28,15 +28,6 @@
     margin: 0 auto; /* مركز الصورة */
 }
   
-#gamePage {
-    padding-top: 80px; /* يمكنك تغيير القيمة حسب الحاجة */
-    background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
-   
-    padding: 20px;
-    overflow-y: auto;
-    padding-bottom: 110px; 
-    transition: all 0.3s ease; /* لتحسين التحولات */
-}
 
 #gamePage .game-container {
     display: flex;
