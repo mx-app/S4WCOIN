@@ -29,6 +29,9 @@
 }
   
 #gamePage {
+    padding-top: 80px; /* يمكنك تغيير القيمة حسب الحاجة */
+    background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
+   
     padding: 20px;
     overflow-y: auto;
     padding-bottom: 110px; 
