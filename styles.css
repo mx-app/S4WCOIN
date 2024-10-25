@@ -701,48 +701,40 @@ body {
     padding: 8px;
     width: 100%;
     max-width: 300px;
-    padding-bottom: 50px; 
-} 
-
-
-.level-icon img { 
-    width: 40px;
-    height: 40px;
-    display: block;
-    margin: 0 auto;
+    padding-bottom: 50px;
 }
 
 .level-item {
-    width: 88%; /* لجعل العرض 80% */
+    width: 88%;
     max-width: 300px;
     margin: 10px 0;
     padding: 8px;
-    border: 1px solid #343434; 
+    border: 1px solid #343434;
     background: #1c1c1c;
-   /* background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
     border-radius: 10px;
     font-size: 15px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* قم بتعديل المحاذاة إلى أعلى */
 }
 
 .level-item img {
-    width: 20%;
+    width: 40px; /* أو الحجم الذي تريده */
     height: auto;
-    margin-bottom: 5px;
+    margin-right: 10px; /* مساحة بين الصورة والنصوص */
 }
 
-.level5-image {
-    width: 150px;
-    height: auto;
-    margin-bottom: 5px;
-} 
+.level-text {
+    display: flex;
+    flex-direction: column; /* ترتيب النصوص تحت بعضها */
+    justify-content: center;
+    text-align: left; /* محاذاة النص إلى اليسار */
+}
 
 .level-item.current-level {
     border: 2px solid var(--current-level-border);
     box-shadow: 0 0 15px #343434;
 }
+ 
 
 .arrow-btn {
     position: fixed; /* الأزرار ثابتة على جوانب الشاشة */
