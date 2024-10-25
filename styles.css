@@ -702,7 +702,7 @@ body {
 .level-item {
     display: flex;
     align-items: center;
-    justify-content: center; /* تمركز الحاوية */
+    justify-content: flex-start; /* محاذاة العناصر نحو اليسار */
     margin: 10px 0;
     padding: 10px;
     background: #1c1c1c;
@@ -714,22 +714,25 @@ body {
 }
 
 .level-image {
-    width: 20%;
-    margin-right: 15px;
-    align-self: center; /* لجعل الصورة في منتصف الحاوية عمودياً */
+    width: 50px; /* حجم ثابت للصورة */
+    height: 50px; /* حجم ثابت للصورة */
+    margin-right: 15px; /* مسافة بين الصورة والنص */
+    object-fit: contain; /* لضمان تناسب الصورة مع الحاوية */
+    flex-shrink: 0; /* لضمان عدم تقلص الصورة */
 }
 
 .level-text {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* يجعل النصوص أقرب لبعضها البعض */
+    justify-content: center; /* محاذاة النصوص بحيث تكون قريبة لبعضها */
     gap: 5px; /* المسافة بين النصوص */
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .level-text p {
     margin: 0; /* إزالة المسافات بين الفقرات */
 }
+ 
 
 
 .arrow-btn {
