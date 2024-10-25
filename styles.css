@@ -236,8 +236,8 @@ body {
 #balanceAmount::before {
     content: "";
     display: inline-block;
-    width: 40px; /* عرض الصورة */
-    height: 40px; /* ارتفاع الصورة */
+    width: 45px; /* عرض الصورة */
+    height: 45px; /* ارتفاع الصورة */
     background-image: url('i/coinn5.png'); /* رابط الصورة */
     background-size: contain;
     background-repeat: no-repeat;
@@ -534,7 +534,7 @@ body {
     max-width: 300px;
     margin: 10px 0;
     padding: 10px;
-    border: 2px solid #343434; 
+    border: 1px solid #343434; 
     background: #1c1c1c;
    /* background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
     border-radius: 10px;
@@ -607,7 +607,7 @@ body {
     background-position: center;*/
     padding: 20px;
     border-radius: 25px 25px 0 0; /* حواف علوية دائرية فقط */
-    border-top: 4px solid #343434;
+    border-top: 2px solid #343434;
     text-align: center;
     position: fixed;
     bottom: 0;
@@ -653,7 +653,7 @@ body {
     font-size: 15px;
     font-weight: bold;
     border-radius: 10px;
-    border: 2px solid #343434; 
+    border: 1px solid #343434; 
     cursor: pointer;
     background: linear-gradient(180deg, #1c1c1c, #000);
     color: #fff;
@@ -675,7 +675,7 @@ body {
     color: #fff;
     padding: 10px 20px; /* زيادة padding لجعل الإشعار طويل */
     border-radius: 5px;
-    border: 2px solid #343434;
+    border: 1px solid #343434;
     font-size: 15px;
     z-index: 1000;
     transition: top 0.5s ease, opacity 0.5s ease; /* انتقال لعناصر الظهور والانزلاق */
@@ -718,10 +718,10 @@ body {
     background: #1c1c1c;
     color: #fff;
     padding: 4px;
-    border: 2px solid #343434;
+    border: 1px solid #343434;
     border-radius: 10px;
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
-    font-size: 14px;
+    font-size: 15px;
     letter-spacing: -0.2px; 
     margin: 0 20px;
 }
@@ -805,7 +805,7 @@ body {
 .wallet-button {
     background: #1c1c1c;
     color: #fff;
-    border: 2px solid #343434; 
+    border: 1px solid #343434; 
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s;
