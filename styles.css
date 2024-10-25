@@ -36,9 +36,9 @@ button, input, select, textarea, img, a {
 
 body {
     margin: 0;
-    font-family: 'IBM Plex Mono', monospace;
-    font-weight: 700; /* لتحديد وزن الخط */
-    
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 800; /* وزن اكسترا بولد */
+        
    /* font-family: 'Rubik', sans-serif;
     font-weight: 800;*/
     background-color: var(--background-color-dark);
@@ -313,8 +313,8 @@ body {
 }
 
 .clickable-image img {
-    width: 280px;
-    height: 280px;
+    width: 270px;
+    height: 270px;
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
