@@ -697,6 +697,7 @@ body {
     justify-content: center; /* تمركز العناصر في منتصف الشاشة */
     width: 100%;
     padding: 0;
+    margin-bottom: 100px; 
 }
 
 .level-item {
