@@ -1665,15 +1665,49 @@ async function updateUsedPromoCodesInDB(usedPromoCodes) {
 
 
 const clickableImage = document.querySelector('.clickable-image');
+const coinImage = clickableImage.querySelector('img');
 
 clickableImage.addEventListener('mousedown', (event) => {
-    const x = event.clientX - clickableImage.getBoundingClientRect().left;
-    const y = event.clientY - clickableImage.getBoundingClientRect().top;
-    
-    // تطبيق التأثير بناءً على مكان النقر
-    clickableImage.style.setProperty('--x', `${x}px`);
-    clickableImage.style.setProperty('--y', `${y}px`);
+    const rect = clickableImage.getBoundingClientRect();
+    const x = event.clientX - rect.left; // موضع النقر في العنصر
+    const y = event.clientY - rect.top;
+
+    const width = rect.width;
+    const height = rect.height;
+
+    // حساب الاتجاهات
+    const leftDistance = x;
+    const rightDistance = width - x;
+    const topDistance = y;
+    const bottomDistance = height - y;
+
+    // تحديد الاتجاه الذي سيتم تطبيقه فيه
+    let transformX = 0;
+    let transformY = 0;
+
+    if (leftDistance < rightDistance && leftDistance < topDistance && leftDistance < bottomDistance) {
+        transformX = -10; // الاتجاه اليسار
+    } else if (rightDistance < leftDistance && rightDistance < topDistance && rightDistance < bottomDistance) {
+        transformX = 10; // الاتجاه اليمين
+    } else if (topDistance < leftDistance && topDistance < rightDistance && topDistance < bottomDistance) {
+        transformY = -10; // الاتجاه الأعلى
+    } else {
+        transformY = 10; // الاتجاه الأسفل
+    }
+
+    // تطبيق التأثيرات
+    coinImage.style.transform = `translate(${transformX}px, ${transformY}px) scale(0.95)`;
 });
+
+// إعادة العملة لوضعها الأصلي عند الإفراج
+clickableImage.addEventListener('mouseup', () => {
+    coinImage.style.transform = 'translate(0, 0) scale(1)';
+});
+
+clickableImage.addEventListener('mouseleave', () => {
+    coinImage.style.transform = 'translate(0, 0) scale(1)';
+});
+
 
 
 
