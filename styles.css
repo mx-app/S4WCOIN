@@ -732,7 +732,14 @@ body {
 .level-text p {
     margin: 0; /* إزالة المسافات بين الفقرات */
 }
- 
+
+ .levels-image {
+    width: 100px; /* حجم ثابت للصورة */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+     
+} 
 
 
 .arrow-btn {
