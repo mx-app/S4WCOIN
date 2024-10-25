@@ -568,7 +568,7 @@ body {
     transition: background-color 0.3s;
     border: none;
     font-size: var(--claim-button-size);
-    border: 1px solid #fff;
+    border: 1px solid #343434;
     z-index: 10;
 }
 
