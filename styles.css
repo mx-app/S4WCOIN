@@ -228,6 +228,7 @@ body {
 }
 
 #balanceAmount {
+    font-weight: bold;
     margin-top: 40px;
     font-size: 38px;
     color: #fff;
