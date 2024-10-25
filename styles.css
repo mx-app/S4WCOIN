@@ -694,47 +694,43 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: none;
-    border-radius: 10px;
-    justify-content: center;
-    text-align: center;
-    padding: 8px;
+    justify-content: center; /* تمركز العناصر في منتصف الشاشة */
     width: 100%;
-    max-width: 300px;
-    padding-bottom: 50px;
+    padding: 0;
 }
 
 .level-item {
-    width: 88%;
-    max-width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* تمركز الحاوية */
     margin: 10px 0;
-    padding: 8px;
-    border: 1px solid #343434;
+    padding: 10px;
     background: #1c1c1c;
     border-radius: 10px;
-    font-size: 15px;
-    display: flex;
-    align-items: flex-start; /* قم بتعديل المحاذاة إلى أعلى */
+    max-width: 400px;
+    width: 90%;
+    text-align: left;
+    border: 1px solid #343434;
 }
 
-.level-item img {
-    width: 40px; /* أو الحجم الذي تريده */
-    height: auto;
-    margin-right: 10px; /* مساحة بين الصورة والنصوص */
+.level-image {
+    width: 20%;
+    margin-right: 15px;
+    align-self: center; /* لجعل الصورة في منتصف الحاوية عمودياً */
 }
 
 .level-text {
     display: flex;
-    flex-direction: column; /* ترتيب النصوص تحت بعضها */
-    justify-content: center;
-    text-align: left; /* محاذاة النص إلى اليسار */
+    flex-direction: column;
+    justify-content: center; /* يجعل النصوص أقرب لبعضها البعض */
+    gap: 5px; /* المسافة بين النصوص */
+    font-size: 16px;
 }
 
-.level-item.current-level {
-    border: 2px solid var(--current-level-border);
-    box-shadow: 0 0 15px #343434;
+.level-text p {
+    margin: 0; /* إزالة المسافات بين الفقرات */
 }
- 
+
 
 .arrow-btn {
     position: fixed; /* الأزرار ثابتة على جوانب الشاشة */
