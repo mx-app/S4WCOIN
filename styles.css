@@ -698,10 +698,10 @@ body {
     border-radius: 10px;
     justify-content: center;
     text-align: center;
-    padding: 10px;
+    padding: 8px;
     width: 100%;
-    max-width: 320px;
-    padding-bottom: 5px; 
+    max-width: 200px;
+    padding-bottom: 50px; 
 } 
 
 
@@ -714,13 +714,14 @@ body {
 
 .level-item {
     width: 88%; /* لجعل العرض 80% */
-    max-width: 300px;
+    max-width: 100px;
     margin: 10px 0;
-    padding: 10px;
+    padding: 8px;
     border: 1px solid #343434; 
     background: #1c1c1c;
    /* background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
     border-radius: 10px;
+    font-size: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
