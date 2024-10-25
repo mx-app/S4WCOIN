@@ -14,7 +14,7 @@
     background-color: rgba(0, 0, 0, 0.80);/* خلفية غير شفافة */
     padding: 10px; /* تقليل الحواف الداخلية */
     border-radius: 25px 25px 0 0; /* حواف علوية دائرية فقط */
-    border-top: 4px solid #343434;
+    border-top: 2px solid #343434;
     text-align: center;
     position: fixed;
     bottom: 0;
@@ -57,17 +57,18 @@
     margin-top: 15px;
     font-size: 16px;
     border-radius: 10px;
-    border: 2px solid #343434;
+    border: 1px solid #343434;
 }
 
 #applyPromoCode {
     padding: 10px;
     margin-top: 20px;
-    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);
+    /*background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
+    background: #1c1c1c; 
     color: white;
     font-weight: bold;
     border-radius: 10px;
-    border: 2px solid #343434;
+    border: 1px solid #343434;
     cursor: pointer;
     width: 100%;
     font-size: 16px;
@@ -80,9 +81,10 @@
 
 .promo_CodeBtn {
     width: 90%;
-    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);  
+    /*background: linear-gradient(45deg, #000, #343434, #000, #343434,#000); */
+    background: #1c1c1c; 
     color: #fff;
-    border: 2px solid #343434;
+    border: 1px solid #343434;
     border-radius: 10px;
     font-size: 18px;
     cursor: pointer;
