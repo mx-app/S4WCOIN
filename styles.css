@@ -36,7 +36,7 @@ button, input, select, textarea, img, a {
 
 body {
     margin: 0;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'JetBrains Mono'/*, monospace;*/ , sans-serif; 
     font-weight: 800; /* وزن اكسترا بولد */
         
    /* font-family: 'Rubik', sans-serif;
