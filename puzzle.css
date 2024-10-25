@@ -254,9 +254,8 @@
 }
 
 .reward-display {
-    background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c); /* التدرج اللوني */
-    -webkit-background-clip: text; /* قص الخلفية داخل النص */
-    color: transparent; /* إخفاء النص ليظهر التدرج */
+    font-size: 18px; 
+    color: #fff; /* إخفاء النص ليظهر التدرج */
     padding: 10px 0; /* إضافة مسافة من الأعلى والأسفل */
     text-align: center; /* توسيط النص داخل العنصر */
 }
@@ -269,8 +268,8 @@
 }
 
 .puzzle-icon {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     margin-right: 2px; /* مسافة بين الصورة والنص */
     flex-shrink: 0;
 }
