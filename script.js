@@ -1664,6 +1664,16 @@ async function updateUsedPromoCodesInDB(usedPromoCodes) {
 
 
 
+const clickableImage = document.querySelector('.clickable-image');
+
+clickableImage.addEventListener('mousedown', (event) => {
+    const x = event.clientX - clickableImage.getBoundingClientRect().left;
+    const y = event.clientY - clickableImage.getBoundingClientRect().top;
+    
+    // تطبيق التأثير بناءً على مكان النقر
+    clickableImage.style.setProperty('--x', `${x}px`);
+    clickableImage.style.setProperty('--y', `${y}px`);
+});
 
 
 
