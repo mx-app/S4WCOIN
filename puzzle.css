@@ -24,7 +24,9 @@
 }
 
 #Puzzlespage .puzzle-btn {
-    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    color: #fff;
+    background: #1c1c1c; 
+    /*background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);  */ 
+    color: #fff;
     border-radius: 10px;
     font-size: 18px;
     font-weight: bold;
@@ -57,6 +59,7 @@
 }
 
 #Puzzlespage .puzzle-content {
+    
    /* background-image: url('i/background.jpg');
     background-size: cover;
     background-position: center;*/
@@ -96,7 +99,8 @@
 }
 
 #Puzzlespage button {
-    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    background-position: center;
+    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);
+    background-position: center;
     color: #fff;
     border-radius: 10px;
     border: 2px solid #343434; 
@@ -173,7 +177,8 @@
     cursor: pointer;
     border: 2px solid #343434; 
     border-radius: 15px;
-    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
+    background: #1c1c1c; 
+    /*background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);*/
     transition: background-color 0.3s ease;
 }
 
@@ -286,7 +291,9 @@
 }
 
 #Puzzlespage .Morse-code {
-    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    color: #fff;
+  /*  background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
+    background: #1c1c1c; 
+    color: #fff;
     border-radius: 10px;
     font-size: 18px;
     font-weight: bold;
@@ -348,7 +355,8 @@
 #Puzzlespage #submitMorseAnswerBtn {
     padding: 12px;
     margin-top: 15px;
-    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);
+   /* background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
+    background: #1c1c1c; 
     color: white;
     font-weight: bold;
     border-radius: 10px;
@@ -386,7 +394,9 @@
 }
 
 #Puzzlespage .Caesar-btu {
-    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    color: #fff;
+    background: #1c1c1c; 
+/*    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
+    color: #fff;
     border-radius: 10px;
     font-size: 18px;
     font-weight: bold;
