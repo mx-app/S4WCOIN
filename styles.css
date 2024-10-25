@@ -734,7 +734,7 @@ body {
 }
 
  .levels-image {
-    width: 100px; /* حجم ثابت للصورة */
+    width: 200px; /* حجم ثابت للصورة */
     height: auto;
     display: block;
     margin: 0 auto;
