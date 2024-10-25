@@ -307,6 +307,8 @@ body {
     justify-content: center;
     flex: 1;
     z-index: 5000;
+    position: relative; /* لإضافة تأثير السحب بشكل صحيح */
+    overflow: hidden; /* إخفاء أي محتوى خارج العنصر */
 }
 
 .clickable-image img {
@@ -319,12 +321,27 @@ body {
     cursor: pointer;
     margin-top: -20px; 
     transform: translateY(-5px);
-    
 }
 
 .clickable-image img:active {
     transform: scale(0.98);
-    filter: brightness(1.5);
+    filter: none;
+}
+
+.clickable-image:active img {
+    animation: slide 0.3s forwards; /* إضافة تأثير السحب */
+}
+
+@keyframes slide {
+    0% {
+        transform: translateY(-5px) translateX(0);
+    }
+    50% {
+        transform: translateY(-5px) translateX(10px); /* تغيير هذا حسب اتجاه السحب */
+    }
+    100% {
+        transform: translateY(-5px) translateX(0);
+    }
 }
 
 @keyframes coin-bounce {
@@ -345,7 +362,7 @@ body {
         visibility: hidden;
     }
 }
-
+ 
 .diamond-coin {
     position: absolute;
     width: 20px;
