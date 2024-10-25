@@ -453,13 +453,13 @@ body {
 } 
 
 .invite-more {
-    width: 73%; 
+    width: 70%; 
     /*background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
     background: #1c1c1c;
     color: #fff;
     border: 1px solid #343434; 
     padding: 20px;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: bold;
     border-radius: 10px;
     cursor: pointer;
@@ -480,13 +480,13 @@ body {
 } 
 
 .invite-copy {
-    width: 18%; 
+    width: 20%; 
     background: #1c1c1c;
    /* background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
     color: #fff;
     border: 1px solid #343434; 
     padding: 7px;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: bold;
     border-radius: 10px;
     cursor: pointer;
