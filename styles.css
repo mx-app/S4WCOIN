@@ -323,8 +323,8 @@ body {
 }
 
 .clickable-image img:active {
-    transform: scale(0.95);
-    filter: brightness(1.2);
+    transform: scale(0.98);
+    filter: brightness(1.5);
 }
 
 @keyframes coin-bounce {
@@ -371,7 +371,7 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 7px;
-    border: 1px solid #fff;
+    border: 1px solid #343434;
     border-radius: 10px;
     background: rgba(0, 0, 0, 0); /* لجعل الخلفية زجاجية */
     position: fixed;
