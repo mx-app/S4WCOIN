@@ -692,12 +692,17 @@ body {
  
 .level-container {
     display: flex;
-    overflow-x: hidden; /* إخفاء التمرير الأفقي */
-    scroll-behavior: smooth; /* التمرير بسلاسة */
-    position: relative; /* لضمان أن الأزرار في مكانها */
-    width: 100%; /* عرض الحاوية بالكامل */ /* لتمركز المحتوى */
-    padding: 0 50px;
-}
+    flex-direction: column;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    max-width: 320px;
+    padding-bottom: 5px; 
+} 
 
 
 .level-icon img { 
@@ -708,22 +713,17 @@ body {
 }
 
 .level-item {
-    min-width: 80vw; /* كل مستوى يأخذ عرض الشاشة بالكامل */
-    min-height: 20vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    width: 88%; /* لجعل العرض 80% */
+    max-width: 300px;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #343434; 
     background: #1c1c1c;
-    color: #fff;
-    padding: 4px;
-    border: 1px solid #343434;
+   /* background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
     border-radius: 10px;
-    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
-    font-size: 15px;
-    letter-spacing: -0.2px; 
-    margin: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .level-item img {
