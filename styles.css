@@ -307,8 +307,7 @@ body {
     justify-content: center;
     flex: 1;
     z-index: 5000;
-    position: relative; /* لإضافة تأثير السحب بشكل صحيح */
-    overflow: hidden; /* إخفاء أي محتوى خارج العنصر */
+    position: relative;
 }
 
 .clickable-image img {
@@ -317,49 +316,30 @@ body {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
-    transition: transform 0.2s ease-in-out, filter 0.3s ease-in-out;
+    transition: transform 0.2s ease-in-out;
     cursor: pointer;
-    margin-top: -20px; 
-    transform: translateY(-5px);
 }
 
 .clickable-image img:active {
-    transform: scale(0.98);
-    filter: none;
+    /* التأثير عند النقر */
+    transform: scale(0.95); /* جعل العملة تتقلص قليلاً */
 }
 
-.clickable-image:active img {
-    animation: slide 0.3s forwards; /* إضافة تأثير السحب */
-}
-
-@keyframes slide {
-    0% {
-        transform: translateY(-5px) translateX(0);
+@keyframes press {
+    from {
+        transform: scale(1);
     }
-    50% {
-        transform: translateY(-5px) translateX(10px); /* تغيير هذا حسب اتجاه السحب */
-    }
-    100% {
-        transform: translateY(-5px) translateX(0);
+    to {
+        transform: scale(0.95);
     }
 }
 
-@keyframes coin-bounce {
-    0%, 100% {
+@keyframes lift {
+    from {
         transform: translateY(0);
     }
-    50% {
-        transform: translateY(-15px);
-    }
-}
-
-@keyframes fade-out {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-        visibility: hidden;
+    to {
+        transform: translateY(-5px);
     }
 }
  
