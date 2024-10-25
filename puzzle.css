@@ -1,5 +1,3 @@
-
-
 #Puzzlespage .puzzle-image {
     width: 150px;
     margin: 0 auto ;
@@ -35,7 +33,7 @@
     width: 88%; /* العرض 90% */
     display: block; /* لجعل العنصر يعمل ككتلة */
     margin: 0 auto 15px; /* لمركزة الزر في المنتصف */
-    height: 60px;
+    height: 58px;
 }
 
 #Puzzlespage .puzzle-btn:hover {
@@ -66,7 +64,7 @@
     background-color: rgba(0, 0, 0, 1);/* خلفية غير شفافة */
     padding: 10px; /* تقليل الحواف الداخلية */
     border-radius: 25px 25px 0 0; /* حواف علوية دائرية فقط */
-    border-top: 4px solid #343434;
+    border-top: 2px solid #343434;
     text-align: center;
     position: fixed;
     bottom: 0;
@@ -301,7 +299,7 @@
     border: 1px solid #343434; 
     display: block; /* لجعل العنصر يعمل ككتلة */
     margin: 0 auto 15px; /* لمركزة الزر في المنتصف */
-    height: 60px;
+    height: 58px;
     width: 88%;
     bottom: 0;
 }
@@ -404,7 +402,7 @@
     border: 1px solid #343434; 
     display: block; /* لجعل العنصر يعمل ككتلة */
     margin: 0 auto 15px; /* لمركزة الزر في المنتصف */
-    height: 60px;
+    height: 58px;
     width: 88%;
     bottom: 0;
 }
