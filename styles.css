@@ -700,7 +700,7 @@ body {
     text-align: center;
     padding: 8px;
     width: 100%;
-    max-width: 200px;
+    max-width: 300px;
     padding-bottom: 50px; 
 } 
 
@@ -714,7 +714,7 @@ body {
 
 .level-item {
     width: 88%; /* لجعل العرض 80% */
-    max-width: 100px;
+    max-width: 300px;
     margin: 10px 0;
     padding: 8px;
     border: 1px solid #343434; 
