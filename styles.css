@@ -1029,7 +1029,7 @@ body {
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;*/
-    font-size: 18px;
+    font-size: 14px;
     height: 3px;
     width: 6px;
     z-index: 100;  
