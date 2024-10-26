@@ -284,8 +284,10 @@ body {
     height: 100%; /* ارتفاع الشريط الداخلي */
     width: 100%; /* عرض الشريط الداخلي */
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c); 
-    transition: width 0.5s ease; /* تأثير انتقال العرض */
-} 
+    transition: width 0.5s ease;
+    text-shadow: 0 0 8px #ffd700;
+}  
+
 
 #energyInfo {
     font-family: 'JetBrains Mono', monospace;
