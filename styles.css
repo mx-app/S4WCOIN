@@ -377,7 +377,7 @@ body {
 }
 
 .clickable-image img:active {
-    transform: scale(0.95);
+    transform: none;
     filter: none;
 }
 
