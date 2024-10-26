@@ -309,7 +309,7 @@ body {
     height: calc(99.5% - 69px);
 }
 
-/*.clickable-image {
+.clickable-image {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -354,9 +354,8 @@ body {
     }
 }
 
-*/
 
-.clickable-image {
+/*.clickable-image {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -372,7 +371,7 @@ body {
     cursor: pointer;
     margin-top: -20px;
     transform: translateY(-5px);
-}
+}*/
 
 
 
@@ -382,7 +381,7 @@ body {
     height: 20px;
     background-size: cover;
     pointer-events: none;
-   /* animation: coin-bounce 1s infinite, fade-out 1s forwards;*/
+    animation: coin-bounce 1s infinite, fade-out 1s forwards;
     z-index: 9999;
 }
 
