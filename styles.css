@@ -314,7 +314,7 @@ body {
     align-items: center;
     justify-content: center;
     flex: 1;
-    z-index: 5000;
+    z-index: 1000;
 }
 
 .clickable-image img {
@@ -329,6 +329,7 @@ body {
     transform: translateY(-5px);
     pointer-events: auto;
     border-radius: 50%;
+    z-index: 9500;
     
 }
 
