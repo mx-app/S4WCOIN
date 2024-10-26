@@ -514,7 +514,7 @@ body {
 
 .friends-list li {
     padding: 10px;
-    border-bottom: 1px solid var(--text-color-dark);
+    border-bottom: 1px solid #343434;
 }
 
 .friends-list li:last-child {
