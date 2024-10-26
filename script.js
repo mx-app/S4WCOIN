@@ -1696,52 +1696,53 @@ img.addEventListener('transitionend', () => {
 
 
 
-// استدعاء زر Connect Wallet الحالي
-const withdrawBtn = document.getElementById('withdrawBtn');
-
-// إعداد WalletConnect عند النقر على زر Connect Wallet
-withdrawBtn.addEventListener('click', async () => {
-    // إنشاء WalletConnect
-    const walletConnector = new WalletConnect.default({
-        bridge: "https://bridge.walletconnect.org" // عنوان الجسر الافتراضي
-    });
-
-    // إذا لم يكن متصلاً، أظهر QR Code
-    if (!walletConnector.connected) {
-        walletConnector.createSession().then(() => {
-            QRCodeModal.default.open(walletConnector.uri, () => {
-                console.log("QR Code Modal closed");
-            });
+// التحقق من وجود زر Connect Wallet
+if (uiElements.withdrawBtn) {
+    uiElements.withdrawBtn.addEventListener('click', async () => {
+        // إنشاء WalletConnect
+        const walletConnector = new WalletConnect.default({
+            bridge: "https://bridge.walletconnect.org" // عنوان الجسر الافتراضي
         });
-    }
 
-    // مستمع لأحداث الاتصال
-    walletConnector.on("connect", (error, payload) => {
-        if (error) {
-            console.error("Connection error:", error);
-            return;
+        // إذا لم يكن متصلاً، أظهر QR Code
+        if (!walletConnector.connected) {
+            walletConnector.createSession().then(() => {
+                QRCodeModal.default.open(walletConnector.uri, () => {
+                    console.log("QR Code Modal closed");
+                });
+            });
         }
-        // الوصول إلى معلومات الجلسة
-        const { accounts } = payload.params[0];
-        console.log("Wallet connected:", accounts);
 
-        // إغلاق QR Code
-        QRCodeModal.default.close();
-        
-        // تحديث عنوان المحفظة في واجهة المستخدم
-        document.getElementById('walletAddress').innerText = accounts[0];
-    });
+        // مستمع لأحداث الاتصال
+        walletConnector.on("connect", (error, payload) => {
+            if (error) {
+                console.error("Connection error:", error);
+                return;
+            }
+            // الوصول إلى معلومات الجلسة
+            const { accounts } = payload.params[0];
+            console.log("Wallet connected:", accounts);
 
-    // مستمع لأحداث قطع الاتصال
-    walletConnector.on("disconnect", (error, payload) => {
-        if (error) {
-            console.error("Disconnection error:", error);
-            return;
-        }
-        console.log("Wallet disconnected");
-        document.getElementById('walletAddress').innerText = "";
+            // إغلاق QR Code
+            QRCodeModal.default.close();
+            
+            // تحديث عنوان المحفظة في واجهة المستخدم
+            document.getElementById('walletAddress').innerText = accounts[0];
+        });
+
+        // مستمع لأحداث قطع الاتصال
+        walletConnector.on("disconnect", (error, payload) => {
+            if (error) {
+                console.error("Disconnection error:", error);
+                return;
+            }
+            console.log("Wallet disconnected");
+            document.getElementById('walletAddress').innerText = "";
+        });
     });
-});
+} else {
+    console.log("Button 'withdrawBtn' not found in 'uiElements'");
+}
 
 
 
