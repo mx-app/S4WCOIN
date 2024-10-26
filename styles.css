@@ -229,8 +229,8 @@ body {
 
 #balanceAmount {
     font-family: 'JetBrains Mono', monospace;
-font-weight: bold;
-text-shadow: 1px 1px 2px #fff
+    font-weight: bold;
+    font-weight: 800;
     margin-top: 40px;
     font-size: 38px;
     color: #fff;
@@ -919,7 +919,7 @@ text-shadow: 1px 1px 2px #fff
 .boosts-button {
     position: fixed;
     top: 150px; 
-    right: 105px;
+    right: 100px;
     background: rgba(0, 0, 0, 0); 
     /*border: 2px solid #343434;*/
     text-align: center;
