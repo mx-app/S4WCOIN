@@ -278,8 +278,7 @@ body {
     border-radius: 50px; /* شكل الشريط */
     overflow: hidden; /* قص المحتوى الزائد */
     margin-top: 5px; /* مسافة بسيطة بين المعلومات والشريط */
-    box-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700; /* تأثير التوهج */
-
+   /* box-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700;*/ /* تأثير التوهج */
 }
 
 .progress-bar-inner {
