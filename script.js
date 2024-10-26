@@ -1694,55 +1694,31 @@ img.addEventListener('transitionend', () => {
 
 
 
+// الحصول على الزر من HTML
+const withdrawBtn = document.getElementById('withdrawBtn');
 
+// إضافة مستمع للحدث عند النقر على زر "Connect wallet"
+withdrawBtn.addEventListener('click', () => {
+    // هنا يمكنك إدراج منطق فتح نافذة الخيارات، أو واجهة TON Connect مباشرةً
+    openWalletOptions();
+});
 
-// التحقق من وجود زر Connect Wallet
-if (uiElements.withdrawBtn) {
-    uiElements.withdrawBtn.addEventListener('click', async () => {
-        // إنشاء WalletConnect
-        const walletConnector = new WalletConnect.default({
-            bridge: "https://bridge.walletconnect.org" // عنوان الجسر الافتراضي
-        });
+// دالة فتح واجهة الخيارات المتاحة
+function openWalletOptions() {
+    // هنا يمكنك استدعاء مكتبة TON Connect لفتح واجهة الاختيار
+    const tonConnectOptions = {
+        tonConnectButton: 'Open Wallet in Telegram', // هذا الخيار سيظهر واجهة الاختيارات
+        wallets: ['Tonkeeper', 'MyTonWallet', 'Tonhub', 'DeWallet'] // قائمة المحافظ المتاحة
+    };
 
-        // إذا لم يكن متصلاً، أظهر QR Code
-        if (!walletConnector.connected) {
-            walletConnector.createSession().then(() => {
-                QRCodeModal.default.open(walletConnector.uri, () => {
-                    console.log("QR Code Modal closed");
-                });
-            });
-        }
-
-        // مستمع لأحداث الاتصال
-        walletConnector.on("connect", (error, payload) => {
-            if (error) {
-                console.error("Connection error:", error);
-                return;
-            }
-            // الوصول إلى معلومات الجلسة
-            const { accounts } = payload.params[0];
-            console.log("Wallet connected:", accounts);
-
-            // إغلاق QR Code
-            QRCodeModal.default.close();
-            
-            // تحديث عنوان المحفظة في واجهة المستخدم
-            document.getElementById('walletAddress').innerText = accounts[0];
-        });
-
-        // مستمع لأحداث قطع الاتصال
-        walletConnector.on("disconnect", (error, payload) => {
-            if (error) {
-                console.error("Disconnection error:", error);
-                return;
-            }
-            console.log("Wallet disconnected");
-            document.getElementById('walletAddress').innerText = "";
-        });
+    // عرض واجهة الاختيارات مباشرةً
+    TonConnectUI.open(tonConnectOptions).then(() => {
+        console.log("Wallet options displayed successfully.");
+    }).catch((error) => {
+        console.error("Failed to open wallet options:", error);
     });
-} else {
-    console.log("Button 'withdrawBtn' not found in 'uiElements'");
 }
+
 
 
 
