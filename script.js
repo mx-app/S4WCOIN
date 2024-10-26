@@ -334,11 +334,11 @@ function registerEventHandlers() {
         });
     }
 
-    if (uiElements.withdrawBtn) {
-        uiElements.withdrawBtn.addEventListener('click', () => {
+  //  if (uiElements.withdrawBtn) {
+     //   uiElements.withdrawBtn.addEventListener('click', () => {
             showNotification(uiElements.purchaseNotification, 'Coming Soon!');
-        });
-    }
+     //   });
+  //  }
 
     if (uiElements.confirmWithdrawalBtn) {
         uiElements.confirmWithdrawalBtn.addEventListener('click', () => {
