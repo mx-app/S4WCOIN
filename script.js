@@ -999,10 +999,6 @@ function initializeTelegramIntegration() {
         
 
 
-
-
-
-
 // DOM Elements
 const puzzlecloseModal = document.getElementById('puzzlecloseModal');
 const puzzleContainer = document.getElementById('puzzleContainer');
@@ -1230,9 +1226,16 @@ async function updatePuzzleProgressInDatabase(puzzleId, solved, attempts) {
     }
 
     let puzzlesProgress = data?.puzzles_progress || {};
-    puzzlesProgress[puzzleId] = { solved, attempts, lastSolvedTime };
 
-    const { error: updateError } = await supabase
+    // Update or add current puzzle progress
+    puzzlesProgress[puzzleId] = {
+        solved: solved,
+        attempts: attempts,
+        last_solved_time: lastSolvedTime || data?.puzzles_progress?.last_solved_time,
+    };
+
+    // Update data in the database
+    const { updateError } = await supabase
         .from('users')
         .update({ puzzles_progress: puzzlesProgress })
         .eq('telegram_id', userTelegramId);
@@ -1242,47 +1245,54 @@ async function updatePuzzleProgressInDatabase(puzzleId, solved, attempts) {
     }
 }
 
-// Show notification
-function showNotification(notificationElement, message) {
-    notificationElement.innerText = message;
-    notificationElement.classList.remove('hidden');
-    setTimeout(() => notificationElement.classList.add('hidden'), 4000);
-}
-
-// Update balance
-function updateBalance(amount) {
-    let balance = parseInt(uiElements.balanceDisplay.innerText, 10);
-    balance += amount;
-    uiElements.balanceDisplay.innerText = balance;
-}
-
 // Update remaining attempts display
-function updateRemainingAttempts(attempts) {
-    remainingAttemptsDisplay.innerText = maxAttempts - attempts;
+function updateRemainingAttempts(attempts = 0) {
+    remainingAttemptsDisplay.innerText = `${maxAttempts - attempts}/${maxAttempts} `;
+}
+
+// Update user's balance
+async function updateBalance(amount) {
+    const userTelegramId = uiElements.userTelegramIdDisplay.innerText;
+
+    const { data, error } = await supabase
+        .rpc('increment_balance', {
+            telegram_id_input: userTelegramId,
+            amount_input: amount,
+        });
+
+    if (error) {
+        console.error('Error updating balance:', error);
+        return;
+    }
+
+    uiElements.balanceDisplay.innerText = data[0].balance; // Update balance display in UI
+}
+
+// Close puzzle
+function closePuzzle() {
+    clearInterval(countdownInterval); // Stop timer on close
+    puzzleContainer.classList.add('hidden');
+    puzzleOptions.innerHTML = '';
+    puzzleNotification.innerText = '';
+    attempts = 0;
+    puzzleSolved = false;
 }
 
 // Event listeners
-openPuzzleBtn.addEventListener('click', displayTodaysPuzzle);
-puzzleOptions.addEventListener('click', (event) => {
+puzzleOptions.addEventListener('click', function (event) {
     if (event.target.classList.contains('option-btn')) {
         checkPuzzleAnswer(event.target);
     }
 });
-puzzlecloseModal.addEventListener('click', () => {
-    puzzleContainer.classList.add('hidden');
+openPuzzleBtn.addEventListener('click', displayTodaysPuzzle);
+
+document.getElementById('puzzlecloseModal').addEventListener('click', function() {
+    document.getElementById('puzzleContainer').classList.add('hidden');
+});
+document.getElementById('openPuzzleBtn').addEventListener('click', function() {
+    document.getElementById('puzzleContainer').classList.remove('hidden');
 });
 
-// Initialize
-if (checkCountdown()) return; // Skip if countdown is active
-
-} 
-
-
-
-
-    
-    
-    
 
 
 
@@ -1420,75 +1430,32 @@ async function updateUsedPromoCodesInDB(usedPromoCodes) {
         return false; // No active countdown
     }
 
-    // دالة بدء العد التنازلي لـ 24 ساعة وتخزينه في localStorage للشيفرة
-function start24HourCipherCountdown() {
-    const countdownEndTime = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString();
-    localStorage.setItem('cipherCountdownEndTime', countdownEndTime);
-    startCipherCountdownOnButton(24 * 60 * 60); // بدء العد التنازلي 24 ساعة
-}
+    // Save countdown end time to local storage
+    function start24HourCountdown() {
+        const countdownEndTime = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(); // 24 hours from now
+        localStorage.setItem(countdownKey, countdownEndTime);
+        startCountdownOnButton(24 * 60 * 60); // Start 24-hour countdown
+    }
 
-// دالة بدء العد التنازلي على زر الشيفرة
-function startCipherCountdownOnButton(seconds) {
-    openMorseCipherBtn.disabled = true;
-    openMorseCipherBtn.innerText = `Next cipher in: ${formatTime(seconds)}`;
+    // Start countdown on the button
+    function startCountdownOnButton(seconds) {
+        openMorseCipherBtn.disabled = true;
+        openMorseCipherBtn.innerText = `Next cipher in: ${formatTime(seconds)}`;
 
-    function updateButtonCountdown() {
-        if (seconds > 0) {
-            seconds--;
-            openMorseCipherBtn.innerText = `Next cipher in: ${formatTime(seconds)}`;
-            countdownTimeout = setTimeout(updateButtonCountdown, 1000);
-        } else {
-            openMorseCipherBtn.disabled = false;
-            openMorseCipherBtn.innerText = 'Open Morse Cipher';
-            localStorage.removeItem('cipherCountdownEndTime'); // مسح العد التنازلي عند الانتهاء
-            loadNewCipher(); // تحميل الشيفرة الجديدة
+        function updateButtonCountdown() {
+            if (seconds > 0) {
+                seconds--;
+                openMorseCipherBtn.innerText = `Next cipher in: ${formatTime(seconds)}`;
+                countdownTimeout = setTimeout(updateButtonCountdown, 1000);
+            } else {
+                openMorseCipherBtn.disabled = false;
+                openMorseCipherBtn.innerText = 'Open Morse Cipher';
+                localStorage.removeItem(countdownKey); // Clear countdown when finished
+            }
         }
+
+        updateButtonCountdown();
     }
-
-    updateButtonCountdown();
-}
-
-// التحقق من العد التنازلي النشط واستئنافه إذا لزم الأمر للشيفرة
-function checkCipherCountdown() {
-    const countdownEndTime = localStorage.getItem('cipherCountdownEndTime');
-    if (countdownEndTime) {
-        const remainingTime = new Date(countdownEndTime) - new Date();
-        if (remainingTime > 0) {
-            startCipherCountdownOnButton(Math.floor(remainingTime / 1000));
-            return true; // العد التنازلي ما زال نشطًا
-        } else {
-            localStorage.removeItem('cipherCountdownEndTime'); // مسح العد التنازلي منتهي الصلاحية
-        }
-    }
-    return false; // لا يوجد عد تنازلي نشط
-}
-
-// دالة للحصول على الشيفرة اليومية الجديدة وتجنب التكرار
-async function loadNewCipher() {
-    const ciphers = await loadMorseCiphers();
-    const lastCipherId = localStorage.getItem('lastCipherId');
-    const newCipher = ciphers.find(cipher => cipher.id !== lastCipherId);
-
-    if (newCipher) {
-        currentMorseCipher = newCipher;
-        localStorage.setItem('lastCipherId', newCipher.id); // حفظ معرف الشيفرة الحالية
-        displayTodaysMorseCipher(); // عرض الشيفرة الجديدة
-    }
-}
-
-// دالة عرض الشيفرة اليومية
-async function displayTodaysMorseCipher() {
-    if (checkCipherCountdown()) return;
-
-    currentMorseCipher = await loadNewCipher();
-
-    morseCodeDisplay.innerText = currentMorseCipher.morse_code;
-    morseCipherRewardDisplay.innerText = `Reward: ${currentMorseCipher.reward} coins`;
-    showNotification(morseCipherNotification, `Hint: ${currentMorseCipher.hint}`);
-
-    morseCipherContainer.classList.remove('hidden');
-    start24HourCipherCountdown();
-}
 
     // Format time for display (HH:MM:SS)
     function formatTime(seconds) {
