@@ -310,6 +310,17 @@ body {
 }
 
 .clickable-image {
+/* تأثير الاهتزاز */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+/* إعدادات .clickable-image */
+.clickable-image {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -327,14 +338,15 @@ body {
     cursor: pointer;
     margin-top: -20px; 
     transform: translateY(-5px);
-    
 }
 
 .clickable-image img:active {
+    animation: shake 0.3s ease-in-out;
     transform: scale(0.95);
     filter: none;
 }
 
+/* تأثير الارتداد */
 @keyframes coin-bounce {
     0%, 100% {
         transform: translateY(0);
@@ -344,6 +356,7 @@ body {
     }
 }
 
+/* تأثير التلاشي */
 @keyframes fade-out {
     0% {
         opacity: 1;
@@ -353,6 +366,7 @@ body {
         visibility: hidden;
     }
 }
+
 
  
 .diamond-coin {
