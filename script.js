@@ -999,6 +999,10 @@ function initializeTelegramIntegration() {
         
 
 
+
+
+
+
 // DOM Elements
 const puzzlecloseModal = document.getElementById('puzzlecloseModal');
 const puzzleContainer = document.getElementById('puzzleContainer');
@@ -1226,16 +1230,9 @@ async function updatePuzzleProgressInDatabase(puzzleId, solved, attempts) {
     }
 
     let puzzlesProgress = data?.puzzles_progress || {};
+    puzzlesProgress[puzzleId] = { solved, attempts, lastSolvedTime };
 
-    // Update or add current puzzle progress
-    puzzlesProgress[puzzleId] = {
-        solved: solved,
-        attempts: attempts,
-        last_solved_time: lastSolvedTime || data?.puzzles_progress?.last_solved_time,
-    };
-
-    // Update data in the database
-    const { updateError } = await supabase
+    const { error: updateError } = await supabase
         .from('users')
         .update({ puzzles_progress: puzzlesProgress })
         .eq('telegram_id', userTelegramId);
@@ -1245,54 +1242,45 @@ async function updatePuzzleProgressInDatabase(puzzleId, solved, attempts) {
     }
 }
 
+// Show notification
+function showNotification(notificationElement, message) {
+    notificationElement.innerText = message;
+    notificationElement.classList.remove('hidden');
+    setTimeout(() => notificationElement.classList.add('hidden'), 4000);
+}
+
+// Update balance
+function updateBalance(amount) {
+    let balance = parseInt(uiElements.balanceDisplay.innerText, 10);
+    balance += amount;
+    uiElements.balanceDisplay.innerText = balance;
+}
+
 // Update remaining attempts display
-function updateRemainingAttempts(attempts = 0) {
-    remainingAttemptsDisplay.innerText = `${maxAttempts - attempts}/${maxAttempts} `;
-}
-
-// Update user's balance
-async function updateBalance(amount) {
-    const userTelegramId = uiElements.userTelegramIdDisplay.innerText;
-
-    const { data, error } = await supabase
-        .rpc('increment_balance', {
-            telegram_id_input: userTelegramId,
-            amount_input: amount,
-        });
-
-    if (error) {
-        console.error('Error updating balance:', error);
-        return;
-    }
-
-    uiElements.balanceDisplay.innerText = data[0].balance; // Update balance display in UI
-}
-
-// Close puzzle
-function closePuzzle() {
-    clearInterval(countdownInterval); // Stop timer on close
-    puzzleContainer.classList.add('hidden');
-    puzzleOptions.innerHTML = '';
-    puzzleNotification.innerText = '';
-    attempts = 0;
-    puzzleSolved = false;
+function updateRemainingAttempts(attempts) {
+    remainingAttemptsDisplay.innerText = maxAttempts - attempts;
 }
 
 // Event listeners
-puzzleOptions.addEventListener('click', function (event) {
+openPuzzleBtn.addEventListener('click', displayTodaysPuzzle);
+puzzleOptions.addEventListener('click', (event) => {
     if (event.target.classList.contains('option-btn')) {
         checkPuzzleAnswer(event.target);
     }
 });
-openPuzzleBtn.addEventListener('click', displayTodaysPuzzle);
-
-document.getElementById('puzzlecloseModal').addEventListener('click', function() {
-    document.getElementById('puzzleContainer').classList.add('hidden');
-});
-document.getElementById('openPuzzleBtn').addEventListener('click', function() {
-    document.getElementById('puzzleContainer').classList.remove('hidden');
+puzzlecloseModal.addEventListener('click', () => {
+    puzzleContainer.classList.add('hidden');
 });
 
+// Initialize
+if (checkCountdown()) return; // Skip if countdown is active
+
+
+
+
+    
+    
+    
 
 
 
