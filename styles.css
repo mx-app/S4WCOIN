@@ -376,7 +376,7 @@ body {
 
 
 
- .diamond-coin {
+/* .diamond-coin {
     position: absolute;
     width: 20px;
     height: 20px;
@@ -396,7 +396,7 @@ body {
     transform: translate(-50%, -50%);
     pointer-events: none;
 }
-
+*/
 .menu {
     display: flex;
     justify-content: space-between;
