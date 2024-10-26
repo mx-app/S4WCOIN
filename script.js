@@ -1664,24 +1664,25 @@ async function updateUsedPromoCodesInDB(usedPromoCodes) {
 
 const img = document.getElementById('clickableImg');
 
-        img.addEventListener('click', (event) => {
-            // الحصول على حجم الصورة وموقع النقر
-            const rect = img.getBoundingClientRect();
-            const x = event.clientX - rect.left;
-            const y = event.clientY - rect.top;
+img.addEventListener('click', (event) => {
+    // الحصول على حجم الصورة وموقع النقر
+    const rect = img.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
 
-            // حساب النسبة المئوية لموقع النقر مع تقليل التأثير
-            const rotateX = ((y / rect.height) - 0.5) * -10; // تقليل درجة العلو/الهبوط
-            const rotateY = ((x / rect.width) - 0.5) * 12;   // تقليل درجة الاتجاه الأفقي
+    // حساب النسبة المئوية لموقع النقر لتحديد الدوران المطلوب بدقة
+    const rotateX = ((y / rect.height) - 0.5) * -12; // لتعديل درجة الهبوط والصعود
+    const rotateY = ((x / rect.width) - 0.5) * 12;   // لتعديل الاتجاه الأفقي
 
-            // تطبيق التحويلات باستخدام CSS
-            img.style.transform = `translateY(-5px) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(0.95)`;
+    // تطبيق التحويلات لإمالة الصورة حسب الموقع
+    img.style.transform = `translateY(-5px) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 
-            // إعادة الصورة إلى وضعها الطبيعي بعد فترة قصيرة
-            setTimeout(() => {
-                img.style.transform = 'translateY(-5px)';
-            }, 200);
-        });
+    // إعادة الصورة إلى وضعها الطبيعي بعد فترة قصيرة
+    setTimeout(() => {
+        img.style.transform = 'translateY(-5px)';
+    }, 200);
+});
+
 
 
 
