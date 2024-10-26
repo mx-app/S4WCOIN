@@ -985,8 +985,8 @@ function initializeTelegramIntegration() {
 ///////////////////////////////////////
 
 
-localStorage.removeItem('gameState'); // مسح حالة اللعبة
-loadGameState(); // إعادة تحميل حالة اللعبة
+//localStorage.removeItem('gameState'); // مسح حالة اللعبة
+//loadGameState(); // إعادة تحميل حالة اللعبة
 
 
 //////////////////////////////////////////////////////////
@@ -1305,12 +1305,10 @@ document.getElementById('openPuzzleBtn').addEventListener('click', function() {
 
 
 
-
-
-
-
-
 ///////////////////////////////////////////////////
+
+
+
 
 
 
@@ -1697,30 +1695,44 @@ img.addEventListener('transitionend', () => {
 
 
 
-// الحصول على الزر من HTML
-const withdrawBtn = document.getElementById('withdrawBtn');
+document.getElementById("withdrawBtn").addEventListener("click", async () => {
+    try {
+        // إعداد WalletConnect
+        const walletConnector = new WalletConnect.default({
+            bridge: "https://bridge.walletconnect.org" // عنوان الجسر الافتراضي
+        });
 
-// إضافة مستمع للحدث عند النقر على زر "Connect wallet"
-withdrawBtn.addEventListener('click', () => {
-    // هنا يمكنك إدراج منطق فتح نافذة الخيارات، أو واجهة TON Connect مباشرةً
-    openWalletOptions();
+        // إذا لم يكن متصلاً، حاول إنشاء جلسة
+        if (!walletConnector.connected) {
+            await walletConnector.createSession();
+
+            // عرض رسالة بدلاً من QR Code
+            alert("يرجى فتح محفظة WalletConnect لتوصيلها.");
+
+            // عند توصيل المحفظة
+            walletConnector.on("connect", (error, payload) => {
+                if (error) {
+                    console.error("Connection error:", error);
+                    return;
+                }
+                const { accounts } = payload.params[0];
+                document.getElementById("walletAddress").innerText = `Wallet connected: ${accounts[0]}`;
+            });
+
+            // عند قطع الاتصال
+            walletConnector.on("disconnect", (error) => {
+                if (error) {
+                    console.error("Disconnection error:", error);
+                    return;
+                }
+                document.getElementById("walletAddress").innerText = "Wallet disconnected";
+            });
+        }
+    } catch (error) {
+        console.error("Error connecting wallet:", error);
+        alert("حدث خطأ أثناء محاولة الاتصال بالمحفظة.");
+    }
 });
-
-// دالة فتح واجهة الخيارات المتاحة
-function openWalletOptions() {
-    // هنا يمكنك استدعاء مكتبة TON Connect لفتح واجهة الاختيار
-    const tonConnectOptions = {
-        tonConnectButton: 'Open Wallet in Telegram', // هذا الخيار سيظهر واجهة الاختيارات
-        wallets: ['Tonkeeper', 'MyTonWallet', 'Tonhub', 'DeWallet'] // قائمة المحافظ المتاحة
-    };
-
-    // عرض واجهة الاختيارات مباشرةً
-    TonConnectUI.open(tonConnectOptions).then(() => {
-        console.log("Wallet options displayed successfully.");
-    }).catch((error) => {
-        console.error("Failed to open wallet options:", error);
-    });
-}
 
 
 
