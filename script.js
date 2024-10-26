@@ -1691,7 +1691,10 @@ img.addEventListener('transitionend', () => {
 
 
 
-
+        const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+            manifestUrl: 'https://jigsaw-s.vercel.app/tonconnect-manifest.json', // استبدل <YOUR_APP_URL> بالرابط الخاص بتطبيقك
+            buttonRootId: 'ton-connect'
+        });
 
 
     async function connectToWallet() {
