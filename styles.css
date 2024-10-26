@@ -382,7 +382,7 @@ body {
     border-radius: 10px;
     background: rgba(0, 0, 0, 0); /* لجعل الخلفية زجاجية */
     position: fixed;
-    bottom: 20px;
+    bottom: 25px;
     box-sizing: border-box; 
     width: 88%; /* لجعل العرض 80% */
     left: 50%; /* لضبطه في المنتصف */
