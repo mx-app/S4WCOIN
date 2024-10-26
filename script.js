@@ -1694,26 +1694,16 @@ img.addEventListener('transitionend', () => {
 
 
 
-
-// ضبط Ton Connect UI مع رابط العودة
-const tonConnectUI = new TonConnectUI({
-    twaReturnUrl: 'https://t.me/SAWCOIN_BOT/GAME' // استبدل YOUR_APP_NAME باسم التطبيق المصغر الخاص بك
-});
-
-// وظيفة الاتصال بالمحفظة
-async function connectToWallet() {
-    try {
+    async function connectToWallet() {
         const connectedWallet = await tonConnectUI.connectWallet();
-        console.log("The wallet is linked :", connectedWallet);
-        // يمكنك هنا إضافة الكود لحفظ بيانات المحفظة في قاعدة البيانات أو عرض رسالة نجاح
-    } catch (error) {
-        console.error("Error linking wallet :", error);
+        // Do something with connectedWallet if needed
+        console.log(connectedWallet);
     }
-}
 
-// إضافة مستمع حدث للزر
-document.getElementById('withdrawBtn').addEventListener('click', connectToWallet);
-
+    // Call the function
+    connectToWallet().catch(error => {
+        console.error("Error connecting to wallet:", error);
+    });
 
 
 
