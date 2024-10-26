@@ -1695,45 +1695,24 @@ img.addEventListener('transitionend', () => {
 
 
 
-document.getElementById("withdrawBtn").addEventListener("click", async () => {
-    try {
-        // إعداد WalletConnect
-        const walletConnector = new WalletConnect.default({
-            bridge: "https://bridge.walletconnect.org" // عنوان الجسر الافتراضي
-        });
-
-        // إذا لم يكن متصلاً، حاول إنشاء جلسة
-        if (!walletConnector.connected) {
-            await walletConnector.createSession();
-
-            // عرض رسالة بدلاً من QR Code
-            alert("يرجى فتح محفظة WalletConnect لتوصيلها.");
-
-            // عند توصيل المحفظة
-            walletConnector.on("connect", (error, payload) => {
-                if (error) {
-                    console.error("Connection error:", error);
-                    return;
-                }
-                const { accounts } = payload.params[0];
-                document.getElementById("walletAddress").innerText = `Wallet connected: ${accounts[0]}`;
-            });
-
-            // عند قطع الاتصال
-            walletConnector.on("disconnect", (error) => {
-                if (error) {
-                    console.error("Disconnection error:", error);
-                    return;
-                }
-                document.getElementById("walletAddress").innerText = "Wallet disconnected";
-            });
-        }
-    } catch (error) {
-        console.error("Error connecting wallet:", error);
-        alert("حدث خطأ أثناء محاولة الاتصال بالمحفظة.");
-    }
+// ضبط Ton Connect UI مع رابط العودة
+const tonConnectUI = new TonConnectUI({
+    twaReturnUrl: 'https://t.me/SAWCOIN_BOT/GAME' // استبدل YOUR_APP_NAME باسم التطبيق المصغر الخاص بك
 });
 
+// وظيفة الاتصال بالمحفظة
+async function connectToWallet() {
+    try {
+        const connectedWallet = await tonConnectUI.connectWallet();
+        console.log("The wallet is linked :", connectedWallet);
+        // يمكنك هنا إضافة الكود لحفظ بيانات المحفظة في قاعدة البيانات أو عرض رسالة نجاح
+    } catch (error) {
+        console.error("Error linking wallet :", error);
+    }
+}
+
+// إضافة مستمع حدث للزر
+document.getElementById('withdrawBtn').addEventListener('click', connectToWallet);
 
 
 
