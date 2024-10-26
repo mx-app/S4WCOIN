@@ -1708,6 +1708,9 @@ img.addEventListener('transitionend', () => {
         console.error("Error connecting to wallet:", error);
     });
 
+tonConnectUI.uiOptions = {
+      twaReturnUrl: 'https://t.me/SAWCOIN_BOT/GAME'
+  };
 
 
 
