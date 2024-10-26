@@ -1658,10 +1658,6 @@ async function updateUsedPromoCodesInDB(usedPromoCodes) {
 
 /////////////////////////////////////
 
-
-
-
-
 const img = document.getElementById('clickableImg');
 
 img.addEventListener('click', (event) => {
@@ -1687,10 +1683,65 @@ img.addEventListener('transitionend', () => {
     img.style.transition = 'none'; // تعطيل الانتقال لإعادة تعيين الإمالة
 });
 
+/////////////////////////////////////////////////
 
 
 
 
+
+
+
+
+
+
+
+
+// استدعاء زر Connect Wallet الحالي
+const connectWalletBtn = document.getElementById('withdrawBtn');
+
+// إعداد WalletConnect عند النقر على زر Connect Wallet
+connectWalletBtn.addEventListener('click', async () => {
+    // إنشاء WalletConnect
+    const walletConnector = new WalletConnect.default({
+        bridge: "https://bridge.walletconnect.org" // عنوان الجسر الافتراضي
+    });
+
+    // إذا لم يكن متصلاً، أظهر QR Code
+    if (!walletConnector.connected) {
+        walletConnector.createSession().then(() => {
+            QRCodeModal.default.open(walletConnector.uri, () => {
+                console.log("QR Code Modal closed");
+            });
+        });
+    }
+
+    // مستمع لأحداث الاتصال
+    walletConnector.on("connect", (error, payload) => {
+        if (error) {
+            console.error("Connection error:", error);
+            return;
+        }
+        // الوصول إلى معلومات الجلسة
+        const { accounts } = payload.params[0];
+        console.log("Wallet connected:", accounts);
+
+        // إغلاق QR Code
+        QRCodeModal.default.close();
+        
+        // تحديث عنوان المحفظة في واجهة المستخدم
+        document.getElementById('walletAddress').innerText = accounts[0];
+    });
+
+    // مستمع لأحداث قطع الاتصال
+    walletConnector.on("disconnect", (error, payload) => {
+        if (error) {
+            console.error("Disconnection error:", error);
+            return;
+        }
+        console.log("Wallet disconnected");
+        document.getElementById('walletAddress').innerText = "";
+    });
+});
 
 
 
@@ -1714,9 +1765,5 @@ img.addEventListener('transitionend', () => {
 //////////////////////////////////////////////////
 // تفعيل التطبيق
 initializeApp();
-
-
-
-
 
 
