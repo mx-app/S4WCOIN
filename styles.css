@@ -1030,6 +1030,8 @@ body {
     background-clip: text;
     color: transparent;*/
     font-size: 18px;
+    height: 5px;
+    width: 10px;
     z-index: 100;  
 }
  
