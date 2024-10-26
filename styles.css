@@ -402,7 +402,7 @@ body {
 .menu {
     display: flex;
     justify-content: space-between;
-    padding: 7px;
+    padding: 6px;
     border: 1px solid #343434;
     border-radius: 10px;
     background: rgba(0, 0, 0, 0); /* لجعل الخلفية زجاجية */
