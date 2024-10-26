@@ -266,7 +266,7 @@ body {
     justify-content: center; /* الاحتفاظ بمحاذاة إلى اليسار */
     align-items: center; /* الشريط والمعلومات في نفس المحاذاة على اليسار */
     position: absolute; /* تثبيت الحاوية في مكان محدد */
-    bottom: 110px; /* ضبطه ليكون في الجزء السفلي */
+    bottom: 120px; /* ضبطه ليكون في الجزء السفلي */
     /*left: 20px; 
     margin-left: 0px;*/
 }
@@ -382,7 +382,7 @@ body {
     border-radius: 10px;
     background: rgba(0, 0, 0, 0); /* لجعل الخلفية زجاجية */
     position: fixed;
-    bottom: 18px;
+    bottom: 20px;
     box-sizing: border-box; 
     width: 88%; /* لجعل العرض 80% */
     left: 50%; /* لضبطه في المنتصف */
