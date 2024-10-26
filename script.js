@@ -1430,32 +1430,75 @@ async function updateUsedPromoCodesInDB(usedPromoCodes) {
         return false; // No active countdown
     }
 
-    // Save countdown end time to local storage
-    function start24HourCountdown() {
-        const countdownEndTime = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(); // 24 hours from now
-        localStorage.setItem(countdownKey, countdownEndTime);
-        startCountdownOnButton(24 * 60 * 60); // Start 24-hour countdown
-    }
+    // دالة بدء العد التنازلي لـ 24 ساعة وتخزينه في localStorage للشيفرة
+function start24HourCipherCountdown() {
+    const countdownEndTime = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString();
+    localStorage.setItem('cipherCountdownEndTime', countdownEndTime);
+    startCipherCountdownOnButton(24 * 60 * 60); // بدء العد التنازلي 24 ساعة
+}
 
-    // Start countdown on the button
-    function startCountdownOnButton(seconds) {
-        openMorseCipherBtn.disabled = true;
-        openMorseCipherBtn.innerText = `Next cipher in: ${formatTime(seconds)}`;
+// دالة بدء العد التنازلي على زر الشيفرة
+function startCipherCountdownOnButton(seconds) {
+    openMorseCipherBtn.disabled = true;
+    openMorseCipherBtn.innerText = `Next cipher in: ${formatTime(seconds)}`;
 
-        function updateButtonCountdown() {
-            if (seconds > 0) {
-                seconds--;
-                openMorseCipherBtn.innerText = `Next cipher in: ${formatTime(seconds)}`;
-                countdownTimeout = setTimeout(updateButtonCountdown, 1000);
-            } else {
-                openMorseCipherBtn.disabled = false;
-                openMorseCipherBtn.innerText = 'Open Morse Cipher';
-                localStorage.removeItem(countdownKey); // Clear countdown when finished
-            }
+    function updateButtonCountdown() {
+        if (seconds > 0) {
+            seconds--;
+            openMorseCipherBtn.innerText = `Next cipher in: ${formatTime(seconds)}`;
+            countdownTimeout = setTimeout(updateButtonCountdown, 1000);
+        } else {
+            openMorseCipherBtn.disabled = false;
+            openMorseCipherBtn.innerText = 'Open Morse Cipher';
+            localStorage.removeItem('cipherCountdownEndTime'); // مسح العد التنازلي عند الانتهاء
+            loadNewCipher(); // تحميل الشيفرة الجديدة
         }
-
-        updateButtonCountdown();
     }
+
+    updateButtonCountdown();
+}
+
+// التحقق من العد التنازلي النشط واستئنافه إذا لزم الأمر للشيفرة
+function checkCipherCountdown() {
+    const countdownEndTime = localStorage.getItem('cipherCountdownEndTime');
+    if (countdownEndTime) {
+        const remainingTime = new Date(countdownEndTime) - new Date();
+        if (remainingTime > 0) {
+            startCipherCountdownOnButton(Math.floor(remainingTime / 1000));
+            return true; // العد التنازلي ما زال نشطًا
+        } else {
+            localStorage.removeItem('cipherCountdownEndTime'); // مسح العد التنازلي منتهي الصلاحية
+        }
+    }
+    return false; // لا يوجد عد تنازلي نشط
+}
+
+// دالة للحصول على الشيفرة اليومية الجديدة وتجنب التكرار
+async function loadNewCipher() {
+    const ciphers = await loadMorseCiphers();
+    const lastCipherId = localStorage.getItem('lastCipherId');
+    const newCipher = ciphers.find(cipher => cipher.id !== lastCipherId);
+
+    if (newCipher) {
+        currentMorseCipher = newCipher;
+        localStorage.setItem('lastCipherId', newCipher.id); // حفظ معرف الشيفرة الحالية
+        displayTodaysMorseCipher(); // عرض الشيفرة الجديدة
+    }
+}
+
+// دالة عرض الشيفرة اليومية
+async function displayTodaysMorseCipher() {
+    if (checkCipherCountdown()) return;
+
+    currentMorseCipher = await loadNewCipher();
+
+    morseCodeDisplay.innerText = currentMorseCipher.morse_code;
+    morseCipherRewardDisplay.innerText = `Reward: ${currentMorseCipher.reward} coins`;
+    showNotification(morseCipherNotification, `Hint: ${currentMorseCipher.hint}`);
+
+    morseCipherContainer.classList.remove('hidden');
+    start24HourCipherCountdown();
+}
 
     // Format time for display (HH:MM:SS)
     function formatTime(seconds) {
