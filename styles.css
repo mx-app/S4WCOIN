@@ -328,6 +328,7 @@ body {
     margin-top: -20px; 
     transform: translateY(-5px);
     pointer-events: auto;
+    border-radius: 50%;
     
 }
 
