@@ -328,7 +328,7 @@ body {
     margin-top: -20px; 
     transform: translateY(-5px);
     pointer-events: auto;
-    border-radius: 50%;
+    border-radius: 40%;
     z-index: 9500;
     
 }
@@ -1030,7 +1030,7 @@ body {
     background-clip: text;
     color: transparent;*/
     font-size: 10px;
-    height: 1px;
-    width: 2px;
+   /* height: 1px;
+    width: 2px;*/
 }
  
