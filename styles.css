@@ -376,13 +376,13 @@ body {
 
 
 
-/* .diamond-coin {
+ .diamond-coin {
     position: absolute;
     width: 20px;
     height: 20px;
     background-size: cover;
     pointer-events: none;
-    animation: coin-bounce 1s infinite, fade-out 1s forwards;
+   /* animation: coin-bounce 1s infinite, fade-out 1s forwards;*/
     z-index: 9999;
 }
 
@@ -396,7 +396,7 @@ body {
     transform: translate(-50%, -50%);
     pointer-events: none;
 }
-*/
+
 .menu {
     display: flex;
     justify-content: space-between;
