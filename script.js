@@ -336,7 +336,7 @@ function registerEventHandlers() {
 
   //  if (uiElements.withdrawBtn) {
      //   uiElements.withdrawBtn.addEventListener('click', () => {
-            showNotification(uiElements.purchaseNotification, 'Coming Soon!');
+           // showNotification(uiElements.purchaseNotification, 'Coming Soon!');
      //   });
   //  }
 
@@ -1697,10 +1697,10 @@ img.addEventListener('transitionend', () => {
 
 
 // استدعاء زر Connect Wallet الحالي
-const connectWalletBtn = document.getElementById('withdrawBtn');
+const withdrawBtn = document.getElementById('withdrawBtn');
 
 // إعداد WalletConnect عند النقر على زر Connect Wallet
-connectWalletBtn.addEventListener('click', async () => {
+withdrawBtn.addEventListener('click', async () => {
     // إنشاء WalletConnect
     const walletConnector = new WalletConnect.default({
         bridge: "https://bridge.walletconnect.org" // عنوان الجسر الافتراضي
