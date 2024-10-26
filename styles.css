@@ -327,6 +327,7 @@ body {
     cursor: pointer;
     margin-top: -20px; 
     transform: translateY(-5px);
+    pointer-events: auto;
     
 }
 
