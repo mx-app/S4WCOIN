@@ -1275,6 +1275,8 @@ puzzlecloseModal.addEventListener('click', () => {
 // Initialize
 if (checkCountdown()) return; // Skip if countdown is active
 
+} 
+
 
 
 
