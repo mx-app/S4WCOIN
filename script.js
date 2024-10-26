@@ -1682,7 +1682,10 @@ img.addEventListener('click', (event) => {
         img.style.transform = 'translateY(-5px)';
     }, 200);
 });
-
+// إعادة ضبط تأثير الإمالة عند النقر مرة أخرى
+img.addEventListener('transitionend', () => {
+    img.style.transition = 'none'; // تعطيل الانتقال لإعادة تعيين الإمالة
+});
 
 
 
