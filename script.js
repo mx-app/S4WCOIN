@@ -1671,8 +1671,8 @@ const img = document.getElementById('clickableImg');
             const y = event.clientY - rect.top;
 
             // حساب النسبة المئوية لموقع النقر مع تقليل التأثير
-            const rotateX = ((y / rect.height) - 0.5) * -8; // تقليل درجة العلو/الهبوط
-            const rotateY = ((x / rect.width) - 0.5) * 8;   // تقليل درجة الاتجاه الأفقي
+            const rotateX = ((y / rect.height) - 0.5) * -10; // تقليل درجة العلو/الهبوط
+            const rotateY = ((x / rect.width) - 0.5) * 12;   // تقليل درجة الاتجاه الأفقي
 
             // تطبيق التحويلات باستخدام CSS
             img.style.transform = `translateY(-5px) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(0.95)`;
