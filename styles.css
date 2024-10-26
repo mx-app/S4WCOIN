@@ -229,7 +229,6 @@ body {
 
 #balanceAmount {
     font-family: 'JetBrains Mono', monospace;
-    font-weight: bold;
     font-weight: 800;
     margin-top: 40px;
     font-size: 38px;
@@ -432,8 +431,8 @@ body {
 }
 
 .menu button img {
-    width: 35px;
-    height: 35px;
+    width: 37px;
+    height: 37px;
     margin-bottom: 3px;
 }
 
