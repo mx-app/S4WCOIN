@@ -278,6 +278,8 @@ body {
     border-radius: 50px; /* شكل الشريط */
     overflow: hidden; /* قص المحتوى الزائد */
     margin-top: 5px; /* مسافة بسيطة بين المعلومات والشريط */
+    box-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700; /* تأثير التوهج */
+
 }
 
 .progress-bar-inner {
@@ -285,8 +287,7 @@ body {
     width: 100%; /* عرض الشريط الداخلي */
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c); 
     transition: width 0.5s ease;
-    box-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700; /* تأثير التوهج */
-}
+} 
 
 
 #energyInfo {
