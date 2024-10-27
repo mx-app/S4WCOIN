@@ -945,7 +945,7 @@ body {
     top: 150px; 
     right: 101px;
     background: rgba(0, 0, 0, 0); 
-    /*border: 2px solid #343434;*/
+    border: 2px solid #343434;
     text-align: center;
     text-decoration: none;
     display: inline-block;
