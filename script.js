@@ -1684,43 +1684,47 @@ img.addEventListener('transitionend', () => {
     img.style.transition = 'none'; // تعطيل الانتقال لإعادة تعيين الإمالة
 });
 
+
+
+
 /////////////////////////////////////////////////
 
 
 
 
 
+const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+    manifestUrl: 'https://jigsaw-s.vercel.app/tonconnect-manifest.json', // استبدل بالرابط الخاص بتطبيقك
+    buttonRootId: 'ton-connect'
+});
 
-        const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
-            manifestUrl: 'https://jigsaw-s.vercel.app/tonconnect-manifest.json', // استبدل <YOUR_APP_URL> بالرابط الخاص بتطبيقك
-            buttonRootId: 'ton-connect'
-        });
+async function connectToWallet() {
+    const connectedWallet = await tonConnectUI.connectWallet();
+    // يمكنك تنفيذ بعض العمليات باستخدام connectedWallet إذا لزم الأمر
+    console.log(connectedWallet);
+}
 
-
-    async function connectToWallet() {
-        const connectedWallet = await tonConnectUI.connectWallet();
-        // Do something with connectedWallet if needed
-        console.log(connectedWallet);
+async function checkConnection() {
+    try {
+        const isConnected = await tonConnectUI.isWalletConnected();
+        
+        if (!isConnected) {
+            // إذا لم يتم الربط، أظهر واجهة الربط
+            await connectToWallet();
+        } else {
+            console.log("Wallet is already connected.");
+        }
+    } catch (error) {
+        console.error("Error checking wallet connection:", error);
     }
+}
 
-    // Call the function
-    connectToWallet().catch(error => {
-        console.error("Error connecting to wallet:", error);
-    });
+// استدعاء دالة التحقق عند تحميل الصفحة
+checkConnection();
 
 tonConnectUI.uiOptions = {
-      twaReturnUrl: 'https://t.me/SAWCOIN_BOT/GAME'
-  };
-
-
-
-
-
-
-
-
-
-
+    twaReturnUrl: 'https://t.me/SAWCOIN_BOT/GAME'
+};
 
 
 
