@@ -892,7 +892,7 @@ body {
 .level-button-floating {
     position: fixed;
     top: 150px; 
-    left: 105px; 
+    left: 100px; 
     background-color: transparent;
     background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c); /* التدرج اللوني */
     -webkit-background-clip: text; /* قص الخلفية للنص */
@@ -943,7 +943,7 @@ body {
 .boosts-button {
     position: fixed;
     top: 150px; 
-    right: 100px;
+    right: 101px;
     background: rgba(0, 0, 0, 0); 
     /*border: 2px solid #343434;*/
     text-align: center;
