@@ -430,4 +430,21 @@
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
 }
 
-
+ #Puzzlespage .Numbers-btu {
+    background: #1c1c1c; 
+/*    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
+    color: #fff;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid #343434; 
+    display: block; /* لجعل العنصر يعمل ككتلة */
+    margin: 0 auto 15px; /* لمركزة الزر في المنتصف */
+    height: 58px;
+    width: 88%;
+    bottom: 0;
+}
+#Puzzlespage .Numbers-btu:hover {
+    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
+}
