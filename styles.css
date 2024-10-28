@@ -241,8 +241,8 @@ body {
 #balanceAmount::before {
     content: "";
     display: inline-block;
-    width: 45px; /* عرض الصورة */
-    height: 45px; /* ارتفاع الصورة */
+    width: 40px; /* عرض الصورة */
+    height: 40px; /* ارتفاع الصورة */
     background-image: url('i/coinns.png'); /* رابط الصورة */
     background-size: contain;
     background-repeat: no-repeat;
