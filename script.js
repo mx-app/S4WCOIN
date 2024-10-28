@@ -104,14 +104,14 @@ function saveGameState() {
 
 // مستويات اللعبة
 const levelThresholds = [
-    { level: 1, threshold: 100000, name: 'junior' },
-    { level: 2, threshold: 300000, name: 'Challenge' },
-    { level: 3, threshold: 700000, name: 'Develop' },
-    { level: 4, threshold: 1000000, name: 'Intro' },
-    { level: 5, threshold: 2000000, name: 'Advanced' },
-    { level: 6, threshold: 4000000, name: 'Expert' },
-    { level: 7, threshold: 7000000, name: 'Master' },
-    { level: 8, threshold: 10000000, name: 'Ultimate' },
+    { level: 1, threshold: 100000, name: 'JUNIOR' },
+    { level: 2, threshold: 300000, name: 'CHALLENGE' },
+    { level: 3, threshold: 700000, name: 'DEVELOP' },
+    { level: 4, threshold: 1000000, name: 'INTRO' },
+    { level: 5, threshold: 2000000, name: 'ADVANCED' },
+    { level: 6, threshold: 4000000, name: 'EXPERT' },
+    { level: 7, threshold: 7000000, name: 'MASTER' },
+    { level: 8, threshold: 10000000, name: 'ULTIMATE' },
 ];
 
 // التحقق من الترقية إلى مستوى أعلى
@@ -147,7 +147,7 @@ async function initializeApp() {
          setTimeout(() => {
        if (uiElements.splashScreen) uiElements.splashScreen.style.display = 'none';
        if (uiElements.mainContainer) uiElements.mainContainer.style.display = 'flex';
-    }, 2000); // 10000 ميلي ثانية تعني 10 ثوانٍ
+    }, 2500); // 10000 ميلي ثانية تعني 10 ثوانٍ
 
         
         // استمع إلى التغييرات في البيانات
