@@ -18,6 +18,17 @@
 
 } 
 
+.games-icon {
+    width: 35px;
+    height: 35px;
+    margin-right: 0; /* مسافة بين الصورة والنص */
+    flex-shrink: 0;
+}
+
+.Play-game-button img {
+    vertical-align: middle;
+}  
+
 /*.Play-game-button {
     position: fixed;
     top: 16px; 
