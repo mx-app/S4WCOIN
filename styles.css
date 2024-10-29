@@ -1010,8 +1010,7 @@ body {
     z-index: 100;  
 }
  
-#task {
-  /*  margin-left: -220px; */
+#task, #Gem {
     color: #aaaaaa; /* لون النص */
     font-size: 20px; /* حجم الخط */
     margin-top: 5px; /* إزالة المسافة من الأعلى */
