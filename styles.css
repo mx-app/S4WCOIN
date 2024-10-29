@@ -1041,22 +1041,31 @@ body {
 }
 
 .invite-rewards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    max-width: 320px;
+    padding-bottom: 5px; 
+} 
+
+.reward {
     width: 88%; /* لجعل العرض 80% */
     max-width: 300px;
     margin: 10px 0;
     padding: 10px;
     border: 1px solid #343434; 
     background: #1c1c1c;
+   /* background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
     border-radius: 10px;
     display: flex;
-    flex-direction: column; /* لتوزيع العناصر عمودياً */
-    align-items: center; /* لمركزة العناصر */
-}
-
-.reward {
-    display: flex;
+    justify-content: center;
     align-items: center;
-    margin: 5px 0;
 }
 
 .coin-image {
