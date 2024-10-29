@@ -1,274 +1,404 @@
 {
   "puzzles": [
     {
+      "id": 1,
+      "difficulty": "hard",
+      "question": "I am taken from a mine, and shut up in a wooden case, from which I am never released, and yet I am used by almost every person. What am I?",
+      "options": ["Coal", "Lead", "Gold", "Pencil"],
+      "answer": "Pencil",
+      "hint": "It's used for writing.",
+      "reward": 15000,
+      "availableDate": "2024-10-29"
+    },
+    {
+      "id": 2,
+      "difficulty": "hard",
+      "question": "Forward I am heavy, but backward I am not. What am I?",
+      "options": ["Ton", "Net", "Iron", "Stone"],
+      "answer": "Ton",
+      "hint": "Think about spelling.",
+      "reward": 13000,
+      "availableDate": "2024-10-30"
+    },
+    {
+      "id": 3,
+      "difficulty": "medium",
+      "question": "I am not alive, but I grow; I don’t have lungs, but I need air. What am I?",
+      "options": ["Fire", "Rock", "Tree", "Water"],
+      "answer": "Fire",
+      "hint": "It burns.",
+      "reward": 8000,
+      "availableDate": "2024-10-31"
+    },
+    {
+      "id": 4,
+      "difficulty": "hard",
+      "question": "The more of this there is, the less you see. What is it?",
+      "options": ["Fog", "Darkness", "Sand", "Water"],
+      "answer": "Darkness",
+      "hint": "Think about night.",
+      "reward": 10000,
+      "availableDate": "2024-11-01"
+    },
+    {
+      "id": 5,
+      "difficulty": "hard",
+      "question": "What is so fragile that saying its name breaks it?",
+      "options": ["Glass", "Ice", "Silence", "Mirror"],
+      "answer": "Silence",
+      "hint": "It means no sound.",
+      "reward": 12000,
+      "availableDate": "2024-11-02"
+    },
+    {
+      "id": 6,
+      "difficulty": "hard",
+      "question": "I have keys but open no locks. I have space but no room. You can enter, but you can’t go inside. What am I?",
+      "options": ["Door", "Room", "Keyboard", "Computer"],
+      "answer": "Keyboard",
+      "hint": "It's on a computer.",
+      "reward": 11000,
+      "availableDate": "2024-11-03"
+    },
+    {
+      "id": 7,
+      "difficulty": "medium",
+      "question": "I am an odd number. Take away one letter and I become even. What number am I?",
+      "options": ["Seven", "Eleven", "Nine", "Five"],
+      "answer": "Seven",
+      "hint": "It’s a prime number.",
+      "reward": 9000,
+      "availableDate": "2024-11-04"
+    },
+    {
+      "id": 8,
+      "difficulty": "hard",
+      "question": "The person who makes it, sells it. The person who buys it never uses it. The person who uses it never knows they’re using it. What is it?",
+      "options": ["Clock", "Bed", "Coffin", "House"],
+      "answer": "Coffin",
+      "hint": "Related to end of life.",
+      "reward": 14000,
+      "availableDate": "2024-11-05"
+    },
+    {
+      "id": 9,
+      "difficulty": "medium",
+      "question": "What comes once in a minute, twice in a moment, but never in a thousand years?",
+      "options": ["M", "O", "N", "E"],
+      "answer": "M",
+      "hint": "Think of letters.",
+      "reward": 8500,
+      "availableDate": "2024-11-06"
+    },
+    {
       "id": 10,
-      "difficulty": "very hard",
-      "question": "I am weightless, but you can see me. Put me in a bucket, and I make it lighter. What am I?",
-      "options": ["Air", "Hole", "Light", "Feather"],
-      "answer": "Hole",
-      "hint": "It's related to emptiness.",
-      "reward": 20000
+      "difficulty": "hard",
+      "question": "You measure my life in hours, I serve you by expiring. I’m quick when I’m thin, and slow when I’m fat. What am I?",
+      "options": ["Clock", "Candle", "Battery", "Sand"],
+      "answer": "Candle",
+      "hint": "It melts.",
+      "reward": 11000,
+      "availableDate": "2024-11-07"
     },
     {
       "id": 11,
-      "difficulty": "very hard",
-      "question": "I can be cracked, made, told, and played. What am I?",
-      "options": ["Code", "Joke", "Record", "Mirror"],
-      "answer": "Joke",
-      "hint": "It's something that can make people laugh.",
-      "reward": 21000
+      "difficulty": "hard",
+      "question": "I can fly without wings. I can cry without eyes. Wherever I go, darkness flies. What am I?",
+      "options": ["Cloud", "Bat", "Thunder", "Night"],
+      "answer": "Cloud",
+      "hint": "It's in the sky.",
+      "reward": 12500,
+      "availableDate": "2024-11-08"
     },
     {
       "id": 12,
-      "difficulty": "very hard",
-      "question": "You see me once in June, twice in November, and not at all in May. What am I?",
-      "options": ["Letter E", "Letter N", "Letter O", "Letter R"],
-      "answer": "Letter E",
-      "hint": "Think of letters in months.",
-      "reward": 22000
+      "difficulty": "medium",
+      "question": "What has hands but can’t clap?",
+      "options": ["Clock", "Robot", "Tree", "Human"],
+      "answer": "Clock",
+      "hint": "It measures time.",
+      "reward": 9000,
+      "availableDate": "2024-11-09"
     },
     {
       "id": 13,
-      "difficulty": "very hard",
-      "question": "I am taken from a mine, and shut up in a wooden case, from which I am never released, and yet I am used by almost every person. What am I?",
-      "options": ["Coal", "Pencil", "Lead", "Salt"],
-      "answer": "Pencil",
-      "hint": "Used for writing.",
-      "reward": 23000
+      "difficulty": "hard",
+      "question": "I am full of holes but still hold water. What am I?",
+      "options": ["Sponge", "Bucket", "Net", "Strainer"],
+      "answer": "Sponge",
+      "hint": "Used in cleaning.",
+      "reward": 11000,
+      "availableDate": "2024-11-10"
     },
     {
       "id": 14,
-      "difficulty": "very hard",
-      "question": "I’m not alive, but I grow; I don’t have lungs, but I need air. What am I?",
-      "options": ["Fire", "Tree", "Mold", "Ice"],
-      "answer": "Fire",
-      "hint": "It burns.",
-      "reward": 24000
+      "difficulty": "medium",
+      "question": "What has words but never speaks?",
+      "options": ["Book", "Radio", "TV", "Computer"],
+      "answer": "Book",
+      "hint": "It's read.",
+      "reward": 8000,
+      "availableDate": "2024-11-11"
     },
     {
       "id": 15,
-      "difficulty": "very hard",
-      "question": "I have cities, but no houses. I have mountains, but no trees. I have water, but no fish. What am I?",
-      "options": ["Map", "Desert", "Dream", "Sea"],
-      "answer": "Map",
-      "hint": "It shows locations.",
-      "reward": 25000
+      "difficulty": "hard",
+      "question": "What begins with T, ends with T, and has T in it?",
+      "options": ["Teapot", "Tent", "Tart", "Thought"],
+      "answer": "Teapot",
+      "hint": "It's used for tea.",
+      "reward": 9500,
+      "availableDate": "2024-11-12"
     },
     {
       "id": 16,
-      "difficulty": "very hard",
-      "question": "The more you take, the more you leave behind. What am I?",
-      "options": ["Steps", "Food", "Time", "Words"],
-      "answer": "Steps",
-      "hint": "Related to movement.",
-      "reward": 26000
+      "difficulty": "hard",
+      "question": "I have branches, but no fruit, trunk, or leaves. What am I?",
+      "options": ["Bank", "Tree", "Library", "River"],
+      "answer": "Bank",
+      "hint": "Related to money.",
+      "reward": 12000,
+      "availableDate": "2024-11-13"
     },
     {
       "id": 17,
-      "difficulty": "very hard",
-      "question": "I can fly without wings. I can cry without eyes. Wherever I go, darkness flies. What am I?",
-      "options": ["Wind", "Rain", "Sun", "Cloud"],
-      "answer": "Cloud",
-      "hint": "It's in the sky.",
-      "reward": 27000
+      "difficulty": "medium",
+      "question": "What gets wetter as it dries?",
+      "options": ["Towel", "Sponge", "Shower", "Water"],
+      "answer": "Towel",
+      "hint": "Used after bathing.",
+      "reward": 7000,
+      "availableDate": "2024-11-14"
     },
     {
       "id": 18,
-      "difficulty": "very hard",
-      "question": "What disappears the moment you say its name?",
-      "options": ["Silence", "Shadow", "Light", "Time"],
-      "answer": "Silence",
-      "hint": "It's related to sound.",
-      "reward": 28000
+      "difficulty": "hard",
+      "question": "I have a heart that doesn’t beat. What am I?",
+      "options": ["Artichoke", "Pumpkin", "Stone", "Human"],
+      "answer": "Artichoke",
+      "hint": "It's a vegetable.",
+      "reward": 10000,
+      "availableDate": "2024-11-15"
     },
     {
       "id": 19,
-      "difficulty": "very hard",
-      "question": "What has keys but can’t open locks?",
-      "options": ["Map", "Keyboard", "Piano", "Vault"],
-      "answer": "Piano",
-      "hint": "It's a musical instrument.",
-      "reward": 29000
+      "difficulty": "medium",
+      "question": "What has a neck but no head?",
+      "options": ["Bottle", "Tree", "Human", "Guitar"],
+      "answer": "Bottle",
+      "hint": "It's used for drinks.",
+      "reward": 8500,
+      "availableDate": "2024-11-16"
     },
     {
       "id": 20,
-      "difficulty": "very hard",
-      "question": "What is so fragile that saying its name breaks it?",
-      "options": ["Glass", "Ice", "Silence", "Promise"],
-      "answer": "Silence",
-      "hint": "Think about quietness.",
-      "reward": 30000
+      "difficulty": "hard",
+      "question": "I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I?",
+      "options": ["Echo", "Whistle", "Sound", "Air"],
+      "answer": "Echo",
+      "hint": "Related to sound.",
+      "reward": 12000,
+      "availableDate": "2024-11-17"
     },
     {
       "id": 21,
-      "difficulty": "very hard",
-      "question": "I speak without a mouth and hear without ears. I have no body, but I come alive with the wind. What am I?",
-      "options": ["Echo", "Thought", "Dream", "Memory"],
-      "answer": "Echo",
-      "hint": "It repeats sound.",
-      "reward": 31000
+      "difficulty": "hard",
+      "question": "What can travel around the world while staying in a corner?",
+      "options": ["Stamp", "Letter", "Email", "Satellite"],
+      "answer": "Stamp",
+      "hint": "It's on envelopes.",
+      "reward": 9500,
+      "availableDate": "2024-11-18"
     },
     {
       "id": 22,
-      "difficulty": "very hard",
-      "question": "The person who makes it, sells it. The person who buys it never uses it. The person who uses it never knows they’re using it. What is it?",
-      "options": ["Bed", "Book", "Coffin", "Ring"],
-      "answer": "Coffin",
-      "hint": "Related to end of life.",
-      "reward": 32000
+      "difficulty": "medium",
+      "question": "What runs around the yard without moving?",
+      "options": ["Fence", "Road", "Path", "Grass"],
+      "answer": "Fence",
+      "hint": "It's a barrier.",
+      "reward": 7000,
+      "availableDate": "2024-11-19"
     },
     {
       "id": 23,
-      "difficulty": "very hard",
-      "question": "What has many teeth, but cannot bite?",
-      "options": ["Comb", "Saw", "Stapler", "Gear"],
-      "answer": "Comb",
-      "hint": "It's used for grooming.",
-      "reward": 33000
+      "difficulty": "hard",
+      "question": "What begins with an E, ends with an E, but only contains one letter?",
+      "options": ["Envelope", "Eye", "Eagle", "Eve"],
+      "answer": "Envelope",
+      "hint": "Used for mailing.",
+      "reward": 11000,
+      "availableDate": "2024-11-20"
     },
     {
       "id": 24,
-      "difficulty": "very hard",
-      "question": "I can travel around the world while staying in the same spot. What am I?",
-      "options": ["Sun", "Shadow", "Stamp", "Wind"],
-      "answer": "Stamp",
-      "hint": "Related to letters.",
-      "reward": 34000
+      "difficulty": "medium",
+      "question": "I have a bed but I don’t sleep. What am I?",
+      "options": ["River", "Cloud", "Ground", "Ocean"],
+      "answer": "River",
+      "hint": "It flows.",
+      "reward": 8000,
+      "availableDate": "2024-11-21"
     },
     {
       "id": 25,
-      "difficulty": "very hard",
-      "question": "What has one eye, but can’t see?",
-      "options": ["Needle", "Camera", "Storm", "Button"],
+      "difficulty": "hard",
+      "question": "What has one eye but can’t see?",
+      "options": ["Needle", "Storm", "Cyclops", "Camera"],
       "answer": "Needle",
-      "hint": "Used in sewing.",
-      "reward": 35000
+      "hint": "Used for sewing.",
+      "reward": 9500,
+      "availableDate": "2024-11-22"
     },
     {
       "id": 26,
-      "difficulty": "very hard",
-      "question": "If you have me, you want to share me. If you share me, you no longer have me. What am I?",
-      "options": ["Secret", "Love", "Memory", "Time"],
-      "answer": "Secret",
-      "hint": "It's something you keep hidden.",
-      "reward": 36000
+      "difficulty": "hard",
+      "question": "I am light as a feather, yet the strongest person can’t hold me for 5 minutes. What am I?",
+      "options": ["Breath", "Air", "Cloud", "Thought"],
+      "answer": "Breath",
+      "hint": "It's essential for life.",
+      "reward": 10000,
+      "availableDate": "2024-11-23"
     },
     {
       "id": 27,
-      "difficulty": "very hard",
-      "question": "I am always hungry and will die if not fed, but whatever I touch will soon turn red. What am I?",
-      "options": ["Fire", "Rust", "Sun", "Dye"],
-      "answer": "Fire",
-      "hint": "It's dangerous.",
-      "reward": 37000
+      "difficulty": "medium",
+      "question": "What can you catch but not throw?",
+      "options": ["Cold", "Ball", "Fish", "Shadow"],
+      "answer": "Cold",
+      "hint": "It's an illness.",
+      "reward": 7500,
+      "availableDate": "2024-11-24"
     },
     {
       "id": 28,
-      "difficulty": "very hard",
-      "question": "The more you have of it, the less you see. What is it?",
-      "options": ["Fog", "Darkness", "Smoke", "Dust"],
-      "answer": "Darkness",
-      "hint": "It covers everything at night.",
-      "reward": 38000
+      "difficulty": "hard",
+      "question": "What begins with P and ends with E and has thousands of letters?",
+      "options": ["Post Office", "Page", "Parcel", "Pine"],
+      "answer": "Post Office",
+      "hint": "It's a place.",
+      "reward": 12000,
+      "availableDate": "2024-11-25"
     },
     {
       "id": 29,
-      "difficulty": "very hard",
-      "question": "What has to be broken before you can use it?",
-      "options": ["Egg", "Seed", "Glass", "Promise"],
-      "answer": "Egg",
-      "hint": "Found in the kitchen.",
-      "reward": 39000
+      "difficulty": "medium",
+      "question": "What has teeth but cannot bite?",
+      "options": ["Comb", "Saw", "Bite", "Shark"],
+      "answer": "Comb",
+      "hint": "It's used for hair.",
+      "reward": 6000,
+      "availableDate": "2024-11-26"
     },
     {
       "id": 30,
-      "difficulty": "very hard",
-      "question": "I’m tall when I’m young, and I’m short when I’m old. What am I?",
-      "options": ["Tree", "Pencil", "Candle", "Mountain"],
-      "answer": "Candle",
-      "hint": "It gives light.",
-      "reward": 40000
+      "difficulty": "hard",
+      "question": "What can fill a room but takes up no space?",
+      "options": ["Light", "Air", "Energy", "Love"],
+      "answer": "Light",
+      "hint": "It allows you to see.",
+      "reward": 10000,
+      "availableDate": "2024-11-27"
     },
     {
       "id": 31,
-      "difficulty": "very hard",
-      "question": "The more you take, the more you leave behind. What are they?",
-      "options": ["Steps", "Breaths", "Shadows", "Dreams"],
-      "answer": "Steps",
-      "hint": "Related to movement.",
-      "reward": 41000
+      "difficulty": "medium",
+      "question": "What is always in front of you but can’t be seen?",
+      "options": ["Future", "Air", "Dreams", "Tomorrow"],
+      "answer": "Future",
+      "hint": "It hasn't happened yet.",
+      "reward": 8000,
+      "availableDate": "2024-11-28"
     },
     {
       "id": 32,
-      "difficulty": "very hard",
-      "question": "I am heavy forward, but backward I am not. What am I?",
-      "options": ["Ton", "Net", "Loop", "Pit"],
-      "answer": "Ton",
-      "hint": "Think of spelling.",
-      "reward": 42000
+      "difficulty": "hard",
+      "question": "What has cities, but no houses; forests, but no trees; and rivers, but no water?",
+      "options": ["Map", "Picture", "Dream", "Story"],
+      "answer": "Map",
+      "hint": "Used for navigation.",
+      "reward": 14000,
+      "availableDate": "2024-11-29"
     },
     {
       "id": 33,
-      "difficulty": "very hard",
-      "question": "What is seen in the middle of March and April that can't be seen at the beginning or end of either month?",
-      "options": ["Letter R", "Letter M", "Letter A", "Letter H"],
-      "answer": "Letter R",
-      "hint": "It's in the alphabet.",
-      "reward": 43000
+      "difficulty": "medium",
+      "question": "What has legs but doesn’t walk?",
+      "options": ["Table", "Chair", "Human", "Insect"],
+      "answer": "Table",
+      "hint": "It’s used for eating.",
+      "reward": 7000,
+      "availableDate": "2024-11-30"
     },
     {
       "id": 34,
-      "difficulty": "very hard",
-      "question": "I start with 'M,' end with 'X,' and have a never-ending amount of letters. What am I?",
-      "options": ["Mailbox", "Matrix", "Mix", "Mailbox"],
-      "answer": "Mailbox",
-      "hint": "It stores letters.",
-      "reward": 44000
+      "difficulty": "hard",
+      "question": "I can be cracked, made, told, and played. What am I?",
+      "options": ["Joke", "Game", "Glass", "Story"],
+      "answer": "Joke",
+      "hint": "It's funny.",
+      "reward": 10000,
+      "availableDate": "2024-12-01"
     },
     {
       "id": 35,
-      "difficulty": "very hard",
-      "question": "What gets sharper the more you use it?",
-      "options": ["Mind", "Pencil", "Knife", "Saw"],
-      "answer": "Mind",
-      "hint": "It’s not a physical object.",
-      "reward": 45000
+      "difficulty": "hard",
+      "question": "What has a thumb and four fingers but is not alive?",
+      "options": ["Glove", "Hand", "Doll", "Robot"],
+      "answer": "Glove",
+      "hint": "It's worn.",
+      "reward": 9500,
+      "availableDate": "2024-12-02"
     },
     {
       "id": 36,
-      "difficulty": "very hard",
-      "question": "The more you dry, the wetter it gets. What am I?",
-      "options": ["Sponge", "Ice", "Water", "Towel"],
-      "answer": "Towel",
-      "hint": "You use it after a shower.",
-      "reward": 46000
+      "difficulty": "medium",
+      "question": "What begins with C, ends with T, and has a lot of letters?",
+      "options": ["Cart", "Cabinet", "Cactus", "Cat"],
+      "answer": "Cart",
+      "hint": "It's used for carrying.",
+      "reward": 8000,
+      "availableDate": "2024-12-03"
     },
     {
       "id": 37,
-      "difficulty": "very hard",
-      "question": "I am not alive, but I grow; I don’t have lungs, but I need air. What am I?",
-      "options": ["Fire", "Rock", "Tree", "Mold"],
-      "answer": "Fire",
-      "hint": "It burns.",
-      "reward": 47000
+      "difficulty": "hard",
+      "question": "What is easy to get into but hard to get out of?",
+      "options": ["Trouble", "Bed", "Car", "House"],
+      "answer": "Trouble",
+      "hint": "It's often used in phrases.",
+      "reward": 12000,
+      "availableDate": "2024-12-04"
     },
     {
       "id": 38,
-      "difficulty": "very hard",
-      "question": "I can be cracked, made, told, and played. What am I?",
-      "options": ["Story", "Joke", "Lie", "Mirror"],
-      "answer": "Joke",
-      "hint": "It’s something people laugh at.",
-      "reward": 48000
+      "difficulty": "medium",
+      "question": "What can you keep after giving it to someone?",
+      "options": ["Word", "Promise", "Secret", "Money"],
+      "answer": "Promise",
+      "hint": "It's a commitment.",
+      "reward": 9500,
+      "availableDate": "2024-12-05"
     },
     {
       "id": 39,
-      "difficulty": "very hard",
-      "question": "I can fly without wings. I can cry without eyes. Wherever I go, darkness flies. What am I?",
-      "options": ["Wind", "Rain", "Sun", "Cloud"],
-      "answer": "Cloud",
-      "hint": "It floats in the sky.",
-      "reward": 49000
+      "difficulty": "hard",
+      "question": "What is full of holes but still holds water?",
+      "options": ["Sponge", "Net", "Bucket", "Strainer"],
+      "answer": "Sponge",
+      "hint": "Used for cleaning.",
+      "reward": 11000,
+      "availableDate": "2024-12-06"
+    },
+    {
+      "id": 40,
+      "difficulty": "medium",
+      "question": "I am taken from a mine and shut up in a wooden case, from which I am never released. What am I?",
+      "options": ["Gold", "Silver", "Diamond", "Pencil"],
+      "answer": "Pencil",
+      "hint": "It's used for writing.",
+      "reward": 15000,
+      "availableDate": "2024-12-07"
     }
   ]
 }
