@@ -483,9 +483,12 @@ body {
 } 
 
 .invite-more {
+    display: flex;
+    align-items: center; /* توسيط عمودي للصورة والنص */
+    justify-content: center; /* توسيط أفقي */
+    gap: 8px; /* مسافة بين الصورة والنص */
     width: 75%; 
     height: 60px;
-    /*background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
     background: #1c1c1c;
     color: #fff;
     border: 1px solid #343434; 
@@ -495,8 +498,8 @@ body {
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-   /* margin: 5px;*/
 }
+
 
 .invite-more:hover {
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
@@ -511,10 +514,13 @@ body {
 } 
 
 .invite-copy {
+    display: flex;
+    align-items: center; /* توسيط عمودي للصورة والنص */
+    justify-content: center; /* توسيط أفقي */
+    gap: 8px; /* مسافة بين الصورة والنص */
     width: 20%; 
     height: 60px;
     background: #1c1c1c;
-   /* background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
     color: #fff;
     border: 1px solid #343434; 
     padding: 7px;
