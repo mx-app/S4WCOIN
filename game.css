@@ -136,8 +136,8 @@
 
 .claim-button {
     margin-left: 10px;
-    width: 20%;
-    height: 60%;
+    padding: 20px;
+    height: 80%;
     background-color: #343434; /* لون زر Claim */
     color: white;
     border: none;
