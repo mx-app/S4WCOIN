@@ -634,9 +634,19 @@ async function loadFriendsList() {
                 li.innerText = friend;
                 uiElements.friendsListDisplay.appendChild(li);
             });
+            
+        const invitedCountElement = document.getElementById('invitedCount');
+            if (invitedCountElement) {
+                invitedCountElement.innerText = data.invites.length; // عرض العدد الإجمالي للأصدقاء
+            }
         } else {
             uiElements.friendsListDisplay.innerHTML = '<li>No friends invited yet.</li>';
+            const invitedCountElement = document.getElementById('invitedCount');
+            if (invitedCountElement) {
+                invitedCountElement.innerText = 0; // إذا لم يكن هناك أصدقاء مدعوون
+            }
         }
+        
     } catch (err) {
         console.error("Unexpected error loading friends list:", err);
         uiElements.friendsListDisplay.innerHTML = `<li>Error: Unexpected issue occurred while loading friends.</li>`;
