@@ -1730,7 +1730,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (gamePage && gameFrameContainer && gameFrame && counterContainer) {
             gameFrameContainer.style.display = "none"; // إخفاء إطار اللعبة
             gameFrame.src = ""; // إفراغ رابط اللعبة
-            gamePage.style.display = "block"; // إعادة عرض صفحة الألعاب
+            gamePage.style.display = "none"; // إخفاء صفحة الألعاب
             counterContainer.style.display = "none"; // إخفاء العداد وأزرار claim
         }
     }
@@ -1754,7 +1754,6 @@ document.addEventListener("DOMContentLoaded", function() {
     window.closeGamePage = closeGamePage;
     window.claimCoins = claimCoins;
 });
-
 
 
 
