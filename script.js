@@ -1703,26 +1703,36 @@ tonConnectUI.uiOptions = {
 
 document.addEventListener("DOMContentLoaded", function () {
     let coinCounter = 0;
+    let autoIncrementInterval;
 
     function startGame(gameUrl) {
-        const gamePage = document.getElementById("gamePage");
         const gameFrameContainer = document.getElementById("gameFrameContainer");
         const gameFrame = document.getElementById("gameFrame");
         const counterDisplay = document.getElementById("counterDisplay");
         const counterContainer = document.querySelector(".counter-container");
 
-        if (gamePage && gameFrameContainer && gameFrame && counterContainer) {
-            gamePage.style.display = "none";
+        if (gameFrameContainer && gameFrame && counterContainer) {
             gameFrame.src = gameUrl;
             gameFrameContainer.style.display = "flex";
             counterContainer.style.display = "flex";
             coinCounter = 0;
             counterDisplay.innerText = coinCounter;
+
+            // بدء العداد التلقائي بمعدل 2.1 عملة في الثانية
+            autoIncrementInterval = setInterval(() => {
+                coinCounter += 2.1;
+                counterDisplay.innerText = Math.floor(coinCounter);
+            }, 1000);
         }
     }
 
     function closeGamePage() {
-        const gamePage = document.getElementById("gamePage");
+        // جمع العملات قبل الإغلاق
+        gameState.balance += Math.floor(coinCounter);
+        updateUI();
+        showNotification(uiElements.purchaseNotification, `You've claimed ${Math.floor(coinCounter)} coins!`);
+        saveGameState();
+
         const gameFrameContainer = document.getElementById("gameFrameContainer");
         const gameFrame = document.getElementById("gameFrame");
         const counterContainer = document.querySelector(".counter-container");
@@ -1730,27 +1740,23 @@ document.addEventListener("DOMContentLoaded", function () {
         if (gamePage && gameFrameContainer && gameFrame && counterContainer) {
             gameFrameContainer.style.display = "none";
             gameFrame.src = "";
-            gamePage.style.display = "none";
             counterContainer.style.display = "none";
         }
+
+        // إيقاف العداد التلقائي
+        clearInterval(autoIncrementInterval);
     }
 
     function claimCoins() {
-        gameState.balance += coinCounter;
-        updateUI(); // تحديث واجهة المستخدم
-        showNotification(uiElements.purchaseNotification, `You've claimed ${coinCounter} coins!`);
+        // جمع العملات وإغلاق اللعبة
+        gameState.balance += Math.floor(coinCounter);
+        updateUI();
+        showNotification(uiElements.purchaseNotification, `You've claimed ${Math.floor(coinCounter)} coins!`);
         saveGameState();
-        closeGamePage();
     }
 
-    // إضافة استماع للنقرات في أي مكان داخل إطار اللعبة
-    document.getElementById("gameFrameContainer").addEventListener("click", function () {
-        coinCounter += 2; // إضافة عملتين لكل نقرة
-        document.getElementById("counterDisplay").innerText = coinCounter;
-        gameState.balance += 2;
-        updateUI();
-        saveGameState();
-    });
+    // إضافة مستمع زر "كليم"
+    document.getElementById("claimButton").addEventListener("click", claimCoins);
 
     // إضافة مستمع زر الإغلاق
     document.getElementById("closeGamePage").addEventListener("click", closeGamePage);
@@ -1760,7 +1766,6 @@ document.addEventListener("DOMContentLoaded", function () {
     window.closeGamePage = closeGamePage;
     window.claimCoins = claimCoins;
 });
-
 
 
 /////////////////////////////////////////
