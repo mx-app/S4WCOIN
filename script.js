@@ -1697,13 +1697,31 @@ tonConnectUI.uiOptions = {
 };
 
 
-
-
-
-
-
-
 //////////////////////////////////////////////////
+
+
+
+function startGame(gameUrl) {
+    // إخفاء صفحة الألعاب
+    document.getElementById("gamePage").style.display = "none";
+    
+    // عرض iframe للعبة
+    document.getElementById("gameFrame").src = gameUrl;
+    document.getElementById("gameFrameContainer").style.display = "flex";
+}
+
+function closeGamePage() {
+    // إعادة عرض صفحة الألعاب
+    document.getElementById("gameFrameContainer").style.display = "none";
+    document.getElementById("gamePage").style.display = "block";
+}
+
+
+/////////////////////////////////////////
+
+
+
+
 // تفعيل التطبيق
 initializeApp();
 
