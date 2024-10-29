@@ -255,38 +255,37 @@
         </div>
      
           <!-- Game page -->
-         <div id="gamePage" class="screen-content scrollable">
-          <section class="game-container" id="gameContainer">
-      <!--<img src="i/hi.gif" alt="Game Image" class="gamePage-image">-->
-            <p id="GA">Games</p>
-            <p id="currentGameInfo">Select a game to start playing!</p>
-              <!-- Game 1 -->
-             <div class="game-item" id="gameOne">
-              <img src="i/cubes.jpg" alt="Game 1 Image" class="game-image">
-               <p>Game Tower Blocks</p>
-               <button class="game-button" onclick="startGame('')">Play Game</button>
-             </div>
-                <!-- Game 2 -->
-               <div class="game-item" id="gameTwo">
-               <img src="i/game1.jpg" alt="Game 2 Image" class="game-image">
-                <p>Game Escape from the dog </p>
-                <button class="game-button" onclick="startGame('https://dog-game-alpha.vercel.app')">Play Game</button>
-             </div>
-         </section>
+<div id="gamePage" class="screen-content scrollable">
+    <section class="game-container" id="gameContainer">
+        <p id="GA">Games</p>
+        <p id="currentGameInfo">Select a game to start playing!</p>
+        <!-- Game 1 -->
+        <div class="game-item" id="gameOne">
+            <img src="i/cubes.jpg" alt="Game 1 Image" class="game-image">
+            <p>Game Tower Blocks</p>
+            <button class="game-button" onclick="startGame('https://example-game-url.com')">Play Game</button> <!-- ضع رابط اللعبة -->
         </div>
-              <div id="gameFrameContainer" style="display: none;">
-               <iframe id="gameFrame" src="" frameborder="0" allowfullscreen></iframe>
-                <button class="close-button" onclick="closeGamePage()">Close Game</button>
-          </div>
+        <!-- Game 2 -->
+        <div class="game-item" id="gameTwo">
+            <img src="i/game1.jpg" alt="Game 2 Image" class="game-image">
+            <p>Game Escape from the dog</p>
+            <button class="game-button" onclick="startGame('https://dog-game-alpha.vercel.app')">Play Game</button>
+        </div>
+    </section>
+</div>
+<div id="gameFrameContainer" style="display: none;">
+    <iframe id="gameFrame" src="" frameborder="0" allowfullscreen></iframe>
+    <button class="close-button" onclick="closeGamePage()">Close Game</button>
+</div>
 
 
                <!-- Levels Page -->
          <div id="levelPage" class="screen-content scrollable">
-         <img src="i/levelsss.png" alt="levels Image" class="levels-image">
-          <!-- معلومات الصفحة (التعريف) -->
-         <div class="levels-info">
-           <p id="l">Levels</p>
-           <p id="currentLevelInfo">You are currently at phase <span id="displayedLevel">1</span></p>
+            <img src="i/levelsss.png" alt="levels Image" class="levels-image">
+            <!-- معلومات الصفحة (التعريف) -->
+            <div class="levels-info">
+              <p id="l">Levels</p>
+              <p id="currentLevelInfo">You are currently at phase <span id="displayedLevel">1</span></p>
         </div>
 
        <!-- قائمة المستويات -->
