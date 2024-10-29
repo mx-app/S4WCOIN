@@ -1706,12 +1706,14 @@ document.addEventListener("DOMContentLoaded", function () {
     let autoIncrementInterval;
 
     function startGame(gameUrl) {
+        const gamePage = document.getElementById("gamePage");
         const gameFrameContainer = document.getElementById("gameFrameContainer");
         const gameFrame = document.getElementById("gameFrame");
         const counterDisplay = document.getElementById("counterDisplay");
         const counterContainer = document.querySelector(".counter-container");
 
-        if (gameFrameContainer && gameFrame && counterContainer) {
+        if (gamePage && gameFrameContainer && gameFrame && counterContainer) {
+            gamePage.style.display = "none";
             gameFrame.src = gameUrl;
             gameFrameContainer.style.display = "flex";
             counterContainer.style.display = "flex";
@@ -1727,25 +1729,25 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function closeGamePage() {
-        // جمع العملات قبل الإغلاق
-        gameState.balance += Math.floor(coinCounter);
-        updateUI();
-        showNotification(uiElements.purchaseNotification, `You've claimed ${Math.floor(coinCounter)} coins!`);
-        saveGameState();
+    // جمع العملات قبل الإغلاق
+    gameState.balance += Math.floor(coinCounter);
+    updateUI();
+    showNotification(uiElements.purchaseNotification, `You've claimed ${Math.floor(coinCounter)} coins!`);
+    saveGameState();
 
-        const gameFrameContainer = document.getElementById("gameFrameContainer");
-        const gameFrame = document.getElementById("gameFrame");
-        const counterContainer = document.querySelector(".counter-container");
+    const gameFrameContainer = document.getElementById("gameFrameContainer");
+    const gameFrame = document.getElementById("gameFrame");
+    const counterContainer = document.querySelector(".counter-container");
 
-        if (gamePage && gameFrameContainer && gameFrame && counterContainer) {
-            gameFrameContainer.style.display = "none";
-            gameFrame.src = "";
-            counterContainer.style.display = "none";
-        }
-
-        // إيقاف العداد التلقائي
-        clearInterval(autoIncrementInterval);
+    if (gameFrameContainer && gameFrame && counterContainer) {
+        gameFrameContainer.style.display = "none";
+        gameFrame.src = "";
+        counterContainer.style.display = "none";
     }
+
+    // إيقاف العداد التلقائي
+    clearInterval(autoIncrementInterval);
+}
 
     function claimCoins() {
         // جمع العملات وإغلاق اللعبة
@@ -1753,6 +1755,7 @@ document.addEventListener("DOMContentLoaded", function () {
         updateUI();
         showNotification(uiElements.purchaseNotification, `You've claimed ${Math.floor(coinCounter)} coins!`);
         saveGameState();
+        closeGamePage();
     }
 
     // إضافة مستمع زر "كليم"
