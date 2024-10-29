@@ -21,7 +21,7 @@
 .games-icon {
     width: 35px;
     height: 35px;
-    margin-right: 0; /* مسافة بين الصورة والنص */
+    margin-right: 5px; /* مسافة بين الصورة والنص */
     flex-shrink: 0;
 }
 
