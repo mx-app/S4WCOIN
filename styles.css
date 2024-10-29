@@ -527,17 +527,17 @@ body {
    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
 } 
 
-.invite-icon .copy-icon {
+.invite-icon, .copy-icon {
     width: 40px;
     height: 40px;
     margin-right: 0; /* مسافة بين الصورة والنص */
     flex-shrink: 0;
 }
 
-.invite-icon .copy-icon img {
+.invite-icon img, .copy-icon img {
     vertical-align: middle;
-}  
-
+}
+ 
 
 .friends-list {
     margin: 10px auto;
