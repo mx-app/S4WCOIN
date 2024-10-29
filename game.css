@@ -123,7 +123,7 @@
 .counter {
     font-size: 1.2rem;
     color: #ffffff;
-    background-color: #aaaaaa;
+    background-color: #343434;
     padding: 8px 16px;
     border-radius: 5px;
     margin-right: 10px;
@@ -132,7 +132,7 @@
 .claim-button {
     margin-left: 10px;
     padding: 10px 20px;
-    background-color: #aaaaaa; /* لون زر Claim */
+    background-color: #343434; /* لون زر Claim */
     color: white;
     border: none;
     border-radius: 5px;
@@ -140,6 +140,6 @@
 }
 
 .claim-button:hover {
-    background-color:  #f44336; /* لون عند التمرير فوق زر Claim */
+    background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c); /* التدرج اللوني */
 }
  
