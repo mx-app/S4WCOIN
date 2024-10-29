@@ -1711,9 +1711,9 @@ document.addEventListener("DOMContentLoaded", function() {
         const counterDisplay = document.getElementById("counterDisplay");
 
         if (gamePage && gameFrameContainer && gameFrame) {
-            gamePage.style.display = "none";
-            gameFrame.src = gameUrl;
-            gameFrameContainer.style.display = "flex";
+            gamePage.style.display = "none";  // إخفاء صفحة الألعاب
+            gameFrame.src = gameUrl;  // تعيين رابط اللعبة
+            gameFrameContainer.style.display = "flex";  // عرض إطار اللعبة
             coinCounter = 0;  // إعادة تعيين العداد
             counterDisplay.innerText = coinCounter;
         }
@@ -1725,9 +1725,9 @@ document.addEventListener("DOMContentLoaded", function() {
         const gameFrame = document.getElementById("gameFrame");
 
         if (gamePage && gameFrameContainer && gameFrame) {
-            gameFrameContainer.style.display = "none";
+            gameFrameContainer.style.display = "none";  // إخفاء إطار اللعبة
             gameFrame.src = "";  // إفراغ رابط اللعبة
-            gamePage.style.display = "block";
+            gamePage.style.display = "block";  // إعادة عرض صفحة الألعاب
         }
     }
 
@@ -1741,6 +1741,9 @@ document.addEventListener("DOMContentLoaded", function() {
         coinCounter += 2;  // إضافة عملتين لكل نقرة
         document.getElementById("counterDisplay").innerText = coinCounter;
     });
+
+    // إضافة مستمع زر الإغلاق
+    document.getElementById("closeGamePage").addEventListener("click", closeGamePage);
 
     // Expose the functions to the global scope
     window.startGame = startGame;
