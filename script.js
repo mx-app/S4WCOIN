@@ -1703,19 +1703,24 @@ tonConnectUI.uiOptions = {
 
 document.addEventListener("DOMContentLoaded", function() {
     function startGame(gameUrl) {
-        // إخفاء صفحة الألعاب
+        // Hide the game page
         document.getElementById("gamePage").style.display = "none";
         
-        // عرض iframe للعبة
+        // Show iframe for the game
         document.getElementById("gameFrame").src = gameUrl;
         document.getElementById("gameFrameContainer").style.display = "flex";
     }
 
     function closeGamePage() {
-        // إعادة عرض صفحة الألعاب
+        // Display the game page again
         document.getElementById("gameFrameContainer").style.display = "none";
+        document.getElementById("gameFrame").src = ""; // Clear the game URL
         document.getElementById("gamePage").style.display = "block";
     }
+
+    // Expose the functions to the global scope
+    window.startGame = startGame;
+    window.closeGamePage = closeGamePage;
 });
 
 
