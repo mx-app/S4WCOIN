@@ -1002,7 +1002,7 @@ function initializeTelegramIntegration() {
         
 
 
-// DOM Elements
+// تعريف عناصر DOM
 const puzzlecloseModal = document.getElementById('puzzlecloseModal');
 const puzzleContainer = document.getElementById('puzzleContainer');
 const openPuzzleBtn = document.getElementById('openPuzzleBtn');
@@ -1014,24 +1014,35 @@ const timerDisplay = document.getElementById('timer');
 const remainingAttemptsDisplay = document.getElementById('attemptsDisplay');
 const puzzleRewardDisplay = document.getElementById('puzzleRewardDisplay');
 
-// Game state
+// تعريف حالة اللعبة
 let currentPuzzle;
 let attempts = 0;
 let puzzleSolved = false;
 let countdownInterval;
-const maxAttempts = 3;
-const penaltyAmount = 500; // Penalty for wrong answer
-const countdownKey = 'puzzleCountdownEndTime'; // Key for saving the countdown end time
-let countdownTimeout = null;
+const maxAttempts = 3; // أقصى عدد للمحاولات
+const penaltyAmount = 500; // العقوبة عند الإجابة الخاطئة
+const countdownDuration = 24 * 60 * 60 * 1000; // 24 ساعة بالميلي ثانية
 
-// Save countdown end time to local storage
-function start24HourCountdown() {
-    const countdownEndTime = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(); // 24 hours from now
-    localStorage.setItem(countdownKey, countdownEndTime);
-    startCountdownOnButton(24 * 60 * 60); // Start 24-hour countdown
+// تحميل الأحاجي من ملف JSON
+async function loadPuzzles() {
+    try {
+        const response = await fetch('puzzles.json');
+        if (!response.ok) throw new Error('Failed to load puzzles');
+        const data = await response.json();
+        return data.puzzles;
+    } catch (error) {
+        console.error(error);
+        showNotification(puzzleNotification, 'Error loading puzzle. Please try again later.');
+    }
 }
 
-// Start countdown on the button
+// اختيار أحجية اليوم بناءً على التاريخ
+function getTodaysPuzzle(puzzles) {
+    const today = new Date().toDateString();
+    return puzzles.find(p => new Date(p.availableDate).toDateString() === today);
+}
+
+// عرض مؤقت العد التنازلي على الزر
 function startCountdownOnButton(seconds) {
     openPuzzleBtn.disabled = true;
     openPuzzleBtn.innerText = `Next puzzle in: ${formatTime(seconds)}`;
@@ -1040,33 +1051,17 @@ function startCountdownOnButton(seconds) {
         if (seconds > 0) {
             seconds--;
             openPuzzleBtn.innerText = `Next puzzle in: ${formatTime(seconds)}`;
-            countdownTimeout = setTimeout(updateButtonCountdown, 1000);
+            setTimeout(updateButtonCountdown, 1000);
         } else {
             openPuzzleBtn.disabled = false;
             openPuzzleBtn.innerText = 'Open Puzzle';
-            localStorage.removeItem(countdownKey); // Clear countdown when finished
         }
     }
 
     updateButtonCountdown();
 }
 
-// Check if countdown is active and resume if necessary
-function checkCountdown() {
-    const countdownEndTime = localStorage.getItem(countdownKey);
-    if (countdownEndTime) {
-        const remainingTime = new Date(countdownEndTime) - new Date();
-        if (remainingTime > 0) {
-            startCountdownOnButton(Math.floor(remainingTime / 1000));
-            return true; // Countdown is still active
-        } else {
-            localStorage.removeItem(countdownKey); // Clear expired countdown
-        }
-    }
-    return false; // No active countdown
-}
-
-// Format time for display (HH:MM:SS)
+// صياغة الوقت (الساعات:الدقائق:الثواني)
 function formatTime(seconds) {
     const hours = Math.floor(seconds / 3600);
     const minutes = Math.floor((seconds % 3600) / 60);
@@ -1074,34 +1069,13 @@ function formatTime(seconds) {
     return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
 }
 
-// Load puzzles from JSON file
-async function loadPuzzles() {
-    try {
-        const response = await fetch('puzzles.json');
-        if (!response.ok) throw new Error('Failed to load puzzles');
-        const data = await response.json();
-        return data.puzzles.slice(0, 3); // Select 3 daily puzzles
-    } catch (error) {
-        console.error(error);
-        showNotification(puzzleNotification, 'Error loading puzzle. Please try again later.');
-    }
-}
-
-// Get today's puzzle
-function getTodaysPuzzle(puzzles) {
-    return puzzles[0]; // Assuming the first puzzle is today's puzzle
-}
-
-// Display today's puzzle
+// عرض أحجية اليوم إذا كانت متاحة
 async function displayTodaysPuzzle() {
-    if (checkCountdown()) return; // If countdown is active, don't show the puzzle
-
     const puzzles = await loadPuzzles();
     currentPuzzle = getTodaysPuzzle(puzzles);
-
     const userTelegramId = uiElements.userTelegramIdDisplay.innerText;
 
-    // Fetch user puzzle progress from database
+    // جلب تقدم المستخدم من قاعدة البيانات
     const { data, error } = await supabase
         .from('users')
         .select('puzzles_progress')
@@ -1117,18 +1091,23 @@ async function displayTodaysPuzzle() {
     const puzzlesProgress = data?.puzzles_progress || {};
     const puzzleProgress = puzzlesProgress[currentPuzzle.id];
 
-    // Check if the user has solved or exhausted attempts for today's puzzle
-    if (puzzleProgress?.attempts >= maxAttempts || puzzleProgress?.solved) {
-        showNotification(puzzleNotification, 'You have already solved or failed today\'s puzzle. Please come back tomorrow.');
-        return;
+    // التحقق من انتهاء العد التنازلي لمدة 24 ساعة من قاعدة البيانات
+    const lastSolvedTime = puzzleProgress?.last_solved_time;
+    if (lastSolvedTime) {
+        const timeElapsed = Date.now() - new Date(lastSolvedTime).getTime();
+        if (timeElapsed < countdownDuration) {
+            const remainingSeconds = Math.floor((countdownDuration - timeElapsed) / 1000);
+            startCountdownOnButton(remainingSeconds);
+            return;
+        }
     }
 
-    // Display question, hint, and reward
+    // عرض السؤال والتلميح والمكافأة
     puzzleQuestion.innerText = currentPuzzle.question;
     puzzleHint.innerText = `Hint : ${currentPuzzle.hint}`;
     puzzleRewardDisplay.innerText = `Reward : ${currentPuzzle.reward} coins`;
 
-    // Display options as buttons
+    // عرض الخيارات كأزرار
     const optionsHtml = currentPuzzle.options.map(option => `<button class="option-btn">${option}</button>`).join('');
     puzzleOptions.innerHTML = optionsHtml;
 
@@ -1137,7 +1116,7 @@ async function displayTodaysPuzzle() {
     startCountdown();
 }
 
-// Timer function
+// تشغيل المؤقت
 function startCountdown() {
     let timeLeft = 60.00;
     timerDisplay.innerText = timeLeft.toFixed(2);
@@ -1153,17 +1132,17 @@ function startCountdown() {
     }, 10);
 }
 
-// Handle puzzle timeout
+// التعامل مع انتهاء الوقت
 function handlePuzzleTimeout() {
     clearInterval(countdownInterval);
     showNotification(puzzleNotification, "Time's up! You failed to solve the puzzle.");
-    updateBalance(-penaltyAmount); // Deduct coins
-    updatePuzzleProgressInDatabase(currentPuzzle.id, false, maxAttempts); // Update puzzle progress
+    updateBalance(-penaltyAmount); // خصم العقوبة
+    updatePuzzleProgressInDatabase(currentPuzzle.id, false, maxAttempts); // تحديث التقدم
+    startCountdownOnButton(24 * 60 * 60); // بدء العد التنازلي لعرض أحجية اليوم التالي
     closePuzzle();
-    start24HourCountdown(); // Start 24-hour cooldown
 }
 
-// Check user's answer
+// التحقق من إجابة المستخدم
 function checkPuzzleAnswer(selectedOption) {
     const userAnswer = selectedOption.innerText.trim();
 
@@ -1179,7 +1158,7 @@ function checkPuzzleAnswer(selectedOption) {
     }
 }
 
-// Handle correct answer
+// التعامل مع الإجابة الصحيحة
 function handlePuzzleSuccess() {
     clearInterval(countdownInterval);
 
@@ -1187,14 +1166,14 @@ function handlePuzzleSuccess() {
     showNotification(puzzleNotification, `Correct! You've earned ${puzzleReward} coins.`);
     updateBalance(puzzleReward);
 
-    updatePuzzleProgressInDatabase(currentPuzzle.id, true, attempts); // Update puzzle progress in database
+    updatePuzzleProgressInDatabase(currentPuzzle.id, true, attempts); // تحديث التقدم في قاعدة البيانات
 
     puzzleSolved = true;
     document.querySelectorAll('.option-btn').forEach(btn => btn.disabled = true);
-    start24HourCountdown(); // Start 24-hour cooldown
+    startCountdownOnButton(24 * 60 * 60); // بدء العد التنازلي لعرض أحجية اليوم التالي
 }
 
-// Handle wrong answer
+// التعامل مع الإجابة الخاطئة
 function handlePuzzleWrongAnswer() {
     attempts++;
     updateRemainingAttempts(attempts);
@@ -1203,20 +1182,19 @@ function handlePuzzleWrongAnswer() {
         clearInterval(countdownInterval);
         showNotification(puzzleNotification, 'You have used all attempts. 500 coins have been deducted.');
         updateBalance(-penaltyAmount);
-        updatePuzzleProgressInDatabase(currentPuzzle.id, false, maxAttempts); // Record failed attempt
+        updatePuzzleProgressInDatabase(currentPuzzle.id, false, maxAttempts); // تسجيل المحاولة الفاشلة
+        startCountdownOnButton(24 * 60 * 60); // بدء العد التنازلي
         closePuzzle();
-        start24HourCountdown(); // Start 24-hour cooldown
     } else {
         showNotification(puzzleNotification, `Wrong answer. You have ${maxAttempts - attempts} attempts remaining.`);
     }
 }
 
-// Update puzzle progress in database
+// تحديث تقدم الأحجية في قاعدة البيانات
 async function updatePuzzleProgressInDatabase(puzzleId, solved, attempts) {
     const userTelegramId = uiElements.userTelegramIdDisplay.innerText;
-    const lastSolvedTime = solved ? new Date().toISOString() : null;
 
-    // Fetch user's current progress from database
+    // جلب التقدم الحالي للمستخدم من قاعدة البيانات
     const { data, error } = await supabase
         .from('users')
         .select('puzzles_progress')
@@ -1230,14 +1208,14 @@ async function updatePuzzleProgressInDatabase(puzzleId, solved, attempts) {
 
     let puzzlesProgress = data?.puzzles_progress || {};
 
-    // Update or add current puzzle progress
+    // تحديث أو إضافة تقدم الأحجية الحالية
     puzzlesProgress[puzzleId] = {
         solved: solved,
         attempts: attempts,
-        last_solved_time: lastSolvedTime || data?.puzzles_progress?.last_solved_time,
+        last_solved_time: solved ? new Date().toISOString() : null // تحديث وقت الحل الأخير
     };
 
-    // Update data in the database
+    // تحديث البيانات في قاعدة البيانات
     const { updateError } = await supabase
         .from('users')
         .update({ puzzles_progress: puzzlesProgress })
@@ -1248,32 +1226,21 @@ async function updatePuzzleProgressInDatabase(puzzleId, solved, attempts) {
     }
 }
 
-// Update remaining attempts display
+// تحديث عرض المحاولات المتبقية
 function updateRemainingAttempts(attempts = 0) {
-    remainingAttemptsDisplay.innerText = `${maxAttempts - attempts}/${maxAttempts} `;
+    remainingAttemptsDisplay.innerText = `${maxAttempts - attempts}/${maxAttempts}`;
 }
 
-// Update user's balance
-async function updateBalance(amount) {
-    const userTelegramId = uiElements.userTelegramIdDisplay.innerText;
-
-    const { data, error } = await supabase
-        .rpc('increment_balance', {
-            telegram_id_input: userTelegramId,
-            amount_input: amount,
-        });
-
-    if (error) {
-        console.error('Error updating balance:', error);
-        return;
-    }
-
-    uiElements.balanceDisplay.innerText = data[0].balance; // Update balance display in UI
+// تحديث الرصيد
+function updateBalance(amount) {
+    gameState.balance += amount;
+    updateUI(); // تحديث الواجهة
+    saveGameState(); // حفظ حالة اللعبة
 }
 
-// Close puzzle
+// إغلاق الأحجية
 function closePuzzle() {
-    clearInterval(countdownInterval); // Stop timer on close
+    clearInterval(countdownInterval); // إيقاف المؤقت عند الإغلاق
     puzzleContainer.classList.add('hidden');
     puzzleOptions.innerHTML = '';
     puzzleNotification.innerText = '';
@@ -1281,7 +1248,7 @@ function closePuzzle() {
     puzzleSolved = false;
 }
 
-// Event listeners
+// مستمعات الأحداث
 puzzleOptions.addEventListener('click', function (event) {
     if (event.target.classList.contains('option-btn')) {
         checkPuzzleAnswer(event.target);
@@ -1295,6 +1262,9 @@ document.getElementById('puzzlecloseModal').addEventListener('click', function()
 document.getElementById('openPuzzleBtn').addEventListener('click', function() {
     document.getElementById('puzzleContainer').classList.remove('hidden');
 });
+
+
+
 
 
 
