@@ -957,8 +957,8 @@ body {
 } 
 
 #l, #t, #info, #b, #lev, #currentLevelInfo, #i {
-    color: #fff; 
-    font-size: 18px; 
+    color: #aaaaaa; 
+    font-size: 17px; 
     margin: 10px 0;
     text-align: center;
  }
