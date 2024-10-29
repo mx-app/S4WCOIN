@@ -104,20 +104,14 @@
     border-radius: 10px; /* إضافة حواف مستديرة لـ iframe */
 }
 
-.close-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #f44336; /* لون زر الإغلاق */
+#closeGamePage {
+    margin-top: 10px;
+    background-color: red;
     color: white;
+    padding: 10px;
+    border-radius: 10px;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
 }
-
-.close-button:hover {
-    background-color: #d32f2f; /* لون عند التمرير فوق زر الإغلاق */
-}
-
 
 .counter-container {
     display: flex;
