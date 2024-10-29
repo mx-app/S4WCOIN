@@ -1012,7 +1012,7 @@ body {
  
 #task {
   /*  margin-left: -220px; */
-    color: white; /* لون النص */
+    color: #aaaaaa; /* لون النص */
     font-size: 20px; /* حجم الخط */
     margin-top: 5px; /* إزالة المسافة من الأعلى */
     margin-bottom: 10px;
@@ -1020,7 +1020,7 @@ body {
 }
 
  #w {
-    color: white; /* لون النص */
+    color: #aaaaaa; /* لون النص */
     font-size: 18px; /* حجم الخط */
     margin-top: 0; /* إزالة المسافة من الأعلى */
     margin-bottom: 0; 
