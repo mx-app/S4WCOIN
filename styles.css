@@ -960,6 +960,7 @@ body {
     margin: 0;
     cursor: pointer;
     z-index: 9999;  
+    border-left: 3px solid #343434;
 }
 
 .settings-container {
