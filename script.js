@@ -1709,11 +1709,13 @@ document.addEventListener("DOMContentLoaded", function() {
         const gameFrameContainer = document.getElementById("gameFrameContainer");
         const gameFrame = document.getElementById("gameFrame");
         const counterDisplay = document.getElementById("counterDisplay");
+        const counterContainer = document.querySelector(".counter-container");
 
-        if (gamePage && gameFrameContainer && gameFrame) {
-            gamePage.style.display = "none";  // إخفاء صفحة الألعاب
-            gameFrame.src = gameUrl;  // تعيين رابط اللعبة
-            gameFrameContainer.style.display = "flex";  // عرض إطار اللعبة
+        if (gamePage && gameFrameContainer && gameFrame && counterContainer) {
+            gamePage.style.display = "none"; // إخفاء صفحة الألعاب
+            gameFrame.src = gameUrl; // تعيين رابط اللعبة
+            gameFrameContainer.style.display = "flex"; // عرض إطار اللعبة
+            counterContainer.style.display = "flex"; // عرض العداد وأزرار claim
             coinCounter = 0;  // إعادة تعيين العداد
             counterDisplay.innerText = coinCounter;
         }
@@ -1723,22 +1725,24 @@ document.addEventListener("DOMContentLoaded", function() {
         const gamePage = document.getElementById("gamePage");
         const gameFrameContainer = document.getElementById("gameFrameContainer");
         const gameFrame = document.getElementById("gameFrame");
+        const counterContainer = document.querySelector(".counter-container");
 
-        if (gamePage && gameFrameContainer && gameFrame) {
-            gameFrameContainer.style.display = "none";  // إخفاء إطار اللعبة
-            gameFrame.src = "";  // إفراغ رابط اللعبة
-            gamePage.style.display = "block";  // إعادة عرض صفحة الألعاب
+        if (gamePage && gameFrameContainer && gameFrame && counterContainer) {
+            gameFrameContainer.style.display = "none"; // إخفاء إطار اللعبة
+            gameFrame.src = ""; // إفراغ رابط اللعبة
+            gamePage.style.display = "block"; // إعادة عرض صفحة الألعاب
+            counterContainer.style.display = "none"; // إخفاء العداد وأزرار claim
         }
     }
 
     function claimCoins() {
         alert(`You've claimed ${coinCounter} coins!`);
-        closeGamePage();  // اغلاق النافذة بعد أخذ العملات
+        closeGamePage(); // اغلاق النافذة بعد أخذ العملات
     }
 
     // إضافة استماع للنقرات داخل اللعبة لزيادة العداد
     document.getElementById("gameFrameContainer").addEventListener("click", function() {
-        coinCounter += 2;  // إضافة عملتين لكل نقرة
+        coinCounter += 2; // إضافة عملتين لكل نقرة
         document.getElementById("counterDisplay").innerText = coinCounter;
     });
 
@@ -1750,6 +1754,7 @@ document.addEventListener("DOMContentLoaded", function() {
     window.closeGamePage = closeGamePage;
     window.claimCoins = claimCoins;
 });
+
 
 
 
