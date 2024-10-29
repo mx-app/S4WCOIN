@@ -904,6 +904,8 @@ body {
 /*    border-bottom: 2px solid #343434;*/
     cursor: pointer;
     z-index: 100000;  
+    border-left: 3px solid #343434;
+    border-right: 3px solid #343434;
 
 }  
 
@@ -961,6 +963,7 @@ body {
     cursor: pointer;
     z-index: 9999;  
     border-left: 3px solid #343434;
+    border-right: 3px solid #343434;
 }
 
 .settings-container {
