@@ -82,19 +82,27 @@
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
 }
 
-/* تنسيقات iframe */
+
+/* تأكد من أن عناصر `gameFrameContainer` و`counter-container` مخفية في البداية */
 #gameFrameContainer {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.8); /* خلفية داكنة */
+    background: rgba(0, 0, 0, 0.8);
     z-index: 999;
-    display: flex;
+    display: none; /* إخفاء الإطار افتراضيًا */
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.counter-container {
+    display: none; /* إخفاء العداد وأزرار claim افتراضيًا */
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 #gameFrame {
@@ -112,13 +120,6 @@
     padding: 10px;
     border-radius: 10px;
     border: none;
-}
-
-.counter-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
 }
 
 .counter {
