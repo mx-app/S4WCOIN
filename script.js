@@ -656,7 +656,7 @@ function copyInviteLink() {
 
 // مشاركة الدعوة عبر Telegram
 function openTelegramChat() {
-    const inviteLink = `https://t.me/share/url?text=Join Jigsaw's Game and earn 50,000 coins!&url=https://t.me/SAWCOIN_BOT?start=${uiElements.userTelegramIdDisplay?.innerText || ''}`;
+    const inviteLink = `https://t.me/share/url?text=Join SAW COIN GAME and earn 50,000 coins!&url=https://t.me/SAWCOIN_BOT?start=${uiElements.userTelegramIdDisplay?.innerText || ''}`;
     window.open(inviteLink, '_blank');
 }
 
