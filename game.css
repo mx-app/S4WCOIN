@@ -15,7 +15,6 @@
     z-index: 200;  
 }
 
-
 #gamePage .game-container {
     display: flex;
     flex-direction: column;
@@ -44,7 +43,6 @@
 }
 
 #gamePage .game-item {
-   /* background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
     background: #1c1c1c; 
     border: 1px solid #343434;
     border-radius: 10px;
@@ -77,10 +75,45 @@
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s;
-    border-radius: 10px; 
     border: 1px solid #343434;
 }
 
 #gamePage .game-button:hover {
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
+}
+
+/* تنسيقات iframe */
+#gameFrameContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8); /* خلفية داكنة */
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#gameFrame {
+    width: 80%;
+    height: 80%;
+    border: none;
+    border-radius: 10px; /* إضافة حواف مستديرة لـ iframe */
+}
+
+.close-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #f44336; /* لون زر الإغلاق */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    background-color: #d32f2f; /* لون عند التمرير فوق زر الإغلاق */
 }
