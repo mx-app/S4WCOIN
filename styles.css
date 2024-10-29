@@ -484,6 +484,7 @@ body {
 
 .invite-more {
     width: 75%; 
+    height: 60px;
     /*background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
     background: #1c1c1c;
     color: #fff;
@@ -511,6 +512,7 @@ body {
 
 .invite-copy {
     width: 20%; 
+    height: 60px;
     background: #1c1c1c;
    /* background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
     color: #fff;
@@ -528,8 +530,8 @@ body {
 } 
 
 .invite-icon, .copy-icon {
-    width: 40px;
-    height: 40px;
+    width: 20px;
+    height: 20px;
     margin-right: 0; /* مسافة بين الصورة والنص */
     flex-shrink: 0;
 }
