@@ -106,7 +106,7 @@
 
 #closeGamePage {
     margin-top: 10px;
-    background-color: red;
+    background-color: transparent;
     color: white;
     padding: 10px;
     border-radius: 10px;
@@ -123,7 +123,7 @@
 .counter {
     font-size: 1.2rem;
     color: #ffffff;
-    background-color: #1c1c1c;
+    background-color: #aaaaaa;
     padding: 8px 16px;
     border-radius: 5px;
     margin-right: 10px;
@@ -132,7 +132,7 @@
 .claim-button {
     margin-left: 10px;
     padding: 10px 20px;
-    background-color: #4CAF50; /* لون زر Claim */
+    background-color: #aaaaaa; /* لون زر Claim */
     color: white;
     border: none;
     border-radius: 5px;
@@ -140,6 +140,6 @@
 }
 
 .claim-button:hover {
-    background-color: #388E3C; /* لون عند التمرير فوق زر Claim */
+    background-color:  #f44336; /* لون عند التمرير فوق زر Claim */
 }
  
