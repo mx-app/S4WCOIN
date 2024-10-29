@@ -1039,4 +1039,20 @@ body {
    /* height: 1px;
     width: 4px;*/
 }
+
+.invite-rewards {
+    margin-bottom: 20px;
+}
+
+.reward {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.coin-image {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
  
