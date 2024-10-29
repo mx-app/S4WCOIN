@@ -1047,12 +1047,10 @@ body {
     padding: 10px;
     border: 1px solid #343434; 
     background: #1c1c1c;
-   /* background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
     border-radius: 10px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
+    flex-direction: column; /* لتوزيع العناصر عمودياً */
+    align-items: center; /* لمركزة العناصر */
 }
 
 .reward {
