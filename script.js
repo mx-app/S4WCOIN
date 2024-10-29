@@ -1706,69 +1706,62 @@ document.addEventListener("DOMContentLoaded", function () {
     let autoIncrementInterval;
 
     function startGame(gameUrl) {
-        const gamePage = document.getElementById("gamePage");
         const gameFrameContainer = document.getElementById("gameFrameContainer");
         const gameFrame = document.getElementById("gameFrame");
         const counterDisplay = document.getElementById("counterDisplay");
         const counterContainer = document.querySelector(".counter-container");
 
-        if (gamePage && gameFrameContainer && gameFrame && counterContainer) {
-            gamePage.style.display = "none";
+        if (gameFrameContainer && gameFrame && counterContainer) {
             gameFrame.src = gameUrl;
             gameFrameContainer.style.display = "flex";
             counterContainer.style.display = "flex";
             coinCounter = 0;
             counterDisplay.innerText = coinCounter;
 
-            // بدء العداد التلقائي بمعدل 2.1 عملة في الثانية
+            // بدء زيادة العداد تلقائيًا
             autoIncrementInterval = setInterval(() => {
-                coinCounter += 2.1;
-                counterDisplay.innerText = Math.floor(coinCounter);
-            }, 1000);
+                coinCounter += 2;
+                counterDisplay.innerText = coinCounter;
+                gameState.balance += 2;
+                updateUI();
+                saveGameState();
+            }, 1000); // كل ثانية يتم زيادة 2 عملة
         }
     }
 
-    function closeGamePage() {
-    // جمع العملات قبل الإغلاق
-    gameState.balance += Math.floor(coinCounter);
-    updateUI();
-    showNotification(uiElements.purchaseNotification, `You've claimed ${Math.floor(coinCounter)} coins!`);
-    saveGameState();
+    function closeGameElements() {
+        const gameFrameContainer = document.getElementById("gameFrameContainer");
+        const gameFrame = document.getElementById("gameFrame");
+        const counterContainer = document.querySelector(".counter-container");
 
-    const gameFrameContainer = document.getElementById("gameFrameContainer");
-    const gameFrame = document.getElementById("gameFrame");
-    const counterContainer = document.querySelector(".counter-container");
+        if (gameFrameContainer && gameFrame && counterContainer) {
+            // إخفاء جميع العناصر الخاصة باللعبة باستثناء صفحة الألعاب
+            gameFrameContainer.style.display = "none";
+            gameFrame.src = ""; // إزالة مصدر اللعبة لإيقافها
+            counterContainer.style.display = "none";
 
-    if (gameFrameContainer && gameFrame && counterContainer) {
-        gameFrameContainer.style.display = "none";
-        gameFrame.src = "";
-        counterContainer.style.display = "none";
+            // إيقاف الزيادة التلقائية عند إغلاق العناصر
+            clearInterval(autoIncrementInterval);
+        }
     }
-
-    // إيقاف العداد التلقائي
-    clearInterval(autoIncrementInterval);
-}
 
     function claimCoins() {
-        // جمع العملات وإغلاق اللعبة
-        gameState.balance += Math.floor(coinCounter);
-        updateUI();
-        showNotification(uiElements.purchaseNotification, `You've claimed ${Math.floor(coinCounter)} coins!`);
+        gameState.balance += coinCounter;
+        updateUI(); // تحديث واجهة المستخدم
+        showNotification(uiElements.purchaseNotification, `You've claimed ${coinCounter} coins!`);
         saveGameState();
-        closeGamePage();
+        closeGameElements(); // إخفاء العناصر بعد الجمع
     }
 
-    // إضافة مستمع زر "كليم"
-    document.getElementById("claimButton").addEventListener("click", claimCoins);
-
     // إضافة مستمع زر الإغلاق
-    document.getElementById("closeGamePage").addEventListener("click", closeGamePage);
+    document.getElementById("closeGamePage").addEventListener("click", closeGameElements);
 
     // تعيين الدوال في النطاق العام
     window.startGame = startGame;
-    window.closeGamePage = closeGamePage;
+    window.closeGamePage = closeGameElements;
     window.claimCoins = claimCoins;
 });
+
 
 
 /////////////////////////////////////////
@@ -1778,5 +1771,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // تفعيل التطبيق
 initializeApp();
-
 
