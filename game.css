@@ -117,3 +117,35 @@
 .close-button:hover {
     background-color: #d32f2f; /* لون عند التمرير فوق زر الإغلاق */
 }
+
+
+.counter-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.counter {
+    font-size: 1.2rem;
+    color: #ffffff;
+    background-color: #1c1c1c;
+    padding: 8px 16px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.claim-button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* لون زر Claim */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.claim-button:hover {
+    background-color: #388E3C; /* لون عند التمرير فوق زر Claim */
+}
+ 
