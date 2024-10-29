@@ -1702,25 +1702,50 @@ tonConnectUI.uiOptions = {
 
 
 document.addEventListener("DOMContentLoaded", function() {
+    let coinCounter = 0;
+
     function startGame(gameUrl) {
-        // Hide the game page
-        document.getElementById("gamePage").style.display = "none";
-        
-        // Show iframe for the game
-        document.getElementById("gameFrame").src = gameUrl;
-        document.getElementById("gameFrameContainer").style.display = "flex";
+        const gamePage = document.getElementById("gamePage");
+        const gameFrameContainer = document.getElementById("gameFrameContainer");
+        const gameFrame = document.getElementById("gameFrame");
+        const counterDisplay = document.getElementById("counterDisplay");
+
+        if (gamePage && gameFrameContainer && gameFrame) {
+            gamePage.style.display = "none";
+            gameFrame.src = gameUrl;
+            gameFrameContainer.style.display = "flex";
+            coinCounter = 0;  // إعادة تعيين العداد
+            counterDisplay.innerText = coinCounter;
+        }
     }
 
     function closeGamePage() {
-        // Display the game page again
-        document.getElementById("gameFrameContainer").style.display = "none";
-        document.getElementById("gameFrame").src = ""; // Clear the game URL
-        document.getElementById("gamePage").style.display = "block";
+        const gamePage = document.getElementById("gamePage");
+        const gameFrameContainer = document.getElementById("gameFrameContainer");
+        const gameFrame = document.getElementById("gameFrame");
+
+        if (gamePage && gameFrameContainer && gameFrame) {
+            gameFrameContainer.style.display = "none";
+            gameFrame.src = "";  // إفراغ رابط اللعبة
+            gamePage.style.display = "block";
+        }
     }
+
+    function claimCoins() {
+        alert(`You've claimed ${coinCounter} coins!`);
+        closeGamePage();  // اغلاق النافذة بعد أخذ العملات
+    }
+
+    // إضافة استماع للنقرات داخل اللعبة لزيادة العداد
+    document.getElementById("gameFrameContainer").addEventListener("click", function() {
+        coinCounter += 2;  // إضافة عملتين لكل نقرة
+        document.getElementById("counterDisplay").innerText = coinCounter;
+    });
 
     // Expose the functions to the global scope
     window.startGame = startGame;
     window.closeGamePage = closeGamePage;
+    window.claimCoins = claimCoins;
 });
 
 
