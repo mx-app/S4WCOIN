@@ -266,7 +266,6 @@ body {
     align-items: center; /* الشريط والمعلومات في نفس المحاذاة على اليسار */
     position: absolute; /* تثبيت الحاوية في مكان محدد */
     bottom: 120px; /* ضبطه ليكون في الجزء السفلي */
-    border: 2px solid #fff;
     /*left: 20px; 
     margin-left: 0px;*/
 }
@@ -277,6 +276,7 @@ body {
     background-color: #555555; /* خلفية الشريط شفافة */
     border-radius: 50px; /* شكل الشريط */
     overflow: hidden; /* قص المحتوى الزائد */
+    border: 2px solid #fff;
     margin-top: 5px; /* مسافة بسيطة بين المعلومات والشريط */
    /* box-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700;*/ /* تأثير التوهج */
 }
