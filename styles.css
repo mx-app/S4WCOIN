@@ -145,7 +145,6 @@ body {
     overflow: hidden; /* إخفاء الأجزاء التي تخرج عن الحدود */
     position: relative; /* لجعل الحشو داخل الشريط */
     margin: 20px auto; /* لتوسيط شريط الطاقة */
-    padding: 3px;
 }
 
 .energy-bar-s {
@@ -154,7 +153,6 @@ body {
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c); /* التدرج اللوني */
     position: absolute; /* لجعل التحرك ضمن الشريط فقط */
     animation: moveEnergy 2s linear infinite; /* الحركة المتكررة للطاقة */
-    border-radius: 15px;
 }
 
 @keyframes moveEnergy {
@@ -268,6 +266,7 @@ body {
     align-items: center; /* الشريط والمعلومات في نفس المحاذاة على اليسار */
     position: absolute; /* تثبيت الحاوية في مكان محدد */
     bottom: 120px; /* ضبطه ليكون في الجزء السفلي */
+    border: 2px solid #fff;
     /*left: 20px; 
     margin-left: 0px;*/
 }
