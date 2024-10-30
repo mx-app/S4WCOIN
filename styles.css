@@ -1105,4 +1105,9 @@ body {
 
 
 
+#ton-connect {
+    top: 50%; 
+    display: flex;
+    align-items: center;
+}
 
