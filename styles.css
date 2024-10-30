@@ -1099,15 +1099,29 @@ body {
 
 #ton-connect-wrapper {
     position: fixed;
-    top: 8px; 
+    top: 8px;
     left: 190px;
-    border: 1px solid #343434;
-    border-radius: 10px;
-    padding: 5px;
-    background: #1c1c1c;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    background-color: #1c1c1c; /* اللون الداكن للخلفية */
+    border-radius: 20px;
+    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* تأثير الظل */
 }
 
-#ton-connect-wrapper:hover {
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
+#ton-connect {
+    background-color: #00aaff; /* اللون الأزرق للزر */
+    color: white; /* لون النص */
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#ton-connect img {
+    width: 20px; /* حجم الأيقونة */
+    height: 20px;
 }
