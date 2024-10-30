@@ -1762,34 +1762,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    const walletButton = document.querySelector('.wallet-button');
-    const walletPage = document.querySelector('#walletPage');
-    const overlay = document.createElement('div');
-    overlay.classList.add('overlay');
-    document.body.appendChild(overlay);
 
-    walletButton.addEventListener('click', () => {
-        walletPage.style.display = 'block';
-        overlay.style.display = 'block';
-    });
-
-    overlay.addEventListener('click', () => {
-        walletPage.style.display = 'block';
-        overlay.style.display = 'none';
-    });
-
-    // إضافة زر إغلاق
-    const closeButton = document.createElement('span');
-    closeButton.classList.add('close-btn');
-    closeButton.innerHTML = '&times;';
-    walletPage.insertBefore(closeButton, walletPage.firstChild);
-
-    closeButton.addEventListener('click', () => {
-        walletPage.style.display = 'block';
-        overlay.style.display = 'none';
-    });
-});
 
 
 
