@@ -1375,6 +1375,10 @@ async function updateUsedPromoCodesInDB(usedPromoCodes) {
 
 
 
+
+            
+
+
 document.addEventListener('DOMContentLoaded', () => {
     // DOM Elements
     const morseCipherContainer = document.getElementById('morseCipherContainer');
@@ -1391,13 +1395,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let morseAttempts = 0;
     let morseSolved = false;
     const morseMaxAttempts = 3;
-    const morsePenaltyAmount = 500; // Penalty for wrong answer
+    const morsePenaltyAmount = 500;
     let countdownTimeout = null;
 
     // Load Morse ciphers from JSON file
     async function loadMorseCiphers() {
         try {
-            const response = await fetch('MorseCiphers.json');
+            const response = await fetch('Caesar.json');
             if (!response.ok) throw new Error('Failed to load ciphers');
             const data = await response.json();
             return data.morse_ciphers;
@@ -1432,12 +1436,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const today = new Date().toISOString().split("T")[0];
 
             if (lastSolvedTime && new Date(today) <= new Date(lastSolvedTime)) {
-                showNotification(morseCipherNotification, 'Please wait until tomorrow for a new cipher.');
+                start24HourCountdown(); // بدء العدّاد حتى اليوم التالي
                 return null;
             }
 
             if (solvedToday || attemptsToday >= morseMaxAttempts) {
-                showNotification(morseCipherNotification, 'You have used all attempts today or already solved the cipher.');
+                start24HourCountdown();
                 return null;
             }
 
@@ -1512,12 +1516,7 @@ document.addEventListener('DOMContentLoaded', () => {
         morseSolved = true;
         await updateMorseCipherProgress(currentMorseCipher.id, true, morseAttempts);
         closeMorseCipher();
-        start24HourCountdown(); // Start the countdown
-    }
-
-    // Update remaining attempts display
-    function updateMorseRemainingAttempts(attempts) {
-        morseAttemptsDisplay.innerText = morseMaxAttempts - attempts;
+        start24HourCountdown();
     }
 
     // Handle Morse cipher timeout or failed attempt
@@ -1526,46 +1525,60 @@ document.addEventListener('DOMContentLoaded', () => {
         updateBalance(-morsePenaltyAmount);
         await updateMorseCipherProgress(currentMorseCipher.id, false, morseMaxAttempts);
         closeMorseCipher();
-        start24HourCountdown(); // Start the countdown after failure
+        start24HourCountdown();
     }
 
-    // Update user progress in database
-    async function updateMorseCipherProgress(cipherId, solved, attempts) {
-        try {
-            const userTelegramId = uiElements.userTelegramIdDisplay.innerText;
-            const lastSolvedTime = solved ? new Date().toISOString() : null;
+    // Update remaining attempts display
+    function updateMorseRemainingAttempts(attempts) {
+        morseAttemptsDisplay.innerText = morseMaxAttempts - attempts;
+    }
 
-            const updatedProgress = {
-                last_cipher_id: cipherId,
-                solved_today: solved,
-                attempts_today: attempts,
-                last_solved_time: lastSolvedTime,
-            };
+    // Start a 24-hour countdown on the button
+    function start24HourCountdown() {
+        openMorseCipherBtn.disabled = true;
+        let countdownDate = new Date();
+        countdownDate.setDate(countdownDate.getDate() + 1);
 
-            const { error } = await supabase
-                .from('users')
-                .update({ morse_ciphers_progress: updatedProgress })
-                .eq('telegram_id', userTelegramId);
+        countdownTimeout = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
 
-            if (error) {
-                console.error('Error updating Morse cipher progress:', error);
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            openMorseCipherBtn.innerText = `Try again in ${hours}h ${minutes}m ${seconds}s`;
+
+            if (distance < 0) {
+                clearInterval(countdownTimeout);
+                openMorseCipherBtn.disabled = false;
+                openMorseCipherBtn.innerText = 'Open Morse Cipher';
             }
-        } catch (err) {
-            console.error('Error in updateMorseCipherProgress:', err);
-        }
+        }, 1000);
     }
+
+    // Show notification when clicking the button during countdown
+    openMorseCipherBtn.addEventListener('click', (e) => {
+        if (openMorseCipherBtn.disabled) {
+            e.preventDefault();
+            showNotification(morseCipherNotification, 'Please wait until tomorrow to try again.');
+        } else {
+            displayTodaysMorseCipher();
+        }
+    });
 
     // Close Morse cipher modal
     function closeMorseCipher() {
         morseCipherContainer.classList.add('hidden');
         morseAnswerInput.value = '';
     }
-
-    // Event Listeners
+    
     submitMorseAnswerBtn.addEventListener('click', checkMorseCipherAnswer);
-    openMorseCipherBtn.addEventListener('click', displayTodaysMorseCipher);
     morsecloseModal.addEventListener('click', closeMorseCipher);
+    
 });
+
+
  
 
 
