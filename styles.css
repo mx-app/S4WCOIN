@@ -145,6 +145,7 @@ body {
     overflow: hidden; /* إخفاء الأجزاء التي تخرج عن الحدود */
     position: relative; /* لجعل الحشو داخل الشريط */
     margin: 20px auto; /* لتوسيط شريط الطاقة */
+    padding: 3px;
 }
 
 .energy-bar-s {
