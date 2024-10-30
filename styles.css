@@ -861,7 +861,7 @@ body {
 .wallet-button {
     position: fixed;
     top: 16px; 
-    left: 300px;
+    left: 320px;
     background: transparent;
     transition: background-color 0.3s;
     font-size: 15px;
