@@ -1118,22 +1118,25 @@ body {
 
 .boosts-container {
     display: flex;
-    flex-direction: column; /* لجعل الخانات عمودية */
-    gap: 20px; /* إضافة فراغ بين الخانات */
+    flex-wrap: wrap; /* للسماح للخانات بالالتفاف إذا كانت الشاشة صغيرة */
+    justify-content: center; /* لتوسيط الخانات */
+    gap: 20px; /* مسافة بين الخانات */
     width: 100%;
 }
 
 .boost-item {
     display: flex;
     flex-direction: column;
+    justify-content: space-between; /* يجعل الزر في الأسفل */
     align-items: center;
     padding: 15px;
     border: 1px solid #343434;
     border-radius: 10px;
     background-color: #1c1c1c;
-    width: 60%; /* عرض كل خانة */
-    margin: 0 auto; /* لتوسيط الخانات */
-    align-items: center;
+    width: 45%; /* عرض الخانة */
+    height: 250px; /* لضبط ارتفاع الخانة لتكون مربعة */
+    margin: 0 10px; /* لإضافة مسافة بين الخانات */
+    box-sizing: border-box; /* لضمان أن الحواف تدخل في حساب العرض */
 }
 
 .boost-icon {
@@ -1142,4 +1145,7 @@ body {
     margin-bottom: 10px;
 }
 
-
+.boost-item p {
+    text-align: center;
+    margin: 10px 0;
+}
