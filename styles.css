@@ -859,11 +859,10 @@ body {
 
 
 .wallet-button {
-    background: #1c1c1c;
-    color: #fff;
-    border: 1px solid #343434; 
-    border-radius: 10px;
-    cursor: pointer;
+    position: fixed;
+    top: 16px; 
+    left: 300px;
+    background: transparent;
     transition: background-color 0.3s;
     font-size: 15px;
     font-weight: bold;
@@ -874,7 +873,7 @@ body {
 }
 
 .wallet-button:hover {
-    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
+    background: transparent;
 }
 
 .withdraw-input {
@@ -1001,7 +1000,8 @@ body {
     top: 16px; 
     left: 315px;
     background-color: transparent;
-    background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c); /* التدرج اللوني */
+    background: #fff; 
+  /*  background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c); /* التدرج اللوني */
     -webkit-background-clip: text; /* قص الخلفية للنص */
     background-clip: text;
     color: transparent;
@@ -1094,11 +1094,4 @@ body {
 .coin-text {
     font-size: 16px;
     color: #aaaaaa;
-}
-
-
-#ton-connect-wrapper {
-    position: fixed;
-    top: 8px;
-    left: 190px;
 }
