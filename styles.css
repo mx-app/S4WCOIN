@@ -835,7 +835,7 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 20px;
+    padding: 100px;
 }
 
 .wallet-image {
@@ -1109,6 +1109,6 @@ body {
 
 #ton-connect {
     position: relative;
-    top: 50%; 
+    top: 100%; 
 }
 
