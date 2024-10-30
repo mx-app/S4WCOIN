@@ -1775,7 +1775,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     overlay.addEventListener('click', () => {
-        walletPage.style.display = 'none';
+        walletPage.style.display = 'block';
         overlay.style.display = 'none';
     });
 
@@ -1786,7 +1786,7 @@ document.addEventListener('DOMContentLoaded', () => {
     walletPage.insertBefore(closeButton, walletPage.firstChild);
 
     closeButton.addEventListener('click', () => {
-        walletPage.style.display = 'none';
+        walletPage.style.display = 'block';
         overlay.style.display = 'none';
     });
 });
