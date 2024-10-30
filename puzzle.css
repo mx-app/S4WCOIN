@@ -386,7 +386,7 @@
 }
 
 #morseCode {
-    font-size: 32px; /* حجم خط الشيفرة */
+    font-size: 25px; /* حجم خط الشيفرة */
     margin-top: 5px; /* تباعد أعلى الشيفرة */
 }
 
@@ -426,6 +426,7 @@
     width: 88%;
     bottom: 0;
 }
+
 #Puzzlespage .room-btu:hover {
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
 }
@@ -445,6 +446,7 @@
     width: 88%;
     bottom: 0;
 }
+
 #Puzzlespage .Numbers-btu:hover {
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
 }
