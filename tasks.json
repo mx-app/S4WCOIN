@@ -4,20 +4,20 @@
     "url": "https://t.me/Jigsaw_News",
     "reward": 10000,
     "description": "Telegram follow",
-    "image": "i/tel.png"
+    "image": "i/Telegram.png"
   },
   {
     "id": 8,
     "url": "https://t.me/Qyros_wallet",
     "reward": 10000,
     "description": "Telegram follow",
-    "image": "i/tel.png"
+    "image": "i/Telegram.png"
   },
   {
     "id": 9,
     "url": "https://t.me/SAW_COIN",
     "reward": 5000,
     "description": "Telegram follow",
-    "image": "i/tel.png"
+    "image": "i/Telegram.png"
   }
 ]
