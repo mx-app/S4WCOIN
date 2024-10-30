@@ -925,8 +925,8 @@ body {
 /*    border-bottom: 2px solid #343434;*/
     cursor: pointer;
     z-index: 100000;  
-    border-left: 3px solid #fff;
-    border-right: 3px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #fff;
 
 }  
 
@@ -983,8 +983,8 @@ body {
     margin: 0;
     cursor: pointer;
     z-index: 9999;  
-    border-left: 3px solid #fff;
-    border-right: 3px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #fff;
 }
 
 .settings-container {
