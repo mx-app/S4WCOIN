@@ -461,7 +461,11 @@ body {
     margin-bottom: 3px;
 }
 
-
+.home-img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 3px;
+} 
 
 .invite-section {
     display: flex;
