@@ -1573,6 +1573,7 @@ document.addEventListener('DOMContentLoaded', () => {
         morseAnswerInput.value = '';
     }
     
+    openMorseCipherBtn.addEventListener('click', displayTodaysMorseCipher);
     submitMorseAnswerBtn.addEventListener('click', checkMorseCipherAnswer);
     morsecloseModal.addEventListener('click', closeMorseCipher);
     
