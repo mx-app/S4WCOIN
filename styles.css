@@ -600,7 +600,7 @@ body {
     align-items: center;
 }
 
-.boost-item p, .task-item p {
+/*.boost-item p,*/.task-item p {
     margin: 0;
     padding: 0;
     width: 60%;
