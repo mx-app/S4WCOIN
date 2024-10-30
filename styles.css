@@ -1107,6 +1107,7 @@ body {
 
 
 #ton-connect {
+    position: relative;
     top: 50%; 
 }
 
