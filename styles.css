@@ -572,7 +572,7 @@ body {
 }
 
 
-/*.boosts-container, */.task-container {
+.boosts-container, .task-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -586,21 +586,20 @@ body {
     padding-bottom: 5px; 
 } 
 
-/*.boost-item,*/.task-item {
+.boost-item, .task-item {
     width: 88%; /* لجعل العرض 80% */
     max-width: 300px;
     margin: 10px 0;
     padding: 10px;
     border: 1px solid #343434; 
     background: #1c1c1c;
-   /* background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/*.boost-item p,*/.task-item p {
+.boost-item p, .task-item p {
     margin: 0;
     padding: 0;
     width: 60%;
@@ -659,9 +658,6 @@ body {
  
 .confirmation-modal {
     background-color: rgba(0, 0, 0, 0.70);/* خلفية شفافة */
-  /*  background-image: url('i/background.jpg');
-    background-size: cover;
-    background-position: center;*/
     padding: 20px;
     border-radius: 25px 25px 0 0; /* حواف علوية دائرية فقط */
     border-top: 2px solid #343434;
@@ -1111,41 +1107,4 @@ body {
 .coin-text {
     font-size: 16px;
     color: #aaaaaa;
-}
-
-
-
-
-.boosts-container {
-    display: flex;
-    flex-wrap: wrap; /* للسماح للخانات بالالتفاف إذا كانت الشاشة صغيرة */
-    justify-content: center; /* لتوسيط الخانات */
-    gap: 20px; /* مسافة بين الخانات */
-    width: 100%;
-}
-
-.boost-item {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* يجعل الزر في الأسفل */
-    align-items: center;
-    padding: 15px;
-    border: 1px solid #343434;
-    border-radius: 10px;
-    background-color: #1c1c1c;
-    width: 45%; /* عرض الخانة */
-    height: 250px; /* لضبط ارتفاع الخانة لتكون مربعة */
-    margin: 0 10px; /* لإضافة مسافة بين الخانات */
-    box-sizing: border-box; /* لضمان أن الحواف تدخل في حساب العرض */
-}
-
-.boost-icon {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 10px;
-}
-
-.boost-item p {
-    text-align: center;
-    margin: 10px 0;
 }
