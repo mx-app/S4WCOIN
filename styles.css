@@ -910,9 +910,6 @@ body {
 .withdraw-button {
     width: 88%;
     height: 60%; 
-    max-width: 300px;
-    margin: 10px 0;
-    padding: 10px;
     border-radius: 10px;
     border: 1px solid #343434;
     background-color: #1c1c1c;
