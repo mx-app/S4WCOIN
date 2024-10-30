@@ -1631,7 +1631,7 @@ img.addEventListener('click', (event) => {
 
     // حساب النسبة المئوية لموقع النقر لتحديد الدوران المطلوب بدقة
     const rotateX = ((y / rect.height) - 0.6) * -20; // لتعديل درجة الهبوط والصعود
-    const rotateY = ((x / rect.width) - 0.6) * 28;   // لتعديل الاتجاه الأفقي
+    const rotateY = ((x / rect.width) - 0.6) * 20;   // لتعديل الاتجاه الأفقي
 
     // تطبيق التحويلات لإمالة الصورة حسب الموقع
     img.style.transform = `translateY(-5px) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
