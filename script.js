@@ -1375,7 +1375,7 @@ async function updateUsedPromoCodesInDB(usedPromoCodes) {
 
 
 
- document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     // DOM Elements
     const morseCipherContainer = document.getElementById('morseCipherContainer');
     const morsecloseModal = document.getElementById('morsecloseModal');
@@ -1394,62 +1394,10 @@ async function updateUsedPromoCodesInDB(usedPromoCodes) {
     const morsePenaltyAmount = 500; // Penalty for wrong answer
     let countdownTimeout = null;
 
-    const countdownKey = 'morseCipherCountdownEndTime'; // Key for saving the countdown end time
-
-    // Check if countdown is active and resume if necessary
-    function checkCountdown() {
-        const countdownEndTime = localStorage.getItem(countdownKey);
-        if (countdownEndTime) {
-            const remainingTime = new Date(countdownEndTime) - new Date();
-            if (remainingTime > 0) {
-                startCountdownOnButton(Math.floor(remainingTime / 1000));
-                return true; // Countdown is still active
-            } else {
-                localStorage.removeItem(countdownKey); // Clear expired countdown
-            }
-        }
-        return false; // No active countdown
-    }
-
-    // Save countdown end time to local storage
-    function start24HourCountdown() {
-        const countdownEndTime = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(); // 24 hours from now
-        localStorage.setItem(countdownKey, countdownEndTime);
-        startCountdownOnButton(24 * 60 * 60); // Start 24-hour countdown
-    }
-
-    // Start countdown on the button
-    function startCountdownOnButton(seconds) {
-        openMorseCipherBtn.disabled = true;
-        openMorseCipherBtn.innerText = `Next cipher in: ${formatTime(seconds)}`;
-
-        function updateButtonCountdown() {
-            if (seconds > 0) {
-                seconds--;
-                openMorseCipherBtn.innerText = `Next cipher in: ${formatTime(seconds)}`;
-                countdownTimeout = setTimeout(updateButtonCountdown, 1000);
-            } else {
-                openMorseCipherBtn.disabled = false;
-                openMorseCipherBtn.innerText = 'Open Morse Cipher';
-                localStorage.removeItem(countdownKey); // Clear countdown when finished
-            }
-        }
-
-        updateButtonCountdown();
-    }
-
-    // Format time for display (HH:MM:SS)
-    function formatTime(seconds) {
-        const hours = Math.floor(seconds / 3600);
-        const minutes = Math.floor((seconds % 3600) / 60);
-        const remainingSeconds = seconds % 60;
-        return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
-    }
-
     // Load Morse ciphers from JSON file
     async function loadMorseCiphers() {
         try {
-            const response = await fetch('Caesar.json');
+            const response = await fetch('MorseCiphers.json');
             if (!response.ok) throw new Error('Failed to load ciphers');
             const data = await response.json();
             return data.morse_ciphers;
@@ -1459,12 +1407,12 @@ async function updateUsedPromoCodesInDB(usedPromoCodes) {
         }
     }
 
-    // Get today's Morse cipher based on user's progress
+    // Check and load the cipher for today
     async function getTodaysMorseCipher() {
         try {
             const ciphers = await loadMorseCiphers();
             const userTelegramId = uiElements.userTelegramIdDisplay.innerText;
-
+            
             const { data, error } = await supabase
                 .from('users')
                 .select('morse_ciphers_progress')
@@ -1478,13 +1426,12 @@ async function updateUsedPromoCodesInDB(usedPromoCodes) {
             }
 
             const ciphersProgress = data?.morse_ciphers_progress || {};
-            const lastCipherId = ciphersProgress.last_cipher_id || null;
+            const lastSolvedTime = ciphersProgress.last_solved_time || null;
             const attemptsToday = ciphersProgress.attempts_today || 0;
             const solvedToday = ciphersProgress.solved_today || false;
-            const lastSolvedTime = ciphersProgress.last_solved_time || null;
+            const today = new Date().toISOString().split("T")[0];
 
-            // Check for 24-hour cooldown
-            if (lastSolvedTime && new Date() - new Date(lastSolvedTime) < 24 * 60 * 60 * 1000) {
+            if (lastSolvedTime && new Date(today) <= new Date(lastSolvedTime)) {
                 showNotification(morseCipherNotification, 'Please wait until tomorrow for a new cipher.');
                 return null;
             }
@@ -1494,16 +1441,14 @@ async function updateUsedPromoCodesInDB(usedPromoCodes) {
                 return null;
             }
 
-            let nextCipher;
-            if (lastCipherId === null) {
-                nextCipher = ciphers[0]; // Start with the first cipher
-            } else {
-                const currentCipherIndex = ciphers.findIndex(c => c.id === lastCipherId);
-                nextCipher = ciphers[(currentCipherIndex + 1) % ciphers.length];
+            const todayCipher = ciphers.find(c => c.date === today);
+            if (!todayCipher) {
+                showNotification(morseCipherNotification, 'No cipher available for today.');
+                return null;
             }
 
             return {
-                cipher: nextCipher,
+                cipher: todayCipher,
                 attempts: attemptsToday,
                 solved: solvedToday,
             };
@@ -1516,8 +1461,6 @@ async function updateUsedPromoCodesInDB(usedPromoCodes) {
 
     // Display today's Morse cipher
     async function displayTodaysMorseCipher() {
-        if (checkCountdown()) return; // If countdown is active, don't show the cipher
-
         const cipherData = await getTodaysMorseCipher();
         if (!cipherData) return;
 
@@ -1537,7 +1480,6 @@ async function updateUsedPromoCodesInDB(usedPromoCodes) {
     async function checkMorseCipherAnswer() {
         const userAnswer = morseAnswerInput.value.trim().toUpperCase();
 
-        // Ensure the user entered an answer
         if (!userAnswer) {
             showNotification(morseCipherNotification, 'Please enter an answer before submitting.');
             return;
@@ -1579,10 +1521,10 @@ async function updateUsedPromoCodesInDB(usedPromoCodes) {
     }
 
     // Handle Morse cipher timeout or failed attempt
-    function handleMorseCipherTimeout() {
+    async function handleMorseCipherTimeout() {
         showNotification(morseCipherNotification, "You've failed to solve the Morse cipher.");
         updateBalance(-morsePenaltyAmount);
-        updateMorseCipherProgress(currentMorseCipher.id, false, morseMaxAttempts);
+        await updateMorseCipherProgress(currentMorseCipher.id, false, morseMaxAttempts);
         closeMorseCipher();
         start24HourCountdown(); // Start the countdown after failure
     }
@@ -1593,37 +1535,25 @@ async function updateUsedPromoCodesInDB(usedPromoCodes) {
             const userTelegramId = uiElements.userTelegramIdDisplay.innerText;
             const lastSolvedTime = solved ? new Date().toISOString() : null;
 
-            const { data, error } = await supabase
-                .from('users')
-                .select('morse_ciphers_progress')
-                .eq('telegram_id', userTelegramId)
-                .maybeSingle();
-
-            if (error) {
-                console.error('Error fetching Morse cipher progress:', error);
-                return;
-            }
-
             const updatedProgress = {
                 last_cipher_id: cipherId,
                 solved_today: solved,
                 attempts_today: attempts,
-                last_solved_time: lastSolvedTime || data?.morse_ciphers_progress?.last_solved_time,
+                last_solved_time: lastSolvedTime,
             };
 
-            const { error: updateError } = await supabase
+            const { error } = await supabase
                 .from('users')
                 .update({ morse_ciphers_progress: updatedProgress })
                 .eq('telegram_id', userTelegramId);
 
-            if (updateError) {
-                console.error('Error updating Morse cipher progress:', updateError);
+            if (error) {
+                console.error('Error updating Morse cipher progress:', error);
             }
         } catch (err) {
             console.error('Error in updateMorseCipherProgress:', err);
         }
     }
-
 
     // Close Morse cipher modal
     function closeMorseCipher() {
@@ -1636,6 +1566,12 @@ async function updateUsedPromoCodesInDB(usedPromoCodes) {
     openMorseCipherBtn.addEventListener('click', displayTodaysMorseCipher);
     morsecloseModal.addEventListener('click', closeMorseCipher);
 });
+ 
+
+
+
+
+
 
 /////////////////////////////////////
 
