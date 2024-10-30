@@ -835,7 +835,7 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 20px;
+    height: 100vh;
 }
 
 .wallet-image {
@@ -869,7 +869,7 @@ body {
     background: transparent;
 }
 
-.withdraw-input, withdraw-button {
+.withdraw-input, {
     width: 100%;
     max-width: 300px;
     margin: 10px 0;
@@ -904,6 +904,24 @@ body {
 .max-button:hover {
     background-color: var(--hover-color);
 }
+
+
+
+.withdraw-button {
+    width: 88%;
+    height: 60%; 
+    max-width: 300px;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #343434;
+    background-color: #1c1c1c;
+    color: #fff;
+    font-size: 15px;
+    box-sizing: border-box;
+} 
+
+
 
 .level-button-floating {
     position: fixed;
