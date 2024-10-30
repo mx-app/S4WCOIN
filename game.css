@@ -152,7 +152,7 @@
     border: none;
 }
 
-.counter {
+.counter, #coinn {
     font-size: 1.2rem;
     color: #ffffff;
     font-family: 'JetBrains Mono', monospace;
