@@ -1047,22 +1047,6 @@ body {
     color: #fff; /* اختر اللون المناسب */
 }
 
-
-#ton-connect {
-    position: fixed;
-    top: 8px; 
-    left: 190px;
-    border-radius: 10px;
-   /* background-color: transparent;
-    background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;*/
-    font-size: 10px;
-   /* height: 1px;
-    width: 4px;*/
-}
-
 .invite-rewards {
     display: flex;
     flex-direction: column;
@@ -1110,4 +1094,14 @@ body {
 .coin-text {
     font-size: 16px;
     color: #aaaaaa;
+}
+
+#ton-connect {
+    position: fixed;
+    top: 8px; 
+    left: 190px;
+    border-radius: 10px;
+    font-size: 10px;
+    height: 5px;
+    width: 8px;
 }
