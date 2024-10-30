@@ -455,15 +455,15 @@ body {
     top: 18%;
 }
 
-.menu button img {
+.menu-img {
     width: 37px;
     height: 37px;
     margin-bottom: 3px;
 }
 
 .home-img {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     margin-bottom: 3px;
 } 
 
