@@ -1102,19 +1102,3 @@ body {
     top: 8px;
     left: 190px;
 }
-
-#ton-connect {
-    background-color: #00aaff; /* اللون الأزرق للزر */
-    color: white; /* لون النص */
-    font-size: 14px;
-    padding: 8px 20px;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-#ton-connect img {
-    width: 40px; /* حجم الأيقونة */
-    height: 40px;
-}
