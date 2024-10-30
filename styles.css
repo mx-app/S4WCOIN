@@ -914,8 +914,7 @@ body {
     background-color: #1c1c1c;
     color: #fff;
     font-size: 15px;
-   /* box-sizing: border-box;*/
-    margin-top: 15px
+    margin-top: 15px; 
 } 
 
 
