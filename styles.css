@@ -1101,11 +1101,7 @@ body {
     z-index: 9999; /* قيمة z-index عالية جداً */
     transform: translateY(0); /* يظهر من الأسفل */
     height: 40vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* تقريب العناصر ببعضها */
-    gap: 5px; /* تقليل المسافة بين العناصر */
-}
+} 
 
 /* تظليل الخلفية عند ظهور النافذة المنبثقة */
 .overlay {
