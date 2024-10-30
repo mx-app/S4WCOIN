@@ -1093,17 +1093,18 @@ body {
 
 /* إعدادات النافذة المنبثقة المخفية */
 .popup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #ffffff; /* لون الخلفية */
-    padding: 20px;
-    border-radius: 10px;
-    z-index: 1000;
-    width: 80%;
-    max-width: 400px;
+    background-color: rgba(0, 0, 0, 1);/* خلفية غير شفافة */
+    padding: 10px; /* تقليل الحواف الداخلية */
+    border-radius: 25px 25px 0 0; /* حواف علوية دائرية فقط */
+    border-top: 2px solid #343434;
+    text-align: center;
+    z-index: 9999; /* قيمة z-index عالية جداً */
+    transform: translateY(0); /* يظهر من الأسفل */
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* تقريب العناصر ببعضها */
+    gap: 5px; /* تقليل المسافة بين العناصر */
 }
 
 /* تظليل الخلفية عند ظهور النافذة المنبثقة */
