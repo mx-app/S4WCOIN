@@ -1762,19 +1762,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+const tonConnectButton = document.getElementById("ton-connect");
+tonConnectButton.style.width = "88%";
+tonConnectButton.style.height = "50px";
+tonConnectButton.style.margin = "auto";
+tonConnectButton.style.display = "flex";
+tonConnectButton.style.alignItems = "center";
+tonConnectButton.style.justifyContent = "center";
 
-// انتظر حتى يتم تحميل الصفحة بالكامل
-window.onload = function() {
-    const tonConnectButton = document.getElementById("ton-connect");
-    
-    // تحقق من وجود العنصر
-    if (tonConnectButton) {
-        // ضبط العرض والارتفاع ليكون في منتصف الشاشة
-        tonConnectButton.style.width = "88%";
-        tonConnectButton.style.height = "50px"; // يمكنك تعديل الارتفاع حسب الرغبة
-        tonConnectButton.style.margin = "0 auto"; // توسيط أفقي
-    }
-};
 
 
 
