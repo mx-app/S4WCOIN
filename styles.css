@@ -1051,14 +1051,14 @@ body {
     height: 100vh;
 }
 
-#ton-connect {
+/*#ton-connect {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 88%;
-    height: 50px; /* تأكد من ضبط الارتفاع */
-    margin-bottom: 15px; /* مسافة بين الزرين */
-}
+    height: 50px; 
+    margin-bottom: 15px; 
+}*/
 
 .withdraw-button {
     width: 88%;
