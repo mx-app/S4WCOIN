@@ -829,22 +829,12 @@ body {
     display: none; /* إخفاء الأزرار عندما لا يكون هناك مزيد من التمرير */
 } 
 
-.wallet-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 40px;
-}
-
 .wallet-image {
     width: 140px;
     height: auto;
     display: block;
     margin: 0 auto;
 } 
-
 
 .wallet-icon {
     width: 25px;
@@ -866,42 +856,6 @@ body {
 
 .wallet-button:hover {
     background: transparent;
-}
-
-.withdraw-input, {
-    width: 100%;
-    max-width: 300px;
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid #fff;
-    background-color: #1c1c1c;
-    color: var(--text-color-light);
-    font-size: 16px;
-    box-sizing: border-box;
-}
-
-.withdraw-input-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.max-button {
-    background-color: #003366;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    font-size: 14px;
-    font-weight: bold;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-left: 5px;
-}
-
-.max-button:hover {
-    background-color: var(--hover-color);
 }
 
 .level-button-floating {
@@ -1088,4 +1042,31 @@ body {
     color: #aaaaaa;
 }
 
+.wallet-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+} 
 
+#ton-connect {
+    width: 88%;
+    margin-bottom: 15px; /* مسافة بين الزرين */
+}
+
+.withdraw-button {
+    width: 88%;
+    height: 60px; 
+    border-radius: 10px;
+    border: 1px solid #343434;
+    background-color: #1c1c1c;
+    color: #fff;
+    cursor: pointer;
+    font-size: 15px;
+} 
+
+.withdraw-button:hover {
+    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
+} 
