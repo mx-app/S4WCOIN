@@ -1763,6 +1763,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+// انتظر حتى يتم تحميل الصفحة بالكامل
+window.onload = function() {
+    const tonConnectButton = document.getElementById("ton-connect");
+    
+    // تحقق من وجود العنصر
+    if (tonConnectButton) {
+        // ضبط العرض والارتفاع ليكون في منتصف الشاشة
+        tonConnectButton.style.width = "88%";
+        tonConnectButton.style.height = "50px"; // يمكنك تعديل الارتفاع حسب الرغبة
+        tonConnectButton.style.margin = "0 auto"; // توسيط أفقي
+    }
+};
 
 
 
