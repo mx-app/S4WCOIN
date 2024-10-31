@@ -1762,14 +1762,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+// تهيئة TonConnectUI وربط الزر
+const tonConnectUI = new TonConnectUI();
+
+// الوصول إلى عنصر الزر وضبط أنماطه
 const tonConnectButton = document.getElementById("ton-connect");
 tonConnectButton.style.width = "88%";
 tonConnectButton.style.height = "50px";
-tonConnectButton.style.margin = "auto";
 tonConnectButton.style.display = "flex";
 tonConnectButton.style.alignItems = "center";
 tonConnectButton.style.justifyContent = "center";
-
+tonConnectButton.style.margin = "0 auto";
 
 
 
