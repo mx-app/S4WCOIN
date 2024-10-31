@@ -1049,17 +1049,21 @@ body {
     justify-content: center;
     text-align: center;
     height: 100vh;
-} 
+}
 
 #ton-connect {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 88%;
+    height: 50px; /* تأكد من ضبط الارتفاع */
     margin-bottom: 15px; /* مسافة بين الزرين */
 }
 
 .withdraw-button {
     width: 88%;
     font-weight: bold;
-    height: 60px;
+    height: 50px;
     border-radius: 10px;
     border: 1px solid #343434;
     background-color: #1c1c1c;
@@ -1071,3 +1075,4 @@ body {
 .withdraw-button:hover {
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
 } 
+ 
