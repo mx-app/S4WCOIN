@@ -904,24 +904,6 @@ body {
     background-color: var(--hover-color);
 }
 
-.withdraw-button {
-    width: 88%;
-    height: 60%; 
-    border-radius: 10px;
-    border: 1px solid #343434;
-    background-color: #1c1c1c;
-    color: #fff;
-    padding: 0;
-    cursor: pointer;
-    font-size: 15px;
-    margin-top: 15px; 
-} 
-
-.withdraw-button:hover {
-    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
-} 
-
-
 .level-button-floating {
     position: fixed;
     top: 150px; 
@@ -1106,9 +1088,4 @@ body {
     color: #aaaaaa;
 }
 
-
-#ton-connect {
-    position: relative;
-    top: 100%; 
-}
 
