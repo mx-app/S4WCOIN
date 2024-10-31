@@ -1048,7 +1048,7 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 40px;
+    height: 100vh;
 } 
 
 #ton-connect {
@@ -1058,7 +1058,8 @@ body {
 
 .withdraw-button {
     width: 88%;
-    height: 60px; 
+    font-weight: bold;
+    height: 60px;
     border-radius: 10px;
     border: 1px solid #343434;
     background-color: #1c1c1c;
