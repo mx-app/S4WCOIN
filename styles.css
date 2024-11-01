@@ -1055,7 +1055,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 88%;
-    height: 50px; 
+    width: 88% !important;
+    height: 50px !important; 
     margin-bottom: 15px; 
 }
