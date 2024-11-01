@@ -20,7 +20,7 @@
 
 /* نافذة الإعدادات */
 .settings-panel {
-    background-color: rgba(0, 0, 0, 0.80);/* خلفية غير شفافة */
+    background-color: rgba(0, 0, 0, 1);/* خلفية غير شفافة */
     padding: 10px; /* تقليل الحواف الداخلية */
     border-radius: 25px 25px 0 0; /* حواف علوية دائرية فقط */
     border-top: 2px solid #343434;
@@ -46,7 +46,7 @@
    /* border: 1px solid #343434;*/
     /*padding: 10px 20px;*/
     cursor: pointer;
-    margin-top: 10px;
+    left: 20px;
 }
 
 /* زر الإغلاق */
@@ -60,8 +60,8 @@
 }
 
 .language-icon {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
     margin-right: 0; /* مسافة بين الصورة والنص */
     flex-shrink: 0;
 } 
