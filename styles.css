@@ -179,8 +179,8 @@ body {
 
 .user-info {
     display: flex;
-    flex-direction: center;
-   /* justify-content: flex-start;
+   /* flex-direction: center;
+    justify-content: flex-start;
     /*justify-content: center; /* توسيط النص داخل الحاوية */
     align-items: center;
     background-color: #1c1c1c;
