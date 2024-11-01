@@ -942,26 +942,6 @@ body {
     border-right: 2px solid #fff;
 }
 
-.settings-container {
-    display: flex;
-    justify-content: flex-end; /* لتحديد الزر في أقصى اليمين */
-    align-items: center;
-} 
-
-.settings-button {
-    position: fixed;
-    top: 16px; 
-    left: 312px;
-    background-color: transparent;
-    background: #fff; 
-  /*  background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c); /* التدرج اللوني */
-    -webkit-background-clip: text; /* قص الخلفية للنص */
-    background-clip: text;
-    color: transparent;
-    font-size: 18px;
-    z-index: 100;  
-}
- 
 #task, #Gem {
     color: #aaaaaa; /* لون النص */
     font-size: 20px; /* حجم الخط */
@@ -1064,45 +1044,4 @@ body {
     justify-content: center;
 /*   width: 88% !important;
     height: 50px !important;*/
-}
-
-
-/* نافذة الإعدادات */
-.settings-panel {
-    background-color: rgba(0, 0, 0, 0.80);/* خلفية غير شفافة */
-    padding: 10px; /* تقليل الحواف الداخلية */
-    border-radius: 25px 25px 0 0; /* حواف علوية دائرية فقط */
-    border-top: 2px solid #343434;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 9999; /* قيمة z-index عالية جداً */
-    transform: translateY(0); /* يظهر من الأسفل */
-    height: 40vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* تقريب العناصر ببعضها */
-    align-items: center;
-}
-
-/* زر اللغة */
-.language-button {
-    background-color: #1c1c1c;
-    color: #fff;
-    border: 1px solid #343434;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-/* زر الإغلاق */
-.close {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 24px;
-    color: #fff;
-    cursor: pointer;
 }
