@@ -177,6 +177,24 @@ body {
     color: #fff;
 }  
 
+.user-info {
+    display: flex;
+/*   flex-direction: column;
+    justify-content: flex-start;*/
+    align-items: center;
+    background-color: #1c1c1c;
+    font-size: 10px; 
+    margin: 10px;
+    color: #fff; 
+    width: 60%;
+    padding: 5px 5px;
+    border-radius: 10px;
+    border: 1px solid #343434;
+  /*  position: absolute;
+    opacity: 0; 
+    pointer-events: none;*/
+} 
+
 .user-id {
     font-size: 15px;
     color: #aaaaaa;
@@ -185,6 +203,11 @@ body {
 .user-name {
     font-size: 18px;
     color: #fff;
+} 
+
+.user-details {
+    display: flex;
+    flex-direction: column;
 } 
 
 .user-image {
@@ -200,24 +223,6 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: transparent;
-}
-
-.user-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    background-color: #1c1c1c;
-    font-size: 10px; 
-    margin: 10px;
-    color: #fff; 
-    width: 60%;
-    padding: 5px 5px;
-    border-radius: 10px;
-    border: 1px solid #343434;
-  /*  position: absolute;
-    opacity: 0; 
-    pointer-events: none;*/
 }
 
 #balanceTitle {
