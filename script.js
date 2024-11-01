@@ -478,6 +478,7 @@ function handleClick(event) {
         gameState.balance += gameState.clickMultiplier * touchPoints.length;
         gameState.energy -= gameState.clickMultiplier * touchPoints.length;
         updateUI();
+        updateUserData();
         saveGameState();  // التأكد من حفظ حالة اللعبة بعد كل نقرة
     } else {
         showNotification(uiElements.purchaseNotification, 'Not enough energy!');
