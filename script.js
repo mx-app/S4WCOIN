@@ -1818,20 +1818,30 @@ languageButton.addEventListener("click", () => {
 ////////////////////////////////////////
 
 
+
+
 function updateAccountSummary() {
+  // تحديث العناصر الأساسية
   const invitedCountElement = document.getElementById('invitedCount');
   const balanceDisplayElement = document.getElementById('balanceDisplay');
   const currentLevelNameElement = document.getElementById('currentLevelName');
 
-  if (invitedCountElement) {
-    invitedCountElement.innerText = gameState.invites.length; // عرض العدد الإجمالي للأصدقاء
-  }
-  if (balanceDisplayElement) {
-    balanceDisplayElement.innerText = gameState.balance; // عرض الرصيد الحالي
-  }
-  if (currentLevelNameElement) {
-    currentLevelNameElement.innerText = `Level ${gameState.currentLevel}`; // عرض المستوى الحالي
-  }
+  // تحديث النسخ داخل لوحة الإعدادات
+  const settingsInvitedCount = document.getElementById('settingsInvitedCount');
+  const settingsBalanceDisplay = document.getElementById('settingsBalanceDisplay');
+  const settingsCurrentLevelName = document.getElementById('settingsCurrentLevelName');
+
+  const currentLevelIndex = gameState.currentLevel - 1;
+  const currentLevelName = levelThresholds[currentLevelIndex]?.name || 'Unknown';
+
+  if (invitedCountElement) invitedCountElement.innerText = gameState.invites.length;
+  if (balanceDisplayElement) balanceDisplayElement.innerText = gameState.balance;
+  if (currentLevelNameElement) currentLevelNameElement.innerText = currentLevelName;
+
+  // تحديث النسخ في لوحة الإعدادات
+  if (settingsInvitedCount) settingsInvitedCount.innerText = gameState.invites.length;
+  if (settingsBalanceDisplay) settingsBalanceDisplay.innerText = gameState.balance;
+  if (settingsCurrentLevelName) settingsCurrentLevelName.innerText = currentLevelName;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -1839,6 +1849,9 @@ document.addEventListener('DOMContentLoaded', () => {
   updateAccountSummary();
 });
 
+
+
+//////////////////////////////
 
 
 
