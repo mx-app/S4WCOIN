@@ -181,12 +181,13 @@ body {
     display: flex;
 /*   flex-direction: column;
     justify-content: flex-start;*/
+    justify-content: center; /* توسيط النص داخل الحاوية */
     align-items: center;
     background-color: #1c1c1c;
     font-size: 10px; 
     margin: 10px;
     color: #fff; 
-    width: 60%;
+    width: 70%;
     padding: 5px 5px;
     border-radius: 10px;
     border: 1px solid #343434;
@@ -209,12 +210,12 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center; /* توسيط النص عموديًا */
-    margin-left: 60px; /* إبعاد النص عن الصورة */
+    margin-left: 10px; /* إبعاد النص عن الصورة */
 } 
 
 .user-image {
-    width: 30px; /* حجم الصورة */
-    height: 30px;
+    width: 35px; /* حجم الصورة */
+    height: 35px;
     border-radius: 50%; /* صورة دائرية */
     position: absolute;
     left: 10px; /* تثبيت الصورة على الجانب الأيسر */
