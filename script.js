@@ -1815,8 +1815,29 @@ languageButton.addEventListener("click", () => {
 });
 
 
-
 ////////////////////////////////////////
+
+
+function updateAccountSummary() {
+  const invitedCountElement = document.getElementById('invitedCount');
+  const balanceDisplayElement = document.getElementById('balanceDisplay');
+  const currentLevelNameElement = document.getElementById('currentLevelName');
+
+  if (invitedCountElement) {
+    invitedCountElement.innerText = gameState.invites.length; // عرض العدد الإجمالي للأصدقاء
+  }
+  if (balanceDisplayElement) {
+    balanceDisplayElement.innerText = gameState.balance; // عرض الرصيد الحالي
+  }
+  if (currentLevelNameElement) {
+    currentLevelNameElement.innerText = `Level ${gameState.currentLevel}`; // عرض المستوى الحالي
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadGameState();
+  updateAccountSummary();
+});
 
 
 
