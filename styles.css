@@ -192,6 +192,7 @@ body {
     border-radius: 10px;
     border: 1px solid #343434;
     margin-top: 80px; 
+    margin-button: 15px; 
   /*  position: absolute;
     opacity: 0; 
     pointer-events: none;*/
