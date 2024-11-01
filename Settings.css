@@ -40,6 +40,8 @@
 
 /* زر اللغة */
 .language-button {
+    top: 10px; 
+    left: 20px;
     font-size: 16px;
     color: #fff;
     background-color: transparent;
