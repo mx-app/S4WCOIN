@@ -179,7 +179,7 @@ body {
 
 .user-id {
     font-size: 15px;
-    color: #fff;
+    color: #aaaaaa;
 } 
 
 .user-name {
@@ -199,7 +199,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
     background-color: #1c1c1c;
     font-size: 10px; 
     margin: 10px;
