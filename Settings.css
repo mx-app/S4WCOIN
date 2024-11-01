@@ -41,8 +41,8 @@
 
 /* زر اللغة */
 .language-button {
-    top: 5px;
-    left: 10px;
+    margin-left: 30px;
+    margin-bottom: 50px; 
     background-color: transparent;
    /* border: 1px solid #343434;*/
     /*padding: 10px 20px;*/
