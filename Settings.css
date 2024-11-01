@@ -59,13 +59,13 @@
     cursor: pointer;
 }
 
-.language-icon {
+/*.language-icon {
     width: 28px;
     height: 28px;
-    margin-right: 0; /* مسافة بين الصورة والنص */
+    margin-right: 0;
     flex-shrink: 0;
 } 
 
 .language-icon img {
     vertical-align: middle;
-}  
+}  */
