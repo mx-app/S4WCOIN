@@ -196,6 +196,11 @@ body {
     pointer-events: none;*/
 } 
 
+.user-details {
+    display: flex;
+    flex-direction: column; /* وضع النصوص تحت بعض */
+} 
+
 .user-id {
     font-size: 15px;
     color: #aaaaaa;
