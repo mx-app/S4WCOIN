@@ -1796,27 +1796,20 @@ document.addEventListener('DOMContentLoaded', function() {
 const settingsButton = document.getElementById("settingsButton");
 const settingsPanel = document.getElementById("settingsPanel");
 const closeModal = document.getElementById("SettingscloseModal");
-const languageButton = document.getElementById("languageButton");
 
+// إظهار نافذة الإعدادات عند النقر على زر الإعدادات
 settingsButton.addEventListener("click", () => {
-    settingsPanel.style.bottom = "0";
+    settingsPanel.style.bottom = "0"; // إظهار اللوحة
 });
 
+// إخفاء نافذة الإعدادات عند النقر على زر الإغلاق
 closeModal.addEventListener("click", () => {
-    settingsPanel.style.bottom = "-100%";
-});
-
-languageButton.addEventListener("click", () => {
-    if (languageButton.textContent.includes("English")) {
-        languageButton.textContent = "Language: Arabic";
-    } else {
-        languageButton.textContent = "Language: English";
-    }
+    settingsPanel.style.bottom = "-100%"; // إخفاء اللوحة
 });
 
 
-////////////////////////////////////////
 
+//////////////////////
 
 
 
