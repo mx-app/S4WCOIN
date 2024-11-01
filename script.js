@@ -1761,29 +1761,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    const THEME = TonConnectUI.THEME;
+    // تأكد من تعريف المتغير THEME 
+    const THEME = TonConnectUi.THEME;
 
-    const tonConnectUI = new TonConnectUI({
-        uiOptions: {
-            uiPreferences: {
-                theme: THEME.DARK,
-                borderRadius: 's',
-                colorsSet: {
-                    [THEME.DARK]: {
-                        connectButton: {
-                            background: '#000000'
-                        }
-                    },
-                    [THEME.LIGHT]: {
-                        text: {
-                            primary: '#FF0000'
-                        }
+    // تهيئة واجهة Ton Connect UI مع التخصيصات
+    const tonConnectUI = new TonConnectUi.TonConnectUI({
+        uiPreferences: {
+            theme: THEME.DARK,
+            borderRadius: 's',
+            colorsSet: {
+                [THEME.DARK]: {
+                    connectButton: {
+                        background: '#000000'  // لون خلفية الزر في الثيم الداكن
+                    }
+                },
+                [THEME.LIGHT]: {
+                    text: {
+                        primary: '#FF0000'   // لون النص في الثيم الفاتح
                     }
                 }
             }
         }
     });
+
+    // ربط واجهة Ton Connect UI بالعنصر المحدد
+    tonConnectUI.render('#ton-connect');
 });
+
 
 
 
