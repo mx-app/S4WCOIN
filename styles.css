@@ -1069,23 +1069,29 @@ body {
 
 /* نافذة الإعدادات */
 .settings-panel {
-    position: fixed;
-    bottom: -100%;
-    left: 0;
-    width: 100%;
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.80);/* خلفية غير شفافة */
+    padding: 10px; /* تقليل الحواف الداخلية */
+    border-radius: 25px 25px 0 0; /* حواف علوية دائرية فقط */
+    border-top: 2px solid #343434;
     text-align: center;
-    transition: bottom 0.3s ease;
-    box-sizing: border-box;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999; /* قيمة z-index عالية جداً */
+    transform: translateY(0); /* يظهر من الأسفل */
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* تقريب العناصر ببعضها */
+    align-items: center;
 }
 
 /* زر اللغة */
 .language-button {
-    background-color: #444;
+    background-color: #1c1c1c;
     color: #fff;
-    border: none;
+    border: 1px solid #343434;
     padding: 10px 20px;
     cursor: pointer;
     margin-top: 10px;
