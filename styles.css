@@ -187,6 +187,13 @@ body {
     color: #fff;
 } 
 
+.user-image {
+    width: 30px; /* حجم الصورة */
+    height: 30px;
+    border-radius: 50%; /* صورة دائرية */
+    margin-right: 10px; /* مسافة بين الصورة واسم المستخدم */
+} 
+
 .balance-container {
     display: flex;
     flex-direction: column;
