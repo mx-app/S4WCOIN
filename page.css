@@ -3,12 +3,14 @@
     background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
 }
 
+
 #tasksPage {
     padding-top: 100px; /* يمكنك تغيير القيمة حسب الحاجة */
     background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
     overflow-y: auto; /* لجعل الصفحة قابلة للتمرير */
     padding-bottom: 100px; /* مسافة سفلية */
 }
+
 
 #accountPage {
     padding-top: 80px; /* يمكنك تغيير القيمة حسب الحاجة */
@@ -34,6 +36,7 @@
     padding-bottom: 110px;
 }
 
+
 #boostsPage {
     padding-top: 80px; /* يمكنك تغيير القيمة حسب الحاجة */
     background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
@@ -41,9 +44,18 @@
     padding-bottom: 0; /* مسافة سفلية */
 }
 
+
 #levelPage {
     padding-top: 5px; /* يمكنك تغيير القيمة حسب الحاجة */
     background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
     overflow-y: auto; /* لجعل الصفحة قابلة للتمرير */
     padding-bottom: 80px; /* مسافة سفلية */
+}
+
+
+#walletPage {
+    padding-top: 0; /* يمكنك تغيير القيمة حسب الحاجة */
+    background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
+    overflow-y: auto; /* لجعل الصفحة قابلة للتمرير */
+    padding-bottom: 0; /* مسافة سفلية */
 }
