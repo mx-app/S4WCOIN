@@ -45,9 +45,9 @@
     background-color: transparent;
     cursor: pointer;
     
-  /*  position: absolute;
+    position: absolute;
     opacity: 0; 
-    pointer-events: none;*/
+    pointer-events: none;
 }
 
 /* زر الإغلاق */
