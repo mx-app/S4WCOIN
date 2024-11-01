@@ -214,8 +214,8 @@ body {
 .user-image {
     width: 35px; /* حجم الصورة */
     height: 35px;
-    border-radius: 50%; /* صورة دائرية */
-    margin-left: 10px;
+    margin-left: 30px;
+    display: block;
 } 
 
 .balance-container {
