@@ -44,9 +44,10 @@
     color: #fff;
     background-color: transparent;
     cursor: pointer;
-    position: absolute;
+    
+  /*  position: absolute;
     opacity: 0; 
-    pointer-events: none;
+    pointer-events: none;*/
 }
 
 /* زر الإغلاق */
@@ -59,7 +60,7 @@
     cursor: pointer;
 }
 
-/*.language-icon {
+.language-icon {
     width: 28px;
     height: 28px;
     margin-right: 0;
@@ -68,4 +69,4 @@
 
 .language-icon img {
     vertical-align: middle;
-}  */
+} 
