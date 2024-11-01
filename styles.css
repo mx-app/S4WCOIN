@@ -215,7 +215,6 @@ body {
 .user-image {
     width: 35px; /* حجم الصورة */
     height: 35px;
-    margin-right: 50px;
     display: block;
 } 
 
