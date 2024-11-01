@@ -208,13 +208,16 @@ body {
 .user-details {
     display: flex;
     flex-direction: column;
+    align-items: center; /* توسيط النص عموديًا */
+    margin-left: 60px; /* إبعاد النص عن الصورة */
 } 
 
 .user-image {
     width: 30px; /* حجم الصورة */
     height: 30px;
     border-radius: 50%; /* صورة دائرية */
-    margin-right: 10px; /* مسافة بين الصورة واسم المستخدم */
+    position: absolute;
+    left: 10px; /* تثبيت الصورة على الجانب الأيسر */
 } 
 
 .balance-container {
