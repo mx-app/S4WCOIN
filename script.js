@@ -1799,12 +1799,12 @@ const closeModal = document.getElementById("SettingscloseModal");
 
 // إظهار نافذة الإعدادات عند النقر على زر الإعدادات
 settingsButton.addEventListener("click", () => {
-    settingsPanel.style.bottom = "0"; // إظهار اللوحة
+    settingsPanel.style.display = "block"; // إظهار اللوحة
 });
 
 // إخفاء نافذة الإعدادات عند النقر على زر الإغلاق
 closeModal.addEventListener("click", () => {
-    settingsPanel.style.bottom = "-100%"; // إخفاء اللوحة
+    settingsPanel.style.display = "none"; // إخفاء اللوحة
 });
 
 
