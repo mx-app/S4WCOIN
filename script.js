@@ -1760,25 +1760,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-const tonConnectUI = new TonConnectUI({
-    uiOptions: {
-        uiPreferences: {
-            theme: THEME.DARK,
-            borderRadius: 's',
-            colorsSet: {
-                [THEME.DARK]: {
-                    connectButton: {
-                        background: '#000000'
-                    }
-                },
-                [THEME.LIGHT]: {
-                    text: {
-                        primary: '#FF0000'
+document.addEventListener('DOMContentLoaded', function() {
+    const THEME = TonConnectUI.THEME;
+
+    const tonConnectUI = new TonConnectUI({
+        uiOptions: {
+            uiPreferences: {
+                theme: THEME.DARK,
+                borderRadius: 's',
+                colorsSet: {
+                    [THEME.DARK]: {
+                        connectButton: {
+                            background: '#000000'
+                        }
+                    },
+                    [THEME.LIGHT]: {
+                        text: {
+                            primary: '#FF0000'
+                        }
                     }
                 }
             }
         }
-    }
+    });
 });
 
 
