@@ -1789,9 +1789,36 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-
-
 //////////////////////////////////////////
+
+
+
+const settingsButton = document.getElementById("settingsButton");
+const settingsPanel = document.getElementById("settingsPanel");
+const closeModal = document.getElementById("SettingscloseModal");
+const languageButton = document.getElementById("languageButton");
+
+settingsButton.addEventListener("click", () => {
+    settingsPanel.style.bottom = "0";
+});
+
+closeModal.addEventListener("click", () => {
+    settingsPanel.style.bottom = "-100%";
+});
+
+languageButton.addEventListener("click", () => {
+    if (languageButton.textContent.includes("English")) {
+        languageButton.textContent = "Language: Arabic";
+    } else {
+        languageButton.textContent = "Language: English";
+    }
+});
+
+
+
+////////////////////////////////////////
+
+
 
 
 // تفعيل التطبيق
