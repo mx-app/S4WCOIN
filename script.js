@@ -238,10 +238,6 @@ function updateUI() {
         uiElements.balanceDisplay.innerText = formatNumber(gameState.balance);
     }
 
-    if (uiElements.diamondBalanceDisplay) {
-        uiElements.diamondBalanceDisplay.innerText = formatNumber(gameState.diamonds);
-    }
-
     const energyPercent = (gameState.energy / gameState.maxEnergy) * 100;
     if (uiElements.energyBar) {
         uiElements.energyBar.style.width = `${energyPercent}%`;
