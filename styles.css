@@ -985,13 +985,13 @@ body {
 }
 
 .app-logo {
-    width: 25px;
-    height: 25px;
+    width: 26px;
+    height: 26px;
     margin-right: 5px; /* مسافة بين الصورة والاسم */
 }
 
 .app-name {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: bold;
     color: #fff; /* اختر اللون المناسب */
 }
