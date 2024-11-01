@@ -200,7 +200,7 @@ body {
     display: flex;
     flex-direction: column; /* وضع النصوص تحت بعض */
   /*  align-items: center;*/
-    margin-left: 10px;
+    margin-left: 30px;
 } 
 
 .user-id {
