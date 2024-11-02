@@ -483,11 +483,11 @@ function confirmUpgradeAction() {
 
         // تحديث واجهة المستخدم والإشعارات بعد الترقية
         updateUI();
-        showNotification(uiElements.purchaseNotification, `Successfully upgraded!`);
+        showNotificationWithStatus(uiElements.purchaseNotification, `Successfully upgraded!`, 'win');
         updateUserData();
         saveGameState();
     } else {
-        showNotification(uiElements.purchaseNotification, `Not enough coins!`);
+        showNotificationWithStatus(uiElements.purchaseNotification, `Not enough coins!`, 'lose');
     }
     uiElements.upgradeModal.style.display = 'none';  // إخفاء النافذة المنبثقة بعد الترقية
 }
@@ -553,6 +553,7 @@ function createDiamondCoinEffect(x, y) {
         }, 1000);
     }, 50);
 }
+
 
 // الانتقال بين الشاشات
 function navigateToScreen(screenId) {
@@ -824,7 +825,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-//
+///////////////////////////
+
 
 // أولاً: الحصول على جميع الأزرار داخل القائمة
 const buttons = document.querySelectorAll('.menu button');
@@ -861,6 +863,8 @@ buttons.forEach(button => {
 
 
 
+
+//////////////////////////////////////
 
 
 
@@ -937,7 +941,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         claimTaskReward(taskId, taskReward);
                         button.textContent = 'Completed';
                         button.disabled = true;
-                        showNotification(uiElements.purchaseNotification, 'Reward successfully claimed!');
+                        showNotificationWithStatus(uiElements.purchaseNotification, 'Reward successfully claimed!', 'win');
                     }
                 };
             });
@@ -983,7 +987,7 @@ function claimTaskReward(taskId, reward) {
     }
 
     updateUI(); // Update the UI
-    showNotification(uiElements.purchaseNotification, `Successfully claimed ${reward} coins!`);
+    showNotificationWithStatus(uiElements.purchaseNotification, `Successfully claimed ${reward} coins!`, 'win');
     updateUserData(); // Sync user data with the server
     saveGameState(); // Ensure the game state is saved
 }
@@ -1086,7 +1090,7 @@ async function loadPuzzles() {
         return data.puzzles;
     } catch (error) {
         console.error(error);
-        showNotification(puzzleNotification, 'Error loading puzzle. Please try again later.');
+        showNotificationWithStatus(puzzleNotification, 'Error loading puzzle. Please try again later.', 'lose');
     }
 }
 
@@ -1189,7 +1193,7 @@ function startCountdown() {
 // التعامل مع انتهاء الوقت
 function handlePuzzleTimeout() {
     clearInterval(countdownInterval);
-    showNotification(puzzleNotification, "Time's up! You failed to solve the puzzle.");
+    showNotificationWithStatus(puzzleNotification, "Time's up! You failed to solve the puzzle.", 'lose');
     updateBalance(-penaltyAmount); // خصم العقوبة
     updatePuzzleProgressInDatabase(currentPuzzle.id, false, maxAttempts); // تحديث التقدم
     startCountdownOnButton(24 * 60 * 60); // بدء العد التنازلي لعرض أحجية اليوم التالي
@@ -1217,7 +1221,7 @@ function handlePuzzleSuccess() {
     clearInterval(countdownInterval);
 
     const puzzleReward = currentPuzzle.reward;
-    showNotification(puzzleNotification, `Correct! You've earned ${puzzleReward} coins.`);
+    showNotificationWithStatus(puzzleNotification, `Correct! You've earned ${puzzleReward} coins.`, 'win');
     updateBalance(puzzleReward);
 
     updatePuzzleProgressInDatabase(currentPuzzle.id, true, attempts); // تحديث التقدم في قاعدة البيانات
@@ -1358,7 +1362,7 @@ document.getElementById('applyPromoCode').addEventListener('click', async () => 
 
     // تحقق مما إذا كان المستخدم قد استخدم هذا البرومو كود من قبل
     if (gameState.usedPromoCodes && gameState.usedPromoCodes.includes(enteredCode)) {
-        showNotification(uiElements.purchaseNotification, 'You have already used this promo code.');
+        showNotificationWithStatus(uiElements.purchaseNotification, 'You have already used this promo code.', 'win');
         return;
     }
 
@@ -1382,7 +1386,7 @@ document.getElementById('applyPromoCode').addEventListener('click', async () => 
         await updateUsedPromoCodesInDB(gameState.usedPromoCodes);
 
         // إظهار إشعار بالنجاح
-        showNotification(uiElements.purchaseNotification, `Successfully added ${reward} coins to your balance!`);
+        showNotificationWithStatus(uiElements.purchaseNotification, `Successfully added ${reward} coins to your balance!`, 'win');
 
         // إخفاء النافذة بعد الاستخدام
         document.getElementById('promoCodeModal').style.display = 'none';
@@ -1390,7 +1394,7 @@ document.getElementById('applyPromoCode').addEventListener('click', async () => 
         // حفظ حالة اللعبة بعد إضافة المكافأة
         saveGameState();
     } else {
-        showNotification(uiElements.purchaseNotification, 'Invalid promo code.');
+        showNotificationWithStatus(uiElements.purchaseNotification, 'Invalid promo code.', 'lose');
     }
 });
 
@@ -1527,7 +1531,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
         } catch (err) {
             console.error('Error in getTodaysMorseCipher:', err);
-            showNotification(morseCipherNotification, 'Unexpected error. Please try again later.');
+            showNotificationWithStatus(morseCipherNotification, 'Unexpected error. Please try again later.', 'lose');
             return null;
         }
     }
@@ -1573,7 +1577,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (morseAttempts >= morseMaxAttempts) {
                 handleMorseCipherTimeout();
             } else {
-                showNotification(morseCipherNotification, "Incorrect answer. Try again.");
+                showNotificationWithStatus(morseCipherNotification, "Incorrect answer. Try again.", 'lose');
                 await updateMorseCipherProgress(currentMorseCipher.id, false, morseAttempts);
             }
         }
@@ -1581,7 +1585,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Handle successful cipher solution
     async function handleSuccess() {
-        showNotification(morseCipherNotification, `Correct! You've earned ${currentMorseCipher.reward} coins.`);
+        showNotificationWithStatus(morseCipherNotification, `Correct! You've earned ${currentMorseCipher.reward} coins.` , 'win');
         updateBalance(currentMorseCipher.reward);
         morseSolved = true;
         await updateMorseCipherProgress(currentMorseCipher.id, true, morseAttempts);
@@ -1596,7 +1600,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Handle Morse cipher timeout or failed attempt
     function handleMorseCipherTimeout() {
-        showNotification(morseCipherNotification, "You've failed to solve the Morse cipher.");
+        showNotificationWithStatus(morseCipherNotification, "You've failed to solve the Morse cipher.", 'lose');
         updateBalance(-morsePenaltyAmount);
         updateMorseCipherProgress(currentMorseCipher.id, false, morseMaxAttempts);
         closeMorseCipher();
@@ -1784,7 +1788,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function claimCoins() {
         gameState.balance += coinCounter;
         updateUI(); // تحديث واجهة المستخدم
-        showNotification(uiElements.purchaseNotification, `You've claimed ${coinCounter} coins!`);
+        showNotificationWithStatus(uiElements.purchaseNotification, `You've claimed ${coinCounter} coins!`, 'win');
         saveGameState();
         closeGameElements(); // إخفاء العناصر بعد الجمع
     }
