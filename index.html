@@ -156,13 +156,13 @@
             <section class="boosts-container centered">
                 <div class="boost-item">
                     <img src="i/Clickk.png" alt="Click Boost Image" class="boost-icon">
-                    <p>Click ×<span id="clickMultiplier">2</span></p>
+                    <p>Click level : ×<span id="clickMultiplier"> </span></p>
                     <p><span id="boostUpgradeCost">4500</span> Coins</p>
                     <button id="boostUpgradeBtn">Upgrade</button>
                 </div>
                 <div class="boost-item">
                     <img src="i/energy.c.png" alt="Coin Boost Image" class="boost-icon">
-                    <p>Energy coins: <span id="coinBoostLevel">10,000</span></p>
+                    <p>Energy coins level :<span id="coinBoostLevel"> </span></p>
                     <p><span id="coinUpgradeCost">4500</span> Coins</p>
                     <button id="coinUpgradeBtn">Upgrade</button>
                 </div>
@@ -177,7 +177,7 @@
                    
          <button id="promoCodeBtn" class="promo_CodeBtn">
            <img src="i/reward1.png" alt="Promo Icon" class="promo-icon">Promo code</button>
-         <p id="Gem">GAMES</p>
+       <!--  <p id="Gem">GAMES</p> -->
          <button data-target="gamePage" class="Play-game-button">
             <img src="i/gamee.png" alt="games Icon" class="games-icon">GAMES</button>
                   
@@ -216,7 +216,7 @@
                 <p> Decrypt this message to get the reward</p>
                  <div class="morseCipherQuestion">Morse Code. : <span id="morseCode"></span></div>
                  <input type="text" id="morseAnswerInput" class="inputField" placeholder="Enter the answer">
-                  <button id="submitMorseAnswerBtn" class="submitButton">Submit</button>
+                  <button id="submitMorseAnswerBtn" class="submitButton">verification</button>
                    <div id="morseAttemptsDisplay" class="attemptsDisplay"> Attempts. 3 : <span id="morseRemainingAttempts"></span></div>
                     <div id="morseCipherRewardDisplay" class="rewardDisplay"></div>
                      <div id="morseCipherNotification" class="notification"></div>
@@ -255,7 +255,7 @@
                         <span id="timeText">remaining :</span> 
                         <span id="timer">60.00</span>
                     </div>
-                    <div id="attemptsDisplay" class="attempts-display"></div>
+                    <div id="attemptsDisplay" class="attempts-display"> Attempts. </div>
                     <div id="puzzleNotification" class="notification"></div>
                     <div id="puzzleHint"></div>
                 </div>
@@ -269,8 +269,7 @@
                <div id="ton-connect"></div>
             </section> 
          </div>
-
-     
+        
                <!-- Game page -->
          <div id="gamePage" class="screen-content scrollable">
               <section class="game-container" id="gameContainer">
@@ -395,9 +394,9 @@
                  <p>Level 1 Junior</p>
                  <p>100K coin</p>
               </div>
-          </div>
-       </section>
-    </div>
+           </div>
+        </section>
+      </div>
 
          <!-- Notifications -->
          <div id="copyInviteNotification" class="notification top-notification">Invite link copied!</div>
@@ -438,7 +437,6 @@
      </div>
     
    <script type="module" src="script.js"></script>
- <script type="module" src="ciphers.js"></script>
- 
+    
 </body>
 </html>
