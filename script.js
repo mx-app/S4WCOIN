@@ -377,6 +377,28 @@ function showNotification(notificationElement, message) {
     }, 4000);
 }
 
+function showNotificationWithStatus(notificationElement, message, status = '') {
+    if (!notificationElement) return;
+
+    // مسح الفئات السابقة للفوز أو الخسارة
+    notificationElement.classList.remove('win', 'lose');
+
+    // إضافة فئة بناءً على الحالة إذا كانت موجودة
+    if (status === 'win') {
+        notificationElement.classList.add('win');
+    } else if (status === 'lose') {
+        notificationElement.classList.add('lose');
+    }
+
+    // عرض الرسالة
+    notificationElement.innerText = message;
+    notificationElement.classList.add('show');
+
+    // إخفاء الإشعار بعد 4 ثواني
+    setTimeout(() => {
+        notificationElement.classList.remove('show');
+    }, 4000);
+}
 
 // عرض النافذة المنبثقة بناءً على نوع الترقية (النقر أو العملات)
 function showUpgradeModal(upgradeType) {
