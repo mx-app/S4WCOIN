@@ -181,7 +181,7 @@ body {
     display: flex;
    /* flex-direction: center;
     justify-content: flex-start;
-    /*justify-content: center; /* توسيط النص داخل الحاوية */
+    /*justify-content: center;*//* توسيط النص داخل الحاوية */
     align-items: center;
     background-color: #1c1c1c;
     font-size: 10px; 
