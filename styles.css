@@ -709,7 +709,14 @@ body {
     top: 10px; /* موقع الإشعار عند الظهور */
     opacity: 1; /* مرئية */
 }
- 
+
+ .notification-image {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px; /* مسافة بين الصورة والنص */
+    display: inline;
+} 
+
 .level-container {
     display: flex;
     flex-direction: column;
