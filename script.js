@@ -367,6 +367,9 @@ function registerEventHandlers() {
     }
 }
 
+//////////////////////////
+
+
 // عرض الإشعارات للمستخدم
 function showNotification(notificationElement, message) {
     if (!notificationElement) return;
@@ -383,11 +386,30 @@ function showNotificationWithStatus(notificationElement, message, status = '') {
     // مسح الفئات السابقة للفوز أو الخسارة
     notificationElement.classList.remove('win', 'lose');
 
-    // إضافة فئة بناءً على الحالة إذا كانت موجودة
+    // إعداد رابط الصورة بناءً على الحالة
+    let imageUrl = '';
     if (status === 'win') {
         notificationElement.classList.add('win');
+        imageUrl = 'i/done.png'; // رابط الصورة لحالة الفوز
     } else if (status === 'lose') {
         notificationElement.classList.add('lose');
+        imageUrl = 'i/highlight.png'; // رابط الصورة لحالة الخسارة
+    }
+
+    // تحقق من وجود عنصر الصورة، وإن لم يكن موجودًا أضفه
+    let img = notificationElement.querySelector('img');
+    if (!img) {
+        img = document.createElement('img');
+        img.classList.add('notification-image');
+        notificationElement.prepend(img);
+    }
+    
+    // قم بتحديث مصدر الصورة
+    if (imageUrl) {
+        img.src = imageUrl;
+        img.style.display = 'inline';
+    } else {
+        img.style.display = 'none';
     }
 
     // عرض الرسالة
@@ -399,6 +421,9 @@ function showNotificationWithStatus(notificationElement, message, status = '') {
         notificationElement.classList.remove('show');
     }, 4000);
 }
+
+////////////////////////
+
 
 // عرض النافذة المنبثقة بناءً على نوع الترقية (النقر أو العملات)
 function showUpgradeModal(upgradeType) {
