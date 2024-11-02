@@ -1,0 +1,70 @@
+
+.boosts-container  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    max-width: 320px;
+    padding-bottom: 5px; 
+} 
+
+.boost-item  {
+    width: 88%; /* لجعل العرض 80% */
+    max-width: 300px;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #343434; 
+    background: #1c1c1c;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boost-item p  {
+    margin: 0;
+    padding: 0;
+    width: 60%;
+    text-align: left;
+    color: #fff;
+    font-size: var(--task-font-size);
+}
+
+.boost-item img {
+    width: 35px;
+    height: 35px;
+    margin-right: 5px;
+} 
+
+.boost-item button  {
+    background-color: #000;
+    color: #fff;
+    padding: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 30%;
+    transition: background-color 0.3s;
+    border: none;
+    font-size: var(--claim-button-size);
+    border: 1px solid #343434;
+    z-index: 10;
+}
+
+.boost-item button:hover {
+    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
+}
+
+
+.bos-image {
+    width: 105px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+
+}
+ 
