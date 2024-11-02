@@ -935,6 +935,7 @@ body {
     font-size: 18px;
     font-weight: bold;
     color: #fff; /* اختر اللون المناسب */
+    text-shadow: 4px 4px 4px #aaa;
 }
 
 .invite-rewards {
