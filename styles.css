@@ -192,6 +192,8 @@ body {
     border: 1px solid #343434;
     margin-top: 70px; 
     margin-button: 25px; 
+    margin: 70px auto 25px auto; /* توسيط الحاوية أفقياً */
+    
   /*  position: absolute;
     opacity: 0; 
     pointer-events: none;*/
@@ -980,7 +982,7 @@ body {
     justify-content: center;
     margin-bottom: 10px;
     position: absolute; 
-    top: 5px; 
+    top: 4px; 
     left: 20px;
 }
 
