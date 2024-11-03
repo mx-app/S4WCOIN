@@ -396,31 +396,18 @@ function showNotificationWithStatus(notificationElement, message, status = '') {
         imageUrl = 'i/highlight.png'; // رابط الصورة لحالة الخسارة
     }
 
-    // تحقق من وجود عنصر الصورة، وإن لم يكن موجودًا أضفه
-    let img = notificationElement.querySelector('img');
-    if (!img) {
-        img = document.createElement('img');
-        img.classList.add('notification-image');
-        notificationElement.prepend(img);
-    }
-    
-    // قم بتحديث مصدر الصورة
-    if (imageUrl) {
-        img.src = imageUrl;
-        img.style.display = 'inline';
-    } else {
-        img.style.display = 'none';
-    }
+    // إضافة الصورة مع الرسالة باستخدام innerHTML
+    notificationElement.innerHTML = `<img src="${imageUrl}" class="notification-image" alt=""> ${message}`;
 
-    // عرض الرسالة
-    notificationElement.innerText = message;
+    // إظهار الإشعار
     notificationElement.classList.add('show');
 
-    // إخفاء الإشعار بعد 4 ثواني
+    // إخفاء الإشعار بعد 4 ثوانٍ
     setTimeout(() => {
         notificationElement.classList.remove('show');
     }, 4000);
 }
+
 
 ////////////////////////
 
