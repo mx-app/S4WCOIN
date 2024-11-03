@@ -710,12 +710,14 @@ body {
     opacity: 1; /* مرئية */
 }
 
- .notification-image {
+.notification-image {
     width: 24px;
     height: 24px;
     margin-right: 10px; /* مسافة بين الصورة والنص */
+    vertical-align: middle; /* لضمان محاذاة الصورة مع النص */
     display: inline;
-} 
+}
+ 
 
 .level-container {
     display: flex;
