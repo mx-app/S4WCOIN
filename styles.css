@@ -711,8 +711,8 @@ body {
 }
 
 .notification-image {
-    width: 24px;
-    height: 24px;
+    width: 25px;
+    height: 25px;
     margin-right: 10px; /* مسافة بين الصورة والنص */
     vertical-align: middle; /* لضمان محاذاة الصورة مع النص */
     display: inline;
@@ -944,7 +944,7 @@ body {
     font-size: 18px;
     font-weight: bold;
     color: #fff; /* اختر اللون المناسب */
-    text-shadow: 4px 4px 4px #aaa;
+    /*text-shadow: 4px 4px 4px #aaa;*/
 }
 
 .invite-rewards {
