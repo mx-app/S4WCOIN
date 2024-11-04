@@ -10,17 +10,18 @@
 .boost-item {
     width: 48%;
     margin: 10px 0;
-    padding: 10px;
+    padding: 15px;
     border: 1px solid #343434;
     background: #1c1c1c;
     border-radius: 10px;
     display: flex;
     flex-direction: column; /* ترتيب العناصر عموديًا */
-    align-items: center; /* محاذاة العناصر في المنتصف أفقيًا */
-    justify-content: center; /* محاذاة العناصر في المنتصف عموديًا */
+    align-items: center; /* محاذاة العناصر في المنتصف */
+    justify-content: space-between;
     box-sizing: border-box;
-    text-align: center; /* تمييز النص في المنتصف */
-}
+    min-height: 200px; /* ضبط ارتفاع ثابت للخانات */
+    text-align: center;
+} 
 
 .boost-item p {
     margin: 0;
@@ -28,7 +29,7 @@
     flex: 1; /* توسع النص ليملأ المساحة المتاحة */
     text-align: left;
     color: #fff;
-    font-size: var(--task-font-size);
+    line-height: 1.5; /* تحسين تباعد الأسطر */
 }
 
 .boost-item img {
