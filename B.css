@@ -8,17 +8,18 @@
 }
 
 .boost-item {
-    width: 48%; /* عرض كل خانة 48% لترك مسافة بين الخانات */
-    margin: 10px 0; /* المسافة بين الخانات */
+    width: 48%;
+    margin: 10px 0;
     padding: 10px;
     border: 1px solid #343434;
     background: #1c1c1c;
     border-radius: 10px;
     display: flex;
-    flex-direction: row; /* ترتيب العناصر أفقيًا */
-    align-items: center; /* محاذاة العناصر في المنتصف عموديًا */
-    justify-content: space-between;
+    flex-direction: column; /* ترتيب العناصر عموديًا */
+    align-items: center; /* محاذاة العناصر في المنتصف أفقيًا */
+    justify-content: center; /* محاذاة العناصر في المنتصف عموديًا */
     box-sizing: border-box;
+    text-align: center; /* تمييز النص في المنتصف */
 }
 
 .boost-item p {
@@ -33,22 +34,22 @@
 .boost-item img {
     width: 35px;
     height: 35px;
-    margin-right: 10px;
-} 
+    margin-bottom: 10px; /* مسافة بين الصورة والنص */
+}
+  
 
-.boost-item button  {
+.boost-item button {
     background-color: #000;
     color: #fff;
     padding: 8px;
     border-radius: 10px;
     cursor: pointer;
-    width: 30%;
+    width: 80%; /* عرض الزر ليكون أكبر تحت النص */
     transition: background-color 0.3s;
-    border: none;
-    font-size: var(--claim-button-size);
     border: 1px solid #343434;
-    z-index: 10;
-}
+    font-size: var(--claim-button-size);
+    margin-top: 10px; /* مسافة بين النص والزر */
+} 
 
 .boost-item button:hover {
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
