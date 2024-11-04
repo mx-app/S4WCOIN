@@ -1,30 +1,29 @@
 .boosts-container {
     display: flex;
     flex-direction: row; /* ترتيب الخانات بجانب بعضها */
-    justify-content: center;
-    flex-wrap: wrap; /* للسماح بتغليف العناصر عند الحاجة */
-    width: 100%;
-    max-width: 100%; /* تغطية الشاشة بالكامل */
+    justify-content: space-between; /* توزيع المساحة بين الخانات */
+    flex-wrap: wrap; /* السماح بتغليف العناصر عند الحاجة */
+    width: 100%; /* تغطية الشاشة بالكامل */
     padding-bottom: 5px;
 }
 
 .boost-item {
     width: 48%; /* عرض كل خانة 48% لترك مسافة بين الخانات */
-    max-width: 50%;
-    margin: 10px 1%; /* المسافة بين الخانات */
+    margin: 10px 0; /* المسافة بين الخانات */
     padding: 10px;
     border: 1px solid #343434;
     background: #1c1c1c;
     border-radius: 10px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-} 
+    justify-content: space-between; /* توزيع المحتوى داخلياً */
+    align-items: center; /* محاذاة العناصر في المنتصف */
+    box-sizing: border-box; /* تضمين border و padding ضمن العرض */
+}
 
-.boost-item p  {
+.boost-item p {
     margin: 0;
     padding: 0;
-    width: 60%;
+    flex: 1; /* توسع النص ليملأ المساحة المتاحة */
     text-align: left;
     color: #fff;
     font-size: var(--task-font-size);
