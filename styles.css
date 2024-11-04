@@ -243,7 +243,7 @@ body {
 }
 
 .progress-bar {
-    width: 220px; 
+    width: 250px; 
     height: 14px; 
     background-color: #555555; /* خلفية الشريط شفافة */
     border-radius: 50px; /* شكل الشريط */
