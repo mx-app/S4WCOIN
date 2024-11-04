@@ -1,5 +1,3 @@
-
-.boosts-container  {
 .boosts-container {
     display: flex;
     flex-direction: row; /* ترتيب الخانات بجانب بعضها */
