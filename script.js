@@ -1745,17 +1745,18 @@ document.addEventListener("DOMContentLoaded", function () {
             coinCounter = 0;
             counterDisplay.innerText = coinCounter;
 
-            // بدء زيادة العداد تلقائيًا
+            
+            // بدء زيادة العداد تلقائيًا بمقدار 0.2 عملة كل ثانية
             autoIncrementInterval = setInterval(() => {
-                coinCounter += 2;
-                counterDisplay.innerText = coinCounter;
-                gameState.balance += 2;
+                coinCounter += 0.2;
+                counterDisplay.innerText = coinCounter.toFixed(1); // عرض الرقم بفاصلة عشرية واحدة
+                gameState.balance += 0.2;
                 updateUI();
                 saveGameState();
-            }, 1000); // كل ثانية يتم زيادة 2 عملة
+            }, 1000); // كل ثانية يتم زيادة 0.2 عملة
         }
     }
-
+    
     function closeGameElements() {
         const gameFrameContainer = document.getElementById("gameFrameContainer");
         const gameFrame = document.getElementById("gameFrame");
