@@ -243,10 +243,8 @@ body {
 }
 
 .progress-bar {
-    width: 88%; 
+    width: 220px; 
     height: 14px; 
-  /*  width: 180px; 
-    height: 14px; */
     background-color: #555555; /* خلفية الشريط شفافة */
     border-radius: 50px; /* شكل الشريط */
     overflow: hidden; /* قص المحتوى الزائد */
