@@ -15,9 +15,10 @@
     background: #1c1c1c;
     border-radius: 10px;
     display: flex;
-    justify-content: space-between; /* توزيع المحتوى داخلياً */
-    align-items: center; /* محاذاة العناصر في المنتصف */
-    box-sizing: border-box; /* تضمين border و padding ضمن العرض */
+    flex-direction: row; /* ترتيب العناصر أفقيًا */
+    align-items: center; /* محاذاة العناصر في المنتصف عموديًا */
+    justify-content: space-between;
+    box-sizing: border-box;
 }
 
 .boost-item p {
@@ -32,7 +33,7 @@
 .boost-item img {
     width: 35px;
     height: 35px;
-    margin-right: 5px;
+    margin-right: 10px;
 } 
 
 .boost-item button  {
