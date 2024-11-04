@@ -118,15 +118,6 @@
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
 }
 
-/* تخصيص لكل لعبة */
-#gameTwo {
-    background-image: url('i/game1.jpg'); /* صورة لعبة 1 */
-}
-
-#gameOne {
-    background-image: url('i/cubes.jpg'); /* صورة لعبة 2 */
-}
-
 /* تأكد من أن عناصر `gameFrameContainer` و`counter-container` مخفية في البداية */
 #gameFrameContainer {
     position: fixed;
