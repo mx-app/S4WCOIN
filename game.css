@@ -73,25 +73,20 @@
 }
 
 #gamePage .game-item {
-    position: relative;
-    width: 88%;
-    max-width: 300px;
-    height: 200px; /* ارتفاع ثابت للخانة */
-    margin: 10px 0;
+    background: #1c1c1c; 
+    border: 1px solid #343434;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* لإخفاء الزوائد من الصورة */
-    background-size: cover; /* تغطية الخلفية */
-    background-position: center; /* توسيط الصورة */
-    display: flex;
-    align-items: flex-end; /* لضمان أن الزر والنص في الأسفل */
+    margin: 10px 0;
     padding: 15px;
-    color: #fff;
-    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.8); /* ظل للنص ليكون واضحًا فوق الصورة */
+    text-align: center;
+    width: 88%;
+    max-width: 300px;
 }
 
 #gamePage .game-image {
     width: 100%;
+    max-width: 300px;
     height: auto;
     border-radius: 8px;
     margin-bottom: 10px;
@@ -117,6 +112,7 @@
 #gamePage .game-button:hover {
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
 }
+
 
 /* تأكد من أن عناصر `gameFrameContainer` و`counter-container` مخفية في البداية */
 #gameFrameContainer {
