@@ -1,14 +1,16 @@
 {
-  "rewrites": [
-    { "source": "/sensitive-file.js", "destination": "/" }
-  ],
-  "headers": [
+  "redirects": [
+    {
+      "source": "/sensitive-file.js",
+      "destination": "/404",
+      "permanent": false,
+      "statusCode": 404
+    },
     {
       "source": "/private-folder/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "no-store" },
-        { "key": "Access-Control-Allow-Origin", "value": "https://saw-game.vercel.app" }
-      ]
+      "destination": "/404",
+      "permanent": false,
+      "statusCode": 404
     }
   ]
 }
