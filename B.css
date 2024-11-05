@@ -5,11 +5,12 @@
     flex-wrap: wrap; /* السماح بتغليف العناصر عند الحاجة */
     width: 100%; /* تغطية الشاشة بالكامل */
     padding-bottom: 5px;
+    gap: 10px;
 }
 
 .boost-item {
     width: 44%;
-    margin: 5px 5px;
+    margin: 0;
     padding: 15px;
     border: 1px solid #343434;
     background: #1c1c1c;
