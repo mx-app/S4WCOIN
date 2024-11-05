@@ -1040,8 +1040,8 @@ function initializeTelegramIntegration() {
 ///////////////////////////////////////
 
 
-//localStorage.removeItem('gameState'); // مسح حالة اللعبة
-//loadGameState(); // إعادة تحميل حالة اللعبة
+localStorage.removeItem('gameState'); // مسح حالة اللعبة
+loadGameState(); // إعادة تحميل حالة اللعبة
 
 
 //////////////////////////////////////////////////////////
