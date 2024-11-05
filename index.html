@@ -14,21 +14,27 @@
     </div>
 
     <script>
+        console.log('Starting to load config.json...');
+
         // تحميل ملفات من config.json
-        fetch('/config.json')
+        fetch('config.json')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
+                console.log('config.json loaded successfully.');
                 return response.json();
             })
             .then(config => {
+                console.log('Config content:', config);
+
                 // تحميل ملف HTML الأساسي ووضعه في الصفحة
                 fetch(config.html)
                     .then(response => {
                         if (!response.ok) {
                             throw new Error('Failed to load HTML content');
                         }
+                        console.log('HTML content loaded successfully.');
                         return response.text();
                     })
                     .then(htmlContent => {
@@ -38,6 +44,7 @@
 
                 // تحميل ملفات CSS
                 config.css.forEach(cssFile => {
+                    console.log(`Loading CSS file: ${cssFile}`);
                     const link = document.createElement('link');
                     link.rel = 'stylesheet';
                     link.href = cssFile;
@@ -46,6 +53,7 @@
 
                 // تحميل ملفات JavaScript
                 config.scripts.forEach(jsFile => {
+                    console.log(`Loading JavaScript file: ${jsFile}`);
                     const script = document.createElement('script');
                     script.src = jsFile;
                     document.body.appendChild(script);
