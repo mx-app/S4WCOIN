@@ -426,6 +426,12 @@ body {
     top: 18%;
 }
 
+.menu button.active .menu-img {
+    background: linear-gradient(90deg, #d69a1c, #794106, #9f620c, #d69a1c); /* تفعيل التدرج على الصورة */
+    -webkit-background-clip: border-box; /* تفعيل تأثير التدرج على الصورة */
+    border-radius: 50%; /* جعل الصورة دائرية */
+}
+ 
 .menu-img {
     width: 37px;
     height: 37px;
