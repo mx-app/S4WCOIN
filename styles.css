@@ -837,7 +837,7 @@ body {
     top: 150px; 
     left: 68px; 
     background-color: transparent;
-    background: #fff; 
+    background: linear-gradient(90deg, #fff, #343434); 
    /* background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c);*/ /* التدرج اللوني */
     -webkit-background-clip: text; /* قص الخلفية للنص */
     background-clip: text;
@@ -845,7 +845,7 @@ body {
     font-size: 16px;
     font-weight: bold;
     border-radius: 20px;
-/*    border-bottom: 2px solid #343434;*/
+   /* border-bottom: 2px solid #343434;*/
     cursor: pointer;
     z-index: 100000;  
     border-left: 2px solid #fff;
@@ -896,8 +896,8 @@ body {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    background: #fff; 
     background-color: transparent;
+    background: linear-gradient(90deg, #fff, #343434);
     /*background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c);*/ /* التدرج اللوني */
     -webkit-background-clip: text; /* قص الخلفية للنص */
     background-clip: text;
