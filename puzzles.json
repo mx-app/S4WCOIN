@@ -7,7 +7,7 @@
       "options": ["Circle", "Infinity", "Space", "Time"],
       "answer": "Infinity",
       "hint": "It's a concept beyond physical constraints.",
-      "reward": 20000,
+      "reward": 2000,
       "availableDate": "2024-10-29"
     },
     {
@@ -17,7 +17,7 @@
       "options": ["Silence", "Mind", "Space", "Time"],
       "answer": "Silence",
       "hint": "It's often broken but never by itself.",
-      "reward": 19000,
+      "reward": 190,
       "availableDate": "2024-10-30"
     },
     {
@@ -27,7 +27,7 @@
       "options": ["Time", "Light", "Wind", "Gravity"],
       "answer": "Time",
       "hint": "It waits for no one.",
-      "reward": 21000,
+      "reward": 2100,
       "availableDate": "2024-10-31"
     },
     {
@@ -37,7 +37,7 @@
       "options": ["Steps", "Words", "Sand", "Water"],
       "answer": "Steps",
       "hint": "Think about movement.",
-      "reward": 18500,
+      "reward": 1500,
       "availableDate": "2024-11-01"
     },
     {
@@ -47,7 +47,7 @@
       "options": ["Time", "Temperature", "Weight", "Space"],
       "answer": "Time",
       "hint": "It's the basis of clocks.",
-      "reward": 20000,
+      "reward": 200,
       "availableDate": "2024-11-02"
     },
     {
@@ -57,7 +57,7 @@
       "options": ["Dream", "Hope", "Memory", "Shadow"],
       "answer": "Memory",
       "hint": "Think of your experiences.",
-      "reward": 20500,
+      "reward": 200,
       "availableDate": "2024-11-03"
     },
     {
@@ -67,7 +67,7 @@
       "options": ["Happiness", "Knowledge", "Love", "Wisdom"],
       "answer": "Happiness",
       "hint": "It's an emotion.",
-      "reward": 19500,
+      "reward": 1500,
       "availableDate": "2024-11-04"
     },
     {
@@ -77,7 +77,7 @@
       "options": ["Name", "Memory", "Voice", "Mind"],
       "answer": "Name",
       "hint": "It's how people identify you.",
-      "reward": 18000,
+      "reward": 1800,
       "availableDate": "2024-11-05"
     },
     {
@@ -87,7 +87,7 @@
       "options": ["Trust", "Heart", "Glass", "Promise"],
       "answer": "Trust",
       "hint": "It's intangible but vital.",
-      "reward": 21000,
+      "reward": 2100,
       "availableDate": "2024-11-06"
     },
     {
@@ -97,7 +97,7 @@
       "options": ["Stamp", "Wind", "Dream", "Email"],
       "answer": "Stamp",
       "hint": "It's usually stuck on envelopes.",
-      "reward": 17500,
+      "reward": 1750,
       "availableDate": "2024-11-07"
     },
     {
@@ -107,7 +107,7 @@
       "options": ["Stars", "Thoughts", "Truth", "Silence"],
       "answer": "Stars",
       "hint": "Look to the night sky.",
-      "reward": 19000,
+      "reward": 1900,
       "availableDate": "2024-11-08"
     },
     {
@@ -117,7 +117,7 @@
       "options": ["Air", "Sleep", "Water", "Darkness"],
       "answer": "Darkness",
       "hint": "Associated with night.",
-      "reward": 18500,
+      "reward": 1800,
       "availableDate": "2024-11-09"
     },
     {
@@ -127,7 +127,7 @@
       "options": ["Hope", "Light", "Faith", "Word"],
       "answer": "Hope",
       "hint": "It often sustains people.",
-      "reward": 20000,
+      "reward": 2000,
       "availableDate": "2024-11-10"
     },
     {
@@ -137,7 +137,7 @@
       "options": ["Coin", "Comet", "Time", "Cloud"],
       "answer": "Coin",
       "hint": "Used in transactions.",
-      "reward": 17500,
+      "reward": 1750,
       "availableDate": "2024-11-11"
     },
     {
@@ -147,7 +147,7 @@
       "options": ["Memory", "Dream", "Hope", "Love"],
       "answer": "Memory",
       "hint": "It exists only in the mind.",
-      "reward": 19500,
+      "reward": 1900,
       "availableDate": "2024-11-12"
     },
     {
@@ -157,7 +157,7 @@
       "options": ["Egg", "Secret", "Code", "Seed"],
       "answer": "Egg",
       "hint": "Common in cooking.",
-      "reward": 17000,
+      "reward": 1000,
       "availableDate": "2024-11-13"
     }
   ]
