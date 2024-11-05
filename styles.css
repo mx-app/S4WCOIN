@@ -946,7 +946,12 @@ body {
 .app-name {
     font-size: 18px;
     font-weight: bold;
-    color: #fff; /* اختر اللون المناسب */
+    background-color: transparent;
+    background: linear-gradient(90deg, #fff, #343434);
+    /*background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c);*/ /* التدرج اللوني */
+    -webkit-background-clip: text; /* قص الخلفية للنص */
+    background-clip: text;
+    color: transparent;
     /*text-shadow: 4px 4px 4px #aaa;*/
 }
 
