@@ -1,16 +1,15 @@
 {
   "redirects": [
-    {
-      "source": "/sensitive-file.js",
-      "destination": "/404",
-      "permanent": false,
-      "statusCode": 404
-    },
-    {
-      "source": "/private-folder/(.*)",
-      "destination": "/404",
-      "permanent": false,
-      "statusCode": 404
-    }
+    { "source": "/script.js", "destination": "/404", "statusCode": 404 },
+    { "source": "/Jigsaw.html", "destination": "/404", "statusCode": 404 },
+    { "source": "/MorseCiphers.json", "destination": "/404", "statusCode": 404 },
+    { "source": "/tonconnect-manifest.json", "destination": "/404", "statusCode": 404 },
+    { "source": "/Settings.css", "destination": "/404", "statusCode": 404 },
+    { "source": "/tasks.json", "destination": "/404", "statusCode": 404 },
+    { "source": "/styles.css", "destination": "/404", "statusCode": 404 },
+    { "source": "/promo.css", "destination": "/404", "statusCode": 404 },
+    { "source": "/page.css", "destination": "/404", "statusCode": 404 },
+    { "source": "/game.css", "destination": "/404", "statusCode": 404 },
+    { "source": "/config.js", "destination": "/404", "statusCode": 404 }
   ]
 }
