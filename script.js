@@ -64,9 +64,9 @@ const uiElements = {
 // حالة اللعبة
 let gameState = {
     balance: 0,
-    energy: 10000,
-    maxEnergy: 10000,
-    clickMultiplier: 1,
+    energy: 500,
+    maxEnergy: 500,
+    clickMultiplier: 0.1,
     boostLevel: 1,
     coinBoostLevel: 1,
     energyBoostLevel: 1,
@@ -147,7 +147,7 @@ async function initializeApp() {
          setTimeout(() => {
        if (uiElements.splashScreen) uiElements.splashScreen.style.display = 'none';
        if (uiElements.mainContainer) uiElements.mainContainer.style.display = 'flex';
-    }, 2500); // 10000 ميلي ثانية تعني 10 ثوانٍ
+    }, 3000); // 10000 ميلي ثانية تعني 10 ثوانٍ
 
         
         // استمع إلى التغييرات في البيانات
