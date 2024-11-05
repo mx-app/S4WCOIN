@@ -498,8 +498,6 @@ function fillEnergyAction() {
     saveGameState();
 }
 
-// تعريف القيم الأساسية
-gameState.clickMultiplier = 0.1;  // قيمة النقرة الأساسية
 
 // دالة النقرة
 function handleClick(event) {
