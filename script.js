@@ -462,7 +462,7 @@ function confirmUpgradeAction() {
         // زيادة المستوى بعد الترقية
         if (upgradeType === 'boost') {
             gameState.boostLevel += 1;
-            gameState.clickMultiplier += 0.1;
+            gameState.clickMultiplier += 1;
         } else if (upgradeType === 'coin') {
             gameState.coinBoostLevel += 1;
             gameState.maxEnergy += 500;
