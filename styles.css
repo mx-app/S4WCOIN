@@ -212,8 +212,8 @@ body {
 #balanceAmount::before {
     content: "";
     display: inline-block;
-    width: 50px; /* عرض الصورة */
-    height: 50px; /* ارتفاع الصورة */
+    width: 45px; /* عرض الصورة */
+    height: 45px; /* ارتفاع الصورة */
     background-image: url('i/coii.png'); /* رابط الصورة */
     background-size: contain;
     background-repeat: no-repeat;
@@ -834,7 +834,7 @@ body {
 
 .level-button-floating {
     position: fixed;
-    top: 150px; 
+    top: 155px; 
     left: 68px; 
     background-color: transparent;
     background: linear-gradient(90deg, #fff, #343434); 
@@ -888,7 +888,7 @@ body {
  
 .boosts-button {
     position: fixed;
-    top: 150px; 
+    top: 155px; 
     right: 68px;
     background: rgba(0, 0, 0, 0); 
     border-radius: 20px;
@@ -994,8 +994,8 @@ body {
 }
 
 .coin-image {
-    width: 30px;
-    height: 30px;
+    width: 27px;
+    height: 27px;
     margin-right: 5px;
 }
 
