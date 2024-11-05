@@ -10,9 +10,7 @@
 
 .boost-item {
     width: 44%;
-    margin: 0;
-    padding-right: 10px;
-    padding-left: 10px;
+   /* margin: 0;*/
     padding: 15px;
     border: 1px solid #343434;
     background: #1c1c1c;
