@@ -8,7 +8,7 @@
 }
 
 .boost-item {
-    width: 48%;
+    width: 40%;
     margin: 10px 0;
     padding: 15px;
     border: 1px solid #343434;
@@ -19,7 +19,7 @@
     align-items: center; /* محاذاة العناصر في المنتصف */
     justify-content: space-between;
     box-sizing: border-box;
-    min-height: 200px; /* ضبط ارتفاع ثابت للخانات */
+    min-height: 180px; /* ضبط ارتفاع ثابت للخانات */
     text-align: center;
 } 
 
