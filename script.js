@@ -462,7 +462,7 @@ function confirmUpgradeAction() {
         // زيادة المستوى بعد الترقية
         if (upgradeType === 'boost') {
             gameState.boostLevel += 1;
-            gameState.clickMultiplier += 1;
+            gameState.clickMultiplier += 0.1;
         } else if (upgradeType === 'coin') {
             gameState.coinBoostLevel += 1;
             gameState.maxEnergy += 500;
@@ -499,25 +499,34 @@ function fillEnergyAction() {
 }
 
 
+
 // التعامل مع النقرات لتوليد العملات
+// تعريف القيم الأساسية
+gameState.clickMultiplier = 0.1;  // قيمة النقرة الأساسية
+
+// دالة النقرة
 function handleClick(event) {
     event.preventDefault(); // منع الأحداث المكررة
-    const touchPoints = event.touches || [event];
+    const touchPoints = event.touches ? event.touches : [event];  // التعامل مع اللمس أو النقر الواحد
 
     for (let i = 0; i < touchPoints.length; i++) {
         const touch = touchPoints[i];
         createDiamondCoinEffect(touch.pageX, touch.pageY);
     }
 
-    if (gameState.energy >= gameState.clickMultiplier * touchPoints.length) {
+    // التحقق من توافر الطاقة اللازمة لكل نقرة
+    const requiredEnergy = gameState.clickMultiplier * touchPoints.length;
+    if (gameState.energy >= requiredEnergy) {
         gameState.balance += gameState.clickMultiplier * touchPoints.length;
-        gameState.energy -= gameState.clickMultiplier * touchPoints.length;
+        gameState.energy -= requiredEnergy;
         updateUI();
+        updateUserData();
         saveGameState();  // التأكد من حفظ حالة اللعبة بعد كل نقرة
     } else {
         showNotification(uiElements.purchaseNotification, 'Not enough energy!');
     }
 }
+
 
 
 // تأثير النقر لعرض عملات الألماس
