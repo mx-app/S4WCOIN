@@ -8,18 +8,33 @@
     <title>SAWCOIN GAME</title>
 </head>
 <body>
+    <!-- عنصر حاوية لعرض المحتوى المحمّل -->
+    <div id="content">
+        <p> </p> <!-- رسالة تحميل مؤقتة -->
+    </div>
 
     <script>
         // تحميل ملفات من config.json
         fetch('config.json')
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
             .then(config => {
                 // تحميل ملف HTML الأساسي ووضعه في الصفحة
                 fetch(config.html)
-                    .then(response => response.text())
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Failed to load HTML content');
+                        }
+                        return response.text();
+                    })
                     .then(htmlContent => {
                         document.getElementById('content').innerHTML = htmlContent;
-                    });
+                    })
+                    .catch(error => console.error('Error loading HTML content:', error));
 
                 // تحميل ملفات CSS
                 config.css.forEach(cssFile => {
