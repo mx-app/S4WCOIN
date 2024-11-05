@@ -15,7 +15,7 @@
 
     <script>
         // تحميل ملفات من config.json
-        fetch('config.json')
+        fetch('/config.json')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
