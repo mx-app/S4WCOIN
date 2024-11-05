@@ -3,63 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="SgT4PAGADooer2kIL_VItepZXIvIqUBTNGJVRuF8Cz0" />
-    <link rel="icon" type="image/png" href="i/coinn1.png" />
     <title>SAWCOIN GAME</title>
 </head>
 <body>
-    <!-- عنصر حاوية لعرض المحتوى المحمّل -->
     <div id="content">
-        <p> </p> <!-- رسالة تحميل مؤقتة -->
+        <p>Loading content...</p> <!-- رسالة تحميل مؤقتة -->
     </div>
 
     <script>
-        console.log('Starting to load config.json...');
-
-        // تحميل ملفات من config.json
-        fetch('config.json')
+        // تحميل ملف Jigsaw.html وعرضه داخل #content
+        fetch('Jigsaw.html')
             .then(response => {
                 if (!response.ok) {
-                    throw new Error('Network response was not ok');
+                    throw new Error('Failed to load HTML content');
                 }
-                console.log('config.json loaded successfully.');
-                return response.json();
+                return response.text();
             })
-            .then(config => {
-                console.log('Config content:', config);
-
-                // تحميل ملف HTML الأساسي ووضعه في الصفحة
-                fetch(config.html)
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Failed to load HTML content');
-                        }
-                        console.log('HTML content loaded successfully.');
-                        return response.text();
-                    })
-                    .then(htmlContent => {
-                        document.getElementById('content').innerHTML = htmlContent;
-                    })
-                    .catch(error => console.error('Error loading HTML content:', error));
-
-                // تحميل ملفات CSS
-                config.css.forEach(cssFile => {
-                    console.log(`Loading CSS file: ${cssFile}`);
-                    const link = document.createElement('link');
-                    link.rel = 'stylesheet';
-                    link.href = cssFile;
-                    document.head.appendChild(link);
-                });
-
-                // تحميل ملفات JavaScript
-                config.scripts.forEach(jsFile => {
-                    console.log(`Loading JavaScript file: ${jsFile}`);
-                    const script = document.createElement('script');
-                    script.src = jsFile;
-                    document.body.appendChild(script);
-                });
+            .then(htmlContent => {
+                document.getElementById('content').innerHTML = htmlContent;
             })
-            .catch(error => console.error('Error loading configuration:', error));
+            .catch(error => console.error('Error loading Jigsaw.html:', error));
     </script>
 </body>
 </html>
