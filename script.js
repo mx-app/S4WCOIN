@@ -1742,9 +1742,9 @@ document.addEventListener("DOMContentLoaded", function () {
             
             // بدء زيادة العداد تلقائيًا بمقدار 0.2 عملة كل ثانية
             autoIncrementInterval = setInterval(() => {
-                coinCounter += 0.2;
+                coinCounter += 0.05;
                 counterDisplay.innerText = coinCounter.toFixed(1); // عرض الرقم بفاصلة عشرية واحدة
-                gameState.balance += 0.2;
+                gameState.balance += 0.05;
                 updateUI();
                 saveGameState();
             }, 1000); // كل ثانية يتم زيادة 0.2 عملة
