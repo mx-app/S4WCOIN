@@ -105,6 +105,7 @@
     padding: 10px 20px;
     font-size: 1rem;
     cursor: pointer;
+    font-weight: bold;
     transition: background-color 0.3s;
     border: 1px solid #343434;
 }
