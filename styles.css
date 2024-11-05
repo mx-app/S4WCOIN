@@ -212,8 +212,8 @@ body {
 #balanceAmount::before {
     content: "";
     display: inline-block;
-    width: 40px; /* عرض الصورة */
-    height: 40px; /* ارتفاع الصورة */
+    width: 50px; /* عرض الصورة */
+    height: 50px; /* ارتفاع الصورة */
     background-image: url('i/coii.png'); /* رابط الصورة */
     background-size: contain;
     background-repeat: no-repeat;
@@ -994,8 +994,8 @@ body {
 }
 
 .coin-image {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     margin-right: 5px;
 }
 
