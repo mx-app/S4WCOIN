@@ -403,6 +403,8 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease; /* حذف التحويل المتعلق بالتكبير */
     border-radius: 15px;
     position: relative;
+    background: none;
+    
 }
 
 .menu button.active {
@@ -425,12 +427,12 @@ body {
     top: 18%;
 }
 
-.menu button.active {
-    background: linear-gradient(90deg, #d69a1c, #794106, #9f620c, #d69a1c); /* تفعيل التدرج */
-    border-radius: 12px;
-    color: transparent;
-}
- 
+.menu button.active .menu-img {
+    background: linear-gradient(135deg, #d69a1c, #794106, #9f620c, #d69a1c); /* تفعيل التدرج على الصورة */
+    -webkit-background-clip: border-box; /* تفعيل تأثير التدرج على الصورة */
+    border-radius: 40%; /* جعل الصورة دائرية */
+} 
+
  
 .menu-img {
     width: 37px;
