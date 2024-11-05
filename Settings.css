@@ -98,7 +98,6 @@
     flex-direction: column; /* وضع النصوص تحت بعض */
   /*  align-items: center;*/
     margin-left: 38px;
-    border: 1px solid #343434;
     
 } 
 
@@ -118,4 +117,8 @@
     display: block;
     margin-left: 8px;
 } 
- 
+.account-summary {
+    border: 1px solid #343434;
+}
+
+
