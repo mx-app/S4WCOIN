@@ -119,6 +119,7 @@
 } 
 .account-summary {
     border: 1px solid #343434;
+    border-radius: 10px;
 }
 
 
