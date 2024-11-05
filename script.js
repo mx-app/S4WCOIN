@@ -499,28 +499,26 @@ function fillEnergyAction() {
 }
 
 
-// دالة النقرة
+// التعامل مع النقرات لتوليد العملات
 function handleClick(event) {
     event.preventDefault(); // منع الأحداث المكررة
-    const touchPoints = event.touches ? event.touches : [event];  // التعامل مع اللمس أو النقر الواحد
+    const touchPoints = event.touches || [event];
 
     for (let i = 0; i < touchPoints.length; i++) {
         const touch = touchPoints[i];
         createDiamondCoinEffect(touch.pageX, touch.pageY);
     }
 
-    // التحقق من توافر الطاقة اللازمة لكل نقرة
-    const requiredEnergy = gameState.clickMultiplier * touchPoints.length;
-    if (gameState.energy >= requiredEnergy) {
+    if (gameState.energy >= gameState.clickMultiplier * touchPoints.length) {
         gameState.balance += gameState.clickMultiplier * touchPoints.length;
-        gameState.energy -= requiredEnergy;
+        gameState.energy -= gameState.clickMultiplier * touchPoints.length;
         updateUI();
-        updateUserData();
         saveGameState();  // التأكد من حفظ حالة اللعبة بعد كل نقرة
     } else {
         showNotification(uiElements.purchaseNotification, 'Not enough energy!');
     }
 }
+
 
 // تأثير النقر لعرض عملات الألماس
 function createDiamondCoinEffect(x, y) {
