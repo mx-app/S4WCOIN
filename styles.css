@@ -1005,11 +1005,11 @@ body {
     justify-content: center;
     margin-bottom: 10px;
     position: absolute; 
-    top: 4px; 
+    top: 10px; 
     left: 20px;
     background: linear-gradient(90deg, #343434, #1a1a1a); /* تدرج خلفية */
-    padding: 8px 15px; /* مساحة داخلية للخلفية */
-    border-radius: 25px; /* حواف دائرية للخلفية */
+    padding: 4px 10px; /* مساحة داخلية للخلفية */
+    border-radius: 15px; /* حواف دائرية للخلفية */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* ظل */
 }
 
