@@ -1119,3 +1119,25 @@ body {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.6); /* إضافة توهج */
 }
 
+
+#level1 .level-name, 
+#level2 .level-name, 
+#level3 .level-name {
+    color: silver;
+}
+
+
+#level4 .level-name, 
+#level5 .level-name, 
+#level6 .level-name {
+    color: gold; 
+}
+
+
+#level7 .level-name, 
+#level8 .level-name, 
+#level9 .level-name, 
+#level10 .level-name {
+    color: purple;
+}
+
