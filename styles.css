@@ -973,7 +973,7 @@ body {
     text-align: center;
  }
 
-.app-info {
+/*.app-info {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -986,7 +986,7 @@ body {
 .app-logo {
     width: 24px;
     height: 24px;
-    margin-right: 5px; /* مسافة بين الصورة والاسم */
+    margin-right: 5px; 
 }
 
 .app-name {
@@ -994,12 +994,37 @@ body {
     font-weight: bold;
     background-color: transparent;
     background: linear-gradient(90deg, #fff, #343434);
-    /*background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c);*/ /* التدرج اللوني */
-    -webkit-background-clip: text; /* قص الخلفية للنص */
+    -webkit-background-clip: text; 
     background-clip: text;
     color: transparent;
-    /*text-shadow: 4px 4px 4px #aaa;*/
+}*/
+
+.app-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    position: absolute; 
+    top: 4px; 
+    left: 20px;
+    background: linear-gradient(90deg, #343434, #1a1a1a); /* تدرج خلفية */
+    padding: 8px 15px; /* مساحة داخلية للخلفية */
+    border-radius: 25px; /* حواف دائرية للخلفية */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* ظل */
 }
+
+.app-logo {
+    width: 24px;
+    height: 24px;
+    margin-right: 5px; /* مسافة بين الصورة والاسم */
+}
+
+.app-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff; /* لون النص */
+}
+ 
 
 .invite-rewards {
     display: flex;
