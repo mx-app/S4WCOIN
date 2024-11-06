@@ -16,7 +16,8 @@
     <link rel="stylesheet" href="game.css">
     <link rel="stylesheet" href="promo.css">
     <link rel="stylesheet" href="page.css">
-    <link rel="stylesheet" href="B.css">
+    <link rel="stylesheet" href="daily.css">
+    <link rel="stylesheet" href="styles.css">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
 </head>
@@ -45,6 +46,9 @@
               </div>
                  <div class="settings-container">
                      
+                <button id="DailyButton" class="Daily-button">
+                  <img src="i/daily.png" alt="daily Icon" class="daily-icon"> </button>
+                     
                  <button data-target="boostsPage" class="boosts-button">
                   <img src="i/boos.png" alt="boos Icon" class="boos-icon"> </button>
                      
@@ -52,14 +56,14 @@
                    <img src="i/wallets.png" alt="wallet Icon" class="wallet-icon"> </button>
          
                  <button id="settingsButton" class="settings-button">
-                     <img src="i/Settingss.png" alt="Settings Icon" class="Settings-icon"> </button>
-                    
-                  <div id="settingsPanel" class="settings-panel" style="display: none;">
-                  <span id="SettingscloseModal" class="close">&times;</span>
-                  <p>Account details</p>
-                  <div class="user-info">
+                   <img src="i/Settingss.png" alt="Settings Icon" class="Settings-icon"> </button>
+                    <!-- Settings window --> 
+                 <div id="settingsPanel" class="settings-panel" style="display: none;">
+                   <span id="SettingscloseModal" class="close">&times;</span>
+                    <p>Account details</p>
+                   <div class="user-info">
                      <img src="i/users.png" alt="User Image" class="user-image">
-                  <div class="user-details">
+                   <div class="user-details">
                      <div class="user-name"><span id="userTelegramName">Username</span></div>
                      <div class="user-id"><span id="userTelegramId">123456</span></div>
                   </div>
