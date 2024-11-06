@@ -501,9 +501,6 @@ function fillEnergyAction() {
 
 
 // التعامل مع النقرات لتوليد العملات
-// تعريف القيم الأساسية
-gameState.clickMultiplier = 0.1;  // قيمة النقرة الأساسية
-
 // دالة النقرة
 function handleClick(event) {
     event.preventDefault(); // منع الأحداث المكررة
@@ -1527,8 +1524,8 @@ document.addEventListener('DOMContentLoaded', () => {
         morseSolved = cipherData.solved;
 
         morseCodeDisplay.innerText = currentMorseCipher.morse_code;
-        morseCipherRewardDisplay.innerText = `Reward: ${currentMorseCipher.reward} coins`;
-        showNotification(morseCipherNotification, `Hint: ${currentMorseCipher.hint}`);
+        morseCipherRewardDisplay.innerText = `Reward : ${currentMorseCipher.reward} coins`;
+        showNotification(morseCipherNotification, `Hint : ${currentMorseCipher.hint}`);
 
         morseCipherContainer.classList.remove('hidden');
         updateMorseRemainingAttempts(morseAttempts);
@@ -1886,4 +1883,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // تفعيل التطبيق
 initializeApp();
+
+
+
 
