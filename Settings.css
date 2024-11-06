@@ -4,21 +4,37 @@
     align-items: center;
 } 
 
-.settings-button {
+.Settings-icon {
+    width: 25px;
+    height: 25px;
+    flex-shrink: 0;
+}
+
+.Settings-button img {
+    vertical-align: middle;
+}  
+
+.Settings-button {
     position: fixed;
-    top: 16px; 
-    left: 312px;
+    top: 12px; 
+    left: 310px;
+    background: none;
     background-color: #1c1c1c; /* لون خلفية للزر */
-    border-radius: 50%; /* لجعل الزر دائري */
-    padding: 7px; /* مساحة إضافية حول الصورة */
-    
-    background: #fff; 
-  /*  background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c); /* التدرج اللوني */
-    -webkit-background-clip: text; /* قص الخلفية للنص */
+    border-radius: 40%; /* لجعل الزر دائري */
+    padding: 6px; /* مساحة إضافية حول الصورة */
+}
+
+.Settings-button:hover {
+    background: transparent;
+}
+ 
+  /*  background: #fff; 
+  /*  background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c);
+    -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     font-size: 18px;
-    z-index: 100;  
+    z-index: 100;  */
 }
 
 /* نافذة الإعدادات */
