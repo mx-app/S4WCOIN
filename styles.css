@@ -990,6 +990,7 @@ body {
     border: 1px solid #343434;
     border-radius: 8px; /* حواف دائرية للخلفية */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* ظل */
+    padding-left: 10px;
 }
 
 .app-logo {
