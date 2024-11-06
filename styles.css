@@ -843,7 +843,7 @@ body {
 .wallet-button {
     position: fixed;
     top: 12px; 
-    left: 275px;
+    left: 260px;
     background: none;
     background-color: #1c1c1c; /* لون خلفية للزر */
     border-radius: 40%; /* لجعل الزر دائري */
@@ -922,7 +922,7 @@ body {
 .boosts-button {
     position: fixed;
     top: 12px; 
-    left: 235px;
+    left: 225px;
     background-color: #1c1c1c; /* لون خلفية للزر */
     border-radius: 40%; /* لجعل الزر دائري */
     padding: 6px; /* مساحة إضافية حول الصورة */
