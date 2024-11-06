@@ -104,16 +104,16 @@ function saveGameState() {
 
 // مستويات اللعبة
 const levelThresholds = [
-    { level: 1, threshold: 50000, name: 'JUNIOR' },
-    { level: 2, threshold: 200000, name: 'CHALLENGE' },
-    { level: 3, threshold: 300000, name: 'DEVELOP' },
-    { level: 4, threshold: 500000, name: 'INTRO' },
-    { level: 5, threshold: 800000, name: 'ADVANCED' },
-    { level: 6, threshold: 1000000, name: 'EXPERT' },
-    { level: 7, threshold: 3000000, name: 'MASTER' },
-    { level: 8, threshold: 5000000, name: 'ULTIMATE' },
-    { level: 9, threshold: 10000000, name: 'MYTHICAL' },
-    { level: 10, threshold: 20000000, name: 'IMMORTAL' },
+    { level: 1, threshold: 50000, name: 'JUNIOR >' },
+    { level: 2, threshold: 200000, name: 'CHALLENGE >' },
+    { level: 3, threshold: 300000, name: 'DEVELOP >' },
+    { level: 4, threshold: 500000, name: 'INTRO >' },
+    { level: 5, threshold: 800000, name: 'ADVANCED >' },
+    { level: 6, threshold: 1000000, name: 'EXPERT >' },
+    { level: 7, threshold: 3000000, name: 'MASTER >' },
+    { level: 8, threshold: 5000000, name: 'ULTIMATE >' },
+    { level: 9, threshold: 10000000, name: 'MYTHICAL >' },
+    { level: 10, threshold: 20000000, name: 'IMMORTAL >' },
 ];
 
 // التحقق من الترقية إلى مستوى أعلى
