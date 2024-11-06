@@ -986,7 +986,7 @@ body {
     width: 45%;
     height: 35px;
     border: 1px solid #343434;
-    border-radius: 15%; /* حواف دائرية للخلفية */
+    border-radius: 8px; /* حواف دائرية للخلفية */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* ظل */
 }
 
