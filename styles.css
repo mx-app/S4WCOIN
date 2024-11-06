@@ -370,14 +370,13 @@ body {
 }
 
 .menu {
-    background: linear-gradient(90deg, #343434, #1a1a1a);
- 
     display: flex;
     justify-content: space-between;
     padding: 6px;
     border: 1px solid #343434;
     border-radius: 10px;
-    background: rgba(0, 0, 0, 0); /* لجعل الخلفية زجاجية */
+    background: linear-gradient(90deg, #343434, #1a1a1a);
+   /* background: rgba(0, 0, 0, 0);*/ /* لجعل الخلفية زجاجية */
     position: fixed;
     bottom: 25px;
     box-sizing: border-box; 
