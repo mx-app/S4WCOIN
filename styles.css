@@ -370,6 +370,8 @@ body {
 }
 
 .menu {
+    background: linear-gradient(90deg, #343434, #1a1a1a);
+ 
     display: flex;
     justify-content: space-between;
     padding: 6px;
