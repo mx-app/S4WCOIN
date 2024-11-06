@@ -842,12 +842,12 @@ body {
 
 .wallet-button {
     position: fixed;
-    top: 14px; 
+    top: 12px; 
     left: 275px;
     background: none;
     background-color: #1c1c1c; /* لون خلفية للزر */
-    border-radius: 50%; /* لجعل الزر دائري */
-    padding: 7px; /* مساحة إضافية حول الصورة */
+    border-radius: 40%; /* لجعل الزر دائري */
+    padding: 6px; /* مساحة إضافية حول الصورة */
 }
 
 .wallet-button:hover {
@@ -921,11 +921,11 @@ body {
 
 .boosts-button {
     position: fixed;
-    top: 14px; 
+    top: 12px; 
     left: 235px;
     background-color: #1c1c1c; /* لون خلفية للزر */
-    border-radius: 50%; /* لجعل الزر دائري */
-    padding: 7px; /* مساحة إضافية حول الصورة */
+    border-radius: 40%; /* لجعل الزر دائري */
+    padding: 6px; /* مساحة إضافية حول الصورة */
 }
 
 .boosts-button:hover {
