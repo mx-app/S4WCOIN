@@ -979,12 +979,12 @@ body {
     justify-content: center;
     margin-bottom: 10px;
     position: absolute; 
-    top: 10px; 
-    left: 20px;
+    top: 13px; 
+    left: 15px;
     background: linear-gradient(90deg, #343434, #1a1a1a); /* تدرج خلفية */
     width: 50%;
     height: 30px;
-    border-radius: 15px; /* حواف دائرية للخلفية */
+    border-radius: 10px; /* حواف دائرية للخلفية */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* ظل */
 }
 
