@@ -907,10 +907,8 @@ body {
 }
 
 .boos-icon {
-.boos-icon {
     width: 27px;
     height: 27px;
-    margin-right: 2px; /* مسافة بين الصورة والنص */
     flex-shrink: 0;
     border-radius: 50%; /* لجعل الصورة دائرية */
     background-color: #1c1c1c; /* لون خلفية للصورة */
