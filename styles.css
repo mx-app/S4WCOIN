@@ -1064,13 +1064,12 @@ body {
     font-weight: bold; /* جعل النص عريضًا */
     color: #ffffff; /* اللون الأبيض للنص */
     background: linear-gradient(135deg, #fff, #343434); /* تدرج لوني من الأبيض إلى اللون الداكن */
-    padding: 10px 20px; /* إضافة مسافة داخلية من جميع الاتجاهات */
-    border-radius: 15px; /* حواف مستديرة */
+    border-radius: 10px; /* حواف مستديرة */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* إضافة ظل خفيف حول النص */
     text-align: center; /* محاذاة النص في الوسط */
     margin: 20px 0; /* إضافة مسافة من الأعلى والأسفل */
     width: 88%; /* عرض النص بنسبة 90% من عرض الحاوية */
-    max-width: 500px; /* تحديد أقصى عرض للنص */
+    max-width: 400px; /* تحديد أقصى عرض للنص */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* إضافة تأثيرات انتقال عند التفاعل */
     margin-left: auto; /* محاذاة النص إلى اليسار */
     margin-right: auto; /* محاذاة النص إلى اليمين */
@@ -1084,7 +1083,7 @@ body {
 
 /* تنسيق رقم المستوى داخل النص */
 #displayedLevel {
-    font-size: 24px; /* زيادة حجم الرقم */
+    font-size: 18px; /* زيادة حجم الرقم */
     font-weight: bold; /* جعل الرقم عريضًا */
     color: #343434; /* لون داكن للرقم */
     background-color: #fff; /* خلفية بيضاء للرقم */
