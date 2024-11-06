@@ -112,6 +112,8 @@ const levelThresholds = [
     { level: 6, threshold: 1000000, name: 'EXPERT' },
     { level: 7, threshold: 3000000, name: 'MASTER' },
     { level: 8, threshold: 5000000, name: 'ULTIMATE' },
+    { level: 9, threshold: 10000000, name: '' },
+    { level: 10, threshold: 20000000, name: '' },
 ];
 
 // التحقق من الترقية إلى مستوى أعلى
@@ -615,6 +617,8 @@ function updateLevelDisplay() {
     if (uiElements.levelSixProgress) uiElements.levelSixProgress.style.width = `${(gameState.balance / levelThresholds[5].threshold) * 100}%`;
     if (uiElements.levelSevenProgress) uiElements.levelSevenProgress.style.width = `${(gameState.balance / levelThresholds[6].threshold) * 100}%`;
     if (uiElements.levelEightProgress) uiElements.levelEightProgress.style.width = `${(gameState.balance / levelThresholds[7].threshold) * 100}%`;
+    if (uiElements.levelnineProgress) uiElements.levelnineProgress.style.width = `${(gameState.balance / levelThresholds[8].threshold) * 100}%`;
+    if (uiElements.leveltenProgress) uiElements.leveltenProgress.style.width = `${(gameState.balance / levelThresholds[9].threshold) * 100}%`;
 }
 
 // تحديث عرض التحسينات
