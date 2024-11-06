@@ -855,7 +855,8 @@ body {
 .level-button-floating {
     position: fixed;
     top: 155px; 
-    left: 68px; 
+    left: 0; 
+   /* left: 68px; */
     background-color: transparent;
     background: linear-gradient(90deg, #fff, #343434); 
    /* background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c);*/ /* التدرج اللوني */
@@ -908,8 +909,8 @@ body {
  
 .boosts-button {
     position: fixed;
-    top: 155px; 
-    right: 68px;
+    top: 15px; 
+    right: 60px;
     background: rgba(0, 0, 0, 0); 
     border-radius: 20px;
    /* border: 2px solid #343434;*/
@@ -1083,7 +1084,7 @@ body {
 
 .level-item.current-level {
     border: 2px solid silver; 
-    background-color: #2a2a2a; 
+    background-color: #1c1c1c; 
     color: #ffffff; 
     font-weight: bold; 
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.6); /* إضافة توهج */
