@@ -847,7 +847,7 @@ body {
     background: none;
     background-color: #1c1c1c; /* لون خلفية للزر */
     border-radius: 50%; /* لجعل الزر دائري */
-    padding: 10px; /* مساحة إضافية حول الصورة */
+    padding: 7px; /* مساحة إضافية حول الصورة */
 }
 
 .wallet-button:hover {
@@ -925,7 +925,7 @@ body {
     left: 235px;
     background-color: #1c1c1c; /* لون خلفية للزر */
     border-radius: 50%; /* لجعل الزر دائري */
-    padding: 10px; /* مساحة إضافية حول الصورة */
+    padding: 7px; /* مساحة إضافية حول الصورة */
 }
 
 .boosts-button:hover {
