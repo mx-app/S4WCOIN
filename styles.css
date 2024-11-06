@@ -799,10 +799,16 @@ body {
      
 } 
 
-.level-name {
+.level-phase {
     text-align: left;
     font-weight: bold;
     padding-left: 20px; 
+} 
+
+.level-name {
+    text-align: center;
+    font-weight: bold;
+  /*  padding-left: 20px; */
 }
 
 .coin-name {
