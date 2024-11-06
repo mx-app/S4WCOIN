@@ -18,7 +18,6 @@
     position: fixed;
     top: 12px; 
     left: 310px;
-    background: none;
     background-color: #1c1c1c; /* لون خلفية للزر */
     border-radius: 40%; /* لجعل الزر دائري */
     padding: 6px; /* مساحة إضافية حول الصورة */
