@@ -284,7 +284,6 @@ body {
     align-items: center;
     justify-content: center;
     flex: 1;
-    z-index: 1000;
 }
 
 .clickable-image img {
@@ -299,7 +298,6 @@ body {
     transform: translateY(-5px);
     pointer-events: auto;
     border-radius: 30%;
-    z-index: 9500;
     
 }
 
@@ -372,7 +370,7 @@ body {
 .menu {
     display: flex;
     justify-content: space-between;
-    padding: 6px;
+    padding: 5px;
     border: 1px solid #343434;
     border-radius: 10px;
     background: linear-gradient(90deg, #343434, #1a1a1a);
