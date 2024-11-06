@@ -823,35 +823,6 @@ body {
     padding-right: 20px;
 } 
 
-.arrow-btn {
-    position: fixed; /* الأزرار ثابتة على جوانب الشاشة */
-    top: 55%; /* في منتصف الشاشة رأسيًا */
-    transform: translateY(-50%);
-    background-color: transparent; /* الخلفية شفافة */
-    color: #fff; /* لون السهم أبيض */
-    font-size: 45px; /* تكبير حجم السهم */
-    border: none; /* إزالة الحدود */
-    padding: 15px;
-    cursor: pointer;
-    z-index: 1000; /* لضمان أن الأزرار فوق العناصر الأخرى */
-    opacity: 0.8; /* تحسين شفافية السهم */
-}
-.arrow-btn:hover {
-    opacity: 1; /* إظهار السهم بالكامل عند التمرير عليه */
-}
- 
-
-.arrow-btn.left {
-    left: 5px; /* زر الاتجاه الأيسر على الجانب الأيسر من الشاشة */
-}
-
-.arrow-btn.right {
-    right: 5px; /* زر الاتجاه الأيمن على الجانب الأيمن من الشاشة */
-}
-
-.arrow-btn.disabled {
-    display: none; /* إخفاء الأزرار عندما لا يكون هناك مزيد من التمرير */
-} 
 
 .wallet-image {
     width: 140px;
