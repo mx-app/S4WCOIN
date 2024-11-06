@@ -919,11 +919,11 @@ body {
     flex-direction: column;
 }
 
-.level-image {
+/*.level-image {
     width: 50px;
     height: auto;
     margin-bottom: 10px;
-} 
+}*/
 
 #l, #t, #info, #b, #lev, #i {
     color: #aaaaaa; 
