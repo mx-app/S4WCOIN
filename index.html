@@ -28,7 +28,6 @@
       <div class="splash-loading">
       <!--  <img src="i/Loading.gif" alt="Loading..."> -->
      </div>
-    <!--  شريط الطاقة المتحرك  -->
     <div class="energy-bars-container">
         <div class="energy-bar-s"></div>
     </div>
@@ -136,18 +135,15 @@
                 </div>
             </div>
           </div>
-
             
-            <div class="invite-section">
-             <button class="invite-more" id="inviteFriendsBtn">
-              <img src="i/fren.png" alt="Invite Friends Icon" class="invite-icon"> Invite Friends </button>
+         <div class="invite-section">
+            <button class="invite-more" id="inviteFriendsBtn">
+             <img src="i/fren.png" alt="Invite Friends Icon" class="invite-icon"> Invite Friends </button>
              <button class="invite-copy" id="copyInviteLinkBtn">
              <img src="i/copy.png" alt="Copy Icon" class="copy-icon"> </button>
-        </div>
-
-            
+            </div>
             <p id="i">(Invited Friends): <span id="invitedCount">0</span></p>
-           <ul id="friendsList" class="friends-list"></ul>
+            <ul id="friendsList" class="friends-list"></ul>
         </div>
 
         <!-- Boosts Page -->
@@ -184,7 +180,7 @@
 
                  <!-- Tasks Page -->
          <div id="tasksPage" class="screen-content scrollable">
-            <!--     <img src="i/heart.gif" alt="Tasks Image" class="task-image"> --> 
+<!--     <img src="i/heart.gif" alt="Tasks Image" class="task-image"> --> 
           <p id="task"> Daily Promo Code </p>
            <div id="promoContainer" class="promo-container">
                    
@@ -244,13 +240,13 @@
               <div id="CaesarContainer" class="hidden">
                <div class="Caesar-content">
                 <h3 id="CaesarQuestion">Loading Caesar Cipher puzzle...</h3>
-                 <p id="CaesarCipherDisplay">Cipher: </p> <!-- عرض الشيفرة هنا -->
-                  <p id="CaesarShiftDisplay">Shift: </p> <!-- عرض عدد التخطيات هنا -->
+                 <p id="CaesarCipherDisplay">Cipher: </p> 
+                  <p id="CaesarShiftDisplay">Shift: </p> 
                    <input type="text" id="CaesarSolutionInput" placeholder="Enter your solution">
                     <button id="CaesarSubmitBtn">Submit</button>
                     <p id="CaesarRewardDisplay">Reward: </p>
-                     <p id="CaesarAttemptsDisplay">Attempts left: 3</p> <!-- عرض المحاولات المتبقية -->
-                     <p id="CaesarCountdownDisplay" class="hidden">Next puzzle available in: </p> <!-- عد تنازلي في حالة الخسارة -->
+                     <p id="CaesarAttemptsDisplay">Attempts left: 3</p>
+                     <p id="CaesarCountdownDisplay" class="hidden">Next puzzle available in: </p>
                  </div>
              </div>
 
@@ -261,7 +257,6 @@
                     <p id="Puz-to"> Today's Puzzle </p>
              <!--       <img src="i/numbers.gif" alt="puzzle2 Image" class="puzzle2-image"> -->
                     <div id="puzzleQuestion"></div>
-                    <!-- خانة عرض المكافأة -->
                     <div id="puzzleRewardDisplay" class="reward-display"></div>
                     <div id="puzzleOptions" class="puzzle-options"></div>
                     <div id="countdownTimer">
@@ -301,7 +296,7 @@
                <button class="game-button" onclick="startGame('https://mx-app.github.io/pure-stack')">Play</button>
            </div>
                   
-               <!-- Game soon -->   
+               <!-- Game new -->   
           <div class="game-item" id="gametre">
                <img src="i/Halloween.jpg" alt="Game 3 Image" class="game-image"> 
                 <p> Halloween </p>
@@ -313,6 +308,12 @@
                 <p> Train delivery </p>
                 <button class="game-button" onclick="startGame('https://mx-app.github.io/Game-puzzles')">Play</button>
            </div>
+                  
+          <div class="game-item" id="gamefive">
+                <img src="i/forbid.jpg" alt="Game 5 Image" class="game-image">
+                <p> Rock paper scissors </p>
+                <button class="game-button" onclick="startGame('https://mx-app.github.io/rock-paper-scissors')">Play</button>
+          </div>
         </section>
      </div>
         
@@ -329,7 +330,6 @@
               <!-- Levels Page -->
      <div id="levelPage" class="screen-content scrollable">
    <!-- <img src="i/levelsss.png" alt="levels Image" class="levels-image"> -->
-            <!-- معلومات الصفحة (التعريف) -->
             <div class="levels-info">
               <p id="l">Saw Coin Levels</p>
                <p id="currentLevelInfo">You are currently at phase <span id="displayedLevel">1</span></p>
@@ -340,7 +340,6 @@
         </div>
      </div>
 
-       <!-- قائمة المستويات -->
       <section class="level-container">
           <!-- Level 10 -->
         <div class="level-item" id="levelten">
@@ -440,9 +439,9 @@
 
         <!-- Bottom Sheet Modal -->
             <div id="upgradeConfirmation" class="confirmation-modal" style="display: none;">
-            <span id="closeModal" class="close">&times;</span> <!-- زر الإغلاق -->
+            <span id="closeModal" class="close">&times;</span> 
             <div class="modal-image">
-            <img src="i/boostsx.gif" alt="Centered Image"> <!-- صورة في المنتصف -->
+            <img src="i/boostsx.gif" alt="Centered Image"> 
          </div>
             <p id="upgradeText">Are you sure you want to upgrade? Please note that the upgrade cost will be deducted from your coins.</p>
             <div class="confirmation-buttons">
