@@ -17,10 +17,10 @@
 .settings-button {
     position: fixed;
     top: 12px; 
-    left: 300px;
+    left: 305px;
     background-color: #1c1c1c; /* لون خلفية للزر */
-    border-radius: 40%; /* لجعل الزر دائري */
-    padding: 6px; /* مساحة إضافية حول الصورة */
+    border-radius: 30%; /* لجعل الزر دائري */
+    padding: 4px; /* مساحة إضافية حول الصورة */
 }
 
 .settings-button:hover {
