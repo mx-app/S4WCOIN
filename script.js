@@ -601,7 +601,7 @@ function checkEnergyFill() {
 function updateLevelDisplay() {
     checkForLevelUp();
     if (uiElements.levelInfoDisplay) {
-        uiElements.levelInfoDisplay.innerText = `You are currently on level ${gameState.currentLevel}`;
+        uiElements.levelInfoDisplay.innerText = `Current level ${gameState.currentLevel}`;
     }
     document.querySelectorAll('.level-item').forEach(item => {
         item.classList.remove('current-level');
@@ -609,16 +609,16 @@ function updateLevelDisplay() {
     const currentLevelElement = document.getElementById(`level${gameState.currentLevel}`);
     if (currentLevelElement) currentLevelElement.classList.add('current-level'); // إضافة حواف فضية للمستوى الحالي
 
-    if (uiElements.levelOneProgress) uiElements.levelOneProgress.style.width = `${(gameState.balance / levelThresholds[0].threshold) * 100}%`;
-    if (uiElements.levelTwoProgress) uiElements.levelTwoProgress.style.width = `${(gameState.balance / levelThresholds[1].threshold) * 100}%`;
-    if (uiElements.levelThreeProgress) uiElements.levelThreeProgress.style.width = `${(gameState.balance / levelThresholds[2].threshold) * 100}%`;
-    if (uiElements.levelFourProgress) uiElements.levelFourProgress.style.width = `${(gameState.balance / levelThresholds[3].threshold) * 100}%`;
-    if (uiElements.levelFiveProgress) uiElements.levelFiveProgress.style.width = `${(gameState.balance / levelThresholds[4].threshold) * 100}%`;
-    if (uiElements.levelSixProgress) uiElements.levelSixProgress.style.width = `${(gameState.balance / levelThresholds[5].threshold) * 100}%`;
-    if (uiElements.levelSevenProgress) uiElements.levelSevenProgress.style.width = `${(gameState.balance / levelThresholds[6].threshold) * 100}%`;
-    if (uiElements.levelEightProgress) uiElements.levelEightProgress.style.width = `${(gameState.balance / levelThresholds[7].threshold) * 100}%`;
-    if (uiElements.levelnineProgress) uiElements.levelnineProgress.style.width = `${(gameState.balance / levelThresholds[8].threshold) * 100}%`;
-    if (uiElements.leveltenProgress) uiElements.leveltenProgress.style.width = `${(gameState.balance / levelThresholds[9].threshold) * 100}%`;
+    if (uiElements.level1Progress) uiElements.level1Progress.style.width = `${(gameState.balance / levelThresholds[0].threshold) * 100}%`;
+    if (uiElements.level2Progress) uiElements.level2Progress.style.width = `${(gameState.balance / levelThresholds[1].threshold) * 100}%`;
+    if (uiElements.level3Progress) uiElements.level3Progress.style.width = `${(gameState.balance / levelThresholds[2].threshold) * 100}%`;
+    if (uiElements.level4Progress) uiElements.level4Progress.style.width = `${(gameState.balance / levelThresholds[3].threshold) * 100}%`;
+    if (uiElements.level5Progress) uiElements.level5Progress.style.width = `${(gameState.balance / levelThresholds[4].threshold) * 100}%`;
+    if (uiElements.level6Progress) uiElements.level6Progress.style.width = `${(gameState.balance / levelThresholds[5].threshold) * 100}%`;
+    if (uiElements.level7Progress) uiElements.level7Progress.style.width = `${(gameState.balance / levelThresholds[6].threshold) * 100}%`;
+    if (uiElements.level8Progress) uiElements.level8Progress.style.width = `${(gameState.balance / levelThresholds[7].threshold) * 100}%`;
+    if (uiElements.level9Progress) uiElements.level9Progress.style.width = `${(gameState.balance / levelThresholds[8].threshold) * 100}%`;
+    if (uiElements.level10Progress) uiElements.level10Progress.style.width = `${(gameState.balance / levelThresholds[9].threshold) * 100}%`;
 }
 
 // تحديث عرض التحسينات
