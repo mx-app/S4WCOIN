@@ -842,16 +842,16 @@ body {
 
 .wallet-button {
     position: fixed;
-    top: 12px; 
+    top: 13px; 
     left: 260px;
     background: none;
     background-color: #1c1c1c; /* لون خلفية للزر */
-    border-radius: 30%; /* لجعل الزر دائري */
+    border-radius: 15%; /* لجعل الزر دائري */
     padding: 4px; /* مساحة إضافية حول الصورة */
 }
 
 .wallet-button:hover {
-    background: transparent;
+    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
 }
 
 .level-button-floating {
@@ -921,16 +921,16 @@ body {
 
 .boosts-button {
     position: fixed;
-    top: 12px; 
-    left: 210px;
+    top: 13px; 
+    left: 215px;
     background-color: #1c1c1c; /* لون خلفية للزر */
-    border-radius: 30%; /* لجعل الزر دائري */
+    border-radius: 15%; /* لجعل الزر دائري */
     padding: 4px; /* مساحة إضافية حول الصورة */
 }
 
 .boosts-button:hover {
-    background: transparent;
-} 
+    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
+}
 
 /*.boosts-button {
     position: fixed;
