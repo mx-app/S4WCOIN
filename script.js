@@ -66,7 +66,7 @@ let gameState = {
     balance: 0,
     energy: 500,
     maxEnergy: 500,
-    clickMultiplier: 0.1,
+    clickMultiplier: 0.5,
     boostLevel: 1,
     coinBoostLevel: 1,
     energyBoostLevel: 1,
@@ -464,7 +464,7 @@ function confirmUpgradeAction() {
         // زيادة المستوى بعد الترقية
         if (upgradeType === 'boost') {
             gameState.boostLevel += 1;
-            gameState.clickMultiplier += 0.1;
+            gameState.clickMultiplier += 0.5;
         } else if (upgradeType === 'coin') {
             gameState.coinBoostLevel += 1;
             gameState.maxEnergy += 500;
