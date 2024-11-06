@@ -907,8 +907,8 @@ body {
 }
 
 .boos-icon {
-    width: 25px;
-    height: 25px;
+    width: 27px;
+    height: 27px;
     margin-right: 2px; /* مسافة بين الصورة والنص */
     flex-shrink: 0;
 }
@@ -920,7 +920,7 @@ body {
 .boosts-button {
     position: fixed;
     top: 14px; 
-    left: 250px;
+    left: 240px;
     background: none; 
 }
 
