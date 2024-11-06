@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAWCOIN GAME</title>
+</head>
+<body>
+    <div id="content">
+        <p> </p> <!-- رسالة تحميل مؤقتة -->
+    </div>
+
+    <script>
+        // تحميل index.html وعرضه داخل #content
+        fetch('index.html')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to load content');
+                }
+                return response.text();
+            })
+            .then(htmlContent => {
+                document.getElementById('content').innerHTML = htmlContent;
+            })
+            .catch(error => console.error('Error loading content:', error));
+    </script>
+</body>
+</html>
