@@ -717,7 +717,7 @@ body {
 }
  
 .notification.show {
-    top: 10px; /* موقع الإشعار عند الظهور */
+    top: 15px; /* موقع الإشعار عند الظهور */
     opacity: 1; /* مرئية */
 }
 
@@ -920,7 +920,7 @@ body {
 .boosts-button {
     position: fixed;
     top: 14px; 
-    left: 260px;
+    left: 250px;
     background: none; 
 }
 
