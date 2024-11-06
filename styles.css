@@ -844,7 +844,7 @@ body {
     position: fixed;
     top: 13px; 
     left: 265px;
-    background: none;
+    border: 1px solid #343434;
     background-color: #1c1c1c; /* لون خلفية للزر */
     border-radius: 15%; /* لجعل الزر دائري */
     padding: 4px; /* مساحة إضافية حول الصورة */
@@ -923,6 +923,7 @@ body {
     position: fixed;
     top: 13px; 
     left: 215px;
+    border: 1px solid #343434;
     background-color: #1c1c1c; /* لون خلفية للزر */
     border-radius: 15%; /* لجعل الزر دائري */
     padding: 4px; /* مساحة إضافية حول الصورة */
@@ -980,11 +981,12 @@ body {
     margin-bottom: 10px;
     position: absolute; 
     top: 13px; 
-    left: 15px;
+    left: 10px;
     background: linear-gradient(90deg, #343434, #1a1a1a); /* تدرج خلفية */
-    width: 50%;
-    height: 30px;
-    border-radius: 10px; /* حواف دائرية للخلفية */
+    width: 45%;
+    height: 35px;
+    border: 1px solid #343434;
+    border-radius: 15%; /* حواف دائرية للخلفية */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* ظل */
 }
 
