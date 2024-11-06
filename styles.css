@@ -843,7 +843,7 @@ body {
 .wallet-button {
     position: fixed;
     top: 13px; 
-    left: 260px;
+    left: 265px;
     background: none;
     background-color: #1c1c1c; /* لون خلفية للزر */
     border-radius: 15%; /* لجعل الزر دائري */
