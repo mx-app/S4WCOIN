@@ -427,11 +427,11 @@ body {
     top: 18%;
 }
 
-.menu button.active .menu-img {
-    background: linear-gradient(135deg, #d69a1c, #794106, #9f620c, #d69a1c); /* تفعيل التدرج على الصورة */
-    -webkit-background-clip: border-box; /* تفعيل تأثير التدرج على الصورة */
-    border-radius: 10%; /* جعل الصورة دائرية */
-} 
+/*.menu button.active .menu-img {
+    background: linear-gradient(135deg, #d69a1c, #794106, #9f620c, #d69a1c);
+    -webkit-background-clip: border-box;
+    border-radius: 10%;
+}*/
 
  
 .menu-img {
