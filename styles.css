@@ -764,9 +764,9 @@ body {
 }
 
 .level-image {
-    width: 50px; /* حجم ثابت للصورة */
-    height: 50px; /* حجم ثابت للصورة */
-    margin-right: 15px; /* مسافة بين الصورة والنص */
+    width: 40px; /* حجم ثابت للصورة */
+    height: 40px; /* حجم ثابت للصورة */
+    margin-right: 10px; /* مسافة بين الصورة والنص */
     object-fit: contain; /* لضمان تناسب الصورة مع الحاوية */
     flex-shrink: 0; /* لضمان عدم تقلص الصورة */
 }
@@ -805,6 +805,12 @@ body {
     padding-left: 20px; 
 } 
 
+.level-namee {
+    text-align: left;
+    font-weight: bold;
+    padding-left: 20px; 
+}
+ 
 .level-name {
     text-align: center;
     font-weight: bold;
