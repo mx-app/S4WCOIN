@@ -243,7 +243,7 @@ body {
 }
 
 .progress-bar {
-    width: 150px; 
+    width: 180px; 
     height: 13px; 
     background-color: #555555; /* خلفية الشريط شفافة */
     border-radius: 50px; /* شكل الشريط */
@@ -262,7 +262,7 @@ body {
 
 #energyInfo {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 18px; /* حجم الخط */
+    font-size: 17px; /* حجم الخط */
     font-weight: bold; /* سمك الخط */
     color: #fff; /* لون النص */
     text-align: left; /* المحاذاة لليسار */
@@ -473,7 +473,7 @@ body {
     gap: 8px; /* مسافة بين الصورة والنص */
     width: 75%; 
     height: 60px;
-    background: linear-gradient(135deg, #000000, #808080, #000000, #808080);
+    background: linear-gradient(135deg, #808080, #000000, #808080);
    /* background: #1c1c1c;*/
     color: #fff;
     border: 1px solid #343434; 
@@ -505,7 +505,7 @@ body {
     gap: 8px; /* مسافة بين الصورة والنص */
     width: 20%; 
     height: 60px;
-    background: linear-gradient(135deg, #000000, #808080, #000000, #808080);
+    background: linear-gradient(135deg, #808080, #000000, #808080);
    /*background: #1c1c1c;*/
     color: #fff;
     border: 1px solid #343434; 
@@ -764,8 +764,8 @@ body {
 }
 
 .level-image {
-    width: 40px; /* حجم ثابت للصورة */
-    height: 40px; /* حجم ثابت للصورة */
+    width: 35px; /* حجم ثابت للصورة */
+    height: 35px; /* حجم ثابت للصورة */
     margin-right: 10px; /* مسافة بين الصورة والنص */
     object-fit: contain; /* لضمان تناسب الصورة مع الحاوية */
     flex-shrink: 0; /* لضمان عدم تقلص الصورة */
@@ -1078,7 +1078,7 @@ body {
     font-size: 18px; /* حجم الخط */
     font-weight: bold; /* جعل النص عريضًا */
     color: #ffffff; /* اللون الأبيض للنص */
-    background: linear-gradient(135deg, #000000, #808080, #000000, #808080);
+    background: linear-gradient(135deg,  #808080, #000000, #808080);
     border-radius: 10px; /* حواف مستديرة */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* إضافة ظل خفيف حول النص */
     text-align: center; /* محاذاة النص في الوسط */
