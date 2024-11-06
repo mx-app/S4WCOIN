@@ -28,15 +28,6 @@
     background: transparent;
 }
  
-  /*  background: #fff; 
-  /*  background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    font-size: 18px;
-    z-index: 100;  */
-}
-
 /* نافذة الإعدادات */
 .settings-panel {
     background-color: rgba(0, 0, 0, 0.90);/* خلفية غير شفافة */
