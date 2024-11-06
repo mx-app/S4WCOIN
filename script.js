@@ -112,8 +112,8 @@ const levelThresholds = [
     { level: 6, threshold: 1000000, name: 'EXPERT' },
     { level: 7, threshold: 3000000, name: 'MASTER' },
     { level: 8, threshold: 5000000, name: 'ULTIMATE' },
-    { level: 9, threshold: 10000000, name: '' },
-    { level: 10, threshold: 20000000, name: '' },
+    { level: 9, threshold: 10000000, name: 'MYTHICAL' },
+    { level: 10, threshold: 20000000, name: 'IMMORTAL' },
 ];
 
 // التحقق من الترقية إلى مستوى أعلى
