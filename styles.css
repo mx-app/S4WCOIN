@@ -1109,3 +1109,13 @@ body {
     border-radius: 50%; /* جعل الرقم داخل دائرة */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* إضافة ظل خفيف حول الرقم */
 }
+
+
+.level-item.current-level {
+    border: 2px solid silver; 
+    background-color: #2a2a2a; 
+    color: #ffffff; 
+    font-weight: bold; 
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6); /* إضافة توهج */
+}
+
