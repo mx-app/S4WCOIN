@@ -1,6 +1,6 @@
 .settings-container {
     display: flex;
-    justify-content: flex-end; /* لتحديد الزر في أقصى اليمين */
+    justify-content: flex-end; 
     align-items: center;
 } 
 
@@ -19,9 +19,9 @@
     top: 13px; 
     left: 310px;
     border: 1px solid #343434;
-    background-color: #1c1c1c; /* لون خلفية للزر */
-    border-radius: 15%; /* لجعل الزر دائري */
-    padding: 4px; /* مساحة إضافية حول الصورة */
+    background: linear-gradient(90deg, #343434, #1a1a1a);
+    border-radius: 15%; 
+    padding: 4px; 
 }
 
 .settings-button:hover {
