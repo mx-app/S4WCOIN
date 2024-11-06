@@ -449,29 +449,6 @@
          </nav>
      </div>
     
-    <script>
-    // التحقق مما إذا كان المستخدم يحاول عرض السورس كود
-    (function() {
-        document.addEventListener('keydown', function(event) {
-            // التحقق من محاولة فتح أدوات المطور أو عرض السورس
-            if (event.ctrlKey && (event.key === 'u' || event.key === 'U')) {
-                event.preventDefault();
-                window.location.href = "https://your-redirect-page.com"; // إعادة توجيه المستخدم
-            }
-        });
-
-        // حماية إضافية ضد استخدام الفأرة لفتح أدوات المطور
-        document.addEventListener('contextmenu', function(event) {
-            event.preventDefault(); // منع القائمة اليمنى (عرض السورس كود)
-        });
-
-        // رسالة تحذيرية عند محاولة الفحص
-        if (window.console && window.console.log) {
-            console.log("%cWarning: Trying to view the code!", "color: red; font-size: 20px;");
-        }
-    })();
-</script>
-
    <script type="module" src="script.js"></script>
     
 </body>
