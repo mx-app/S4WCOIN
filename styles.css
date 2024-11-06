@@ -739,6 +739,13 @@ body {
     margin-bottom: 100px; 
 }
 
+.current-level-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 5px;
+} 
+
 .level-item {
     display: flex;
     align-items: center;
@@ -761,13 +768,21 @@ body {
     flex-shrink: 0; /* لضمان عدم تقلص الصورة */
 }
 
-.level-text {
+/*.level-text {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* محاذاة النصوص بحيث تكون قريبة لبعضها */
-    gap: 5px; /* المسافة بين النصوص */
+    justify-content: center; 
+    gap: 5px; 
     font-size: 15px;
-}
+}*/
+
+.level-text {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 15px;
+} 
+
 
 .level-text p {
     margin: 0; /* إزالة المسافات بين الفقرات */
