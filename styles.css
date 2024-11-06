@@ -973,32 +973,6 @@ body {
     text-align: center;
  }
 
-/*.app-info {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 10px;
-    position: absolute; 
-    top: 4px; 
-    left: 20px;
-}
-
-.app-logo {
-    width: 24px;
-    height: 24px;
-    margin-right: 5px; 
-}
-
-.app-name {
-    font-size: 18px;
-    font-weight: bold;
-    background-color: transparent;
-    background: linear-gradient(90deg, #fff, #343434);
-    -webkit-background-clip: text; 
-    background-clip: text;
-    color: transparent;
-}*/
-
 .app-info {
     display: flex;
     align-items: center;
@@ -1008,7 +982,8 @@ body {
     top: 10px; 
     left: 20px;
     background: linear-gradient(90deg, #343434, #1a1a1a); /* تدرج خلفية */
-    padding: 4px 10px; /* مساحة داخلية للخلفية */
+    width: 40%;
+    height: 10px;
     border-radius: 15px; /* حواف دائرية للخلفية */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* ظل */
 }
@@ -1020,7 +995,7 @@ body {
 }
 
 .app-name {
-    font-size: 18px;
+    font-size: 15px;
     font-weight: bold;
     color: #ffffff; /* لون النص */
 }
