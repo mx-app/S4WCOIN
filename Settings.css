@@ -10,11 +10,11 @@
     flex-shrink: 0;
 }
 
-.Settings-button img {
+.settings-button img {
     vertical-align: middle;
 }  
 
-.Settings-button {
+.settings-button {
     position: fixed;
     top: 12px; 
     left: 310px;
@@ -23,7 +23,7 @@
     padding: 6px; /* مساحة إضافية حول الصورة */
 }
 
-.Settings-button:hover {
+.settings-button:hover {
     background: transparent;
 }
  
