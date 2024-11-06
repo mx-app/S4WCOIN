@@ -781,6 +781,15 @@ body {
      
 } 
 
+.level-name {
+    text-align: left;
+    font-weight: bold;
+}
+
+.coin-name {
+    text-align: right;
+    font-weight: bold;
+} 
 
 .arrow-btn {
     position: fixed; /* الأزرار ثابتة على جوانب الشاشة */
