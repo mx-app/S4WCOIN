@@ -1686,7 +1686,7 @@ img.addEventListener('transitionend', () => {
 
 
 const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
-    manifestUrl: 'https://saw-game.vercel.app/tonconnect-manifest.json', // استبدل بالرابط الخاص بتطبيقك
+    manifestUrl: 'https://sawcoin-app.vercel.app/tonconnect-manifest.json',
     buttonRootId: 'ton-connect'
 });
 
