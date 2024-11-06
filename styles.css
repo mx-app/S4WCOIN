@@ -833,7 +833,6 @@ body {
 .wallet-icon {
     width: 25px;
     height: 25px;
-    margin-right: 2px; /* مسافة بين الصورة والنص */
     flex-shrink: 0;
 }
 
@@ -845,7 +844,10 @@ body {
     position: fixed;
     top: 14px; 
     left: 275px;
-    background: none; 
+    background: none;
+    background-color: #1c1c1c; /* لون خلفية للزر */
+    border-radius: 50%; /* لجعل الزر دائري */
+    padding: 10px; /* مساحة إضافية حول الصورة */
 }
 
 .wallet-button:hover {
@@ -907,11 +909,10 @@ body {
 }
 
 .boos-icon {
-    width: 27px;
-    height: 27px;
+    width: 26px;
+    height: 26px;
     flex-shrink: 0;
     border-radius: 50%; /* لجعل الصورة دائرية */
-    background-color: #1c1c1c; /* لون خلفية للصورة */
 }
 
 .boosts-button img {
