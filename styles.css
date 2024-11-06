@@ -799,11 +799,13 @@ body {
 .level-name {
     text-align: left;
     font-weight: bold;
+    padding-left: 10px; 
 }
 
 .coin-name {
     text-align: right;
     font-weight: bold;
+    padding-right: 10px;
 } 
 
 .arrow-btn {
