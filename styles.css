@@ -718,7 +718,7 @@ body {
 }
  
 .notification.show {
-    top: 15px; /* موقع الإشعار عند الظهور */
+    top: 14px; /* موقع الإشعار عند الظهور */
     opacity: 1; /* مرئية */
 }
 
@@ -846,7 +846,7 @@ body {
     top: 13px; 
     left: 265px;
     border: 1px solid #343434;
-    background-color: #1c1c1c; /* لون خلفية للزر */
+    background: linear-gradient(90deg, #343434, #1a1a1a);
     border-radius: 15%; /* لجعل الزر دائري */
     padding: 4px; /* مساحة إضافية حول الصورة */
 }
@@ -925,7 +925,7 @@ body {
     top: 13px; 
     left: 215px;
     border: 1px solid #343434;
-    background-color: #1c1c1c; /* لون خلفية للزر */
+    background: linear-gradient(90deg, #343434, #1a1a1a);
     border-radius: 15%; /* لجعل الزر دائري */
     padding: 4px; /* مساحة إضافية حول الصورة */
 }
@@ -983,13 +983,13 @@ body {
     position: absolute; 
     top: 13px; 
     left: 10px;
-    background: linear-gradient(90deg, #343434, #1a1a1a); /* تدرج خلفية */
-    width: 40%;
+    background: linear-gradient(90deg, #343434, #1a1a1a);
+    width: 38%;
     height: 35px;
     border: 1px solid #343434;
     border-radius: 8px; /* حواف دائرية للخلفية */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* ظل */
-    padding-left: 10px;
+    padding-left: 13px;
 }
 
 .app-logo {
