@@ -979,13 +979,13 @@ body {
 .app-info {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     margin-bottom: 10px;
     position: absolute; 
     top: 13px; 
     left: 10px;
     background: linear-gradient(90deg, #343434, #1a1a1a); /* تدرج خلفية */
-    width: 45%;
+    width: 40%;
     height: 35px;
     border: 1px solid #343434;
     border-radius: 8px; /* حواف دائرية للخلفية */
@@ -1001,7 +1001,6 @@ body {
 .app-name {
     font-size: 16px;
     font-weight: bold;
-    text-align: flex start;
     color: #fff; 
 }
  
