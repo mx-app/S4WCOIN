@@ -1067,7 +1067,10 @@ body {
     border-radius: 10px; /* حواف مستديرة */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* إضافة ظل خفيف حول النص */
     text-align: center; /* محاذاة النص في الوسط */
-    margin: 20px 0; /* إضافة مسافة من الأعلى والأسفل */
+    margin-top: 20px; /* إضافة مسافة من الأعلى */
+    margin-bottom: 20px; /* إضافة مسافة من الأسفل */
+    padding-top: 10px; /* إضافة مسافة داخلية من الأعلى */
+    padding-bottom: 10px; 
     width: 88%; /* عرض النص بنسبة 90% من عرض الحاوية */
     max-width: 400px; /* تحديد أقصى عرض للنص */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* إضافة تأثيرات انتقال عند التفاعل */
@@ -1083,7 +1086,7 @@ body {
 
 /* تنسيق رقم المستوى داخل النص */
 #displayedLevel {
-    font-size: 18px; /* زيادة حجم الرقم */
+    font-size: 20px; /* زيادة حجم الرقم */
     font-weight: bold; /* جعل الرقم عريضًا */
     color: #343434; /* لون داكن للرقم */
     background-color: #fff; /* خلفية بيضاء للرقم */
