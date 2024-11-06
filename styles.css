@@ -473,7 +473,7 @@ body {
     gap: 8px; /* مسافة بين الصورة والنص */
     width: 75%; 
     height: 60px;
-    background: linear-gradient(135deg, #000000, #808080, #000000);
+    background: linear-gradient(135deg, #000000, #808080, #000000, #808080);
    /* background: #1c1c1c;*/
     color: #fff;
     border: 1px solid #343434; 
@@ -505,7 +505,7 @@ body {
     gap: 8px; /* مسافة بين الصورة والنص */
     width: 20%; 
     height: 60px;
-    background: linear-gradient(135deg, #000000, #808080, #000000);
+    background: linear-gradient(135deg, #000000, #808080, #000000, #808080);
    /*background: #1c1c1c;*/
     color: #fff;
     border: 1px solid #343434; 
@@ -540,7 +540,7 @@ body {
     padding: 0;
     list-style: none;
     color: #fff;
-    width: 88%; /* لجعل العرض 80% */
+    width: 87%; /* لجعل العرض 80% */
     padding: 8px; 
     background: #1c1c1c;
     /*background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);  */
@@ -1078,7 +1078,7 @@ body {
     font-size: 18px; /* حجم الخط */
     font-weight: bold; /* جعل النص عريضًا */
     color: #ffffff; /* اللون الأبيض للنص */
-    background: linear-gradient(135deg, #000000, #808080, #000000);
+    background: linear-gradient(135deg, #000000, #808080, #000000, #808080);
     border-radius: 10px; /* حواف مستديرة */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* إضافة ظل خفيف حول النص */
     text-align: center; /* محاذاة النص في الوسط */
