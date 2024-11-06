@@ -910,7 +910,7 @@ body {
     margin-bottom: 10px;
 } 
 
-#l, #t, #info, #b, #lev, #currentLevelInfo, #i {
+#l, #t, #info, #b, #lev, #i {
     color: #aaaaaa; 
     font-size: 17px; 
     margin: 10px 0;
@@ -1054,4 +1054,34 @@ body {
     justify-content: center;
 /*   width: 88% !important;
     height: 50px !important;*/
+}
+/* تنسيق معلومات المستوى الحالي */
+#currentLevelInfo {
+    font-size: 18px; /* حجم الخط */
+    font-weight: bold; /* جعل النص عريضًا */
+    color: #ffffff; /* اللون الأبيض للنص */
+    background: linear-gradient(135deg, #fff, #343434); /* تدرج لوني من الأحمر إلى البرتقالي */
+    padding: 10px 20px; /* إضافة مسافة داخلية من جميع الاتجاهات */
+    border-radius: 15px; /* حواف مستديرة */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* إضافة ظل خفيف حول النص */
+    text-align: center; /* محاذاة النص في الوسط */
+    margin: 20px 0; /* إضافة مسافة من الأعلى والأسفل */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* إضافة تأثيرات انتقال عند التفاعل */
+}
+
+/* تأثير عند المرور فوق النص */
+#currentLevelInfo:hover {
+    transform: scale(1.05); /* تكبير النص عند المرور عليه */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* زيادة الظل عند المرور */
+}
+
+/* تنسيق رقم المستوى داخل النص */
+#displayedLevel {
+    font-size: 24px; /* زيادة حجم الرقم */
+    font-weight: bold; /* جعل الرقم عريضًا */
+    color: #343434; /* لون داكن للرقم */
+    background-color: #fff; /* خلفية بيضاء للرقم */
+    padding: 5px 10px; /* إضافة مسافة حول الرقم */
+    border-radius: 50%; /* جعل الرقم داخل دائرة */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* إضافة ظل خفيف حول الرقم */
 }
