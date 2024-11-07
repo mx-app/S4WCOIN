@@ -31,14 +31,7 @@
     color: #fff;
     line-height: 1.5; /* تحسين تباعد الأسطر */
 }
-
-.boost-item img {
-    width: 35px;
-    height: 35px;
-    margin-bottom: 10px; /* مسافة بين الصورة والنص */
-}
   
-
 .boost-item button {
     background-color: #000;
     color: #fff;
@@ -64,5 +57,18 @@
     display: block;
     margin: 0 auto;
 
+}
+ 
+.boost-item img {
+    width: 35px;
+    height: 35px;
+    margin-bottom: 10px; /* مسافة بين الصورة والنص */
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.8), 0 0 20px rgba(255, 0, 255, 0.6), 0 0 30px rgba(255, 0, 255, 0.4);
+    border-radius: 50%; /* جعل الصورة دائرية، يمكنك إزالته إذا لم يكن مطلوبًا */
+    transition: box-shadow 0.3s ease; /* تأثير النيون الناعم عند التمرير */
+}
+
+.boost-item img:hover {
+    box-shadow: 0 0 15px rgba(255, 0, 255, 1), 0 0 30px rgba(255, 0, 255, 0.8), 0 0 45px rgba(255, 0, 255, 0.6);
 }
  
