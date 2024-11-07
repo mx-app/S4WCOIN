@@ -188,34 +188,39 @@
             </section>
          </div>
         
-               <!-- Tasks Page -->
-         <div id="tasksPage" class="screen-content scrollable">
-            <div class="switch-buttons">
-              <button id="tasksContentButton" class="switch-button active" onclick="showContent('tasksContent')">Tasks</button>
-              <button id="gamesContentButton" class="switch-button" onclick="showContent('gamesContent')">Games</button>
-         </div>
-            <!-- Tasks Content -->
-          <div id="tasksContent" class="content-section">
-             <p id="task"> Daily Promo Code </p>
-              <div id="promoContainer" class="promo-container">
-                 <div class="promo-input-container">
-                    <input type="text" id="promoCodeInput" placeholder="Enter promo code" class="promo-input">
-                    <button id="applyPromoCode" class="apply_PromoCode">
-                 <img src="i/reward1.png" alt="Promo Icon" class="promo-icon"> Send
+               <!-- Tasks Page with Switchable Content -->
+<div id="tasksPage" class="screen-content scrollable">
+    <!-- Switch Buttons for Tasks and Games Content -->
+    <div class="switch-buttons">
+        <button id="tasksContentButton" class="switch-button active" onclick="showContent('tasksContent')">Tasks</button>
+        <button id="gamesContentButton" class="switch-button" onclick="showContent('gamesContent')">Games</button>
+    </div>
+
+    <!-- Tasks Content -->
+    <div id="tasksContent" class="content-section">
+        <p id="task">Daily Promo Code</p>
+        <div id="promoContainer" class="promo-container">
+            <div class="promo-input-container">
+                <input type="text" id="promoCodeInput" placeholder="Enter promo code" class="promo-input">
+                <button id="applyPromoCode" class="apply_PromoCode">
+                    <img src="i/reward1.png" alt="Promo Icon" class="promo-icon"> Send
                 </button>
-              </div>
-             <div id="gamesSection" class="games-section">
-                 <p id="Gem">Games</p>
-                 <button data-target="gamePage" class="Play-game-button">
-                 <img src="i/gamee.png" alt="games Icon" class="games-icon">GAMES
-              </button>
-           </div>
-                       
-             <section id="taskcontainer" class="task-container">
-             <p id="t">Complete Daily Tasks To Earn More Rewards! 🎁</p>
-          </section>
+            </div>
         </div>
-     </div>
+        <section id="taskcontainer" class="task-container">
+            <p id="t">Complete Daily Tasks To Earn More Rewards! 🎁</p>
+        </section>
+    </div>
+
+    <!-- Games Content (Hidden by Default) -->
+    <div id="gamesContent" class="content-section" style="display: none;">
+        <p id="Gem">Games</p>
+        <button class="Play-game-button">
+            <img src="i/gamee.png" alt="games Icon" class="games-icon"> GAMES
+        </button>
+    </div>
+</div>
+
 
          <!-- Puzzle Page -->
         <div id="Puzzlespage" class="screen-content scrollable">
