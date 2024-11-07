@@ -35,25 +35,26 @@
 .Play-game-button {
     position: fixed;
     top: 30px;
-    left: 10px; /* وضع الزر بالكامل داخل الشاشة */
+    left: 10px; /* الزر داخل الشاشة في الوضع الطبيعي */
     background-color: rgba(255, 255, 255, 0.05);
     font-size: 16px;
     border: 1px solid #343434;
     font-weight: bold;
     margin: 0;
-    padding: 2px 18px; /* إضافة مساحة داخلية */
-    border-radius: 10px; /* جعل الزر مستدير */
+    padding: 2px 18px;
+    border-radius: 10px;
     cursor: pointer;
     z-index: 200;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* إضافة ظل لجعله يبدو عائمًا */
-    transition: transform 0.3s ease; /* تأثير انزلاق عند التحويم */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease; /* تأثير انزلاق عند التحويم */
     display: flex;
     align-items: center;
 }
 
 .Play-game-button:hover {
-    transform: translateX(-15px); /* عند التحويم، يتحرك الزر قليلاً إلى الخارج */
+    left: -100px; /* عند التحويم، يخرج الزر بالكامل خارج الشاشة */
 }
+ 
  
 
 #gamePage .game-container {
