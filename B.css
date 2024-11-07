@@ -14,7 +14,7 @@
 
 .boost-item {
     width: calc(50% - 20px);
-    min-height: 200px; /* ضبط الحد الأدنى للارتفاع */
+    min-height: 170px; /* ضبط الحد الأدنى للارتفاع */
     padding: 20px;
     margin: 10px 0;
     border: 1px solid #343434;
@@ -35,8 +35,8 @@
     color: #fff;
     line-height: 1.5;
     max-height: 40px; /* يمكنك تخصيص هذا الارتفاع بناءً على طول النصوص المتوقعة */
-    overflow: hidden; /* اخفاء النص الزائد */
-    text-overflow: ellipsis; /* إظهار ... في حالة النص الطويل */
+/*   overflow: hidden;*/ /* اخفاء النص الزائد */
+    /*text-overflow: ellipsis;*/ /* إظهار ... في حالة النص الطويل */
 }
 
 .boost-item button {
@@ -49,7 +49,6 @@
     width: 80%;
     transition: background-color 0.3s;
     border: 1px solid #343434;
-    font-size: var(--claim-button-size);
     margin-top: auto; /* يضمن بقاء الزر في أسفل الحاوية */
 } 
 
