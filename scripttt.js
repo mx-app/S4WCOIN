@@ -952,7 +952,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 let taskProgress = taskProgressData ? taskProgressData.progress : 0;
 
                 // Set button text based on task progress
-                button.textContent = taskProgress >= 2 ? 'Completed' : taskProgress === 1 ? 'Verify' : 'Go';
+                button.textContent = taskProgress >= 2 ? 'Done' : taskProgress === 1 ? 'Verify' : 'Go';
                 button.disabled = taskProgress >= 2;
 
                 // Button click handling
@@ -971,7 +971,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         showNotification(uiElements.purchaseNotification, 'Task verified. You can now claim the reward.');
                     } else if (taskProgress === 2) {
                         claimTaskReward(taskId, taskReward);
-                        button.textContent = 'Completed';
+                        button.textContent = 'Done';
                         button.disabled = true;
                         showNotificationWithStatus(uiElements.purchaseNotification, 'Reward successfully claimed!', 'win');
                     }
