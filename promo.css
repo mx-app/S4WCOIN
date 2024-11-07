@@ -8,8 +8,8 @@
 
 .promo-input {
     background: #343434;
-    width: 70%;
-    padding: 10px;
+    width: 60%;
+    height: 50px;
     font-size: 16px;
     border-radius: 10px;
     border: 1px solid #343434;
@@ -18,7 +18,6 @@
 }
 
 .apply_PromoCode {
-    padding: 10px;
     background: #1c1c1c; 
     color: white;
     font-weight: bold;
@@ -26,6 +25,7 @@
     border: 1px solid #343434;
     cursor: pointer;
     width: 25%;
+    height: 50px;
     font-size: 16px;
     display: flex;
     align-items: center;
