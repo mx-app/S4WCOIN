@@ -915,32 +915,6 @@ body {
     margin-top: 110px; /* يمكنك ضبط القيمة حسب المسافة المطلوبة */
 }
 
-.boos-icon {
-    width: 26px;
-    height: 26px;
-    flex-shrink: 0;
-    border-radius: 50%; /* لجعل الصورة دائرية */
-}
-
-.boosts-button img {
-    vertical-align: middle;
-}  
-
-.boosts-button {
-    position: fixed;
-    top: 13px; 
-    right: 90px;
-   /* left: 220px;*/
-    border: 1px solid #343434;
-    background: linear-gradient(90deg, #343434, #1a1a1a);
-    border-radius: 15%; /* لجعل الزر دائري */
-    padding: 4px; /* مساحة إضافية حول الصورة */
-}
-
-.boosts-button:hover {
-    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
-}
-
 /*.boosts-button {
     position: fixed;
     top: 15px; 
