@@ -1,13 +1,13 @@
 .boos-icon {
-    width: 25px;
-    height: 25px;
+    width: 27px;
+    height: 27px;
     flex-shrink: 0;
-    margin-right: 15px; /* مسافة بين الأيقونة والنص لتظهر على اليمين */
+    margin-right: 20px; /* مسافة بين الأيقونة والنص لتظهر على اليمين */
 }
 
 .boosts-button {
     position: fixed;
-    top: 55px;
+    top: 60px;
     right: -20px; /* وضع الزر داخل الشاشة بشكل طبيعي */
     background-color: rgba(255, 255, 255, 0.05);
     font-size: 16px;
