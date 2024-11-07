@@ -1,3 +1,10 @@
+#Puzzlespage .puzzles-container {
+    display: flex;
+    flex-direction: row; /* لتوزيع الأزرار أفقيًا */
+    justify-content: center; /* محاذاة الأزرار في المنتصف */
+    gap: 15px; /* المسافة بين الأزرار */
+}
+
 #Puzzlespage .puzzle-image {
     width: 100px;
     margin: 0 auto ;
@@ -101,17 +108,6 @@
 
 #Puzzlespage input:focus {
     border-color: var(--hover-color);
-}
-
-#Puzzlespage button {
-    display: flex;
-    flex-wrap: wrap;  /* لتمكين العناصر من الانتقال إلى السطر التالي عند الحاجة */
-    gap: 15px;  /* المسافة بين الأزرار */
-    justify-content: center; /* محاذاة الأزرار في المنتصف */
-}
-
-#Puzzlespage button:hover {
-    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
 }
 
 #Puzzlespage .notification {
