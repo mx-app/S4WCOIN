@@ -1,112 +1,44 @@
 .promo-container {
     display: flex;
-    flex-direction: column ;
-    align-items: center;
+    align-items: center; /* محاذاة الحقل والزر بشكل أفقي */
     justify-content: center;
     text-align: center;
+    gap: 10px; /* المسافة بين حقل الإدخال والزر */
 } 
 
-/* تنسيق النافذة المنبثقة */
-#promoCodeModal {
-  /*  background-image: url('i/background.jpg');
-    background-size: cover;
-    background-position: center;*/
-    background-color: rgba(0, 0, 0, 0.80);/* خلفية غير شفافة */
-    padding: 10px; /* تقليل الحواف الداخلية */
-    border-radius: 25px 25px 0 0; /* حواف علوية دائرية فقط */
-    border-top: 2px solid #343434;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 9999; /* قيمة z-index عالية جداً */
-    transform: translateY(0); /* يظهر من الأسفل */
-    height: 40vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* تقريب العناصر ببعضها */
-    align-items: center;
-    gap: 8px; /* تقليل المسافة بين العناصر */
-}
-
-.closepromoBtn {
-    position: absolute;
-    top: 5px;
-    right: 10px;
-    margin-top: 10px;
-    color: white;
-    padding: 10px;
-    font-size: 25px;
-
-}
-
-.modal-content {
-    background-color: transparent;
-    margin: 15% auto;
-    padding: 20px;
-/*    border: 2px solid #343434;*/
-    width: 75%;
-    max-width: 400px;
-}
-
-#promoCodeInput {
+.promo-code-input {
     background: #343434;
-    width: 100%;
     padding: 10px;
-    margin-top: 15px;
     font-size: 16px;
     border-radius: 10px;
     border: 1px solid #343434;
+    width: 200px; /* حجم الحقل */
+    color: white;
 }
 
-#applyPromoCode {
+.apply_PromoCode {
     padding: 10px;
-    margin-top: 20px;
-    /*background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
-    background: #1c1c1c; 
+    background: #1c1c1c;
     color: white;
     font-weight: bold;
     border-radius: 10px;
     border: 1px solid #343434;
     cursor: pointer;
-    width: 100%;
     font-size: 16px;
 }
 
-#applyPromoCode:hover {
+.apply_PromoCode:hover {
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
-
 }
-
-.promo_CodeBtn {
-    width: 90%;
-    /*background: linear-gradient(45deg, #000, #343434, #000, #343434,#000); */
-    background: #1c1c1c; 
-    color: #fff;
-    border: 1px solid #343434;
-    border-radius: 10px;
-    font-size: 18px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-weight: bold;
-    text-align: center;
-    height: 55px;
-}
-
-.promo_CodeBtn:hover {
-    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
-
-} 
 
 .promo-icon {
     width: 35px;
     height: 35px;
-    margin-right: 0; /* مسافة بين الصورة والنص */
+    margin-right: 0;
     flex-shrink: 0;
 }
 
 .promo_CodeBtn img {
     vertical-align: middle;
-} 
+}
 
