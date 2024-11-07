@@ -1,6 +1,6 @@
 .boos-icon {
-    width: 27px;
-    height: 27px;
+    width: 30px;
+    height: 30px;
     flex-shrink: 0;
     margin-right: 20px; /* مسافة بين الأيقونة والنص لتظهر على اليمين */
 }
@@ -27,7 +27,7 @@
 }
 
 .boosts-button:hover {
-    right: 30px; /* عند التحويم، يخرج الزر بالكامل إلى الخارج */
+    right: 15px; /* عند التحويم، يخرج الزر بالكامل إلى الخارج */
 }
 
 /*.boos-icon {
