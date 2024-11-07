@@ -859,7 +859,7 @@ body {
    /* left: 68px; */
     background-color: transparent;
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
-   -webkit-background-clip: text; /* قص الخلفية للنص */
+   -webkit-background-clip: text; 
     background-clip: text;
     color: transparent;
     font-size: 18px;
@@ -1128,7 +1128,11 @@ body {
 #level4 .level-name, 
 #level5 .level-name, 
 #level6 .level-name {
-    color: gold; 
+    background-color: transparent;
+    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
+    -webkit-background-clip: text; 
+    background-clip: text;
+    color: transparent;
 }
 
 
