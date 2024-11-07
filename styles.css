@@ -1210,7 +1210,7 @@ body {
 #walletBalanceDisplay, #puzzlesBalanceDisplay, #boostsBalanceDisplay, #AccountBalanceDisplay {
     position: absolute;
     top: 10px;
-    left: 20px;
+    left: 15px;
     padding: 10px; /* مسافة داخلية اختيارية */
     font-size: 20px; /* حجم الخط */
     display: flex;
