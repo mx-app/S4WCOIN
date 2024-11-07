@@ -1,8 +1,41 @@
 .daily-icon {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    margin-right: 20px; /* مسافة بين الأيقونة والنص لتظهر على اليمين */
+}
+
+.Daily-button {
+    position: fixed;
+    /*bottom: 120px;*/
+    top: 60px;
+    right: -20px; /* وضع الزر داخل الشاشة بشكل طبيعي */
+    background-color: rgba(255, 255, 255, 0.05);
+    font-size: 16px;
+    border: 1px solid #343434;
+    font-weight: bold;
+    margin: 0;
+    padding: 3px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 200;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease; /* تأثير الانزلاق عند التحويم */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* لجعل النص والصورة على الأطراف */
+}
+
+.Daily-button:hover {
+    right: 15px; /* عند التحويم، يخرج الزر بالكامل إلى الخارج */
+}
+
+
+/*.daily-icon {
     width: 26px;
     height: 26px;
     flex-shrink: 0;
-    border-radius: 50%; /* لجعل الصورة دائرية */
+    border-radius: 50%; 
 }
 
 .Daily-button img {
@@ -13,14 +46,13 @@
     position: fixed;
     top: 13px; 
     right: 97px;
-   /* right: 130px;*/
     border: 1px solid #343434;
     background: linear-gradient(90deg, #343434, #1a1a1a);
-    border-radius: 15%; /* لجعل الزر دائري */
-    padding: 4px; /* مساحة إضافية حول الصورة */
+    border-radius: 15%; 
+    padding: 4px;
 }
 
 .Daily-button:hover {
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
 }
-
+*/
