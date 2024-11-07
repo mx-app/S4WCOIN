@@ -12,7 +12,7 @@
 .Daily-button {
     position: fixed;
     top: 13px; 
-    left: 190px;
+    left: 170px;
     border: 1px solid #343434;
     background: linear-gradient(90deg, #343434, #1a1a1a);
     border-radius: 15%; /* لجعل الزر دائري */
