@@ -189,13 +189,19 @@
          </div>
         
                <!-- Tasks Page -->
-             <div id="tasksPage" class="screen-content scrollable">
-              <p id="task"> Daily Promo Code </p>
-                   <div id="promoContainer" class="promo-container">
-                   <div class="promo-input-container">
-                   <input type="text" id="promoCodeInput" placeholder="Enter promo code" class="promo-input">
-                   <button id="applyPromoCode" class="apply_PromoCode">
-                   <img src="i/reward1.png" alt="Promo Icon" class="promo-icon"> Send
+         <div id="tasksPage" class="screen-content scrollable">
+            <div class="switch-buttons">
+              <button id="tasksContentButton" class="switch-button active" onclick="showContent('tasksContent')">Tasks</button>
+              <button id="gamesContentButton" class="switch-button" onclick="showContent('gamesContent')">Games</button>
+         </div>
+            <!-- Tasks Content -->
+          <div id="tasksContent" class="content-section">
+             <p id="task"> Daily Promo Code </p>
+              <div id="promoContainer" class="promo-container">
+                 <div class="promo-input-container">
+                    <input type="text" id="promoCodeInput" placeholder="Enter promo code" class="promo-input">
+                    <button id="applyPromoCode" class="apply_PromoCode">
+                 <img src="i/reward1.png" alt="Promo Icon" class="promo-icon"> Send
                 </button>
               </div>
              <div id="gamesSection" class="games-section">
