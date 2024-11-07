@@ -1,3 +1,10 @@
+.bos-image {
+    width: 105px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+} 
+
 .boosts-container {
     display: flex;
     flex-direction: row;
@@ -5,39 +12,33 @@
     flex-wrap: wrap;
 }
 
-.bos-image {
-    width: 105px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-
-} 
-
 .boost-item {
-    width: calc(50% - 20px); /* يجعل العرض 50% تقريباً مع إضافة مسافة */
-    height: 200px;
+    width: calc(50% - 20px);
+    min-height: 200px; /* ضبط الحد الأدنى للارتفاع */
     padding: 20px;
-    margin: 10px 0; /* مسافة متناسقة بين العناصر */
+    margin: 10px 0;
     border: 1px solid #343434;
     background: #1c1c1c;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     box-sizing: border-box;
     text-align: center;
 }
 
 .boost-item p {
-    margin: 0;
+    margin: 5px 0;
     padding: 0;
-    flex: 1;
-    text-align: left;
+    flex: none; /* تثبيت النص */
     color: #fff;
     line-height: 1.5;
+    max-height: 40px; /* يمكنك تخصيص هذا الارتفاع بناءً على طول النصوص المتوقعة */
+    overflow: hidden; /* اخفاء النص الزائد */
+    text-overflow: ellipsis; /* إظهار ... في حالة النص الطويل */
 }
-  
+
 .boost-item button {
     background-color: #000;
     color: #fff;
@@ -49,8 +50,7 @@
     transition: background-color 0.3s;
     border: 1px solid #343434;
     font-size: var(--claim-button-size);
-    margin-top: 10px;
-    align-self: center; /* تأكد من بقاء الزر في الوسط */
+    margin-top: auto; /* يضمن بقاء الزر في أسفل الحاوية */
 } 
 
 .boost-item button:hover {
@@ -65,7 +65,7 @@
     border-radius: 10px;
     transition: box-shadow 0.3s ease;
 }
-
+ 
 .boost-item img:hover {
     box-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.8), 0 0 45px rgba(255, 255, 255, 0.6);
 } 
