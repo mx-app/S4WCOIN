@@ -581,9 +581,13 @@ body {
     /*background: #1c1c1c;*/
     border-radius: 10px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column; /* لجعل العناصر تظهر بشكل عمودي */
+    justify-content: flex-start;
+    align-items: flex-start;
 }
+    /*justify-content: center;
+    align-items: center;
+}*/
 
 .task-item p {
     margin: 0;
