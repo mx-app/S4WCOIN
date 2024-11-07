@@ -21,7 +21,7 @@
 .games-icon {
     width: 30px;
     height: 30px;
-    margin-right: 10px; /* مسافة بين الصورة والنص */
+    margin-right: 18px;
     flex-shrink: 0;
 }
 
@@ -73,7 +73,8 @@
 }
 
 #gamePage .game-item {
-    background: #1c1c1c; 
+    background: rgba(0, 0, 0, 0.05);
+    /*background: #1c1c1c;*/
     border: 1px solid #343434;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -115,7 +116,6 @@
 }
 
 
-/* تأكد من أن عناصر `gameFrameContainer` و`counter-container` مخفية في البداية */
 #gameFrameContainer {
     position: fixed;
     top: 0;
@@ -124,14 +124,14 @@
     height: 100vh;
     background: rgba(0, 0, 0, 0.8);
     z-index: 999;
-    display: none; /* إخفاء الإطار افتراضيًا */
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
 .counter-container {
-    display: none; /* إخفاء العداد وأزرار claim افتراضيًا */
+    display: none;
     align-items: center;
     justify-content: center;
     margin-top: 20px;
@@ -141,7 +141,7 @@
     width: 90%;
     height: 80%;
     border: none;
-    border-radius: 10px; /* إضافة حواف مستديرة لـ iframe */
+    border-radius: 15px;
 }
 
 #closeGamePage {
@@ -169,16 +169,15 @@
 .claim-button {
     margin-left: 10px;
     padding: 10px 25px;
-    background-color: #343434; /* لون زر Claim */
+    background-color: #343434;
     color: white;
     border: none;
     border-radius: 10px;
     font-size: 1.2rem; 
-    border-radius: 5px;
     cursor: pointer;
 }
 
 .claim-button:hover {
-    background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c); /* التدرج اللوني */
+    background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c);
 }
  
