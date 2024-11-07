@@ -855,15 +855,15 @@ body {
 
 .level-button-floating {
     position: fixed;
-    top: 155px; 
+    top: 150px; 
    /* left: 68px; */
     background-color: transparent;
-    background: linear-gradient(90deg, #fff, #343434); 
+    background: linear-gradient(90deg, #343434, #1a1a1a); 
    /* background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c);*/ /* التدرج اللوني */
     -webkit-background-clip: text; /* قص الخلفية للنص */
     background-clip: text;
     color: transparent;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: bold;
     border-radius: 20px;
    /* border-bottom: 2px solid #343434;*/
@@ -875,7 +875,7 @@ body {
 }  
 
 .level-button-floating:hover {
-    background-color: transparent;
+    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
 }
 
 .levels-icon {
