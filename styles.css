@@ -855,6 +855,10 @@ body {
 
 .level-button-floating {
     position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px; 
     top: 150px; 
    /* left: 68px; */
     background-color: transparent;
@@ -1117,11 +1121,11 @@ body {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.6); /* إضافة توهج */
 }
 
-.current-level-image {
-    width: 20px;
-    height: 20px;
-    margin-right: 5px;
+#currentLevelImage {
+    width: 20px; /* عرض الصورة */
+    vertical-align: middle;
 }
+
  
 
 #level1 .level-name, 
