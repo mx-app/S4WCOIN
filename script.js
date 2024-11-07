@@ -597,28 +597,21 @@ function checkEnergyFill() {
     }
 }
 
+
 // تحديث عرض المستويات
 function updateLevelDisplay() {
     checkForLevelUp();
 
-    // عرض معلومات المستوى الحالي (الاسم والصورة)
-    if (uiElements.levelInfoDisplay) {
-        const currentLevelData = levelThresholds.find(lvl => lvl.level === gameState.currentLevel);
-        if (currentLevelData) {
-            // تحديث النص ليعرض المستوى الحالي واسم المستوى
-            uiElements.levelInfoDisplay.innerHTML = `Current level ${gameState.currentLevel} - ${currentLevelData.name}`;
+    // عرض صورة واسم المستوى الحالي داخل الزر
+    const currentLevelData = levelThresholds.find(lvl => lvl.level === gameState.currentLevel);
+    if (currentLevelData) {
+        const levelImageElement = document.getElementById('currentLevelImage');
+        const levelNameElement = document.getElementById('currentLevelName');
 
-            // إضافة صورة المستوى الحالي
-            const levelImage = document.createElement('img');
-            levelImage.src = currentLevelData.image;
-            levelImage.alt = `Level ${gameState.currentLevel}`;
-            levelImage.classList.add('current-level-image');
-
-            // تحديث المحتوى ليظهر الصورة والنص
-            uiElements.levelInfoDisplay.innerHTML = '';
-            uiElements.levelInfoDisplay.appendChild(levelImage);
-            uiElements.levelInfoDisplay.appendChild(document.createTextNode(` ${currentLevelData.name}`));
-        }
+        // تعيين الصورة والاسم للمستوى الحالي
+        levelImageElement.src = currentLevelData.image;
+        levelImageElement.alt = `Level ${gameState.currentLevel}`;
+        levelNameElement.innerText = currentLevelData.name;
     }
 
     // إزالة النمط الحالي من جميع العناصر
@@ -644,6 +637,7 @@ function updateLevelDisplay() {
     if (uiElements.level9Progress) uiElements.level9Progress.style.width = `${(gameState.balance / levelThresholds[8].threshold) * 100}%`;
     if (uiElements.level10Progress) uiElements.level10Progress.style.width = `${(gameState.balance / levelThresholds[9].threshold) * 100}%`;
 }
+
 
 // تحديث عرض التحسينات
 function updateBoostsDisplay() {
