@@ -571,23 +571,18 @@ body {
     padding-bottom: 5px; 
 } 
 
-.task-item {
-    width: 88%; /* لجعل العرض 80% */
+/*.task-item {
+    width: 88%;
     max-width: 400px;
     margin: 10px 0;
     padding: 15px;
     border: 1px solid #343434; 
-    background-color: rgba(255, 255, 255, 0.1); /* خلفية خفيفة للتمييز */
-    /*background: #1c1c1c;*/
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
-    display: flex;
-    flex-direction: column; /* لجعل العناصر تظهر بشكل عمودي */
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-    /*justify-content: center;
+    display: flex; 
+    justify-content: center;
     align-items: center;
-}*/
+}
 
 .task-item p {
     margin: 0;
@@ -602,8 +597,8 @@ body {
     width: 35px;
     height: 35px;
     margin-right: 5px;
-    border-radius: 50%; /* لجعل الصورة دائرية */
-    object-fit: cover; /* لضمان تغطية الصورة بشكل جيد داخل الدائرة */
+    border-radius: 50%; 
+    object-fit: cover; 
 }
 
 .task-item button {
@@ -632,14 +627,82 @@ body {
 .task-item button.claimed {
     background-color: #000;
     color: #fff;
+}*/
+
+
+.task-item {
+    width: 88%; /* لجعل العرض 80% */
+    max-width: 400px;
+    margin: 10px 0;
+    padding: 15px;
+    border: 1px solid #343434; 
+    background-color: rgba(255, 255, 255, 0.1); /* خلفية خفيفة للتمييز */
+    border-radius: 10px;
+    display: flex;
+    align-items: center; /* لجعل الصورة والنص في خط أفقي */
 }
 
+.task-item .text-container {
+    display: flex;
+    flex-direction: column; /* لعرض النص تحت بعضه */
+    justify-content: center;
+    margin-left: 10px; /* مسافة بين الصورة والنص */
+    width: 70%; /* لتحديد عرض النص */
+}
+
+.task-item p {
+    margin: 5px 0; /* إضافة مسافة بين الفقرات */
+    padding: 0;
+    width: 100%; /* لجعل النص يأخذ العرض الكامل */
+    text-align: left;
+    color: #fff;
+    font-size: var(--task-font-size);
+}
+
+.task-item img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%; /* لجعل الصورة دائرية */
+    object-fit: cover; /* لضمان تغطية الصورة بشكل جيد داخل الدائرة */
+}
+
+.task-item button {
+    background-color: #000;
+    color: #fff;
+    padding: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 25%;
+    transition: background-color 0.3s;
+    border: none;
+    font-weight: bold;
+    font-size: var(--claim-button-size);
+    border: 1px solid #343434;
+    z-index: 10;
+    align-self: flex-start; /* الحفاظ على الزر في مكانه الحالي */
+    margin-left: auto; /* إبقاء الزر في أقصى اليمين */
+}
+
+.task-item button:hover {
+    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
+}
+
+.task-item button.inactive {
+    background-color: #9f0000;
+}
+
+.task-item button.claimed {
+    background-color: #000;
+    color: #fff;
+} 
+ 
 .task-image {
     width: 100px;
     height: auto;
     display: block;
     margin: 0 auto;
 }
+
 
 .confirmation-modal {
     background-color: rgba(0, 0, 0, 0.70);/* خلفية شفافة */
