@@ -1117,13 +1117,22 @@ body {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.6); /* إضافة توهج */
 }
 
+.current-level-image {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+ 
 
 #level1 .level-name, 
 #level2 .level-name, 
 #level3 .level-name {
-    color: silver;
+    background-color: transparent;
+    background: linear-gradient(90deg, #c0c0c0, #dcdcdc, #e5e4e2, #f5f5f5);
+    -webkit-background-clip: text; 
+    background-clip: text;
+    color: transparent;
 }
-
 
 #level4 .level-name, 
 #level5 .level-name, 
@@ -1140,6 +1149,9 @@ body {
 #level8 .level-name, 
 #level9 .level-name, 
 #level10 .level-name {
-    color: purple;
+    background-color: transparent;
+    background: linear-gradient(90deg, #6a0dad, #483d8b, #4169e1, #87cefa);
+    -webkit-background-clip: text; 
+    background-clip: text;
+    color: transparent;
 }
-
