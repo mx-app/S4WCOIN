@@ -9,6 +9,7 @@
 .boost-item {
     width: 40%;
     height: 160px;
+    padding: 20px;
     margin: 10px 10px;
     border: 1px solid #343434;
     background: #1c1c1c;
