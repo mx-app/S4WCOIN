@@ -5,7 +5,7 @@
 
 
 #tasksPage {
-    padding-top: 100px; /* يمكنك تغيير القيمة حسب الحاجة */
+    padding-top: 80px; /* يمكنك تغيير القيمة حسب الحاجة */
     background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
     overflow-y: auto; /* لجعل الصفحة قابلة للتمرير */
     padding-bottom: 120px; /* مسافة سفلية */
@@ -23,7 +23,7 @@
 #Puzzlespage  {
     padding-bottom: 120px;
     overflow-y: auto;
-    padding-top: 50px; /* يمكنك تغيير القيمة حسب الحاجة */
+    padding-top: 30px; /* يمكنك تغيير القيمة حسب الحاجة */
     background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
    
 }
@@ -38,7 +38,7 @@
 
 
 #boostsPage {
-    padding-top: 80px; /* يمكنك تغيير القيمة حسب الحاجة */
+    padding-top: 40px; /* يمكنك تغيير القيمة حسب الحاجة */
     background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
     overflow-y: auto; /* لجعل الصفحة قابلة للتمرير */
     padding-bottom: 120px; /* مسافة سفلية */
