@@ -1,43 +1,16 @@
-.switch-buttons {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 15px;
-}
-
-.switch-button {
-    padding: 10px 20px;
-    cursor: pointer;
-    border: none;
-    background-color: #333;
-    color: #fff;
-    font-weight: bold;
-    margin: 0 5px;
-}
-
-.switch-button.active {
-    background-color: #555;
-    color: #ff0;
-}
-
-.content-section {
-    padding: 20px;
-    background-color: #222;
-    color: #fff;
-    border-radius: 8px;
-}
-
 .promo-input-container {
     display: flex;
     align-items: center;
     gap: 10px; /* مسافة بين حقل الإدخال وزر الإرسال */
     width: 100%;
     justify-content: center;
+    margin-bottom: 40px;
 }
 
 .promo-input {
     background: #343434;
     width: 60%;
-    height: 50px;
+    height: 40px;
     font-size: 16px;
     border-radius: 10px;
     border: 1px solid #343434;
@@ -46,15 +19,16 @@
 }
 
 .apply_PromoCode {
-    background: #1c1c1c; 
+    background-color: rgba(255, 255, 255, 0.05);
+   /* background: #1c1c1c; */
     color: white;
     font-weight: bold;
     border-radius: 10px;
     border: 1px solid #343434;
     cursor: pointer;
     width: 25%;
-    height: 50px;
-    font-size: 16px;
+    height: 45px;
+    font-size: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -67,5 +41,5 @@
 .promo-icon {
     width: 25px;
     height: 25px;
-    margin-right: 5px; /* مسافة صغيرة بين الأيقونة والنص */
+    margin-right: 3px; /* مسافة صغيرة بين الأيقونة والنص */
 }
