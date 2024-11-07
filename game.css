@@ -35,7 +35,7 @@
 .Play-game-button {
     position: fixed;
     top: 30px;
-    left: 10px; /* الزر داخل الشاشة في الوضع الطبيعي */
+    left: -20px; /* الزر داخل الشاشة في الوضع الطبيعي */
     background-color: rgba(255, 255, 255, 0.05);
     font-size: 16px;
     border: 1px solid #343434;
