@@ -102,18 +102,18 @@ function saveGameState() {
     localStorage.setItem('gameState', JSON.stringify(gameState));
 }
 
-// مستويات اللعبة
+// مستويات اللعبة المتناسقة
 const levelThresholds = [
-    { level: 1, threshold: 50000, name: 'silver' },
-    { level: 2, threshold: 200000, name: 'Challenge' },
-    { level: 3, threshold: 300000, name: 'Stable' },
-    { level: 4, threshold: 500000, name: 'golden' },
-    { level: 5, threshold: 800000, name: 'Advanced' },
-    { level: 6, threshold: 1000000, name: 'Expert' },
-    { level: 7, threshold: 3000000, name: 'Mastered' },
-    { level: 8, threshold: 5000000, name: 'Climax' },
-    { level: 9, threshold: 10000000, name: 'Legendary' },
-    { level: 10, threshold: 20000000, name: 'Eternal' },
+    { level: 1, threshold: 50000, name: 'Novice' },       // مبتدئ
+    { level: 2, threshold: 200000, name: 'Challenger' },   // متحدي
+    { level: 3, threshold: 300000, name: 'Apprentice' },   // متدرب
+    { level: 4, threshold: 500000, name: 'Skilled' },      // ماهر
+    { level: 5, threshold: 800000, name: 'Advanced' },     // متقدم
+    { level: 6, threshold: 1000000, name: 'Expert' },      // خبير
+    { level: 7, threshold: 3000000, name: 'Master' },      // متقن
+    { level: 8, threshold: 5000000, name: 'Grandmaster' }, // كبير الخبراء
+    { level: 9, threshold: 10000000, name: 'Legendary' },  // أسطوري
+    { level: 10, threshold: 20000000, name: 'Immortal' }   // خالد
 ];
 
 // التحقق من الترقية إلى مستوى أعلى
