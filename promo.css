@@ -19,7 +19,11 @@
     border-radius: 10px;
     border: 1px solid #343434;
     color: white;
-    text-align: center;
+    text-align: left;
+    padding-right: 100px; /* مساحة للزر داخل الحقل */
+    text-align: left; /* لكتابة الكود من اليسار */
+    padding-left: 10px;
+
 }
 
 .apply_PromoCode {
