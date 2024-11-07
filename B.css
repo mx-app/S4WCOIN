@@ -4,13 +4,12 @@
     justify-content: space-between; /* توزيع المساحة بين الخانات */
     flex-wrap: wrap; /* السماح بتغليف العناصر عند الحاجة */
     /*width: 100%;*/ /* تغطية الشاشة بالكامل */
-    padding-bottom: 5px;
 }
 
 .boost-item {
-    width: 44%;
+    width: 40%;
     margin: 5px 5px;
-    padding: 15px;
+    padding: 10px;
     border: 1px solid #343434;
     background: #1c1c1c;
     border-radius: 10px;
@@ -19,7 +18,7 @@
     align-items: center; /* محاذاة العناصر في المنتصف */
     justify-content: space-between;
     box-sizing: border-box;
-    min-height: 170px; /* ضبط ارتفاع ثابت للخانات */
+    min-height: 160px; /* ضبط ارتفاع ثابت للخانات */
     text-align: center;
 } 
 
