@@ -100,6 +100,7 @@
         
        <!-- Account Page -->
         <div id="accountPage" class="screen-content scrollable">
+          <p><span id="AccountBalanceDisplay">0</span></p>
             <img src="i/group_add.png" alt="invite Image" class="invite-image">
               <p id="inviteInfo">Invite friend and you both get 5000 coins! </p>
              <!-- <div class="user-info">
@@ -158,30 +159,35 @@
 
         <!-- Boosts Page -->
         <div id="boostsPage" class="screen-content scrollable">
+          <p><span id="boostsBalanceDisplay">0</span></p>
             <img src="i/boostsss.png" alt="Boost Image" class="bos-image">
-            <p id="b">You can upgrade your tap, energy, and coins to earn more ⛏️</p>
+            <p id="b">You Can Upgrade Your Tap, Energy, And Coins To Earn More</p>
             <section class="boosts-container centered">
                 <div class="boost-item">
                     <img src="i/Clickk.png" alt="Click Boost Image" class="boost-icon">
-                    <p> click Lvl : ×<span id="clickMultiplier"> </span></p>
+                    <p class="boost-title">Click</p>
+                    <p>Lvl : ×<span id="clickMultiplier">0</span></p>
                     <p><span id="boostUpgradeCost">500</span> </p>
                     <button id="boostUpgradeBtn">Upgrade</button>
                 </div>
                 <div class="boost-item">
                     <img src="i/energy.c.png" alt="Coin Boost Image" class="boost-icon">
-                    <p>Energy coins Lvl : <span id="coinBoostLevel"> </span></p>
+                    <p class="boost-title">Energy Coins</p>
+                    <p>Lvl : <span id="coinBoostLevel">0</span></p>
                     <p><span id="coinUpgradeCost">500</span> </p>
                     <button id="coinUpgradeBtn">Upgrade</button>
                 </div>
                 <div class="boost-item">
                     <img src="i/Robot.png" alt="Robot Boost Image" class="boost-icon">
-                    <p> mining robot </p>
+                    <p class="boost-title">Mining Robot</p>
+                    <p>Lvl : <span id="robotBoostLevel">0</span></p>
                     <p><span id="RobotUpgradeCost">100,000</span> </p>
                     <button id="RobotUpgradeBtn">Upgrade</button>
                 </div>
                 <div class="boost-item">
                     <img src="i/energy.png" alt="energy Boost Image" class="boost-icon">
-                    <p> Energy </p>
+                    <p class="boost-title">Energy</p>
+                    <p>Lvl : <span id="energyBoostLevel">0</span></p>
                     <p><span id="energyUpgradeCost">Free</span> </p>
                     <button id="energyUpgradeBtn">Upgrade</button>
                 </div>
@@ -189,26 +195,34 @@
          </div>
         
                <!-- Tasks Page -->
-        <div id="tasksPage" class="screen-content scrollable">
-           <p id="task"> Daily Promo Code </p>
-             <div id="promoContainer" class="promo-container">
+         <div id="tasksPage" class="screen-content scrollable">
+          <p><span id="tasksBalanceDisplay">0</span></p>
+            <p id="task"> Daily Promo Code </p>
+              <div id="promoContainer" class="promo-container">
                 <div class="promo-input-container">
                 <input type="text" id="promoCodeInput" placeholder="Enter promo code" class="promo-input">
                 <button id="applyPromoCode" class="apply_PromoCode">
-                <img src="i/reward1.png" alt="Promo Icon" class="promo-icon"> Send </button>
+                <img src="i/reward1.png" alt="Promo Icon" class="promo-icon"> SEND </button>
                </div>
             </div>
             <section id="taskcontainer" class="task-container">
-            <p id="t">Complete Daily Tasks To Earn More Rewards! 🎁</p>
-          </section>
-       </div>
+             <p id="t"> Complete Daily Tasks </p>
+              <div class="tasks">
+             </div>  
+        </section>
+      </div>
 
          <!-- Puzzle Page -->
         <div id="Puzzlespage" class="screen-content scrollable">
+          <p><span id="puzzlesBalanceDisplay">0</span></p>
            <img src="i/Puzzle_today.png" alt="puzzle Image" class="puzzle-image">
-         <!--  <p id="Puzzles"> Puzzles </p>  -->
-               <p id="Puzzles"> Win Or Lose, The Choice Is Yours</p>
-             
+            
+          <p id="Gem">Games</p>
+          <button data-target="gamePage" class="Play-game-button" style="width: 88%; height: 50px;">
+          <img src="i/gamee.png" alt="games Icon" class="games-icon"> GAMES
+          </button>
+ 
+         <p id="Puzzles"> Puzzles </p> 
           <button id="openPuzzleBtn" class="puzzle-btn">
              <img src="i/event.png" alt="puzzle Icon" class="puzzle-icon"> Daily puzzle </button>
               <p id="room">Ciphers</p>
@@ -271,6 +285,7 @@
 
         <!-- Wallet Page -->
         <div id="walletPage" class="screen-content scrollable">
+          <p><span id="walletBalanceDisplay">0</span></p>
             <section class="wallet-container">
                 <p> Connect Your Ton wallet </p>
                <div id="ton-connect"></div>
@@ -279,6 +294,7 @@
         
                <!-- Game page -->
          <div id="gamePage" class="screen-content scrollable">
+           <p><span id="gameBalanceDisplay">0</span></p>
               <section class="game-container" id="gameContainer">
                <p id="GA">Games</p>
                <p id="currentGameInfo">Select a game to start playing!</p>
@@ -328,6 +344,7 @@
 
               <!-- Levels Page -->
      <div id="levelPage" class="screen-content scrollable">
+        <p><span id="levelBalanceDisplay">0</span></p>
    <!-- <img src="i/levelsss.png" alt="levels Image" class="levels-image"> -->
             <div class="levels-info">
               <p id="l">Saw Coin Levels</p>
@@ -480,7 +497,7 @@
          </nav>
      </div>
     
-   <script type="module" src="script.js"></script>
+   <script type="module" src="scripttt.js"></script>
     
 </body>
 </html>
