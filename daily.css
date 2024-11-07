@@ -12,7 +12,8 @@
 .Daily-button {
     position: fixed;
     top: 13px; 
-    left: 170px;
+    right: 130px;
+    /*left: 180px;*/
     border: 1px solid #343434;
     background: linear-gradient(90deg, #343434, #1a1a1a);
     border-radius: 15%; /* لجعل الزر دائري */
@@ -22,3 +23,4 @@
 .Daily-button:hover {
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
 }
+
