@@ -50,7 +50,7 @@
 }
 
 .Play-game-button:hover {
-    left: 50px; /* عند التحويم، يخرج الزر بالكامل إلى الخارج */
+    left: 30px; /* عند التحويم، يخرج الزر بالكامل إلى الخارج */
 }
  
 #gamePage .game-container {
