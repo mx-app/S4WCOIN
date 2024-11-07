@@ -23,8 +23,8 @@
 } */
 
 .games-icon {
-    width: 27px;
-    height: 27px;
+    width: 30px;
+    height: 30px;
     flex-shrink: 0;
     margin-left: 20px; /* مسافة بين الأيقونة والنص لتظهر على اليمين */
 }
@@ -51,7 +51,7 @@
 }
 
 .Play-game-button:hover {
-    left: 30px; /* عند التحويم، يخرج الزر بالكامل إلى الخارج */
+    left: 15px; /* عند التحويم، يخرج الزر بالكامل إلى الخارج */
 }
  
 #gamePage .game-container {
