@@ -57,13 +57,10 @@
 }
 
 #Puzzlespage .puzzle-content {
-    
-   /* background-image: url('i/background.jpg');
-    background-size: cover;
-    background-position: center;*/
-    background-color: rgba(0, 0, 0, 1);/* خلفية غير شفافة */
-    padding: 10px; /* تقليل الحواف الداخلية */
-    border-radius: 25px 25px 0 0; /* حواف علوية دائرية فقط */
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px); 
+    padding: 10px; 
+    border-radius: 25px 25px 0 0;
     border-top: 2px solid #343434;
     text-align: center;
     position: fixed;
@@ -174,8 +171,7 @@
     cursor: pointer;
     border: 1px solid #343434; 
     border-radius: 15px;
-    background: #1c1c1c; 
-    /*background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);*/
+    background-color: rgba(255, 255, 255, 0.05);
     transition: background-color 0.3s ease;
 }
 
@@ -308,7 +304,8 @@
 
 
 .morse-content {
-    background-color: rgba(0, 0, 0, 1);/* خلفية غير شفافة */
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px); /* تأثير الضبابية */
     padding: 10px; /* تقليل الحواف الداخلية */
     border-radius: 25px 25px 0 0; /* حواف علوية دائرية فقط */
     border-top: 2px solid #343434;
@@ -351,8 +348,7 @@
 #Puzzlespage #submitMorseAnswerBtn {
     padding: 12px;
     margin-top: 15px;
-   /* background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
-    background: #1c1c1c; 
+    background-color: rgba(255, 255, 255, 0.05);
     color: white;
     font-weight: bold;
     border-radius: 10px;
