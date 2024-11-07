@@ -42,7 +42,7 @@
     border: 1px solid #343434;
     font-weight: bold;
     margin: 0;
-    padding: 5px 10px; /* إضافة مساحة داخلية */
+    padding: 2px 10px; /* إضافة مساحة داخلية */
     border-radius: 10px; /* جعل الزر مستدير */
     cursor: pointer;
     z-index: 200;
