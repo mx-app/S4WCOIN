@@ -5,9 +5,17 @@
     flex-wrap: wrap;
 }
 
+.bos-image {
+    width: 105px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+
+} 
+
 .boost-item {
     width: calc(50% - 20px); /* يجعل العرض 50% تقريباً مع إضافة مسافة */
-    height: 160px;
+    height: 200px;
     padding: 20px;
     margin: 10px 0; /* مسافة متناسقة بين العناصر */
     border: 1px solid #343434;
