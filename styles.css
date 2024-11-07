@@ -846,7 +846,7 @@ body {
 .wallet-button {
     position: fixed;
     top: 13px; 
-    right: 50px;
+    right: 57px;
     /*left: 265px;*/
     border: 1px solid #343434;
     background: linear-gradient(90deg, #343434, #1a1a1a);
