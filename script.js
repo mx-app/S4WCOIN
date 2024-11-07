@@ -1882,6 +1882,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ///////////////////////////////////////////
 
+
+function showContent(contentId) {
+    // Hide all content sections
+    document.getElementById('tasksContent').style.display = 'none';
+    document.getElementById('gamesContent').style.display = 'none';
+
+    // Remove active class from all switch buttons
+    document.getElementById('tasksContentButton').classList.remove('active');
+    document.getElementById('gamesContentButton').classList.remove('active');
+
+    // Show selected content and add active class to corresponding button
+    document.getElementById(contentId).style.display = 'block';
+    if (contentId === 'tasksContent') {
+        document.getElementById('tasksContentButton').classList.add('active');
+    } else {
+        document.getElementById('gamesContentButton').classList.add('active');
+    }
+}
+
+/////////////////////////
+
+
 //localStorage.removeItem('gameState'); // مسح حالة اللعبة
 //loadGameState(); // إعادة تحميل حالة اللعبة
 
@@ -1892,7 +1914,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // تفعيل التطبيق
 initializeApp();
-
 
 
 
