@@ -1122,11 +1122,11 @@ body {
 }
 
 #currentLevelImage {
-    width: 20px; /* عرض الصورة */
-    vertical-align: middle;
+    width: 24px; /* عرض الصورة بوضعها الطبيعي أو ما يتناسب مع حجم الزر */
+    height: 24px; /* ارتفاع الصورة */
+    object-fit: contain; /* لضبط الصورة بحيث لا تتشوه */
 }
 
- 
 
 #level1 .level-name, 
 #level2 .level-name, 
