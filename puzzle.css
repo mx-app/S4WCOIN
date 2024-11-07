@@ -21,9 +21,8 @@
     margin: 10px;
 }
 
-#Puzzlespage .puzzle-btn {
+#Puzzlespage .puzzle-btn, .Morse-code, .Caesar-btu, .room-btu, .Numbers-btu {
     background: #1c1c1c; 
-    /*background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);  */ 
     color: #fff;
     border-radius: 10px;
     font-size: 18px;
@@ -137,24 +136,6 @@
     border-radius: 10px;
     border: none;
 }
-
-/*#Puzzlespage #CaesarcodeBtn {
-    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);    color: #fff;
-    border-radius: 10px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    border: 2px solid #343434; 
-    width: 88%; 
-    display: block;
-    margin: 0 auto 15px; 
-    height: 60px;
-}
-
-#Puzzlespage #CaesarcodeBtn:hover {
-    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
-    background-position: center;
-}*/
 
 .puzzle-options {
     display: grid;
@@ -282,27 +263,6 @@
     text-align: center;
 }
 
-#Puzzlespage .Morse-code {
-  /*  background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
-    background: #1c1c1c; 
-    color: #fff;
-    border-radius: 10px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    border: 1px solid #343434; 
-    display: block; /* لجعل العنصر يعمل ككتلة */
-    margin: 0 auto 15px; /* لمركزة الزر في المنتصف */
-    height: 58px;
-    width: 88%;
-    bottom: 0;
-}
-
-#Puzzlespage .Morse-code:hover {
-    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
-}
-
-
 .morse-content {
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px); /* تأثير الضبابية */
@@ -383,67 +343,6 @@
 #morseCode {
     font-size: 25px; /* حجم خط الشيفرة */
     margin-top: 5px; /* تباعد أعلى الشيفرة */
-}
-
-#Puzzlespage .Caesar-btu {
-    background: #1c1c1c; 
-/*    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
-    color: #fff;
-    border-radius: 10px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    border: 1px solid #343434; 
-    display: block; /* لجعل العنصر يعمل ككتلة */
-    margin: 0 auto 15px; /* لمركزة الزر في المنتصف */
-    height: 58px;
-    width: 88%;
-    bottom: 0;
-}
-
-#Puzzlespage .Caesar-btu:hover {
-    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
-}
-
-
- #Puzzlespage .room-btu {
-    background: #1c1c1c; 
-/*    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
-    color: #fff;
-    border-radius: 10px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    border: 1px solid #343434; 
-    display: block; /* لجعل العنصر يعمل ككتلة */
-    margin: 0 auto 15px; /* لمركزة الزر في المنتصف */
-    height: 58px;
-    width: 88%;
-    bottom: 0;
-}
-
-#Puzzlespage .room-btu:hover {
-    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
-}
-
- #Puzzlespage .Numbers-btu {
-    background: #1c1c1c; 
-/*    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);*/
-    color: #fff;
-    border-radius: 10px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    border: 1px solid #343434; 
-    display: block; /* لجعل العنصر يعمل ككتلة */
-    margin: 0 auto 15px; /* لمركزة الزر في المنتصف */
-    height: 58px;
-    width: 88%;
-    bottom: 0;
-}
-
-#Puzzlespage .Numbers-btu:hover {
-    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
 }
 
 .puzzle-m-icon {
