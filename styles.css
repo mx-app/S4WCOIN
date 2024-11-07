@@ -1212,18 +1212,20 @@ body {
     top: 10px;
     left: 20px;
     padding: 10px; /* مسافة داخلية اختيارية */
-    font-size: 20px; /* تعديل حجم الخط حسب رغبتك */
+    font-size: 20px; /* حجم الخط */
+    display: flex;
+    align-items: center; /* لضبط المحاذاة الرأسية بدقة */
 }
 
 #tasksBalanceDisplay::before, #levelBalanceDisplay::before, #gameBalanceDisplay::before,
 #walletBalanceDisplay::before, #puzzlesBalanceDisplay::before, #boostsBalanceDisplay::before, #AccountBalanceDisplay::before {
     content: "";
     display: inline-block;
-    width: 18px; /* عرض الصورة */
-    height: 18px; /* ارتفاع الصورة */
+    width: 20px; /* عرض الصورة مطابق لحجم النص */
+    height: 20px; /* ارتفاع الصورة مطابق لحجم النص */
     background-image: url('i/coii.png'); /* رابط الصورة */
     background-size: contain;
     background-repeat: no-repeat;
-    margin-right: 4px; /* مسافة بين الصورة والنص */
+    margin-right: 5px; /* مسافة بين الصورة والنص */
+    vertical-align: middle; /* محاذاة الصورة مع النص */
 }
-
