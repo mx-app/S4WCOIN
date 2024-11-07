@@ -1,4 +1,8 @@
 .promo-input-container {
+    position: relative; /* لإظهار الزر فوق حقل الإدخال */
+    width: 80%;
+}
+.promo-input-container {
     display: flex;
     align-items: center;
     gap: 10px; /* مسافة بين حقل الإدخال وزر الإرسال */
