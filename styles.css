@@ -373,8 +373,9 @@ body {
     padding: 5px;
     border: 1px solid #343434;
     border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
    /* background: linear-gradient(90deg, #343434, #1a1a1a);*/
-    background: rgba(0, 0, 0, 0.05);
+   /* background: rgba(0, 0, 0, 0.05);*/
     position: fixed;
     bottom: 25px;
     box-sizing: border-box; 
@@ -540,8 +541,8 @@ body {
     color: #fff;
     width: 87%; /* لجعل العرض 80% */
     padding: 8px; 
-    background: #1c1c1c;
-    /*background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);  */
+    font-size: 18px; 
+    background-color: rgba(255, 255, 255, 0.05);
     border-radius: 10px;      
     display: block;
 }
@@ -576,7 +577,8 @@ body {
     margin: 10px 0;
     padding: 10px;
     border: 1px solid #343434; 
-    background: #1c1c1c;
+    background-color: rgba(255, 255, 255, 0.1); /* خلفية خفيفة للتمييز */
+    /*background: #1c1c1c;*/
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -593,9 +595,11 @@ body {
 }
 
 .task-item img {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     margin-right: 5px;
+    border-radius: 50%; /* لجعل الصورة دائرية */
+    object-fit: cover; /* لضمان تغطية الصورة بشكل جيد داخل الدائرة */
 }
 
 .task-item button {
@@ -842,7 +846,8 @@ body {
 .wallet-button {
     position: fixed;
     top: 13px; 
-    left: 265px;
+    right: 50px;
+    /*left: 265px;*/
     border: 1px solid #343434;
     background: linear-gradient(90deg, #343434, #1a1a1a);
     border-radius: 15%; /* لجعل الزر دائري */
@@ -899,7 +904,7 @@ body {
     margin-bottom: 10px;
 }*/
 
-#l, #t, #info, #b, #lev, #i {
+#l, #t, #info, #lev, #i {
     color: #aaaaaa; 
     font-size: 17px; 
     margin: 10px 0;
@@ -924,7 +929,8 @@ body {
 .boosts-button {
     position: fixed;
     top: 13px; 
-    left: 215px;
+    right: 90px;
+   /* left: 220px;*/
     border: 1px solid #343434;
     background: linear-gradient(90deg, #343434, #1a1a1a);
     border-radius: 15%; /* لجعل الزر دائري */
@@ -984,7 +990,7 @@ body {
     position: absolute; 
     top: 13px; 
     left: 10px;
-    background: rgba(0, 0, 0, 0.01);
+    background-color: rgba(255, 255, 255, 0.05);
    /* background: linear-gradient(90deg, #343434, #1a1a1a);*/
     width: 35%;
     height: 35px;
@@ -1080,7 +1086,7 @@ body {
     font-size: 18px; /* حجم الخط */
     font-weight: bold; /* جعل النص عريضًا */
     color: #ffffff; /* اللون الأبيض للنص */
-    background: linear-gradient(135deg,  #808080, #000000, #808080);
+    background: linear-gradient(90deg, #343434, #1a1a1a);
     border-radius: 10px; /* حواف مستديرة */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* إضافة ظل خفيف حول النص */
     text-align: center; /* محاذاة النص في الوسط */
@@ -1115,15 +1121,15 @@ body {
 
 .level-item.current-level {
     border: 2px solid silver; 
-    background-color: #1c1c1c; 
+    background-color: rgba(255, 255, 255, 0.05);
     color: #ffffff; 
     font-weight: bold; 
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.6); /* إضافة توهج */
 }
 
 #currentLevelImage {
-    width: 28px; /* عرض الصورة بوضعها الطبيعي أو ما يتناسب مع حجم الزر */
-    height: 28px; /* ارتفاع الصورة */
+    width: 30px; /* عرض الصورة بوضعها الطبيعي أو ما يتناسب مع حجم الزر */
+    height: 30px; /* ارتفاع الصورة */
     object-fit: contain; /* لضبط الصورة بحيث لا تتشوه */
 }
 
@@ -1132,7 +1138,9 @@ body {
 #level2 .level-name, 
 #level3 .level-name {
     background-color: transparent;
-    background: linear-gradient(90deg, #c0c0c0, #dcdcdc, #e5e4e2, #f5f5f5);
+    background: linear-gradient(90deg, #c0c0c0, #87CEFA, #dcdcdc, #4682B4);
+    
+   /* background: linear-gradient(90deg, #c0c0c0, #dcdcdc, #e5e4e2, #f5f5f5);*/
     -webkit-background-clip: text; 
     background-clip: text;
     color: transparent;
@@ -1142,7 +1150,7 @@ body {
 #level5 .level-name, 
 #level6 .level-name {
     background-color: transparent;
-    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
+    background: linear-gradient(90deg, #d69a1c, #794106, #9f620c, #d69a1c);
     -webkit-background-clip: text; 
     background-clip: text;
     color: transparent;
@@ -1159,3 +1167,63 @@ body {
     background-clip: text;
     color: transparent;
 }
+
+.tasks {
+    max-height: 250px; /* تحديد ارتفاع ثابت للحاوية الداخلية */
+    width: 88%; /* عرض الحاوية الداخلية كاملاً */
+    overflow-y: auto; /* تمكين التمرير العمودي */
+    background-color: rgba(255, 255, 255, 0.1); /* خلفية خفيفة للتمييز */
+    padding: 15px;
+    border: 2px solid #343434;
+    border-radius: 10px;
+} 
+/* تدرجات اللون للمستويات من 1 إلى 3 */
+.level-gradient-green {
+    background-color: transparent;
+    background: linear-gradient(90deg, #c0c0c0, #87CEFA, #dcdcdc, #4682B4);
+    
+  /*  background: linear-gradient(90deg, #c0c0c0, #dcdcdc, #e5e4e2, #f5f5f5);*/
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* تدرجات اللون للمستويات من 4 إلى 6 */
+.level-gradient-brown {
+    background-color: transparent;
+    background: linear-gradient(90deg,  #d69a1c, #794106, #9f620c, #d69a1c);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* تدرجات اللون للمستويات من 7 إلى 10 */
+.level-gradient-blue {
+    background-color: transparent;
+    background: linear-gradient(90deg, #6a0dad, #483d8b, #4169e1, #87cefa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+#tasksBalanceDisplay, #levelBalanceDisplay, #gameBalanceDisplay,
+#walletBalanceDisplay, #puzzlesBalanceDisplay, #boostsBalanceDisplay, #AccountBalanceDisplay {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    padding: 10px; /* مسافة داخلية اختيارية */
+    font-size: 20px; /* تعديل حجم الخط حسب رغبتك */
+}
+
+#tasksBalanceDisplay::before, #levelBalanceDisplay::before, #gameBalanceDisplay::before,
+#walletBalanceDisplay::before, #puzzlesBalanceDisplay::before, #boostsBalanceDisplay::before, #AccountBalanceDisplay::before {
+    content: "";
+    display: inline-block;
+    width: 18px; /* عرض الصورة */
+    height: 18px; /* ارتفاع الصورة */
+    background-image: url('i/coii.png'); /* رابط الصورة */
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 4px; /* مسافة بين الصورة والنص */
+}
+
