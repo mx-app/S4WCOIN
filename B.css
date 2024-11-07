@@ -1,35 +1,33 @@
 .boosts-container {
     display: flex;
-    flex-direction: row; /* ترتيب الخانات بجانب بعضها */
-    justify-content: space-between; /* توزيع المساحة بين الخانات */
-    flex-wrap: wrap; /* السماح بتغليف العناصر عند الحاجة */
-    /*width: 100%;*/ /* تغطية الشاشة بالكامل */
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .boost-item {
-    width: 40%;
+    width: calc(50% - 20px); /* يجعل العرض 50% تقريباً مع إضافة مسافة */
     height: 160px;
     padding: 20px;
-    margin: 10px 10px;
+    margin: 10px 0; /* مسافة متناسقة بين العناصر */
     border: 1px solid #343434;
     background: #1c1c1c;
     border-radius: 10px;
     display: flex;
-    flex-direction: column; /* ترتيب العناصر عموديًا */
-    align-items: center; /* محاذاة العناصر في المنتصف */
+    flex-direction: column;
+    align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
-  /*  min-height: 160px;*//* ضبط ارتفاع ثابت للخانات */
     text-align: center;
-} 
+}
 
 .boost-item p {
     margin: 0;
     padding: 0;
-    flex: 1; /* توسع النص ليملأ المساحة المتاحة */
+    flex: 1;
     text-align: left;
     color: #fff;
-    line-height: 1.5; /* تحسين تباعد الأسطر */
+    line-height: 1.5;
 }
   
 .boost-item button {
@@ -39,36 +37,27 @@
     border-radius: 10px;
     font-weight: bold;
     cursor: pointer;
-    width: 80%; /* عرض الزر ليكون أكبر تحت النص */
+    width: 80%;
     transition: background-color 0.3s;
     border: 1px solid #343434;
     font-size: var(--claim-button-size);
-    margin-top: 10px; /* مسافة بين النص والزر */
+    margin-top: 10px;
+    align-self: center; /* تأكد من بقاء الزر في الوسط */
 } 
 
 .boost-item button:hover {
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
 }
 
-
-.bos-image {
-    width: 105px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-
-}
- 
 .boost-item img {
     width: 35px;
     height: 35px;
-    margin-bottom: 10px; /* مسافة بين الصورة والنص */
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4); /* تأثير النيون الأبيض للصورة */
-    border-radius: 10px; /* جعل الصورة دائرية، يمكنك إزالته إذا لم يكن مطلوبًا */
-    transition: box-shadow 0.3s ease; /* تأثير النيون الناعم عند التمرير */
+    margin-bottom: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    transition: box-shadow 0.3s ease;
 }
 
 .boost-item img:hover {
-    box-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.8), 0 0 45px rgba(255, 255, 255, 0.6); /* تأثير نيون أقوى عند التمرير */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.8), 0 0 45px rgba(255, 255, 255, 0.6);
 } 
-
