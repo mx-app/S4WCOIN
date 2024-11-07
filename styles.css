@@ -373,8 +373,8 @@ body {
     padding: 5px;
     border: 1px solid #343434;
     border-radius: 10px;
-    background: linear-gradient(90deg, #343434, #1a1a1a);
-   /* background: rgba(0, 0, 0, 0);*/ /* لجعل الخلفية زجاجية */
+   /* background: linear-gradient(90deg, #343434, #1a1a1a);*/
+    background: rgba(0, 0, 0, 0.05);
     position: fixed;
     bottom: 25px;
     box-sizing: border-box; 
