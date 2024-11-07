@@ -35,7 +35,7 @@
 
 .Play-game-button {
     position: fixed;
-    top: 20px;
+    top: 30px;
     left: -20px; /* سحب الزر قليلاً إلى خارج الشاشة من اليسار */
     background-color: rgba(255, 255, 255, 0.05);
    /* background-color: transparent;
@@ -44,10 +44,11 @@
     background-clip: text;
     color: transparent;*/
     font-size: 16px;
+    border: 1px solid #343434;
     font-weight: bold;
     margin: 0;
     padding: 10px 20px; /* إضافة مساحة داخلية */
-    border-radius: 20px; /* جعل الزر مستدير */
+    border-radius: 10px; /* جعل الزر مستدير */
     cursor: pointer;
     z-index: 200;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* إضافة ظل لجعله يبدو عائمًا */
