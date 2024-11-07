@@ -1,3 +1,8 @@
+.games-section {
+    text-align: center;
+    margin-top: 20px;
+}
+
 .Play-game-button {
     width: 90%;
     /*background: linear-gradient(45deg, #000, #343434, #000, #343434,#000); */
