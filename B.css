@@ -3,7 +3,21 @@
     height: auto;
     display: block;
     margin: 0 auto;
-} 
+}  
+
+#b {
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    height: 40px;
+    width: 88%;
+    border: 1px solid #343434;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px; /* زوايا دائرية للخلفية */
+    text-align: center; /* توسيط النص */
+    font-size: 1em; /* تكبير حجم الخط */
+    margin-bottom: 10px;
+}
 
 .boosts-container {
     display: flex;
@@ -62,11 +76,12 @@
     width: 35px;
     height: 35px;
     margin-bottom: 10px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.3), 0 0 15px rgba(255, 255, 255, 0.2);
     border-radius: 10px;
     transition: box-shadow 0.3s ease;
 }
  
 .boost-item img:hover {
-    box-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.8), 0 0 45px rgba(255, 255, 255, 0.6);
-} 
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.3);
+}
+ 
