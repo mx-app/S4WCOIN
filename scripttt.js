@@ -1920,8 +1920,10 @@ function showContent(contentId) {
 ///////////////////////////////////////
 
 
+
 function updateBalances() {
   const balance = gameState.balance; // الحصول على الرصيد الحالي من حالة اللعبة
+  const formattedBalance = balance.toLocaleString(); // تنسيق الرصيد بإضافة فواصل الآلاف
   
   // تحديث كل عناصر عرض الرصيد
   const elements = [
@@ -1936,7 +1938,7 @@ function updateBalances() {
   
   elements.forEach(id => {
     const element = document.getElementById(id);
-    if (element) element.innerText = balance;
+    if (element) element.innerText = formattedBalance;
   });
 }
 
