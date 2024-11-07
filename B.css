@@ -6,18 +6,21 @@
 }  
 
 #b {
-    align-items: center;
-    justify-content: center;
+    text-align: center; 
     padding: 10px;
     height: 40px;
     width: 88%;
     border: 1px solid #343434;
     background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 10px; /* زوايا دائرية للخلفية */
-    text-align: center; /* توسيط النص */
-    font-size: 1em; /* تكبير حجم الخط */
+    border-radius: 10px;
+    font-size: 1em;
     margin-bottom: 10px;
+    
+    display: flex; /* استخدام Flexbox للتوسيط */
+    align-items: center; /* توسيط عمودي */
+    justify-content: center; /* توسيط أفقي */
 }
+
 
 .boosts-container {
     display: flex;
