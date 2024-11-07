@@ -104,16 +104,16 @@ function saveGameState() {
 
 // مستويات اللعبة المتناسقة
 const levelThresholds = [
-    { level: 1, threshold: 50000, name: 'Novice' },       // مبتدئ
-    { level: 2, threshold: 200000, name: 'Challenger' },   // متحدي
-    { level: 3, threshold: 300000, name: 'Apprentice' },   // متدرب
-    { level: 4, threshold: 500000, name: 'Skilled' },      // ماهر
-    { level: 5, threshold: 800000, name: 'Advanced' },     // متقدم
-    { level: 6, threshold: 1000000, name: 'Expert' },      // خبير
-    { level: 7, threshold: 3000000, name: 'Master' },      // متقن
-    { level: 8, threshold: 5000000, name: 'Grandmaster' }, // كبير الخبراء
-    { level: 9, threshold: 10000000, name: 'Legendary' },  // أسطوري
-    { level: 10, threshold: 20000000, name: 'Immortal' }   // خالد
+    { level: 1, threshold: 50000, name: 'Novice', image: 'i/lvl1.png' },
+    { level: 2, threshold: 200000, name: 'Challenger', image: 'i/lvl2.png' },
+    { level: 3, threshold: 300000, name: 'Apprentice', image: 'i/lvl3.png' },
+    { level: 4, threshold: 500000, name: 'Skilled', image: 'i/lvl4.png' },
+    { level: 5, threshold: 800000, name: 'Advanced', image: 'i/lvl5.png' },
+    { level: 6, threshold: 1000000, name: 'Expert', image: 'i/lvl6.png' },
+    { level: 7, threshold: 3000000, name: 'Master', image: 'i/Lvll7.png' },
+    { level: 8, threshold: 5000000, name: 'Grandmaster', image: 'i/lvl8.png' },
+    { level: 9, threshold: 10000000, name: 'Legendary', image: 'i/lvl9.png' },
+    { level: 10, threshold: 20000000, name: 'Immortal', image: 'i/lvl10.png' }
 ];
 
 // التحقق من الترقية إلى مستوى أعلى
@@ -600,15 +600,39 @@ function checkEnergyFill() {
 // تحديث عرض المستويات
 function updateLevelDisplay() {
     checkForLevelUp();
+
+    // عرض معلومات المستوى الحالي (الاسم والصورة)
     if (uiElements.levelInfoDisplay) {
-        uiElements.levelInfoDisplay.innerText = `Current level ${gameState.currentLevel}`;
+        const currentLevelData = levelThresholds.find(lvl => lvl.level === gameState.currentLevel);
+        if (currentLevelData) {
+            // تحديث النص ليعرض المستوى الحالي واسم المستوى
+            uiElements.levelInfoDisplay.innerHTML = `Current level ${gameState.currentLevel} - ${currentLevelData.name}`;
+
+            // إضافة صورة المستوى الحالي
+            const levelImage = document.createElement('img');
+            levelImage.src = currentLevelData.image;
+            levelImage.alt = `Level ${gameState.currentLevel}`;
+            levelImage.classList.add('current-level-image');
+
+            // تحديث المحتوى ليظهر الصورة والنص
+            uiElements.levelInfoDisplay.innerHTML = '';
+            uiElements.levelInfoDisplay.appendChild(levelImage);
+            uiElements.levelInfoDisplay.appendChild(document.createTextNode(` ${currentLevelData.name}`));
+        }
     }
+
+    // إزالة النمط الحالي من جميع العناصر
     document.querySelectorAll('.level-item').forEach(item => {
         item.classList.remove('current-level');
     });
-    const currentLevelElement = document.getElementById(`level${gameState.currentLevel}`);
-    if (currentLevelElement) currentLevelElement.classList.add('current-level'); // إضافة حواف فضية للمستوى الحالي
 
+    // إضافة النمط الحالي للمستوى النشط
+    const currentLevelElement = document.getElementById(`level${gameState.currentLevel}`);
+    if (currentLevelElement) {
+        currentLevelElement.classList.add('current-level'); // إضافة حواف فضية للمستوى الحالي
+    }
+
+    // تحديث شريط التقدم لكل مستوى
     if (uiElements.level1Progress) uiElements.level1Progress.style.width = `${(gameState.balance / levelThresholds[0].threshold) * 100}%`;
     if (uiElements.level2Progress) uiElements.level2Progress.style.width = `${(gameState.balance / levelThresholds[1].threshold) * 100}%`;
     if (uiElements.level3Progress) uiElements.level3Progress.style.width = `${(gameState.balance / levelThresholds[2].threshold) * 100}%`;
