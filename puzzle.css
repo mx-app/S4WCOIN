@@ -97,7 +97,6 @@
 }
 
 #Puzzlespage button {
-    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);
     background-position: center;
     color: #fff;
     border-radius: 10px;
