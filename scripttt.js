@@ -113,7 +113,7 @@ const levelThresholds = [
     { level: 7, threshold: 3000000, name: 'Master', image: 'i/Lvll7.png' },
     { level: 8, threshold: 5000000, name: 'Grandmaster', image: 'i/lvl8.png' },
     { level: 9, threshold: 10000000, name: 'Legendary', image: 'i/lvl9.png' },
-    { level: 10, threshold: 20000000, name: 'Immortal', image: 'i/lvl10.png' }
+    { level: 10, threshold: 20000000, name: 'Apex', image: 'i/lvl10.png' }
 ];
 
 // التحقق من الترقية إلى مستوى أعلى
