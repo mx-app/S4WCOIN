@@ -1917,7 +1917,39 @@ function showContent(contentId) {
     }
 }
 
-/////////////////////////
+///////////////////////////////////////
+
+
+function updateBalances() {
+  const balance = gameState.balance; // الحصول على الرصيد الحالي من حالة اللعبة
+  
+  // تحديث كل عناصر عرض الرصيد
+  const elements = [
+    'tasksBalanceDisplay',
+    'levelBalanceDisplay',
+    'gameBalanceDisplay',
+    'walletBalanceDisplay',
+    'puzzlesBalanceDisplay',
+    'boostsBalanceDisplay',
+    'AccountBalanceDisplay'
+  ];
+  
+  elements.forEach(id => {
+    const element = document.getElementById(id);
+    if (element) element.innerText = balance;
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadGameState();  // تحميل حالة اللعبة
+  updateBalances();  // تحديث الأرصدة بعد تحميل حالة اللعبة
+  updateAccountSummary(); // تحديث نافذة الإعدادات
+});
+
+
+
+/////////////////////////////////////////////
+
 
 
 //localStorage.removeItem('gameState'); // مسح حالة اللعبة
