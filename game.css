@@ -3,7 +3,7 @@
     margin-top: 20px;
 }
 
-.Play-game-button {
+/*.Play-game-button {
     width: 50%;
     background-color: rgba(255, 255, 255, 0.05);
     color: #fff;
@@ -20,7 +20,7 @@
 .Play-game-button:hover {
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
 
-} 
+} */
 
 .games-icon {
     width: 30px;
@@ -33,21 +33,32 @@
     vertical-align: middle;
 }  
 
-/*.Play-game-button {
+.Play-game-button {
     position: fixed;
-    top: 16px; 
-    left: 270px;
-    background-color: transparent;
+    top: 20px;
+    left: -20px; /* سحب الزر قليلاً إلى خارج الشاشة من اليسار */
+    background-color: rgba(255, 255, 255, 0.05);
+   /* background-color: transparent;
     background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c);
     -webkit-background-clip: text;
     background-clip: text;
-    color: transparent;
+    color: transparent;*/
     font-size: 16px;
     font-weight: bold;
     margin: 0;
+    padding: 10px 20px; /* إضافة مساحة داخلية */
+    border-radius: 20px; /* جعل الزر مستدير */
     cursor: pointer;
-    z-index: 200;  
-}*/
+    z-index: 200;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* إضافة ظل لجعله يبدو عائمًا */
+    transform: translateX(20px); /* نقل الزر قليلاً إلى اليمين ليظهر جزء منه خارج الشاشة */
+    transition: transform 0.3s ease; /* تأثير انزلاق عند التحويم */
+}
+
+.Play-game-button:hover {
+    transform: translateX(0); /* إعادة الزر كاملاً عند التحويم */
+}
+ 
 
 #gamePage .game-container {
     display: flex;
