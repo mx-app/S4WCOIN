@@ -200,7 +200,7 @@ body {
 #balanceAmount {
     font-family: 'JetBrains Mono', monospace;
     font-weight: 800;
-    margin-top: 40px;
+    margin-top: 50px;
     font-size: 38px;
     color: #fff;
     display: flex;
@@ -236,7 +236,7 @@ body {
     justify-content: center; /* الاحتفاظ بمحاذاة إلى اليسار */
     align-items: center; /* الشريط والمعلومات في نفس المحاذاة على اليسار */
     position: absolute; /* تثبيت الحاوية في مكان محدد */
-    bottom: 120px; /* ضبطه ليكون في الجزء السفلي */
+    bottom: 110px; /* ضبطه ليكون في الجزء السفلي */
     /*left: 20px; 
     margin-left: 0px;*/
 }
@@ -864,7 +864,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 4px; 
-    top: 150px; 
+    top: 160px; 
    /* left: 68px; */
     background-color: transparent;
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
