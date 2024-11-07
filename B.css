@@ -15,8 +15,10 @@
 .boost-item {
     width: calc(50% - 20px);
     min-height: 120px; /* ضبط الحد الأدنى للارتفاع */
-    padding: 20px;
+    padding: 15px;
     margin: 10px 0;
+    margin-right: 10px;
+    margin-left: 10px;
     border: 1px solid #343434;
     background: #1c1c1c;
     border-radius: 10px;
