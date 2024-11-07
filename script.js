@@ -1341,17 +1341,7 @@ document.getElementById('openPuzzleBtn').addEventListener('click', function() {
 
 
 
-// إظهار النافذة المنبثقة عند الضغط على زر البرومو كود
-document.getElementById('promoCodeBtn').addEventListener('click', () => {
-    document.getElementById('promoCodeModal').style.display = 'block';
-});
-
-// إغلاق النافذة عند الضغط على زر الإغلاق
-document.getElementById('closepromoBtn').addEventListener('click', () => {
-    document.getElementById('promoCodeModal').style.display = 'none';
-});
-
-// التحقق من البرومو كود عند الضغط على زر "Apply"
+// التحقق من البرومو كود عند الضغط على زر "Send"
 document.getElementById('applyPromoCode').addEventListener('click', async () => {
     const enteredCode = document.getElementById('promoCodeInput').value;
 
@@ -1387,9 +1377,6 @@ document.getElementById('applyPromoCode').addEventListener('click', async () => 
 
         // إظهار إشعار بالنجاح
         showNotificationWithStatus(uiElements.purchaseNotification, `Successfully added ${reward} coins to your balance!`, 'win');
-
-        // إخفاء النافذة بعد الاستخدام
-        document.getElementById('promoCodeModal').style.display = 'none';
 
         // حفظ حالة اللعبة بعد إضافة المكافأة
         saveGameState();
