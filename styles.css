@@ -236,7 +236,7 @@ body {
     justify-content: center; /* الاحتفاظ بمحاذاة إلى اليسار */
     align-items: center; /* الشريط والمعلومات في نفس المحاذاة على اليسار */
     position: absolute; /* تثبيت الحاوية في مكان محدد */
-    bottom: 110px; /* ضبطه ليكون في الجزء السفلي */
+    bottom: 115px; /* ضبطه ليكون في الجزء السفلي */
     /*left: 20px; 
     margin-left: 0px;*/
 }
@@ -248,7 +248,7 @@ body {
     border-radius: 50px; /* شكل الشريط */
     overflow: hidden; /* قص المحتوى الزائد */
    /* border: 2px solid #fff;*/
-    margin-top: 5px; /* مسافة بسيطة بين المعلومات والشريط */
+    margin-bottom: 5px; /* مسافة بسيطة بين المعلومات والشريط */
 }
 
 .progress-bar-inner {
