@@ -1,30 +1,35 @@
-.promo-container {
+.promo-input-container {
     display: flex;
-    align-items: center; /* محاذاة الحقل والزر بشكل أفقي */
+    align-items: center;
+    gap: 10px; /* مسافة بين حقل الإدخال وزر الإرسال */
+    width: 100%;
     justify-content: center;
-    text-align: center;
-    gap: 10px; /* المسافة بين حقل الإدخال والزر */
-} 
+}
 
-.promo-code-input {
+.promo-input {
     background: #343434;
+    width: 70%;
     padding: 10px;
     font-size: 16px;
     border-radius: 10px;
     border: 1px solid #343434;
-    width: 200px; /* حجم الحقل */
     color: white;
+    text-align: center;
 }
 
 .apply_PromoCode {
     padding: 10px;
-    background: #1c1c1c;
+    background: #1c1c1c; 
     color: white;
     font-weight: bold;
     border-radius: 10px;
     border: 1px solid #343434;
     cursor: pointer;
+    width: 25%;
     font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .apply_PromoCode:hover {
@@ -32,13 +37,7 @@
 }
 
 .promo-icon {
-    width: 35px;
-    height: 35px;
-    margin-right: 0;
-    flex-shrink: 0;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px; /* مسافة صغيرة بين الأيقونة والنص */
 }
-
-.promo_CodeBtn img {
-    vertical-align: middle;
-}
-
