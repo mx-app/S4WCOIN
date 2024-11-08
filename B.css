@@ -117,7 +117,7 @@
     cursor: pointer;
     width: 80%;
     transition: background-color 0.3s;
-    border: 1px solid #343434;
+    /*border: 1px solid #343434;*/
     margin-top: auto; /* يضمن بقاء الزر في أسفل الحاوية */
 } 
 
