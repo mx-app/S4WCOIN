@@ -1,4 +1,7 @@
 .countdown-display {
+    position: absolute;
+    top: 25px;
+    left: 15px;
     padding: 5px; /* مسافة داخلية */
     font-size: 16px; /* حجم الخط */
     display: flex;
