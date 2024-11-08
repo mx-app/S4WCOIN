@@ -1212,10 +1212,11 @@ body {
     vertical-align: middle; /* محاذاة الصورة مع النص */
 }
 
-#energyInfo img.icon-energy {
-    width: 25px;
-    height: 25px;
-    vertical-align: middle;
-    margin-left: 5px;
+#energyInfo .icon-energy {
+    width: 20px !important;
+    height: 20px !important;
+    vertical-align: middle !important;
+    margin-left: 5px !important;
+    display: inline-block !important;
 }
- 
+
