@@ -638,7 +638,8 @@ body {
 
 
 .confirmation-modal {
-    background-color: rgba(0, 0, 0, 0.70);/* خلفية شفافة */
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px); /* تأثير الضبابية */
     padding: 20px;
     border-radius: 25px 25px 0 0; /* حواف علوية دائرية فقط */
     border-top: 2px solid #343434;
@@ -969,7 +970,7 @@ body {
     width: 35%;
     height: 35px;
     border: 1px solid #343434;
-    border-radius: 10px; /* حواف دائرية للخلفية */
+    border-radius: 9px; /* حواف دائرية للخلفية */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* ظل */
     padding-left: 13px;
 }
@@ -1143,7 +1144,7 @@ body {
 }
 
 .tasks {
-    max-height: 250px; /* تحديد ارتفاع ثابت للحاوية الداخلية */
+    max-height: 300px; /* تحديد ارتفاع ثابت للحاوية الداخلية */
     width: 88%; /* عرض الحاوية الداخلية كاملاً */
     overflow-y: auto; /* تمكين التمرير العمودي */
     background-color: rgba(255, 255, 255, 0.1); /* خلفية خفيفة للتمييز */
