@@ -51,7 +51,7 @@
     width: 100%; /* العرض 90% */
     display: block; /* لجعل العنصر يعمل ككتلة */
     margin: 0 auto 15px; /* لمركزة الزر في المنتصف */
-    height: 80px;
+    height: 150px;
 }
 
 #Puzzlespage .puzzle-btn:hover {
