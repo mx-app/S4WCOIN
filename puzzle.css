@@ -1,24 +1,52 @@
+/*#Puzzlespage .puzzles-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px; 
+    justify-items: center;
+    margin-top: 10px;
+}*/
+
 #Puzzlespage .puzzles-container {
-    display: grid; /* استخدام grid بدلاً من flex */
-    grid-template-columns: repeat(2, 1fr); /* عمودين في كل صف */
-    gap: 15px; /* المسافة بين الأزرار */
-    justify-items: center; /* محاذاة الأزرار في المنتصف */
-    margin-top: 10px; /* المسافة من الأعلى */
+    display: grid;
+    grid-template-columns: repeat(2, 44%); /* عرض كل عنصرين بجانب بعض */
+    gap: 20px; /* المسافة بين العناصر */
+    justify-content: center; /* محاذاة العناصر في المنتصف */
+    margin-top: 10px;
+}
+
+#Puzzlespage .puzzle-item {
+    width: 88%; /* عرض الحاوية بنسبة 44% */
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #343434;
+    border-radius: 10px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    text-align: center;
 }
 
 #Puzzlespage .puzzle-image {
     width: 100px;
-    margin: 0 auto ;
-    display: block;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+#Puzzlespage .puzzle-description {
+    color: white;
+    font-size: 14px;
+    margin: 10px 0;
+    padding: 0 10px;
 }
 
 #Puzzlespage .puzzle2-image {
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    width: 160px;
-    height: 160px; /* اجعل الارتفاع مساويًا للعرض لتكون الصورة دائرية */
+    width: 110px;
+    height: 110px; /* اجعل الارتفاع مساويًا للعرض لتكون الصورة دائرية */
     margin: 0 auto 10px;
     display: block;
-    border-radius: 50%; /* لجعل الصورة دائرية */
     object-fit: cover; 
 }
 
@@ -35,23 +63,24 @@
     gap: 15px;  /* المسافة بين الأزرار */
     justify-content: center; /* محاذاة الأزرار في المنتصف */
 }
+
 #Puzzlespage .bomb-btu,
-#Puzzlespage .puzzle-btn, 
+#Puzzlespage .puzzle-btn,
 #Puzzlespage .Morse-code, 
 #Puzzlespage .Caesar-btu, 
 #Puzzlespage .room-btu, 
 #Puzzlespage .Numbers-btu {
-    background: #1c1c1c; 
-    color: #fff;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
     border-radius: 10px;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: bold;
     cursor: pointer;
     border: 1px solid #343434; 
-    width: 88%; /* العرض 90% */
+    width: 70%; /* العرض 90% */
     display: block; /* لجعل العنصر يعمل ككتلة */
     margin: 0 auto 15px; /* لمركزة الزر في المنتصف */
-    height: 150px;
+    height: 35px;
 }
 
 #Puzzlespage .puzzle-btn:hover {
@@ -159,7 +188,8 @@
     cursor: pointer;
     border: 1px solid #343434; 
     border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0.09);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
     transition: background-color 0.3s ease;
 }
 
@@ -187,7 +217,7 @@
 }
 
 #timer {
-    color: red;
+    color: black;
     animation: blink 1s infinite; /* وميض مستمر */
     font-size: 20px; /* حجم الخط للمؤقت */
     background-color: rgba(255, 255, 255, 0.05);
@@ -315,8 +345,8 @@
 #Puzzlespage #submitMorseAnswerBtn {
     padding: 12px;
     margin-top: 15px;
-    background-color: rgba(255, 255, 255, 0.05);
-    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
     font-weight: bold;
     border-radius: 10px;
     border: 1px solid #343434;
