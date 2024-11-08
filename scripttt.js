@@ -1471,31 +1471,51 @@ document.addEventListener('DOMContentLoaded', () => {
     let countdownTimeout = null;
 
     // Format time for display (HH:MM:SS)
-    function formatTime(seconds) {
-        const hours = Math.floor(seconds / 3600);
-        const minutes = Math.floor((seconds % 3600) / 60);
-        const remainingSeconds = seconds % 60;
-        return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
-    }
+    // تعريف العنصر المخصص لعرض المؤقت
+const MorseCiphersCountdownDisplay = document.getElementById('MorseCiphersCountdown');
 
-    // Start countdown on the button
-    function startCountdownOnButton(seconds) {
-        openMorseCipherBtn.disabled = true;
+// عرض مؤقت العد التنازلي في العنصر المخصص
+function startCountdownOnButton(seconds) {
+    openMorseCipherBtn.disabled = true;
 
-        function updateButtonCountdown() {
-            if (seconds > 0) {
-                openMorseCipherBtn.innerText = `Next cipher in: ${formatTime(seconds)}`;
-                seconds--;
-                countdownTimeout = setTimeout(updateButtonCountdown, 1000);
-            } else {
-                openMorseCipherBtn.disabled = false;
-                openMorseCipherBtn.innerText = 'Open Morse Cipher';
-            }
+    // عرض العد التنازلي في العنصر puzzleCountdown
+    const countdownDisplay = document.getElementById('MorseCiphersCountdown');
+    countdownDisplay.innerText = `Next Morse Ciphers in: ${formatTime(seconds)}`;
+
+    // استهداف العنصر المحدد فقط باستخدام الـ ID
+    const puzzleItem = document.getElementById('puzzle2'); // استهداف العنصر حسب ID
+    puzzleItem.classList.add('inactive'); // إضافة الفئة "inactive" لتفعيل تأثير الضباب والتوهج
+
+    function updateCountdown() {
+        if (seconds > 0) {
+            seconds--;
+            countdownDisplay.innerText = `Next Morse Ciphers in: ${formatTime(seconds)}`;
+            setTimeout(updateCountdown, 1000);
+        } else {
+            // عند انتهاء الوقت، إزالة التأثيرات
+            countdownDisplay.innerText = 'Puzzle available now!';
+
+            // إزالة الفئة "inactive" وإضافة الفئة "active"
+            puzzleItem.classList.remove('inactive'); // إزالة الفئة "inactive"
+            puzzleItem.classList.add('active'); // إضافة الفئة "active"
+
+            openMorseCipherBtn.disabled = false;
+            openMorseCipherBtn.innerText = 'Open Puzzle';
         }
-
-        updateButtonCountdown();
     }
 
+    updateCountdown();
+}
+
+// صياغة الوقت (الساعات:الدقائق:الثواني)
+function formatTime(seconds) {
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const remainingSeconds = seconds % 60;
+    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+}
+
+    
     // Load Morse ciphers from JSON file
     async function loadMorseCiphers() {
         try {
