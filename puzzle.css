@@ -1,6 +1,6 @@
 .countdown-display {
     position: absolute;
-    top: 25px;
+    top: 40px;
     left: 15px;
     padding: 5px; /* مسافة داخلية */
     font-size: 16px; /* حجم الخط */
@@ -13,6 +13,23 @@
     min-width: 50px; /* عرض أدنى للعنصر */
     white-space: nowrap; /* لمنع النص من الانتقال إلى سطر جديد */
 }
+
+/* تأثير الضباب والتوهج عند عدم التفعيل */
+.puzzle-item.inactive {
+    filter: blur(5px); /* يجعل العنصر ضبابيًا */
+    border: 3px solid darkred; /* حواف حمراء داكنة */
+    box-shadow: 0 0 10px red; /* تأثير توهج حول العنصر */
+    pointer-events: none; /* تعطيل التفاعل مع العنصر */
+}
+
+/* تأثير إعادة العنصر لحالته الطبيعية بعد انتهاء العد التنازلي */
+.puzzle-item.active {
+    filter: none; /* إزالة التأثير الضبابي */
+    border: none; /* إزالة الحواف الحمراء */
+    box-shadow: none; /* إزالة التوهج */
+    pointer-events: auto; /* تمكين التفاعل مع العنصر */
+}
+
 
 #Puzzlespage .puzzles-container {
     display: grid;
