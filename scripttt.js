@@ -246,8 +246,10 @@ function updateUI() {
     }
 
     if (uiElements.energyInfo) {
-        uiElements.energyInfo.innerText = `${formatNumber(gameState.energy)}/${formatNumber(gameState.maxEnergy)}⚡`;
-    }
+    uiElements.energyInfo.innerHTML = `${formatNumber(gameState.energy)}/${formatNumber(gameState.maxEnergy)} <img src="i/energy-c.png" alt="Energy Icon" class="icon-energy">`;
+        
+   }
+
 
     if (uiElements.currentLevelName) {
         uiElements.currentLevelName.innerText = levelThresholds[gameState.currentLevel - 1].name;
