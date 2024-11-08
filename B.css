@@ -7,7 +7,7 @@
 
 .boosts-button {
     position: fixed;
-    bottom: 110px;
+    bottom: 120px;
     /*top: 60px;*/
     left: -35px; /* وضع الزر داخل الشاشة بشكل طبيعي */
     background-color: rgba(255, 255, 255, 0.05);
