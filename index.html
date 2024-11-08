@@ -171,28 +171,28 @@
                 <div class="boost-item">
                     <img src="i/Clickk.png" alt="Click Boost Image" class="boost-icon">
                     <p class="boost-title">Click</p>
-                    <p>Lvl : ×<span id="clickMultiplier">0</span></p>
+                    <p>lvl : ×<span id="clickMultiplier">0</span></p>
                     <p><span id="boostUpgradeCost">500</span> </p>
                     <button id="boostUpgradeBtn">Upgrade</button>
                 </div>
                 <div class="boost-item">
                     <img src="i/energy.c.png" alt="Coin Boost Image" class="boost-icon">
                     <p class="boost-title">Energy Coins</p>
-                    <p>Lvl : <span id="coinBoostLevel">0</span></p>
+                    <p>lvl : <span id="coinBoostLevel">0</span></p>
                     <p><span id="coinUpgradeCost">500</span> </p>
                     <button id="coinUpgradeBtn">Upgrade</button>
                 </div>
                 <div class="boost-item">
                     <img src="i/Robot.png" alt="Robot Boost Image" class="boost-icon">
                     <p class="boost-title">Mining Robot</p>
-                    <p>Lvl : <span id="robotBoostLevel">0</span></p>
+                    <p>lvl : <span id="robotBoostLevel">0</span></p>
                     <p><span id="RobotUpgradeCost">100,000</span> </p>
                     <button id="RobotUpgradeBtn">Upgrade</button>
                 </div>
                 <div class="boost-item">
                     <img src="i/energy.png" alt="energy Boost Image" class="boost-icon">
                     <p class="boost-title">Energy</p>
-                    <p>Lvl : <span id="energyBoostLevel">0</span></p>
+                    <p>lvl : <span id="energyBoostLevel">0</span></p>
                     <p><span id="energyUpgradeCost">Free</span> </p>
                     <button id="energyUpgradeBtn">Upgrade</button>
                 </div>
@@ -218,30 +218,43 @@
       </div>
 
          <!-- Puzzle Page -->
-      <div id="Puzzlespage" class="screen-content scrollable">
-       <p><span id="puzzlesBalanceDisplay">0</span></p>
-             <img src="i/Puzzle_today.png" alt="puzzle Image" class="puzzle-image">
-             <p> Puzzles And Ciphers </p>
+   <div id="Puzzlespage" class="screen-content scrollable">
+     <p><span id="puzzlesBalanceDisplay">0</span></p>
+         <img src="i/Puzzle_today.png" alt="puzzle Image" class="puzzle2-image">
+         <p>Puzzles And Ciphers</p>
        <div class="puzzles-container">
-            <button id="openPuzzleBtn" class="puzzle-btn">
-             <img src="i/event.png" alt="puzzle Icon" class="puzzle-icon"> Daily puzzle </button>
-             <button id="openMorseCipherBtn" class="Morse-code">
-              <img src="i/Morse-ccode.png" alt="puzzle m Icon" class="puzzle-m-icon">  Morse Cipher </button>
+           <div class="puzzle-item">
+               <img src="i/puzz.jpg" alt="Daily Puzzle" class="puzzle-image">
+                <p class="puzzle-description">Solve the puzzle and earn rewards!</p>
+             <button id="openPuzzleBtn" class="puzzle-btn">Begin</button>
+           </div>
+           <div class="puzzle-item">
+              <img src="i/puzz.jpg" alt="Morse Cipher" class="puzzle-image">
+               <p class="puzzle-description">Decode Morse code to reveal secrets!</p>
+             <button id="openMorseCipherBtn" class="Morse-code">Begin</button>
+           </div>
+           <div class="puzzle-item">
+               <img src="i/puzz.jpg" alt="Caesar Cipher" class="puzzle-image">
+                <p class="puzzle-description">Crack the Caesar cipher code now!</p>
+              <button id="CaesarBtn" class="Caesar-btu">Begin</button>
+           </div>
+           <div class="puzzle-item">
+                <img src="i/puzz.jpg" alt="Puzzle Bomb" class="puzzle-image">
+                <p class="puzzle-description">Defuse the bomb before it explodes!</p>
+              <button id="bombBtn" class="bomb-btu">Begin</button>
+           </div>
+           <div class="puzzle-item">
+               <img src="i/puzz.jpg" alt="The Room" class="puzzle-image">
+               <p class="puzzle-description">Escape the room by solving puzzles!</p>
+             <button id="TheroomBtn" class="room-btu">Begin</button>
+           </div>
+           <div class="puzzle-item">
+                <img src="i/puzz.jpg" alt="Numbers" class="puzzle-image">
+                <p class="puzzle-description">Solve the number-based puzzles now!</p>
+             <button id="TheNumbersBtn" class="Numbers-btu">Begin</button>
+          </div>
 
            
-              <button id="CaesarBtn" class="Caesar-btu"> 
-               <img src="i/Caesar.png" alt="Caesar Icon" class="Caesar-icon">  Caesar Cipher </button>
-           
-             <button id="bombBtn" class="bomb-btu"> 
-               <img src="i/bomb.png" alt="bomb Icon" class="bomb-icon">  Puzzle bomb </button>
-    
-              <button id="TheroomBtn" class="room-btu"> 
-               <img src="i/Theroom.png" alt="The room Icon" class="The-room-icon">  The room  </button>
-        
-              <button id="TheNumbersBtn" class="Numbers-btu"> 
-               <img src="i/Numbers.png" alt="Numbers Icon" class="Numbers-icon">  Numbers </button>
-        </div>
-            
          <!-- morseCipher Container -->
           <div id="morseCipherContainer" class="hidden">
              <div class="morse-content">
@@ -291,7 +304,8 @@
                 </div>
             </div>
          </div>
-
+      </div>
+    
         <!-- Wallet Page -->
         <div id="walletPage" class="screen-content scrollable">
           <p><span id="walletBalanceDisplay">0</span></p>
