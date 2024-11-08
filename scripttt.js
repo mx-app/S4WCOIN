@@ -1954,8 +1954,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+// تعريف العناصر
+const dailyButton = document.getElementById('DailyButton');
+const loginDailyContainer = document.getElementById('logindailyContainer');
+const dailycloseModal = document.getElementById('logindailycloseModal');
+
+// فتح النافذة عند الضغط على زر "Daily"
+dailyButton.addEventListener('click', () => {
+  loginDailyContainer.classList.remove('hidden'); // إزالة الكلاس المخفي
+});
+
+// إغلاق النافذة عند الضغط على زر الإغلاق
+dailycloseModal.addEventListener('click', () => {
+  loginDailyContainer.classList.add('hidden'); // إضافة الكلاس المخفي
+});
+
+
+
+////////////////////////////////////////////////
+
+
+
+
 //localStorage.removeItem('gameState'); // مسح حالة اللعبة
 //loadGameState(); // إعادة تحميل حالة اللعبة
+
+
 
 
 //////////////////////////////////////////////////////////
