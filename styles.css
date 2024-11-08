@@ -1232,14 +1232,6 @@ body {
     vertical-align: middle; /* محاذاة الصورة مع النص */
 }
 
-#energyInfo .icon-energy {
-    width: 25px !important;
-    height: 25px !important;
-    vertical-align: middle !important;
-    margin-left: 5px !important;
-    display: inline-block !important;
-}
-
 #hourlyEarnings {
   position: fixed;
   top: 35px; 
@@ -1256,4 +1248,13 @@ body {
   width: 20px;  /* يمكنك تعديل الحجم حسب الحاجة */
   height: auto;
   margin-right: 2px;  /* مسافة صغيرة بين الصورة والنص */
+}
+
+
+#energyInfo {
+    display: flex;
+    align-items: center;
+}
+.icon-energy {
+    display: inline-block;
 }
