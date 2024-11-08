@@ -109,7 +109,7 @@
     border: none;
     font-weight: bold;
     font-size: var(--claim-button-size);
-    border: 1px solid #343434;
+    /*border: 1px solid #343434;*/
     z-index: 10;
 }
  
