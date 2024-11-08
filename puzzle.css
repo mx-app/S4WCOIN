@@ -222,7 +222,7 @@
     background-color: none; 
     padding: 8px;
     border-radius: 10px;
-    margin-left: 10px; /* مسافة بين النص والمؤقت */
+    margin-left: 5px; /* مسافة بين النص والمؤقت */
     font-family: 'Courier New', Courier, monospace; /* خط ثابت العرض */
     width: 100px; /* يمكنك ضبط العرض لضمان ثبات الحجم */
     text-align: center; /* محاذاة النص في المنتصف */
@@ -239,7 +239,7 @@
 #timeText {
     font-size: 18px; /* حجم النص العادي */
     color: #fff; /* لون النص */
-    margin-right: 10px; /* مسافة بين النص والمؤقت */
+    margin-right: 5px; /* مسافة بين النص والمؤقت */
     text-align: center;
 }
 
