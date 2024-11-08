@@ -928,7 +928,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Add task reward text
                 const rewardText = document.createElement('p');
                 rewardText.textContent = `Reward : ${task.reward} `;
-                rewardText.style.fontSize = '0.7em';  // تغيير حجم النص
+                rewardText.style.fontSize = '0.8em';  // تغيير حجم النص
                 rewardText.style.color = '#aaaaaa';  // تغيير لون النص إلى الذهبي
                 rewardText.style.margin = '5px 0';   // إضافة مسافة بين النصوص
                 taskElement.appendChild(rewardText);
