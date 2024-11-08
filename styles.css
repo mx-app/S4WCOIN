@@ -1213,8 +1213,8 @@ body {
 }
 
 #energyInfo .icon-energy {
-    width: 20px !important;
-    height: 20px !important;
+    width: 25px !important;
+    height: 25px !important;
     vertical-align: middle !important;
     margin-left: 5px !important;
     display: inline-block !important;
