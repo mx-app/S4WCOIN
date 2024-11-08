@@ -619,7 +619,7 @@ body {
     border: none;
     font-weight: bold;
     font-size: var(--claim-button-size);
-    border: 1px solid #343434;
+   /* border: 1px solid #343434;*/
     z-index: 10;
 }
 
@@ -1176,6 +1176,7 @@ body {
     border: 2px solid #343434;
     border-radius: 10px;
 } 
+
 /* تدرجات اللون للمستويات من 1 إلى 3 */
 .level-gradient-green {
     background-color: transparent;
