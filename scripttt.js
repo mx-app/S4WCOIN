@@ -1116,23 +1116,24 @@ function getTodaysPuzzle(puzzles) {
     return puzzles.find(p => new Date(p.availableDate).toDateString() === today);
 }
 
-// عرض مؤقت العد التنازلي على الزر
-function startCountdownOnButton(seconds) {
-    openPuzzleBtn.disabled = true;
-    openPuzzleBtn.innerText = `Next puzzle in: ${formatTime(seconds)}`;
+//الوقت 
+function startCountdownOnPuzzle(seconds) {
+    const puzzleCountdown = document.getElementById('puzzleCountdown');
+    puzzleCountdown.innerText = `Next puzzle in: ${formatTime(seconds)}`;
 
-    function updateButtonCountdown() {
+    function updateCountdown() {
         if (seconds > 0) {
             seconds--;
-            openPuzzleBtn.innerText = `Next puzzle in: ${formatTime(seconds)}`;
-            setTimeout(updateButtonCountdown, 1000);
+            puzzleCountdown.innerText = `Next puzzle in: ${formatTime(seconds)}`;
+            setTimeout(updateCountdown, 1000);
         } else {
+            puzzleCountdown.innerText = 'Puzzle Available!';
             openPuzzleBtn.disabled = false;
             openPuzzleBtn.innerText = 'Open Puzzle';
         }
     }
 
-    updateButtonCountdown();
+    updateCountdown();
 }
 
 // صياغة الوقت (الساعات:الدقائق:الثواني)
