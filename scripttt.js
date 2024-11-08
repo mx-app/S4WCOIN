@@ -246,8 +246,7 @@ function updateUI() {
     }
 
     if (uiElements.energyInfo) {
-        uiElements.energyInfo.innerHTML = `${formatNumber(gameState.energy)}/${formatNumber(gameState.maxEnergy)} <img src="i/energy.c.png" alt="Energy Icon" class="icon-energy">`;
-        
+        uiElements.energyInfo.innerText = `${formatNumber(gameState.energy)}/${formatNumber(gameState.maxEnergy)}`;
     }
     
     if (uiElements.currentLevelName) {
