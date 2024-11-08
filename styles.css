@@ -547,7 +547,7 @@ body {
     color: #aaaaaa;
     width: 87%; /* لجعل العرض 80% */
     padding: 8px; 
-    font-size: 18px; 
+    font-size: 16px; 
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px); /* تأثير الضبابية */
     border-radius: 10px;      
@@ -1022,7 +1022,7 @@ body {
 }
 
 .invite-text {
-    font-size: 14px;
+    font-size: 16px;
     color: #fff;
     display: block;
     margin-bottom: 4px;
@@ -1037,11 +1037,11 @@ body {
 .coin-image {
     width: 18px;
     height: 18px;
-    margin-right: 5px;
+    margin-right: 3px;
 }
 
 .coin-text {
-    font-size: 16px;
+    font-size: 14px;
     color: #aaaaaa;
 }
 
