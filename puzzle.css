@@ -35,7 +35,7 @@
     gap: 15px;  /* المسافة بين الأزرار */
     justify-content: center; /* محاذاة الأزرار في المنتصف */
 }
-
+#Puzzlespage .bomb-btu,
 #Puzzlespage .puzzle-btn, 
 #Puzzlespage .Morse-code, 
 #Puzzlespage .Caesar-btu, 
@@ -159,12 +159,12 @@
     cursor: pointer;
     border: 1px solid #343434; 
     border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.09);
     transition: background-color 0.3s ease;
 }
 
 .puzzle-options button:hover {
-    background: linear-gradient(45deg, #000, #343434, #000, #343434,#000);
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 /* تخصيص الزرين الأخيرين ليظهرا في الصف الثاني */
@@ -189,8 +189,7 @@
 #timer {
     animation: blink 1s infinite; /* وميض مستمر */
     font-size: 20px; /* حجم الخط للمؤقت */
-    color: #9f0000;
-    background-color: black; /* الخلفية السوداء للمؤقت */
+    background-color: rgba(255, 255, 255, 0.05);
     padding: 8px;
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.7); /* تأثير الظل */
