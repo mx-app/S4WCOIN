@@ -81,7 +81,7 @@
     font-size: 15px;
     font-weight: bold;
     cursor: pointer;
-    border: 1px solid #343434; 
+  /*  border: 1px solid #343434; */
     width: 70%; /* العرض 90% */
     display: block; /* لجعل العنصر يعمل ككتلة */
     margin: 0 auto 15px; /* لمركزة الزر في المنتصف */
@@ -191,7 +191,7 @@
     font-size: 12px;
     font-weight: bold; 
     cursor: pointer;
-    border: 1px solid #343434; 
+   /* border: 1px solid #343434; */
     border-radius: 15px;
     background-color: rgba(0, 0, 0, 0.7);
     color: #ffffff;
@@ -352,7 +352,7 @@
     color: #ffffff;
     font-weight: bold;
     border-radius: 10px;
-    border: 1px solid #343434;
+    /*border: 1px solid #343434;*/
     cursor: pointer;
     width: 80%;
     font-size: 16px;
