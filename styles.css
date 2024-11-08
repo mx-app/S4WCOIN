@@ -878,7 +878,7 @@ body {
     border-radius: 20px;
    /* border-bottom: 2px solid #343434;*/
     cursor: pointer;
-    z-index: 100000;  
+    z-index: 100;  
    /* border-left: 2px solid #fff;
     border-right: 2px solid #fff;*/
 
