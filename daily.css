@@ -57,3 +57,8 @@
     text-align: center;
 }
 
+.logindaily-icon {
+    width: 20px;  /* تغيير الحجم حسب الحاجة */
+    height: 20px;
+    margin-right: 8px; /* المسافة بين الصورة والنص */
+} 
