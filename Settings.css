@@ -91,7 +91,7 @@
     align-items: center;
     background-color: rgba(255, 255, 255, 0.05);
     font-size: 10px; 
-    color: #fff; 
+    color: #1c1c1c; 
     width: 70%;
     height: 55px;
     border-radius: 10px;
@@ -115,12 +115,10 @@
 
 .user-id {
     font-size: 15px;
-    color: #aaaaaa;
 } 
 
 .user-name {
     font-size: 18px;
-    color: #fff;
 } 
 
 .user-image {
