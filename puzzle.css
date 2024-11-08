@@ -217,13 +217,11 @@
 }
 
 #timer {
-    color: black;
-    animation: blink 1s infinite; /* وميض مستمر */
+    color: red;
     font-size: 20px; /* حجم الخط للمؤقت */
     background-color: rgba(255, 255, 255, 0.05);
     padding: 8px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.7); /* تأثير الظل */
+    border-radius: 10px;
     margin-left: 10px; /* مسافة بين النص والمؤقت */
     font-family: 'Courier New', Courier, monospace; /* خط ثابت العرض */
     width: 100px; /* يمكنك ضبط العرض لضمان ثبات الحجم */
