@@ -1975,6 +1975,44 @@ dailycloseModal.addEventListener('click', () => {
 
 
 
+// تعريف العناصر
+const hourlyEarningsElement = document.getElementById('hourlyEarnings');  // العنصر لعرض الربح في الساعة
+let totalEarnings = 0; // إجمالي الأرباح المتراكمة
+let lastActionTime = Date.now(); // وقت آخر نشاط (بداية التتبع)
+
+// تحديث الربح في الساعة بناءً على النشاط المستمر
+function updateHourlyEarnings() {
+  const currentTime = Date.now();
+  const hoursPassed = (currentTime - lastActionTime) / (1000 * 60 * 60); // حساب الوقت المنقضي بالساعة
+
+  // حساب الربح في الساعة بناءً على النشاط
+  const earningsPerHour = totalEarnings / hoursPassed; 
+  hourlyEarningsElement.textContent = `${earningsPerHour.toFixed(2)}/hour`; // عرض الربح في الساعة
+}
+
+// تتبع النشاط وزيادة الأرباح بناءً على النشاط
+function trackActivity(earnings) {
+  const currentTime = Date.now();
+  
+  // زيادة إجمالي الأرباح بناءً على النشاط
+  totalEarnings += earnings;
+  
+  // تحديث الربح في الساعة بناءً على الوقت المنقضي
+  updateHourlyEarnings();
+  
+  lastActionTime = currentTime; // تحديث وقت آخر نشاط
+}
+
+// تحديث الربح في الساعة بشكل دوري كل دقيقة
+setInterval(updateHourlyEarnings, 60000);  // تحديث الربح كل دقيقة
+
+
+
+
+/////////////////////////////////////////
+
+
+
 
 //localStorage.removeItem('gameState'); // مسح حالة اللعبة
 //loadGameState(); // إعادة تحميل حالة اللعبة
