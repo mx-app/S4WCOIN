@@ -1078,6 +1078,7 @@ function initializeTelegramIntegration() {
 
 // تعريف عناصر DOM
 const puzzlecloseModal = document.getElementById('puzzlecloseModal');
+const puzzleCountdown = document.getElementById('puzzleCountdown');
 const puzzleContainer = document.getElementById('puzzleContainer');
 const openPuzzleBtn = document.getElementById('openPuzzleBtn');
 const puzzleQuestion = document.getElementById('puzzleQuestion');
