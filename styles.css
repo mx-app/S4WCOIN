@@ -1243,11 +1243,10 @@ body {
 #hourlyEarnings {
     position: fixed;
     top: 13px; 
-    right: 50%;
     /*left: 265px;*/
     border: 1px solid #343434;
     background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 15%; /* لجعل الزر دائري */
-    padding: 4px; /* مساحة إضافية حول الصورة */
+    border-radius: 10px; /* لجعل الزر دائري */
+    padding: 5px; /* مساحة إضافية حول الصورة */
 }
 
