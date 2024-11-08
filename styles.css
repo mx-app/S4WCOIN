@@ -1243,7 +1243,7 @@ body {
 #hourlyEarnings {
   position: fixed;
   top: 35px; 
-  left: 15px;
+  left: 20px;
   font-size: 16px;
   color: #fff;
   display: flex;  /* استخدام flexbox لمحاذاة العناصر على نفس الخط */
