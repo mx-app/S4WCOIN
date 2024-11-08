@@ -1,3 +1,14 @@
+.Gamess {
+    max-height: 290px; /* تحديد ارتفاع ثابت للحاوية الداخلية */
+    width: 88%; /* عرض الحاوية الداخلية كاملاً */
+    overflow-y: auto; /* تمكين التمرير العمودي */
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px); /* تأثير الضبابية */
+    padding: 15px;
+    border: 2px solid #343434;
+    border-radius: 10px;
+} 
+
 .games-section {
     text-align: center;
     margin-top: 20px;
