@@ -32,8 +32,8 @@
 }
 
 .daily-item {
-    width: 20%;  /* عرض كل يوم ليشغل 20% من العرض */
-    height: 70px;  /* زيادة الارتفاع لضمان استقرار العناصر */
+    width: 18%;  /* عرض كل يوم ليشغل 20% من العرض */
+    height: 65px;  /* زيادة الارتفاع لضمان استقرار العناصر */
     display: flex;
     flex-direction: column;  /* وضع النص والصورة عموديًا */
     align-items: center;  /* محاذاة العناصر عموديًا في المنتصف */
@@ -79,7 +79,7 @@
     right: 0;
     z-index: 9999;
     transform: translateY(0);
-    height: 70vh;
+    height: 75vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
