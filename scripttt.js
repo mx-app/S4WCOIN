@@ -246,10 +246,10 @@ function updateUI() {
     }
 
     if (uiElements.energyInfo) {
-    uiElements.energyInfo.innerHTML = `${formatNumber(gameState.energy)}/${formatNumber(gameState.maxEnergy)} <img src="i/energy.c.png" alt="Energy Icon" class="icon-energy">`;
+    uiElements.energyInfo.innerHTML = `${formatNumber(gameState.energy)}/${formatNumber(gameState.maxEnergy)} <img src="i/energy.c.png" alt="Energy Icon" class="icon-energy" style="display: inline-block;">`;
         
-   }
-
+    }
+    
 
     if (uiElements.currentLevelName) {
         uiElements.currentLevelName.innerText = levelThresholds[gameState.currentLevel - 1].name;
