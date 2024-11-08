@@ -219,7 +219,7 @@
 #timer {
     color: red;
     font-size: 20px; /* حجم الخط للمؤقت */
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: none; 
     padding: 8px;
     border-radius: 10px;
     margin-left: 10px; /* مسافة بين النص والمؤقت */
