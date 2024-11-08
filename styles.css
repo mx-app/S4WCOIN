@@ -1244,7 +1244,7 @@ body {
     position: fixed;
     top: 35px; 
     left: 15px;
-    font-size: 17px;
+    font-size: 15px;
     color: #fff;
     /*left: 265px;*/
    /* background-color: rgba(255, 255, 255, 0.05);*/
@@ -1252,3 +1252,10 @@ body {
     padding: 8px; /* مساحة إضافية حول الصورة */
 }
 
+.coin-hour-icon {
+  width: 15px;  /* يمكنك تعديل الحجم حسب الحاجة */
+  height: auto;
+  vertical-align: middle;  /* لضبط محاذاة الصورة مع النص */
+  margin-right: 4px;  /* مسافة صغيرة بين الصورة والنص */
+}
+ 
