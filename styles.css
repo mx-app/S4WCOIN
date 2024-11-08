@@ -1247,10 +1247,10 @@ body {
 }
 
 #earningsLabel {
-   font-size: 16px;  /* حجم النص */
+   font-size: 12px;  /* حجم النص */
    font-weight: bold;
    color: #fff;
-   margin-bottom: 5px;  /* مسافة بين النص والعدد */
+   margin-bottom: 0;  /* مسافة بين النص والعدد */
 }
 
 #hourlyEarnings {
