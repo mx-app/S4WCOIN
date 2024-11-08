@@ -20,7 +20,7 @@
     right: 15px;
    /* left: 310px;*/
     border: 1px solid #343434;
-    background: linear-gradient(90deg, #343434, #1a1a1a);
+    background-color: rgba(255, 255, 255, 0.05);
     border-radius: 15%; 
     padding: 4px; 
 }
@@ -31,7 +31,8 @@
  
 /* نافذة الإعدادات */
 .settings-panel {
-    background-color: rgba(0, 0, 0, 0.90);/* خلفية غير شفافة */
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px); /* تأثير الضبابية */
     padding: 10px; /* تقليل الحواف الداخلية */
     border-radius: 25px 25px 0 0; /* حواف علوية دائرية فقط */
     border-top: 2px solid #343434;
@@ -132,4 +133,3 @@
     border: 1px solid #343434;
     border-radius: 10px;
 }
-
