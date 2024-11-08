@@ -1241,21 +1241,19 @@ body {
 }
 
 #hourlyEarnings {
-    position: fixed;
-    top: 35px; 
-    left: 15px;
-    font-size: 16px;
-    color: #fff;
-    /*left: 265px;*/
-   /* background-color: rgba(255, 255, 255, 0.05);*/
-    border-radius: 10px; 
-    padding: 8px; 
+  position: fixed;
+  top: 35px; 
+  left: 15px;
+  font-size: 16px;
+  color: #fff;
+  display: flex;  /* استخدام flexbox لمحاذاة العناصر على نفس الخط */
+  align-items: center;  /* محاذاة العنصرين عمودياً */
+  border-radius: 10px; 
+  padding: 8px; 
 }
 
 .coin-hour-icon {
   width: 20px;  /* يمكنك تعديل الحجم حسب الحاجة */
   height: auto;
-  vertical-align: middle;  /* لضبط محاذاة الصورة مع النص */
-  margin-right: 1px;  /* مسافة صغيرة بين الصورة والنص */
+  margin-right: 2px;  /* مسافة صغيرة بين الصورة والنص */
 }
- 
