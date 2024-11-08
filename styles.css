@@ -1247,7 +1247,7 @@ body {
     font-size: 17px;
     color: #fff;
     /*left: 265px;*/
-    background-color: rgba(255, 255, 255, 0.05);
+   /* background-color: rgba(255, 255, 255, 0.05);*/
     border-radius: 10px; /* لجعل الزر دائري */
     padding: 8px; /* مساحة إضافية حول الصورة */
 }
