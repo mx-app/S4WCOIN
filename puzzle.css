@@ -2,11 +2,11 @@
     position: absolute;
     top: 40px;
     left: 15px;
-    padding: 5px; /* مسافة داخلية */
-    font-size: 16px; /* حجم الخط */
+    padding: 8px; /* مسافة داخلية */
+    font-size: 18px; /* حجم الخط */
     display: flex;
     align-items: center; /* لضبط المحاذاة الرأسية */
-    border-radius: 10px; /* زوايا دائرية */
+    border-radius: 8px; /* زوايا دائرية */
     background-color: rgba(255, 255, 255, 0.05);
     color: #ffffff; /* لون النص */
     transition: padding 0.2s ease; /* تأثير بسيط عند التمدد */
