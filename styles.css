@@ -88,8 +88,10 @@ body {
     transform: translateX(-50%); /* لتوسيع الخط أفقياً */
 }
  
-
-
+.hidden {
+  display: none;
+}
+ 
 .screen-content {
     flex: 1;
     display: none;
