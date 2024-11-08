@@ -1221,11 +1221,12 @@ body {
     text-items: left; /* لضبط المحاذاة الرأسية بدقة */
 }
 
-.icon-energy {
-    width: 20px; /* عرض الصورة */
-    height: 20px; /* ارتفاع الصورة */
-    vertical-align: middle; /* لمحاذاة الصورة مع النص */
-    margin-left: 5px; /* مسافة صغيرة بين الرقم والصورة */
+#energyInfo img.icon-energy {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-left: 5px;
+    display: inline-block;
 }
  
  
