@@ -1117,6 +1117,7 @@ function getTodaysPuzzle(puzzles) {
     return puzzles.find(p => new Date(p.availableDate).toDateString() === today);
 }
 
+
 // عرض مؤقت العد التنازلي في العنصر المخصص
 function startCountdownOnButton(seconds) {
     openPuzzleBtn.disabled = true;
@@ -1125,21 +1126,32 @@ function startCountdownOnButton(seconds) {
     const countdownDisplay = document.getElementById('puzzleCountdown');
     countdownDisplay.innerText = `Next puzzle in: ${formatTime(seconds)}`;
 
+    // إضافة الفئة "inactive" لتفعيل تأثير الضباب والتوهج
+    const puzzleItems = document.querySelectorAll('.puzzle-item');
+    puzzleItems.forEach(item => item.classList.add('inactive'));
+
     function updateCountdown() {
         if (seconds > 0) {
             seconds--;
             countdownDisplay.innerText = `Next puzzle in: ${formatTime(seconds)}`;
             setTimeout(updateCountdown, 1000);
         } else {
+            // عند انتهاء الوقت، إزالة التأثيرات
+            countdownDisplay.innerText = 'Puzzle available now!';
+
+            // إزالة الفئة "inactive" وإضافة الفئة "active"
+            puzzleItems.forEach(item => {
+                item.classList.remove('inactive');
+                item.classList.add('active');
+            });
+
             openPuzzleBtn.disabled = false;
             openPuzzleBtn.innerText = 'Open Puzzle';
-            countdownDisplay.innerText = 'Puzzle available now!';
         }
     }
 
     updateCountdown();
 }
-
 
 // صياغة الوقت (الساعات:الدقائق:الثواني)
 function formatTime(seconds) {
@@ -1148,6 +1160,7 @@ function formatTime(seconds) {
     const remainingSeconds = seconds % 60;
     return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
 }
+
 
 // عرض أحجية اليوم إذا كانت متاحة
 async function displayTodaysPuzzle() {
