@@ -703,8 +703,7 @@ body {
     top: -100px; /* البداية من فوق الشاشة */
     left: 50%;
     transform: translateX(-50%);
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px); /* تأثير الضبابية */
+    background: #1c1c1c;
     color: #fff;
     padding: 10px 20px; /* زيادة padding لجعل الإشعار طويل */
     border-radius: 5px;
