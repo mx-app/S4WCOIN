@@ -255,7 +255,8 @@ body {
 .progress-bar-inner {
     height: 100%; /* ارتفاع الشريط الداخلي */
     width: 100%; /* عرض الشريط الداخلي */
-    background: linear-gradient(90deg, #794106, #9f620c, #d69a1c); 
+    /*background: linear-gradient(90deg, #794106, #9f620c, #d69a1c);*/
+    background:#fff; 
     transition: width 0.5s ease;
 } 
 
