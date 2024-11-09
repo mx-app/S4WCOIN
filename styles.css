@@ -1241,12 +1241,12 @@ body {
 #hourlyEarningsContainer {
     position: fixed;
     top: 13px;
-    left: 15px;
+    left: 15px;  /* وضع الحاوية في الجهة اليمنى */
     width: 50%;
     height: 30px;
-   /* transform: translateX(-50%);*/
     display: flex;
     align-items: center;
+    justify-content: space-between;  /* توزيع العناصر بين اليمين واليسار */
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px); /* تأثير الضبابية */
     padding: 5px;
@@ -1285,9 +1285,10 @@ body {
     margin-right: 2px;
 }
 
+/* شريط الطاقة */
 #levelEnergyBar {
-    width: 100%;
-    height: 10px;
+    width: 60%;  /* تصغير العرض إلى 60% */
+    height: 8px;  /* تصغير الارتفاع */
     background-color: #ddd;
     border-radius: 5px;
     overflow: hidden;
@@ -1299,4 +1300,10 @@ body {
     width: 0;
     background-color: #4caf50; /* لون شريط الطاقة */
     border-radius: 5px;
+}
+
+/* تنسيق القسم الذي يحتوي على معلومات المستوى */
+.right-section {
+    margin-left: auto;  /* دفع هذا القسم إلى الجهة اليمنى */
+    text-align: left;  /* لضبط النص في الجهة اليمنى */
 }
