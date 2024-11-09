@@ -136,4 +136,10 @@
     width: 70%;
     height: 150px;
     padding: 10px;
+    line-height: 1.8; /* زيادة التباعد بين السطور */
 }
+
+.account-summary p {
+    margin-bottom: 10px; /* إضافة تباعد بين الفقرات */
+}
+ 
