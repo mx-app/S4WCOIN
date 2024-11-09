@@ -1140,6 +1140,8 @@ function startCountdownOnButton(seconds) {
     countdownDisplay.innerText = ` ${formatTime(seconds)}`;
 
     const puzzleItem = document.getElementById('puzzle1');
+    
+    // أضف الفئة "inactive" لبدء تأثير الضبابية عند تشغيل المؤقت
     puzzleItem.classList.add('inactive');
 
     function updateCountdown() {
@@ -1149,8 +1151,8 @@ function startCountdownOnButton(seconds) {
             setTimeout(updateCountdown, 1000);
         } else {
             countdownDisplay.innerText = 'Puzzle available now!';
-            puzzleItem.classList.remove('inactive');
-            puzzleItem.classList.add('active');
+            puzzleItem.classList.remove('inactive'); // إزالة الضبابية عند انتهاء العد التنازلي
+            puzzleItem.classList.add('active'); // إضافة الفئة "active"
             openPuzzleBtn.disabled = false;
             openPuzzleBtn.innerText = 'Open Puzzle';
         }
@@ -1158,6 +1160,7 @@ function startCountdownOnButton(seconds) {
 
     updateCountdown();
 }
+
 
 // صياغة الوقت (الساعات:الدقائق:الثواني)
 function formatTime(seconds) {
