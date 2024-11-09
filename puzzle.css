@@ -1,7 +1,7 @@
 .Morsecountdown-display {
     position: absolute;
     top: 200px;
-    right: 15px;
+    right: 40px;
     padding: 8px; /* مسافة داخلية */
     font-size: 18px; /* حجم الخط */
     display: flex;
@@ -19,7 +19,7 @@
 .countdown-display {
     position: absolute;
     top: 200px;
-    left: 15px;
+    left: 40px;
     padding: 8px; /* مسافة داخلية */
     font-size: 18px; /* حجم الخط */
     display: flex;
