@@ -1,6 +1,6 @@
 .Morsecountdown-display {
     position: absolute;
-    top: 30px;
+    top: 100px;
     right: 15px;
     padding: 8px; /* مسافة داخلية */
     font-size: 18px; /* حجم الخط */
@@ -16,39 +16,36 @@
 
 
 .countdown-display {
-    position: absolute; /* جعل العنصر ثابتًا فوق الصورة */
-    top: 50%; /* محاذاة عمودية في المنتصف */
-    left: 50%; /* محاذاة أفقية في المنتصف */
-    transform: translate(-50%, -50%); /* لتثبيت المؤقت في منتصف العنصر */
-    z-index: 2; /* وضع المؤقت فوق تأثير الضبابية */
-    padding: 8px;
-    font-size: 18px;
+    position: absolute;
+    top: 100px;
+    right: 15px;
+    padding: 8px; /* مسافة داخلية */
+    font-size: 18px; /* حجم الخط */
     display: flex;
-    align-items: center;
-    border-radius: 8px;
-    background-color: rgba(0, 0, 0, 0.6); /* لون خلفية داكنة لزيادة وضوح النص */
-    color: #ffffff;
-    min-width: 50px;
-    white-space: nowrap;
+    align-items: center; /* لضبط المحاذاة الرأسية */
+    border-radius: 8px; /* زوايا دائرية */
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #ffffff; /* لون النص */
+    transition: padding 0.2s ease; /* تأثير بسيط عند التمدد */
+    min-width: 50px; /* عرض أدنى للعنصر */
+    white-space: nowrap; /* لمنع النص من الانتقال إلى سطر جديد */
 }
 
+/* تأثير الضباب والتوهج عند عدم التفعيل */
 .puzzle-item.inactive {
     filter: blur(5px); /* يجعل العنصر ضبابيًا */
-    border: 3px solid darkred;
-    box-shadow: 0 0 10px red;
-    pointer-events: none;
-    z-index: 1; /* وضع الضبابية تحت المؤقت */
-    position: relative;
+    border: 3px solid darkred; /* حواف حمراء داكنة */
+    box-shadow: 0 0 10px red; /* تأثير توهج حول العنصر */
+    pointer-events: none; /* تعطيل التفاعل مع العنصر */
 }
 
+/* تأثير إعادة العنصر لحالته الطبيعية بعد انتهاء العد التنازلي */
 .puzzle-item.active {
-    filter: none;
-    border: none;
-    box-shadow: none;
-    pointer-events: auto;
-}
- 
-
+    filter: none; /* إزالة التأثير الضبابي */
+    border: none; /* إزالة الحواف الحمراء */
+    box-shadow: none; /* إزالة التوهج */
+    pointer-events: auto; /* تمكين التفاعل مع العنصر */
+} 
 
 #Puzzlespage .puzzles-container {
     display: grid;
