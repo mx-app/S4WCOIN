@@ -267,7 +267,7 @@ body {
     background-clip: text;
     color: transparent;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 16px; /* حجم الخط */
+    font-size: 15px; /* حجم الخط */
     font-weight: bold; /* سمك الخط */
     text-align: left; /* المحاذاة لليسار */
     margin-left: 0px;
@@ -375,7 +375,7 @@ body {
 .menu {
     display: flex;
     justify-content: space-between;
-    padding: 5px;
+    padding: 4px;
     border: 1px solid #343434;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.05);
@@ -853,7 +853,7 @@ body {
 .wallet-button {
     position: fixed;
     top: 13px; 
-    right: 60px;
+    right: 65px;
     /*left: 265px;*/
     border: 1px solid #343434;
     background-color: rgba(255, 255, 255, 0.05);
