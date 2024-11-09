@@ -41,6 +41,10 @@
 
 
 #boostsPage {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5));
+    backdrop-filter: blur(5px); /* تأثير ضبابي */
+    background-repeat: no-repeat;
+    background-size: cover;
     padding-top: 80px; /* يمكنك تغيير القيمة حسب الحاجة */
     background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
     overflow-y: auto; /* لجعل الصفحة قابلة للتمرير */
