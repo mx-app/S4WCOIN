@@ -86,7 +86,7 @@
 
 #gamePage .game-item {
     width: 86%; /* عرض الحاوية بنسبة 44% */
-    height: 170px;
+    height: 180px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -116,12 +116,13 @@
     height: auto;
     display: block;
     border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 #gamePage .game-item p {
     font-size: 1rem;
     color: #fff;
-    margin: 0;
+    margin: 0 0 10px;
 }
 
 .game-item button {
@@ -137,6 +138,7 @@
     font-size: var(--claim-button-size);
     /*border: 1px solid #343434;*/
     z-index: 10;
+    margin-top: auto; 
 }
  
 #gamePage .game-button:hover {
