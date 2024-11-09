@@ -1134,7 +1134,7 @@ function startCountdownOnButton(seconds) {
 
     // عرض العد التنازلي في العنصر puzzleCountdown
     const countdownDisplay = document.getElementById('puzzleCountdown');
-    countdownDisplay.innerText = `Next puzzle in: ${formatTime(seconds)}`;
+    countdownDisplay.innerText = ` ${formatTime(seconds)}`;
 
     // استهداف العنصر المحدد فقط باستخدام الـ ID
     const puzzleItem = document.getElementById('puzzle1'); // استهداف العنصر حسب ID
@@ -1143,7 +1143,7 @@ function startCountdownOnButton(seconds) {
     function updateCountdown() {
         if (seconds > 0) {
             seconds--;
-            countdownDisplay.innerText = `Next puzzle in: ${formatTime(seconds)}`;
+            countdownDisplay.innerText = ` ${formatTime(seconds)}`;
             setTimeout(updateCountdown, 1000);
         } else {
             // عند انتهاء الوقت، إزالة التأثيرات
@@ -1520,7 +1520,7 @@ function startCountdownOnButton(seconds) {
 
     // عرض العد التنازلي في العنصر puzzleCountdown
     const countdownDisplay = document.getElementById('MorseCiphersCountdown');
-    countdownDisplay.innerText = `Next Morse Ciphers in: ${formatTime(seconds)}`;
+    countdownDisplay.innerText = ` ${formatTime(seconds)}`;
 
     // استهداف العنصر المحدد فقط باستخدام الـ ID
     const puzzleItem = document.getElementById('puzzle2'); // استهداف العنصر حسب ID
@@ -1529,7 +1529,7 @@ function startCountdownOnButton(seconds) {
     function updateCountdown() {
         if (seconds > 0) {
             seconds--;
-            countdownDisplay.innerText = `Next Morse Ciphers in: ${formatTime(seconds)}`;
+            countdownDisplay.innerText = ` ${formatTime(seconds)}`;
             setTimeout(updateCountdown, 1000);
         } else {
             // عند انتهاء الوقت، إزالة التأثيرات
@@ -1540,7 +1540,7 @@ function startCountdownOnButton(seconds) {
             puzzleItem.classList.add('active'); // إضافة الفئة "active"
 
             openMorseCipherBtn.disabled = false;
-            openMorseCipherBtn.innerText = 'Open Puzzle';
+            openMorseCipherBtn.innerText = 'Open ';
         }
     }
 
