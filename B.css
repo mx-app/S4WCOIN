@@ -1,15 +1,14 @@
-.boos-icon {
+/*.boos-icon {
     width: 30px;
     height: 30px;
     flex-shrink: 0;
-    margin-left: 30px; /* مسافة بين الأيقونة والنص لتظهر على اليمين */
+    margin-left: 30px; 
 }
 
 .boosts-button {
     position: fixed;
     bottom: 120px;
-    /*top: 60px;*/
-    left: -35px; /* وضع الزر داخل الشاشة بشكل طبيعي */
+    left: -35px; 
     background-color: rgba(255, 255, 255, 0.05);
     font-size: 16px;
     border: 1px solid #343434;
@@ -20,21 +19,21 @@
     cursor: pointer;
     z-index: 200;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: left 0.3s ease; /* تأثير الانزلاق عند التحويم */
+    transition: left 0.3s eas
     display: flex;
     align-items: center;
-    justify-content: space-between; /* لجعل النص والصورة على الأطراف */
+    justify-content: space-between;
 }
 
 .boosts-button:hover {
-    left: 15px; /* عند التحويم، يخرج الزر بالكامل إلى الخارج */
-}
+    left: 15px; 
+}*/
 
-/*.boos-icon {
-    width: 26px;
-    height: 26px;
+
+.boos-icon {
+    width: 30px;
+    height: 30px;
     flex-shrink: 0;
-    border-radius: 50%; 
 }
 
 .boosts-button img {
@@ -43,10 +42,10 @@
 
 .boosts-button {
     position: fixed;
-    top: 13px; 
-    right: 90px;
+    bottom: 120px;
+    right: 40px;
     border: 1px solid #343434;
-    background: linear-gradient(90deg, #343434, #1a1a1a);
+    background-color: rgba(255, 255, 255, 0.05);
     border-radius: 15%; 
     padding: 4px; 
 }
@@ -54,7 +53,7 @@
 .boosts-button:hover {
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
 }
-*/
+
 
 .bos-image {
     width: 105px;
