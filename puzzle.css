@@ -124,7 +124,7 @@
     height: 35px;
 }
 
-#Puzzlespage .puzzle-item button :hover {
+#Puzzlespage .puzzle-item button:hover {
     background: linear-gradient(90deg, #794106, #9f620c, #d69a1c);
     background-position: center;
 }
