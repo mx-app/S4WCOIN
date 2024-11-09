@@ -1128,10 +1128,6 @@ function getTodaysPuzzle(puzzles) {
 }
 
 
-// تعريف العنصر المخصص لعرض المؤقت
-const puzzleCountdownDisplay = document.getElementById('puzzleCountdown');
-
-
 // عرض مؤقت العد التنازلي في العنصر المخصص
 function startCountdownOnButton(seconds) {
     openPuzzleBtn.disabled = true;
