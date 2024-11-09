@@ -1243,8 +1243,8 @@ body {
     position: fixed;
     top: 13px;
     left: 15px;
-    width: 60%;
-    height: 40px;
+    width: 50%;
+    height: 35px;
    /* transform: translateX(-50%);*/
     display: flex;
     align-items: center;
