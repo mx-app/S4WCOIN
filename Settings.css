@@ -5,8 +5,8 @@
 } 
 
 .Settings-icon {
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
     flex-shrink: 0;
 }
 
@@ -22,7 +22,7 @@
     border: 1px solid #343434;
     background-color: rgba(255, 255, 255, 0.05);
     border-radius: 10px; 
-    padding: 8.5px; 
+    padding: 6px; 
 }
 
 .settings-button:hover {
@@ -136,7 +136,7 @@
     width: 70%;
     height: 150px;
     padding: 10px;
-    line-height: 1.8; /* زيادة التباعد بين السطور */
+    line-height: 1.5; /* زيادة التباعد بين السطور */
 }
 
 .account-summary p {
