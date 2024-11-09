@@ -33,11 +33,18 @@
 
 #gamePage {
     padding-top: 200px;
-    background: linear-gradient(to bottom, #000000, #090909 10%, #1a1a1a 30%, #111111 50%, #2a2a2a 70%, #343434 90%, #444444);
-    background-clip: padding-box;
-    overflow-y: auto;
     padding-bottom: 100px;
+    overflow-y: auto;
+    background: 
+        radial-gradient(circle at 10% 10%, rgba(0, 0, 0, 0.8), transparent 60%), /* نقطة ضوء خفيفة في الزاوية العلوية اليسرى */
+        radial-gradient(circle at 90% 20%, rgba(0, 0, 0, 0.7), transparent 70%), /* نقطة ضوء خفيفة في الزاوية العلوية اليمنى */
+        linear-gradient(to bottom left, rgba(0, 0, 0, 0.8), transparent 40%), /* تدرج منحني من اليسار العلوي لداخل الصفحة */
+        linear-gradient(to bottom right, #111111, #333333 80%); /* التدرج الأساسي من الأعلى للأسفل */
+    background-clip: padding-box;
+    position: relative;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.9); /* ظل داخلي لإضافة عمق للحواف */
 }
+
 
 
 #boostsPage {
