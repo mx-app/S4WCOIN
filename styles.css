@@ -1242,7 +1242,7 @@ body {
     position: fixed;
     top: 13px;
     left: 15px;  /* وضع الحاوية في الجهة اليمنى */
-    width: 50%;
+    width: 40%;
     height: 30px;
     display: flex;
     align-items: center;
@@ -1264,7 +1264,7 @@ body {
     height: 20px;
     background-color: #fff;  /* لون الخط الفاصل */
     margin: 0 10px;
-    margin-left: 15px;
+    margin-left: 20px;
 }
 
 #earningsLabel, #levelLabel {
@@ -1289,18 +1289,19 @@ body {
 
 /* شريط الطاقة */
 #levelEnergyBar {
-    width: 60%;  /* تصغير العرض إلى 60% */
-    height: 8px;  /* تصغير الارتفاع */
-    background-color: #ddd;
+    width: 70%;  /* تصغير العرض إلى 60% */
+    height: 9px;  /* تصغير الارتفاع */
+    background-color: rgba(255, 255, 255, 0.05);
     border-radius: 5px;
     overflow: hidden;
     margin-top: 2px;
+    margin-left: 20px;
 }
 
 #levelEnergyFill {
     height: 100%;
     width: 0;
-    background-color: #4caf50; /* لون شريط الطاقة */
+    background-color: #fff; /* لون شريط الطاقة */
     border-radius: 5px;
 }
 
