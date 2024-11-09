@@ -246,7 +246,8 @@ body {
 .progress-bar {
     width: 180px; 
     height: 13px; 
-    background-color: #555555; /* خلفية الشريط شفافة */
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px); /* تأثير الضبابية */
     border-radius: 50px; /* شكل الشريط */
     overflow: hidden; /* قص المحتوى الزائد */
    /* border: 2px solid #fff;*/
