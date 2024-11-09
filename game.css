@@ -71,7 +71,7 @@
 #gamePage .game-container {
     display: grid;
     grid-template-columns: repeat(2, 44%); /* عرض كل عنصرين بجانب بعض */
-    gap: 10px; /* المسافة بين العناصر */
+    gap: 12px; /* المسافة بين العناصر */
     justify-content: center; /* محاذاة العناصر في المنتصف */
     margin-top: 10px;
 }
@@ -85,7 +85,7 @@
 }*/
 
 #gamePage .game-item {
-    width: 88%; /* عرض الحاوية بنسبة 44% */
+    width: 86%; /* عرض الحاوية بنسبة 44% */
     height: 190px;
     display: flex;
     flex-direction: column;
