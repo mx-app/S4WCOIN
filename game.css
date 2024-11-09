@@ -51,7 +51,9 @@
 #gamePage .gamePage-image {
     width: 100px;
     height: auto;
-    margin-bottom: 10px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 0;
 }
 
 #GA {
@@ -113,8 +115,9 @@
 #gamePage .game-item img {
     width: 90%;
     height: auto;
+    display: block;
+    margin: 0 auto;
     border-radius: 10px;
-    margin-right: 15px; /* مسافة بين الصورة والنص */
     flex-shrink: 0;
 }
 
