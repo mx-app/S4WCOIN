@@ -138,3 +138,12 @@
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.3);
 }
  
+.coinBost-icon {
+    width: 18px;  /* تحديد الحجم المناسب للصورة */
+    height: auto;
+    display: block;
+    vertical-align: middle;  /* لضبط المحاذاة بشكل جيد مع النص */
+    margin-right: 5px;  /* لإضافة مسافة صغيرة بين الصورة والرقم */
+}
+
+ 
