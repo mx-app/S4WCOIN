@@ -19,7 +19,8 @@
 }
 
 .apply_PromoCode {
-    background-color: rgba(0, 0, 0, 0.7);
+    background: linear-gradient(90deg, #794106, #9f620c, #d69a1c);
+   /* background-color: rgba(0, 0, 0, 0.7);*/
     color: #ffffff;
     font-weight: bold;
     border-radius: 10px;
