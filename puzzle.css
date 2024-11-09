@@ -1,13 +1,11 @@
 .Morsecountdown-display {
     position: absolute;
     top: 200px;
-    right: 40px;
-    padding: 8px; /* مسافة داخلية */
+    right: 50px;
     font-size: 18px; /* حجم الخط */
     display: flex;
     align-items: center; /* لضبط المحاذاة الرأسية */
     border-radius: 8px; /* زوايا دائرية */
-    background-color: rgba(255, 255, 255, 0.05);
     color: #ffffff; /* لون النص */
     transition: padding 0.2s ease; /* تأثير بسيط عند التمدد */
     min-width: 50px; /* عرض أدنى للعنصر */
@@ -19,13 +17,11 @@
 .countdown-display {
     position: absolute;
     top: 200px;
-    left: 40px;
-    padding: 8px; /* مسافة داخلية */
+    left: 50px;
     font-size: 18px; /* حجم الخط */
     display: flex;
     align-items: center; /* لضبط المحاذاة الرأسية */
     border-radius: 8px; /* زوايا دائرية */
-    background-color: rgba(255, 255, 255, 0.05);
     color: #ffffff; /* لون النص */
     transition: padding 0.2s ease; /* تأثير بسيط عند التمدد */
     min-width: 50px; /* عرض أدنى للعنصر */
