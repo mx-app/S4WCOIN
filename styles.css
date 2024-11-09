@@ -237,7 +237,7 @@ body {
     justify-content: center; /* الاحتفاظ بمحاذاة إلى اليسار */
     align-items: center; /* الشريط والمعلومات في نفس المحاذاة على اليسار */
     position: absolute; /* تثبيت الحاوية في مكان محدد */
-    bottom: 115px; /* ضبطه ليكون في الجزء السفلي */
+    bottom: 120px; /* ضبطه ليكون في الجزء السفلي */
     /*left: 20px; 
     margin-left: 0px;*/
 }
@@ -858,8 +858,8 @@ body {
     /*left: 265px;*/
     border: 1px solid #343434;
     background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 15%; /* لجعل الزر دائري */
-    padding: 4px; /* مساحة إضافية حول الصورة */
+    border-radius: 10px; /* لجعل الزر دائري */
+    padding: 10px; /* مساحة إضافية حول الصورة */
 }
 
 .wallet-button:hover {
@@ -1267,7 +1267,7 @@ body {
 }
 
 #earningsLabel, #levelLabel {
-    font-size: 11px;
+    font-size: 10px;
     font-weight: bold;
     margin-bottom: 3px;
 }
