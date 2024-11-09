@@ -267,9 +267,9 @@ function formatNumber(value) {
     } else if (value >= 1_000_000_000) {
         return `${(value / 1_000_000_000).toFixed(2)}B`;
     } else if (value >= 1_000_000) {
-        return `${(value / 1_000_000).toFixed(2)}m`; // الملايين
+        return `${(value / 1_000_000).toFixed(2)}M`; // الملايين
     } else if (value >= 1_000) {
-        return `${(value / 1_000).toFixed(2)}k`; // الآلاف
+        return `${(value / 1_000).toFixed(2)}K`; // الآلاف
     } else {
         return value.toLocaleString();
     }
@@ -662,7 +662,6 @@ function updateLevelDisplay() {
 }
 
 
-
 // تحديث عرض التحسينات
 function updateBoostsDisplay() {
     const boostUpgradeCost = gameState.boostLevel * 500 + 500;
@@ -938,7 +937,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Add task reward text
                 const rewardText = document.createElement('p');
-                rewardText.textContent = `Reward : ${task.reward} `;
+                rewardText.textContent = ` ${task.reward} `;
                 rewardText.style.fontSize = '0.8em';  // تغيير حجم النص
                 rewardText.style.color = '#aaaaaa';  // تغيير لون النص إلى الذهبي
                 rewardText.style.margin = '5px 0';   // إضافة مسافة بين النصوص
