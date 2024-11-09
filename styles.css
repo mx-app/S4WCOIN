@@ -1240,31 +1240,44 @@ body {
 
 
 #hourlyEarningsContainer {
-   position: fixed;
-   top: 35px;
-   left: 20px;
-   text-align: center;  /* محاذاة النص في المركز */
+    position: fixed;
+    top: 35px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px); /* تأثير الضبابية */
+    padding: 10px;
+    border-radius: 10px;
+    color: #fff;
 }
 
-#earningsLabel {
-   font-size: 12px;  /* حجم النص */
-   font-weight: bold;
-   color: #fff;
-   margin-bottom: 3px;  /* مسافة بين النص والعدد */
+.left-section, .right-section {
+    text-align: center;
 }
 
-#hourlyEarnings {
-   font-size: 16px;  /* حجم الرقم */
-   color: #fff;
-   display: flex;
-   align-items: center;
-   justify-content: center;  /* محاذاة الصورة والنص في الوسط */
-   border-radius: 10px;
-   padding: 0;
+.separator {
+    width: 1px;
+    height: 40px;
+    background-color: #fff;  /* لون الخط الفاصل */
+    margin: 0 10px;
+}
+
+#earningsLabel, #levelLabel {
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+#hourlyEarnings, #currentLevelCoins {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .coin-hour-icon {
-   width: 20px;  /* حجم الصورة */
-   height: auto;
-   margin-right: 2px;  /* المسافة بين الصورة والنص */
+    width: 20px;
+    height: auto;
+    margin-right: 2px;
 }
