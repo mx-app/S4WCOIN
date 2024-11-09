@@ -603,6 +603,7 @@ function checkEnergyFill() {
 
 
 // تحديث المستوي 
+// تحديث المستوي
 function updateLevelDisplay() {
     checkForLevelUp();
 
@@ -614,7 +615,7 @@ function updateLevelDisplay() {
 
         levelImageElement.src = currentLevelData.image;
         levelImageElement.alt = `Level ${gameState.currentLevel}`;
-        levelNameElement.innerText = currentLevelData.name;
+        levelNameElement.innerText = `lvl ${currentLevelData.name}`;  // إضافة كلمة "lvl"
 
         levelNameElement.classList.remove('level-gradient-green', 'level-gradient-brown', 'level-gradient-blue');
 
@@ -645,13 +646,13 @@ function updateLevelDisplay() {
         const levelEnergyFill = document.getElementById('levelEnergyFill'); // شريط الطاقة الجديد
 
         if (currentLevelCoinsElement && levelEnergyFill) {
-            currentLevelCoinsElement.innerText = `${formatNumber(gameState.balance)} / ${formatNumber(currentThreshold.threshold)}`;
-
             const progress = Math.min(gameState.balance / currentThreshold.threshold, 1) * 100;
+            currentLevelCoinsElement.innerText = ` lvl ${Math.round(progress)}%`;  // عرض النسبة المئوية
             levelEnergyFill.style.width = `${progress}%`; // تحديث عرض شريط الطاقة
         }
     }
 }
+
 
 
 
