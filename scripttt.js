@@ -1377,47 +1377,80 @@ document.getElementById('openPuzzleBtn').addEventListener('click', function() {
 
 
 
-// التحقق من البرومو كود عند الضغط على زر "Send"
 document.getElementById('applyPromoCode').addEventListener('click', async () => {
-    const enteredCode = document.getElementById('promoCodeInput').value;
+    const applyButton = document.getElementById('applyPromoCode');
+    const promoCodeInput = document.getElementById('promoCodeInput');
+    const enteredCode = promoCodeInput.value;
 
-    // تحميل البرومو كود من ملف JSON
-    const response = await fetch('promocodes.json');
-    const promoData = await response.json();
-    const promoCodes = promoData.promoCodes;
+    // إخفاء نص الزر وعرض دائرة تحميل
+    applyButton.innerHTML = '';  // إخفاء النص
+    applyButton.classList.add('loading');  // إضافة الكلاس loading لعرض دائرة التحميل
 
-    // تحقق مما إذا كان المستخدم قد استخدم هذا البرومو كود من قبل
-    if (gameState.usedPromoCodes && gameState.usedPromoCodes.includes(enteredCode)) {
-        showNotificationWithStatus(uiElements.purchaseNotification, 'You have already used this promo code.', 'win');
-        return;
-    }
+    // إنشاء دائرة التحميل
+    const spinner = document.createElement('div');
+    spinner.classList.add('spinner');
+    applyButton.appendChild(spinner);
 
-    // التحقق مما إذا كان البرومو كود صحيحًا
-    if (promoCodes[enteredCode]) {
-        const reward = promoCodes[enteredCode];
+    try {
+        // تحميل البرومو كود من ملف JSON
+        const response = await fetch('promocodes.json');
+        const promoData = await response.json();
+        const promoCodes = promoData.promoCodes;
 
-        // إضافة المكافأة إلى رصيد المستخدم
-        gameState.balance += reward;
-
-        // تحديث واجهة المستخدم
-        updateUI();
-
-        // حفظ البرومو كود المستخدم
-        if (!gameState.usedPromoCodes) {
-            gameState.usedPromoCodes = [];
+        // تحقق مما إذا كان المستخدم قد استخدم هذا البرومو كود من قبل
+        if (gameState.usedPromoCodes && gameState.usedPromoCodes.includes(enteredCode)) {
+            // عرض علامة خطأ (❌) عند الاستخدام المسبق
+            applyButton.innerHTML = '❌ Code already used';
+            showNotificationWithStatus(uiElements.purchaseNotification, 'You have already used this promo code.', 'win');
+            setTimeout(() => {
+                applyButton.innerHTML = 'Apply Promo Code';  // استرجاع النص الأصلي
+                applyButton.classList.remove('loading');
+                spinner.remove();  // إزالة دائرة التحميل
+            }, 3000);
+            return;
         }
-        gameState.usedPromoCodes.push(enteredCode);
 
-        // تحديث الأكواد المستخدمة في قاعدة البيانات
-        await updateUsedPromoCodesInDB(gameState.usedPromoCodes);
+        // التحقق مما إذا كان البرومو كود صحيحًا
+        if (promoCodes[enteredCode]) {
+            const reward = promoCodes[enteredCode];
 
-        // إظهار إشعار بالنجاح
-        showNotificationWithStatus(uiElements.purchaseNotification, `Successfully added ${reward} coins to your balance!`, 'win');
+            // إضافة المكافأة إلى رصيد المستخدم
+            gameState.balance += reward;
 
-        // حفظ حالة اللعبة بعد إضافة المكافأة
-        saveGameState();
-    } else {
-        showNotificationWithStatus(uiElements.purchaseNotification, 'Invalid promo code.', 'lose');
+            // تحديث واجهة المستخدم
+            updateUI();
+
+            // حفظ البرومو كود المستخدم
+            if (!gameState.usedPromoCodes) {
+                gameState.usedPromoCodes = [];
+            }
+            gameState.usedPromoCodes.push(enteredCode);
+
+            // تحديث الأكواد المستخدمة في قاعدة البيانات
+            await updateUsedPromoCodesInDB(gameState.usedPromoCodes);
+
+            // عرض علامة صح (✔️) عند النجاح
+            applyButton.innerHTML = '✔️ Code applied successfully';
+
+            // إظهار إشعار بالمكافأة
+            showNotificationWithStatus(uiElements.purchaseNotification, `Successfully added ${reward} coins to your balance!`, 'win');
+        } else {
+            // عرض علامة خطأ (❌) عند البرومو كود غير صحيح
+            applyButton.innerHTML = '❌ Invalid promo code';
+
+            // إظهار إشعار بالخطأ
+            showNotificationWithStatus(uiElements.purchaseNotification, 'Invalid promo code.', 'lose');
+        }
+    } catch (error) {
+        console.error('Error fetching promo codes:', error);
+        applyButton.innerHTML = '❌ Error occurred';
+    } finally {
+        // إعادة النص العادي للزر بعد 3 ثواني
+        setTimeout(() => {
+            applyButton.innerHTML = 'Apply Promo Code';
+            applyButton.classList.remove('loading');
+            spinner.remove();  // إزالة دائرة التحميل
+        }, 3000);
     }
 });
 
