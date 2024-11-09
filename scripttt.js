@@ -615,7 +615,7 @@ function updateLevelDisplay() {
 
         levelImageElement.src = currentLevelData.image;
         levelImageElement.alt = `Level ${gameState.currentLevel}`;
-        levelNameElement.innerText = `lvl ${currentLevelData.name}`;  // إضافة كلمة "lvl"
+        levelNameElement.innerText = `${currentLevelData.name}`;  // إضافة كلمة "lvl"
 
         levelNameElement.classList.remove('level-gradient-green', 'level-gradient-brown', 'level-gradient-blue');
 
@@ -652,7 +652,6 @@ function updateLevelDisplay() {
         }
     }
 }
-
 
 
 
