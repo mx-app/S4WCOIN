@@ -1132,27 +1132,31 @@ function getTodaysPuzzle(puzzles) {
 const puzzleCountdownDisplay = document.getElementById('puzzleCountdown');
 
 
+// عرض مؤقت العد التنازلي في العنصر المخصص
 function startCountdownOnButton(seconds) {
-    const openPuzzleBtn = document.getElementById('openPuzzleBtn');
-    const countdownDisplay = document.getElementById('puzzleCountdown');
-    const puzzleItem = document.getElementById('puzzle1');
-
-    // تعطيل الزر وإضافة التأثير الضبابي وعرض المؤقت
     openPuzzleBtn.disabled = true;
-    puzzleItem.classList.add('inactive');
-    countdownDisplay.style.display = 'flex';
-    countdownDisplay.innerText = ` ${formatTime(seconds)}`;
+
+    // عرض العد التنازلي في العنصر puzzleCountdown
+    const countdownDisplay = document.getElementById('puzzleCountdown');
+    countdownDisplay.innerText = `Next puzzle in: ${formatTime(seconds)}`;
+
+    // استهداف العنصر المحدد فقط باستخدام الـ ID
+    const puzzleItem = document.getElementById('puzzle1'); // استهداف العنصر حسب ID
+    puzzleItem.classList.add('inactive'); // إضافة الفئة "inactive" لتفعيل تأثير الضباب والتوهج
 
     function updateCountdown() {
         if (seconds > 0) {
             seconds--;
-            countdownDisplay.innerText = ` ${formatTime(seconds)}`;
+            countdownDisplay.innerText = `Next puzzle in: ${formatTime(seconds)}`;
             setTimeout(updateCountdown, 1000);
         } else {
+            // عند انتهاء الوقت، إزالة التأثيرات
             countdownDisplay.innerText = 'Puzzle available now!';
-            puzzleItem.classList.remove('inactive'); // إزالة التأثير الضبابي
-            puzzleItem.classList.add('active'); // إضافة فئة "active"
-            countdownDisplay.style.display = 'none'; // إخفاء المؤقت
+
+            // إزالة الفئة "inactive" وإضافة الفئة "active"
+            puzzleItem.classList.remove('inactive'); // إزالة الفئة "inactive"
+            puzzleItem.classList.add('active'); // إضافة الفئة "active"
+
             openPuzzleBtn.disabled = false;
             openPuzzleBtn.innerText = 'Open Puzzle';
         }
