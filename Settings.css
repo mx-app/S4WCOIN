@@ -5,8 +5,8 @@
 } 
 
 .Settings-icon {
-    width: 25px;
-    height: 25px;
+    width: 28px;
+    height: 28px;
     flex-shrink: 0;
 }
 
@@ -22,7 +22,7 @@
     border: 1px solid #343434;
     background-color: rgba(255, 255, 255, 0.05);
     border-radius: 10px; 
-    padding: 9px; 
+    padding: 8.5px; 
 }
 
 .settings-button:hover {
