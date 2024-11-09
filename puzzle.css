@@ -124,8 +124,8 @@
     height: 35px;
 }
 
-#Puzzlespage .puzzle-btn:hover {
-    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
+#Puzzlespage .puzzle-item button :hover {
+    background: linear-gradient(90deg, #794106, #9f620c, #d69a1c);
     background-position: center;
 }
 
@@ -396,7 +396,7 @@
 
 /* تأثير التحويم على الزر */
 #Puzzlespage #submitMorseAnswerBtn:hover {
-    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
+    background: linear-gradient(90deg, #794106, #9f620c, #d69a1c);
 }
 
 #Puzzlespage #morseAnswerInput {
