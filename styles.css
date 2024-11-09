@@ -236,7 +236,7 @@ body {
     justify-content: center; /* الاحتفاظ بمحاذاة إلى اليسار */
     align-items: center; /* الشريط والمعلومات في نفس المحاذاة على اليسار */
     position: absolute; /* تثبيت الحاوية في مكان محدد */
-    bottom: 120px; /* ضبطه ليكون في الجزء السفلي */
+    bottom: 115px; /* ضبطه ليكون في الجزء السفلي */
     left: 25px; 
     margin-left: 0px;
 }
