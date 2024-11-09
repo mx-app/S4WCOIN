@@ -143,6 +143,6 @@
     height: auto;
     display: inline-block;  /* لعرض الصورة بجانب النص */
     vertical-align: middle;  /* لضبط المحاذاة بشكل جيد مع النص */
-    margin-right: 5px;  /* لإضافة مسافة صغيرة بين الصورة والنص */
+    margin-right: 2px;  /* لإضافة مسافة صغيرة بين الصورة والنص */
 }
  
