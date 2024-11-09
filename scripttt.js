@@ -1131,31 +1131,26 @@ function getTodaysPuzzle(puzzles) {
 // تعريف العنصر المخصص لعرض المؤقت
 const puzzleCountdownDisplay = document.getElementById('puzzleCountdown');
 
-// عرض مؤقت العد التنازلي في العنصر المخصص
+
 function startCountdownOnButton(seconds) {
+    const openPuzzleBtn = document.getElementById('openPuzzleBtn');
     openPuzzleBtn.disabled = true;
 
-    // عرض العد التنازلي في العنصر puzzleCountdown
     const countdownDisplay = document.getElementById('puzzleCountdown');
-    countdownDisplay.innerText = `Next puzzle in: ${formatTime(seconds)}`;
+    countdownDisplay.innerText = ` ${formatTime(seconds)}`;
 
-    // استهداف العنصر المحدد فقط باستخدام الـ ID
-    const puzzleItem = document.getElementById('puzzle1'); // استهداف العنصر حسب ID
-    puzzleItem.classList.add('inactive'); // إضافة الفئة "inactive" لتفعيل تأثير الضباب والتوهج
+    const puzzleItem = document.getElementById('puzzle1');
+    puzzleItem.classList.add('inactive');
 
     function updateCountdown() {
         if (seconds > 0) {
             seconds--;
-            countdownDisplay.innerText = `Next puzzle in: ${formatTime(seconds)}`;
+            countdownDisplay.innerText = ` ${formatTime(seconds)}`;
             setTimeout(updateCountdown, 1000);
         } else {
-            // عند انتهاء الوقت، إزالة التأثيرات
             countdownDisplay.innerText = 'Puzzle available now!';
-
-            // إزالة الفئة "inactive" وإضافة الفئة "active"
-            puzzleItem.classList.remove('inactive'); // إزالة الفئة "inactive"
-            puzzleItem.classList.add('active'); // إضافة الفئة "active"
-
+            puzzleItem.classList.remove('inactive');
+            puzzleItem.classList.add('active');
             openPuzzleBtn.disabled = false;
             openPuzzleBtn.innerText = 'Open Puzzle';
         }
