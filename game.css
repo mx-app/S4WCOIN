@@ -25,7 +25,7 @@
     position: fixed;
     top: 65px;
   /*  bottom: 120px;*/
-    right: -35px; /* وضع الزر داخل الشاشة بشكل طبيعي */
+    right: -40px; /* وضع الزر داخل الشاشة بشكل طبيعي */
     background-color: rgba(255, 255, 255, 0.05);
     font-size: 16px;
     border: 1px solid #343434;
