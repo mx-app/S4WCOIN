@@ -125,7 +125,7 @@
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
 }
 
-.boost-item img {
+.boost-icon {
     width: 50px;
     height: 50px;
     margin-bottom: 10px;
@@ -134,7 +134,7 @@
     transition: box-shadow 0.3s ease;
 }
  
-.boost-item img:hover {
+.boost-icon:hover {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.3);
 }
  
