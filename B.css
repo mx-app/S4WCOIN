@@ -141,9 +141,8 @@
 .coinBost-icon {
     width: 18px;  /* تحديد الحجم المناسب للصورة */
     height: auto;
-    display: block;
+    display: inline-block;  /* لعرض الصورة بجانب النص */
     vertical-align: middle;  /* لضبط المحاذاة بشكل جيد مع النص */
-    margin-right: 5px;  /* لإضافة مسافة صغيرة بين الصورة والرقم */
+    margin-right: 5px;  /* لإضافة مسافة صغيرة بين الصورة والنص */
 }
-
  
