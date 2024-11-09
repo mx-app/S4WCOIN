@@ -1134,15 +1134,14 @@ const puzzleCountdownDisplay = document.getElementById('puzzleCountdown');
 
 function startCountdownOnButton(seconds) {
     const openPuzzleBtn = document.getElementById('openPuzzleBtn');
-    openPuzzleBtn.disabled = true;
-
     const countdownDisplay = document.getElementById('puzzleCountdown');
-    countdownDisplay.innerText = ` ${formatTime(seconds)}`;
-
     const puzzleItem = document.getElementById('puzzle1');
-    
-    // أضف الفئة "inactive" لبدء تأثير الضبابية عند تشغيل المؤقت
+
+    // تعطيل الزر وإضافة التأثير الضبابي وعرض المؤقت
+    openPuzzleBtn.disabled = true;
     puzzleItem.classList.add('inactive');
+    countdownDisplay.style.display = 'flex';
+    countdownDisplay.innerText = ` ${formatTime(seconds)}`;
 
     function updateCountdown() {
         if (seconds > 0) {
@@ -1151,8 +1150,9 @@ function startCountdownOnButton(seconds) {
             setTimeout(updateCountdown, 1000);
         } else {
             countdownDisplay.innerText = 'Puzzle available now!';
-            puzzleItem.classList.remove('inactive'); // إزالة الضبابية عند انتهاء العد التنازلي
-            puzzleItem.classList.add('active'); // إضافة الفئة "active"
+            puzzleItem.classList.remove('inactive'); // إزالة التأثير الضبابي
+            puzzleItem.classList.add('active'); // إضافة فئة "active"
+            countdownDisplay.style.display = 'none'; // إخفاء المؤقت
             openPuzzleBtn.disabled = false;
             openPuzzleBtn.innerText = 'Open Puzzle';
         }
@@ -1160,7 +1160,6 @@ function startCountdownOnButton(seconds) {
 
     updateCountdown();
 }
-
 
 // صياغة الوقت (الساعات:الدقائق:الثواني)
 function formatTime(seconds) {
