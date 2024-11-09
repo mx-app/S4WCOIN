@@ -381,7 +381,7 @@ body {
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.05);
     position: fixed;
-    bottom: 25px;
+    bottom: 30px;
     box-sizing: border-box; 
     width: 88%; /* لجعل العرض 80% */
     left: 50%; /* لضبطه في المنتصف */
@@ -1243,6 +1243,7 @@ body {
     position: fixed;
     top: 35px;
     left: 50%;
+    width: 60%;
     transform: translateX(-50%);
     display: flex;
     align-items: center;
