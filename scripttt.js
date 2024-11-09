@@ -265,9 +265,13 @@ function formatNumber(value) {
     if (value >= 1_000_000_000_000) {
         return `${(value / 1_000_000_000_000).toFixed(2)}T`;
     } else if (value >= 1_000_000_000) {
-        return `${(value / 1_000_000_000).toFixed(2)}B`; 
+        return `${(value / 1_000_000_000).toFixed(2)}B`;
+    } else if (value >= 1_000_000) {
+        return `${(value / 1_000_000).toFixed(2)}m`; // الملايين
+    } else if (value >= 1_000) {
+        return `${(value / 1_000).toFixed(2)}k`; // الآلاف
     } else {
-        return value.toLocaleString(); 
+        return value.toLocaleString();
     }
 }
 
@@ -648,14 +652,13 @@ function updateLevelDisplay() {
     if (uiElements.level9Progress) uiElements.level9Progress.style.width = `${(gameState.balance / levelThresholds[8].threshold) * 100}%`;
     if (uiElements.level10Progress) uiElements.level10Progress.style.width = `${(gameState.balance / levelThresholds[9].threshold) * 100}%`;
 
-    // إضافة التقدم للعملات (مثل 50,000 / 100,000)
     const currentThreshold = levelThresholds.find(lvl => lvl.level === gameState.currentLevel);
     if (currentThreshold) {
-        const currentLevelCoinsElement = document.getElementById('currentLevelCoins');
-        if (currentLevelCoinsElement) {
-            currentLevelCoinsElement.innerText = `${formatNumber(gameState.balance)} / ${formatNumber(currentThreshold.threshold)}`;
-        }
-    }
+    const currentLevelCoinsElement = document.getElementById('currentLevelCoins');
+    if (currentLevelCoinsElement) {
+        currentLevelCoinsElement.innerText = `${formatNumber(gameState.balance)} / ${formatNumber(currentThreshold.threshold)}`;
+     }
+   }
 }
 
 
