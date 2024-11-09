@@ -1244,6 +1244,7 @@ body {
     top: 13px;
     left: 15px;
     width: 60%;
+    height: 40px;
    /* transform: translateX(-50%);*/
     display: flex;
     align-items: center;
@@ -1260,7 +1261,7 @@ body {
 
 .separator {
     width: 1px;
-    height: 40px;
+    height: 20px;
     background-color: #fff;  /* لون الخط الفاصل */
     margin: 0 10px;
 }
