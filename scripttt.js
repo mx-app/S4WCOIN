@@ -1400,10 +1400,10 @@ document.getElementById('applyPromoCode').addEventListener('click', async () => 
         // تحقق مما إذا كان المستخدم قد استخدم هذا البرومو كود من قبل
         if (gameState.usedPromoCodes && gameState.usedPromoCodes.includes(enteredCode)) {
             // عرض علامة خطأ (❌) عند الاستخدام المسبق
-            applyButton.innerHTML = '❌ Code already used';
+            applyButton.innerHTML = '⛔';
             showNotificationWithStatus(uiElements.purchaseNotification, 'You have already used this promo code.', 'win');
             setTimeout(() => {
-                applyButton.innerHTML = 'Apply Promo Code';  // استرجاع النص الأصلي
+                applyButton.innerHTML = 'Apply';  // استرجاع النص الأصلي
                 applyButton.classList.remove('loading');
                 spinner.remove();  // إزالة دائرة التحميل
             }, 3000);
@@ -1430,24 +1430,24 @@ document.getElementById('applyPromoCode').addEventListener('click', async () => 
             await updateUsedPromoCodesInDB(gameState.usedPromoCodes);
 
             // عرض علامة صح (✔️) عند النجاح
-            applyButton.innerHTML = '✔️ Code applied successfully';
+            applyButton.innerHTML = '✔️';
 
             // إظهار إشعار بالمكافأة
             showNotificationWithStatus(uiElements.purchaseNotification, `Successfully added ${reward} coins to your balance!`, 'win');
         } else {
             // عرض علامة خطأ (❌) عند البرومو كود غير صحيح
-            applyButton.innerHTML = '❌ Invalid promo code';
+            applyButton.innerHTML = '❌';
 
             // إظهار إشعار بالخطأ
             showNotificationWithStatus(uiElements.purchaseNotification, 'Invalid promo code.', 'lose');
         }
     } catch (error) {
         console.error('Error fetching promo codes:', error);
-        applyButton.innerHTML = '❌ Error occurred';
+        applyButton.innerHTML = 'Error';
     } finally {
         // إعادة النص العادي للزر بعد 3 ثواني
         setTimeout(() => {
-            applyButton.innerHTML = 'Apply Promo Code';
+            applyButton.innerHTML = 'Apply';
             applyButton.classList.remove('loading');
             spinner.remove();  // إزالة دائرة التحميل
         }, 3000);
