@@ -601,6 +601,7 @@ function checkEnergyFill() {
     }
 }
 
+
 // تحديث المستوي 
 function updateLevelDisplay() {
     checkForLevelUp();
@@ -611,15 +612,12 @@ function updateLevelDisplay() {
         const levelImageElement = document.getElementById('currentLevelImage');
         const levelNameElement = document.getElementById('currentLevelName');
 
-        // تعيين الصورة والاسم للمستوى الحالي
         levelImageElement.src = currentLevelData.image;
         levelImageElement.alt = `Level ${gameState.currentLevel}`;
         levelNameElement.innerText = currentLevelData.name;
 
-        // إزالة أي تدرجات سابقة
         levelNameElement.classList.remove('level-gradient-green', 'level-gradient-brown', 'level-gradient-blue');
 
-        // إضافة التدرج المناسب بناءً على المستوى الحالي
         if (gameState.currentLevel >= 1 && gameState.currentLevel <= 3) {
             levelNameElement.classList.add('level-gradient-green');
         } else if (gameState.currentLevel >= 4 && gameState.currentLevel <= 6) {
@@ -628,38 +626,33 @@ function updateLevelDisplay() {
             levelNameElement.classList.add('level-gradient-blue');
         }
     }
-    
-    // إزالة النمط الحالي من جميع العناصر
+
     document.querySelectorAll('.level-item').forEach(item => {
         item.classList.remove('current-level');
     });
 
-    // إضافة النمط الحالي للمستوى النشط
     const currentLevelElement = document.getElementById(`level${gameState.currentLevel}`);
     if (currentLevelElement) {
-        currentLevelElement.classList.add('current-level'); // إضافة حواف فضية للمستوى الحالي
+        currentLevelElement.classList.add('current-level');
     }
 
     // تحديث شريط التقدم لكل مستوى
     if (uiElements.level1Progress) uiElements.level1Progress.style.width = `${(gameState.balance / levelThresholds[0].threshold) * 100}%`;
-    if (uiElements.level2Progress) uiElements.level2Progress.style.width = `${(gameState.balance / levelThresholds[1].threshold) * 100}%`;
-    if (uiElements.level3Progress) uiElements.level3Progress.style.width = `${(gameState.balance / levelThresholds[2].threshold) * 100}%`;
-    if (uiElements.level4Progress) uiElements.level4Progress.style.width = `${(gameState.balance / levelThresholds[3].threshold) * 100}%`;
-    if (uiElements.level5Progress) uiElements.level5Progress.style.width = `${(gameState.balance / levelThresholds[4].threshold) * 100}%`;
-    if (uiElements.level6Progress) uiElements.level6Progress.style.width = `${(gameState.balance / levelThresholds[5].threshold) * 100}%`;
-    if (uiElements.level7Progress) uiElements.level7Progress.style.width = `${(gameState.balance / levelThresholds[6].threshold) * 100}%`;
-    if (uiElements.level8Progress) uiElements.level8Progress.style.width = `${(gameState.balance / levelThresholds[7].threshold) * 100}%`;
-    if (uiElements.level9Progress) uiElements.level9Progress.style.width = `${(gameState.balance / levelThresholds[8].threshold) * 100}%`;
-    if (uiElements.level10Progress) uiElements.level10Progress.style.width = `${(gameState.balance / levelThresholds[9].threshold) * 100}%`;
 
     const currentThreshold = levelThresholds.find(lvl => lvl.level === gameState.currentLevel);
     if (currentThreshold) {
-    const currentLevelCoinsElement = document.getElementById('currentLevelCoins');
-    if (currentLevelCoinsElement) {
-        currentLevelCoinsElement.innerText = `${formatNumber(gameState.balance)} / ${formatNumber(currentThreshold.threshold)}`;
-     }
-   }
+        const currentLevelCoinsElement = document.getElementById('currentLevelCoins');
+        const levelEnergyFill = document.getElementById('levelEnergyFill'); // شريط الطاقة الجديد
+
+        if (currentLevelCoinsElement && levelEnergyFill) {
+            currentLevelCoinsElement.innerText = `${formatNumber(gameState.balance)} / ${formatNumber(currentThreshold.threshold)}`;
+
+            const progress = Math.min(gameState.balance / currentThreshold.threshold, 1) * 100;
+            levelEnergyFill.style.width = `${progress}%`; // تحديث عرض شريط الطاقة
+        }
+    }
 }
+
 
 
 // تحديث عرض التحسينات
