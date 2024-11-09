@@ -33,8 +33,9 @@
 
 
 #gamePage {
-    padding-top: 80px; /* يمكنك تغيير القيمة حسب الحاجة */
-    background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
+    padding-top: 120px;
+    background: linear-gradient(to bottom, #000, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0) 100%);
+    background-clip: padding-box;
     overflow-y: auto;
     padding-bottom: 100px;
 }
