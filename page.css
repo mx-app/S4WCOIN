@@ -5,7 +5,7 @@
 
 
 #tasksPage {
-    padding-top: 80px; /* يمكنك تغيير القيمة حسب الحاجة */
+    padding-top: 90px; /* يمكنك تغيير القيمة حسب الحاجة */
     background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
     overflow-y: auto; /* لجعل الصفحة قابلة للتمرير */
     padding-bottom: 100px; /* مسافة سفلية */
@@ -30,7 +30,7 @@
 
 
 #gamePage {
-    padding-top: 40px; /* يمكنك تغيير القيمة حسب الحاجة */
+    padding-top: 80px; /* يمكنك تغيير القيمة حسب الحاجة */
     background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
     overflow-y: auto;
     padding-bottom: 50px;
