@@ -32,14 +32,12 @@
 }
 
 #gamePage {
-    padding-top: 120px;
-    background: linear-gradient(to bottom, #000, #2c2c2c 60%, #383838 100%);
+    padding-top: 200px;
+    background: linear-gradient(to bottom, #000, #090909 50%, #111111 100%);
     background-clip: padding-box;
     overflow-y: auto;
     padding-bottom: 100px;
 }
-
-
 
 
 #boostsPage {
