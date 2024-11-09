@@ -2047,9 +2047,9 @@ dailycloseModal.addEventListener('click', () => {
 ////////////////////////////////////////////////
 
 
-
 // تعريف العناصر
 const hourlyEarningsElement = document.getElementById('hourlyEarnings');  // العنصر لعرض الربح في الساعة
+const earningsTextElement = document.getElementById('earningsText');  // العنصر لعرض النص فقط
 let totalEarnings = 0; // إجمالي الأرباح المتراكمة
 let lastActionTime = Date.now(); // وقت آخر نشاط (بداية التتبع)
 
@@ -2060,7 +2060,7 @@ function updateHourlyEarnings() {
 
   // حساب الربح في الساعة بناءً على النشاط
   const earningsPerHour = totalEarnings / hoursPassed; 
-  hourlyEarningsElement.textContent = `${earningsPerHour.toFixed(2)}/hour`; // عرض الربح في الساعة
+  earningsTextElement.textContent = `${earningsPerHour.toFixed(2)}/hr`; // عرض الربح في الساعة
 }
 
 // تتبع النشاط وزيادة الأرباح بناءً على النشاط
@@ -2078,7 +2078,6 @@ function trackActivity(earnings) {
 
 // تحديث الربح في الساعة بشكل دوري كل دقيقة
 setInterval(updateHourlyEarnings, 60000);  // تحديث الربح كل دقيقة
-
 
 
 
