@@ -53,7 +53,6 @@
     height: auto;
     display: block;
     margin: 0 auto;
-    margin-bottom: 0;
 }
 
 #GA {
@@ -125,7 +124,6 @@
     font-size: 1rem;
     color: #fff;
     margin: 0;
-    flex-grow: 1; /* ليشغل النص المساحة المتوسطة */
 }
 
 .game-item button {
