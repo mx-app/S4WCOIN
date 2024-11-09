@@ -243,7 +243,7 @@ body {
 
 .progress-bar {
     width: 150px; 
-    height: 13px; 
+    height: 10px; 
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px); /* تأثير الضبابية */
     border-radius: 50px; /* شكل الشريط */
@@ -1264,7 +1264,7 @@ body {
     height: 20px;
     background-color: #fff;  /* لون الخط الفاصل */
     margin: 0 10px;
-    margin-left: 5px;
+    margin-left: 15px;
 }
 
 #earningsLabel, #levelLabel {
@@ -1293,7 +1293,7 @@ body {
     background-color: #ddd;
     border-radius: 5px;
     overflow: hidden;
-    margin-top: 1px;
+    margin-top: 2px;
 }
 
 #levelEnergyFill {
