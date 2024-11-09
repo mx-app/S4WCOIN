@@ -111,7 +111,7 @@
 
 
 #gamePage .game-item img {
-    width: 70px;
+    width: 90%;
     height: auto;
     border-radius: 10px;
     margin-right: 15px; /* مسافة بين الصورة والنص */
@@ -131,7 +131,7 @@
     padding: 10px;
     border-radius: 10px;
     cursor: pointer;
-    width: 30%;
+    width: 80%;
     transition: background-color 0.3s;
     border: none;
     font-weight: bold;
@@ -208,6 +208,6 @@
 }
 
 .claim-button:hover {
-    background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c);
+    background: linear-gradient(90deg, #794106, #d69a1c, #9f620c);
 }
  
