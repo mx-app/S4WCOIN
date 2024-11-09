@@ -597,8 +597,7 @@ function checkEnergyFill() {
     }
 }
 
-
-// تحديث عرض المستويات
+// تحديث المستوي 
 function updateLevelDisplay() {
     checkForLevelUp();
 
@@ -648,6 +647,15 @@ function updateLevelDisplay() {
     if (uiElements.level8Progress) uiElements.level8Progress.style.width = `${(gameState.balance / levelThresholds[7].threshold) * 100}%`;
     if (uiElements.level9Progress) uiElements.level9Progress.style.width = `${(gameState.balance / levelThresholds[8].threshold) * 100}%`;
     if (uiElements.level10Progress) uiElements.level10Progress.style.width = `${(gameState.balance / levelThresholds[9].threshold) * 100}%`;
+
+    // إضافة التقدم للعملات (مثل 50,000 / 100,000)
+    const currentThreshold = levelThresholds.find(lvl => lvl.level === gameState.currentLevel);
+    if (currentThreshold) {
+        const currentLevelCoinsElement = document.getElementById('currentLevelCoins');
+        if (currentLevelCoinsElement) {
+            currentLevelCoinsElement.innerText = `${formatNumber(gameState.balance)} / ${formatNumber(currentThreshold.threshold)}`;
+        }
+    }
 }
 
 
