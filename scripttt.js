@@ -647,7 +647,7 @@ function updateLevelDisplay() {
 
         if (currentLevelCoinsElement && levelEnergyFill) {
             const progress = Math.min(gameState.balance / currentThreshold.threshold, 1) * 100;
-            currentLevelCoinsElement.innerText = ` lvl ${Math.round(progress)}%`;  // عرض النسبة المئوية
+            currentLevelCoinsElement.innerText = `Next Lvl ${Math.round(progress)}%`;  // عرض النسبة المئوية
             levelEnergyFill.style.width = `${progress}%`; // تحديث عرض شريط الطاقة
         }
     }
