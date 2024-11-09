@@ -42,6 +42,7 @@
 
 .boosts-button {
     position: fixed;
+    padding: 5px 20px;
     bottom: 120px;
     right: 40px;
     border: 1px solid #343434;
