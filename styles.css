@@ -255,7 +255,7 @@ body {
 .progress-bar-inner {
     height: 100%; /* ارتفاع الشريط الداخلي */
     width: 100%; /* عرض الشريط الداخلي */
-    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c); 
+    background: linear-gradient(90deg, #794106, #9f620c, #d69a1c); 
     transition: width 0.5s ease;
 } 
 
@@ -413,7 +413,7 @@ body {
     border: none;
     border-radius: 12px;
     color: transparent;
-    background: linear-gradient(90deg, #d69a1c, #794106, #9f620c, #d69a1c);
+    background: linear-gradient(90deg, #794106, #9f620c, #d69a1c);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; /* تفعيل التدرج للنص */
@@ -425,12 +425,12 @@ body {
     right: 0;
     height: 65%;
     width: 1px;
-    background: linear-gradient(90deg, #d69a1c, #794106, #9f620c, #d69a1c);
+    background: linear-gradient(90deg, #794106, #9f620c, #d69a1c);
     top: 18%;
 }
 
 /*.menu button.active .menu-img {
-    background: linear-gradient(135deg, #d69a1c, #794106, #9f620c, #d69a1c);
+    background: linear-gradient(135deg, #794106, #9f620c, #d69a1c);
     -webkit-background-clip: border-box;
     border-radius: 10%;
 }*/
