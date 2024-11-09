@@ -85,8 +85,8 @@
 }*/
 
 #gamePage .game-item {
-    width: 86%; /* عرض الحاوية بنسبة 44% */
-    height: 180px;
+    width: 88%; /* عرض الحاوية بنسبة 44% */
+    height: 190px;
     display: flex;
     flex-direction: column;
     align-items: center;
