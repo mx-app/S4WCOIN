@@ -237,8 +237,8 @@ body {
     align-items: center; /* الشريط والمعلومات في نفس المحاذاة على اليسار */
     position: absolute; /* تثبيت الحاوية في مكان محدد */
     bottom: 120px; /* ضبطه ليكون في الجزء السفلي */
-    /*left: 20px; 
-    margin-left: 0px;*/
+    left: 20px; 
+    margin-left: 0px;
 }
 
 .progress-bar {
