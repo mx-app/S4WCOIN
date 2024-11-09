@@ -1264,6 +1264,7 @@ body {
     height: 20px;
     background-color: #fff;  /* لون الخط الفاصل */
     margin: 0 10px;
+    margin-left: 5px;
 }
 
 #earningsLabel, #levelLabel {
@@ -1292,7 +1293,7 @@ body {
     background-color: #ddd;
     border-radius: 5px;
     overflow: hidden;
-    margin-top: 5px;
+    margin-top: 1px;
 }
 
 #levelEnergyFill {
