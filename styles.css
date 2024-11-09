@@ -859,7 +859,7 @@ body {
     border: 1px solid #343434;
     background-color: rgba(255, 255, 255, 0.05);
     border-radius: 10px; /* لجعل الزر دائري */
-    padding: 10px; /* مساحة إضافية حول الصورة */
+    padding: 9px; /* مساحة إضافية حول الصورة */
 }
 
 .wallet-button:hover {
