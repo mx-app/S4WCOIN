@@ -1262,7 +1262,7 @@ body {
 
 .separator {
     width: 1px;
-    height: 20px;
+    height: 10px;
     background-color: #fff;  /* لون الخط الفاصل */
     margin: 0 10px;
     margin-left: 20px;
