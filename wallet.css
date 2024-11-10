@@ -53,7 +53,7 @@
     width: 85%; /* تحديد العرض بشكل مناسب */
     max-width: 400px; /* تحديد عرض أقصى ليتماشى مع مختلف الأجهزة */
     margin: 0 auto; /* لضمان توسيط الحاوية */
-    height: 100vh;
+    height: 60vh;
     text-align: center;
 }
 
