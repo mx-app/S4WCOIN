@@ -931,9 +931,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Add task reward text
                 const rewardText = document.createElement('p');
                 rewardText.textContent = ` ${task.reward} `;
-                rewardText.style.fontSize = '0.8em';  // تغيير حجم النص
-                rewardText.style.color = '#aaaaaa';  // تغيير لون النص إلى الذهبي
-                rewardText.style.margin = '5px 0';   // إضافة مسافة بين النصوص
+                rewardText.classList.add('task-reward');
                 taskElement.appendChild(rewardText);
 
                 // Create the button for the task
@@ -946,7 +944,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 taskContainer.appendChild(taskElement);
 
-                // Handle task progress and button click
                 const taskId = task.id;
                 const taskurl = task.url;
                 const taskReward = task.reward;
@@ -954,17 +951,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 const taskProgressData = gameState.tasksprogress.find(t => t.task_id === taskId);
                 let taskProgress = taskProgressData ? taskProgressData.progress : 0;
 
-                // Set button text based on task progress
                 button.textContent = taskProgress >= 2 ? 'Done' : taskProgress === 1 ? 'Verify' : 'Go';
                 button.disabled = taskProgress >= 2;
 
                 let countdownTimer;
 
-                // Button click handling
                 button.onclick = () => {
                     if (taskProgress === 0) {
-                        // Open task link and show loading spinner for "Go"
-                        button.innerHTML = `<span class="loading-spinner"></span> `;
+                        // Show loading spinner for "Go"
+                        button.innerHTML = `<span class="loading-spinner"></span>`;
                         openTaskLink(taskurl, () => {
                             taskProgress = 1;
                             updateTaskProgressInGameState(taskId, taskProgress);
@@ -973,14 +968,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         });
                     } else if (taskProgress === 1) {
                         // Show loading spinner and start countdown for "Verify"
-                        button.innerHTML = `<span class="loading-spinner"></span> `;
+                        button.innerHTML = `<span class="loading-spinner"></span>`;
                         clearTimeout(countdownTimer);
 
-                        // Start countdown for 5 seconds
                         let countdown = 5;
                         countdownTimer = setInterval(() => {
                             if (countdown > 0) {
-                                button.textContent = ` (${countdown}s)`;
+                                button.textContent = `(${countdown}s)`;
                                 countdown--;
                             } else {
                                 clearInterval(countdownTimer);
@@ -1046,6 +1040,7 @@ function claimTaskReward(taskId, reward) {
     updateUserData(); // Sync user data with the server
     saveGameState(); // Ensure the game state is saved
 }
+
 
 
 
