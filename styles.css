@@ -1273,7 +1273,7 @@ body {
     margin-left: 10px;
 }
 
-#earningsLabel, #levelLabel {
+#earningsText, #earningsLabel, #levelLabel {
     font-size: 10px;
     font-weight: bold;
     margin-bottom: 3px;
@@ -1286,7 +1286,8 @@ body {
     justify-content: center;
     white-space: nowrap; /* لمنع النص من الانتقال إلى سطر جديد */
     margin-bottom: 3px;
-    top: -3px;
+    font-weight: bold;
+    top: -5px;
 }
 
 .coin-hour-icon {
