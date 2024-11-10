@@ -1,0 +1,78 @@
+.task-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    max-width: 320px;
+    padding-bottom: 5px; 
+} 
+
+.task-item {
+    width: 88%;
+    max-width: 400px;
+    margin: 15px 0;
+    padding: 15px;
+    border: 1px solid #343434; 
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.task-item p {
+    margin: 0;
+    padding: 0;
+    width: 50%;
+    text-align: left;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.task-item img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+    border-radius: 50%; 
+    object-fit: cover; 
+}
+
+.task-item button {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    padding: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 30%;
+    transition: background-color 0.3s;
+    border: none;
+    font-weight: bold;
+    font-size: var(--claim-button-size);
+   /* border: 1px solid #343434;*/
+    z-index: 10;
+}
+
+.task-item button:hover {
+    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
+}
+
+.task-item button.inactive {
+    background-color: #9f0000;
+}
+
+.task-item button.claimed {
+    background-color: #000;
+    color: #fff;
+}
+ 
+.task-image {
+    width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
