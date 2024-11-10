@@ -74,7 +74,7 @@
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     display: flex; /* تغيير من column إلى row */
-    flex-direction: column; /* ترتيب العناصر أفقيًا */
+    flex-direction: row; /* ترتيب العناصر أفقيًا */
     align-items: center; /* محاذاة العناصر عموديًا في المنتصف */
     justify-content: space-between; /* لضبط العناصر بحيث تكون على الأطراف */
 }
