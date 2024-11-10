@@ -1242,8 +1242,8 @@ body {
 #hourlyEarningsContainer {
     position: fixed;
     top: 13px;
-    left: 15px;  /* وضع الحاوية في الجهة اليمنى */
-    width: 40%;
+   /* left: 15px;*/
+    width: 88%;
     height: 30px;
     display: flex;
     align-items: center;
