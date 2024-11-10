@@ -1247,14 +1247,13 @@ body {
 #hourlyEarningsContainer {
     position: fixed;
     top: 10px;
-   /* left: 15px;*/
     width: 86%;
     height: 35px;
     display: flex;
     align-items: center;
-    justify-content: center;/*space-between;*/ /* توزيع العناصر بين اليمين واليسار */
+    justify-content: center;
     background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px); /* تأثير الضبابية */
+    backdrop-filter: blur(10px);
     padding: 5px;
     border-radius: 10px;
     color: #fff;
@@ -1262,37 +1261,36 @@ body {
 }
 
 .left-section, .right-section {
+    display: flex;
+    align-items: center;
     text-align: center;
 }
 
 .separator {
     width: 1px;
     height: 20px;
-    background-color: #fff;  /* لون الخط الفاصل */
+    background-color: #fff;
     margin: 0 10px;
-    margin-left: 10px;
 }
 
 #earningsLabel, #levelLabel {
     font-size: 10px;
     font-weight: bold;
-   /* margin-bottom: 3px;*/
 }
 
 #earningsText {
     font-size: 11px;
     font-weight: bold;
+    display: inline-flex;
+    align-items: center;
 }
 
 #currentLevelCoins {
     font-size: 10px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    white-space: nowrap; /* لمنع النص من الانتقال إلى سطر جديد */
-    margin-bottom: 3px;
+    white-space: nowrap;
     font-weight: bold;
-    top: -5px;
 }
 
 .coin-hour-icon {
@@ -1304,8 +1302,8 @@ body {
 
 /* شريط الطاقة */
 #levelEnergyBar {
-    width: 70%;  /* تصغير العرض إلى 60% */
-    height: 9px;  /* تصغير الارتفاع */
+    width: 70%;
+    height: 9px;
     background-color: rgba(255, 255, 255, 0.05);
     border-radius: 5px;
     overflow: hidden;
@@ -1315,12 +1313,6 @@ body {
 #levelEnergyFill {
     height: 100%;
     width: 0;
-    background-color: #fff; /* لون شريط الطاقة */
+    background-color: #fff;
     border-radius: 5px;
 }
-
-/* تنسيق القسم الذي يحتوي على معلومات المستوى */
-/*.right-section {
-    margin-left: auto; 
-    text-align: left; 
-}*/
