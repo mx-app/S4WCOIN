@@ -5,8 +5,8 @@
 } 
 
 .Settings-icon {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     flex-shrink: 0;
 }
 
@@ -16,7 +16,7 @@
 
 .settings-button {
     position: fixed;
-    top: 14px; 
+    top: 15px; 
     right: 20px;
    /* left: 310px;*/
    /* border: 1px solid #343434;*/
