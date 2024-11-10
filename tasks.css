@@ -58,7 +58,7 @@
 }
 
 .task-item button {
-    background-color: ashen;
+    background-color: #343434;
     color: #ffffff;
     border-radius: 10px;
     cursor: pointer;
@@ -67,7 +67,7 @@
     transition: background-color 0.3s;
     border: none;
     font-weight: bold;
-    font-size: var(--claim-button-size);
+    font-size: 15px;
    /* border: 1px solid #343434;*/
     z-index: 10;
 }
@@ -110,6 +110,6 @@
 }
  
 .task-reward {
-    color: aaa;
+    color: #aaa;
     font-size: 0.7rem;
 }
