@@ -1273,10 +1273,10 @@ body {
     margin-left: 10px;
 }
 
-#earningsText, #earningsLabel, #levelLabel {
+#earningsLabel, #levelLabel {
     font-size: 10px;
     font-weight: bold;
-    margin-bottom: 3px;
+   /* margin-bottom: 3px;*/
 }
 
 #earningsText {
