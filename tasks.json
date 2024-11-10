@@ -1,41 +1,41 @@
 [
   {
-    "id": 12,
+    "id": 15,
     "url": "https://t.me/SAWCOIN_NEWS",
     "reward": 1000,
     "description": "Telegram follow",
     "image": "i/community.jpg"
   },
   {
-    "id": 13,
+    "id": 16,
     "url": "https://t.me/Qyros_wallet",
     "reward": 1000,
     "description": "Telegram follow",
     "image": "i/TelegramL.png"
   },
   {
-    "id": 14,
+    "id": 17,
     "url": "https://t.me/SAW_COIN",
     "reward": 2000,
     "description": "Telegram follow",
     "image": "i/community.jpg"
   },
   {
-    "id": 15,
+    "id": 18,
     "url": "https://t.me/wcoin_tapbot/wcoin_app?startapp=Njc5MzU1NjI4NA",
     "reward": 1000,
     "description":" W-coin",
     "image": "i/we.jpg"
   },
   {
-    "id": 16,
+    "id": 19,
     "url": "https://t.me/playdeckbot/market?startapp=eyJyZWYiOjY3OTM1NTYyODR9",
     "reward": 1800,
     "description": "play deck",
     "image": "i/pl.jpg"
   },
   {
-    "id": 17,
+    "id": 20,
     "url": "https://t.me/gemzcoiN_bot/tap?startapp=7Pl4KS-UTSULzfO0BqjhdWg",
     "reward": 1200,
     "description":"gemz",
