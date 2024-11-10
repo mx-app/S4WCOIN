@@ -54,8 +54,8 @@
 
 .task-reward-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: center;
+    align-items: flex-start;
     margin-top: 5px;
 }
 
