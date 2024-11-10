@@ -900,7 +900,7 @@ buttons.forEach(button => {
 
 
 
-document.addEventListener('DOMContentLoaded', () => {
+ document.addEventListener('DOMContentLoaded', () => {
     const taskContainer = document.querySelector('.tasks');
     if (!taskContainer) {
         console.error('Task container element not found.');
@@ -912,36 +912,34 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         .then(tasks => {
             tasks.forEach(task => {
-                // Create task element
                 const taskElement = document.createElement('div');
                 taskElement.classList.add('task-item');
 
-                // Add task image
+                // Task Image
                 const img = document.createElement('img');
                 img.src = task.image;
                 img.alt = 'Task Image';
                 img.classList.add('task-img');
                 taskElement.appendChild(img);
 
-                // Add task description
+                // Task Description
                 const description = document.createElement('p');
                 description.textContent = task.description;
                 taskElement.appendChild(description);
 
-                // Add task reward text
+                // Task Reward
                 const rewardText = document.createElement('p');
                 rewardText.textContent = ` ${task.reward} `;
                 rewardText.classList.add('task-reward');
                 taskElement.appendChild(rewardText);
 
-                // Create the button for the task
+                // Task Button
                 const button = document.createElement('button');
                 button.classList.add('task-button');
                 button.setAttribute('data-task-id', task.id);
                 button.setAttribute('data-url', task.url);
                 button.setAttribute('data-reward', task.reward);
                 taskElement.appendChild(button);
-
                 taskContainer.appendChild(taskElement);
 
                 const taskId = task.id;
@@ -958,29 +956,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 button.onclick = () => {
                     if (taskProgress === 0) {
-                        // Show loading spinner for "Go"
-                        button.innerHTML = `<span class="loading-spinner"></span>`;
+                        showLoading(button); // عرض الدائرة فقط بدون نص
                         openTaskLink(taskurl, () => {
                             taskProgress = 1;
                             updateTaskProgressInGameState(taskId, taskProgress);
-                            button.textContent = 'Verify';
+                            hideLoading(button, 'Verify');
                             showNotification(uiElements.purchaseNotification, 'Task opened. Verify to claim your reward.');
                         });
                     } else if (taskProgress === 1) {
-                        // Show loading spinner and start countdown for "Verify"
-                        button.innerHTML = `<span class="loading-spinner"></span>`;
+                        showLoading(button); // عرض الدائرة فقط بدون نص
                         clearTimeout(countdownTimer);
 
                         let countdown = 5;
                         countdownTimer = setInterval(() => {
                             if (countdown > 0) {
-                                button.textContent = `(${countdown}s)`;
+                                button.innerHTML = `<span class="loading-spinner"></span>`;
                                 countdown--;
                             } else {
                                 clearInterval(countdownTimer);
                                 taskProgress = 2;
                                 updateTaskProgressInGameState(taskId, taskProgress);
-                                button.textContent = 'Claim';
+                                hideLoading(button, 'Claim');
                                 showNotification(uiElements.purchaseNotification, 'Task verified. You can now claim the reward.');
                             }
                         }, 1000);
@@ -995,6 +991,18 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => console.error('Error fetching tasks:', error));
 });
+
+// Function to show loading animation only
+function showLoading(button) {
+    button.innerHTML = `<span class="loading-spinner"></span>`;
+    button.disabled = true;
+}
+
+// Function to hide loading animation and restore text
+function hideLoading(button, text) {
+    button.disabled = false;
+    button.innerHTML = text;
+}
 
 // Open task link function
 function openTaskLink(taskurl, callback) {
@@ -1015,7 +1023,7 @@ function updateTaskProgressInGameState(taskId, progress) {
     } else {
         gameState.tasksprogress.push({ task_id: taskId, progress: progress, claimed: false });
     }
-    saveGameState(); // Save the updated game state
+    saveGameState();
 }
 
 // Claim the task reward and update balance
@@ -1027,7 +1035,6 @@ function claimTaskReward(taskId, reward) {
         return;
     }
 
-    // Update the user's balance in gameState
     gameState.balance += reward;
     if (task) {
         task.claimed = true;
@@ -1035,12 +1042,11 @@ function claimTaskReward(taskId, reward) {
         gameState.tasksprogress.push({ task_id: taskId, progress: 2, claimed: true });
     }
 
-    updateUI(); // Update the UI
+    updateUI();
     showNotificationWithStatus(uiElements.purchaseNotification, `Successfully claimed ${reward} coins!`, 'win');
-    updateUserData(); // Sync user data with the server
-    saveGameState(); // Ensure the game state is saved
+    updateUserData();
+    saveGameState();
 }
-
 
 
 
