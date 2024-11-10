@@ -1,7 +1,7 @@
 .promo-input-container {
     display: flex;
     align-items: center;
-    gap: 10px; /* مسافة بين حقل الإدخال وزر الإرسال */
+    gap: 5px; /* مسافة بين حقل الإدخال وزر الإرسال */
     width: 100%;
     justify-content: center;
     margin-bottom: 30px;
@@ -9,8 +9,8 @@
 
 .promo-input {
     background-color: rgba(0, 0, 0, 0.7);
-    width: 60%;
-    height: 40px;
+    width: 62%;
+    height: 50px;
     font-size: 16px;
     border-radius: 10px;
     border: 1px solid #343434;
@@ -25,8 +25,8 @@
     border-radius: 10px;
     border: 1px solid #343434;
     cursor: pointer;
-    width: 25%;
-    height: 45px;
+    width: 30%;
+    height: 55px;
     font-size: 15px;
     display: flex;
     align-items: center;
