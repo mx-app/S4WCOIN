@@ -1279,6 +1279,11 @@ body {
     margin-bottom: 3px;
 }
 
+#earningsText {
+    font-size: 13px;
+    font-weight: bold;
+}
+
 #currentLevelCoins {
     font-size: 10px;
     display: flex;
