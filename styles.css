@@ -1247,42 +1247,36 @@ body {
 #hourlyEarningsContainer {
     position: fixed;
     top: 10px;
+   /* left: 15px;*/
     width: 86%;
-    height: 35px; /* السماح بالارتفاع التلقائي */
+    height: 35px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center;/*space-between;*/ /* توزيع العناصر بين اليمين واليسار */
     background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px); /* تأثير الضبابية */
     padding: 5px;
     border-radius: 10px;
     color: #fff;
     border: 1px solid #343434;
 }
 
-.left-section {
-    display: flex;
-    flex-direction: column; /* ترتيب العناصر عموديًا */
-    align-items: center;
+.left-section, .right-section {
     text-align: center;
-}
-
-.left-subsection {
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .separator {
     width: 1px;
     height: 20px;
-    background-color: #fff;
+    background-color: #fff;  /* لون الخط الفاصل */
     margin: 0 10px;
+    margin-left: 10px;
 }
 
-#earningsLabel {
+#earningsLabel, #levelLabel {
     font-size: 10px;
     font-weight: bold;
+   /* margin-bottom: 3px;*/
 }
 
 #earningsText {
@@ -1294,8 +1288,11 @@ body {
     font-size: 10px;
     display: flex;
     align-items: center;
-    white-space: nowrap;
+    justify-content: center;
+    white-space: nowrap; /* لمنع النص من الانتقال إلى سطر جديد */
+    margin-bottom: 3px;
     font-weight: bold;
+    top: -5px;
 }
 
 .coin-hour-icon {
@@ -1305,9 +1302,10 @@ body {
     border-radius: 50%;
 }
 
+/* شريط الطاقة */
 #levelEnergyBar {
-    width: 70%;
-    height: 9px;
+    width: 70%;  /* تصغير العرض إلى 60% */
+    height: 9px;  /* تصغير الارتفاع */
     background-color: rgba(255, 255, 255, 0.05);
     border-radius: 5px;
     overflow: hidden;
@@ -1317,6 +1315,12 @@ body {
 #levelEnergyFill {
     height: 100%;
     width: 0;
-    background-color: #fff;
+    background-color: #fff; /* لون شريط الطاقة */
     border-radius: 5px;
 }
+
+/* تنسيق القسم الذي يحتوي على معلومات المستوى */
+/*.right-section {
+    margin-left: auto; 
+    text-align: left; 
+}*/
