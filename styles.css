@@ -1286,6 +1286,7 @@ body {
     justify-content: center;
     white-space: nowrap; /* لمنع النص من الانتقال إلى سطر جديد */
     margin-bottom: 3px;
+    top: -3px;
 }
 
 .coin-hour-icon {
