@@ -55,94 +55,105 @@
     
 
                 
-    <div class="container" style="display: none;">
-       <!-- Main Page --> 
-        <div id="mainPage" class="screen-content active">
-            <main class="main-content">
-                 <div id="balanceContainer" class="balance-container">
-                  <!--<div class="app-info">
-                  <img src="i/coinn1.png" alt="App Logo" class="app-logo">
-                  <h1 class="app-name"> SAW-COIN</h1>
-               </div> --> 
-                     
-              <div id="hourlyEarningsContainer">
-               <div class="left-section">
-                 <p id="earningsLabel">Profit in</p>
-                  <p id="hourlyEarnings">
-                     <img src="i/coi.png" alt="coin" class="coin-hour-icon">
-                      <span id="earningsText">0.00/hr</span> <!-- النص هنا -->
-                   </p>
-               </div>
+ <div class="container" style="display: none;">
+    <!-- Main Page --> 
+    <div id="mainPage" class="screen-content active">
+        <main class="main-content">
+            <div id="balanceContainer" class="balance-container">
+                <!-- معلومات التطبيق (اختياري) -->
+                <!--<div class="app-info">
+                    <img src="i/coinn1.png" alt="App Logo" class="app-logo">
+                    <h1 class="app-name">SAW-COIN</h1>
+                </div>--> 
+
+                <div id="hourlyEarningsContainer">
+                    <div class="left-section">
+                        <p id="earningsLabel">Profit in</p>
+                        <p id="hourlyEarnings">
+                            <img src="i/coi.png" alt="coin" class="coin-hour-icon">
+                            <span id="earningsText">0.00/hr</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="separator"></div>
+
+                <div class="right-section">
+                    <p id="currentLevelCoins">lvl 50k / 100k</p>
+                    <!-- شريط الطاقة -->
+                    <div id="levelEnergyBar">
+                        <div id="levelEnergyFill"></div>
+                    </div>
+                </div>
             </div>
-            <div class="separator"></div>
-             <div class="right-section">
-              <p id="currentLevelCoins">lvl 50k / 100k</p>
-             <!-- شريط الطاقة الجديد -->
-               <div id="levelEnergyBar">
-               <div id="levelEnergyFill"></div>
-               </div>
-            </div>
-         </div>
-         
-          <div class="settings-container">
-                     
+
+            <div class="settings-container">
                 <button data-target="gamePage" class="Play-game-button">
-                  <img src="i/gam.png" alt="games Icon" class="games-icon"> game </button>  
-                    
+                    <img src="i/gam.png" alt="games Icon" class="games-icon"> game
+                </button>  
+
                 <button id="DailyButton" class="Daily-button">
-                  <img src="i/daily.png" alt="daily Icon" class="daily-icon"> </button>
-                     
-                 <button data-target="boostsPage" class="boosts-button">
-                  <img src="i/boostsss.png" alt="boos Icon" class="boos-icon"> boosts </button>
-                     
-                 <button data-target="walletPage" class="wallet-button">
-                  <img src="i/wallets.png" alt="wallet Icon" class="wallet-icon"> </button>
-         
-                 <button id="settingsButton" class="settings-button">
-                   <img src="i/person_.png" alt="Settings Icon" class="Settings-icon"> </button>
-                     
-                    <!-- Settings window --> 
-                 <div id="settingsPanel" class="settings-panel" style="display: none;">
-                   <span id="SettingscloseModal" class="close">&times;</span>
+                    <img src="i/daily.png" alt="daily Icon" class="daily-icon">
+                </button>
+
+                <button data-target="boostsPage" class="boosts-button">
+                    <img src="i/boostsss.png" alt="boos Icon" class="boos-icon"> boosts
+                </button>
+
+                <button data-target="walletPage" class="wallet-button">
+                    <img src="i/wallets.png" alt="wallet Icon" class="wallet-icon"> wallet
+                </button>
+
+                <button id="settingsButton" class="settings-button">
+                    <img src="i/person_.png" alt="Settings Icon" class="Settings-icon"> settings
+                </button>
+
+                <!-- نافذة الإعدادات --> 
+                <div id="settingsPanel" class="settings-panel" style="display: none;">
+                    <span id="SettingscloseModal" class="close">&times;</span>
                     <p>Account details</p>
-                   <div class="user-info">
-                     <img src="i/users.png" alt="User Image" class="user-image">
-                   <div class="user-details">
-                     <div class="user-name"><span id="userTelegramName">Username</span></div>
-                     <div class="user-id"><span id="userTelegramId">123456</span></div>
-                  </div>
-              </div>     
-                     
-                 <div class="account-summary">
-                  <p>Total Friends : <span id="settingsInvitedCount">0</span></p>
-                  <p>Total Coins : <span id="settingsBalanceDisplay">0</span></p>
-                  <p>Current Level : <span id="settingsCurrentLevelName"> </span></p>
+                    <div class="user-info">
+                        <img src="i/users.png" alt="User Image" class="user-image">
+                        <div class="user-details">
+                            <div class="user-name"><span id="userTelegramName">Username</span></div>
+                            <div class="user-id"><span id="userTelegramId">123456</span></div>
+                        </div>
+                    </div>     
+
+                    <div class="account-summary">
+                        <p>Total Friends: <span id="settingsInvitedCount">0</span></p>
+                        <p>Total Coins: <span id="settingsBalanceDisplay">0</span></p>
+                        <p>Current Level: <span id="settingsCurrentLevelName"></span></p>
+                    </div>
+
+                    <button id="languageButton" class="language-button">
+                        <img src="i/language.png" alt="language Icon" class="language-icon"> Settings
+                    </button>
                 </div>
-                <button id="languageButton" class="language-button">
-                  <img src="i/language.png" alt="language Icon" class="language-icon">Settings </button>
-                </div>
-             </div>
-                <div id="balanceAmount">0</div>
-               <!--  <button data-target="boostsPage" class="boosts-button"> 🚀 BOOSTS </button> -->
-                <button id="levelFloatingBtn" class="level-button-floating">
-                   <img id="currentLevelImage" alt="Current Level Image" class="levels-icon">
-                   <span id="currentLevelName"> </span>
-               </button>
-                <div class="clickable-image">
-                    <div class="circle">
+            </div>
+
+            <div id="balanceAmount">0</div>
+
+            <button id="levelFloatingBtn" class="level-button-floating">
+                <img id="currentLevelImage" alt="Current Level Image" class="levels-icon">
+                <span id="currentLevelName"></span>
+            </button>
+
+            <div class="clickable-image">
+                <div class="circle">
                     <img id="clickableImg" src="i/coi.png" alt="Clickable Image">
-                 </div>
                 </div>
-                <div class="energy-bar-container">
-                   <div class="progress-bar">
-                   <div class="progress-bar-inner" id="energyBar"></div>
-                   </div>
-                   <div id="energyInfo"> ⚡500/500 </div>
-                   <span id="energyText"></span>
-                 </div>
-               </div>
-            </main>
-        </div>
+            </div>
+
+            <div class="energy-bar-container">
+                <div class="progress-bar">
+                    <div class="progress-bar-inner" id="energyBar"></div>
+                </div>
+                <div id="energyInfo">⚡500/500</div>
+                <span id="energyText"></span>
+            </div>
+        </main>
+    </div>
         
         <!-- تسجيل يومي  -->
         <div id="logindailyContainer" class="logindaily-container hidden">
