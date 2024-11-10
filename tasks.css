@@ -59,7 +59,7 @@
 }
 
 .task-item button {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(255, 255, 255, 0.001);
     color: #ffffff;
     padding: 8px;
     border-radius: 10px;
@@ -73,9 +73,9 @@
     z-index: 10;
 }
 
-.task-item button:hover {
+/*.task-item button:hover {
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
-}
+}*/
 
 .task-item button.inactive {
     background-color: #9f0000;
