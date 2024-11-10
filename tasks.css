@@ -15,11 +15,11 @@
 
 .task-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     border: none;
     border-radius: 10px;
-    justify-content: center;
+    justify-content: space-between;/* center;*/
     text-align: center;
     padding: 10px;
     width: 100%;
@@ -55,7 +55,7 @@
 .task-reward-container {
     display: flex;
     flex-direction: center;
-    align-items: flex-start;
+    align-items: center;
     margin-top: 5px;
 }
 
