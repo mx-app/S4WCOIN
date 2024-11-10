@@ -65,6 +65,7 @@
     border-radius: 10px;
     cursor: pointer;
     width: 30%;
+    height: auto;
     transition: background-color 0.3s;
     border: none;
     font-weight: bold;
