@@ -60,10 +60,13 @@
     background-color: rgba(255, 255, 255, 0.001);
     border-radius: 10px; 
     padding: 5px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .Play-game-button:hover {
-    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
+  /*  background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);*/
+    transform: translateY(-3px); /* رفع الزر قليلاً */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* إضافة ظل */
 } 
 
 
