@@ -858,7 +858,7 @@ body {
     right: 55px; 
     /*left: 265px;*/
    /* border: 1px solid #343434;*/
-    background-color: rgba(255, 255, 255, 0.01);
+    background-color: rgba(255, 255, 255, 0.001);
     border-radius: 10px; /* لجعل الزر دائري */
     padding: 5px; /* مساحة إضافية حول الصورة */
 }
