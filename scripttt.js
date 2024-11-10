@@ -237,7 +237,7 @@ function listenToRealtimeChanges() {
 // تحديث واجهة المستخدم بناءً على حالة اللعبة
 function updateUI() {
     if (uiElements.balanceDisplay) {
-        uiElements.balanceDisplay.innerText = formatNumber(gameState.balance);
+        uiElements.balanceDisplay.innerText = (gameState.balance);
     }
 
     const energyPercent = (gameState.energy / gameState.maxEnergy) * 100;
@@ -964,7 +964,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 button.onclick = () => {
                     if (taskProgress === 0) {
                         // Open task link and show loading spinner for "Go"
-                        button.innerHTML = `<span class="loading-spinner"></span> Loading...`;
+                        button.innerHTML = `<span class="loading-spinner"></span> `;
                         openTaskLink(taskurl, () => {
                             taskProgress = 1;
                             updateTaskProgressInGameState(taskId, taskProgress);
@@ -973,14 +973,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         });
                     } else if (taskProgress === 1) {
                         // Show loading spinner and start countdown for "Verify"
-                        button.innerHTML = `<span class="loading-spinner"></span> Verifying...`;
+                        button.innerHTML = `<span class="loading-spinner"></span> `;
                         clearTimeout(countdownTimer);
 
                         // Start countdown for 5 seconds
                         let countdown = 5;
                         countdownTimer = setInterval(() => {
                             if (countdown > 0) {
-                                button.textContent = `Verifying... (${countdown}s)`;
+                                button.textContent = ` (${countdown}s)`;
                                 countdown--;
                             } else {
                                 clearInterval(countdownTimer);
