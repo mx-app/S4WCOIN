@@ -1261,8 +1261,8 @@ body {
 }
 
 .separator {
-    width: 1px;
-    height: 10px;
+    width: 2px;
+    height: 20px;
     background-color: #fff;  /* لون الخط الفاصل */
     margin: 0 10px;
     margin-left: 20px;
@@ -1296,7 +1296,7 @@ body {
     border-radius: 5px;
     overflow: hidden;
     margin-top: 2px;
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 #levelEnergyFill {
@@ -1307,7 +1307,7 @@ body {
 }
 
 /* تنسيق القسم الذي يحتوي على معلومات المستوى */
-.right-section {
-    margin-left: auto;  /* دفع هذا القسم إلى الجهة اليمنى */
-    text-align: left;  /* لضبط النص في الجهة اليمنى */
-}
+/*.right-section {
+    margin-left: auto; 
+    text-align: left; 
+}*/
