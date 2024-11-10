@@ -14,37 +14,8 @@
     margin-top: 20px;
 }
 
-/*.games-icon {
-    width: 30px;
-    height: 30px;
-    flex-shrink: 0;
-    margin-left: 35px; 
-}
 
-.Play-game-button {
-    position: fixed;
-    top: 65px;
-    right: 20px; 
-    background-color: rgba(255, 255, 255, 0.05);
-    font-size: 16px;
-    border: 1px solid #343434;
-    font-weight: bold;
-    margin: 0;
-    padding: 4px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    z-index: 200;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.Play-game-button:hover {
-    left: 15px;
-}
-*/
-.Play-game-button {
+/*.Play-game-button {
     position: fixed;
     padding: 4px 20px;
     top: 65px;
@@ -70,7 +41,31 @@
 .Play-game-button img {
     vertical-align: middle;
 }   
+*/
+.games-icon {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    border-radius: 50%; 
+}
 
+.Play-game-button img {
+    vertical-align: middle;
+}  
+
+.Play-game-button {
+    position: fixed;
+    top: 14px; 
+    left: 55px;
+   /* border: 1px solid #343434;*/
+    background-color: rgba(255, 255, 255, 0.001);
+    border-radius: 10px; 
+    padding: 5px;
+}
+
+.Play-game-button:hover {
+    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
+} 
 
 
 
