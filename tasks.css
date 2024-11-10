@@ -27,7 +27,6 @@
     padding-bottom: 5px; 
 } 
 
-
 /*.task-item button:hover {
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
 }*/
@@ -55,6 +54,7 @@
 
 .task-reward-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     margin-top: 5px;
 }
