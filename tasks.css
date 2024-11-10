@@ -27,28 +27,6 @@
     padding-bottom: 5px; 
 } 
 
-.task-img {
-    width: 50px;
-    height: auto;
-    margin-right: 10px;
-    border-radius: 50%; 
-    object-fit: cover; 
-}
-
-.task-item button {
-    background-color: rgba(255, 255, 255, 0.001);
-    color: #ffffff;
-    border-radius: 10px;
-    cursor: pointer;
-    width: 35%;
-    height: 30px;
-    transition: background-color 0.3s;
-    border: none;
-    font-weight: bold;
-    font-size: 15px;
-   /* border: 1px solid #343434;*/
-    z-index: 10;
-}
 
 /*.task-item button:hover {
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
@@ -92,28 +70,51 @@
     max-width: 400px;
     margin: 15px 0;
     padding: 15px;
-    border: 1px solid #343434; 
+    border: 1px solid #343434;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
-    display: flex; 
-    flex-direction: column; /* ترتيب العناصر عموديًا */
-    align-items: flex-start; /* لضمان المحاذاة الجانبية */
+    display: flex; /* تغيير من column إلى row */
+    flex-direction: row; /* ترتيب العناصر أفقيًا */
+    align-items: center; /* محاذاة العناصر عموديًا في المنتصف */
+    justify-content: space-between; /* لضبط العناصر بحيث تكون على الأطراف */
+}
+
+.task-img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.task-item p {
+    margin: 0;
+    padding: 0;
+    width: 60%; /* تخصيص مساحة أكبر للنص */
+    text-align: left;
+    color: #fff;
+    font-size: 0.85rem;
+    white-space: nowrap; /* لمنع النص من الانتقال إلى السطر التالي */
+}
+
+.task-item button {
+    background-color: rgba(255, 255, 255, 0.001);
+    color: #ffffff;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 35%;
+    height: 30px;
+    transition: background-color 0.3s;
+    border: none;
+    font-weight: bold;
+    font-size: 15px;
+    z-index: 10;
 }
 
 .task-reward {
     color: #aaa;
     font-size: 0.7rem;
     text-align: left;
-    margin-top: 10px; /* إضفاء بعض المسافة بين المكافأة والنص */
-}
-
-.task-item p {
-    margin: 0;
-    padding: 0;
-    width: 100%; /* لجعل النص يأخذ كامل العرض */
-    text-align: left;
-    color: #fff;
-    font-size: 0.85rem;
-    white-space: nowrap; /* لمنع النص من الانتقال إلى السطر التالي */
+    margin-top: 10px; /* إضافة مسافة بين المكافأة والنص */
 }
  
