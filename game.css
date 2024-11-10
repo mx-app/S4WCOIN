@@ -14,18 +14,17 @@
     margin-top: 20px;
 }
 
-.games-icon {
+/*.games-icon {
     width: 30px;
     height: 30px;
     flex-shrink: 0;
-    margin-left: 35px; /* مسافة بين الأيقونة والنص لتظهر على اليمين */
+    margin-left: 35px; 
 }
 
 .Play-game-button {
     position: fixed;
     top: 65px;
-  /*  bottom: 120px;*/
-    right: 20px; /* وضع الزر داخل الشاشة بشكل طبيعي */
+    right: 20px; 
     background-color: rgba(255, 255, 255, 0.05);
     font-size: 16px;
     border: 1px solid #343434;
@@ -38,12 +37,40 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     display: flex;
     align-items: center;
-   /* justify-content: space-between;*/ /* لجعل النص والصورة على الأطراف */
+    justify-content: space-between;
 }
 
 .Play-game-button:hover {
-  /*  left: 15px;*/ /* عند التحويم، يخرج الزر بالكامل إلى الخارج */
+    left: 15px;
 }
+*/
+.Play-game-button {
+    position: fixed;
+    padding: 4px 20px;
+    top: 65px;
+    right: 20px; 
+    font-size: 16px;
+    color: #fff;
+    font-weight: bold;
+    border: 1px solid #343434;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px; 
+}
+
+.Play-game-button:hover {
+    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
+} 
+
+.games-icon {
+    width: 29px;
+    height: 29px;
+    flex-shrink: 0;
+}
+
+.Play-game-button img {
+    vertical-align: middle;
+}   
+
 
 
 
