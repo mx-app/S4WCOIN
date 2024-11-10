@@ -1244,10 +1244,10 @@ body {
     top: 13px;
    /* left: 15px;*/
     width: 88%;
-    height: 30px;
+    height: 35px;
     display: flex;
     align-items: center;
-    justify-content: space-between;  /* توزيع العناصر بين اليمين واليسار */
+    justify-content: center;/*space-between;*/ /* توزيع العناصر بين اليمين واليسار */
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px); /* تأثير الضبابية */
     padding: 5px;
@@ -1261,11 +1261,11 @@ body {
 }
 
 .separator {
-    width: 2px;
+    width: 1px;
     height: 20px;
     background-color: #fff;  /* لون الخط الفاصل */
     margin: 0 10px;
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 #earningsLabel, #levelLabel {
