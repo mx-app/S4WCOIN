@@ -27,29 +27,6 @@
     padding-bottom: 5px; 
 } 
 
-.task-item {
-    width: 88%;
-    max-width: 400px;
-    margin: 15px 0;
-    padding: 15px;
-    border: 1px solid #343434; 
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    display: flex; 
-    /*justify-content: center;*/
-    align-items: center;
-}
-
-.task-item p {
-    margin: 0;
-    padding: 0;
-    width: 50%;
-    text-align: left;
-    color: #fff;
-    font-size: 0.85rem;
-    white-space: nowrap;
-}
-
 .task-img {
     width: 50px;
     height: auto;
@@ -110,8 +87,33 @@
     margin-right: 3px;
 }
  
+.task-item {
+    width: 88%;
+    max-width: 400px;
+    margin: 15px 0;
+    padding: 15px;
+    border: 1px solid #343434; 
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    display: flex; 
+    flex-direction: column; /* ترتيب العناصر عموديًا */
+    align-items: flex-start; /* لضمان المحاذاة الجانبية */
+}
+
 .task-reward {
     color: #aaa;
     font-size: 0.7rem;
     text-align: left;
+    margin-top: 10px; /* إضفاء بعض المسافة بين المكافأة والنص */
 }
+
+.task-item p {
+    margin: 0;
+    padding: 0;
+    width: 100%; /* لجعل النص يأخذ كامل العرض */
+    text-align: left;
+    color: #fff;
+    font-size: 0.85rem;
+    white-space: nowrap; /* لمنع النص من الانتقال إلى السطر التالي */
+}
+ 
