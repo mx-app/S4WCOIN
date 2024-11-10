@@ -1284,7 +1284,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
     white-space: nowrap; /* لمنع النص من الانتقال إلى سطر جديد */
     margin-bottom: 3px;
     top: -3px;
