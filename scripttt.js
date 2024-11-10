@@ -932,8 +932,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 rewardContainer.classList.add('task-reward-container');
                 
                 const rewardIcon = document.createElement('img');
-                rewardIcon.src = 'i/coi.png'; // مسار صورة العملة
-                rewardIcon.alt = 'Coin';
+                rewardIcon.src = 'i/coii.png'; // مسار صورة العملة
+                rewardIcon.alt = 'Coinreward';
                 rewardIcon.classList.add('reward-coin-icon'); // معرف جديد للرمز
                 rewardContainer.appendChild(rewardIcon);
 
@@ -960,7 +960,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const taskProgressData = gameState.tasksprogress.find(t => t.task_id === taskId);
                 let taskProgress = taskProgressData ? taskProgressData.progress : 0;
 
-                button.textContent = taskProgress >= 2 ? 'Done' : taskProgress === 1 ? 'Verify' : 'Go';
+                button.textContent = taskProgress >= 2 ? '✓' : taskProgress === 1 ? 'Verify' : 'Go';
                 button.disabled = taskProgress >= 2;
 
                 let countdownTimer;
@@ -993,7 +993,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         }, 1000);
                     } else if (taskProgress === 2) {
                         claimTaskReward(taskId, taskReward);
-                        button.textContent = 'Done';
+                        button.textContent = '✓';
                         button.disabled = true;
                         showNotificationWithStatus(uiElements.purchaseNotification, 'Reward successfully claimed!', 'win');
                     }
