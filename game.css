@@ -25,25 +25,24 @@
     position: fixed;
     top: 65px;
   /*  bottom: 120px;*/
-    left: -35px; /* وضع الزر داخل الشاشة بشكل طبيعي */
+    right: 20px; /* وضع الزر داخل الشاشة بشكل طبيعي */
     background-color: rgba(255, 255, 255, 0.05);
     font-size: 16px;
     border: 1px solid #343434;
     font-weight: bold;
     margin: 0;
-    padding: 3px 15px;
+    padding: 4px 20px;
     border-radius: 10px;
     cursor: pointer;
     z-index: 200;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: left 0.3s ease; /* تأثير الانزلاق عند التحويم */
     display: flex;
     align-items: center;
-    justify-content: space-between; /* لجعل النص والصورة على الأطراف */
+   /* justify-content: space-between;*/ /* لجعل النص والصورة على الأطراف */
 }
 
 .Play-game-button:hover {
-    left: 15px; /* عند التحويم، يخرج الزر بالكامل إلى الخارج */
+  /*  left: 15px;*/ /* عند التحويم، يخرج الزر بالكامل إلى الخارج */
 }
 
 
