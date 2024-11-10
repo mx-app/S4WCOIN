@@ -43,10 +43,9 @@
 }   
 */
 .games-icon {
-    width: 30px;
-    height: 30px;
+    width: 26px;
+    height: 26px;
     flex-shrink: 0;
-    border-radius: 50%; 
 }
 
 .Play-game-button img {
@@ -55,7 +54,7 @@
 
 .Play-game-button {
     position: fixed;
-    top: 14px; 
+    top: 15px; 
     left: 55px;
    /* border: 1px solid #343434;*/
     background-color: rgba(255, 255, 255, 0.001);
