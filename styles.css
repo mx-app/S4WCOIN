@@ -854,7 +854,7 @@ body {
 .wallet-button {
     position: fixed;
     top: 14px; 
-    left: 15px;
+    left: 20px;
     /*left: 265px;*/
    /* border: 1px solid #343434;*/
     background-color: rgba(255, 255, 255, 0.001);
@@ -1241,9 +1241,9 @@ body {
 
 #hourlyEarningsContainer {
     position: fixed;
-    top: 12px;
+    top: 10px;
    /* left: 15px;*/
-    width: 88%;
+    width: 86%;
     height: 35px;
     display: flex;
     align-items: center;
