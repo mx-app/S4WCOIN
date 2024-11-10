@@ -99,3 +99,16 @@
     display: block;
     margin: 0 auto;
 }
+
+.task-reward-container {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.reward-coin-icon { /* اسم معرف الصورة الجديد */
+    width: 18px;
+    height: 18px;
+    margin-right: 3px;
+}
+ 
