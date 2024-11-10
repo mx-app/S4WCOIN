@@ -1274,7 +1274,7 @@ body {
 #earningsLabel {
     font-size: 10px;
     font-weight: bold;
-    margin-bottom: -2px; /* تقريب النص فوق الصورة */
+    margin-bottom: 2px; /* تقريب النص فوق الصورة */
 }
 
 #hourlyEarnings {
@@ -1290,7 +1290,7 @@ body {
 .coin-hour-icon {
     width: 15px;
     height: 15px;
-    margin-right: 2px; /* للتحكم بالمسافة بين الصورة والعدد */
+    margin-right: 3px; /* للتحكم بالمسافة بين الصورة والعدد */
     border-radius: 50%;
     vertical-align: middle;
 }
