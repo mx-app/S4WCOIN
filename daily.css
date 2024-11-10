@@ -95,7 +95,7 @@
 }
 
  .loginclaim-btn {
-    width: 80%;  /* ليأخذ العرض الكامل */
+    width: 90%;  /* ليأخذ العرض الكامل */
     padding: 15px;
     background-color: rgba(0, 0, 0, 0.7);
     color: #ffffff;
