@@ -79,6 +79,11 @@
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
 }*/
 
+.task-button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+} 
+
 .task-item button.inactive {
     background-color: #9f0000;
 }
