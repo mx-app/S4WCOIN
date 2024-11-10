@@ -1248,7 +1248,7 @@ body {
     position: fixed;
     top: 10px;
     width: 86%;
-    height: 35px;
+    height: 35px; /* السماح بالارتفاع التلقائي */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1260,10 +1260,17 @@ body {
     border: 1px solid #343434;
 }
 
-.left-section, .right-section {
+.left-section {
     display: flex;
+    flex-direction: column; /* ترتيب العناصر عموديًا */
     align-items: center;
     text-align: center;
+}
+
+.left-subsection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .separator {
@@ -1273,7 +1280,7 @@ body {
     margin: 0 10px;
 }
 
-#earningsLabel, #levelLabel {
+#earningsLabel {
     font-size: 10px;
     font-weight: bold;
 }
@@ -1281,8 +1288,6 @@ body {
 #earningsText {
     font-size: 11px;
     font-weight: bold;
-    display: inline-flex;
-    align-items: center;
 }
 
 #currentLevelCoins {
@@ -1300,7 +1305,6 @@ body {
     border-radius: 50%;
 }
 
-/* شريط الطاقة */
 #levelEnergyBar {
     width: 70%;
     height: 9px;
