@@ -59,12 +59,11 @@
 }
 
 .task-item button {
-    background-color: rgba(255, 255, 255, 0.001);
+    background-color: rgba(255, 255, 255, 0.1);
     color: #ffffff;
-    padding: 8px;
     border-radius: 10px;
     cursor: pointer;
-    width: 30%;
+    width: 35%;
     height: auto;
     transition: background-color 0.3s;
     border: none;
@@ -79,7 +78,7 @@
 }*/
 
 .task-button:disabled {
-    background-color: #aaa;
+    background-color: rgba(255, 255, 255, 0.05);
     cursor: not-allowed;
 } 
 
