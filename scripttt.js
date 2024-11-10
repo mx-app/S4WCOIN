@@ -900,7 +900,7 @@ buttons.forEach(button => {
 
 
 
- document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     const taskContainer = document.querySelector('.tasks');
     if (!taskContainer) {
         console.error('Task container element not found.');
@@ -927,11 +927,22 @@ buttons.forEach(button => {
                 description.textContent = task.description;
                 taskElement.appendChild(description);
 
-                // Task Reward
-                const rewardText = document.createElement('p');
+                // Task Reward with Coin Image
+                const rewardContainer = document.createElement('div');
+                rewardContainer.classList.add('task-reward-container');
+                
+                const rewardIcon = document.createElement('img');
+                rewardIcon.src = 'i/coi.png'; // مسار صورة العملة
+                rewardIcon.alt = 'Coin';
+                rewardIcon.classList.add('reward-coin-icon'); // معرف جديد للرمز
+                rewardContainer.appendChild(rewardIcon);
+
+                const rewardText = document.createElement('span');
                 rewardText.textContent = ` ${task.reward} `;
                 rewardText.classList.add('task-reward');
-                taskElement.appendChild(rewardText);
+                rewardContainer.appendChild(rewardText);
+
+                taskElement.appendChild(rewardContainer);
 
                 // Task Button
                 const button = document.createElement('button');
@@ -1003,6 +1014,7 @@ function hideLoading(button, text) {
     button.disabled = false;
     button.innerHTML = text;
 }
+
 
 // Open task link function
 function openTaskLink(taskurl, callback) {
