@@ -1280,15 +1280,16 @@ body {
 }
 
 #hourlyEarnings, #currentLevelCoins {
-    font-size: 12px;
+    font-size: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     white-space: nowrap; /* لمنع النص من الانتقال إلى سطر جديد */
+    margin-bottom: 3px;
 }
 
 .coin-hour-icon {
-    width: 18px;
+    width: 15px;
     height: auto;
     margin-right: 2px;
 }
