@@ -237,7 +237,7 @@ function listenToRealtimeChanges() {
 // تحديث واجهة المستخدم بناءً على حالة اللعبة
 function updateUI() {
     if (uiElements.balanceDisplay) {
-        uiElements.balanceDisplay.innerText = (gameState.balance);
+    uiElements.balanceDisplay.innerText = gameState.balance.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     }
 
     const energyPercent = (gameState.energy / gameState.maxEnergy) * 100;
