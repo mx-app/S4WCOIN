@@ -1813,7 +1813,7 @@ img.addEventListener('transitionend', () => {
 
 
 const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
-    manifestUrl: 'https://sawcoin-app.vercel.app/tonconnect-manifest.json',
+    manifestUrl: 'https://sawcoin.vercel.app/tonconnect-manifest.json',
     buttonRootId: 'ton-connect'
 });
 
