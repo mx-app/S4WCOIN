@@ -905,7 +905,7 @@ buttons.forEach(button => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    const taskContainer = document.querySelector('taskContainer');
+    const taskContainer = document.querySelector('taskcontainer');
     if (!taskContainer) {
         console.error('Task container element not found.');
         return;
