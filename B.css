@@ -56,10 +56,9 @@
 }
 
 .boosts-button:hover {
-   /* background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);*/
-    transform: translateY(-3px); /* رفع الزر قليلاً */
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* إضافة ظل */
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.4), 0 0 12px rgba(255, 255, 255, 0.3), 0 0 18px rgba(255, 255, 255, 0.2);
 }
+ 
 
 .bos-image {
     width: 105px;
