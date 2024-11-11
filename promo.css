@@ -1,40 +1,45 @@
 .promo-box {
+    position: relative; /* لجعل الزر يتمركز فوق خانة الإدخال */
     display: flex;
     align-items: center;
     justify-content: center;
     width: 88%;
-} 
+    height: 45px; /* تأكد من أن البوكس يحتوي على الحجم المطلوب */
+}
 
 .promo-input-container {
     display: flex;
     align-items: center;
-    gap: 5px; /* مسافة بين حقل الإدخال وزر الإرسال */
-    width: 100%;
     justify-content: center;
+    width: 100%;
     margin-bottom: 30px;
 }
 
 .promo-input {
     background-color: rgba(0, 0, 0, 0.7);
-    width: 55%;
-    height: 45px;
+    width: 100%; /* جعل العرض 100% لكي يتم التغطية بالكامل */
+    height: 100%;
     font-size: 16px;
     border-radius: 10px;
     border: 1px solid #343434;
     color: white;
     text-align: left;
-    margin-left: 10px;
+    padding-left: 10px;
+    box-sizing: border-box; /* لضمان الحواف وال padding لا تؤثر على الحجم */
 }
 
 .apply_PromoCode {
+    position: absolute; /* وضع الزر فوق خانة الإدخال */
+    top: 0; /* ضعه في الأعلى */
+    right: 0; /* وضعه على اليمين */
     background: #fff;
     color: transparent;
     font-weight: bold;
     border-radius: 10px;
     border: 1px solid #343434;
     cursor: pointer;
-    width: 30%;
-    height: 45px;
+    width: 30%; /* عرض الزر */
+    height: 100%; /* تأكد من أنه يغطي نفس ارتفاع خانة الإدخال */
     font-size: 15px;
     display: flex;
     align-items: center;
@@ -44,7 +49,7 @@
     -webkit-background-clip: text;
     background-clip: text;
 }
- 
+
 .apply_PromoCode.loading {
     pointer-events: none; /* منع النقر أثناء التحميل */
 }
@@ -62,10 +67,9 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
- 
- 
+
 .promo-icon {
     width: 25px;
     height: 25px;
-    margin-right: 3px; /* مسافة صغيرة بين الأيقونة والنص */
+    margin-right: 3px;
 }
