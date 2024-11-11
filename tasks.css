@@ -46,7 +46,7 @@
 }
  
 .task-image {
-    width: 100px;
+    width: 70px;
     height: auto;
     display: block;
     margin: 0 auto;
@@ -80,7 +80,7 @@
 }
 
 .task-img {
-    width: 50px;
+    width: 40px;
     height: auto;
     margin-right: 10px;
     border-radius: 50%;
@@ -90,7 +90,7 @@
 .task-item p {
     margin: 0;
     padding: 0;
-    width: 60%; /* تخصيص مساحة أكبر للنص */
+    width: 50%; /* تخصيص مساحة أكبر للنص */
     text-align: center;
     color: #fff;
     font-size: 0.85rem;
