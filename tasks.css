@@ -109,9 +109,6 @@
     color: #aaa; /* لون النص الرمادي */
     font-size: 0.7rem;
     text-align: left; /* محاذاة النص إلى اليسار */
-    position: absolute; /* تعيينه بالنسبة لأقرب حاوية ذات position غير static */
-    top: 10px; /* تحديد المسافة من أعلى الحاوية */
-    left: 10px; /* تحديد المسافة من اليسار */
 }
  
 
