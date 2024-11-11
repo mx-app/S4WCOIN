@@ -2110,10 +2110,8 @@ setInterval(updateHourlyEarnings, 60000);  // تحديث الربح كل دقي�
 
 
  
-
-
 document.addEventListener('DOMContentLoaded', () => {
-    // تعريف عناصر DOM الضرورية فقط
+    // عناصر DOM الضرورية
     const dailyButton = document.getElementById('DailyButton');
     const dailyCloseModal = document.getElementById('logindailycloseModal');
     const logindailyContainer = document.getElementById('logindailyContainer');
@@ -2125,10 +2123,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // مكافآت الأيام المتتالية
     const dailyRewards = [5000, 10000, 15000, 30000, 60000, 100000, 200000, 300000, 400000];
 
-    // الدالة الرئيسية لتسجيل الدخول اليومي
-    async function handleDailyLogin() {
-        const userTelegramId = "USER_TELEGRAM_ID"; // استبدل هذا المعرف بمعرف المستخدم الفعلي
-
+    // الدالة الرئيسية لتسجيل الدخول اليومي - تأخذ معرف المستخدم كمعامل
+    async function handleDailyLogin(userTelegramId) {
         // جلب بيانات المستخدم من قاعدة البيانات
         const { data, error } = await supabase
             .from('users')
@@ -2162,7 +2158,7 @@ document.addEventListener('DOMContentLoaded', () => {
             consecutive_days++;
             if (consecutive_days > dailyRewards.length) consecutive_days = dailyRewards.length;
         } else {
-            consecutive_days = 1;
+            consecutive_days = 1; // إعادة تعيين إلى اليوم الأول إذا فات المستخدم يوم
         }
 
         // إضافة المكافأة للمستخدم بناءً على عدد الأيام المتتالية
@@ -2224,14 +2220,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // تحديث الرصيد
     function updateBalance(amount) {
         gameState.balance += amount;
-        // تحديث واجهة المستخدم
+        updateUI(); // تحديث واجهة المستخدم
+        saveGameState(); // حفظ حالة اللعبة
     }
 
     // فتح نافذة تسجيل الدخول اليومي
-    function openDailyLoginModal() {
+    function openDailyLoginModal(userTelegramId) {
         logindailyContainer.classList.remove('hidden');
         logindailyContent.classList.remove('hidden');
-        handleDailyLogin();
+        handleDailyLogin(userTelegramId);
     }
 
     // إغلاق نافذة تسجيل الدخول اليومي
@@ -2242,13 +2239,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // عند الضغط على زر المطالبة بالمكافأة
     loginClaimBtn.addEventListener('click', async function () {
-        await handleDailyLogin();
+        const userTelegramId = "معرف المستخدم المحفوظ"; // تأكد من جلب معرف المستخدم من المكان الذي تم جلبه فيه مسبقًا
+        await handleDailyLogin(userTelegramId);
         disableClaimButton();
     });
 
     // فتح النافذة عند دخول المستخدم
     dailyButton.addEventListener('click', function () {
-        openDailyLoginModal();
+        const userTelegramId = "معرف المستخدم المحفوظ"; // تأكد من جلب معرف المستخدم من المكان الذي تم جلبه فيه مسبقًا
+        openDailyLoginModal(userTelegramId);
     });
 });
 
