@@ -7,18 +7,18 @@
     "image": "i/community.jpg"
   },
   {
+    "id": 33,
+    "url": "https://t.me/SAW_COIN",
+    "reward": 2000,
+    "description": " community ",
+    "image": "i/community.jpg"
+  },
+  {
     "id": 32,
     "url": "https://t.me/Qyros_wallet",
     "reward": 1000,
     "description": "Qyros wallet",
     "image": "i/TelegramL.png"
-  },
-  {
-    "id": 33,
-    "url": "https://t.me/SAW_COIN",
-    "reward": 2000,
-    "description": " Saw community",
-    "image": "i/community.jpg"
   },
   {
     "id": 34,
