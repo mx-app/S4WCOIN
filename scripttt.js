@@ -2109,14 +2109,17 @@ setInterval(updateHourlyEarnings, 60000);  // تحديث الربح كل دقي�
 
 
 
-// DOM Elements
-const dailyButton = document.getElementById('DailyButton');
-const dailycloseModal = document.getElementById('logindailycloseModal');
-const logindailyContainer = document.getElementById('logindailyContainer');
-const logindailyContent = document.querySelector('.logindaily-content');
-const loginClaimBtn = document.getElementById('loginclaimBtn');
-const loginNotification = document.getElementById('login');
-const dayElements = document.querySelectorAll('.daily-item');
+ 
+// تعريف عناصر DOM
+const uiElements = {
+    dailyButton: document.getElementById('DailyButton'),
+    dailyCloseModal: document.getElementById('logindailycloseModal'),
+    logindailyContainer: document.getElementById('logindailyContainer'),
+    logindailyContent: document.querySelector('.logindaily-content'),
+    loginClaimBtn: document.getElementById('loginclaimBtn'),
+    loginNotification: document.getElementById('login'),
+    dayElements: document.querySelectorAll('.daily-item')
+};
 
 // مكافآت الأيام المتتالية
 const dailyRewards = [5000, 10000, 15000, 30000, 60000, 100000, 200000, 300000, 400000];
@@ -2128,17 +2131,17 @@ async function handleDailyLogin() {
     // جلب بيانات المستخدم من قاعدة البيانات
     const { data, error } = await supabase
         .from('users')
-        .select('last_login_date, consecutive_days')
+        .select('last_login_date, consecutive_days, balance')
         .eq('telegram_id', userTelegramId)
         .maybeSingle();
 
-    if (error) {
-        console.error('Error fetching user data:', error);
+    if (error || !data) {
+        console.error('Error fetching user data or user data not found:', error);
         showNotification(uiElements.purchaseNotification, 'Error loading daily login. Please try again later.');
         return;
     }
 
-    let { last_login_date, consecutive_days, balance } = data || {};
+    let { last_login_date, consecutive_days } = data;
     const today = new Date().toISOString().split('T')[0]; // تاريخ اليوم الحالي
 
     // التحقق من حالة تسجيل الدخول اليومي
@@ -2157,7 +2160,7 @@ async function handleDailyLogin() {
     if (isConsecutive) {
         // إذا كانت الزيارة متتالية، زيادة عدد الأيام
         consecutive_days++;
-        if (consecutive_days > 9) consecutive_days = 9; // الحد الأقصى هو 9 أيام
+        if (consecutive_days > dailyRewards.length) consecutive_days = dailyRewards.length; // الحد الأقصى هو طول مصفوفة المكافآت
     } else {
         // إذا فات يوم واحد، إعادة العد إلى اليوم الأول
         consecutive_days = 1;
@@ -2165,10 +2168,10 @@ async function handleDailyLogin() {
 
     // إضافة المكافأة للمستخدم بناءً على عدد الأيام المتتالية
     const reward = dailyRewards[consecutive_days - 1];
-    updateBalance(dailyRewards);
+    updateBalance(reward);
 
     // تحديث واجهة المستخدم
-    loginNotification.innerText = `Day ${consecutive_days}: You've earned ${reward} coins!`;
+    uiElements.loginNotification.innerText = `Day ${consecutive_days}: You've earned ${reward} coins!`;
     updateClaimButton(consecutive_days, reward);
     highlightRewardedDays(consecutive_days);
 
@@ -2178,19 +2181,19 @@ async function handleDailyLogin() {
 
 // تحديث زر المطالبة بالمكافأة
 function updateClaimButton(day, reward) {
-    loginClaimBtn.innerText = `Claim Day ${day} Reward: ${reward}`;
-    loginClaimBtn.disabled = false;
+    uiElements.loginClaimBtn.innerText = `Claim Day ${day} Reward: ${reward}`;
+    uiElements.loginClaimBtn.disabled = false;
 }
 
 // تعطيل الزر بعد المطالبة بالمكافأة
 function disableClaimButton() {
-    loginClaimBtn.disabled = true;
-    loginClaimBtn.classList.add('disabled');
+    uiElements.loginClaimBtn.disabled = true;
+    uiElements.loginClaimBtn.classList.add('disabled');
 }
 
 // تحديث واجهة الأيام المتتالية
 function highlightRewardedDays(dayCount) {
-    dayElements.forEach((el, index) => {
+    uiElements.dayElements.forEach((el, index) => {
         if (index < dayCount) {
             el.classList.add('claimed');
             el.style.filter = 'blur(2px)'; // إضافة تأثير ضبابي
@@ -2209,7 +2212,7 @@ async function updateDailyLoginInDatabase(userTelegramId, today, consecutive_day
             last_login_date: today,  // تخزين التاريخ بصيغة "YYYY-MM-DD"
             consecutive_days: consecutive_days // تخزين عدد الأيام المتتالية
         })
-        .eq('telegram_id', userTelegramId); // تحديد المستخدم عبر الـ telegram_id
+        .eq('telegram_id', userTelegramId);
 
     if (error) {
         console.error('Error updating daily login data:', error);
@@ -2226,28 +2229,27 @@ function updateBalance(amount) {
     saveGameState(); // حفظ حالة اللعبة
 }
 
-
 // فتح نافذة تسجيل الدخول اليومي
 function openDailyLoginModal() {
-    logindailyContainer.classList.remove('hidden');
-    logindailyContent.classList.remove('hidden');
+    uiElements.logindailyContainer.classList.remove('hidden');
+    uiElements.logindailyContent.classList.remove('hidden');
     handleDailyLogin();
 }
 
 // إغلاق نافذة تسجيل الدخول اليومي
-document.getElementById('logindailycloseModal').addEventListener('click', function () {
-    logindailyContainer.classList.add('hidden');
-    logindailyContent.classList.add('hidden');
+uiElements.dailyCloseModal.addEventListener('click', function () {
+    uiElements.logindailyContainer.classList.add('hidden');
+    uiElements.logindailyContent.classList.add('hidden');
 });
 
 // عند الضغط على زر المطالبة بالمكافأة
-loginClaimBtn.addEventListener('click', async function () {
+uiElements.loginClaimBtn.addEventListener('click', async function () {
     await handleDailyLogin();
     disableClaimButton(); // تعطيل الزر بعد أخذ المكافأة
 });
 
 // فتح النافذة عند دخول المستخدم
-document.getElementById('DailyButton').addEventListener('click', function () {
+uiElements.dailyButton.addEventListener('click', function () {
     openDailyLoginModal();
 });
 
