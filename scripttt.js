@@ -2164,10 +2164,6 @@ async function handleDailyLogin() {
     const reward = dailyRewards[consecutive_days - 1];
     updateBalance(reward);
 
-    // تحديث واجهة المستخدم
-    loginNotification.innerText = `Day ${consecutive_days}: You've earned ${reward} coins!`;
-    updateClaimButton(consecutive_days, reward);
-    highlightRewardedDays(consecutive_days);
 
     // تحديث قاعدة البيانات
     await updateDailyLoginInDatabase(userTelegramId, today, consecutive_days);
@@ -2219,16 +2215,6 @@ function updateBalance(amount) {
     gameState.balance += amount;
     updateUI(); // تحديث واجهة المستخدم
     saveGameState(); // حفظ حالة اللعبة
-}
-
-// تحديث واجهة المستخدم
-function updateUI() {
-    document.getElementById('AccountBalanceDisplay').innerText = gameState.balance;
-}
-
-// حفظ حالة اللعبة
-function saveGameState() {
-    localStorage.setItem('gameState', JSON.stringify(gameState));
 }
 
 // فتح نافذة تسجيل الدخول اليومي
