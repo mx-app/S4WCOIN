@@ -2128,13 +2128,13 @@ async function handleDailyLogin() {
     // جلب بيانات المستخدم من قاعدة البيانات
     const { data, error } = await supabase
         .from('users')
-        .select('last_login_date, consecutive_days, balance')
+        .select('last_login_date, consecutive_days')
         .eq('telegram_id', userTelegramId)
         .maybeSingle();
 
     if (error) {
         console.error('Error fetching user data:', error);
-        showNotification(loginNotification, 'Error loading daily login. Please try again later.');
+        showNotification(uiElements.purchaseNotification, 'Error loading daily login. Please try again later.');
         return;
     }
 
@@ -2143,7 +2143,7 @@ async function handleDailyLogin() {
 
     // التحقق من حالة تسجيل الدخول اليومي
     if (last_login_date === today) {
-        showNotification(loginNotification, 'You have already claimed today\'s reward.');
+        showNotification(uiElements.purchaseNotification, 'You have already claimed today\'s reward.');
         disableClaimButton();
         highlightRewardedDays(consecutive_days);
         return;
@@ -2165,7 +2165,7 @@ async function handleDailyLogin() {
 
     // إضافة المكافأة للمستخدم بناءً على عدد الأيام المتتالية
     const reward = dailyRewards[consecutive_days - 1];
-    updateBalance(reward);
+    updateBalance(dailyRewards);
 
     // تحديث واجهة المستخدم
     loginNotification.innerText = `Day ${consecutive_days}: You've earned ${reward} coins!`;
@@ -2213,16 +2213,16 @@ async function updateDailyLoginInDatabase(userTelegramId, today, consecutive_day
 
     if (error) {
         console.error('Error updating daily login data:', error);
-        showNotification(loginNotification, 'Error saving progress. Please try again later.');
+        showNotification(uiElements.purchaseNotification, 'Error saving progress. Please try again later.');
     } else {
         console.log('Database updated successfully');
     }
 }
 
-// دالة تحديث الرصيد في اللعبة
+// تحديث الرصيد
 function updateBalance(amount) {
     gameState.balance += amount;
-    updateUI(); // تحديث واجهة المستخدم
+    updateUI(); // تحديث الواجهة
     saveGameState(); // حفظ حالة اللعبة
 }
 
