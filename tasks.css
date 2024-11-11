@@ -56,7 +56,6 @@
     display: flex;
     flex-direction: center;
     align-items: center;
-    margin-left: 50px;
 }
 
 .reward-coin-icon { /* اسم معرف الصورة الجديد */
@@ -115,6 +114,6 @@
     color: #aaa;
     font-size: 0.7rem;
     text-align: center;
-    margin-top: 10px; /* إضافة مسافة بين المكافأة والنص */
+    margin-right: 80px;
 }
  
