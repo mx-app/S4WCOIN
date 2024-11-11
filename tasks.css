@@ -99,27 +99,23 @@
     width: 100%;
     text-align: center; /* محاذاة الوصف في المنتصف */
     color: #fff;
-    font-size: 0.85rem;
-    order: 2;
+    font-size: 0.85rem; 
 }
 
 .task-reward-container {
     display: flex;
-    flex-direction: column; /* ترتيب المكافأة بشكل عمودي */
     align-items: center;
-    justify-content: center;
-    margin-top: 10px; /* مسافة بين الوصف والمكافأة */
-    order: 3; /* جعل المكافأة تظهر بعد النصوص */
+    margin-top: 5px;
 }
 
-.reward-coin-icon {
+.reward-coin-icon { /* اسم معرف الصورة الجديد */
     width: 18px;
     height: 18px;
-    margin-bottom: 3px; /* إضافة مسافة بين الأيقونة والنص */
+    margin-right: 3px;
 }
-
+ 
 .task-reward {
     color: #aaa;
     font-size: 0.7rem;
-    text-align: center;
+    align-items: left;
 } 
