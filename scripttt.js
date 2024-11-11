@@ -861,7 +861,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-///////////////////////////
+/////////////////////////////////////////////////
+
 
 
 // أولاً: الحصول على جميع الأزرار داخل القائمة
@@ -879,24 +880,22 @@ buttons.forEach(button => {
         // الحصول على اسم الصفحة أو القسم المستهدف من الزر الذي تم النقر عليه
         const targetPage = this.getAttribute('data-target');
         
-        // هنا يمكنك وضع المنطق الذي يقوم بتغيير الصفحة بناءً على الزر (استبدل هذا المنطق إذا لزم الأمر)
-        // مثال: الانتقال إلى صفحة معينة بناءً على اسم الـ "data-target"
-        // window.location.href = targetPage + ".html";
-        console.log("التنقل إلى الصفحة:", targetPage); // هذا فقط للعرض في الكونسول
+        // هنا يمكنك وضع المنطق الذي يقوم بتغيير الصفحة بناءً على الزر
+        // window.location.href = targetPage + ".html"; // تفعيل الانتقال بين الصفحات
+        console.log(" Navigate to the page: ", targetPage); // هذا فقط للعرض في الكونسول
     });
 });
 
-// ثالثاً: اختياري: تفعيل الزر النشط بناءً على الصفحة الحالية
-const currentPage = window.location.pathname; // هذا يحصل على اسم الصفحة الحالية من الـ URL
-buttons.forEach(button => {
-    const target = button.getAttribute('data-target'); // الحصول على قيمة "data-target" من كل زر
-    if (currentPage.includes(target)) {
-        button.classList.add('active'); // إضافة الصف "active" للزر الذي يتطابق مع الصفحة الحالية
-    }
+// ثالثاً: تفعيل الزر النشط بناءً على الصفحة الحالية عند تحميل الصفحة
+window.addEventListener('load', () => {
+    const currentPage = window.location.pathname; // الحصول على اسم الصفحة الحالية
+    buttons.forEach(button => {
+        const target = button.getAttribute('data-target'); // الحصول على قيمة "data-target" من كل زر
+        if (currentPage.includes(target) || currentPage === "/") { // إذا كانت الصفحة الرئيسية
+            button.classList.add('active'); // إضافة الصف "active" للزر الذي يتطابق مع الصفحة الحالية
+        }
+    });
 });
-
-//
-
 
 
 
