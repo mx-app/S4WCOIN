@@ -61,7 +61,7 @@
 .wallet-box p {
     font-size: 18px; /* تكبير حجم الخط */
     font-weight: bold;
-    color: #ffffff; /* جعل النص أبيض ليتناسب مع الخلفية */
+    color: #808080; /* جعل النص أبيض ليتناسب مع الخلفية */
     margin-bottom: 15px;
 }
 
