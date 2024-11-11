@@ -23,7 +23,6 @@
     text-align: center;
     padding: 10px;
     width: 100%;
-    max-width: 320px;
     padding-bottom: 5px; 
 } 
 
@@ -100,7 +99,7 @@
 
 .task-reward-container {
     display: flex;
-    flex-direction: row; /* ترتيب المكافأة بشكل أفقي */
+    flex-direction: center; /* ترتيب المكافأة بشكل أفقي */
     align-items: center;
     justify-content: center;
     margin-top: 10px; /* مسافة بين الوصف والمكافأة */
