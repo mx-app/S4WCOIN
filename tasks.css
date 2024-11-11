@@ -57,13 +57,12 @@
 }
 
 .task-item {
-    width: 88%;
+    width: 80%;
     max-width: 400px;
     margin: 15px 0;
     padding: 15px;
     border-bottom: 2px solid #343434;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.001);
     display: flex; 
     justify-content: center;
     align-items: center;
@@ -72,7 +71,7 @@
 .task-img {
     width: 40px;
     height: auto;
-    margin-bottom: 10px; /* إضافة مسافة أسفل الصورة */
+    margin-bottom: 3px; /* إضافة مسافة أسفل الصورة */
     border-radius: 50%;
     object-fit: cover;
 }
@@ -85,12 +84,11 @@
     width: 35%;
     height: 35px;
     transition: background-color 0.3s;
-    border: none;
+    border: 1px solid #343434;
     font-weight: bold;
     font-size: 15px;
     z-index: 10;
     margin-left: auto; /* يجعل الزر في الجهة اليمنى */
-    margin-bottom: 10px; /* إضافة مسافة أسفل الزر */
 }
 
 .task-item p {
