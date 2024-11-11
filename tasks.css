@@ -58,18 +58,16 @@
 
 .task-item {
     width: 88%;
-    max-width: 300px;
+    max-width: 400px;
     margin: 15px 0;
     padding: 15px;
-    border-bottom: 1px solid #343434;
-    /*border: 1px solid #343434;*/
-    background-color: rgba(255, 255, 255, 0.001);
-    /*border-radius: 10px;*/
-    display: flex;
-    /*flex-direction: row;*/
-    align-items: center; /* محاذاة العناصر في المنتصف */
-    justify-content: center; /* ترتيب العناصر بشكل مركزي */
-}
+    border-bottom: 2px solid #343434;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+} 
  
 .task-img {
     width: 40px;
