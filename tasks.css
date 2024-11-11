@@ -61,10 +61,10 @@
 } 
  
 .task-img {
-    width: 40px;
+    width: 50px;
     height: auto;
     margin-bottom: 3px; /* إضافة مسافة أسفل الصورة */
-    border-radius: 50%;
+    border-radius: 10px;
     border: 1px solid #343434;
     object-fit: cover;
 }
