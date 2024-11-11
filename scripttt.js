@@ -81,6 +81,8 @@ let gameState = {
     puzzlesprogress:[], 
     usedPromoCodes: [],
     ciphersProgress:[],
+    lastLoginDate: null, // تاريخ آخر تسجيل دخول
+    consecutiveDays: 0,  // عدد الأيام المتتالية التي تم المطالبة فيها بالمكافآت
     
 };
 
@@ -770,7 +772,9 @@ async function updateUserData() {
             tasks_progress: gameState.tasksprogress, 
             puzzles_progress: gameState.puzzlesprogress, 
             used_Promo_Codes: gameState.usedPromoCodes, 
-            morse_ciphers_progress: gameState.ciphersProgress
+            morse_ciphers_progress: gameState.ciphersProgress, 
+            last_login_date: gameState.lastLoginDate ? new Date(gameState.lastLoginDate).toISOString() : null,
+            consecutive_days: gameState.consecutiveDays
             
         })
         .eq('telegram_id', userId);
