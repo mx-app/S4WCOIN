@@ -38,7 +38,7 @@
     border-radius: 10px;
     border: 1px solid #343434;
     cursor: pointer;
-    width: 30%; /* عرض الزر */
+    width: 25%; /* عرض الزر */
     height: 100%; /* تأكد من أنه يغطي نفس ارتفاع خانة الإدخال */
     font-size: 15px;
     display: flex;
