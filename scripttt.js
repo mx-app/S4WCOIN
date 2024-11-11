@@ -925,10 +925,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 img.classList.add('task-img');
                 taskElement.appendChild(img);
 
+                // Create a container for description and reward
+                const infoContainer = document.createElement('div');
+                infoContainer.classList.add('info-task'); // This will hold both description and reward
+
                 // Task Description
                 const description = document.createElement('p');
                 description.textContent = task.description;
-                taskElement.appendChild(description);
+                infoContainer.appendChild(description);
 
                 // Task Reward with Coin Image
                 const rewardContainer = document.createElement('div');
@@ -945,7 +949,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 rewardText.classList.add('task-reward');
                 rewardContainer.appendChild(rewardText);
 
-                taskElement.appendChild(rewardContainer);
+                infoContainer.appendChild(rewardContainer); // Append reward below description
+
+                taskElement.appendChild(infoContainer); // Append the info container to the task element
 
                 // Task Button
                 const button = document.createElement('button');
