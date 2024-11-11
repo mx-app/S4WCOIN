@@ -1,3 +1,14 @@
+.daily-item.claimed {
+    opacity: 0.6;
+    filter: blur(2px);
+}
+
+.loginclaim-btn.disabled {
+    background-color: grey;
+    cursor: not-allowed;
+}
+
+
 .daily-icon {
     width: 25px;
     height: 25px;
