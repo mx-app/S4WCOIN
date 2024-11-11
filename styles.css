@@ -268,7 +268,7 @@ body {
     background-clip: text;
     color: transparent;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 15px; /* حجم الخط */
+    font-size: 14px; /* حجم الخط */
     font-weight: bold; /* سمك الخط */
     text-align: left; /* المحاذاة لليسار */
     margin-left: 0px;
