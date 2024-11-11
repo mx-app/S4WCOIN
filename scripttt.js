@@ -2111,15 +2111,16 @@ setInterval(updateHourlyEarnings, 60000);  // تحديث الربح كل دقي�
 
  
 // تعريف عناصر DOM
-const uiElements = {
-    dailyButton: document.getElementById('DailyButton'),
-    dailyCloseModal: document.getElementById('logindailycloseModal'),
-    logindailyContainer: document.getElementById('logindailyContainer'),
-    logindailyContent: document.querySelector('.logindaily-content'),
-    loginClaimBtn: document.getElementById('loginclaimBtn'),
-    loginNotification: document.getElementById('login'),
-    dayElements: document.querySelectorAll('.daily-item')
-};
+document.addEventListener('DOMContentLoaded', () => {
+    
+   const dailyButton: document.getElementById('DailyButton'),
+   const dailyCloseModal: document.getElementById('logindailycloseModal'),
+   const logindailyContainer: document.getElementById('logindailyContainer'),
+   const logindailyContent: document.querySelector('.logindaily-content'),
+   const loginClaimBtn: document.getElementById('loginclaimBtn'),
+   const loginNotification: document.getElementById('login'),
+   const dayElements: document.querySelectorAll('.daily-item')
+    
 
 // مكافآت الأيام المتتالية
 const dailyRewards = [5000, 10000, 15000, 30000, 60000, 100000, 200000, 300000, 400000];
