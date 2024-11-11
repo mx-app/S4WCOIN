@@ -61,23 +61,14 @@
     max-width: 300px;
     margin: 15px 0;
     padding: 15px;
-    /*border-bottom: 2px solid #343434;
-    border: 1px solid #343434;*/
+    border-bottom: 2px solid #343434;
+    /*border: 1px solid #343434;*/
     background-color: rgba(255, 255, 255, 0.001);
     /*border-radius: 10px;*/
     display: flex;
     /*flex-direction: row;*/
     align-items: center; /* محاذاة العناصر في المنتصف */
     justify-content: center; /* ترتيب العناصر بشكل مركزي */
-}
-
-.task-item::after {
-    content: "";
-    display: block;
-    width: 70%; /* تحديد طول الحد السفلي */
-    height: 1px;
-    background-color: #343434;
-    margin-top: 10px; /* مسافة بين المحتوى والحد السفلي */
 }
  
 .task-img {
