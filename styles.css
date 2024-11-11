@@ -1021,17 +1021,6 @@ body {
     color: transparent;
 }
 
-.tasks {
-    height: auto; 
-    width: 88%; 
-    overflow-y: auto; 
-    background-color: rgba(255, 255, 255, 0.001);
-    backdrop-filter: blur(10px);
-    padding: 15px;
-    border-bottom: 2px solid #343434;
-    border-top: 2px solid #343434;
-    border-radius: 10px;
-}
 
 /* تدرجات اللون للمستويات من 1 إلى 3 */
 .level-gradient-green {
