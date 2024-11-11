@@ -6,6 +6,7 @@
     border: 1px solid #343434;
     width: 88%;
     height: 45px; /* تأكد من أن البوكس يحتوي على الحجم المطلوب */
+    border-radius: 10px;
 }
 
 .promo-input-container {
@@ -49,6 +50,7 @@
     overflow: hidden;
     -webkit-background-clip: text;
     background-clip: text;
+    margin-right: 10px;
 }
 
 .apply_PromoCode.loading {
