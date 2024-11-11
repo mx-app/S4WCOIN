@@ -17,8 +17,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: none;
-    border-radius: 10px;
     justify-content: center;
     text-align: center;
     padding: 10px;
@@ -58,7 +56,6 @@
     margin: 0 auto;
 }
 
-
 .task-item {
     width: 88%;
     max-width: 400px;
@@ -68,15 +65,15 @@
     background-color: rgba(255, 255, 255, 0.001);
     border-radius: 10px;
     display: flex;
-    flex-direction: row; /* ترتيب الصورة والزر أفقيًا */
-    align-items: flex-start; /* محاذاة العناصر من الأعلى */
-    justify-content: flex-start; /* ترتيب العناصر من اليسار */
+    flex-direction: column; /* ترتيب الصورة والزر بشكل عمودي */
+    align-items: center; /* محاذاة العناصر في المنتصف */
+    justify-content: center; /* ترتيب العناصر بشكل مركزي */
 }
 
 .task-img {
     width: 40px;
     height: auto;
-    margin-right: 10px;
+    margin-bottom: 10px; /* إضافة مسافة أسفل الصورة */
     border-radius: 50%;
     object-fit: cover;
 }
@@ -94,21 +91,22 @@
     font-size: 15px;
     z-index: 10;
     margin-left: auto; /* يجعل الزر في الجهة اليمنى */
+    margin-bottom: 10px; /* إضافة مسافة أسفل الزر */
 }
 
 .task-item p {
     margin: 5px 0;
     padding: 0;
     width: 100%;
-    text-align: left;
+    text-align: center; /* محاذاة الوصف في المنتصف */
     color: #fff;
     font-size: 0.85rem;
-    order: 2; /* جعل النص يظهر بعد الصورة والزر */
+    order: 2;
 }
 
 .task-reward-container {
     display: flex;
-    flex-direction: row; /* ترتيب المكافأة بشكل أفقي */
+    flex-direction: column; /* ترتيب المكافأة بشكل عمودي */
     align-items: center;
     justify-content: center;
     margin-top: 10px; /* مسافة بين الوصف والمكافأة */
@@ -118,11 +116,11 @@
 .reward-coin-icon {
     width: 18px;
     height: 18px;
-    margin-right: 3px;
+    margin-bottom: 3px; /* إضافة مسافة بين الأيقونة والنص */
 }
 
 .task-reward {
     color: #aaa;
     font-size: 0.7rem;
     text-align: center;
-}
+} 
