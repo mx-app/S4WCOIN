@@ -27,11 +27,11 @@
 } 
 
 .tasks {
-    width: 88%; 
+    width: 100%; 
     background-color: rgba(255, 255, 255, 0.001);
     backdrop-filter: blur(10px);
-    border-bottom: 2px solid #343434;
-    border-top: 2px solid #343434;
+   /* border-bottom: 2px solid #343434;
+    border-top: 2px solid #343434;*/
     border-radius: 10px;
 } 
 
@@ -61,11 +61,11 @@
     max-width: 500px;
     margin: 15px 0;
     padding: 15px;
-    border: 1px solid #343434;
+   /* border: 1px solid #343434;*/
     background-color: rgba(255, 255, 255, 0.001);
     border-radius: 10px;
     display: flex;
-    flex-direction: row; /* ترتيب الصورة والزر بشكل عمودي */
+    /*flex-direction: row;*/
     align-items: center; /* محاذاة العناصر في المنتصف */
     justify-content: center; /* ترتيب العناصر بشكل مركزي */
 }
