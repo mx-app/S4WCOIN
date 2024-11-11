@@ -1021,16 +1021,16 @@ body {
     color: transparent;
 }
 
-.tasks {
-    max-height: 290px; /* تحديد ارتفاع ثابت للحاوية الداخلية */
-    width: 88%; /* عرض الحاوية الداخلية كاملاً */
-    overflow-y: auto; /* تمكين التمرير العمودي */
+/*.tasks {
+    max-height: 290px; 
+    width: 88%; 
+    overflow-y: auto; 
     background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px); /* تأثير الضبابية */
+    backdrop-filter: blur(10px);
     padding: 15px;
     border: 2px solid #343434;
     border-radius: 10px;
-} 
+}*/
 
 /* تدرجات اللون للمستويات من 1 إلى 3 */
 .level-gradient-green {
