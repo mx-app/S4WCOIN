@@ -52,6 +52,7 @@
     margin: 0 auto;
 }
 
+
 .task-item {
     width: 88%;
     max-width: 400px;
@@ -60,10 +61,10 @@
     border: 1px solid #343434;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
-    display: flex; /* تغيير من column إلى row */
-    flex-direction: row; /* ترتيب العناصر أفقيًا */
-    align-items: center; /* محاذاة العناصر عموديًا في المنتصف */
-    justify-content: space-between; /* لضبط العناصر بحيث تكون على الأطراف */
+    display: flex;
+    flex-direction: row; /* ترتيب الصورة والزر أفقيًا */
+    align-items: flex-start; /* محاذاة العناصر من الأعلى */
+    justify-content: flex-start; /* ترتيب العناصر من اليسار */
 }
 
 .task-img {
@@ -86,31 +87,17 @@
     font-weight: bold;
     font-size: 15px;
     z-index: 10;
-}
-
-.task-item {
-    width: 88%;
-    max-width: 400px;
-    margin: 15px 0;
-    padding: 15px;
-    border: 1px solid #343434;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    display: flex; /* عناصر الصورة والزر تظل في صف واحد */
-    flex-direction: row; /* ترتيب الصورة والزر أفقيًا */
-    align-items: center; /* محاذاة العناصر عموديًا */
-    justify-content: space-between; /* توزيع العناصر على الجوانب */
+    margin-left: auto; /* يجعل الزر في الجهة اليمنى */
 }
 
 .task-item p {
-    margin: 0;
+    margin: 5px 0;
     padding: 0;
     width: 100%;
-    text-align: center;
+    text-align: left;
     color: #fff;
     font-size: 0.85rem;
-    display: block; /* جعل النصوص تتمدد بشكل كامل لعرضها تحت الصورة */
-    order: 2; /* جعل النصوص تظهر بعد الصورة والزر */
+    order: 2; /* جعل النص يظهر بعد الصورة والزر */
 }
 
 .task-reward-container {
@@ -133,4 +120,3 @@
     font-size: 0.7rem;
     text-align: center;
 }
- 
