@@ -14,17 +14,19 @@
 }
 
 .task-container {
+.task-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 10px;
     width: 100%;
     max-width: 400px;
-    margin: 15px 0;
-    padding-bottom: 5px; 
-} 
+    height: 100vh;  /* لضمان ملء الارتفاع بالكامل */
+    margin: 0 auto;  /* لتوسيط الحاوية أفقيًا */
+    padding: 10px;
+}
+ 
 
 /*.tasks {
     width: 90%; 
