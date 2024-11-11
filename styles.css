@@ -374,29 +374,24 @@ body {
 }
 
 
-
 .menu {
     display: flex;
     justify-content: space-between;
     padding: 4px;
-    /*border: 1px solid #343434;*/
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.05);
     position: fixed;
     bottom: 30px;
     box-sizing: border-box; 
-    width: 88%; /* لجعل العرض 80% */
-    left: 50%; /* لضبطه في المنتصف */
-    transform: translateX(-50%); /* لجعل العنصر في منتصف الشاشة */
+    width: 88%;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 100;
-    
 }
 
 .menu button {
-   /* background-color: none;*/
     color: #fff;
     border: 1px solid #343434;
-    /*border: none;*/
     padding: 4px;
     box-sizing: border-box; 
     font-size: 10px;
@@ -406,39 +401,24 @@ body {
     flex-direction: column;
     align-items: center;
     flex: 1;
-    transition: background-color 0.3s ease, color 0.3s ease; /* حذف التحويل المتعلق بالتكبير */
+    transition: background-color 0.3s ease, color 0.3s ease;
     border-radius: 10px;
     position: relative;
     background: none;
     margin: 3px;
-    
+    opacity: 0.7; /* الشفافية البسيطة للزر الغير نشط */
 }
 
-/*.menu button.active {
-    border: none;
-    border-radius: 10px;
-    color: transparent;
-    background: linear-gradient(90deg, #794106, #9f620c, #d69a1c);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; 
-}*/
+.menu button.active {
+    color: #fff; /* اللون الأبيض للنص عند النشاط */
+    background: none;
+    opacity: 1; /* إزالة الشفافية عند النشاط */
+}
 
-/*.menu button:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    height: 65%;
-    width: 1px;
-    background: linear-gradient(90deg, #794106, #9f620c, #d69a1c);
-    top: 18%;
-}*/
-
-/*.menu button.active .menu-img {
-    background: linear-gradient(135deg, #794106, #9f620c, #d69a1c);
-    -webkit-background-clip: border-box;
-    border-radius: 10%;
-}*/
+.menu button.active img {
+    position: relative;
+    z-index: 2; /* وضع الصورة فوق الخلفية */
+} 
 
  
 .menu-img {
