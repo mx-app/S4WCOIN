@@ -29,7 +29,7 @@
 }
 
 .apply_PromoCode {
-    position: absolute; /* وضع الزر فوق خانة الإدخال */
+    position: fixed;/* وضع الزر فوق خانة الإدخال */
     top: 0; /* ضعه في الأعلى */
     right: 0; /* وضعه على اليمين */
     background: #fff;
