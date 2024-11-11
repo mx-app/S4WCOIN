@@ -22,7 +22,6 @@
     text-align: center;
     width: 100%;
     max-width: 400px;
-    height: 100vh;  /* لضمان ملء الارتفاع بالكامل */
     margin: 0 auto;  /* لتوسيط الحاوية أفقيًا */
     padding: 10px;
 }
