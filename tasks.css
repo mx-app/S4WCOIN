@@ -28,9 +28,14 @@
     padding-bottom: 5px; 
 } 
 
-/*.task-item button:hover {
-    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
-}*/
+.tasks {
+    width: 88%; 
+    background-color: rgba(255, 255, 255, 0.001);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid #343434;
+    border-top: 2px solid #343434;
+    border-radius: 10px;
+} 
 
 .task-button:disabled {
     background-color: none;
