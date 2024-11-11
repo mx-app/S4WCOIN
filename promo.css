@@ -9,7 +9,7 @@
 
 .promo-input {
     background-color: rgba(0, 0, 0, 0.7);
-    width: 50%;
+    width: 55%;
     height: 45px;
     font-size: 16px;
     border-radius: 10px;
@@ -27,7 +27,7 @@
     border: 1px solid #343434;
     cursor: pointer;
     width: 30%;
-    height: 50px;
+    height: 45px;
     font-size: 15px;
     display: flex;
     align-items: center;
