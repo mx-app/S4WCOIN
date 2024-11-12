@@ -48,7 +48,7 @@
     font-size: 14px;
     color: #fff;
     font-weight: bold;
-    /*border: 1px solid #343434;*/
+    border: 1px solid #343434;
     background-color: rgba(255, 255, 255, 0.04);
     border-radius: 10px; 
     transition: transform 0.2s ease, box-shadow 0.2s ease;
