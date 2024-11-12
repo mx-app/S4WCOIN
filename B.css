@@ -150,4 +150,18 @@
     vertical-align: middle;  /* لضبط المحاذاة بشكل جيد مع النص */
     margin-right: 2px;  /* لإضافة مسافة صغيرة بين الصورة والنص */
 }
- 
+
+
+#energyBoostLevel,
+#energyUpgradeCost,
+#robotBoostLevel,
+#RobotUpgradeCost,
+#coinBoostLevel,
+#coinUpgradeCost,
+#clickMultiplier,
+#boostUpgradeCost {
+    font-size: 15px;
+    color: #fff;
+    opacity: 0.7;
+}
+
