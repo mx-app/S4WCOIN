@@ -2123,8 +2123,6 @@ setInterval(updateHourlyEarnings, 60000);  // تحديث الربح كل دقي�
     
 
 
-
- 
 document.addEventListener('DOMContentLoaded', () => {
     // عناصر DOM الضرورية
     const dailyButton = document.getElementById('DailyButton');
@@ -2138,7 +2136,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // مكافآت الأيام المتتالية
     const dailyRewards = [5000, 10000, 15000, 30000, 60000, 100000, 200000, 300000, 400000];
 
-    // الدالة الرئيسية لتسجيل الدخول اليومي - تأخذ معرف المستخدم كمعامل
+    // التحقق من وجود معرف المستخدم
+    const userTelegramId = window.userTelegramId; // تأكد من أن المتغير معرف في السكربت المدمج مع HTML
+    if (!userTelegramId) {
+        console.error("User ID is not available.");
+        loginNotification.innerText = 'Error: User ID is not available.';
+        return; // عدم متابعة الكود إذا لم يكن هناك معرف مستخدم
+    }
+
+    // الدالة الرئيسية لتسجيل الدخول اليومي
     async function handleDailyLogin(userTelegramId) {
         // جلب بيانات المستخدم من قاعدة البيانات
         const { data, error } = await supabase
@@ -2154,7 +2160,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         let { last_login_date, consecutive_days } = data;
-        const today = new Date().toISOString().split('T')[0]; // تاريخ اليوم الحالي
+        const today = new Date().toISOString().split('T')[0]; // تاريخ اليوم الحالي بدون الوقت
 
         // التحقق من حالة تسجيل الدخول اليومي
         if (last_login_date === today) {
@@ -2193,6 +2199,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateClaimButton(day, reward) {
         loginClaimBtn.innerText = `Claim Day ${day} Reward: ${reward}`;
         loginClaimBtn.disabled = false;
+        loginClaimBtn.classList.remove('disabled');
     }
 
     // تعطيل الزر بعد المطالبة بالمكافأة
@@ -2254,18 +2261,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // عند الضغط على زر المطالبة بالمكافأة
     loginClaimBtn.addEventListener('click', async function () {
-        const userTelegramId = "معرف المستخدم المحفوظ"; // تأكد من جلب معرف المستخدم من المكان الذي تم جلبه فيه مسبقًا
         await handleDailyLogin(userTelegramId);
         disableClaimButton();
     });
 
     // فتح النافذة عند دخول المستخدم
     dailyButton.addEventListener('click', function () {
-        const userTelegramId = "معرف المستخدم المحفوظ"; // تأكد من جلب معرف المستخدم من المكان الذي تم جلبه فيه مسبقًا
         openDailyLoginModal(userTelegramId);
     });
 });
 
+ 
 
 
 
