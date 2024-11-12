@@ -2132,20 +2132,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginClaimBtn = document.getElementById('loginclaimBtn');
     const loginNotification = document.getElementById('login');
     const dayElements = document.querySelectorAll('.daily-item');
-
-    // مكافآت الأيام المتتالية
     const dailyRewards = [5000, 10000, 15000, 30000, 60000, 100000, 200000, 300000, 400000];
 
-    // التحقق من وجود معرف المستخدم
-    const userTelegramId = window.userTelegramId; // تأكد من أن المتغير معرف في السكربت المدمج مع HTML
-    if (!userTelegramId) {
-        console.error("User ID is not available.");
-        loginNotification.innerText = 'Error: User ID is not available.';
-        return; // عدم متابعة الكود إذا لم يكن هناك معرف مستخدم
-    }
 
     // الدالة الرئيسية لتسجيل الدخول اليومي
     async function handleDailyLogin(userTelegramId) {
+        try {
+            const userTelegramId = uiElements.userTelegramIdDisplay.innerText;
         // جلب بيانات المستخدم من قاعدة البيانات
         const { data, error } = await supabase
             .from('users')
@@ -2158,6 +2151,7 @@ document.addEventListener('DOMContentLoaded', () => {
             loginNotification.innerText = 'Error loading daily login. Please try again later.';
             return;
         }
+    } 
 
         let { last_login_date, consecutive_days } = data;
         const today = new Date().toISOString().split('T')[0]; // تاريخ اليوم الحالي بدون الوقت
