@@ -2120,12 +2120,11 @@ setInterval(updateHourlyEarnings, 60000);  // تحديث الربح كل دقي�
 /////////////////////////////////////////
 
 
-    
 
 
- 
-                
-    document.addEventListener('DOMContentLoaded', () => {
+
+
+document.addEventListener('DOMContentLoaded', () => {
     // عناصر DOM الضرورية
     const dailyButton = document.getElementById('DailyButton');
     const dailyCloseModal = document.getElementById('logindailycloseModal');
@@ -2139,6 +2138,8 @@ setInterval(updateHourlyEarnings, 60000);  // تحديث الربح كل دقي�
     // الدالة الرئيسية لتسجيل الدخول اليومي
     async function handleDailyLogin() {
         try {
+            const userTelegramId = uiElements.userTelegramIdDisplay.innerText; // الحصول على Telegram ID من واجهة المستخدم
+
             // جلب بيانات المستخدم من قاعدة البيانات
             const { data, error } = await supabase
                 .from('users')
@@ -2153,6 +2154,7 @@ setInterval(updateHourlyEarnings, 60000);  // تحديث الربح كل دقي�
             }
 
             let { last_login_date, consecutive_days } = data;
+            consecutive_days = consecutive_days || 0; // تعيين قيمة افتراضية إذا كانت غير موجودة
             const today = new Date().toISOString().split('T')[0]; // تاريخ اليوم فقط (YYYY-MM-DD)
 
             // التحقق من حالة تسجيل الدخول اليومي
@@ -2165,8 +2167,7 @@ setInterval(updateHourlyEarnings, 60000);  // تحديث الربح كل دقي�
 
             // التحقق من استمرارية الأيام المتتالية
             const lastLoginDateObj = new Date(last_login_date);
-            const timeDiff = new Date(today) - lastLoginDateObj;
-            const isConsecutive = timeDiff === 86400000; // 24 ساعة بالمللي ثانية
+            const isConsecutive = (new Date(today).getDate() - lastLoginDateObj.getDate()) === 1 && new Date(today).getMonth() === lastLoginDateObj.getMonth() && new Date(today).getFullYear() === lastLoginDateObj.getFullYear();
 
             if (isConsecutive) {
                 consecutive_days++;
@@ -2185,7 +2186,20 @@ setInterval(updateHourlyEarnings, 60000);  // تحديث الربح كل دقي�
             highlightRewardedDays(consecutive_days);
 
             // تحديث قاعدة البيانات
-            await updateDailyLoginInDatabase(today, consecutive_days);
+            const { updateError } = await supabase
+                .from('users')
+                .update({
+                    last_login_date: today,
+                    consecutive_days: consecutive_days
+                })
+                .eq('telegram_id', userTelegramId);
+
+            if (updateError) {
+                console.error('Error updating daily login data:', updateError);
+                loginNotification.innerText = 'Error saving progress. Please try again later.';
+            } else {
+                console.log('Database updated successfully');
+            }
         } catch (error) {
             console.error('Unexpected error in daily login:', error);
             loginNotification.innerText = 'Error processing your daily login. Please try again later.';
@@ -2218,24 +2232,6 @@ setInterval(updateHourlyEarnings, 60000);  // تحديث الربح كل دقي�
         });
     }
 
-    // تحديث بيانات المستخدم في قاعدة البيانات
-    async function updateDailyLoginInDatabase( today, consecutive_days) {
-        const { error } = await supabase
-            .from('users')
-            .update({
-                last_login_date: today,
-                consecutive_days: consecutive_days
-            })
-            .eq('telegram_id', userTelegramId);
-
-        if (error) {
-            console.error('Error updating daily login data:', error);
-            loginNotification.innerText = 'Error saving progress. Please try again later.';
-        } else {
-            console.log('Database updated successfully');
-        }
-    }
-
     // تحديث الرصيد
     function updateBalance(amount) {
         gameState.balance += amount;
@@ -2264,11 +2260,11 @@ setInterval(updateHourlyEarnings, 60000);  // تحديث الربح كل دقي�
 
     // فتح النافذة عند دخول المستخدم
     dailyButton.addEventListener('click', function () {
-        openDailyLoginModal();
+        openDailyLoginModal(userTelegramId);  // تأكد من تمرير userTelegramId هنا
     });
 });
 
- 
+
 
 
 
