@@ -924,27 +924,6 @@ body {
     color: #808080;
 }
 
-
-/* تنسيق معلومات المستوى الحالي */
-.additional-level-info {
-    font-size: 18px; /* حجم الخط */
-    font-weight: bold; /* جعل النص عريضًا */
-    color: #ffffff; /* اللون الأبيض للنص */
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 10px; /* حواف مستديرة */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* إضافة ظل خفيف حول النص */
-    text-align: center; /* محاذاة النص في الوسط */
-    margin-top: 20px; /* إضافة مسافة من الأعلى */
-    margin-bottom: 20px; /* إضافة مسافة من الأسفل */
-    padding-top: 10px; /* إضافة مسافة داخلية من الأعلى */
-    padding-bottom: 10px; 
-    width: 88%; /* عرض النص بنسبة 90% من عرض الحاوية */
-    max-width: 400px; /* تحديد أقصى عرض للنص */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* إضافة تأثيرات انتقال عند التفاعل */
-    margin-left: auto; /* محاذاة النص إلى اليسار */
-    margin-right: auto; /* محاذاة النص إلى اليمين */
-}
-
 /* تأثير عند المرور فوق النص */
 #currentLevelInfo:hover {
     transform: scale(1.05); /* تكبير النص عند المرور عليه */
@@ -1151,18 +1130,53 @@ body {
     border-radius: 5px;
 }
 
-#levelEnergyFiill {
-    height: 100%;
-    width: 0;
-    background-color: #fff;
-    border-radius: 5px;
+
+
+#levelPageCurrentLevelName {
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
 }
 
-.level-energy-fiill {
-    width: 80%;
+.energy-barrr-container {
+    width: 100%;
     height: 10px;
     background-color: rgba(255, 255, 255, 0.05);
     border-radius: 5px;
     overflow: hidden;
-    margin-left: 10px;
 }
+
+#levelPageEnergyFill {
+    height: 100%;
+    width: 0;
+    background-color: #76c7c0;
+    transition: width 0.3s ease;
+}
+
+#levelPageCurrentLevelCoins {
+    font-size: 10px;
+    font-weight: bold;
+    color: #fff;
+    opacity: 0.7;
+}
+/* تنسيق معلومات المستوى الحالي */
+.additional-level-info {
+    font-size: 18px; /* حجم الخط */
+    font-weight: bold; /* جعل النص عريضًا */
+    color: #ffffff; /* اللون الأبيض للنص */
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px; /* حواف مستديرة */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* إضافة ظل خفيف حول النص */
+    text-align: center; /* محاذاة النص في الوسط */
+    margin-top: 20px; /* إضافة مسافة من الأعلى */
+    margin-bottom: 20px; /* إضافة مسافة من الأسفل */
+    padding-top: 10px; /* إضافة مسافة داخلية من الأعلى */
+    padding-bottom: 10px; 
+    width: 88%; /* عرض النص بنسبة 90% من عرض الحاوية */
+    height: 100px;
+    max-width: 400px; /* تحديد أقصى عرض للنص */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* إضافة تأثيرات انتقال عند التفاعل */
+    margin-left: auto; /* محاذاة النص إلى اليسار */
+    margin-right: auto; /* محاذاة النص إلى اليمين */
+}
+
