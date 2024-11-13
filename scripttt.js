@@ -337,7 +337,7 @@ function registerEventHandlers() {
         uiElements.levelFloatingBtn.addEventListener('click', () => {
             navigateToScreen('levelPage');
             if (uiElements.levelInfoDisplay) {
-                uiElements.levelInfoDisplay.innerText = `You are currently on level ${gameState.currentLevel}`;
+                uiElements.levelInfoDisplay.innerText = `${gameState.currentLevel}`;
             }
             if (uiElements.displayedLevel) {
                 uiElements.displayedLevel.innerText = gameState.currentLevel;
