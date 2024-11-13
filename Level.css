@@ -10,11 +10,11 @@
 
 /* تصميم الأزرار */
 .navigation-buttons button {
-    padding: 15px 30px;
+    width: 100%;
+    height: 50px;
     font-size: 16px;
     background-color: rgba(0, 0, 0, 0.7); /* اللون الأسود مع الشفافية */
     color: #fff;
-    border: 2px solid rgba(255, 255, 255, 0.5); /* حدود خفيفة باللون الأبيض */
     border-radius: 5px;
     cursor: pointer;
     outline: none;
@@ -31,13 +31,6 @@
 /* تأثير الضغط على الزر */
 .navigation-buttons button:active {
     transform: scale(0.98); /* تصغير الزر عند الضغط عليه */
-}
-
-/* التأثيرات عند الانتقال بين الصفحات أو المحتوى */
-.level-item {
-    display: none; /* إخفاء جميع المستويات في البداية */
-    opacity: 0; /* إخفاء المحتوى */
-    transition: opacity 0.5s ease-in-out; /* تأثير الانتقال */
 }
 
 /* عند تفعيل العنصر، نقوم بعرضه مع تأثير */
@@ -97,6 +90,9 @@
     height: 50px;
     text-align: left;
     border: 1px solid #343434;
+    display: none; /* إخفاء جميع المستويات في البداية */
+    opacity: 0; /* إخفاء المحتوى */
+    transition: opacity 0.5s ease-in-out; /* تأثير الانتقال */
 }
 
 .level-image {
