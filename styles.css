@@ -1134,6 +1134,8 @@ body {
 .level-text {
     flex: 1; /* يتمدد النص ليملأ المساحة المتبقية */
     text-align: left; /* محاذاة النص إلى اليسار */
+    display: flex;
+    flex-direction: column;
 }
 
 .energy-barrr-container {
