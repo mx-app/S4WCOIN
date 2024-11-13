@@ -337,7 +337,7 @@ function registerEventHandlers() {
         uiElements.levelFloatingBtn.addEventListener('click', () => {
             navigateToScreen('levelPage');
             if (uiElements.levelInfoDisplay) {
-                uiElements.levelInfoDisplay.innerText = `${gameState.currentLevel}`;
+                uiElements.levelInfoDisplay.innerText = `Lvl : ${gameState.currentLevel}`;
             }
             if (uiElements.displayedLevel) {
                 uiElements.displayedLevel.innerText = gameState.currentLevel;
@@ -654,7 +654,7 @@ function updateLevelDisplay() {
 
         if (mainLevelCoinsElement && mainEnergyFill) {
             const progressMain = Math.min(gameState.balance / currentLevelData.threshold, 1) * 100;
-            mainLevelCoinsElement.innerText = `Next Lvl ${Math.round(progressMain)}%`; // عرض النسبة المئوية
+            mainLevelCoinsElement.innerText = `Next Lvl : ${Math.round(progressMain)}%`; // عرض النسبة المئوية
             mainEnergyFill.style.width = `${progressMain}%`; // تحديث عرض شريط الطاقة
         }
 
@@ -666,11 +666,11 @@ function updateLevelDisplay() {
 
         if (levelPageImage && levelPageName && levelPageCoinsElement && levelPageEnergyFill) {
             levelPageImage.src = currentLevelData.image;
-            levelPageImage.alt = `Level ${gameState.currentLevel}`;
-            levelPageName.innerText = `lvl ${currentLevelData.name}`;
+            levelPageImage.alt = `Level : ${gameState.currentLevel}`;
+            levelPageName.innerText = `Lvl : ${currentLevelData.name}`;
 
             const progressPage = Math.min(gameState.balance / currentLevelData.threshold, 1) * 100;
-            levelPageCoinsElement.innerText = `Next Lvl ${Math.round(progressPage)}%`;
+            levelPageCoinsElement.innerText = `Next Lvl : ${Math.round(progressPage)}%`;
             levelPageEnergyFill.style.width = `${progressPage}%`;
         }
 
