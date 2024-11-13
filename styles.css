@@ -511,15 +511,15 @@ body {
 } 
 
 .invite-icon {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     margin-right: 0; /* مسافة بين الصورة والنص */
     flex-shrink: 0;
 }
 
 .copy-icon {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     margin-right: 0; /* مسافة بين الصورة والنص */
     flex-shrink: 0;
 } 
@@ -1114,7 +1114,6 @@ body {
 }
 
 
-
 #levelPageCurrentLevelName {
     font-size: 15px;
     font-weight: bold;
@@ -1131,7 +1130,7 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* إضافة ظل خفيف حول الرقم */
 }
 
-.level-text {
+.level-texxt {
     flex: 1; /* يتمدد النص ليملأ المساحة المتبقية */
     text-align: left; /* محاذاة النص إلى اليسار */
     display: flex;
