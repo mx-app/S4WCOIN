@@ -1172,6 +1172,7 @@ body {
     margin-bottom: 10px; 
     margin: 10px; 
     width: 88%;
+    height: 150px;
     max-width: 400px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
