@@ -1131,13 +1131,19 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* إضافة ظل خفيف حول الرقم */
 }
 
-.energy-barrr-container {
-    width: 60%;
+.level-text {
+    flex: 1; /* يتمدد النص ليملأ المساحة المتبقية */
+    text-align: left; /* محاذاة النص إلى اليسار */
+}
+
+.level-energy-barr {
+    width: 80%; /* عرض شريط الطاقة بالنسبة للحاوية */
     height: 10px;
     background-color: rgba(255, 255, 255, 0.05);
     border-radius: 5px;
     overflow: hidden;
-}
+    margin-left: auto; /* لضمان محاذاة الشريط إلى اليمين */
+} 
 
 #levelPageEnergyFill {
     height: 100%;
@@ -1154,35 +1160,26 @@ body {
     margin-bottom: 10px; 
 }
 
-/* تنسيق معلومات المستوى الحالي */
 .additional-level-info {
-    font-size: 15px; /* حجم الخط */
-    font-weight: bold; /* جعل النص عريضًا */
-    color: #ffffff; /* اللون الأبيض للنص */
+    font-size: 15px;
+    font-weight: bold;
+    color: #ffffff;
     background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 10px; /* حواف مستديرة */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* إضافة ظل خفيف حول النص */
-    margin-top: 20px; /* إضافة مسافة من الأعلى */
-    margin-bottom: 20px; /* إضافة مسافة من الأسفل */
-    padding-top: 10px; /* إضافة مسافة داخلية من الأعلى */
-    padding-bottom: 10px; 
-    width: 88%; /* عرض النص بنسبة 90% من عرض الحاوية */
-    height: 150px;
-    max-width: 400px; /* تحديد أقصى عرض للنص */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* إضافة تأثيرات انتقال عند التفاعل */
-    margin-left: auto; /* محاذاة النص إلى اليسار */
-    margin-right: auto; /* محاذاة النص إلى اليمين */
-    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    padding: 10px;
+    width: 88%;
+    max-width: 400px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    justify-content: space-between; /* توزيع العناصر */
 }
 
 .levell-image {
-    width: 60px; /* حجم ثابت للصورة */
-    height: 60px; /* حجم ثابت للصورة */
-    margin-right: 0; /* مسافة بين الصورة والنص */
-    object-fit: contain; /* لضمان تناسب الصورة مع الحاوية */
-    flex-shrink: 0; /* لضمان عدم تقلص الصورة */
-} 
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-right: 10px; /* مسافة بين الصورة والنص */
+}
