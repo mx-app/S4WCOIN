@@ -1118,33 +1118,38 @@ body {
     font-size: 15px;
     font-weight: bold;
     color: #fff;
+    margin-bottom: 5px; /* إضافة مسافة بين اسم المستوى ورقم المستوى */
+    text-align: left; /* محاذاة لليسار */
 }
+
 /* تنسيق رقم المستوى داخل النص */
 #displayedLevel {
-    font-size: 15px; /* زيادة حجم الرقم */
-    font-weight: bold; /* جعل الرقم عريضًا */
-    color: #343434; /* لون داكن للرقم */
-    background-color: #fff; /* خلفية بيضاء للرقم */
-    padding: 5px 10px; /* إضافة مسافة حول الرقم */
-    border-radius: 50%; /* جعل الرقم داخل دائرة */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* إضافة ظل خفيف حول الرقم */
+    font-size: 15px;
+    font-weight: bold;
+    color: #343434;
+    background-color: #fff;
+    padding: 5px 10px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-right: 10px; /* مسافة بين رقم المستوى واسم المستوى */
 }
 
 .level-texxt {
-    flex: 1; /* يتمدد النص ليملأ المساحة المتبقية */
-    text-align: left; /* محاذاة النص إلى اليسار */
+    flex: 1;
+    text-align: left;
     display: flex;
     flex-direction: column;
+    gap: 5px; /* مسافة بين العناصر */
 }
 
 .energy-barrr-container {
-    width: 80%; /* عرض شريط الطاقة بالنسبة للحاوية */
+    width: 80%;
     height: 10px;
     background-color: rgba(255, 255, 255, 0.05);
     border-radius: 5px;
     overflow: hidden;
-    margin-left: auto; /* لضمان محاذاة الشريط إلى اليمين */
-} 
+    margin: 5px auto; /* تمركز شريط الطاقة في المنتصف */
+}
 
 #levelPageEnergyFill {
     height: 100%;
@@ -1158,7 +1163,8 @@ body {
     font-weight: bold;
     color: #fff;
     opacity: 0.7;
-    margin-bottom: 10px; 
+    text-align: center; /* تمركز النص */
+    margin-bottom: 5px; /* مسافة بين "Next Level" وشريط الطاقة */
 }
 
 .additional-level-info {
@@ -1168,7 +1174,7 @@ body {
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     padding: 10px;
-    margin: 10px auto 70px; /* مسافة بين الحاوية والحاوية الأخرى */
+    margin: 10px auto 70px;
     width: 86%;
     height: 130px;
     max-width: 400px;
@@ -1184,5 +1190,7 @@ body {
     width: 60px;
     height: 60px;
     object-fit: contain;
-    margin-right: 10px; /* مسافة بين الصورة والنص */
+    margin-right: 15px; /* مسافة بين الصورة والنص */
 }
+
+
