@@ -1,1 +1,159 @@
 
+.level-item.current-level {
+    border: 2px solid silver; 
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #ffffff; 
+    font-weight: bold; 
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6); /* إضافة توهج */
+}
+
+#currentLevelImage {
+    width: 30px; /* عرض الصورة بوضعها الطبيعي أو ما يتناسب مع حجم الزر */
+    height: 30px; /* ارتفاع الصورة */
+    object-fit: contain; /* لضبط الصورة بحيث لا تتشوه */
+}
+
+
+#level1 .level-name, 
+#level2 .level-name, 
+#level3 .level-name {
+    background-color: transparent;
+    background: linear-gradient(90deg, #c0c0c0, #87CEFA, #dcdcdc, #4682B4);
+    
+   /* background: linear-gradient(90deg, #c0c0c0, #dcdcdc, #e5e4e2, #f5f5f5);*/
+    -webkit-background-clip: text; 
+    background-clip: text;
+    color: transparent;
+}
+
+#level4 .level-name, 
+#level5 .level-name, 
+#level6 .level-name {
+    background-color: transparent;
+    background: linear-gradient(90deg, #d69a1c, #794106, #9f620c, #d69a1c);
+    -webkit-background-clip: text; 
+    background-clip: text;
+    color: transparent;
+}
+
+
+#level7 .level-name, 
+#level8 .level-name, 
+#level9 .level-name, 
+#level10 .level-name {
+    background-color: transparent;
+    background: linear-gradient(90deg, #6a0dad, #483d8b, #4169e1, #87cefa);
+    -webkit-background-clip: text; 
+    background-clip: text;
+    color: transparent;
+}
+
+
+/* تدرجات اللون للمستويات من 1 إلى 3 */
+.level-gradient-green {
+    background-color: transparent;
+    background: linear-gradient(90deg, #c0c0c0, #87CEFA, #dcdcdc, #4682B4);
+    
+  /*  background: linear-gradient(90deg, #c0c0c0, #dcdcdc, #e5e4e2, #f5f5f5);*/
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* تدرجات اللون للمستويات من 4 إلى 6 */
+.level-gradient-brown {
+    background-color: transparent;
+    background: linear-gradient(90deg,  #d69a1c, #794106, #9f620c, #d69a1c);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* تدرجات اللون للمستويات من 7 إلى 10 */
+.level-gradient-blue {
+    background-color: transparent;
+    background: linear-gradient(90deg, #6a0dad, #483d8b, #4169e1, #87cefa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+#levelPageCurrentLevelName {
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 5px; /* إضافة مسافة بين اسم المستوى ورقم المستوى */
+    text-align: left; /* محاذاة لليسار */
+}
+
+/* تنسيق رقم المستوى داخل النص */
+#displayedLevel {
+    font-size: 15px;
+    font-weight: bold;
+    color: #343434;
+    background-color: #fff;
+    padding: 5px 10px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-right: 10px; /* مسافة بين رقم المستوى واسم المستوى */
+}
+
+.level-texxt {
+    flex: 1;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* مسافة بين العناصر */
+}
+
+.energy-barrr-container {
+    width: 80%;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 5px auto; /* تمركز شريط الطاقة في المنتصف */
+}
+
+#levelPageEnergyFill {
+    height: 100%;
+    width: 0;
+    background-color: #fff;
+    transition: width 0.3s ease;
+}
+
+#levelPageCurrentLevelCoins {
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+    opacity: 0.7;
+    text-align: center; /* تمركز النص */
+    margin-bottom: 5px; /* مسافة بين "Next Level" وشريط الطاقة */
+}
+
+.additional-level-info {
+    font-size: 15px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px auto 70px;
+    width: 86%;
+    height: 130px;
+    max-width: 400px;
+    border: 1px solid #343434;
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.2), 0 0 8px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.levell-image {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-right: 15px; /* مسافة بين الصورة والنص */
+}
+
