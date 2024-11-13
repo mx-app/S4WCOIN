@@ -655,12 +655,12 @@ function updateLevelDisplay() {
 
         if (mainLevelCoinsElement && mainEnergyFill) {
             const progressMain = Math.min(gameState.balance / currentLevelData.threshold, 1) * 100;
-            mainLevelCoinsElement.innerText = `lvl ${gameState.balance} / ${currentLevelData.threshold}`;
+            mainLevelCoinsElement.innerText = `Next. lvl ${gameState.balance} / ${currentLevelData.threshold}`;
             mainEnergyFill.style.width = `${progressMain}%`;
         }
 
         // تحديث العناصر في صفحة المستويات
-        const levelPageImage = document.getElementById('currentLevelImage');
+        const levelPageImage = document.getElementById('currentLevelImagee');
         const levelPageName = document.getElementById('levelPageCurrentLevelName');
         const levelPageCoinsElement = document.getElementById('levelPageCurrentLevelCoins');
         const levelPageEnergyFill = document.getElementById('levelPageEnergyFill');
