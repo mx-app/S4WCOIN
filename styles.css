@@ -1132,7 +1132,7 @@ body {
 }
 
 .energy-barrr-container {
-    width: 100%;
+    width: 60%;
     height: 10px;
     background-color: rgba(255, 255, 255, 0.05);
     border-radius: 5px;
@@ -1142,16 +1142,18 @@ body {
 #levelPageEnergyFill {
     height: 100%;
     width: 0;
-    background-color: #76c7c0;
+    background-color: #fff;
     transition: width 0.3s ease;
 }
 
 #levelPageCurrentLevelCoins {
-    font-size: 10px;
+    font-size: 15px;
     font-weight: bold;
     color: #fff;
     opacity: 0.7;
+    margin-bottom: 10px; 
 }
+
 /* تنسيق معلومات المستوى الحالي */
 .additional-level-info {
     font-size: 18px; /* حجم الخط */
@@ -1166,7 +1168,7 @@ body {
     padding-top: 10px; /* إضافة مسافة داخلية من الأعلى */
     padding-bottom: 10px; 
     width: 88%; /* عرض النص بنسبة 90% من عرض الحاوية */
-    height: 100px;
+    height: 150px;
     max-width: 400px; /* تحديد أقصى عرض للنص */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* إضافة تأثيرات انتقال عند التفاعل */
     margin-left: auto; /* محاذاة النص إلى اليسار */
