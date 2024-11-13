@@ -645,11 +645,9 @@ function checkEnergyFill() {
 
 
 // تحديث المستوي 
-// تحديث المستوي
 function updateLevelDisplay() {
     checkForLevelUp();
 
-    // عرض صورة واسم المستوى الحالي داخل الزر
     const currentLevelData = levelThresholds.find(lvl => lvl.level === gameState.currentLevel);
     if (currentLevelData) {
         const levelImageElement = document.getElementById('currentLevelImage');
@@ -657,10 +655,9 @@ function updateLevelDisplay() {
 
         levelImageElement.src = currentLevelData.image;
         levelImageElement.alt = `Level ${gameState.currentLevel}`;
-        levelNameElement.innerText = `${currentLevelData.name}`;  // إضافة كلمة "lvl"
+        levelNameElement.innerText = `lvl ${currentLevelData.name}`;
 
         levelNameElement.classList.remove('level-gradient-green', 'level-gradient-brown', 'level-gradient-blue');
-
         if (gameState.currentLevel >= 1 && gameState.currentLevel <= 3) {
             levelNameElement.classList.add('level-gradient-green');
         } else if (gameState.currentLevel >= 4 && gameState.currentLevel <= 6) {
@@ -670,27 +667,15 @@ function updateLevelDisplay() {
         }
     }
 
-    document.querySelectorAll('.level-item').forEach(item => {
-        item.classList.remove('current-level');
-    });
-
-    const currentLevelElement = document.getElementById(`level${gameState.currentLevel}`);
-    if (currentLevelElement) {
-        currentLevelElement.classList.add('current-level');
-    }
-
-    // تحديث شريط التقدم لكل مستوى
-    if (uiElements.level1Progress) uiElements.level1Progress.style.width = `${(gameState.balance / levelThresholds[0].threshold) * 100}%`;
-
     const currentThreshold = levelThresholds.find(lvl => lvl.level === gameState.currentLevel);
     if (currentThreshold) {
         const currentLevelCoinsElement = document.getElementById('currentLevelCoins');
-        const levelEnergyFill = document.getElementById('levelEnergyFill'); // شريط الطاقة الجديد
+        const levelEnergyFill = document.getElementById('levelEnergyFill');
 
         if (currentLevelCoinsElement && levelEnergyFill) {
             const progress = Math.min(gameState.balance / currentThreshold.threshold, 1) * 100;
-            currentLevelCoinsElement.innerText = `Next Lvl ${Math.round(progress)}%`;  // عرض النسبة المئوية
-            levelEnergyFill.style.width = `${progress}%`; // تحديث عرض شريط الطاقة
+            currentLevelCoinsElement.innerText = `Next Lvl ${Math.round(progress)}%`;
+            levelEnergyFill.style.width = `${progress}%`;
         }
     }
 }
