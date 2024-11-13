@@ -1167,9 +1167,9 @@ body {
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     padding: 10px;
-    margin: 10px auto 40px; /* مسافة بين الحاوية والحاوية الأخرى */
-    width: 88%;
-    height: 150px;
+    margin: 10px auto 70px; /* مسافة بين الحاوية والحاوية الأخرى */
+    width: 86%;
+    height: 130px;
     max-width: 400px;
     border: 1px solid #343434;
     box-shadow: 0 0 4px rgba(255, 255, 255, 0.2), 0 0 8px rgba(255, 255, 255, 0.1);
