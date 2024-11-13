@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // إظهار المجموعة الأولى افتراضيًا عند تحميل الصفحة
-    showLevels(1);
+    // إظهار المستويات العشر الأولى افتراضيًا عند تحميل الصفحة
+    showLevels(1, 10);
 
     // الحصول على الأزرار من DOM
     const buttons = document.querySelectorAll('#navigationButtons button');
