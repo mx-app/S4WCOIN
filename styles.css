@@ -1136,7 +1136,7 @@ body {
     text-align: left; /* محاذاة النص إلى اليسار */
 }
 
-.level-energy-barr {
+.energy-barrr-container {
     width: 80%; /* عرض شريط الطاقة بالنسبة للحاوية */
     height: 10px;
     background-color: rgba(255, 255, 255, 0.05);
@@ -1167,8 +1167,10 @@ body {
     background-color: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
+    margin-top: 50px;
     padding: 10px;
+    margin-bottom: 10px; 
+    margin: 10px; 
     width: 88%;
     max-width: 400px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
