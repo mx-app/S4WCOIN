@@ -1173,5 +1173,16 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* إضافة تأثيرات انتقال عند التفاعل */
     margin-left: auto; /* محاذاة النص إلى اليسار */
     margin-right: auto; /* محاذاة النص إلى اليمين */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
+.levell-image {
+    width: 60px; /* حجم ثابت للصورة */
+    height: 60px; /* حجم ثابت للصورة */
+    margin-right: 0; /* مسافة بين الصورة والنص */
+    object-fit: contain; /* لضمان تناسب الصورة مع الحاوية */
+    flex-shrink: 0; /* لضمان عدم تقلص الصورة */
+} 
