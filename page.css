@@ -55,7 +55,7 @@
 
 
 #levelPage {
-    padding-top: 5px; /* يمكنك تغيير القيمة حسب الحاجة */
+    padding-top: 80px; /* يمكنك تغيير القيمة حسب الحاجة */
     background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
     overflow-y: auto; /* لجعل الصفحة قابلة للتمرير */
     padding-bottom: 40px; /* مسافة سفلية */
