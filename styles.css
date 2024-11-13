@@ -1156,13 +1156,12 @@ body {
 
 /* تنسيق معلومات المستوى الحالي */
 .additional-level-info {
-    font-size: 18px; /* حجم الخط */
+    font-size: 15px; /* حجم الخط */
     font-weight: bold; /* جعل النص عريضًا */
     color: #ffffff; /* اللون الأبيض للنص */
     background-color: rgba(255, 255, 255, 0.05);
     border-radius: 10px; /* حواف مستديرة */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* إضافة ظل خفيف حول النص */
-    text-align: center; /* محاذاة النص في الوسط */
     margin-top: 20px; /* إضافة مسافة من الأعلى */
     margin-bottom: 20px; /* إضافة مسافة من الأسفل */
     padding-top: 10px; /* إضافة مسافة داخلية من الأعلى */
@@ -1173,8 +1172,9 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* إضافة تأثيرات انتقال عند التفاعل */
     margin-left: auto; /* محاذاة النص إلى اليسار */
     margin-right: auto; /* محاذاة النص إلى اليمين */
+    margin: 10px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     flex-direction: column;
 }
