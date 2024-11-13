@@ -7,6 +7,7 @@
   right: 0;
   height: 100%;
   width: 100%;
+  background: linear-gradient(45deg, #00FFA3, #DC1FFF, #4E44CE);
 }
 
 .peeek-loading ul {
