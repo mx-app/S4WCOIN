@@ -1166,20 +1166,17 @@ body {
     color: #ffffff;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 50px;
     padding: 10px;
-    margin-bottom: 80px; 
-    margin: 10px; 
+    margin: 10px auto 40px; /* مسافة بين الحاوية والحاوية الأخرى */
     width: 88%;
     height: 150px;
     max-width: 400px;
     border: 1px solid #343434;
-    box-shadow: 0 0 6px rgba(255, 255, 255, 0.4), 0 0 12px rgba(255, 255, 255, 0.3), 0 0 18px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.2), 0 0 8px rgba(255, 255, 255, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* توزيع العناصر */
+    justify-content: space-between;
 }
 
 .levell-image {
