@@ -643,20 +643,19 @@ function checkEnergyFill() {
     }
 }
 
-//المستويات 
 function updateLevelDisplay() {
     checkForLevelUp();
 
     const currentLevelData = levelThresholds.find(lvl => lvl.level === gameState.currentLevel);
     if (currentLevelData) {
-        // تحديث العناصر في الصفحة الرئيسية
+        // تحديث العناصر في الواجهة الرئيسية
         const mainLevelCoinsElement = document.getElementById('currentLevelCoins');
         const mainEnergyFill = document.getElementById('levelEnergyFill');
 
         if (mainLevelCoinsElement && mainEnergyFill) {
             const progressMain = Math.min(gameState.balance / currentLevelData.threshold, 1) * 100;
-            mainLevelCoinsElement.innerText = `Next. lvl ${gameState.balance} / ${currentLevelData.threshold}`;
-            mainEnergyFill.style.width = `${progressMain}%`;
+            mainLevelCoinsElement.innerText = `Next Lvl ${Math.round(progressMain)}%`; // عرض النسبة المئوية
+            mainEnergyFill.style.width = `${progressMain}%`; // تحديث عرض شريط الطاقة
         }
 
         // تحديث العناصر في صفحة المستويات
@@ -674,8 +673,19 @@ function updateLevelDisplay() {
             levelPageCoinsElement.innerText = `Next Lvl ${Math.round(progressPage)}%`;
             levelPageEnergyFill.style.width = `${progressPage}%`;
         }
+
+        // تحديث الزر العائم
+        const floatingButtonImage = document.getElementById('currentLevelImage');
+        const floatingButtonName = document.getElementById('currentLevelName');
+
+        if (floatingButtonImage && floatingButtonName) {
+            floatingButtonImage.src = currentLevelData.image;
+            floatingButtonImage.alt = ` ${gameState.currentLevel}`;
+            floatingButtonName.innerText = ` ${currentLevelData.name}`;
+        }
     }
 }
+
 
 
 
