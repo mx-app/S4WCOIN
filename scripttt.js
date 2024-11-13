@@ -296,7 +296,7 @@ function updateUI() {
     }
 
     if (uiElements.displayedLevel) {
-        uiElements.displayedLevel.innerText = `Level ${gameState.currentLevel}`;
+        uiElements.displayedLevel.innerText = ` ${gameState.currentLevel}`;
     }
 
     updateBoostsDisplay();
