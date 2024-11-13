@@ -926,7 +926,7 @@ body {
 
 
 /* تنسيق معلومات المستوى الحالي */
-#currentLevelInfo {
+.additional-level-info {
     font-size: 18px; /* حجم الخط */
     font-weight: bold; /* جعل النص عريضًا */
     color: #ffffff; /* اللون الأبيض للنص */
