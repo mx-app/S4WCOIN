@@ -643,39 +643,36 @@ function checkEnergyFill() {
     }
 }
 
-
-// تحديث المستوي 
+//المستويات 
 function updateLevelDisplay() {
     checkForLevelUp();
 
     const currentLevelData = levelThresholds.find(lvl => lvl.level === gameState.currentLevel);
     if (currentLevelData) {
-        const levelImageElement = document.getElementById('currentLevelImage');
-        const levelNameElement = document.getElementById('currentLevelName');
+        // تحديث العناصر في الصفحة الرئيسية
+        const mainLevelCoinsElement = document.getElementById('currentLevelCoins');
+        const mainEnergyFill = document.getElementById('levelEnergyFill');
 
-        levelImageElement.src = currentLevelData.image;
-        levelImageElement.alt = `Level ${gameState.currentLevel}`;
-        levelNameElement.innerText = `lvl ${currentLevelData.name}`;
-
-        levelNameElement.classList.remove('level-gradient-green', 'level-gradient-brown', 'level-gradient-blue');
-        if (gameState.currentLevel >= 1 && gameState.currentLevel <= 3) {
-            levelNameElement.classList.add('level-gradient-green');
-        } else if (gameState.currentLevel >= 4 && gameState.currentLevel <= 6) {
-            levelNameElement.classList.add('level-gradient-brown');
-        } else if (gameState.currentLevel >= 7 && gameState.currentLevel <= 10) {
-            levelNameElement.classList.add('level-gradient-blue');
+        if (mainLevelCoinsElement && mainEnergyFill) {
+            const progressMain = Math.min(gameState.balance / currentLevelData.threshold, 1) * 100;
+            mainLevelCoinsElement.innerText = `lvl ${gameState.balance} / ${currentLevelData.threshold}`;
+            mainEnergyFill.style.width = `${progressMain}%`;
         }
-    }
 
-    const currentThreshold = levelThresholds.find(lvl => lvl.level === gameState.currentLevel);
-    if (currentThreshold) {
-        const currentLevelCoinsElement = document.getElementById('currentLevelCoins');
-        const levelEnergyFill = document.getElementById('levelEnergyFill');
+        // تحديث العناصر في صفحة المستويات
+        const levelPageImage = document.getElementById('currentLevelImage');
+        const levelPageName = document.getElementById('levelPageCurrentLevelName');
+        const levelPageCoinsElement = document.getElementById('levelPageCurrentLevelCoins');
+        const levelPageEnergyFill = document.getElementById('levelPageEnergyFill');
 
-        if (currentLevelCoinsElement && levelEnergyFill) {
-            const progress = Math.min(gameState.balance / currentThreshold.threshold, 1) * 100;
-            currentLevelCoinsElement.innerText = `Next Lvl ${Math.round(progress)}%`;
-            levelEnergyFill.style.width = `${progress}%`;
+        if (levelPageImage && levelPageName && levelPageCoinsElement && levelPageEnergyFill) {
+            levelPageImage.src = currentLevelData.image;
+            levelPageImage.alt = `Level ${gameState.currentLevel}`;
+            levelPageName.innerText = `lvl ${currentLevelData.name}`;
+
+            const progressPage = Math.min(gameState.balance / currentLevelData.threshold, 1) * 100;
+            levelPageCoinsElement.innerText = `Next Lvl ${Math.round(progressPage)}%`;
+            levelPageEnergyFill.style.width = `${progressPage}%`;
         }
     }
 }
