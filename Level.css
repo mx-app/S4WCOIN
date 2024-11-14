@@ -138,24 +138,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    top: 60px; 
+    top: 65px; 
     left: 20px; 
     width: 40%;
     height: 35px;
     padding: 5px;
     color: #ffffff; 
-   /* left: 68px; */
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
-    font-size: 16px;
+    font-size: 15px;
     font-weight: bold;
     border-radius: 10px;
-   /* border-bottom: 2px solid #343434;*/
+    border: 1px solid #343434;
     cursor: pointer;
-    z-index: 100;  
-   /* border-left: 2px solid #fff;
-    border-right: 2px solid #fff;*/
-
+    z-index: 100;
 }  
 
 .level-button-floating:hover {
@@ -163,8 +159,8 @@
 }
 
 .arrow {
-    font-size: 18px; /* تخصيص حجم السهم */
-    margin-left: 8px; /* المسافة بين السهم والمحتوى */
+    font-size: 16px; /* تخصيص حجم السهم */
+    margin-left: 7px; /* المسافة بين السهم والمحتوى */
     color: #fff;
     opacity: 0.7;
 } 
