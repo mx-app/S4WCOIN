@@ -199,8 +199,8 @@ body {
 #balanceAmount {
     font-family: 'JetBrains Mono', monospace;
     font-weight: 800;
-    margin-top: 50px;
-    font-size: 30px;
+    margin-top: 70px;
+    font-size: 33px;
     color: #fff;
     display: flex;
     align-items: center; /* لضبط المحاذاة الرأسية بين الصورة والنص */
