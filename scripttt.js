@@ -1124,7 +1124,7 @@ function claimTaskReward(taskId, reward) {
 window.Telegram.WebApp.setHeaderColor('#000000'); 
 window.Telegram.WebApp.setBackgroundColor('#000000'); 
 
-//تهيئه تليجرام 
+// تهيئة تكامل تليجرام
 function initializeTelegramIntegration() {
     const telegramApp = window.Telegram.WebApp;
 
@@ -1138,6 +1138,7 @@ function initializeTelegramIntegration() {
         // تنفيذ الإجراء المطلوب عند النقر على زر الرجوع
         // مثال: العودة إلى الشاشة السابقة أو إغلاق النافذة الحالية
         history.back(); // العودة للصفحة السابقة
+        // يمكنك استبدال هذه السطر بإجراء آخر إذا كنت تحتاج لإغلاق النافذة أو العودة إلى شاشة معينة
     });
 
     // إعدادات اللون والاسم
@@ -1153,6 +1154,7 @@ function initializeTelegramIntegration() {
         document.documentElement.style.setProperty('--text-color-dark', '#000');
     }
 
+    // إدارة حدث المشاركة
     telegramApp.onEvent('share', () => {
         gameState.balance += 50000;
         updateUI();
@@ -1161,6 +1163,8 @@ function initializeTelegramIntegration() {
         saveGameState();
     });
 }
+
+
 
 ///////////////////////////////////////
      
