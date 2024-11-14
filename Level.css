@@ -10,7 +10,7 @@
     border-radius: 10px;
     margin-left: auto;
     margin-right: auto; 
-    background-color: rgba(255, 255, 255, 0.01);
+    background-color: rgba(255, 255, 255, 0.02);
 }
 
 /* تصميم الأزرار */
@@ -24,7 +24,7 @@
     border-radius: 10px;
     border: none; /* إزالة الحدود الافتراضية */
     cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.02);
+    background-color: rgba(255, 255, 255, 0.01);
 }
 
 .level-item {
@@ -301,7 +301,7 @@
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     padding: 10px;
-    margin: 10px auto 70px;
+    margin: 10px auto 50px;
     width: 86%;
     height: 130px;
     max-width: 400px;
