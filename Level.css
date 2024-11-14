@@ -116,7 +116,6 @@
 .level-name {
     text-align: center;
     font-weight: bold;
-    font-size: 12px;
   /*  padding-left: 20px; */
 }
 
@@ -124,6 +123,7 @@
     text-align: right;
     font-weight: bold;
     padding-right: 20px;
+    font-size: 12px;
 } 
 
  .level-button-floating {
