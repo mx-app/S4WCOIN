@@ -14,7 +14,7 @@
 .navigation-buttons button {
     flex: 1; /* توزيع المساحة بالتساوي بين الأزرار */
     height: 50px;
-    font-size: 16px;
+    font-size: 10px;
     background-color: rgba(0, 0, 0, 0.7); /* اللون الأسود مع الشفافية */
     color: #fff;
     border-radius: 5px;
