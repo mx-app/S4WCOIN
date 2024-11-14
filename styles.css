@@ -379,7 +379,9 @@ body {
     justify-content: space-between;
     padding: 4px;
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.05);
+    background: linear-gradient(135deg, rgba(60, 60, 60, 0.9), rgba(30, 30, 30, 0.9));
+
+   /* background-color: rgba(255, 255, 255, 0.05);*/
     position: fixed;
     bottom: 30px;
     box-sizing: border-box; 
