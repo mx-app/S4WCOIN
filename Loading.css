@@ -24,8 +24,7 @@
   /* تغيير الحجم لتصغير الدوائر بشكل أكبر */
   width: 1em;  /* أصغر من 1.2em إلى 1em */
   height: 1em; /* أصغر من 1.2em إلى 1em */
-  background: linear-gradient(45deg, #00FFA3, #DC1FFF, #4E44CE);
-
+  background: #000;
   border-radius: 100%; /* دائرة كاملة */
   content: "";
   display: block;
