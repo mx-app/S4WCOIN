@@ -448,6 +448,7 @@ body {
     transform: translateX(-50%); /* لتحريك الزرين لتمركزهم */
     width: calc(100% - 40px); /* لضبط العرض لتجنب حدود الشاشة */
     padding: 10px; /* مساحة داخلية حول الأزرار */
+    z-index: 100;
 }
 
 .invite-image {
@@ -474,7 +475,6 @@ body {
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    z-index: 100;
 }
 
 
@@ -838,7 +838,7 @@ body {
 #hourlyEarningsContainer {
     position: fixed;
     top: 5px;
-    width: 86%;
+    width: 88%;
     height: 35px;
     display: flex;
     align-items: center;
