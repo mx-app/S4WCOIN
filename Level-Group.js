@@ -8,6 +8,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // إضافة مستمع حدث لكل زر مع نطاق محدد
     buttons.forEach((button, index) => {
         button.addEventListener('click', function() {
+            // إزالة الخلفية النشطة من جميع الأزرار
+            buttons.forEach(btn => btn.classList.remove('active'));
+            // إضافة الخلفية النشطة للزر الحالي
+            button.classList.add('active');
+            
             let levelStart, levelEnd;
 
             // تحديد نطاق المستويات بناءً على ترتيب الزر
