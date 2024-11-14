@@ -8,6 +8,8 @@
     width: 88%;
     height: 50px;
     gap: 10px; /* المسافة بين الأزرار */
+    border: 1px solid #343434;
+    border-radius: 10px;
 }
 
 /* تصميم الأزرار */
@@ -17,47 +19,12 @@
     font-size: 10px;
     background-color: rgba(0, 0, 0, 0.7); /* اللون الأسود مع الشفافية */
     color: #fff;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     outline: none;
     transition: all 0.3s ease; /* تأثيرات سلسة عند التفاعل */
     border: none; /* إزالة الحدود الافتراضية */
     position: relative; /* يسمح بتطبيق تأثيرات مثل ::before */
-}
-
-/* تأثير التحويم على الأزرار */
-.navigation-buttons button:hover {
-    background-color: rgba(0, 0, 0, 0.9);
-    transform: scale(1.05); /* تكبير الزر قليلاً */
-}
-
-/* تأثير الضغط على الزر */
-.navigation-buttons button:active {
-    transform: scale(0.98); /* تصغير الزر عند الضغط عليه */
-}
-
-/* تحسين مظهر الأزرار عند التحويم مع تأثير شفاف */
-.navigation-buttons button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.navigation-buttons button:hover::before {
-    opacity: 1; /* يظهر التأثير الضبابي عند التحويم */
-}
-
-/* عند تفعيل العنصر، نقوم بعرضه مع تأثير */
-.level-container.active .level-item {
-    display: block;
-    opacity: 1; /* إظهار المحتوى */
 }
 
 
