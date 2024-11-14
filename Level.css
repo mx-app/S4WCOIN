@@ -10,7 +10,7 @@
     border-radius: 10px;
     margin-left: auto;
     margin-right: auto; 
-    background-color: rgba(255, 255, 255, 0.09);
+    background-color: rgba(255, 255, 255, 0.01);
 }
 
 /* تصميم الأزرار */
@@ -20,7 +20,6 @@
     height: 40px;
     font-size: 10px;
     font-weight: bold;
-    background-color: rgba(0, 0, 0, 0.7); /* اللون الأسود مع الشفافية */
     color: #fff;
     border-radius: 10px;
     border: none; /* إزالة الحدود الافتراضية */
