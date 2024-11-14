@@ -94,9 +94,7 @@
     height: 50px;
     text-align: left;
     border: 1px solid #343434;
-    display: none; /* إخفاء جميع المستويات في البداية */
     opacity: 0; /* إخفاء المحتوى */
-    transition: opacity 0.5s ease-in-out; /* تأثير الانتقال */
 }
 
 .level-image {
