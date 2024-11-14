@@ -1122,7 +1122,9 @@ function claimTaskReward(taskId, reward) {
 
 
 window.Telegram.WebApp.setHeaderColor('#000000'); 
-// تهيئة تكامل Telegram
+window.Telegram.WebApp.setBackgroundColor('#000000'); 
+
+//تهيئه تليجرام 
 function initializeTelegramIntegration() {
     const telegramApp = window.Telegram.WebApp;
 
