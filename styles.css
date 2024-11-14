@@ -188,16 +188,16 @@ body {
     flex-direction: column; /* لضبط العناصر في اتجاه عمودي */
     align-items: center; /* لضبط المحاذاة الأفقية للنص */
     justify-content: center; /* محاذاة العناصر في المنتصف عموديًا */
-    top: 120px; 
+    position: relative;
+    margin-top: 70px; /* قم بزيادة القيمة حسب الحاجة لتحريك الرصيد إلى الأسفل */
 }
 
-#Title {
+.Title {
     font-weight: bold;
     margin-bottom: 5px; /* المسافة بين العنوان والرصد */
-    font-size: 16px; 
-    display: block;
+    font-size: 15px;
     padding-bottom: 2px;
-    background: #808080; 
+    color: #808080;
 }
 
 #balanceAmount {
@@ -210,6 +210,7 @@ body {
     justify-content: center; /* لجعل النص والصورة في المنتصف */
     margin-top: 5px; /* المسافة بين العنوان والرصيد */
 }
+
 
 #balanceAmount::before {
     content: "";
@@ -235,13 +236,17 @@ body {
 
 .energy-bar-container {
     display: flex;
-    flex-direction: column; /* ترتيب العناصر عموديًا */
+    flex-direction: center /*column*/; /* ترتيب العناصر عموديًا */
     justify-content: center; /* الاحتفاظ بمحاذاة إلى اليسار */
     align-items: center; /* الشريط والمعلومات في نفس المحاذاة على اليسار */
     position: absolute; /* تثبيت الحاوية في مكان محدد */
-    bottom: 115px; /* ضبطه ليكون في الجزء السفلي */
-    left: 25px; 
-    margin-left: 0px;
+    bottom: 100px; /* ضبطه ليكون في الجزء السفلي */
+    /*left: 25px;*/
+    width: 75%; 
+    height: 42px; 
+    margin: 5px;
+    border-radius: 10px;
+    /*border: 1px solid #343434;*/
 }
 
 .progress-bar {
@@ -270,11 +275,11 @@ body {
     -webkit-background-clip: text; 
     background-clip: text;
     color: transparent;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 14px; /* حجم الخط */
+    /*font-family: 'JetBrains Mono', monospace;*/
+    font-size: 15px; /* حجم الخط */
     font-weight: bold; /* سمك الخط */
     text-align: left; /* المحاذاة لليسار */
-    margin-left: 0px;
+    margin-right: 10px;
     direction: rtl; /* الحفاظ على الاتجاه من اليمين لليسار */
     white-space: nowrap;
 }
@@ -285,7 +290,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: calc(99.5% - 69px);
+    height: calc(95% - 69px);
 }
 
 .clickable-image {
@@ -424,6 +429,23 @@ body {
     z-index: 2; /* وضع الصورة فوق الخلفية */
 } 
 
+.menu button::before {
+    content: "";
+    position: absolute;
+    top: 0;  /* وضع الخط في بداية الزر من الأعلى */
+    left: 50%;  /* تحديد المكان من اليسار ليكون في منتصف الزر */
+    width: 30%;  /* عرض الخط ليغطي جزء من عرض الزر */
+    height: 2px;  /* سماكة الخط */
+    background-color: #fff;  /* لون الخط */
+    opacity: 0;  /* جعل الخط غير مرئي في البداية */
+    transition: opacity 0.3s ease;  /* إضافة انتقال لتأثير الشفافية */
+    transform: translateX(-50%);  /* تحريك الخط إلى المنتصف أفقيًا */
+}
+
+.menu button.active::before,
+.menu button:hover::before {
+    opacity: 1;  /* جعل الخط مرئي عند التمرير أو عندما يكون الزر نشطًا */
+}
  
 .menu-img {
     width: 37px;
@@ -838,7 +860,7 @@ body {
 #hourlyEarningsContainer {
     position: fixed;
     top: 5px;
-    width: 88%;
+    width: 86%;
     height: 35px;
     display: flex;
     align-items: center;
