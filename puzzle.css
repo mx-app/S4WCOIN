@@ -67,7 +67,7 @@
 }
 
 #Puzzlespage .puzzle-item {
-    width: 86%; /* عرض الحاوية بنسبة 44% */
+    width: 89%; /* عرض الحاوية بنسبة 44% */
     height: 200px;
     display: flex;
     flex-direction: column;
@@ -130,7 +130,7 @@
     font-weight: bold;
     cursor: pointer;
   /*  border: 1px solid #343434; */
-    width: 70%; /* العرض 90% */
+    width: 75%; /* العرض 90% */
     display: block; /* لجعل العنصر يعمل ككتلة */
     margin: 0 auto 15px; /* لمركزة الزر في المنتصف */
     height: 35px;
