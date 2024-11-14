@@ -1,7 +1,7 @@
 #mainPage {
     padding-top: 50px; /* يمكنك تغيير القيمة حسب الحاجة */
     background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
-    background-image: url('i/splasx.jpg');
+    background-image: url('i/sso.jpg');
     background-size: cover; /* لجعل الصورة تغطي الصفحة بالكامل */
     background-repeat: no-repeat; /* لمنع تكرار الصورة */
 }
