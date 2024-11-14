@@ -24,7 +24,7 @@
   /* تغيير الحجم لتصغير الدوائر بشكل أكبر */
   width: 1em;  /* أصغر من 1.2em إلى 1em */
   height: 1em; /* أصغر من 1.2em إلى 1em */
-  background: #000;
+  background: #fff;
   border-radius: 100%; /* دائرة كاملة */
   content: "";
   display: block;
