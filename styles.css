@@ -200,8 +200,8 @@ body {
 #balanceAmount {
     font-family: 'JetBrains Mono', monospace;
     font-weight: 800;
-    margin-top: 50px;
-    font-size: 35px;
+    margin-top: 30px;
+    font-size: 28px;
     color: #fff;
     display: flex;
     align-items: center; /* لضبط المحاذاة الرأسية بين الصورة والنص */
@@ -211,8 +211,8 @@ body {
 #balanceAmount::before {
     content: "";
     display: inline-block;
-    width: 45px; /* عرض الصورة */
-    height: 45px; /* ارتفاع الصورة */
+    width: 35px; /* عرض الصورة */
+    height: 35px; /* ارتفاع الصورة */
     background-image: url('i/coii.png'); /* رابط الصورة */
     background-size: contain;
     background-repeat: no-repeat;
