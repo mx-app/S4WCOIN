@@ -1,6 +1,6 @@
 .Gamess {
     max-height: 355px; /* تحديد ارتفاع ثابت للحاوية الداخلية */
-    width: 86%; /* عرض الحاوية الداخلية كاملاً */
+    width: 89%; /* عرض الحاوية الداخلية كاملاً */
     overflow-y: auto; /* تمكين التمرير العمودي */
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px); /* تأثير الضبابية */
@@ -109,7 +109,7 @@
 }*/
 
 #gamePage .game-item {
-    width: 86%; /* عرض الحاوية بنسبة 44% */
+    width: 89%; /* عرض الحاوية بنسبة 44% */
     height: 190px;
     display: flex;
     flex-direction: column;
