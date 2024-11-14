@@ -24,6 +24,7 @@
     border-radius: 10px;
     border: none; /* إزالة الحدود الافتراضية */
     cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.02);
 }
 
 .level-item {
