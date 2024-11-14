@@ -25,6 +25,13 @@
     border: none; /* إزالة الحدود الافتراضية */
 }
 
+.level-item {
+    display: none; /* إخفاء جميع المستويات في البداية */
+}
+
+.level-container.active .level-item {
+    display: block; /* عرض المستويات فقط عند تنشيط القسم */
+} 
 
 
 
