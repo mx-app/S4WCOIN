@@ -6,6 +6,8 @@
     <meta name="google-site-verification" content="SgT4PAGADooer2kIL_VItepZXIvIqUBTNGJVRuF8Cz0" />
     <link rel="icon" type="i/png" href="i/coinn1.png" />
     <title> SAWCOIN </title>
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Poppins:wght@300..700&family=Roboto+Slab:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Pacifico&family=Great+Vibes&family=Lobster&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
@@ -19,6 +21,7 @@
     <link rel="stylesheet" href="page.css">
     <link rel="stylesheet" href="daily.css">
     <link rel="stylesheet" href="B.css">
+    <link rel="stylesheet" href="mining.css">
     <link rel="stylesheet" href="Level.css">
     <link rel="stylesheet" href="tasks.css">
     <link rel="stylesheet" href="wallet.css">
@@ -84,20 +87,19 @@
                     <div id="levelEnergyBar">
                         <div id="levelEnergyFill"></div>
                     </div>
-                </div>
-            </div>
+                 </div>
+              </div>
 
-            <div class="settings-container">
+            
+            
+
+             <div class="settings-container">
                 <button data-target="gamePage" class="Play-game-button">
                     <img src="i/gam.png" alt="games Icon" class="games-icon">
                 </button>  
 
                 <button id="DailyButton" class="Daily-button">
                     <img src="i/daily.png" alt="daily Icon" class="daily-icon">
-                </button>
-
-                <button data-target="boostsPage" class="boosts-button">
-                    <img src="i/boostsss.png" alt="boos Icon" class="boos-icon"> boosts
                 </button>
 
                 <button data-target="walletPage" class="wallet-button">
@@ -107,11 +109,15 @@
                 <button id="settingsButton" class="settings-button">
                     <img src="i/person_.png" alt="Settings Icon" class="Settings-icon">
                 </button>
+                 
+                 <button data-target="miningPage" class="miningPage-button">
+                    <img src="i/mine.png" alt="mining Icon" class="mining-icon"> Mining
+                     <span class="arrow-mining">&#10095;</span>
+                 </button>
     
                 <!-- نافذة الإعدادات --> 
                 <div id="settingsPanel" class="settings-panel" style="display: none;">
                     <span id="SettingscloseModal" class="close">&times;</span>
-                    <p>Account details</p>
                     <div class="user-info">
                         <img src="i/users.png" alt="User Image" class="user-image">
                         <div class="user-details">
@@ -121,9 +127,9 @@
                     </div>     
 
                     <div class="account-summary">
-                        <p>Total Friends: <span id="settingsInvitedCount">0</span></p>
-                        <p>Total Coins: <span id="settingsBalanceDisplay">0</span></p>
-                        <p>Current Level: <span id="settingsCurrentLevelName"></span></p>
+                        <p>Total Friends : <span id="settingsInvitedCount">0</span></p>
+                        <p>Total Coins : <span id="settingsBalanceDisplay">0</span></p>
+                        <p>Current Level : <span id="settingsCurrentLevelName"></span></p>
                     </div>
 
                     <button id="languageButton" class="language-button">
@@ -131,14 +137,16 @@
                     </button>
                 </div>
             </div>
+
+
             
             <div id="balanceC" class="balance-c">
-               <div id="Title">Your balance</div>
+               <div class="Title">Your balance</div>
                <div id="balanceAmount">0</div>
            </div>
             
             <button id="levelFloatingBtn" class="level-button-floating">
-                <img id="currentLevelImage" alt="Current Level Image" class="levels-icon">
+                <img id="currentLevelImage" alt="Current Level Image" class="levelsss-icon">
                 <span id="currentLevelName"></span>
                 <span class="arrow">&#10095;</span>
             </button>
@@ -150,18 +158,24 @@
             </div>
 
             <div class="energy-bar-container">
-                <div class="progress-bar">
+              <!--  <div class="progress-bar">
                     <div class="progress-bar-inner" id="energyBar"></div>
-                </div>
+                </div>-->
+                
                 <div id="energyInfo">⚡500/500</div>
                 <span id="energyText"></span>
+                
+                <button data-target="boostsPage" class="boosts-button">
+                    <img src="i/boostsss.png" alt="boos Icon" class="boos-icon"> boosts
+                </button>
+                
             </div>
         </main>
     </div>
         
         <!-- تسجيل يومي  -->
-        <div id="logindailyContainer" class="logindaily-container hidden">
-           <div class="logindaily-content hidden">
+     <div id="logindailyContainer" class="logindaily-container hidden">
+         <div class="logindaily-content hidden">
              <span id="logindailycloseModal" class="close">&times;</span>
              <img src="i/daily.png" alt="logindaily Image" class="logindaily-image">
              <p id="login">Log in to get the reward</p>
@@ -300,7 +314,7 @@
       <p class="boost-title">Mining Robot</p>
       <p>
         <img src="i/coi.png" alt="Coin Image" class="coinBost-icon">
-        <span id="RobotUpgradeCost">100,000</span>
+        <span id="RobotUpgradeCost">80,000</span>
       </p>
       <p>lvl | <span id="robotBoostLevel">0</span></p>
       <button id="RobotUpgradeBtn">Upgrade</button>
@@ -528,16 +542,18 @@
           <button>Expert's</button>
      </div>
         
-            <div class="current-level-info">
-             <p class="level-namee">Level</p>
-              <p class="coin-name">Level Coins</p>
+      <div class="current-level-info">
+         <p class="level-namee">Level</p>
+            <p class="coin-namee">Level Coins</p>
         </div>
      </div>
          
 <section class="level-container">
     <!-- Level 1 -->
     <div class="level-item" id="level1">
+      <div class="level-image-container">
         <img src="i/lvl1.png" alt="Level 1 Image" class="level-image">
+     </div>
         <div class="level-text">
             <p class="level-phase">Lvl 1</p>
             <p class="level-name">( BEGINNER )</p>
@@ -547,7 +563,9 @@
 
     <!-- Level 2 -->
     <div class="level-item" id="level2">
-        <img src="i/lvl2.png" alt="Level 2 Image" class="level-image">
+      <div class="level-image-container">
+          <img src="i/lvl2.png" alt="Level 2 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 2</p>
             <p class="level-name">( LEARNER )</p>
@@ -557,7 +575,10 @@
 
     <!-- Level 3 -->
     <div class="level-item" id="level3">
+        <div class="level-image-container">
+         
         <img src="i/lvl3.png" alt="Level 3 Image" class="level-image">
+    </div>
         <div class="level-text">
             <p class="level-phase">Lvl 3</p>
             <p class="level-name">( NOVICE )</p>
@@ -567,7 +588,10 @@
 
     <!-- Level 4 -->
     <div class="level-item" id="level4">
+        <div class="level-image-container">
+         
         <img src="i/lvl4.png" alt="Level 4 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 4</p>
             <p class="level-name">( APPRENTICE )</p>
@@ -577,7 +601,10 @@
 
     <!-- Level 5 -->
     <div class="level-item" id="level5">
+        <div class="level-image-container">
+         
         <img src="i/lvl5.png" alt="Level 5 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 5</p>
             <p class="level-name">( EXPLORER )</p>
@@ -587,7 +614,10 @@
 
     <!-- Level 6 -->
     <div class="level-item" id="level6">
+        <div class="level-image-container">
+         
         <img src="i/lvl6.png" alt="Level 6 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 6</p>
             <p class="level-name">( ADEPT )</p>
@@ -597,7 +627,10 @@
 
     <!-- Level 7 -->
     <div class="level-item" id="level7">
+        <div class="level-image-container">
+         
         <img src="i/lvl7.png" alt="Level 7 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 7</p>
             <p class="level-name">( SKILLED )</p>
@@ -607,7 +640,10 @@
 
     <!-- Level 8 -->
     <div class="level-item" id="level8">
+        <div class="level-image-container">
+         
         <img src="i/lvl8.png" alt="Level 8 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 8</p>
             <p class="level-name">( PROFICIENT )</p>
@@ -617,7 +653,10 @@
 
     <!-- Level 9 -->
     <div class="level-item" id="level9">
+        <div class="level-image-container">
+         
         <img src="i/lvl9.png" alt="Level 9 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 9</p>
             <p class="level-name">( SPECIALIST )</p>
@@ -627,7 +666,10 @@
 
     <!-- Level 10 -->
     <div class="level-item" id="level10">
+        <div class="level-image-container">
+         
         <img src="i/lvl10.png" alt="Level 10 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 10</p>
             <p class="level-name">( EXPERT )</p>
@@ -637,7 +679,10 @@
             
     <!-- Level 11 -->
     <div class="level-item" id="level11">
+        <div class="level-image-container">
+         
         <img src="i/lvl11.png" alt="Level 11 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 11</p>
             <p class="level-name">( VETERAN )</p>
@@ -647,7 +692,10 @@
 
     <!-- Level 12 -->
     <div class="level-item" id="level12">
+        <div class="level-image-container">
+         
         <img src="i/lvl12.png" alt="Level 12 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 12</p>
             <p class="level-name">( MASTER )</p>
@@ -657,7 +705,10 @@
 
     <!-- Level 13 -->
     <div class="level-item" id="level13">
+        <div class="level-image-container">
+         
         <img src="i/lvl13.png" alt="Level 13 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 13</p>
             <p class="level-name">( GURU )</p>
@@ -667,7 +718,10 @@
 
     <!-- Level 14 -->
     <div class="level-item" id="level14">
+        <div class="level-image-container">
+         
         <img src="i/lvl14.png" alt="Level 14 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 14</p>
             <p class="level-name">( SAGE )</p>
@@ -677,7 +731,10 @@
 
     <!-- Level 15 -->
     <div class="level-item" id="level15">
+        <div class="level-image-container">
+         
         <img src="i/lvl15.png" alt="Level 15 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 15</p>
             <p class="level-name">( LEGEND )</p>
@@ -687,7 +744,10 @@
 
     <!-- Level 16 -->
     <div class="level-item" id="level16">
+        <div class="level-image-container">
+         
         <img src="i/lvl16.png" alt="Level 16 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 16</p>
             <p class="level-name">( HERO )</p>
@@ -697,7 +757,10 @@
 
     <!-- Level 17 -->
     <div class="level-item" id="level17">
+        <div class="level-image-container">
+         
         <img src="i/lvl17.png" alt="Level 17 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 17</p>
             <p class="level-name">( CHAMPION )</p>
@@ -707,7 +770,10 @@
 
     <!-- Level 18 -->
     <div class="level-item" id="level18">
+        <div class="level-image-container">
+         
         <img src="i/lvl18.png" alt="Level 18 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 18</p>
             <p class="level-name">( GUARDIAN )</p>
@@ -717,7 +783,10 @@
 
     <!-- Level 19 -->
     <div class="level-item" id="level19">
+        <div class="level-image-container">
+         
         <img src="i/lvl19.png" alt="Level 19 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 19</p>
             <p class="level-name">( TITAN )</p>
@@ -727,7 +796,10 @@
 
     <!-- Level 20 -->
     <div class="level-item" id="level20">
+        <div class="level-image-container">
+         
         <img src="i/lvl20.png" alt="Level 20 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 20</p>
             <p class="level-name">( MYTHIC )</p>
@@ -737,7 +809,10 @@
 
     <!-- Level 21 -->
     <div class="level-item" id="level21">
+        <div class="level-image-container">
+         
         <img src="i/lvl21.png" alt="Level 21 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 21</p>
             <p class="level-name">( DEITY )</p>
@@ -747,7 +822,10 @@
 
     <!-- Level 22 -->
     <div class="level-item" id="level22">
+        <div class="level-image-container">
+         
         <img src="i/lvl22.png" alt="Level 22 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 22</p>
             <p class="level-name">( IMMORTAL )</p>
@@ -757,7 +835,10 @@
 
     <!-- Level 23 -->
     <div class="level-item" id="level23">
+        <div class="level-image-container">
+         
         <img src="i/lvl23.png" alt="Level 23 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 23</p>
             <p class="level-name">( SUPREME )</p>
@@ -767,7 +848,10 @@
 
     <!-- Level 24 -->
     <div class="level-item" id="level24">
+        <div class="level-image-container">
+         
         <img src="i/lvl24.png" alt="Level 24 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 24</p>
             <p class="level-name">( CELESTIAL )</p>
@@ -777,7 +861,10 @@
 
     <!-- Level 25 -->
     <div class="level-item" id="level25">
+        <div class="level-image-container">
+         
         <img src="i/lvl25.png" alt="Level 25 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 25</p>
             <p class="level-name">( DIVINE )</p>
@@ -787,7 +874,10 @@
 
     <!-- Level 26 -->
     <div class="level-item" id="level26">
+        <div class="level-image-container">
+         
         <img src="i/lvl26.png" alt="Level 26 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 26</p>
             <p class="level-name">( OMNI )</p>
@@ -797,7 +887,10 @@
 
     <!-- Level 27 -->
     <div class="level-item" id="level27">
+        <div class="level-image-container">
+         
         <img src="i/lvl27.png" alt="Level 27 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 27</p>
             <p class="level-name">( COSMIC )</p>
@@ -807,7 +900,10 @@
 
     <!-- Level 28 -->
     <div class="level-item" id="level28">
+        <div class="level-image-container">
+         
         <img src="i/lvl28.png" alt="Level 28 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 28</p>
             <p class="level-name">( INFINITE )</p>
@@ -817,7 +913,10 @@
 
     <!-- Level 29 -->
     <div class="level-item" id="level29">
+        <div class="level-image-container">
+         
         <img src="i/lvl29.png" alt="Level 29 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 29</p>
             <p class="level-name">( TRANSCENDENT )</p>
@@ -827,7 +926,10 @@
 
     <!-- Level 30 -->
     <div class="level-item" id="level30">
+        <div class="level-image-container">
+         
         <img src="i/lvl30.png" alt="Level 30 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 30</p>
             <p class="level-name">( EPOCH )</p>
@@ -837,7 +939,10 @@
             
     <!-- Level 31 -->
     <div class="level-item" id="level31">
+        <div class="level-image-container">
+         
         <img src="i/lvl31.png" alt="Level 31 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 31</p>
             <p class="level-name">( EON )</p>
@@ -847,7 +952,10 @@
 
     <!-- Level 32 -->
     <div class="level-item" id="level32">
+        <div class="level-image-container">
+         
         <img src="i/lvl32.png" alt="Level 32 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 32</p>
             <p class="level-name">( LEGENDARY )</p>
@@ -857,7 +965,10 @@
 
     <!-- Level 33 -->
     <div class="level-item" id="level33">
+        <div class="level-image-container">
+         
         <img src="i/lvl33.png" alt="Level 33 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 33</p>
             <p class="level-name">( ETERNAL )</p>
@@ -867,7 +978,10 @@
 
     <!-- Level 34 -->
     <div class="level-item" id="level34">
+        <div class="level-image-container">
+         
         <img src="i/lvl34.png" alt="Level 34 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 34</p>
             <p class="level-name">( SENTINEL )</p>
@@ -877,7 +991,10 @@
 
     <!-- Level 35 -->
     <div class="level-item" id="level35">
+        <div class="level-image-container">
+         
         <img src="i/lvl35.png" alt="Level 35 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 35</p>
             <p class="level-name">( ARCHON )</p>
@@ -887,7 +1004,10 @@
 
     <!-- Level 36 -->
     <div class="level-item" id="level36">
+        <div class="level-image-container">
+         
         <img src="i/lvl36.png" alt="Level 36 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 36</p>
             <p class="level-name">( ASCENDANT )</p>
@@ -897,7 +1017,10 @@
 
     <!-- Level 37 -->
     <div class="level-item" id="level37">
+        <div class="level-image-container">
+         
         <img src="i/lvl37.png" alt="Level 37 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 37</p>
             <p class="level-name">( PARAGON )</p>
@@ -907,7 +1030,10 @@
 
     <!-- Level 38 -->
     <div class="level-item" id="level38">
+        <div class="level-image-container">
+         
         <img src="i/lvl38.png" alt="Level 38 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 38</p>
             <p class="level-name">( AETHER )</p>
@@ -917,7 +1043,10 @@
 
     <!-- Level 39 -->
     <div class="level-item" id="level39">
+        <div class="level-image-container">
+         
         <img src="i/lvl39.png" alt="Level 39 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 39</p>
             <p class="level-name">( QUANTUM )</p>
@@ -927,7 +1056,10 @@
 
     <!-- Level 40 -->
     <div class="level-item" id="level40">
+        <div class="level-image-container">
+         
         <img src="i/lvl40.png" alt="Level 40 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 40</p>
             <p class="level-name">( INFINITY )</p>
@@ -937,7 +1069,10 @@
             
    <!-- Level 41 -->
     <div class="level-item" id="level41">
+        <div class="level-image-container">
+         
         <img src="i/lvl41.png" alt="Level 41 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 41</p>
             <p class="level-name">( ETHERIC )</p>
@@ -947,7 +1082,10 @@
 
     <!-- Level 42 -->
     <div class="level-item" id="level42">
+        <div class="level-image-container">
+         
         <img src="i/lvl42.png" alt="Level 42 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 42</p>
             <p class="level-name">( VOID )</p>
@@ -957,7 +1095,10 @@
 
     <!-- Level 43 -->
     <div class="level-item" id="level43">
+        <div class="level-image-container">
+         
         <img src="i/lvl43.png" alt="Level 43 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 43</p>
             <p class="level-name">( ANOMALY )</p>
@@ -967,7 +1108,10 @@
 
     <!-- Level 44 -->
     <div class="level-item" id="level44">
+        <div class="level-image-container">
+         
         <img src="i/lvl44.png" alt="Level 44 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 44</p>
             <p class="level-name">( ZENITH )</p>
@@ -977,7 +1121,10 @@
 
     <!-- Level 45 -->
     <div class="level-item" id="level45">
+        <div class="level-image-container">
+         
         <img src="i/lvl45.png" alt="Level 45 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 45</p>
             <p class="level-name">( NIRVANA )</p>
@@ -987,7 +1134,10 @@
 
     <!-- Level 46 -->
     <div class="level-item" id="level46">
+        <div class="level-image-container">
+         
         <img src="i/lvl46.png" alt="Level 46 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 46</p>
             <p class="level-name">( ABSOLUTE )</p>
@@ -997,7 +1147,10 @@
 
     <!-- Level 47 -->
     <div class="level-item" id="level47">
+        <div class="level-image-container">
+         
         <img src="i/lvl47.png" alt="Level 47 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 47</p>
             <p class="level-name">( OMEGA )</p>
@@ -1007,7 +1160,10 @@
 
     <!-- Level 48 -->
     <div class="level-item" id="level48">
+        <div class="level-image-container">
+         
         <img src="i/lvl48.png" alt="Level 48 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 48</p>
             <p class="level-name">( PRIME )</p>
@@ -1017,7 +1173,10 @@
 
     <!-- Level 49 -->
     <div class="level-item" id="level49">
+        <div class="level-image-container">
+         
         <img src="i/lvl49.png" alt="Level 49 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 49</p>
             <p class="level-name">( SUPERNOVA )</p>
@@ -1027,7 +1186,10 @@
 
     <!-- Level 50 -->
     <div class="level-item" id="level50">
+        <div class="level-image-container">
+         
         <img src="i/lvl50.png" alt="Level 50 Image" class="level-image">
+        </div>
         <div class="level-text">
             <p class="level-phase">Lvl 50</p>
             <p class="level-name">( ASCENSION )</p>
@@ -1068,7 +1230,7 @@
                 FRIENDS
             </button>
             <button data-target="Puzzlespage">
-                <img src="i/Code.png" alt="Puzzles" class="menu-img">
+                <img src="i/puzzl.png" alt="Puzzles" class="menu-img">
                 PUZZLES
             </button>
             
