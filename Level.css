@@ -138,16 +138,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    top: 40px; 
-    left:20px; 
-    width: 35%;
+    top: 60px; 
+    left: 20px; 
+    width: 40%;
     height: 35px;
     padding: 5px;
     color: #ffffff; 
    /* left: 68px; */
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     border-radius: 10px;
    /* border-bottom: 2px solid #343434;*/
