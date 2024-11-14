@@ -379,15 +379,16 @@ body {
     justify-content: space-between;
     padding: 4px;
     border-radius: 10px;
-    border: 1px solid #343434;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 9);
     position: fixed;
-    bottom: 30px;
+    bottom: 0/*30px*/;
     box-sizing: border-box; 
-    width: 88%;
+    width: 100%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 100;
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 10px; 
 }
 
 .menu button {
