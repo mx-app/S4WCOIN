@@ -379,7 +379,7 @@ body {
     justify-content: space-between;
     padding: 4px;
     border-radius: 10px;
-    background-color: rgba(0, 0, 0, 9);
+    background-color: rgba(0, 0, 0, 20);
     position: fixed;
     bottom: 0/*30px*/;
     box-sizing: border-box; 
@@ -393,7 +393,6 @@ body {
 
 .menu button {
     color: #fff;
-    border: 1px solid #343434;
     padding: 4px;
     box-sizing: border-box; 
     font-size: 10px;
@@ -407,7 +406,7 @@ body {
     border-radius: 10px;
     position: relative;
     background: none;
-    margin: 3px;
+    margin: 4px;
     opacity: 0.7; /* الشفافية البسيطة للزر الغير نشط */
 }
 
