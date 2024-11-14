@@ -138,7 +138,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    top: 65px; 
+    top: 60px; 
     left: 20px; 
     width: 40%;
     height: 35px;
@@ -155,7 +155,7 @@
 }  
 
 .level-button-floating:hover {
-    background: #808080;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.4), 0 0 12px rgba(255, 255, 255, 0.3), 0 0 18px rgba(255, 255, 255, 0.2);
 }
 
 .arrow {
@@ -166,8 +166,8 @@
 } 
 
 .levels-icon {
-    width: 22px; 
-    height: 22px;
+    width: 20px; 
+    height: 20px;
 }
   
 .centered {
