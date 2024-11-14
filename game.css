@@ -54,7 +54,7 @@
 
 .Play-game-button {
     position: fixed;
-    top: 15px; 
+    top: 10px; 
     left: 55px;
    /* border: 1px solid #343434;*/
     background-color: rgba(255, 255, 255, 0.001);
