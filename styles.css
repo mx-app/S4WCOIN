@@ -833,7 +833,7 @@ body {
 
 #hourlyEarningsContainer {
     position: fixed;
-    top: 10px;
+    top: 5px;
     width: 86%;
     height: 35px;
     display: flex;
