@@ -9,9 +9,11 @@ document.addEventListener('DOMContentLoaded', function() {
     buttons.forEach(button => {
         button.addEventListener('click', function() {
             const levelRange = button.textContent.match(/\d+/g);
-            const levelStart = parseInt(levelRange[0]);
-            const levelEnd = parseInt(levelRange[1]);
-            showLevels(levelStart, levelEnd);
+            if (levelRange && levelRange.length === 2) {
+                const levelStart = parseInt(levelRange[0]);
+                const levelEnd = parseInt(levelRange[1]);
+                showLevels(levelStart, levelEnd);
+            }
         });
     });
 });
