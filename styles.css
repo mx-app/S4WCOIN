@@ -40,8 +40,8 @@ body {
 
     font-family: 'Rubik', sans-serif;
     font-weight: 900;
-    background-color: var(--background-color-dark);
-    color: var(--text-color-dark);
+    background-color: #000;
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,7 +60,6 @@ body {
     position: relative;
     overflow: hidden;
     background: #000;
-/*    background-image: url('i/splasx.jpg');*/
     background-size: cover;
     background-position: center;
     border-top-left-radius: 0; 
@@ -201,7 +200,7 @@ body {
     font-family: 'JetBrains Mono', monospace;
     font-weight: 800;
     margin-top: 30px;
-    font-size: 28px;
+    font-size: 30px;
     color: #fff;
     display: flex;
     align-items: center; /* لضبط المحاذاة الرأسية بين الصورة والنص */
@@ -406,7 +405,7 @@ body {
     border-radius: 10px;
     position: relative;
     background: none;
-    margin: 4px;
+    margin: 2px;
     opacity: 0.7; /* الشفافية البسيطة للزر الغير نشط */
 }
 
