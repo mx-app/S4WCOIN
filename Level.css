@@ -7,10 +7,10 @@
     width: 88%;
     height: 50px;
     gap: 10px; /* المسافة بين الأزرار */
-    border: 1px solid #343434;
     border-radius: 10px;
     margin-left: auto;
     margin-right: auto; 
+    background-color: rgba(255, 255, 255, 0.09);
 }
 
 /* تصميم الأزرار */
