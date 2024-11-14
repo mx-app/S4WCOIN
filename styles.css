@@ -189,11 +189,9 @@ body {
     font-size: 16px; 
     display: block;
     padding-bottom: 2px;
-    background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c); /* التدرج اللوني */
-    -webkit-background-clip: text; /* قص الخلفية للنص */
-    background-clip: text;
-    color: transparent; /* جعل النص شفافًا لعرض التدرج */
-
+    background:#fff; 
+    opacity: 0.7;
+    top: 80px;
 }
 
 #balanceAmount {
