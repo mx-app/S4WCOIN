@@ -36,9 +36,42 @@
     margin-right: 5px; 
 } 
 
+.section-nav {
+    display: flex;
+    justify-content: center; /* تمركز الأزرار أفقيًا */
+    align-items: center; /* تمركز الأزرار عموديًا */
+    padding: 10px;
+    width: 85%;
+    height: 20px;
+    gap: 10px; /* المسافة بين الأزرار */
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(1px);
+    position: absolute; /* تحديد الموقع العائم */
+    top: 265px; /* تحديد المسافة من الأسفل (يمكنك تعديلها حسب الحاجة) */
+    left: 50%; /* تمركز الحاوية أفقيًا */
+    transform: translateX(-50%); /* محاذاة الحاوية تمامًا في المنتصف */
+    z-index: 999; /* لتكون فوق العناصر الأخرى */
+}
+
+/* تصميم الأزرار */
+.section-nav button {
+    flex: 1;
+    width: 100%;
+    height: 27px;
+    font-size: 10px;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.01);
+    transition: background-color 0.4s ease, transform 0.4s ease; /* تأثير الانتقال للخلفية */
+} 
+
 .upgrade-mining {
-    width: 89%; /* عرض الحاوية بنسبة 44% */
-    height: 200px;
+    width: 88%; /* عرض الحاوية بنسبة 44% */
+    height: 180px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -54,7 +87,7 @@
 .upgrades-grid {
     display: grid;
     grid-template-columns: repeat(2, 44%); /* عرض كل عنصرين بجانب بعض */
-    gap: 15px; /* المسافة بين العناصر */
+    gap: 12px; /* المسافة بين العناصر */
     justify-content: center; /* محاذاة العناصر في المنتصف */
     margin-top: 10px;
 } 
