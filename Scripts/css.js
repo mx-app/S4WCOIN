@@ -1,4 +1,4 @@
-fetch('styles.json')
+fetch('json/styles.json')
   .then(response => {
     if (!response.ok) {
       throw new Error(`Failed to load styles.json: ${response.status}`);
