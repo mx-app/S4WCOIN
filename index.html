@@ -85,9 +85,16 @@
                 </button>
                  
                  <button class="miningPage-button" onclick="openMiningPage()">
-                     <img src="i/mine.png" alt="mining Icon" class="mining-icon"> Mine Up
-                     <span class="arrow-mining">&#10095;</span>
-                 </button>
+                    <img src="i/mine.png" alt="mining Icon" class="mining-icon"> Mine Up
+                    <span class="arrow-mining">&#10095;</span>
+                </button>
+
+                <script>
+                  function openMiningPage() {
+                      window.open('Data/mining.html', '_blank');  // فتح mining.html في نافذة جديدة
+                    }
+                </script>
+
     
                 <!-- نافذة الإعدادات --> 
                 <div id="settingsPanel" class="settings-panel" style="display: none;">
