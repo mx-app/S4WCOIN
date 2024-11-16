@@ -91,3 +91,13 @@
     justify-content: center; /* محاذاة العناصر في المنتصف */
     margin-top: 10px;
 } 
+
+.upgrade-mining img {
+    width: 50px;
+    height: auto;
+    margin-bottom: 10px; /* إضافة مسافة أسفل الصورة */
+    border-radius: 10px;
+    border: 1px solid #343434;
+    object-fit: cover;
+}
+ 
