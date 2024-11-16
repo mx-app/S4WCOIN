@@ -550,30 +550,27 @@ function fillEnergyAction() {
 
 
 // التعامل مع النقرات لتوليد العملات
+// دالة النقرة
 function handleClick(event) {
     event.preventDefault(); // منع الأحداث المكررة
     const touchPoints = event.touches ? event.touches : [event];  // التعامل مع اللمس أو النقر الواحد
 
-    // إضافة التأثير على كامل العنصر بشكل أسرع
     for (let i = 0; i < touchPoints.length; i++) {
         const touch = touchPoints[i];
         createDiamondCoinEffect(touch.pageX, touch.pageY);
     }
 
-    // تأجيل الحسابات الثقيلة لتأثير النقر
-    setTimeout(() => {
-        // التحقق من توافر الطاقة اللازمة لكل نقرة
-        const requiredEnergy = gameState.clickMultiplier * touchPoints.length;
-        if (gameState.energy >= requiredEnergy) {
-            gameState.balance += gameState.clickMultiplier * touchPoints.length;
-            gameState.energy -= requiredEnergy;
-            updateUI();
-            updateUserData();
-            saveGameState();  // التأكد من حفظ حالة اللعبة بعد كل نقرة
-        } else {
-            showNotification(uiElements.purchaseNotification, 'Not enough energy!');
-        }
-    }, 100); // تأجيل الحسابات للتفاعل بسرعة أكبر
+    // التحقق من توافر الطاقة اللازمة لكل نقرة
+    const requiredEnergy = gameState.clickMultiplier * touchPoints.length;
+    if (gameState.energy >= requiredEnergy) {
+        gameState.balance += gameState.clickMultiplier * touchPoints.length;
+        gameState.energy -= requiredEnergy;
+        updateUI();
+        updateUserData();
+        saveGameState();  // التأكد من حفظ حالة اللعبة بعد كل نقرة
+    } else {
+        showNotification(uiElements.purchaseNotification, 'Not enough energy!');
+    }
 }
 
 
