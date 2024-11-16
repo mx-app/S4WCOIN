@@ -837,7 +837,7 @@ img {
     color: #808080;
 }
 
-#tasksBalanceDisplay, #levelBalanceDisplay, #gameBalanceDisplay,
+#tasksBalanceDisplay, #miningBalanceDisplay, #levelBalanceDisplay, #gameBalanceDisplay,
 #walletBalanceDisplay, #puzzlesBalanceDisplay, #boostsBalanceDisplay, #AccountBalanceDisplay {
     position: absolute;
     top: 10px;
@@ -855,7 +855,7 @@ img {
 }
 
 
-#tasksBalanceDisplay::before, #levelBalanceDisplay::before, #gameBalanceDisplay::before,
+#tasksBalanceDisplay::before, #miningBalanceDisplay::before, #levelBalanceDisplay::before, #gameBalanceDisplay::before,
 #walletBalanceDisplay::before, #puzzlesBalanceDisplay::before, #boostsBalanceDisplay::before, #AccountBalanceDisplay::before {
     content: "";
     display: inline-block;
