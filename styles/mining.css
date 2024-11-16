@@ -50,3 +50,11 @@
     text-align: center;
     overflow: hidden;
 } 
+
+.upgrades-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 44%); /* عرض كل عنصرين بجانب بعض */
+    gap: 15px; /* المسافة بين العناصر */
+    justify-content: center; /* محاذاة العناصر في المنتصف */
+    margin-top: 10px;
+} 
