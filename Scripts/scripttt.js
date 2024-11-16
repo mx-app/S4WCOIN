@@ -1,5 +1,5 @@
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
-import { SUPABASE_URL, SUPABASE_ANON_KEY } from './config.js';
+import { SUPABASE_URL, SUPABASE_ANON_KEY } from 'Scripts/config.js';
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
@@ -984,7 +984,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Fetch tasks from JSON file
-    fetch('tasks.json')
+    fetch('json/tasks.json')
         .then(response => response.json())
         .then(tasks => {
             tasks.forEach(task => {
@@ -1246,7 +1246,7 @@ const countdownDuration = 24 * 60 * 60 * 1000; // 24 ساعة بالميلي ث�
 // تحميل الأحاجي من ملف JSON
 async function loadPuzzles() {
     try {
-        const response = await fetch('puzzles.json');
+        const response = await fetch('json/puzzles.json');
         if (!response.ok) throw new Error('Failed to load puzzles');
         const data = await response.json();
         return data.puzzles;
@@ -1535,7 +1535,7 @@ document.getElementById('applyPromoCode').addEventListener('click', async () => 
 
     try {
         // تحميل البرومو كود من ملف JSON
-        const response = await fetch('promocodes.json');
+        const response = await fetch('json/promocodes.json');
         const promoData = await response.json();
         const promoCodes = promoData.promoCodes;
 
@@ -1694,7 +1694,7 @@ function formatTime(seconds) {
     // Load Morse ciphers from JSON file
     async function loadMorseCiphers() {
         try {
-            const response = await fetch('MorseCiphers.json');
+            const response = await fetch('json/MorseCiphers.json');
             if (!response.ok) throw new Error('Failed to load ciphers');
             const data = await response.json();
             return data.morse_ciphers;
@@ -1922,7 +1922,7 @@ img.addEventListener('transitionend', () => {
 
 
 const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
-    manifestUrl: 'https://sawcoin.vercel.app/tonconnect-manifest.json',
+    manifestUrl: 'https://sawcoin.vercel.app/json/tonconnect-manifest.json',
     buttonRootId: 'ton-connect'
 });
 
