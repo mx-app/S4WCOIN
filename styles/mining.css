@@ -68,4 +68,43 @@
     border: 1px solid #343434;
     object-fit: cover;
 }
+
+
+
+
+.upgrade-details h3 {
+    margin: 0;
+    font-size: 14px;
+    color: #fff;
+}
+
+.upgrade-details p {
+    margin: 4px 0;
+    font-size: 12px;
+    color: #ccc;
+}
+
+.profit-rate {
+    font-size: 14px;
+    color: #0f0;
+    font-weight: bold;
+}
+
+.mining-cost-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    gap: 5px; /* مسافة بين المستوى والتكلفة */
+}
+
+.mining-cost-container span {
+    display: inline-block;
+}
+
+.separatorrr {
+    width: 1px;
+    height: 12px;
+    background-color: #aaa; /* لون الخط الفاصل */
+}
  
