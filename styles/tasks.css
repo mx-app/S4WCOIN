@@ -1,0 +1,124 @@
+.loading-spinner {
+    border: 3px solid #ffffff;
+    border-top: 3px solid transparent;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+ 
+.task-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* موازاة المحتوى أفقيًا في المنتصف */
+    justify-content: flex-start; /* لا تغيير في التمركز الرأسي */
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto; /* لتوسيط الحاوية أفقيًا */
+    /*padding: 10px;*/
+}
+ 
+.task-button:disabled {
+    background-color: none;
+    cursor: not-allowed;
+} 
+
+.task-item button.inactive {
+    background-color: #9f0000;
+}
+
+.task-item button.claimed {
+    background-color: #000;
+    color: #fff;
+}
+ 
+.task-image {
+    width: 70px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.task-item {
+    width: 90%;
+    max-width: 400px;
+    margin: 15px 0;
+    padding: 15px;
+    border-bottom: 1px solid #343434;
+    background-color: rgba(255, 255, 255, 0.001);
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+} 
+ 
+.task-img {
+    width: 50px;
+    height: auto;
+    margin-bottom: 3px; /* إضافة مسافة أسفل الصورة */
+    border-radius: 10px;
+    border: 1px solid #343434;
+    object-fit: cover;
+}
+
+.task-item button {
+    background-color: rgba(255, 255, 255, 0.001);
+    color: #ffffff;
+    opacity: 0.6;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 20%;
+    height: 30px;
+    transition: background-color 0.3s;
+    /*border: 1px solid #343434;*/
+    font-weight: bold;
+    font-size: 15px;
+    z-index: 10;
+    margin-left: auto; /* يجعل الزر في الجهة اليمنى */
+}
+
+.task-item p {
+    margin: 5px 0;
+    padding: 0;
+    width: 100%;
+    text-align: left; /* محاذاة الوصف في المنتصف */
+    color: #fff;
+    font-size: 0.85rem; 
+}
+
+.task-reward-container {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.reward-coin-icon { /* اسم معرف الصورة الجديد */
+    width: 18px;
+    height: 18px;
+    margin-right: 3px;
+}
+ 
+.task-reward {
+    color: #808080; /* لون النص الرمادي */
+    font-size: 0.7rem;
+    text-align: left; /* محاذاة النص إلى اليسار */
+}
+ 
+
+.info-task {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 10px;
+    margin-left: 13px;
+}
+ 

@@ -1,0 +1,90 @@
+.wallet-image {
+    width: 140px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+} 
+
+.wallet-icon {
+    width: 25px;
+    height: 25px;
+    flex-shrink: 0;
+}
+
+.wallet-button img {
+    vertical-align: middle;
+}  
+
+.wallet-button {
+    position: fixed;
+    top: 10px; 
+    /*left: 20px;*/
+    right: 55px; 
+    /*left: 265px;*/
+   /* border: 1px solid #343434;*/
+    background-color: rgba(255, 255, 255, 0.001);
+    border-radius: 10px; /* لجعل الزر دائري */
+    padding: 5px; /* مساحة إضافية حول الصورة */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    opacity: 0.7;
+}
+
+.wallet-button:hover {
+    /*  background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);*/
+    transform: translateY(-3px); /* رفع الزر قليلاً */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* إضافة ظل */
+} 
+
+.wallet-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+}
+
+.wallet-box {
+    background-color: rgba(0, 0, 0, 0.7); /* لون خلفية أغمق لتحسين التباين */
+    backdrop-filter: blur(8px); /* تأثير ضبابية ناعم */
+    border: 1px solid #444; /* حد أغمق */
+    border-radius: 15px; /* تدوير أكبر للحواف */
+    padding: 20px; /* زيادة الحشوة */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* إضافة ظل للصندوق */
+    width: 80%; /* تحديد العرض بشكل مناسب */
+    max-width: 400px; /* تحديد عرض أقصى ليتماشى مع مختلف الأجهزة */
+    margin: 0 auto; /* لضمان توسيط الحاوية */
+    height: 60vh;
+    text-align: center;
+}
+
+.wallet-box p {
+    font-size: 18px; /* تكبير حجم الخط */
+    font-weight: bold;
+    color: #808080; /* جعل النص أبيض ليتناسب مع الخلفية */
+    margin-bottom: 15px;
+}
+
+#ton-connect {
+    width: 100%; /* جعل الزر يمتد بعرض الصندوق */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#ton-connect button {
+    background-color: #0088CC; /* لون زر مناسب */
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%; /* جعل الزر بعرض الصندوق */
+    max-width: 300px; /* تحديد عرض أقصى للزر */
+}
+
+#ton-connect button:hover {
+    background-color: #0056b3; /* تأثير اللون عند التمرير */
+}

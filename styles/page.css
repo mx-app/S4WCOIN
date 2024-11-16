@@ -1,0 +1,85 @@
+#mainPage {
+    padding-top: 50px; /* يمكنك تغيير القيمة حسب الحاجة */
+    background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
+    background-image: url('i/sso.jpg');
+    background-size: cover; /* لجعل الصورة تغطي الصفحة بالكامل */
+    background-repeat: no-repeat; /* لمنع تكرار الصورة */
+}
+
+
+#tasksPage {
+    padding-top: 80px; /* يمكنك تغيير القيمة حسب الحاجة */
+    background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
+    overflow-y: auto; /* لجعل الصفحة قابلة للتمرير */
+    padding-bottom: 100px; /* مسافة سفلية */
+}
+
+
+#accountPage {
+    padding-top: 50px; /* يمكنك تغيير القيمة حسب الحاجة */
+    background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
+    overflow-y: auto; /* لجعل الصفحة قابلة للتمرير */
+    padding-bottom: 180px; /* مسافة سفلية */
+}
+
+
+#Puzzlespage  {
+    padding-bottom: 120px;
+    overflow-y: auto;
+    padding-top: 100px; /* يمكنك تغيير القيمة حسب الحاجة */
+    background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
+   
+}
+
+#gamePage {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    overflow-y: auto;
+    background-clip: padding-box;
+    position: relative;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.9); /* ظل داخلي لإضافة عمق للحواف */
+}
+
+
+
+#boostsPage {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5));
+    backdrop-filter: blur(5px); /* تأثير ضبابي */
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 80px; /* يمكنك تغيير القيمة حسب الحاجة */
+    background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
+    overflow-y: auto; /* لجعل الصفحة قابلة للتمرير */
+    padding-bottom: 120px; /* مسافة سفلية */
+}
+
+
+#levelPage {
+    padding-top: 80px; /* يمكنك تغيير القيمة حسب الحاجة */
+    background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
+    overflow-y: auto; /* لجعل الصفحة قابلة للتمرير */
+    padding-bottom: 40px; /* مسافة سفلية */
+}
+
+
+#walletPage {
+    padding-top: 0; /* يمكنك تغيير القيمة حسب الحاجة */
+    background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
+    overflow-y: auto; /* لجعل الصفحة قابلة للتمرير */
+    padding-bottom: 0; /* مسافة سفلية */
+}
+
+#DailyPage {
+    padding-top: 50px; /* يمكنك تغيير القيمة حسب الحاجة */
+    background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
+    overflow-y: auto; /* لجعل الصفحة قابلة للتمرير */
+    padding-bottom: 180px; /* مسافة سفلية */
+}
+
+#SettingsPage {
+    padding-top: 50px; /* يمكنك تغيير القيمة حسب الحاجة */
+    background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
+    overflow-y: auto; /* لجعل الصفحة قابلة للتمرير */
+    padding-bottom: 180px; /* مسافة سفلية */
+}
+

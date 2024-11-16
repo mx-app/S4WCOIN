@@ -1,0 +1,238 @@
+.Gamess {
+    max-height: 355px; /* تحديد ارتفاع ثابت للحاوية الداخلية */
+    width: 89%; /* عرض الحاوية الداخلية كاملاً */
+    overflow-y: auto; /* تمكين التمرير العمودي */
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px); /* تأثير الضبابية */
+    padding: 10px;
+    border: 2px solid #343434;
+    border-radius: 10px;
+} 
+
+.games-section {
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+/*.Play-game-button {
+    position: fixed;
+    padding: 4px 20px;
+    top: 65px;
+    right: 20px; 
+    font-size: 16px;
+    color: #fff;
+    font-weight: bold;
+    border: 1px solid #343434;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px; 
+}
+
+.Play-game-button:hover {
+    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
+} 
+
+.games-icon {
+    width: 29px;
+    height: 29px;
+    flex-shrink: 0;
+}
+
+.Play-game-button img {
+    vertical-align: middle;
+}   
+*/
+.games-icon {
+    width: 26px;
+    height: 26px;
+    flex-shrink: 0;
+}
+
+.Play-game-button img {
+    vertical-align: middle;
+}  
+
+.Play-game-button {
+    position: fixed;
+    top: 10px; 
+    left: 55px;
+   /* border: 1px solid #343434;*/
+    background-color: rgba(255, 255, 255, 0.001);
+    border-radius: 10px; 
+    padding: 5px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    opacity: 0.7;
+}
+
+.Play-game-button:hover {
+  /*  background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);*/
+    transform: translateY(-3px); /* رفع الزر قليلاً */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* إضافة ظل */
+} 
+
+
+
+#gamePage .gamePage-image {
+    width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+#GA {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+#currentGameInfo {
+    font-size: 1.2rem;
+    color: #aaaaaa;
+    margin-bottom: 30px;
+}
+
+
+#gamePage .game-container {
+    display: grid;
+    grid-template-columns: repeat(2, 44%); /* عرض كل عنصرين بجانب بعض */
+    gap: 12px; /* المسافة بين العناصر */
+    justify-content: center; /* محاذاة العناصر في المنتصف */
+    margin-top: 10px;
+}
+   /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 50px; 
+}*/
+
+#gamePage .game-item {
+    width: 89%; /* عرض الحاوية بنسبة 44% */
+    height: 190px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #343434;
+    border-radius: 10px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    text-align: center;
+}
+   /* display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    width: 88%;
+    max-width: 400px;
+    margin: 15px 0;
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #343434;
+}*/
+
+
+#gamePage .game-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+#gamePage .game-item p {
+    font-size: 1rem;
+    color: #fff;
+    margin: 0 0 10px;
+}
+
+.game-item button {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 80%;
+    transition: background-color 0.3s;
+    border: none;
+    font-weight: bold;
+    font-size: var(--claim-button-size);
+    /*border: 1px solid #343434;*/
+    z-index: 10;
+    margin-top: auto; 
+}
+ 
+#gamePage .game-button:hover {
+    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
+}
+
+
+#gameFrameContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.counter-container {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#gameFrame {
+    width: 90%;
+    height: 80%;
+    border: none;
+    border-radius: 15px;
+}
+
+#closeGamePage {
+    margin-top: 15px;
+    margin-left: 12px;
+    background-color: transparent;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+}
+
+.counter, #coinn {
+    font-size: 1.2rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 800;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    border: 1px solid #343434;
+    padding: 8px 16px;
+    border-radius: 10px;
+    margin-right: 10px;
+    
+}
+
+.claim-button {
+    margin-left: 10px;
+    padding: 10px 25px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    border: 1px solid #343434;
+    border-radius: 10px;
+    font-size: 1.2rem; 
+    cursor: pointer;
+}
+
+.claim-button:hover {
+    background: linear-gradient(90deg, #794106, #d69a1c, #9f620c);
+}
+ 
