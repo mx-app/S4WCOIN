@@ -2143,6 +2143,7 @@ function updateBalances() {
   // تحديث كل عناصر عرض الرصيد
   const elements = [
     'tasksBalanceDisplay',
+    'miningBalanceDisplay',
     'levelBalanceDisplay',
     'gameBalanceDisplay',
     'walletBalanceDisplay',
