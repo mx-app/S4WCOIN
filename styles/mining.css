@@ -36,39 +36,6 @@
     margin-right: 5px; 
 } 
 
-.section-nav {
-    display: flex;
-    justify-content: center; /* تمركز الأزرار أفقيًا */
-    align-items: center; /* تمركز الأزرار عموديًا */
-    padding: 10px;
-    width: 85%;
-    height: 20px;
-    gap: 10px; /* المسافة بين الأزرار */
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(1px);
-    position: absolute; /* تحديد الموقع العائم */
-    top: 80px; /* تحديد المسافة من الأسفل (يمكنك تعديلها حسب الحاجة) */
-    left: 50%; /* تمركز الحاوية أفقيًا */
-    transform: translateX(-50%); /* محاذاة الحاوية تمامًا في المنتصف */
-    z-index: 999; /* لتكون فوق العناصر الأخرى */
-}
-
-/* تصميم الأزرار */
-.section-nav button {
-    flex: 1;
-    width: 100%;
-    height: 27px;
-    font-size: 10px;
-    font-weight: bold;
-    color: #fff;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.01);
-    transition: background-color 0.4s ease, transform 0.4s ease; /* تأثير الانتقال للخلفية */
-} 
-
 .upgrade-mining {
     width: 88%; /* عرض الحاوية بنسبة 44% */
     height: 180px;
@@ -93,8 +60,8 @@
 } 
 
 .upgrade-mining img {
-    width: 100px;
-    height: auto;
+    width: 50px;
+    height: 50px;
     margin-bottom: 10px; /* إضافة مسافة أسفل الصورة */
     border-radius: 10px;
     border: 1px solid #343434;
