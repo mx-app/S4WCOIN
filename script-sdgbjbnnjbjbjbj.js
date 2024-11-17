@@ -85,39 +85,32 @@ let gameState = {
     consecutiveDays: 0,  // عدد الأيام المتتالية التي تم المطالبة فيها بالمكافآت
 };
 
-
-
-// تحميل حالة اللعبة من LocalStorage أو قاعدة البيانات
+//تحديث قاعده البيانات 
 async function loadGameState() {
     const userId = uiElements.userTelegramIdDisplay.innerText;
 
-    // محاولة تحميل البيانات من LocalStorage
-    const localData = localStorage.getItem('gameState');
-    if (localData) {
-        console.log('Loading game state from LocalStorage...');
-        gameState = { ...gameState, ...JSON.parse(localData) };
-        updateUI(); // تحديث واجهة المستخدم
-        return; // إنهاء التنفيذ إذا تم العثور على البيانات
-    }
-
-    // تحميل البيانات من قاعدة البيانات إذا لم تكن موجودة في LocalStorage
-    const { data, error } = await supabase
-        .from('users')
-        .select('*')
-        .eq('telegram_id', userId)
-        .single();
-
-    if (error) {
-        console.error('Error loading game state from Supabase:', error);
-        return;
-    }
-
-    if (data) {
+    // تحميل البيانات من قاعدة البيانات مباشرة، دون الالتفات إلى LocalStorage
+    try {
         console.log('Loading game state from Supabase...');
-        gameState = { ...gameState, ...data };
-        updateUI(); // تحديث واجهة المستخدم
-    } else {
-        console.warn('No game state found for this user.');
+        const { data, error } = await supabase
+            .from('users')
+            .select('*')
+            .eq('telegram_id', userId)
+            .single();
+
+        if (error) {
+            console.error('Error loading game state from Supabase:', error);
+            return;
+        }
+
+        if (data) {
+            gameState = { ...gameState, ...data }; // تحديث حالة اللعبة من قاعدة البيانات
+            updateUI(); // تحديث واجهة المستخدم
+        } else {
+            console.warn('No game state found for this user.');
+        }
+    } catch (err) {
+        console.error('Unexpected error:', err);
     }
 }
 
