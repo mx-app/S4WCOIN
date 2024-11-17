@@ -609,7 +609,7 @@ document.getElementById('coinUpgradeBtn').addEventListener('click', function() {
 // دالة تأكيد الترقية وتحديث حالة اللعبة بعد الترقية
 function confirmUpgradeAction() {
     let cost;
-    let upgradeType = uiElements.upgradeModal.getAttribute('data-upgrade-type');
+    const upgradeType = uiElements.upgradeModal.getAttribute('data-upgrade-type');
 
     if (upgradeType === 'boost') {
         cost = gameState.boostLevel * 500 + 500;
@@ -617,11 +617,10 @@ function confirmUpgradeAction() {
         cost = gameState.coinBoostLevel * 500 + 500;
     }
 
-    // التحقق إذا كان لدى المستخدم ما يكفي من العملات للترقية
+    // التحقق من توافر العملات
     if (gameState.balance >= cost) {
-        gameState.balance -= cost;  // خصم تكلفة الترقية
+        gameState.balance -= cost;
 
-        // زيادة المستوى بعد الترقية
         if (upgradeType === 'boost') {
             gameState.boostLevel += 1;
             gameState.clickMultiplier += 0.5;
@@ -630,15 +629,24 @@ function confirmUpgradeAction() {
             gameState.maxEnergy += 500;
         }
 
-        // تحديث واجهة المستخدم والإشعارات بعد الترقية
+        // تحديث البيانات
         updateUI();
         saveGameState();
+        updateGameStateInDatabase({
+            balance: gameState.balance,
+            boostLevel: gameState.boostLevel,
+            clickMultiplier: gameState.clickMultiplier,
+            coinBoostLevel: gameState.coinBoostLevel,
+            maxEnergy: gameState.maxEnergy,
+        });
+
         showNotificationWithStatus(uiElements.purchaseNotification, `Successfully upgraded!`, 'win');
-        updateUserData();
     } else {
         showNotificationWithStatus(uiElements.purchaseNotification, `Not enough coins!`, 'lose');
     }
-    uiElements.upgradeModal.style.display = 'none';  // إخفاء النافذة المنبثقة بعد الترقية
+
+    // إخفاء النافذة المنبثقة
+    uiElements.upgradeModal.style.display = 'none';
 }
 
 
