@@ -113,9 +113,6 @@ async function loadGameState() {
     updateUI(); // تحديث واجهة المستخدم
 }
 
-
-
-
 // حفظ حالة اللعبة في قاعدة البيانات
 async function saveGameState() {
     const userId = uiElements.userTelegramIdDisplay.innerText;
@@ -153,6 +150,43 @@ async function saveGameState() {
         console.log('Game state updated successfully.');
     }
 }
+
+// استعادة الطاقة عند تحميل اللعبة
+async function restoreEnergy() {
+    const currentTime = Date.now();
+    const timeDiff = currentTime - gameState.lastFillTime;
+    const recoveredEnergy = Math.floor(timeDiff / (4 * 60 * 1000)); // استعادة الطاقة
+
+    gameState.energy = Math.min(gameState.maxEnergy, gameState.energy + recoveredEnergy);
+    gameState.lastFillTime = currentTime; // تحديث وقت آخر استعادة
+
+    updateUI(); // تحديث واجهة المستخدم
+    await saveGameState(); // حفظ التحديثات
+}
+
+// الاستماع إلى التغييرات في قاعدة البيانات
+function listenToRealtimeChanges() {
+    const userId = uiElements.userTelegramIdDisplay.innerText;
+
+    supabase
+        .channel('public:users')
+        .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'users', filter: `telegram_id=eq.${userId}` }, payload => {
+            console.log('Change received!', payload);
+            gameState = { ...gameState, ...payload.new };
+            updateUI();
+            saveGameState();
+        })
+        .subscribe();
+}
+
+// تهيئة التطبيق عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', async () => {
+    await loadGameState();       // تحميل حالة اللعبة
+    await restoreEnergy();       // استعادة الطاقة
+    listenToRealtimeChanges();   // البدء في الاستماع للتغييرات
+    await initializeApp();       // تهيئة التطبيق
+    updateInviteFriendsButton(); // تحديث الواجهة
+});
 
 
 
@@ -224,12 +258,7 @@ function checkForLevelUp() {
     }
 }
 
-// تهيئة التطبيق عند تحميل الصفحة
-document.addEventListener('DOMContentLoaded', async () => {
-    loadGameState();
-    await initializeApp();
-    updateInviteFriendsButton();
-});
+
 
 // دالة تهيئة التطبيق
 async function initializeApp() {
@@ -313,20 +342,7 @@ async function registerNewUser(userTelegramId, userTelegramName) {
      }
   }
 
-// الاستماع إلى التغييرات في قاعدة البيانات
-function listenToRealtimeChanges() {
-    const userId = uiElements.userTelegramIdDisplay.innerText;
 
-    supabase
-        .channel('public:users')
-        .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'users', filter: `telegram_id=eq.${userId}` }, payload => {
-            console.log('Change received!', payload);
-            gameState = { ...gameState, ...payload.new };
-            updateUI();
-            saveGameState();
-        })
-        .subscribe();
-}
 
 // تحديث واجهة المستخدم بناءً على حالة اللعبة
 function updateUI() {
