@@ -2213,32 +2213,44 @@ function showContent(contentId) {
 
 
 
+// تحديث جميع الأرصدة في واجهة المستخدم باستخدام رصيد واجهة المستخدم فقط
 function updateBalances() {
-  const balance = gameState.balance; // الحصول على الرصيد الحالي من حالة اللعبة
-  const formattedBalance = balance.toLocaleString(); // تنسيق الرصيد بإضافة فواصل الآلاف
-  
-  // تحديث كل عناصر عرض الرصيد
-  const elements = [
-    'tasksBalanceDisplay',
-    'miningBalanceDisplay',
-    'levelBalanceDisplay',
-    'gameBalanceDisplay',
-    'walletBalanceDisplay',
-    'puzzlesBalanceDisplay',
-    'boostsBalanceDisplay',
-    'AccountBalanceDisplay'
-  ];
-  
-  elements.forEach(id => {
-    const element = document.getElementById(id);
-    if (element) element.innerText = formattedBalance;
-  });
+    const balanceElement = uiElements.balanceDisplay; // العنصر الرئيسي للرصيد في واجهة المستخدم
+
+    if (!balanceElement) {
+        console.error('Balance display element not found!');
+        return;
+    }
+
+    const formattedBalance = balanceElement.innerText; // الحصول على الرصيد من واجهة المستخدم (المهيأ مسبقًا)
+
+    // قائمة بعناصر واجهة المستخدم المرتبطة بالرصيد
+    const elements = [
+        'tasksBalanceDisplay',
+        'miningBalanceDisplay',
+        'levelBalanceDisplay',
+        'gameBalanceDisplay',
+        'walletBalanceDisplay',
+        'puzzlesBalanceDisplay',
+        'boostsBalanceDisplay',
+        'AccountBalanceDisplay'
+    ];
+
+    // تحديث جميع العناصر الأخرى بناءً على رصيد واجهة المستخدم
+    elements.forEach(id => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.innerText = formattedBalance;
+        }
+    });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  loadGameState();  // تحميل حالة اللعبة
-  updateBalances();  // تحديث الأرصدة بعد تحميل حالة اللعبة
-  updateAccountSummary(); // تحديث نافذة الإعدادات
+// عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', async () => {
+    await loadGameState();        // تحميل حالة اللعبة من LocalStorage أو قاعدة البيانات
+    updateBalances();             // تحديث جميع الأرصدة في واجهة المستخدم
+    updateAccountSummary();       // تحديث نافذة الإعدادات أو ملخص الحساب
+    listenToRealtimeChanges();    // البدء في الاستماع للتغييرات من قاعدة البيانات
 });
 
 
