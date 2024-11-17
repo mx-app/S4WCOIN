@@ -86,18 +86,34 @@ let gameState = {
     
 };
 
-// استعادة حالة اللعبة من localStorage إذا كانت موجودة
-function loadGameState() {
-    const savedState = localStorage.getItem('gameState');
-    if (savedState) {
-        gameState = JSON.parse(savedState);
-        const currentTime = Date.now();
-        const timeDiff = currentTime - gameState.lastFillTime;
-        const recoveredEnergy = Math.floor(timeDiff / (4 * 60 * 1000)); // استعادة الطاقة بناءً على الفارق الزمني 4 ساعات
-        gameState.energy = Math.min(gameState.maxEnergy, gameState.energy + recoveredEnergy);
-        updateUI();
+// تحميل حالة اللعبة من قاعدة البيانات
+async function loadGameState() {
+    const userId = uiElements.userTelegramIdDisplay.innerText;
+
+    const { data, error } = await supabase
+        .from('users')
+        .select('*')
+        .eq('telegram_id', userId)
+        .single(); // استرداد بيانات المستخدم كصف واحد فقط
+
+    if (error) {
+        console.error('Error loading game state from Supabase:', error);
+        return; // إنهاء التنفيذ إذا حدث خطأ
     }
+
+    // تحديث حالة اللعبة بالبيانات المسترجعة
+    gameState = { ...gameState, ...data };
+
+    // استعادة الطاقة بناءً على الوقت المنقضي منذ آخر ملء للطاقة
+    const currentTime = Date.now();
+    const timeDiff = currentTime - gameState.lastFillTime;
+    const recoveredEnergy = Math.floor(timeDiff / (4 * 60 * 1000)); // استعادة الطاقة بناءً على فارق 4 دقائق لكل نقطة
+    gameState.energy = Math.min(gameState.maxEnergy, gameState.energy + recoveredEnergy);
+
+    updateUI(); // تحديث واجهة المستخدم
 }
+
+
 
 // حفظ حالة اللعبة في localStorage
 function saveGameState() {
