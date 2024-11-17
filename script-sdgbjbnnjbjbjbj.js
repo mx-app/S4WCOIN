@@ -85,6 +85,31 @@ let gameState = {
     consecutiveDays: 0,  // عدد الأيام المتتالية التي تم المطالبة فيها بالمكافآت
 };
 
+//تحديث البيانت من الواجهه الي قاعده البيانات 
+async function updateGameStateInDatabase(updatedData) {
+    const userId = uiElements.userTelegramIdDisplay.innerText;
+
+    try {
+        const { data, error } = await supabase
+            .from('users')
+            .update(updatedData) // البيانات الجديدة
+            .eq('telegram_id', userId); // شرط التحديث
+
+        if (error) {
+            console.error('Error updating game state in Supabase:', error);
+            return false;
+        }
+
+        console.log('Game state updated successfully in Supabase:', data);
+        return true;
+    } catch (err) {
+        console.error('Unexpected error while updating game state:', err);
+        return false;
+    }
+}
+
+
+
 //تحديث قاعده البيانات 
 async function loadGameState() {
     const userId = uiElements.userTelegramIdDisplay.innerText;
@@ -184,7 +209,8 @@ function listenToRealtimeChanges() {
 // تهيئة التطبيق عند تحميل الصفحة
 document.addEventListener('DOMContentLoaded', async () => {
     await loadGameState();       // تحميل البيانات من LocalStorage أو قاعدة البيانات
-    await restoreEnergy();       // استعادة الطاقة
+    await restoreEnergy();   
+    updateGameStateInDatabase(); 
     listenToRealtimeChanges();   // البدء في الاستماع للتغييرات
     await initializeApp();       // تهيئة التطبيق
     updateInviteFriendsButton(); // تحديث الواجهة
