@@ -391,8 +391,9 @@ async function registerNewUser(userTelegramId, userTelegramName) {
 
 // تحديث واجهة المستخدم بناءً على حالة اللعبة
 function updateUI() {
+function updateUI() {
     if (uiElements.balanceDisplay) {
-    uiElements.balanceDisplay.innerText = gameState.balance.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        uiElements.balanceDisplay.innerText = gameState.balance.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     }
 
     const energyPercent = (gameState.energy / gameState.maxEnergy) * 100;
@@ -403,7 +404,7 @@ function updateUI() {
     if (uiElements.energyInfo) {
         uiElements.energyInfo.innerText = `${formatNumber(gameState.energy)}/${formatNumber(gameState.maxEnergy)}⚡`;
     }
-    
+
     if (uiElements.currentLevelName) {
         uiElements.currentLevelName.innerText = levelThresholds[gameState.currentLevel - 1].name;
     }
@@ -415,7 +416,15 @@ function updateUI() {
     saveGameState();
     updateBoostsDisplay();
     updateLevelDisplay();
+
+    // إرسال البيانات الجديدة إلى قاعدة البيانات
+    updateGameStateInDatabase({
+        balance: gameState.balance,
+        energy: gameState.energy,
+        currentLevel: gameState.currentLevel,
+    });
 }
+
 
 function formatNumber(value) {
     if (value >= 1_000_000_000_000) {
@@ -746,12 +755,19 @@ function startEnergyRecovery() {
     setInterval(() => {
         const currentTime = Date.now();
         const timeDiff = currentTime - gameState.lastFillTime;
-        const recoveredEnergy = Math.floor(timeDiff / (4 * 60 * 1000)); // استعادة الطاقة بناءً على الفارق الزمني 4 ساعات
+        const recoveredEnergy = Math.floor(timeDiff / (4 * 60 * 1000)); // استعادة الطاقة كل 4 دقائق
+
         if (gameState.energy < gameState.maxEnergy) {
             gameState.energy = Math.min(gameState.maxEnergy, gameState.energy + recoveredEnergy);
+            gameState.lastFillTime = currentTime;
+
+            // تحديث البيانات
             updateUI();
-            updateUserData();
             saveGameState();
+            updateGameStateInDatabase({
+                energy: gameState.energy,
+                lastFillTime: gameState.lastFillTime,
+            });
         }
     }, 5000);
 }
@@ -760,13 +776,21 @@ function startEnergyRecovery() {
 function checkEnergyFill() {
     const currentTime = Date.now();
     const twelveHours = 12 * 60 * 60 * 1000;
+
     if (currentTime - gameState.lastFillTime >= twelveHours) {
         gameState.fillEnergyCount = 0;
+        gameState.lastFillTime = currentTime;
+
+        // تحديث البيانات
         updateUI();
-        updateUserData();
         saveGameState();
+        updateGameStateInDatabase({
+            fillEnergyCount: gameState.fillEnergyCount,
+            lastFillTime: gameState.lastFillTime,
+        });
     }
 }
+
 
 //المستويات 
 function updateLevelDisplay() {
