@@ -83,37 +83,45 @@ let gameState = {
     ciphersProgress:[],
     lastLoginDate: null, // تاريخ آخر تسجيل دخول
     consecutiveDays: 0,  // عدد الأيام المتتالية التي تم المطالبة فيها بالمكافآت
-    
 };
 
-// تحميل حالة اللعبة من قاعدة البيانات
+
+
+// تحميل حالة اللعبة من LocalStorage أو قاعدة البيانات
 async function loadGameState() {
     const userId = uiElements.userTelegramIdDisplay.innerText;
 
+    // محاولة تحميل البيانات من LocalStorage
+    const localData = localStorage.getItem('gameState');
+    if (localData) {
+        console.log('Loading game state from LocalStorage...');
+        gameState = { ...gameState, ...JSON.parse(localData) };
+        updateUI(); // تحديث واجهة المستخدم
+        return; // إنهاء التنفيذ إذا تم العثور على البيانات
+    }
+
+    // تحميل البيانات من قاعدة البيانات إذا لم تكن موجودة في LocalStorage
     const { data, error } = await supabase
         .from('users')
         .select('*')
         .eq('telegram_id', userId)
-        .single(); // استرداد بيانات المستخدم كصف واحد فقط
+        .single();
 
     if (error) {
         console.error('Error loading game state from Supabase:', error);
-        return; // إنهاء التنفيذ إذا حدث خطأ
+        return;
     }
 
-    // تحديث حالة اللعبة بالبيانات المسترجعة
-    gameState = { ...gameState, ...data };
-
-    // استعادة الطاقة بناءً على الوقت المنقضي منذ آخر ملء للطاقة
-    const currentTime = Date.now();
-    const timeDiff = currentTime - gameState.lastFillTime;
-    const recoveredEnergy = Math.floor(timeDiff / (4 * 60 * 1000)); // استعادة الطاقة بناءً على فارق 4 دقائق لكل نقطة
-    gameState.energy = Math.min(gameState.maxEnergy, gameState.energy + recoveredEnergy);
-
-    updateUI(); // تحديث واجهة المستخدم
+    if (data) {
+        console.log('Loading game state from Supabase...');
+        gameState = { ...gameState, ...data };
+        updateUI(); // تحديث واجهة المستخدم
+    } else {
+        console.warn('No game state found for this user.');
+    }
 }
 
-// حفظ حالة اللعبة في قاعدة البيانات
+// حفظ حالة اللعبة في LocalStorage وقاعدة البيانات
 async function saveGameState() {
     const userId = uiElements.userTelegramIdDisplay.innerText;
 
@@ -139,13 +147,17 @@ async function saveGameState() {
         consecutive_days: gameState.consecutiveDays
     };
 
+    // حفظ البيانات في LocalStorage
+    localStorage.setItem('gameState', JSON.stringify(updatedData));
+
+    // حفظ البيانات في قاعدة البيانات
     const { error } = await supabase
         .from('users')
         .update(updatedData)
         .eq('telegram_id', userId);
 
     if (error) {
-        console.error('Error saving game state:', error.message);  // تم تحسين عرض الخطأ
+        console.error('Error saving game state:', error.message);
     } else {
         console.log('Game state updated successfully.');
     }
@@ -181,12 +193,13 @@ function listenToRealtimeChanges() {
 
 // تهيئة التطبيق عند تحميل الصفحة
 document.addEventListener('DOMContentLoaded', async () => {
-    await loadGameState();       // تحميل حالة اللعبة
+    await loadGameState();       // تحميل البيانات من LocalStorage أو قاعدة البيانات
     await restoreEnergy();       // استعادة الطاقة
     listenToRealtimeChanges();   // البدء في الاستماع للتغييرات
     await initializeApp();       // تهيئة التطبيق
     updateInviteFriendsButton(); // تحديث الواجهة
 });
+
 
 
 
