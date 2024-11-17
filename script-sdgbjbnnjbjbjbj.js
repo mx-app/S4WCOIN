@@ -147,9 +147,6 @@ async function saveGameState() {
         consecutive_days: gameState.consecutiveDays
     };
 
-    // حفظ البيانات في LocalStorage
-    localStorage.setItem('gameState', JSON.stringify(updatedData));
-
     // حفظ البيانات في قاعدة البيانات
     const { error } = await supabase
         .from('users')
@@ -265,8 +262,8 @@ function checkForLevelUp() {
             gameState.balance += levelThresholds[i].threshold; 
             gameState.claimedRewards.levels.push(levelThresholds[i].level);
             showNotification(uiElements.purchaseNotification, `Upgraded to level ${gameState.currentLevel}! ${formatNumber(levelThresholds[i].threshold)} coins added to your balance.`);
+            saveGameState();
             updateUserData();
-            saveGameState();  // حفظ حالة اللعبة والمكافأة
         }
     }
 }
@@ -380,6 +377,7 @@ function updateUI() {
         uiElements.displayedLevel.innerText = ` ${gameState.currentLevel}`;
     }
 
+    saveGameState();
     updateBoostsDisplay();
     updateLevelDisplay();
 }
@@ -599,9 +597,9 @@ function confirmUpgradeAction() {
 
         // تحديث واجهة المستخدم والإشعارات بعد الترقية
         updateUI();
+        saveGameState();
         showNotificationWithStatus(uiElements.purchaseNotification, `Successfully upgraded!`, 'win');
         updateUserData();
-        saveGameState();
     } else {
         showNotificationWithStatus(uiElements.purchaseNotification, `Not enough coins!`, 'lose');
     }
@@ -645,9 +643,9 @@ function handleClick(event) {
     if (gameState.energy >= requiredEnergy) {
         gameState.balance += gameState.clickMultiplier * touchPoints.length;
         gameState.energy -= requiredEnergy;
+        saveGameState();
         updateUI();
         updateUserData();
-        saveGameState();  // التأكد من حفظ حالة اللعبة بعد كل نقرة
     } else {
         showNotification(uiElements.purchaseNotification, 'Not enough energy!');
     }
@@ -925,7 +923,10 @@ async function updateUserData() {
 }
 
 
-//
+///////////////////////////////
+
+
+
 
 document.querySelectorAll('button[data-target]').forEach(button => {
     button.addEventListener('click', () => {
@@ -1251,7 +1252,7 @@ function initializeTelegramIntegration() {
     // تفعيل حدث زر الرجوع
     telegramApp.BackButton.onClick(() => {
         const currentPage = document.querySelector(".page.active"); // الصفحة النشطة
-        if (currentPage && currentPage.id !== "home") {
+        if (currentPage && currentPage.id !== "mainPage") {
             // إخفاء الصفحة الحالية والعودة للصفحة الرئيسية
             currentPage.classList.remove("active");
             document.getElementById("home").classList.add("active");
@@ -2455,8 +2456,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-localStorage.removeItem('gameState'); // مسح حالة اللعبة
-loadGameState(); // إعادة تحميل حالة اللعبة
+//localStorage.removeItem('gameState'); // مسح حالة اللعبة
+//loadGameState(); // إعادة تحميل حالة اللعبة
 
 
 
