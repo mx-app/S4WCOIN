@@ -115,10 +115,41 @@ async function loadGameState() {
 
 
 
-// حفظ حالة اللعبة في localStorage
-function saveGameState() {
-    localStorage.setItem('gameState', JSON.stringify(gameState));
+
+// حفظ حالة اللعبة في قاعدة البيانات
+async function saveGameState() {
+    const userId = uiElements.userTelegramIdDisplay.innerText;
+
+    const { error } = await supabase
+        .from('users')
+        .update({
+            balance: gameState.balance,
+            energy: gameState.energy,
+            max_energy: gameState.maxEnergy,
+            click_multiplier: gameState.clickMultiplier,
+            boost_level: gameState.boostLevel,
+            coin_boost_level: gameState.coinBoostLevel,
+            energy_boost_level: gameState.energyBoostLevel,
+            current_level: gameState.currentLevel,
+            friends: gameState.friends,
+            fill_energy_count: gameState.fillEnergyCount,
+            last_fill_time: new Date(gameState.lastFillTime).toISOString(),
+            invites: gameState.invites,
+            claimed_rewards: gameState.claimedRewards,
+            tasks_progress: gameState.tasksprogress,
+            puzzles_progress: gameState.puzzlesprogress,
+            used_Promo_Codes: gameState.usedPromoCodes,
+            morse_ciphers_progress: gameState.ciphersProgress,
+            last_login_date: gameState.lastLoginDate ? new Date(gameState.lastLoginDate).toISOString() : null,
+            consecutive_days: gameState.consecutiveDays
+        })
+        .eq('telegram_id', userId);
+
+    if (error) {
+        console.error('Error saving game state:', error);
+    }
 }
+
 
 
 // مستويات اللعبة المتناسقة
