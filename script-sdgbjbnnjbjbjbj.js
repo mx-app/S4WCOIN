@@ -273,16 +273,32 @@ const levelThresholds = [
     { level: 50, threshold: 40000000, name: 'Ascension', image: 'i/lvl50.png' },
 ];
 
+
 // التحقق من الترقية إلى مستوى أعلى
 function checkForLevelUp() {
     for (let i = 0; i < levelThresholds.length; i++) {
-        if (gameState.balance >= levelThresholds[i].threshold && gameState.currentLevel < levelThresholds[i].level && !gameState.claimedRewards.levels.includes(levelThresholds[i].level)) {
+        if (
+            gameState.balance >= levelThresholds[i].threshold &&
+            gameState.currentLevel < levelThresholds[i].level &&
+            !gameState.claimedRewards.levels.includes(levelThresholds[i].level)
+        ) {
             gameState.currentLevel = levelThresholds[i].level;
-            gameState.balance += levelThresholds[i].threshold; 
+            gameState.balance += levelThresholds[i].threshold;
             gameState.claimedRewards.levels.push(levelThresholds[i].level);
-            showNotification(uiElements.purchaseNotification, `Upgraded to level ${gameState.currentLevel}! ${formatNumber(levelThresholds[i].threshold)} coins added to your balance.`);
+
+            showNotification(
+                uiElements.purchaseNotification,
+                `Upgraded to level ${gameState.currentLevel}! ${formatNumber(levelThresholds[i].threshold)} coins added to your balance.`
+            );
+
+            // تحديث البيانات
+            updateUI();
             saveGameState();
-            updateUserData();
+            updateGameStateInDatabase({
+                currentLevel: gameState.currentLevel,
+                balance: gameState.balance,
+                claimedRewards: gameState.claimedRewards,
+            });
         }
     }
 }
