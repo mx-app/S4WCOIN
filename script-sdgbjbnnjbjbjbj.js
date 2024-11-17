@@ -645,12 +645,10 @@ function fillEnergyAction() {
 }
 
 
-
-// التعامل مع النقرات لتوليد العملات
-// دالة النقرة
+//تعامل النقر 
 function handleClick(event) {
     event.preventDefault(); // منع الأحداث المكررة
-    const touchPoints = event.touches ? event.touches : [event];  // التعامل مع اللمس أو النقر الواحد
+    const touchPoints = event.touches ? event.touches : [event]; // التعامل مع اللمس أو النقر الواحد
 
     for (let i = 0; i < touchPoints.length; i++) {
         const touch = touchPoints[i];
@@ -664,7 +662,12 @@ function handleClick(event) {
         gameState.energy -= requiredEnergy;
         saveGameState();
         updateUI();
-        updateUserData();
+        
+        // إرسال التحديث إلى قاعدة البيانات
+        updateGameStateInDatabase({
+            balance: gameState.balance,
+            energy: gameState.energy,
+        });
     } else {
         showNotification(uiElements.purchaseNotification, 'Not enough energy!');
     }
