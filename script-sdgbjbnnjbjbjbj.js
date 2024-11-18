@@ -1189,6 +1189,13 @@ fetch('json/tasks.json')
         tasks.forEach(task => {
             const taskElement = document.createElement('div');
             taskElement.classList.add('task-item');
+            
+            const img = document.createElement('img'); 
+             img.src = task.image;
+             img.alt = 'Task Image';
+             img.classList.add('task-img');
+             taskElement.appendChild(img);
+
 
             // Create a container for description and reward
             const infoContainer = document.createElement('div');
