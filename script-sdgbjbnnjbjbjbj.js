@@ -297,29 +297,30 @@ const levelThresholds = [
 ];
 
 
+
 // التحقق من الترقية إلى مستوى أعلى
 function checkForLevelUp() {
     for (let i = 0; i < levelThresholds.length; i++) {
         if (
-            gameState.balance >= levelThresholds[i].threshold &&
-            gameState.currentLevel < levelThresholds[i].level &&
-            !gameState.claimedRewards.levels.includes(levelThresholds[i].level)
+            gameState.balance >= levelThresholds[i].threshold &&  // تحقق إذا كان الرصيد يتجاوز حد المستوى
+            gameState.currentLevel < levelThresholds[i].level &&  // تحقق إذا كان المستوى الحالي أقل من المستوى الجديد
+            !gameState.claimedRewards.levels.includes(levelThresholds[i].level)  // تحقق إذا كانت المكافأة لهذا المستوى لم تُطالب
         ) {
+            // الترقية إلى المستوى الجديد
             gameState.currentLevel = levelThresholds[i].level;
-            gameState.balance += levelThresholds[i].threshold;
-            gameState.claimedRewards.levels.push(levelThresholds[i].level);
+            gameState.claimedRewards.levels.push(levelThresholds[i].level);  // تسجيل أن المكافأة لهذا المستوى قد تم المطالبة بها
 
             showNotification(
                 uiElements.purchaseNotification,
-                `Upgraded to level ${gameState.currentLevel}! ${formatNumber(levelThresholds[i].threshold)} coins added to your balance.`
+                `You have been promoted to the level ${gameState.currentLevel}!`
             );
 
-            // تحديث البيانات
+            // تحديث واجهة المستخدم
             updateUI();
-            saveGameState();
+            saveGameState();  // حفظ الحالة الحالية للعبة
             updateGameStateInDatabase({
                 currentLevel: gameState.currentLevel,
-                balance: gameState.balance,
+                balance: gameState.balance,  // بدون تعديل الرصيد
                 claimedRewards: gameState.claimedRewards,
             });
         }
