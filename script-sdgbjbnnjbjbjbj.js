@@ -391,7 +391,6 @@ async function registerNewUser(userTelegramId, userTelegramName) {
 
 // تحديث واجهة المستخدم بناءً على حالة اللعبة
 function updateUI() {
-function updateUI() {
     if (uiElements.balanceDisplay) {
         uiElements.balanceDisplay.innerText = gameState.balance.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     }
