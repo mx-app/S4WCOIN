@@ -59,39 +59,54 @@
 
 
 .boosts-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 10px;
-    width: 100%;
-    max-width: 320px;
+    display: grid;
+    grid-template-columns: repeat(2, 44%); /* عرض كل عنصرين بجانب بعض */
+    gap: 15px; /* المسافة بين العناصر */
+    justify-content: center; /* محاذاة العناصر في المنتصف */
+    margin-top: 10px;
+}
     
     /*display: flex;
     flex-direction: row;
     justify-content: space-between;
-    flex-wrap: wrap;*/
-}
+    flex-wrap: wrap;
+}*/
 
 .boost-item {
-    width: 90%/*calc(50% - 20px)*/;
-    min-height: 120px; /* ضبط الحد الأدنى للارتفاع */
+    width: 89%; /* عرض الحاوية بنسبة 44% */
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #343434;
+    border-radius: 10px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    text-align: center;
+    overflow: hidden;
+}
+
+
+   /* width: 90%;
+    min-height: 120px;
     padding: 15px;
     margin: 10px 0;
     margin-right: 10px;
     margin-left: 10px;
     border: 1px solid #343434;
     background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px); /* تأثير الضبابية */
+    backdrop-filter: blur(10px); 
     border-radius: 10px;
-   /* display: flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     box-sizing: border-box;
-    text-align: center;*/
-}
+    text-align: center;
+}*/
+
+
 
 .boost-item p {
     margin: 5px 0;
