@@ -115,3 +115,17 @@
 .boost-icon:hover {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.3);
 }
+
+
+.boost-meta {
+    display: flex;
+    flex-direction: row; /* ترتيب الليفيل والتكلفة أفقيًا */
+    justify-content: space-between; /* توزيع العناصر بالتساوي */
+    margin-top: 5px; /* مسافة صغيرة بين الوصف والليفيل/التكلفة */
+    color: #fff;
+    font-size: 0.9em; /* حجم النص أصغر قليلاً */
+}
+
+.boost-meta span {
+    margin-right: 10px; /* مسافة صغيرة بين الليفيل والتكلفة */
+} 
