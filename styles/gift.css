@@ -14,9 +14,9 @@
     flex-direction: column; /* ترتيب الصورة والوصف عموديًا */
     align-items: center; /* توسيط المحتوى داخل المربع */
     justify-content: center; /* توسيط المحتوى عموديًا */
-    width: 20%; /* عرض كل مربع ليبقى هناك مسافات بين المربعات */
-    height: 80px;
-    margin: 5px;
+    width: 22%; /* عرض كل مربع ليبقى هناك مسافات بين المربعات */
+    height: 100px;
+    margin: 4px;
     background: rgba(255, 255, 255, 0.1); /* خلفية شفافة */
     backdrop-filter: blur(5px); /* تأثير التمويه */
     border-radius: 10px; /* زوايا مستديرة */
@@ -28,8 +28,9 @@
 /* صورة المربع */
 .gift-image {
     width: 100%;
-    height: 100%;
-    margin-bottom: 2px; /* مسافة بين الصورة والوصف */
+    height: 90%;
+    object-fit: cover;
+    margin-bottom: 3px; /* مسافة بين الصورة والوصف */
     border-radius: 10px; /* زوايا مستديرة للصورة */
 }
 
