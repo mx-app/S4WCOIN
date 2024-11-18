@@ -115,14 +115,13 @@
 
 .task-reward-container {
     position: absolute;
-    top: 10px; /* مسافة من أعلى الحاوية */
-    right: 10px; /* مسافة من يمين الحاوية */
+    top: 90%; /* مسافة من أعلى الحاوية */
+    left: 50px; /* مسافة من يمين الحاوية */
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.5); /* خلفية شفافة */
+    background-color: rgba(0, 0, 0, 0.005); /* خلفية شفافة */
     padding: 5px;
-    border-radius: 10px;
 }
  
 /*.task-reward {
