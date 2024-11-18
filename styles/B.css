@@ -71,7 +71,8 @@
     max-width: 300px;
     margin: 10px 0;
     padding: 8px;
-    background-color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
     border-radius: 10px;
     display: flex;
     justify-content: column;
@@ -98,7 +99,7 @@
     width: 30%;
     transition: background-color 0.3s;
     font-size: 12px;
-    border: 0.50px solid #808080;
+    border: 0.50px solid #343434;
     margin-left: auto;
 } 
 
