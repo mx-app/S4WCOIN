@@ -194,7 +194,7 @@
     font-size: 12px;
     font-weight: bold;
     border-radius: 8px;
-    border: 1px solid #343434;
+    border: 0.50px solid #343434;
     cursor: pointer;
     z-index: 100;
  }
@@ -301,7 +301,7 @@
     width: 86%;
     height: 130px;
     max-width: 400px;
-    border: 1px solid #343434;
+    border: 2px solid #343434;
     box-shadow: 0 0 4px rgba(255, 255, 255, 0.2), 0 0 8px rgba(255, 255, 255, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
