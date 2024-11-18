@@ -855,7 +855,7 @@ img {
 }
 
 
-#tasksBalanceDisplay::before, #miningBalanceDisplay::before, #levelBalanceDisplay::before, #gameBalanceDisplay::before,
+#tasksBalanceDisplay::before, #levelBalanceDisplay::before, #gameBalanceDisplay::before,
 #walletBalanceDisplay::before, #puzzlesBalanceDisplay::before, #boostsBalanceDisplay::before, #AccountBalanceDisplay::before {
     content: "";
     display: inline-block;
