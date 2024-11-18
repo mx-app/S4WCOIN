@@ -2,12 +2,13 @@
     position: absolute;
     top: 10px;
     right: 15px;
-    padding: 5px; /* مسافة داخلية */
+    padding: 8px; /* مسافة داخلية */
     font-size: 16px; /* حجم الخط */
     display: flex;
     align-items: center; /* لضبط المحاذاة الرأسية */
     border-radius: 10px; /* زوايا دائرية */
-    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid #343434;
+    background-color: rgba(255, 255, 255, 0.09);
     color: #ffffff; /* لون النص */
     transition: padding 0.2s ease; /* تأثير بسيط عند التمدد */
     min-width: 50px; /* عرض أدنى للعنصر */
