@@ -1,0 +1,62 @@
+/* الحاوية الرئيسية للمربعات */
+.gift-container {
+    display: flex; /* لجعل المربعات بجانب بعضها */
+    justify-content: space-between; /* توزيع المربعات بالتساوي */
+    align-items: center; /* توسيط المربعات عموديًا */
+    width: 90%; /* عرض الحاوية */
+    margin: 20px auto; /* محاذاة الحاوية في منتصف الشاشة */
+    padding: 10px;
+}
+
+/* تصميم كل مربع */
+.gift-box {
+    display: flex;
+    flex-direction: column; /* ترتيب الصورة والوصف عموديًا */
+    align-items: center; /* توسيط المحتوى داخل المربع */
+    justify-content: center; /* توسيط المحتوى عموديًا */
+    width: 25%; /* عرض كل مربع ليبقى هناك مسافات بين المربعات */
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.1); /* خلفية شفافة */
+    backdrop-filter: blur(5px); /* تأثير التمويه */
+    border-radius: 10px; /* زوايا مستديرة */
+    border: 0.5px solid #343434; /* حدود المربع */
+    text-align: center; /* محاذاة النصوص للوسط */
+    box-sizing: border-box; /* لحساب الحواف ضمن الأبعاد */
+}
+
+/* صورة المربع */
+.gift-image {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px; /* مسافة بين الصورة والوصف */
+    border-radius: 10px; /* زوايا مستديرة للصورة */
+}
+
+/* الوصف أسفل كل مربع */
+.gift-description {
+    font-size: 14px;
+    color: #fff;
+    margin-top: 5px; /* مسافة بين الوصف والصورة */
+    text-align: center;
+}
+
+/* تصميم حاوية المؤقت */
+.timer-container {
+    text-align: center; /* محاذاة النصوص للوسط */
+    margin-top: 10px;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.1); /* خلفية شفافة */
+    backdrop-filter: blur(5px); /* تأثير التمويه */
+    border-radius: 10px; /* زوايا مستديرة */
+    border: 0.5px solid #343434; /* حدود الحاوية */
+    width: 90%; /* عرض الحاوية */
+    margin: 20px auto; /* محاذاة الحاوية في المنتصف */
+}
+
+/* تصميم النص داخل المؤقت */
+.countdown-timer {
+    font-size: 18px;
+    color: #ffcc00; /* لون النص */
+    font-weight: bold;
+    text-align: center;
+}
