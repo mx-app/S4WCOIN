@@ -927,6 +927,13 @@ function updateBoostsDisplay() {
     if (uiElements.coinBoostLevelDisplay) {
         uiElements.coinBoostLevelDisplay.innerText = gameState.coinBoostLevel;
     }
+
+    saveGameState(); // حفظ البيانات في localStorage
+    updateGameStateInDatabase({
+        boostLevel: gameState.boostLevel,
+        coinBoostLevel: gameState.coinBoostLevel,
+        clickMultiplier: gameState.clickMultiplier,
+    }); // تحديث البيانات في قاعدة البيانات
 }
 
 
