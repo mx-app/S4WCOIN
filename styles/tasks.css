@@ -114,6 +114,7 @@
 }
 
 .task-reward-container {
+    margin-top: 10px;
     position: absolute;
     top: 70%; /* مسافة من أعلى الحاوية */
     left: 70px; /* مسافة من يمين الحاوية */
