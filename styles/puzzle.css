@@ -79,14 +79,17 @@
     backdrop-filter: blur(5px);
     text-align: center;
     overflow: hidden;
+    position: relative;
 }
 
 #Puzzlespage .puzzle-image {
-    width: 150%;
-    height: 100px;
-    object-fit: cover;
-    /*border: 0.50px solid #343434;*/
-    border-radius: 2px;
+    width: 100%; /* تجعل الصورة تملأ العرض الكامل */
+    height: 100%; /* تجعل الصورة تملأ الارتفاع الكامل */
+    object-fit: cover; /* لضمان تغطية المساحة بدون تشويه */
+    position: absolute; /* لضبط الصورة داخل الحاوية */
+    top: 0;
+    left: 0;
+    border-radius: 10px; /* نفس الزوايا الدائرية للحاوية */
 }
 
 #Puzzlespage .puzzle-description {
