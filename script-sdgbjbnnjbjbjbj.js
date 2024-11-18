@@ -2623,10 +2623,70 @@ document.addEventListener('DOMContentLoaded', () => {
 //////////////////////////////////////
 
 
+// تعريف أسعار ومعلومات الأوراق
+const miningUpgrades = [
+  { id: "Mine1", baseCost: 40, baseProfit: 0.1 },
+  { id: "Mine2", baseCost: 80, baseProfit: 0.2 },
+  { id: "Mine3", baseCost: 120, baseProfit: 0.5 },
+  // أضف المزيد حسب الحاجة
+];
 
+// الرصيد الحالي
+let miningBalance = 10000; // قيمة افتراضية
+let totalProfitPerHour = 0;
 
-//localStorage.removeItem('gameState'); // مسح حالة اللعبة
-//loadGameState(); // إعادة تحميل حالة اللعبة
+// تحديث عرض الرصيد
+function updateMiningDisplay() {
+  document.getElementById("miningBalanceDisplay").textContent = miningBalance.toFixed(2);
+}
+
+// تحديث الأرباح في الساعة
+function updateProfitPerHourDisplay() {
+  totalProfitPerHour = miningUpgrades.reduce((total, upgrade) => {
+    const level = upgrade.level || 1;
+    return total + upgrade.baseProfit * level;
+  }, 0);
+
+  miningUpgrades.forEach((upgrade) => {
+    const profitElement = document.querySelector(`#${upgrade.id} .profit-rate`);
+    const level = upgrade.level || 1;
+    profitElement.textContent = `+${(upgrade.baseProfit * level).toFixed(2)} hr`;
+  });
+}
+
+// شراء ترقية
+function upgradeMining(id) {
+  const upgrade = miningUpgrades.find((u) => u.id === id);
+  if (!upgrade) return;
+
+  const currentLevel = upgrade.level || 1;
+  const upgradeCost = upgrade.baseCost * Math.pow(1.5, currentLevel - 1);
+
+  if (miningBalance >= upgradeCost) {
+    miningBalance -= upgradeCost;
+    upgrade.level = currentLevel + 1;
+
+    // تحديث العرض
+    document.querySelector(`#${id} .upgrademining-level`).textContent = upgrade.level;
+    document.querySelector(`#${id} .upgrademining-cost`).textContent = `${(upgrade.baseCost * Math.pow(1.5, upgrade.level - 1)).toFixed(2)} SP`;
+
+    // تحديث الأرباح
+    updateProfitPerHourDisplay();
+    updateMiningDisplay();
+  } else {
+    alert("رصيدك غير كافٍ للترقية!");
+  }
+}
+
+// إضافة الأحداث للأزرار
+document.querySelectorAll(".upgrade-mining").forEach((upgradeElement) => {
+  const id = upgradeElement.id;
+  upgradeElement.addEventListener("click", () => upgradeMining(id));
+});
+
+// تحديث العرض عند البداية
+updateMiningDisplay();
+updateProfitPerHourDisplay();
 
 
 
@@ -2639,4 +2699,7 @@ document.addEventListener('DOMContentLoaded', () => {
 initializeApp();
 
 
+
+//localStorage.removeItem('gameState'); // مسح حالة اللعبة
+//loadGameState(); // إعادة تحميل حالة اللعبة
 
