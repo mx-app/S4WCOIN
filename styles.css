@@ -868,7 +868,7 @@ img {
     vertical-align: middle; 
 }*/
 
-/* إضافة اسم العملة SP بعد الرصيد */
+#miningBalanceDisplay::after,  
 #tasksBalanceDisplay::after, 
 #levelBalanceDisplay::after, 
 #gameBalanceDisplay::after,
