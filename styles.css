@@ -855,18 +855,32 @@ img {
 }
 
 
-#tasksBalanceDisplay::before, #levelBalanceDisplay::before, #gameBalanceDisplay::before,
+/*#tasksBalanceDisplay::before, #levelBalanceDisplay::before, #gameBalanceDisplay::before,
 #walletBalanceDisplay::before, #puzzlesBalanceDisplay::before, #boostsBalanceDisplay::before, #AccountBalanceDisplay::before {
     content: "";
     display: inline-block;
-    width: 26px; /* عرض الصورة مطابق لحجم النص */
-    height: 26px; /* ارتفاع الصورة مطابق لحجم النص */
-    background-image: url('i/coii.png'); /* رابط الصورة */
+    width: 26px; 
+    height: 26px; 
+    background-image: url('i/coii.png'); 
     background-size: contain;
     background-repeat: no-repeat;
-    margin-right: 5px; /* مسافة بين الصورة والنص */
-    vertical-align: middle; /* محاذاة الصورة مع النص */
+    margin-right: 5px; 
+    vertical-align: middle; 
+}*/
+
+/* إضافة اسم العملة SP بعد الرصيد */
+#tasksBalanceDisplay::after, 
+#levelBalanceDisplay::after, 
+#gameBalanceDisplay::after,
+#walletBalanceDisplay::after, 
+#puzzlesBalanceDisplay::after, 
+#boostsBalanceDisplay::after, 
+#AccountBalanceDisplay::after {
+    content: " SP";  /* إضافة النص بعد العدد */
+    margin-left: 5px; /* مسافة بين العدد والنص */
+    vertical-align: middle; /* محاذاة النص مع العدد */
 }
+
 
 
 
