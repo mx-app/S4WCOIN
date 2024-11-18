@@ -1,7 +1,8 @@
-#mine-Profit-per-hour{
+#mine-Profit-per-hour {
     position: absolute;
     top: 20px;
-    right: 50%;
+    left: 50%;
+    transform: translateX(-50%); /* لضبط العنصر في المنتصف أفقيًا */
     padding: 8px; /* مسافة داخلية */
     font-size: 16px; /* حجم الخط */
     display: flex;
