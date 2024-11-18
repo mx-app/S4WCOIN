@@ -37,10 +37,6 @@
     opacity: 0.7;
 }
 
-/*.boosts-button:hover {
-    box-shadow: 0 0 6px rgba(255, 255, 255, 0.4), 0 0 12px rgba(255, 255, 255, 0.3), 0 0 18px rgba(255, 255, 255, 0.2);
-}*/
- 
 
 .bos-image {
     width: 105px;
@@ -59,53 +55,28 @@
 
 
 .boosts-container {
-    display: grid;
-    grid-template-columns: repeat(2, 45%); /* عرض كل عنصرين بجانب بعض */
-    gap: 15px; /* المسافة بين العناصر */
-    justify-content: center; /* محاذاة العناصر في المنتصف */
+    display: grid; /* استخدام الشبكة لترتيب العناصر */
+    grid-template-columns: repeat(2, 45%); /* توزيع عنصرين بعرض 45% */
+    gap: 10px; /* المسافة بين العناصر */
+    justify-content: center; /* محاذاة العناصر أفقيًا في المنتصف */
     margin-top: 10px;
 }
-    
-    /*display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}*/
 
 .boost-item {
-    width: 45%; /* عرض الحاوية بنسبة 44% */
-    height: 200px;
+    width: 100%; /* عرض العنصر بالكامل داخل الشبكة */
+    height: 200px; /* ارتفاع ثابت */
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 0.50px solid #343434;
-    border-radius: 10px;
-    padding: 10px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
-    text-align: center;
+    flex-direction: column; /* ترتيب العناصر داخل كل عنصر عموديًا */
+    align-items: center; /* محاذاة المحتوى في المنتصف أفقيًا */
+    border: 0.5px solid #343434; /* حدود العنصر */
+    border-radius: 10px; /* زوايا مستديرة */
+    padding: 10px; /* مسافة داخلية */
+    background: rgba(255, 255, 255, 0.1); /* لون الخلفية مع شفافية */
+    backdrop-filter: blur(5px); /* تأثير التمويه */
+    text-align: center; /* توسيط النصوص */
+    box-sizing: border-box; /* لتضمين الحواف ضمن الأبعاد */
 }
-
-
-   /* width: 90%;
-    min-height: 120px;
-    padding: 15px;
-    margin: 10px 0;
-    margin-right: 10px;
-    margin-left: 10px;
-    border: 1px solid #343434;
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px); 
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    box-sizing: border-box;
-    text-align: center;
-}*/
-
-
+ 
 
 .boost-item p {
     margin: 5px 0;
