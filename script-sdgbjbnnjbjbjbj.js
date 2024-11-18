@@ -2452,7 +2452,10 @@ setInterval(updateHourlyEarnings, 60000);  // تحديث الربح كل دقي�
 
 
 
-document.addEventListener('DOMContentLoaded', () => {
+
+
+    
+    document.addEventListener('DOMContentLoaded', async () => {
     const dailyButton = document.getElementById('DailyButton');
     const dailyCloseModal = document.getElementById('logindailycloseModal');
     const logindailyContainer = document.getElementById('logindailyContainer');
@@ -2462,10 +2465,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const dayElements = document.querySelectorAll('.daily-item');
     const dailyRewards = [5000, 10000, 15000, 30000, 60000, 100000, 200000, 300000, 400000];
 
-    // التحقق من حالة تسجيل الدخول اليومي وإظهار النافذة إذا لم يسجل المستخدم
+    /**
+     * تحقق من حالة تسجيل الدخول اليومي
+     */
     async function checkAndOpenDailyLogin(userTelegramId) {
         try {
             const today = new Date().toISOString().split('T')[0];
+            console.log('Checking daily login for:', userTelegramId);
 
             // جلب بيانات المستخدم
             const { data, error } = await supabase
@@ -2474,15 +2480,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 .eq('telegram_id', userTelegramId)
                 .maybeSingle();
 
-            if (error || !data) {
+            if (error) {
                 console.error('Error fetching user data:', error);
                 return;
             }
 
-            const { last_login_date } = data;
-
-            // فتح النافذة إذا لم يسجل المستخدم الدخول اليوم
-            if (last_login_date !== today) {
+            if (!data || data.last_login_date !== today) {
                 openDailyLoginModal(userTelegramId);
             }
         } catch (error) {
@@ -2490,12 +2493,29 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // الدالة الرئيسية لتسجيل الدخول اليومي
+    /**
+     * فتح نافذة تسجيل الدخول اليومي
+     */
+    function openDailyLoginModal(userTelegramId) {
+        logindailyContainer?.classList.remove('hidden');
+        logindailyContent?.classList.remove('hidden');
+        handleDailyLogin(userTelegramId).catch(console.error);
+    }
+
+    /**
+     * إغلاق نافذة تسجيل الدخول اليومي
+     */
+    dailyCloseModal?.addEventListener('click', () => {
+        logindailyContainer?.classList.add('hidden');
+        logindailyContent?.classList.add('hidden');
+    });
+
+    /**
+     * التعامل مع تسجيل الدخول اليومي
+     */
     async function handleDailyLogin(userTelegramId) {
         try {
             const today = new Date().toISOString().split('T')[0];
-
-            // جلب بيانات المستخدم
             const { data, error } = await supabase
                 .from('users')
                 .select('last_login_date, consecutive_days')
@@ -2511,31 +2531,22 @@ document.addEventListener('DOMContentLoaded', () => {
             let { last_login_date, consecutive_days } = data || {};
             consecutive_days = consecutive_days || 0;
 
-            // التحقق من استمرارية الأيام
-            const lastLoginDateObj = new Date(last_login_date);
-            const isConsecutive = (new Date(today).getDate() - lastLoginDateObj.getDate()) === 1 &&
-                new Date(today).getMonth() === lastLoginDateObj.getMonth() &&
-                new Date(today).getFullYear() === lastLoginDateObj.getFullYear();
+            const lastLoginDate = new Date(last_login_date);
+            const isConsecutive = 
+                new Date(today).getDate() - lastLoginDate.getDate() === 1 &&
+                new Date(today).getMonth() === lastLoginDate.getMonth() &&
+                new Date(today).getFullYear() === lastLoginDate.getFullYear();
 
-            if (isConsecutive) {
-                consecutive_days++;
-                if (consecutive_days > dailyRewards.length) consecutive_days = dailyRewards.length;
-            } else {
-                consecutive_days = 1;
-            }
+            consecutive_days = isConsecutive ? consecutive_days + 1 : 1;
+            if (consecutive_days > dailyRewards.length) consecutive_days = dailyRewards.length;
 
-            // إعداد المكافأة لليوم الحالي
             const reward = dailyRewards[consecutive_days - 1];
             updateClaimButton(consecutive_days, reward);
             highlightRewardedDays(consecutive_days);
 
-            // تحديث قاعدة البيانات
             const { updateError } = await supabase
                 .from('users')
-                .update({
-                    last_login_date: today,
-                    consecutive_days: consecutive_days
-                })
+                .update({ last_login_date: today, consecutive_days })
                 .eq('telegram_id', userTelegramId);
 
             if (updateError) {
@@ -2548,20 +2559,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // تحديث زر المطالبة بالمكافأة
+    /**
+     * تحديث زر المطالبة بالمكافأة
+     */
     function updateClaimButton(day, reward) {
         loginClaimBtn.innerText = `Claim Day ${day} Reward: ${reward}`;
         loginClaimBtn.disabled = false;
         loginClaimBtn.classList.remove('disabled');
     }
 
-    // تعطيل الزر بعد المطالبة بالمكافأة
-    function disableClaimButton() {
-        loginClaimBtn.disabled = true;
-        loginClaimBtn.classList.add('disabled');
-    }
-
-    // تحديث واجهة الأيام المتتالية
+    /**
+     * تحديث عرض الأيام المتتالية
+     */
     function highlightRewardedDays(dayCount) {
         dayElements.forEach((el, index) => {
             if (index < dayCount) {
@@ -2574,12 +2583,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // إضافة الرصيد
+    /**
+     * المطالبة بالمكافأة
+     */
     async function claimReward(userTelegramId) {
         try {
-            const today = new Date().toISOString().split('T')[0];
-
-            // جلب بيانات المستخدم
             const { data, error } = await supabase
                 .from('users')
                 .select('consecutive_days')
@@ -2594,35 +2602,46 @@ document.addEventListener('DOMContentLoaded', () => {
             const { consecutive_days } = data;
             const reward = dailyRewards[consecutive_days - 1];
 
-            // إضافة المكافأة للرصيد
             await updateBalance(reward);
-
-            // تعطيل الزر
             disableClaimButton();
-
-            // تحديث واجهة اليوم
             highlightRewardedDays(consecutive_days);
         } catch (error) {
             console.error('Error claiming reward:', error);
         }
     }
 
-    // تحديث الرصيد
+    /**
+     * تعطيل زر المطالبة بالمكافأة
+     */
+    function disableClaimButton() {
+        loginClaimBtn.disabled = true;
+        loginClaimBtn.classList.add('disabled');
+    }
+
+    /**
+     * تحديث الرصيد
+     */
     async function updateBalance(amount) {
         try {
-            // هنا تقوم بتحديث الرصيد في قاعدة البيانات
             console.log(`Balance updated with ${amount} coins.`);
         } catch (error) {
             console.error('Error updating balance:', error);
         }
     }
 
-    // فتح نافذة تسجيل الدخول اليومي
-    function openDailyLoginModal(userTelegramId) {
-        logindailyContainer.classList.remove('hidden');
-        logindailyContent.classList.remove('hidden');
-        handleDailyLogin(userTelegramId);
+    /**
+     * ربط الأحداث
+     */
+    loginClaimBtn?.addEventListener('click', () => {
+        const userTelegramId = uiElements?.userTelegramIdDisplay?.innerText;
+        claimReward(userTelegramId).catch(console.error);
+    });
+
+    const userTelegramId = uiElements?.userTelegramIdDisplay?.innerText;
+    if (userTelegramId) {
+        await checkAndOpenDailyLogin(userTelegramId);
     }
+});
 
     // إغلاق نافذة تسجيل الدخول اليومي
     dailyCloseModal.addEventListener('click', function () {
@@ -2635,11 +2654,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const userTelegramId = uiElements.userTelegramIdDisplay.innerText;
         claimReward(userTelegramId);
     });
-
-    // عند دخول المستخدم
-    const userTelegramId = uiElements.userTelegramIdDisplay.innerText;
-    checkAndOpenDailyLogin(userTelegramId);
-});
 
 
     
