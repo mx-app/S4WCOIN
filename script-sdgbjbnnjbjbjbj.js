@@ -181,9 +181,6 @@ async function saveGameState() {
         console.log('Game state updated successfully.');
     } catch (err) {
         console.error(err.message);
-
-        // إظهار إشعار للمستخدم عند فشل التحديث
-        showNotificationWithStatus(uiElements.purchaseNotification, `Failed to save game state. Please try again.`, 'lose');
     }
 }
 
