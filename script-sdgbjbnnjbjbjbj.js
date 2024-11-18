@@ -308,6 +308,10 @@ function checkForLevelUp() {
         ) {
             // الترقية إلى المستوى الجديد
             gameState.currentLevel = levelThresholds[i].level;
+
+            // تحديث الرصيد المتبقي بعد الترقية
+            gameState.balance -= levelThresholds[i].threshold;
+
             gameState.claimedRewards.levels.push(levelThresholds[i].level);  // تسجيل أن المكافأة لهذا المستوى قد تم المطالبة بها
 
             showNotification(
@@ -320,7 +324,7 @@ function checkForLevelUp() {
             saveGameState();  // حفظ الحالة الحالية للعبة
             updateGameStateInDatabase({
                 currentLevel: gameState.currentLevel,
-                balance: gameState.balance,  // بدون تعديل الرصيد
+                balance: gameState.balance,  // تحديث الرصيد بعد الترقية
                 claimedRewards: gameState.claimedRewards,
             });
         }
