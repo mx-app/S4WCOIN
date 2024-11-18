@@ -54,7 +54,7 @@
 }
 
 
-.boosts-container {
+.boosts-container, .boost-Upgrades-container {
     display: grid; /* استخدام الشبكة لترتيب العناصر */
     grid-template-columns: repeat(2, 45%); /* توزيع عنصرين بعرض 45% */
     gap: 10px; /* المسافة بين العناصر */
