@@ -51,7 +51,7 @@
     flex-direction: column;  /* وضع النص والصورة عموديًا */
     align-items: center;  /* محاذاة العناصر عموديًا في المنتصف */
     justify-content: flex-start;  /* المحاذاة بداية من الأعلى */
-    border: 1px solid #343434;
+    border: 0.50px solid #343434;
     border-radius: 10px;
     font-size: 15px;
     padding: 10px;
@@ -113,7 +113,7 @@
     color: #ffffff;
     font-size: 18px;
     font-weight: bold;
-    border: 1px solid #343434;
+    border: 0.50px solid #343434;
     border-radius: 10px;
     cursor: pointer;
     margin: 0 auto;
