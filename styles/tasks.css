@@ -94,32 +94,44 @@
     font-size: 0.85rem; 
 }
 
-.task-reward-container {
+/*.task-reward-container {
     display: flex;
     align-items: center;
     margin-top: 5px;
-}
+}*/
 
-.reward-coin-icon { /* اسم معرف الصورة الجديد */
+.reward-coin-icon {
     width: 18px;
     height: 18px;
     margin-right: 3px;
+}
+ 
+.task-reward {
+    color: #808080;
+    font-size: 0.7rem;
+    text-align: left; 
+}
+
+.task-reward-container {
+    position: absolute;
+    top: 10px; /* مسافة من أعلى الحاوية */
+    right: 10px; /* مسافة من يمين الحاوية */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5); /* خلفية شفافة */
+    padding: 5px;
+    border-radius: 10px;
 }
  
 /*.task-reward {
     color: #808080;
     font-size: 0.7rem;
     text-align: left; 
-}*/
-
-.task-reward {
-    color: #808080;
-    font-size: 0.7rem;
-    text-align: left; 
     position: absolute;
     left: 50px; 
     top: 80%;
-}
+}*/
  
  
 
