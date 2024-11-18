@@ -106,11 +106,21 @@
     margin-right: 3px;
 }
  
-.task-reward {
-    color: #808080; /* لون النص الرمادي */
+/*.task-reward {
+    color: #808080;
     font-size: 0.7rem;
-    text-align: left; /* محاذاة النص إلى اليسار */
+    text-align: left; 
+}*/
+
+.task-reward {
+    color: #808080;
+    font-size: 0.7rem;
+    text-align: left; 
+    position: absolute;
+    left: 50px; 
+    top: 80%;
 }
+ 
  
 
 .info-task {
