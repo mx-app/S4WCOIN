@@ -249,17 +249,18 @@ img {
 
 .energy-bar-container {
     display: flex;
-    flex-direction: center /*column*/; /* ترتيب العناصر عموديًا */
-    justify-content: center; /* الاحتفاظ بمحاذاة إلى اليسار */
-    align-items: center; /* الشريط والمعلومات في نفس المحاذاة على اليسار */
+    justify-content: center; /* لضبط المحاذاة الأفقية */
+    align-items: center; /* لضبط المحاذاة العمودية */
     position: absolute; /* تثبيت الحاوية في مكان محدد */
     bottom: 100px; /* ضبطه ليكون في الجزء السفلي */
-    /*left: 25px;*/
-    width: 62%; 
-    height: 40px; 
+    width: auto; /* جعل العرض مرنًا بناءً على المحتوى */
+    min-width: 20%; /* الحد الأدنى للعرض */
+    max-width: 90%; /* الحد الأقصى للعرض */
+    height: 40px;
     margin: 5px;
     border-radius: 15px;
     border: 1px solid #343434;
+    transition: width 0.3s ease-in-out; /* تأثير التمدد بسلاسة */
 }
 
 .progress-bar {
