@@ -2373,6 +2373,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 
+let spanElement = document.getElementById('miningBalanceDisplay');
+spanElement.innerHTML = '0 SP';
+
+
 
 /////////////////////////////////////////////
 
