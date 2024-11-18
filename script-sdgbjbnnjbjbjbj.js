@@ -1181,69 +1181,64 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // Fetch tasks from JSON file
-    fetch('json/tasks.json')
-        .then(response => response.json())
-        .then(tasks => {
-            tasks.forEach(task => {
-                const taskElement = document.createElement('div');
-                taskElement.classList.add('task-item');
+    
+// Fetch tasks from JSON file
+fetch('json/tasks.json')
+    .then(response => response.json())
+    .then(tasks => {
+        tasks.forEach(task => {
+            const taskElement = document.createElement('div');
+            taskElement.classList.add('task-item');
 
-                // Task Image
-                const img = document.createElement('img');
-                img.src = task.image;
-                img.alt = 'Task Image';
-                img.classList.add('task-img');
-                taskElement.appendChild(img);
+            // Create a container for description and reward
+            const infoContainer = document.createElement('div');
+            infoContainer.classList.add('info-task'); // This will hold both description and reward
 
-                // Create a container for description and reward
-                const infoContainer = document.createElement('div');
-                infoContainer.classList.add('info-task'); // This will hold both description and reward
+            // Task Description
+            const description = document.createElement('p');
+            description.textContent = task.description;
+            infoContainer.appendChild(description);
 
-                // Task Description
-                const description = document.createElement('p');
-                description.textContent = task.description;
-                infoContainer.appendChild(description);
+            // Task Reward without Coin Image
+            const rewardContainer = document.createElement('div');
+            rewardContainer.classList.add('task-reward-container');
+            
+            // حذف أو تعليق الجزء الخاص بإضافة صورة العملة
+            // const rewardIcon = document.createElement('img');
+            // rewardIcon.src = 'i/coii.png'; // مسار صورة العملة
+            // rewardIcon.alt = 'Coinreward';
+            // rewardIcon.classList.add('reward-coin-icon'); // معرف جديد للرمز
+            // rewardContainer.appendChild(rewardIcon);
 
-                // Task Reward with Coin Image
-                const rewardContainer = document.createElement('div');
-                rewardContainer.classList.add('task-reward-container');
-                
-                const rewardIcon = document.createElement('img');
-                rewardIcon.src = 'i/coii.png'; // مسار صورة العملة
-                rewardIcon.alt = 'Coinreward';
-                rewardIcon.classList.add('reward-coin-icon'); // معرف جديد للرمز
-                rewardContainer.appendChild(rewardIcon);
+            const rewardText = document.createElement('span');
+            rewardText.textContent = ` ${task.reward} SP`;
+            rewardText.classList.add('task-reward');
+            rewardContainer.appendChild(rewardText);
 
-                const rewardText = document.createElement('span');
-                rewardText.textContent = ` ${task.reward} SP`;
-                rewardText.classList.add('task-reward');
-                rewardContainer.appendChild(rewardText);
+            infoContainer.appendChild(rewardContainer); // Append reward below description
 
-                infoContainer.appendChild(rewardContainer); // Append reward below description
+            taskElement.appendChild(infoContainer); // Append the info container to the task element
 
-                taskElement.appendChild(infoContainer); // Append the info container to the task element
+            // Task Button
+            const button = document.createElement('button');
+            button.classList.add('task-button');
+            button.setAttribute('data-task-id', task.id);
+            button.setAttribute('data-url', task.url);
+            button.setAttribute('data-reward', task.reward);
+            taskElement.appendChild(button);
+            taskContainer.appendChild(taskElement);
 
-                // Task Button
-                const button = document.createElement('button');
-                button.classList.add('task-button');
-                button.setAttribute('data-task-id', task.id);
-                button.setAttribute('data-url', task.url);
-                button.setAttribute('data-reward', task.reward);
-                taskElement.appendChild(button);
-                taskContainer.appendChild(taskElement);
+            const taskId = task.id;
+            const taskurl = task.url;
+            const taskReward = task.reward;
 
-                const taskId = task.id;
-                const taskurl = task.url;
-                const taskReward = task.reward;
+            const taskProgressData = gameState.tasksprogress.find(t => t.task_id === taskId);
+            let taskProgress = taskProgressData ? taskProgressData.progress : 0;
 
-                const taskProgressData = gameState.tasksprogress.find(t => t.task_id === taskId);
-                let taskProgress = taskProgressData ? taskProgressData.progress : 0;
+            button.textContent = taskProgress >= 2 ? '✓' : taskProgress === 1 ? 'Verify' : '❯';
+            button.disabled = taskProgress >= 2;
 
-                button.textContent = taskProgress >= 2 ? '✓' : taskProgress === 1 ? 'Verify' : '❯';
-                button.disabled = taskProgress >= 2;
-
-                let countdownTimer;
+            let countdownTimer;
 
                 button.onclick = () => {
                     if (taskProgress === 0) {
@@ -1280,6 +1275,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 };
             });
         })
+    
         .catch(error => console.error('Error fetching tasks:', error));
 });
 
@@ -1350,7 +1346,7 @@ async function claimTaskReward(taskId, reward) {
     }
 
     updateUI(); // تحديث واجهة المستخدم
-    showNotificationWithStatus(uiElements.purchaseNotification, `Successfully claimed ${reward} XOcoins!`, 'win');
+    showNotificationWithStatus(uiElements.purchaseNotification, `Successfully claimed ${reward} SAW-P!`, 'win');
     updateUserData(); // تحديث بيانات المستخدم
     saveGameState(); // حفظ الحالة محليًا بعد استلام المكافأة
 }
