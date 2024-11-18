@@ -842,7 +842,7 @@ img {
     position: absolute;
     top: 10px;
     left: 15px;
-    padding: 5px; /* مسافة داخلية */
+    padding: 8px; /* مسافة داخلية */
     font-size: 16px; /* حجم الخط */
     display: flex;
     align-items: center; /* لضبط المحاذاة الرأسية */
