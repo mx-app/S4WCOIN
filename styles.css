@@ -907,7 +907,7 @@ img {
 }
 
 .separator {
-    width: 1px;
+    width: 0.50px;
     height: 20px;
     background-color: #808080;
     margin: 0 10px;
