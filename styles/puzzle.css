@@ -84,12 +84,12 @@
 
 #Puzzlespage .puzzle-image {
     width: 100%; /* تجعل الصورة تملأ العرض الكامل */
-    height: 100%; /* تجعل الصورة تملأ الارتفاع الكامل */
+    height: 70%; /* تجعل الصورة تملأ الارتفاع الكامل */
     object-fit: cover; /* لضمان تغطية المساحة بدون تشويه */
     position: absolute; /* لضبط الصورة داخل الحاوية */
     top: 0;
     left: 0;
-    border-radius: 10px; /* نفس الزوايا الدائرية للحاوية */
+    border-radius: 1px; /* نفس الزوايا الدائرية للحاوية */
 }
 
 #Puzzlespage .puzzle-description {
