@@ -83,9 +83,9 @@
 
 #Puzzlespage .puzzle-image {
     width: 150%;
-    height: 120px;
+    height: 100px;
     object-fit: cover;
-    border: 0.50px solid #343434;
+    /*border: 0.50px solid #343434;*/
     border-radius: 2px;
 }
 
