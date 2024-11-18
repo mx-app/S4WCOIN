@@ -93,7 +93,7 @@
     width: 90%;
     height: 90px;
    /* text-align: right;*/
-    border: 1px solid #343434;
+    border: 0.50px solid #343434;
     /*position: relative;*/ /* لتحديد موضع العناصر داخل الحاوية */
 } 
 
