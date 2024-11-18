@@ -1,7 +1,7 @@
 #mine-Profit-per-hour{
     position: absolute;
-    top: 10px;
-    right: 15px;
+    top: 20px;
+    right: 50%;
     padding: 8px; /* مسافة داخلية */
     font-size: 16px; /* حجم الخط */
     display: flex;
