@@ -301,42 +301,44 @@ const levelThresholds = [
 // التحقق من الترقية إلى مستوى أعلى
 function checkForLevelUp() {
     for (let i = 0; i < levelThresholds.length; i++) {
-        // تحقق من استيفاء شروط المستوى الجديد
+        const levelData = levelThresholds[i];
+        
+        // تحقق من الشروط
         if (
-            gameState.balance >= levelThresholds[i].threshold &&  // تحقق إذا كان الرصيد يتجاوز حد المستوى
-            gameState.currentLevel < levelThresholds[i].level &&  // تحقق إذا كان المستوى الحالي أقل من المستوى الجديد
-            !gameState.claimedRewards.levels.includes(levelThresholds[i].level)  // تحقق إذا كانت المكافأة لهذا المستوى لم تُطالب
+            gameState.balance >= levelData.threshold &&             // تحقق إذا كان الرصيد يكفي للترقية
+            gameState.currentLevel < levelData.level &&            // تحقق إذا لم يتم الوصول لهذا المستوى بعد
+            !gameState.claimedRewards.levels.includes(levelData.level) // تحقق إذا كانت المكافأة لم تُطالب
         ) {
-            // تحقق إذا كان المستوى الحالي يختلف عن المستوى الجديد
-            if (gameState.currentLevel !== levelThresholds[i].level) {
-                // الترقية إلى المستوى الجديد
-                gameState.currentLevel = levelThresholds[i].level;
+            // الترقية إلى المستوى الجديد
+            gameState.currentLevel = levelData.level;
 
-                // تحديث الرصيد المتبقي بعد الترقية
-                gameState.balance -= levelThresholds[i].threshold;
+            // خصم الرصيد بعد الترقية
+            gameState.balance -= levelData.threshold;
 
-                // تسجيل أن المكافأة لهذا المستوى قد تم المطالبة بها
-                gameState.claimedRewards.levels.push(levelThresholds[i].level);
+            // تسجيل المكافأة في بيانات اللعبة
+            gameState.claimedRewards.levels.push(levelData.level);
 
-                // عرض الإشعار
-                showNotification(
-                    uiElements.purchaseNotification,
-                    `You have been promoted to the level ${gameState.currentLevel}!`
-                );
+            // عرض الإشعار
+            showNotification(
+                uiElements.purchaseNotification,
+                `You have been promoted to the level ${gameState.currentLevel}!`
+            );
 
-                // تحديث واجهة المستخدم
-                updateUI();
+            // تحديث واجهة المستخدم
+            updateUI();
+            
+            // حفظ الحالة الحالية للعبة
+            saveGameState();
 
-                // حفظ الحالة الحالية للعبة
-                saveGameState();
+            // تحديث الحالة في قاعدة البيانات
+            updateGameStateInDatabase({
+                currentLevel: gameState.currentLevel,
+                balance: gameState.balance,
+                claimedRewards: gameState.claimedRewards,
+            });
 
-                // تحديث الحالة في قاعدة البيانات
-                updateGameStateInDatabase({
-                    currentLevel: gameState.currentLevel,
-                    balance: gameState.balance,  // تحديث الرصيد بعد الترقية
-                    claimedRewards: gameState.claimedRewards,
-                });
-            }
+            // الخروج من الحلقة عند الترقية
+            break;
         }
     }
 }
