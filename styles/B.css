@@ -74,7 +74,7 @@
 
 .boost-item {
     width: 45%; /* عرض الحاوية بنسبة 44% */
-    height: 180px;
+    height: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -84,7 +84,6 @@
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(5px);
     text-align: center;
-    overflow: hidden;
 }
 
 
