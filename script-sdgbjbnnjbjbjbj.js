@@ -818,24 +818,28 @@ function checkEnergyFill() {
     }
 }
 
+//////////////////////////////////
+
 
 //المستويات 
 function updateLevelDisplay() {
-    checkForLevelUp();
+    checkForLevelUp(); // تحقق من الترقية
 
     const currentLevelData = levelThresholds.find(lvl => lvl.level === gameState.currentLevel);
+
     if (currentLevelData) {
-        // تحديث العناصر في الواجهة الرئيسية
+        const progress = Math.min(gameState.balance / currentLevelData.threshold, 1) * 100; // حساب التقدم المشترك
+
+        // تحديث العناصر الرئيسية
         const mainLevelCoinsElement = document.getElementById('currentLevelCoins');
         const mainEnergyFill = document.getElementById('levelEnergyFill');
 
         if (mainLevelCoinsElement && mainEnergyFill) {
-            const progressMain = Math.min(gameState.balance / currentLevelData.threshold, 1) * 100;
-            mainLevelCoinsElement.innerText = `Next Lvl : ${Math.round(progressMain)}%`;
-            mainEnergyFill.style.width = `${progressMain}%`;
+            mainLevelCoinsElement.innerText = `Next Lvl : ${Math.round(progress)}%`;
+            mainEnergyFill.style.width = `${progress}%`;
         }
 
-        // تحديث العناصر في صفحة المستويات
+        // تحديث صفحة المستويات
         const levelPageImage = document.getElementById('currentLevelImagee');
         const levelPageName = document.getElementById('levelPageCurrentLevelName');
         const levelPageCoinsElement = document.getElementById('levelPageCurrentLevelCoins');
@@ -846,26 +850,13 @@ function updateLevelDisplay() {
             levelPageImage.alt = `Level : ${gameState.currentLevel}`;
             levelPageName.innerText = `Lvl : ${currentLevelData.name}`;
 
-            // تعيين تدرج لوني لكل 10 مستويات
-            levelPageName.className = ""; // إزالة جميع الفئات الحالية
-            if (gameState.currentLevel <= 10) {
-                levelPageName.classList.add('gradient-level-1');
-            } else if (gameState.currentLevel <= 20) {
-                levelPageName.classList.add('gradient-level-2');
-            } else if (gameState.currentLevel <= 30) {
-                levelPageName.classList.add('gradient-level-3');
-            } else if (gameState.currentLevel <= 40) {
-                levelPageName.classList.add('gradient-level-4');
-            } else if (gameState.currentLevel <= 50) {
-                levelPageName.classList.add('gradient-level-5');
-            }
+            applyGradientToLevel(levelPageName, gameState.currentLevel);
 
-            const progressPage = Math.min(gameState.balance / currentLevelData.threshold, 1) * 100;
-            levelPageCoinsElement.innerText = `Next Lvl : ${Math.round(progressPage)}%`;
-            levelPageEnergyFill.style.width = `${progressPage}%`;
+            levelPageCoinsElement.innerText = `Next Lvl : ${Math.round(progress)}%`;
+            levelPageEnergyFill.style.width = `${progress}%`;
         }
 
-        // تحديث الزر العائم بدون تدرج
+        // تحديث الزر العائم
         const floatingButtonImage = document.getElementById('currentLevelImage');
         const floatingButtonName = document.getElementById('currentLevelName');
 
@@ -874,12 +865,11 @@ function updateLevelDisplay() {
             floatingButtonImage.alt = ` ${gameState.currentLevel}`;
             floatingButtonName.innerText = ` ${currentLevelData.name}`;
 
-            // لا يتم إضافة التدرج على الزر العائم
             floatingButtonName.classList.remove('gradient-level-1', 'gradient-level-2', 'gradient-level-3', 'gradient-level-4', 'gradient-level-5');
         }
     }
 
-    // إضافة أو إزالة تأثير "current-level" على العنصر النشط
+    // تحديد العنصر النشط
     document.querySelectorAll('.level-item').forEach(item => {
         item.classList.remove('current-level');
     });
@@ -889,6 +879,30 @@ function updateLevelDisplay() {
         currentLevelElement.classList.add('current-level');
     }
 }
+
+
+///////////////////
+
+
+function applyGradientToLevel(element, level) {
+    element.className = ""; // إزالة جميع الفئات الحالية
+
+    if (level <= 10) {
+        element.classList.add('gradient-level-1');
+    } else if (level <= 20) {
+        element.classList.add('gradient-level-2');
+    } else if (level <= 30) {
+        element.classList.add('gradient-level-3');
+    } else if (level <= 40) {
+        element.classList.add('gradient-level-4');
+    } else if (level <= 50) {
+        element.classList.add('gradient-level-5');
+    }
+}
+
+
+//////////////////////
+
 
 
 
