@@ -73,14 +73,14 @@
 }*/
 
 .boost-item {
-    width: 90%; /* عرض الحاوية بنسبة 44% */
+    width: 45%; /* عرض الحاوية بنسبة 44% */
     height: 180px;
     display: flex;
     flex-direction: column;
     align-items: center;
     border: 0.50px solid #343434;
     border-radius: 10px;
-    padding: 8px;
+    padding: 10px;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(5px);
     text-align: center;
