@@ -137,12 +137,14 @@ async function loadGameState() {
     } catch (err) {
         console.error('Unexpected error:', err);
     }
-}
+} 
+
 
 // حفظ حالة اللعبة في LocalStorage وقاعدة البيانات
 async function saveGameState() {
     const userId = uiElements.userTelegramIdDisplay.innerText;
 
+    // إنشاء بيانات محدثة للحفظ
     const updatedData = {
         balance: gameState.balance,
         energy: gameState.energy,
@@ -157,39 +159,63 @@ async function saveGameState() {
         last_fill_time: new Date(gameState.lastFillTime).toISOString(),
         invites: gameState.invites,
         claimed_rewards: gameState.claimedRewards,
-        tasks_progress: gameState.tasksprogress,
-        puzzles_progress: gameState.puzzlesprogress,
-        used_Promo_Codes: gameState.usedPromoCodes,
+        tasks_progress: gameState.tasksProgress,
+        puzzles_progress: gameState.puzzlesProgress,
+        used_promo_codes: gameState.usedPromoCodes,
         morse_ciphers_progress: gameState.ciphersProgress,
         last_login_date: gameState.lastLoginDate ? new Date(gameState.lastLoginDate).toISOString() : null,
-        consecutive_days: gameState.consecutiveDays
+        consecutive_days: gameState.consecutiveDays,
     };
 
-    // حفظ البيانات في قاعدة البيانات
-    const { error } = await supabase
-        .from('users')
-        .update(updatedData)
-        .eq('telegram_id', userId);
+    try {
+        // حفظ البيانات في قاعدة البيانات
+        const { error } = await supabase
+            .from('users')
+            .update(updatedData)
+            .eq('telegram_id', userId);
 
-    if (error) {
-        console.error('Error saving game state:', error.message);
-    } else {
+        if (error) {
+            throw new Error(`Error saving game state: ${error.message}`);
+        }
+
         console.log('Game state updated successfully.');
+    } catch (err) {
+        console.error(err.message);
+
+        // إظهار إشعار للمستخدم عند فشل التحديث
+        showNotificationWithStatus(uiElements.purchaseNotification, `Failed to save game state. Please try again.`, 'lose');
     }
 }
 
-// استعادة الطاقة عند تحميل اللعبة
+
+
+//تحديث الطاقه 
 async function restoreEnergy() {
-    const currentTime = Date.now();
-    const timeDiff = currentTime - gameState.lastFillTime;
-    const recoveredEnergy = Math.floor(timeDiff / (4 * 60 * 1000)); // استعادة الطاقة
+    try {
+        const currentTime = Date.now();
+        const timeDiff = currentTime - gameState.lastFillTime;
 
-    gameState.energy = Math.min(gameState.maxEnergy, gameState.energy + recoveredEnergy);
-    gameState.lastFillTime = currentTime; // تحديث وقت آخر استعادة
+        // حساب الطاقة المستعادة
+        const recoveredEnergy = Math.floor(timeDiff / (4 * 60 * 1000)); // استعادة الطاقة كل 4 دقائق
+        gameState.energy = Math.min(gameState.maxEnergy, gameState.energy + recoveredEnergy);
+        gameState.lastFillTime = currentTime; // تحديث وقت آخر استعادة
 
-    updateUI(); // تحديث واجهة المستخدم
-    await saveGameState(); // حفظ التحديثات
+        // تحديث واجهة المستخدم
+        updateUI();
+
+        // حفظ حالة اللعبة
+        await saveGameState();
+
+        console.log('Energy restored successfully.');
+    } catch (err) {
+        console.error('Error restoring energy:', err.message);
+
+        // إشعار بفشل الاستعادة
+        showNotificationWithStatus(uiElements.purchaseNotification, `Failed to restore energy. Please reload.`, 'lose');
+    }
 }
+
+
 
 // الاستماع إلى التغييرات في قاعدة البيانات
 function listenToRealtimeChanges() {
