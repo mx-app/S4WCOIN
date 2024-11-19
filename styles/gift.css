@@ -56,14 +56,22 @@
 
 /* تصميم النص داخل المؤقت */
 .countdown-timer {
-    font-size: 18px;
-    color: #ffcc00; /* لون النص */
+    font-size: 15px;
+    color: #808080; /* لون النص */
     font-weight: bold;
-    text-align: center;
+    text-align: left;
 }
 
 .hourglass-image {
-    width: 20px; /* عرض الصورة */
-    height: 20px; /* ارتفاع الصورة */
+    width: 35px; /* عرض الصورة */
+    height: 35px; /* ارتفاع الصورة */
     object-fit: contain; /* لضمان عدم تشويه الصورة */
 } 
+
+.Combo {
+    font-size: 20px;
+    color: #fff; /* لون النص */
+    font-weight: bold;
+    text-align: left;
+}
+
