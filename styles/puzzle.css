@@ -93,7 +93,7 @@
 }
 
 #Puzzlespage .puzzle-description {
-    margin-top: 92%;
+    margin-top: 90%;
     color: white;
     font-size: 14px;
    /* margin: 10px 0;*/
@@ -138,7 +138,7 @@
     width: 75%; /* العرض 90% */
     display: block; /* لجعل العنصر يعمل ككتلة */
    /* margin: 0 auto 15px;*/
-    margin-top: 8px;
+    margin-top: 5px;
     height: 35px;
 }
 
