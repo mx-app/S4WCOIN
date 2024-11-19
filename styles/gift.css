@@ -14,7 +14,7 @@
     flex-direction: column; /* ترتيب الصورة والوصف عموديًا */
     align-items: center; /* توسيط المحتوى داخل المربع */
     justify-content: center; /* توسيط المحتوى عموديًا */
-    width: 25%; /* عرض كل مربع ليبقى هناك مسافات بين المربعات */
+    width: 27%; /* عرض كل مربع ليبقى هناك مسافات بين المربعات */
     height: 100px;
     margin: 4px;
     background: rgba(255, 255, 255, 0.1); /* خلفية شفافة */
@@ -75,3 +75,11 @@
     text-align: left;
 }
 
+.Combo-bonus {
+    font-size: 15px;
+    color: #fff; /* لون النص */
+    font-weight: bold;
+    text-align: right;
+}
+
+ 
