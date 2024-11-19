@@ -808,15 +808,11 @@ img {
     margin: 10px 0;
     padding: 10px;
     border-bottom: 0.50px solid #343434;
-    
-   /* background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);*/ /* تأثير الضبابية */
-    /*border-radius: 10px;*/
     text-align: left;
 }
 
 .invite-text {
-    font-size: 16px;
+    font-size: 14px;
     color: #fff;
     display: block;
     margin-bottom: 4px;
@@ -828,14 +824,9 @@ img {
     align-items: center;
 }
 
-.coin-image {
-    width: 18px;
-    height: 18px;
-    margin-right: 3px;
-}
 
 .coin-text {
-    font-size: 14px;
+    font-size: 12px;
     color: #808080;
     text-align: left;
     margin-left: 20px;
