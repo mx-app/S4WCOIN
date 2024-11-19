@@ -41,45 +41,62 @@
     text-align: center;
 }
 
-/* تصميم حاوية المؤقت */
+/* الحاوية الرئيسية للمؤقت */
 .timer-container {
-    text-align: center; /* محاذاة النصوص للوسط */
-    margin-top: 10px;
-    padding: 5px;
+    display: flex; /* استخدام Flexbox لتوزيع العناصر */
+    align-items: center; /* توسيط العناصر عموديًا */
+    justify-content: space-between; /* توزيع العناصر بين اليمين واليسار */
+    padding: 10px;
     background: rgba(255, 255, 255, 0.1); /* خلفية شفافة */
     backdrop-filter: blur(5px); /* تأثير التمويه */
     border-radius: 10px; /* زوايا مستديرة */
     border: 0.5px solid #343434; /* حدود الحاوية */
     width: 85%; /* عرض الحاوية */
-    margin: 20px auto; /* محاذاة الحاوية في المنتصف */
+    margin: 20px auto; /* توسيط الحاوية أفقياً */
 }
 
-/* تصميم النص داخل المؤقت */
-.countdown-timer {
-    font-size: 15px;
-    color: #808080; /* لون النص */
-    font-weight: bold;
-    text-align: left;
+/* القسم الأيسر للصورة والنصوص */
+.left-section {
+    display: flex; /* ترتيب الصورة والنصوص بجانب بعض */
+    align-items: center; /* توسيط العناصر عموديًا */
+    gap: 10px; /* مسافة بين الصورة والنصوص */
 }
 
+/* صورة الساعة الرملية */
 .hourglass-image {
-    width: 35px; /* عرض الصورة */
-    height: 35px; /* ارتفاع الصورة */
+    width: 50px; /* عرض الصورة */
+    height: 50px; /* ارتفاع الصورة */
     object-fit: contain; /* لضمان عدم تشويه الصورة */
-} 
-
-.Combo {
-    font-size: 20px;
-    color: #fff; /* لون النص */
-    font-weight: bold;
-    text-align: left;
 }
 
+/* الحاوية النصية بجانب الصورة */
+.text-container {
+    display: flex;
+    flex-direction: column; /* ترتيب النصوص عموديًا */
+    justify-content: center; /* توسيط النصوص عموديًا */
+}
+
+/* تصميم النص "Daily Combo" */
+.Combo {
+    font-size: 18px;
+    color: #fff;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* تصميم النص "00:00:00" */
+.countdown-timer {
+    font-size: 16px;
+    color: #808080;
+    font-weight: bold;
+    margin: 5px 0 0 0; /* مسافة من الأعلى فقط */
+}
+
+/* النص في الجانب الأيمن (المكافأة) */
 .Combo-bonus {
-    font-size: 15px;
-    color: #fff; /* لون النص */
+    font-size: 18px;
+    color: #fff;
     font-weight: bold;
     text-align: right;
+    margin: 0;
 }
-
- 
