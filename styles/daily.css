@@ -22,11 +22,11 @@
 .Daily-button {
     position: fixed;
     /*top: 10px;*/
-    bottom: 100px;
+    bottom: 110px;
     right: 20px;
     background-color: rgba(255, 255, 255, 0.08);
     border-radius: 10px;
-    padding: 5px;
+    padding: 8px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     opacity: 0.7;
 }
