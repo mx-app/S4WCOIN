@@ -5,6 +5,13 @@
     color: #808080; /* لون النص */
 }
 
+.separatorrr{
+    width: 0.50px;
+    height: 20px;
+    background-color: #808080;
+    margin: 0 10px;
+} 
+
 .separator {
     width: 0.5px;
     height: 18px;
