@@ -301,24 +301,19 @@ const levelThresholds = [
 // التحقق من الترقية إلى مستوى أعلى
 function checkForLevelUp() {
     for (let i = 0; i < levelThresholds.length; i++) {
-        const levelData = levelThresholds[i];
-        
-        // تحقق من الشروط
         if (
-            gameState.balance >= levelData.threshold &&             // تحقق إذا كان الرصيد يكفي للترقية
-            gameState.currentLevel < levelData.level &&            // تحقق إذا لم يتم الوصول لهذا المستوى بعد
-            !gameState.claimedRewards.levels.includes(levelData.level) // تحقق إذا كانت المكافأة لم تُطالب
+            gameState.balance >= levelThresholds[i].threshold &&  // تحقق إذا كان الرصيد يتجاوز حد المستوى
+            gameState.currentLevel < levelThresholds[i].level &&  // تحقق إذا كان المستوى الحالي أقل من المستوى الجديد
+            !gameState.claimedRewards.levels.includes(levelThresholds[i].level)  // تحقق إذا كانت المكافأة لهذا المستوى لم تُطالب
         ) {
             // الترقية إلى المستوى الجديد
-            gameState.currentLevel = levelData.level;
+            gameState.currentLevel = levelThresholds[i].level;
 
-            // خصم الرصيد بعد الترقية
-            gameState.balance -= levelData.threshold;
+            // تحديث الرصيد المتبقي بعد الترقية
+            gameState.balance -= levelThresholds[i].threshold;
 
-            // تسجيل المكافأة في بيانات اللعبة
-            gameState.claimedRewards.levels.push(levelData.level);
+            gameState.claimedRewards.levels.push(levelThresholds[i].level);  // تسجيل أن المكافأة لهذا المستوى قد تم المطالبة بها
 
-            // عرض الإشعار
             showNotification(
                 uiElements.purchaseNotification,
                 `You have been promoted to the level ${gameState.currentLevel}!`
@@ -326,22 +321,17 @@ function checkForLevelUp() {
 
             // تحديث واجهة المستخدم
             updateUI();
-            
-            // حفظ الحالة الحالية للعبة
-            saveGameState();
-
-            // تحديث الحالة في قاعدة البيانات
+            saveGameState();  // حفظ الحالة الحالية للعبة
             updateGameStateInDatabase({
                 currentLevel: gameState.currentLevel,
-                balance: gameState.balance,
+                balance: gameState.balance,  // تحديث الرصيد بعد الترقية
                 claimedRewards: gameState.claimedRewards,
             });
-
-            // الخروج من الحلقة عند الترقية
-            break;
         }
     }
 }
+
+
 
 
 // دالة تهيئة التطبيق
