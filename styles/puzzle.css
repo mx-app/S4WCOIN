@@ -67,7 +67,7 @@
 }
 
 #Puzzlespage .puzzle-item {
-    width: 89%; /* عرض الحاوية بنسبة 44% */
+    width: 85%; /* عرض الحاوية بنسبة 44% */
     height: 200px;
     display: flex;
     flex-direction: column;
@@ -79,12 +79,12 @@
     backdrop-filter: blur(5px);
     text-align: center;
     overflow: hidden;
-    position: relative;
+   /* position: relative;*/
 }
 
 #Puzzlespage .puzzle-image {
     width: 100%; /* تجعل الصورة تملأ العرض الكامل */
-    height: 70%; /* تجعل الصورة تملأ الارتفاع الكامل */
+    height: 50%; /* تجعل الصورة تملأ الارتفاع الكامل */
     object-fit: cover; /* لضمان تغطية المساحة بدون تشويه */
     position: absolute; /* لضبط الصورة داخل الحاوية */
     top: 0;
@@ -93,9 +93,10 @@
 }
 
 #Puzzlespage .puzzle-description {
+    margin-top: 92%;
     color: white;
     font-size: 14px;
-    margin: 10px 0;
+   /* margin: 10px 0;*/
     padding: 0 10px;
 }
 
@@ -127,7 +128,6 @@
 #Puzzlespage .Caesar-btu, 
 #Puzzlespage .room-btu, 
 #Puzzlespage .Numbers-btu {
-    top: 90%; 
     background-color: rgba(0, 0, 0, 0.7);
     color: #ffffff;
     border-radius: 10px;
@@ -137,7 +137,8 @@
   /*  border: 1px solid #343434; */
     width: 75%; /* العرض 90% */
     display: block; /* لجعل العنصر يعمل ككتلة */
-    margin: 0 auto 15px; /* لمركزة الزر في المنتصف */
+   /* margin: 0 auto 15px;*/
+    margin-top: 8px;
     height: 35px;
 }
 
@@ -448,4 +449,5 @@
 .Morse-code img {
     vertical-align: middle;
 }  
- 
+
+
