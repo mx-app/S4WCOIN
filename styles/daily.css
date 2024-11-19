@@ -21,9 +21,10 @@
 
 .Daily-button {
     position: fixed;
-    top: 10px; 
-    left: 20px;
-    background-color: rgba(255, 255, 255, 0.001);
+    /*top: 10px;*/
+    bottom: 100px;
+    right: 20px;
+    background-color: rgba(255, 255, 255, 0.08);
     border-radius: 10px;
     padding: 5px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
