@@ -252,7 +252,7 @@ img {
     justify-content: center; /* لضبط المحاذاة الأفقية */
     align-items: center; /* لضبط المحاذاة العمودية */
     position: absolute; /* تثبيت الحاوية في مكان محدد */
-    bottom: 100px; /* ضبطه ليكون في الجزء السفلي */
+    bottom: 105px; /* ضبطه ليكون في الجزء السفلي */
     width: auto; /* جعل العرض مرنًا بناءً على المحتوى */
     min-width: 20%; /* الحد الأدنى للعرض */
     max-width: 90%; /* الحد الأقصى للعرض */
@@ -824,7 +824,7 @@ img {
 
 .coin-info {
     display: flex;
-    justify-content: center;
+    justify-content: column;
     align-items: center;
 }
 
@@ -837,6 +837,7 @@ img {
 .coin-text {
     font-size: 14px;
     color: #808080;
+    text-align: left;
 }
 
 #tasksBalanceDisplay, #miningBalanceDisplay, #levelBalanceDisplay, #gameBalanceDisplay,
