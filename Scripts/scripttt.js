@@ -2355,18 +2355,178 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-
-
-
-
-
 //////////////////////////////////////
 
 
 
 
-//localStorage.removeItem('gameState'); // مسح حالة اللعبة
-//loadGameState(); // إعادة تحميل حالة اللعبة
+document.addEventListener('DOMContentLoaded', () => {
+    // DOM Elements
+    const caesarCipherContainer = document.getElementById('CaesarContainer');
+    const caesarCloseModal = document.getElementById('CaesarCloseModal');
+    const caesarCodeDisplay = document.getElementById('CaesarCipherDisplay');
+    const caesarAnswerInput = document.getElementById('CaesarSolutionInput');
+    const submitCaesarAnswerBtn = document.getElementById('CaesarSubmitBtn');
+    const caesarAttemptsDisplay = document.getElementById('CaesarAttemptsDisplay');
+    const caesarRewardDisplay = document.getElementById('CaesarRewardDisplay');
+    const openCaesarCipherBtn = document.getElementById('CaesarBtn');
+    const caesarCountdownDisplay = document.getElementById('Caesar-CiphersCountdown');
+
+    let currentCaesarCipher;
+    let caesarAttempts = 0;
+    let caesarSolved = false;
+    const caesarMaxAttempts = 3;
+    const caesarPenaltyAmount = 500; // Penalty for wrong answer
+
+    // Format time for display (HH:MM:SS)
+    function formatTime(seconds) {
+        const hours = Math.floor(seconds / 3600);
+        const minutes = Math.floor((seconds % 3600) / 60);
+        const remainingSeconds = seconds % 60;
+        return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+    }
+
+    // Start countdown timer
+    function startCountdownOnButton(seconds) {
+        openCaesarCipherBtn.disabled = true;
+        caesarCountdownDisplay.innerText = formatTime(seconds);
+
+        function updateCountdown() {
+            if (seconds > 0) {
+                seconds--;
+                caesarCountdownDisplay.innerText = formatTime(seconds);
+                setTimeout(updateCountdown, 1000);
+            } else {
+                caesarCountdownDisplay.innerText = 'Puzzle available now!';
+                openCaesarCipherBtn.disabled = false;
+                openCaesarCipherBtn.innerText = 'Open';
+            }
+        }
+
+        updateCountdown();
+    }
+
+    // Load Caesar ciphers from JSON file
+    async function loadCaesarCiphers() {
+        try {
+            const response = await fetch('json/CaesarCiphers.json');
+            if (!response.ok) throw new Error('Failed to load ciphers');
+            const data = await response.json();
+            return data.caesar_ciphers;
+        } catch (error) {
+            console.error('Error loading Caesar ciphers:', error);
+        }
+    }
+
+    // Get today's Caesar cipher
+    async function getTodaysCaesarCipher() {
+        try {
+            const ciphers = await loadCaesarCiphers();
+            const userTelegramId = document.getElementById('UserTelegramId').innerText;
+
+            const { data, error } = await supabase
+                .from('users')
+                .select('caesar_ciphers_progress')
+                .eq('telegram_id', userTelegramId)
+                .maybeSingle();
+
+            if (error) {
+                console.error('Error fetching Caesar cipher progress:', error);
+                return null;
+            }
+
+            const ciphersProgress = data?.caesar_ciphers_progress || {};
+            const today = new Date().toISOString().split('T')[0];
+            const lastSolvedTime = ciphersProgress.last_solved_time;
+
+            if (lastSolvedTime && new Date() - new Date(lastSolvedTime) < 24 * 60 * 60 * 1000) {
+                const remainingTime = 24 * 60 * 60 - Math.floor((new Date() - new Date(lastSolvedTime)) / 1000);
+                startCountdownOnButton(remainingTime);
+                return null;
+            }
+
+            const todayCipher = ciphers.find(cipher => cipher.date === today);
+
+            if (!todayCipher) return null;
+
+            return {
+                cipher: todayCipher,
+                attempts: ciphersProgress[todayCipher.id]?.attempts || 0,
+                solved: ciphersProgress[todayCipher.id]?.solved || false
+            };
+        } catch (err) {
+            console.error('Error in getTodaysCaesarCipher:', err);
+            return null;
+        }
+    }
+
+    // Display today's Caesar cipher
+    async function displayTodaysCaesarCipher() {
+        const cipherData = await getTodaysCaesarCipher();
+        if (!cipherData) return;
+
+        currentCaesarCipher = cipherData.cipher;
+        caesarAttempts = cipherData.attempts;
+        caesarSolved = cipherData.solved;
+
+        caesarCodeDisplay.innerText = currentCaesarCipher.code;
+        caesarRewardDisplay.innerText = `Reward: ${currentCaesarCipher.reward} coins`;
+        caesarCipherContainer.classList.remove('hidden');
+        updateCaesarRemainingAttempts(caesarAttempts);
+    }
+
+    // Check user's Caesar cipher answer
+    async function checkCaesarCipherAnswer() {
+        const userAnswer = caesarAnswerInput.value.trim().toUpperCase();
+
+        if (!userAnswer) {
+            alert('Please enter an answer before submitting.');
+            return;
+        }
+
+        if (caesarAttempts >= caesarMaxAttempts || caesarSolved) {
+            alert('You have no attempts left or already solved the cipher.');
+            return;
+        }
+
+        if (userAnswer === currentCaesarCipher.answer) {
+            alert(`Correct! You've earned ${currentCaesarCipher.reward} coins.`);
+            caesarSolved = true;
+            closeCaesarCipher();
+            startCountdownOnButton(24 * 60 * 60);
+        } else {
+            caesarAttempts++;
+            updateCaesarRemainingAttempts(caesarAttempts);
+
+            if (caesarAttempts >= caesarMaxAttempts) {
+                alert("You've failed to solve the Caesar cipher.");
+                closeCaesarCipher();
+                startCountdownOnButton(24 * 60 * 60);
+            } else {
+                alert('Incorrect answer. Try again.');
+            }
+        }
+    }
+
+    // Update remaining attempts display
+    function updateCaesarRemainingAttempts(attempts) {
+        caesarAttemptsDisplay.innerText = caesarMaxAttempts - attempts;
+    }
+
+    // Close Caesar cipher modal
+    function closeCaesarCipher() {
+        caesarCipherContainer.classList.add('hidden');
+        caesarAnswerInput.value = '';
+    }
+
+    // Event Listeners
+    submitCaesarAnswerBtn.addEventListener('click', checkCaesarCipherAnswer);
+    openCaesarCipherBtn.addEventListener('click', displayTodaysCaesarCipher);
+    caesarCloseModal.addEventListener('click', closeCaesarCipher);
+});
+
+
+
 
 
 
