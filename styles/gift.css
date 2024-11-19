@@ -61,3 +61,9 @@
     font-weight: bold;
     text-align: center;
 }
+
+.hourglass-image {
+    width: 20px; /* عرض الصورة */
+    height: 20px; /* ارتفاع الصورة */
+    object-fit: contain; /* لضمان عدم تشويه الصورة */
+} 
