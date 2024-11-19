@@ -3,7 +3,7 @@
     display: flex; /* لجعل المربعات بجانب بعضها */
     justify-content: space-between; /* توزيع المربعات بالتساوي */
     align-items: center; /* توسيط المربعات عموديًا */
-    width: 90%; /* عرض الحاوية */
+    width: 95%; /* عرض الحاوية */
     margin: 20px auto; /* محاذاة الحاوية في منتصف الشاشة */
     padding: 10px;
 }
@@ -14,7 +14,7 @@
     flex-direction: column; /* ترتيب الصورة والوصف عموديًا */
     align-items: center; /* توسيط المحتوى داخل المربع */
     justify-content: center; /* توسيط المحتوى عموديًا */
-    width: 27%; /* عرض كل مربع ليبقى هناك مسافات بين المربعات */
+    width: 25%; /* عرض كل مربع ليبقى هناك مسافات بين المربعات */
     height: 100px;
     margin: 4px;
     background: rgba(255, 255, 255, 0.1); /* خلفية شفافة */
@@ -64,8 +64,8 @@
 
 /* صورة الساعة الرملية */
 .hourglass-image {
-    width: 50px; /* عرض الصورة */
-    height: 50px; /* ارتفاع الصورة */
+    width: 30px; /* عرض الصورة */
+    height: 30px; /* ارتفاع الصورة */
     object-fit: contain; /* لضمان عدم تشويه الصورة */
 }
 
@@ -78,7 +78,7 @@
 
 /* تصميم النص "Daily Combo" */
 .Combo {
-    font-size: 18px;
+    font-size: 15px;
     color: #fff;
     font-weight: bold;
     margin: 0;
@@ -86,7 +86,7 @@
 
 /* تصميم النص "00:00:00" */
 .countdown-timer {
-    font-size: 16px;
+    font-size: 11px;
     color: #808080;
     font-weight: bold;
     margin: 5px 0 0 0; /* مسافة من الأعلى فقط */
@@ -94,9 +94,10 @@
 
 /* النص في الجانب الأيمن (المكافأة) */
 .Combo-bonus {
-    font-size: 18px;
-    color: #fff;
+    font-size: 13px;
+    color: #808080;
     font-weight: bold;
     text-align: right;
     margin: 0;
 }
+
