@@ -807,11 +807,12 @@ img {
     max-width: 300px;
     margin: 10px 0;
     padding: 10px;
-    border: 0.50px solid #343434;
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px); /* تأثير الضبابية */
+    border-bottom: 0.50px solid #343434;
+    
+   /* background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);*/ /* تأثير الضبابية */
     border-radius: 10px;
-    text-align: center;
+    text-align: left;
 }
 
 .invite-text {
