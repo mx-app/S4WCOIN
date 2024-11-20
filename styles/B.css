@@ -83,7 +83,7 @@
     align-items: center; /* محاذاة الحاويات في المنتصف أفقيًا */
     justify-content: space-between; /* محاذاة العناصر في منتصف الصفحة */
     width: 100%; /* عرض الحاوية الرئيسية */
-    padding: 10px;
+  /*  padding: 10px;*/
     margin-top: 10px;
 }
 
