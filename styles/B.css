@@ -1,8 +1,7 @@
 #boosts3, 
 #boosts4 {
-    filter: blur(5px); /* يجعل العنصر ضبابيًا */
-    border: 3px solid darkred; /* حواف حمراء داكنة */
-    box-shadow: 0 0 10px red; /* تأثير توهج حول العنصر */
+    filter: blur(3px); /* يجعل العنصر ضبابيًا */
+    border: 2px solid darkashen; /* حواف حمراء داكنة */
     pointer-events: none; /* تعطيل التفاعل مع العنصر */
 }
 
