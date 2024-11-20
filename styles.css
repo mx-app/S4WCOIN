@@ -327,9 +327,9 @@ img {
     width: 20px;
     height: 20px;
     background-size: cover;
+    pointer-events: none;
     animation: coin-bounce 1s infinite, fade-out 1s forwards;
-    z-index: 1000; /* تقليل الأولوية لتجنب التداخل مع الصورة */
-    pointer-events: none; /* منع التفاعل */
+    z-index: 1000;
 }
 
 .diamond-coin span {
@@ -337,7 +337,7 @@ img {
     top: -20px;
     right: -10px;
     color: #fff;
-    font-size: 20px; /* حجم أصغر لتجنب التداخل */
+    font-size: 18px;
     font-weight: bold;
     pointer-events: none;
 }
@@ -360,10 +360,7 @@ img {
         visibility: hidden;
     }
 }
-
-.diamond-coin {
-    will-change: transform, opacity;
-}
+ 
 
 
 
