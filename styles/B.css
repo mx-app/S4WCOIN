@@ -66,12 +66,13 @@
 
 .boost-item button {
    /* background-color: rgba(0, 0, 0, 0.7);*/
+    background-color: rgba(255, 255, 255, 0.004);
     color: #808080;
     padding: 8px;
     border-radius: 10px;
     cursor: pointer;
     width: 25%; /* عرض الزر */
-    font-size: 12px;
+    font-size: 13px;
     font-weight: bold;
    /* border: 0.5px solid #343434;*/
     text-align: center;
