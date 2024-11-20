@@ -1943,25 +1943,11 @@ document.addEventListener('DOMContentLoaded', () => {
         morseAnswerInput.value = '';
     }
 
-    // Event listeners
-    openMorseCipherBtn.addEventListener('click', displayMorseCipher);
-    submitMorseAnswerBtn.addEventListener('click', () => {
-        const userAnswer = morseAnswerInput.value.trim();
-
-        if (morseSolved || morseAttempts >= morseMaxAttempts) {
-            showNotification(morseCipherNotification, 'You cannot attempt this cipher anymore today.');
-            return;
-        }
-
-        if (userAnswer === currentMorseCipher.answer) {
-            handleCorrectAnswer();
-        } else {
-            handleWrongAnswer();
-        }
-    });
+     // Event Listeners
+    submitMorseAnswerBtn.addEventListener('click', checkMorseCipherAnswer);
+    openMorseCipherBtn.addEventListener('click', displayTodaysMorseCipher);
     morsecloseModal.addEventListener('click', closeMorseCipher);
 });
-
 
     
 
