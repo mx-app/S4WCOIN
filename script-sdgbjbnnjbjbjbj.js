@@ -1225,14 +1225,14 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const rewardContainer = document.createElement('div');
                 rewardContainer.classList.add('task-reward-container');
 
-                const rewardIcon = document.createElement('img');
-                rewardIcon.src = 'i/coii.png';
-                rewardIcon.alt = 'Coinreward';
-                rewardIcon.classList.add('reward-coin-icon');
-                rewardContainer.appendChild(rewardIcon);
+                //const rewardIcon = document.createElement('img');
+               // rewardIcon.src = 'i/coii.png';
+                //rewardIcon.alt = 'Coinreward';
+              //  rewardIcon.classList.add('reward-coin-icon');
+                //rewardContainer.appendChild(rewardIcon);
 
                 const rewardText = document.createElement('span');
-                rewardText.textContent = ` ${task.reward}`;
+                rewardText.textContent = ` ${task.reward} SP`;
                 rewardText.classList.add('task-reward');
                 rewardContainer.appendChild(rewardText);
 
