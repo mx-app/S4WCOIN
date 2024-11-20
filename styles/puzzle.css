@@ -135,12 +135,11 @@
     font-size: 13px;
     font-weight: bold;
     cursor: pointer;
-  /*  border: 1px solid #343434; */
-    width: 75%; /* العرض 90% */
-    display: block; /* لجعل العنصر يعمل ككتلة */
-   /* margin: 0 auto 15px;*/
+    width: 75%; 
+    /*display: block;*/
     margin-top: 5px;
     height: 35px;
+    position: relative; 
 }
 
 #Puzzlespage .puzzle-item button:hover {
