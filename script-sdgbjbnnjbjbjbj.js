@@ -2359,7 +2359,7 @@ async function addPromoCodeToUsed(enteredCode) {
 
 function updateBalances() {
   // الحصول على الرصيد من العنصر الرئيسي balanceAmount
-  const balanceElement = document.getElementById('balanceAmount');
+  const balanceElement = document.getElementById('balanceDisplay');
   const balance = balanceElement ? parseFloat(balanceElement.innerText.replace(/,/g, '')) : 0; // استخراج الرصيد من العنصر
   
   const formattedBalance = balance.toLocaleString(); // تنسيق الرصيد بإضافة فواصل الآلاف
