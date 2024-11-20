@@ -1239,8 +1239,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 let taskProgress = taskProgressData ? taskProgressData.progress : 0;
                 let claimed = taskProgressData ? taskProgressData.claimed : false;
 
-                button.textContent = claimed ? '✓' : taskProgress >= 2 ? 'Claim' : taskProgress === 1 ? 'Verify' : '❯';
-                button.disabled = claimed || taskProgress >= 2;
+                button.textContent = claimed ? '✓' : taskProgress === 2 ? 'Claim' : 'Start';
+                button.disabled = claimed;
 
                 button.onclick = () => {
                     if (claimed) {
@@ -1249,9 +1249,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
 
                     if (taskProgress === 0) {
-                        handleTaskOpen(button, taskId, task.url, taskReward);
-                    } else if (taskProgress === 1) {
-                        handleTaskVerification(button, taskId, taskReward);
+                        handleTaskComplete(button, taskId, taskReward);
                     } else if (taskProgress === 2) {
                         handleTaskClaim(button, taskId, taskReward);
                     }
@@ -1261,30 +1259,15 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => console.error('Error fetching tasks:', error));
 });
 
-// Handle opening task
-function handleTaskOpen(button, taskId, taskurl, taskReward) {
+// Handle task completion
+function handleTaskComplete(button, taskId, taskReward) {
     showLoading(button);
-    openTaskLink(taskurl, () => {
-        updateTaskProgressInGameState(taskId, 1);
-        hideLoading(button, 'Verify');
-        showNotification(uiElements.purchaseNotification, 'Task opened. Verify to claim your reward.');
-    });
-}
 
-// Handle task verification
-function handleTaskVerification(button, taskId, taskReward) {
-    showLoading(button);
-    let countdown = 5;
-    const countdownTimer = setInterval(() => {
-        if (countdown > 0) {
-            button.innerHTML = `<span class="loading-spinner"></span>`;
-            countdown--;
-        } else {
-            clearInterval(countdownTimer);
-            updateTaskProgressInGameState(taskId, 2);
-            hideLoading(button, 'Claim');
-            showNotification(uiElements.purchaseNotification, 'Task verified. You can now claim the reward.');
-        }
+    // Simulate task completion
+    setTimeout(async () => {
+        updateTaskProgressInGameState(taskId, 2);
+        hideLoading(button, 'Claim');
+        showNotification(uiElements.purchaseNotification, 'Task completed. Click "Claim" to get your reward.');
     }, 1000);
 }
 
@@ -1341,18 +1324,6 @@ function hideLoading(button, text) {
     button.disabled = false;
     button.innerHTML = text;
 }
-
-// Open task link
-function openTaskLink(taskurl, callback) {
-    if (typeof Telegram !== 'undefined' && Telegram.WebApp) {
-        Telegram.WebApp.openLink(taskurl, { try_instant_view: true });
-        setTimeout(callback, 1000);
-    } else {
-        window.open(taskurl, '_blank');
-        setTimeout(callback, 1000);
-    }
-}
-
 
 
 
