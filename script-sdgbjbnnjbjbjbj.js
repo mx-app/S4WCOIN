@@ -1460,7 +1460,7 @@ document.addEventListener('DOMContentLoaded', initializeTelegramIntegration);
 const puzzlecloseModal = document.getElementById('puzzlecloseModal');
 const puzzleCountdown = document.getElementById('puzzleCountdown');
 const puzzleContainer = document.getElementById('puzzleContainer');
-const openPuzzleBtn = document.getElementById('openPuzzleBtn');
+const openPuzzleBtn = document.getElementById('puzzle1');
 const puzzleQuestion = document.getElementById('puzzleQuestion');
 const puzzleOptions = document.getElementById('puzzleOptions');
 const puzzleNotification = document.getElementById('puzzleNotification');
@@ -1730,7 +1730,7 @@ openPuzzleBtn.addEventListener('click', displayTodaysPuzzle);
 document.getElementById('puzzlecloseModal').addEventListener('click', function() {
     document.getElementById('puzzleContainer').classList.add('hidden');
 });
-document.getElementById('openPuzzleBtn').addEventListener('click', function() {
+document.getElementById('puzzle1').addEventListener('click', function() {
     document.getElementById('puzzleContainer').classList.remove('hidden');
 });
 
