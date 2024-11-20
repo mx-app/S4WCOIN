@@ -1750,6 +1750,12 @@ document.getElementById('openPuzzleBtn').addEventListener('click', function() {
 
 
 
+
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
     // DOM Elements
     const morseCipherContainer = document.getElementById('morseCipherContainer');
@@ -1761,60 +1767,43 @@ document.addEventListener('DOMContentLoaded', () => {
     const morseAttemptsDisplay = document.getElementById('morseRemainingAttempts');
     const morseCipherRewardDisplay = document.getElementById('morseCipherRewardDisplay');
     const openMorseCipherBtn = document.getElementById('openMorseCipherBtn');
+    const countdownDisplay = document.getElementById('MorseCiphersCountdown');
 
     let currentMorseCipher;
     let morseAttempts = 0;
     let morseSolved = false;
     const morseMaxAttempts = 3;
     const morsePenaltyAmount = 500; // Penalty for wrong answer
+    const countdownDuration = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
     let countdownTimeout = null;
 
     // Format time for display (HH:MM:SS)
-    // تعريف العنصر المخصص لعرض المؤقت
-const MorseCiphersCountdownDisplay = document.getElementById('MorseCiphersCountdown');
-
-// عرض مؤقت العد التنازلي في العنصر المخصص
-function startCountdownOnButton(seconds) {
-    openMorseCipherBtn.disabled = true;
-
-    // عرض العد التنازلي في العنصر puzzleCountdown
-    const countdownDisplay = document.getElementById('MorseCiphersCountdown');
-    countdownDisplay.innerText = ` ${formatTime(seconds)}`;
-
-    // استهداف العنصر المحدد فقط باستخدام الـ ID
-    const puzzleItem = document.getElementById('puzzle2'); // استهداف العنصر حسب ID
-    puzzleItem.classList.add('inactive'); // إضافة الفئة "inactive" لتفعيل تأثير الضباب والتوهج
-
-    function updateCountdown() {
-        if (seconds > 0) {
-            seconds--;
-            countdownDisplay.innerText = ` ${formatTime(seconds)}`;
-            setTimeout(updateCountdown, 1000);
-        } else {
-            // عند انتهاء الوقت، إزالة التأثيرات
-            countdownDisplay.innerText = 'Puzzle available now!';
-
-            // إزالة الفئة "inactive" وإضافة الفئة "active"
-            puzzleItem.classList.remove('inactive'); // إزالة الفئة "inactive"
-            puzzleItem.classList.add('active'); // إضافة الفئة "active"
-
-            openMorseCipherBtn.disabled = false;
-            openMorseCipherBtn.innerText = 'Open ';
-        }
+    function formatTime(seconds) {
+        const hours = Math.floor(seconds / 3600);
+        const minutes = Math.floor((seconds % 3600) / 60);
+        const remainingSeconds = seconds % 60;
+        return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
     }
 
-    updateCountdown();
-}
+    // Start countdown timer
+    function startCountdownOnButton(seconds) {
+        openMorseCipherBtn.disabled = true;
+        countdownDisplay.innerText = `${formatTime(seconds)}`;
+        
+        function updateCountdown() {
+            if (seconds > 0) {
+                seconds--;
+                countdownDisplay.innerText = `${formatTime(seconds)}`;
+                setTimeout(updateCountdown, 1000);
+            } else {
+                countdownDisplay.innerText = 'Morse Cipher available now!';
+                openMorseCipherBtn.disabled = false;
+                openMorseCipherBtn.innerText = 'Open Cipher';
+            }
+        }
+        updateCountdown();
+    }
 
-// صياغة الوقت (الساعات:الدقائق:الثواني)
-function formatTime(seconds) {
-    const hours = Math.floor(seconds / 3600);
-    const minutes = Math.floor((seconds % 3600) / 60);
-    const remainingSeconds = seconds % 60;
-    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
-}
-
-    
     // Load Morse ciphers from JSON file
     async function loadMorseCiphers() {
         try {
@@ -1828,7 +1817,7 @@ function formatTime(seconds) {
         }
     }
 
-    // Get today's Morse cipher based on the date and user's progress
+    // Get today's Morse cipher
     async function getTodaysMorseCipher() {
         try {
             const ciphers = await loadMorseCiphers();
@@ -1847,154 +1836,129 @@ function formatTime(seconds) {
             }
 
             const ciphersProgress = data?.morse_ciphers_progress || {};
-            const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
+            const today = new Date().toISOString().split('T')[0];
             const lastSolvedTime = ciphersProgress.last_solved_time;
 
-            // Check if the user has a 24-hour cooldown
-            if (lastSolvedTime && new Date() - new Date(lastSolvedTime) < 24 * 60 * 60 * 1000) {
-                const remainingTime = 24 * 60 * 60 - Math.floor((new Date() - new Date(lastSolvedTime)) / 1000);
-                startCountdownOnButton(remainingTime);
-                showNotification(morseCipherNotification, 'Please wait until tomorrow for a new cipher.');
+            if (lastSolvedTime && new Date() - new Date(lastSolvedTime) < countdownDuration) {
+                const remainingSeconds = Math.floor((countdownDuration - (new Date() - new Date(lastSolvedTime))) / 1000);
+                startCountdownOnButton(remainingSeconds);
                 return null;
             }
 
-            // Find cipher for today's date
-            const todayCipher = ciphers.find(cipher => cipher.date === today);
-
-            if (!todayCipher) {
-                showNotification(morseCipherNotification, 'No cipher available for today.');
-                return null;
-            }
-
-            return {
-                cipher: todayCipher,
-                attempts: ciphersProgress[todayCipher.id]?.attempts || 0,
-                solved: ciphersProgress[todayCipher.id]?.solved || false
-            };
-        } catch (err) {
-            console.error('Error in getTodaysMorseCipher:', err);
-            showNotificationWithStatus(morseCipherNotification, 'Unexpected error. Please try again later.', 'lose');
-            return null;
+            return ciphers.find(cipher => cipher.availableDate === today);
+        } catch (error) {
+            console.error(error);
         }
     }
 
-    // Display today's Morse cipher
-    async function displayTodaysMorseCipher() {
-        const cipherData = await getTodaysMorseCipher();
-        if (!cipherData) return;
+    // Display Morse cipher
+    async function displayMorseCipher() {
+        currentMorseCipher = await getTodaysMorseCipher();
 
-        currentMorseCipher = cipherData.cipher;
-        morseAttempts = cipherData.attempts;
-        morseSolved = cipherData.solved;
+        if (!currentMorseCipher) return;
 
-        morseCodeDisplay.innerText = currentMorseCipher.morse_code;
-        morseCipherRewardDisplay.innerText = `Reward : ${currentMorseCipher.reward} coins`;
-        showNotification(morseCipherNotification, `Hint : ${currentMorseCipher.hint}`);
-
+        morseCodeDisplay.innerText = `Cipher: ${currentMorseCipher.code}`;
+        morseCipherRewardDisplay.innerText = `Reward: ${currentMorseCipher.reward} coins`;
         morseCipherContainer.classList.remove('hidden');
-        updateMorseRemainingAttempts(morseAttempts);
+        morseAttempts = 0;
+        morseSolved = false;
+        updateMorseAttemptsDisplay();
     }
 
-    // Check user's Morse cipher answer
-    async function checkMorseCipherAnswer() {
-        const userAnswer = morseAnswerInput.value.trim().toUpperCase();
-
-        // Ensure the user entered an answer
-        if (!userAnswer) {
-            showNotification(morseCipherNotification, 'Please enter an answer before submitting.');
-            return;
-        }
-
-        if (morseAttempts >= morseMaxAttempts || morseSolved) {
-            showNotification(morseCipherNotification, 'You have no attempts left or already solved the cipher.');
-            return;
-        }
-
-        if (userAnswer === currentMorseCipher.answer) {
-            await handleSuccess();
-        } else {
-            morseAttempts++;
-            updateMorseRemainingAttempts(morseAttempts);
-
-            if (morseAttempts >= morseMaxAttempts) {
-                handleMorseCipherTimeout();
-            } else {
-                showNotificationWithStatus(morseCipherNotification, "Incorrect answer. Try again.", 'lose');
-                await updateMorseCipherProgress(currentMorseCipher.id, false, morseAttempts);
-            }
-        }
+    // Update Morse attempts display
+    function updateMorseAttemptsDisplay() {
+        morseAttemptsDisplay.innerText = `${morseMaxAttempts - morseAttempts}/${morseMaxAttempts}`;
     }
 
-    // Handle successful cipher solution
-    async function handleSuccess() {
-        showNotificationWithStatus(morseCipherNotification, `Correct! You've earned ${currentMorseCipher.reward} coins.` , 'win');
-        updateBalance(currentMorseCipher.reward);
+    // Handle correct answer
+    async function handleCorrectAnswer() {
         morseSolved = true;
-        await updateMorseCipherProgress(currentMorseCipher.id, true, morseAttempts);
+        showNotification(morseCipherNotification, `Correct! You've earned ${currentMorseCipher.reward} coins.`, 'win');
+        updateBalance(currentMorseCipher.reward);
+        await updateMorseCipherProgress(true);
+        startCountdownOnButton(24 * 60 * 60);
         closeMorseCipher();
-        startCountdownOnButton(24 * 60 * 60); // Start 24-hour countdown
     }
 
-    // Update remaining attempts display
-    function updateMorseRemainingAttempts(attempts) {
-        morseAttemptsDisplay.innerText = morseMaxAttempts - attempts;
-    }
+    // Handle wrong answer
+    async function handleWrongAnswer() {
+        morseAttempts++;
+        updateMorseAttemptsDisplay();
 
-    // Handle Morse cipher timeout or failed attempt
-    function handleMorseCipherTimeout() {
-        showNotificationWithStatus(morseCipherNotification, "You've failed to solve the Morse cipher.", 'lose');
-        updateBalance(-morsePenaltyAmount);
-        updateMorseCipherProgress(currentMorseCipher.id, false, morseMaxAttempts);
-        closeMorseCipher();
-        startCountdownOnButton(24 * 60 * 60); // Start 24-hour countdown
-    }
-
-    // Update user progress in database
-    async function updateMorseCipherProgress(cipherId, solved, attempts) {
-        try {
-            const userTelegramId = uiElements.userTelegramIdDisplay.innerText;
-            const lastSolvedTime = solved ? new Date().toISOString() : null;
-
-            const { data, error } = await supabase
-                .from('users')
-                .select('morse_ciphers_progress')
-                .eq('telegram_id', userTelegramId)
-                .maybeSingle();
-
-            if (error) {
-                console.error('Error fetching Morse cipher progress:', error);
-                return;
-            }
-
-            const updatedProgress = {
-                last_cipher_id: cipherId,
-                solved_today: solved,
-                attempts_today: attempts,
-                last_solved_time: lastSolvedTime || data?.morse_ciphers_progress?.last_solved_time,
-            };
-
-            const { error: updateError } = await supabase
-                .from('users')
-                .update({ morse_ciphers_progress: updatedProgress })
-                .eq('telegram_id', userTelegramId);
-
-            if (updateError) {
-                console.error('Error updating Morse cipher progress:', updateError);
-            }
-        } catch (err) {
-            console.error('Error in updateMorseCipherProgress:', err);
+        if (morseAttempts >= morseMaxAttempts) {
+            showNotification(morseCipherNotification, 'You have used all attempts. 500 coins have been deducted.', 'lose');
+            updateBalance(-morsePenaltyAmount);
+            await updateMorseCipherProgress(false);
+            startCountdownOnButton(24 * 60 * 60);
+            closeMorseCipher();
+        } else {
+            showNotification(morseCipherNotification, `Wrong answer. You have ${morseMaxAttempts - morseAttempts} attempts remaining.`);
         }
     }
 
-    // Close Morse cipher modal
+    // Update Morse cipher progress in database
+    async function updateMorseCipherProgress(solved) {
+        const userTelegramId = uiElements.userTelegramIdDisplay.innerText;
+
+        const { data, error } = await supabase
+            .from('users')
+            .select('morse_ciphers_progress')
+            .eq('telegram_id', userTelegramId)
+            .maybeSingle();
+
+        if (error) {
+            console.error('Error updating Morse cipher progress:', error);
+            return;
+        }
+
+        let ciphersProgress = data?.morse_ciphers_progress || {};
+        ciphersProgress.last_solved_time = solved ? new Date().toISOString() : null;
+
+        const { updateError } = await supabase
+            .from('users')
+            .update({ morse_ciphers_progress: ciphersProgress })
+            .eq('telegram_id', userTelegramId);
+
+        if (updateError) {
+            console.error('Error updating Morse cipher progress:', updateError);
+        }
+    }
+
+    // Update balance
+    function updateBalance(amount) {
+        gameState.balance += amount;
+        updateUI();
+    }
+
+    // Show notification
+    function showNotification(element, message, status = '') {
+        element.innerText = message;
+        element.className = status;
+        setTimeout(() => element.innerText = '', 3000);
+    }
+
+    // Close Morse cipher
     function closeMorseCipher() {
         morseCipherContainer.classList.add('hidden');
         morseAnswerInput.value = '';
     }
 
-    // Event Listeners
-    submitMorseAnswerBtn.addEventListener('click', checkMorseCipherAnswer);
-    openMorseCipherBtn.addEventListener('click', displayTodaysMorseCipher);
+    // Event listeners
+    openMorseCipherBtn.addEventListener('click', displayMorseCipher);
+    submitMorseAnswerBtn.addEventListener('click', () => {
+        const userAnswer = morseAnswerInput.value.trim();
+
+        if (morseSolved || morseAttempts >= morseMaxAttempts) {
+            showNotification(morseCipherNotification, 'You cannot attempt this cipher anymore today.');
+            return;
+        }
+
+        if (userAnswer === currentMorseCipher.answer) {
+            handleCorrectAnswer();
+        } else {
+            handleWrongAnswer();
+        }
+    });
     morsecloseModal.addEventListener('click', closeMorseCipher);
 });
 
