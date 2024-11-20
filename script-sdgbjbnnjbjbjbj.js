@@ -1252,7 +1252,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             // rewardContainer.appendChild(rewardIcon);
  
                 const rewardText = document.createElement('span');
-                rewardText.textContent = ` ${task.reward} SP`;
+                rewardText.textContent = `+ ${task.reward} SP`;
                 rewardText.classList.add('task-reward');
                 rewardContainer.appendChild(rewardText);
 
