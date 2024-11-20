@@ -2248,7 +2248,7 @@ document.getElementById('applyPromoCode').addEventListener('click', async () => 
             gameState.balance += reward;
 
             // تحديث واجهة المستخدم
-            updateUI();
+            loadGameState();
 
             // حفظ البرومو كود المستخدم في قاعدة البيانات
             const updated = await addPromoCodeToUsed(enteredCode);
@@ -2262,6 +2262,15 @@ document.getElementById('applyPromoCode').addEventListener('click', async () => 
 
             // إظهار إشعار بالمكافأة
             showNotificationWithStatus(uiElements.purchaseNotification, `Successfully added ${reward} coins to your balance!`, 'win');
+
+            // حفظ الحالة الحالية للعبة وتحديثها في قاعدة البيانات
+            saveGameState();  // حفظ الحالة الحالية
+            await updateGameStateInDatabase({
+                used_Promo_Codes: gameState.usedPromoCodes,
+                balance: gameState.balance,
+            });
+
+            
         } else {
             // عرض علامة خطأ (❌) عند البرومو كود غير صحيح
             applyButton.innerHTML = '❌';
