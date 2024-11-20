@@ -1,3 +1,9 @@
+.task-completed {
+    filter: blur(2px);
+    opacity: 0.6;
+    pointer-events: none;
+}
+
 .loading-spinner {
     border: 3px solid #ffffff;
     border-top: 3px solid transparent;
