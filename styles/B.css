@@ -1,6 +1,6 @@
 .badgee {
   position: absolute;
-  top: 30px;
+  top: 50px;
   left: 15px; /* To position the badge at the left side */
   background: linear-gradient(45deg, #3b0a45, #2f4f4f, #000000);
   color: white;
