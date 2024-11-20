@@ -37,6 +37,9 @@
 } 
 
 .upgrade-mining {
+    filter: blur(3px); /* يجعل العنصر ضبابيًا */
+    pointer-events: none; /* تعطيل التفاعل مع العنصر */
+  
     width: 88%; /* عرض الحاوية بنسبة 44% */
     height: 180px;
     display: flex;
