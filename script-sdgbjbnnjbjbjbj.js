@@ -1216,7 +1216,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 img.classList.add('task-img');
                 taskElement.appendChild(img);
 
-                // Create a container for description and reward
+                 // Create a container for description and reward
                 const infoContainer = document.createElement('div');
                 infoContainer.classList.add('info-task'); // This will hold both description and reward
 
@@ -1225,23 +1225,27 @@ document.addEventListener('DOMContentLoaded', async () => {
                 description.textContent = task.description;
                 infoContainer.appendChild(description);
 
-               // مكافأة المهمة
+                 // Task Reward without Coin Image
                 const rewardContainer = document.createElement('div');
                 rewardContainer.classList.add('task-reward-container');
-
-                //const rewardIcon = document.createElement('img');
-               // rewardIcon.src = 'i/coii.png';
-                //rewardIcon.alt = 'Coinreward';
-              //  rewardIcon.classList.add('reward-coin-icon');
-                //rewardContainer.appendChild(rewardIcon);
-
+            
+            // حذف أو تعليق الجزء الخاص بإضافة صورة العملة
+            // const rewardIcon = document.createElement('img');
+            // rewardIcon.src = 'i/coii.png'; // مسار صورة العملة
+            // rewardIcon.alt = 'Coinreward';
+            // rewardIcon.classList.add('reward-coin-icon'); // معرف جديد للرمز
+            // rewardContainer.appendChild(rewardIcon);
+ 
                 const rewardText = document.createElement('span');
                 rewardText.textContent = ` ${task.reward} SP`;
                 rewardText.classList.add('task-reward');
                 rewardContainer.appendChild(rewardText);
 
-                taskElement.appendChild(rewardContainer);
+                infoContainer.appendChild(rewardContainer); // Append reward below description
 
+                taskElement.appendChild(infoContainer); // Append the info container to the task element
+
+           
                 // زر المهمة
                 const button = document.createElement('button');
                 button.classList.add('task-button');
