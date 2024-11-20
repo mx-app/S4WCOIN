@@ -2358,10 +2358,13 @@ async function addPromoCodeToUsed(enteredCode) {
 
 
 function updateBalances() {
-  const balance = gameState.balance; // الحصول على الرصيد الحالي من حالة اللعبة
-  const formattedBalance = balance.toLocaleString(); // تنسيق الرصيد بإضافة فواصل الآلاف
+  // الحصول على الرصيد من العنصر الرئيسي balanceAmount
+  const balanceElement = document.getElementById('balanceAmount');
+  const balance = balanceElement ? parseFloat(balanceElement.innerText.replace(/,/g, '')) : 0; // استخراج الرصيد من العنصر
   
-  // تحديث كل عناصر عرض الرصيد
+  const formattedBalance = balance.toLocaleString(); // تنسيق الرصيد بإضافة فواصل الآلاف
+
+  // تحديث كل عناصر عرض الرصيد الأخرى
   const elements = [
     'navbarBalanceDisplay',
     'AccountnavbarBalanceDisplay',
@@ -2383,6 +2386,7 @@ document.addEventListener('DOMContentLoaded', () => {
   updateBalances();  // تحديث الأرصدة بعد تحميل حالة اللعبة
   updateAccountSummary(); // تحديث نافذة الإعدادات
 });
+
 
 /////////////////////////////////////////
 
