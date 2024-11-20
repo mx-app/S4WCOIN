@@ -948,6 +948,7 @@ img {
 }
 
 .left-section {
+    top: 3px; 
     display: flex; /* ترتيب العناصر */
     flex-direction: column; /* وضع العناصر فوق بعضها */
     align-items: center; /* توسيط النصوص أفقيًا */
@@ -960,7 +961,6 @@ img {
 }
 
 #earningsLabel {
-    top: 10px; 
     font-size: 10px;
     font-weight: bold;
     margin: 0; /* إزالة أي هوامش */
@@ -978,7 +978,7 @@ img {
 }
  
 .Profit {
-    top: 10px; 
+    top: 4px; 
     display: flex; /* ترتيب العناصر */
     flex-direction: column; /* وضع العناصر فوق بعضها */
     align-items: center; /* توسيط النصوص أفقيًا */
