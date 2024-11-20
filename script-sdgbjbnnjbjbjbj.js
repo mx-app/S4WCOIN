@@ -2357,6 +2357,27 @@ async function addPromoCodeToUsed(enteredCode) {
 
 
 
+function updateBalanceDisplay(balance) {
+    const elements = [
+        "navbarBalanceDisplay",
+        "AccountnavbarBalanceDisplay",
+        "tasknavbarBalanceDisplay",
+        "puzzlenavbarBalanceDisplay",
+        "BoostnavbarBalanceDisplay",
+        "lvlnavbarBalanceDisplay",
+        "miningnavbarBalanceDisplay"
+    ];
+
+    elements.forEach(elementId => {
+        const element = document.getElementById(elementId);
+        if (element) {
+            element.innerText = balance.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+    });
+}
+
+// استدعاء الدالة مع الرصيد الحالي
+updateBalanceDisplay(gameState.balance);
 
 
 
