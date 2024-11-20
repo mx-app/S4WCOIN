@@ -430,9 +430,9 @@ function updateUI() {
         uiElements.balanceDisplay.innerText = gameState.balance.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     }
     
-    if (uiElements.navbarBalanceDisplay) {
-        uiElements.navbarBalanceDisplay.innerText = gameState.balance.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-    }
+   // if (uiElements.navbarBalanceDisplay) {
+    //    uiElements.navbarBalanceDisplay.innerText = gameState.balance.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  //  }
 
     const energyPercent = (gameState.energy / gameState.maxEnergy) * 100;
     if (uiElements.energyBar) {
@@ -2357,7 +2357,7 @@ async function addPromoCodeToUsed(enteredCode) {
 
 
 
-function updateBalanceDisplay(balance) {
+function updateBalancesDisplay(balance) {
     const elements = [
         "navbarBalanceDisplay",
         "AccountnavbarBalanceDisplay",
@@ -2377,7 +2377,7 @@ function updateBalanceDisplay(balance) {
 }
 
 // استدعاء الدالة مع الرصيد الحالي
-updateBalanceDisplay(gameState.balance);
+updateBalancesDisplay(gameState.balance);
 
 
 
