@@ -108,7 +108,7 @@
     align-items: center; /* محاذاة المحتوى عموديًا */
     justify-content: space-between; /* توزيع العناصر بالتساوي */
     width: 90%; /* عرض العنصر */
-    height: 90px;
+    height: 75px;
     padding: 10px;
     margin: 10px auto;
     background: rgba(255, 255, 255, 0.1); /* خلفية شفافة */
