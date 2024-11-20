@@ -1,3 +1,23 @@
+.circles-container {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 5px;
+}
+
+.circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(128, 128, 128, 0.5); /* رمادي مائل للشفاف */
+  transition: background 0.3s ease;
+}
+
+.circle.active {
+  background: linear-gradient(to bottom, #fff, #d9d9d9); /* أبيض مدرج رمادي فاتح جداً */
+}
+
+
+
 /* الحاوية الرئيسية للمربعات */
 .gift-container {
     display: flex; /* لجعل المربعات بجانب بعضها */
