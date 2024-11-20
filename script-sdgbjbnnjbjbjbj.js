@@ -241,12 +241,13 @@ function listenToRealtimeChanges() {
 
 // تهيئة التطبيق عند تحميل الصفحة
 document.addEventListener('DOMContentLoaded', async () => {
-    await loadGameState();       // تحميل البيانات من LocalStorage أو قاعدة البيانات
-    await restoreEnergy();   
+    await loadGameState();   
+    await restoreEnergy();
+    startEnergyRecovery();
     updateGameStateInDatabase(); 
-    listenToRealtimeChanges();   // البدء في الاستماع للتغييرات
-    await initializeApp();       // تهيئة التطبيق
-    updateInviteFriendsButton(); // تحديث الواجهة
+    listenToRealtimeChanges();   
+    await initializeApp();      
+    updateInviteFriendsButton();
 });
 
 
