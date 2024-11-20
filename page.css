@@ -1,4 +1,5 @@
 #Profit-in {
+    -right: 20px;
     right: 40px;
     color: #ffffff; /* لون النص */
     transition: padding 0.2s ease; /* تأثير بسيط عند التمدد */
@@ -7,6 +8,7 @@
 }
 
 #navbarBalanceDisplay {
+    -left: 20px;
     left: 40px;
     color: #ffffff; /* لون النص */
     transition: padding 0.2s ease; /* تأثير بسيط عند التمدد */
@@ -22,7 +24,7 @@
     top: 3px;
     left: 50%; /* نقطة البداية في المنتصف */
     transform: translateX(-50%); /* توسيط العرض */
-    width: 75%;
+    width: 85%;
     height: 35px;
     z-index: 1000;
     border-bottom: 0.50px solid #343434;
