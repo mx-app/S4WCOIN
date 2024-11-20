@@ -424,19 +424,15 @@ function updateUI() {
     if (uiElements.balanceDisplay) {
         uiElements.balanceDisplay.innerText = gameState.balance.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     }
+    
+    if (uiElements.navbarBalanceDisplay) {
+        uiElements.navbarBalanceDisplay.innerText = gameState.balance.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
 
     const energyPercent = (gameState.energy / gameState.maxEnergy) * 100;
     if (uiElements.energyBar) {
         uiElements.energyBar.style.width = `${energyPercent}%`;
     }
-    
-    if (navbarBalanceDisplay) {
-        navbarBalanceDisplay.innerText = gameState.balance.toLocaleString("en-US", { 
-            minimumFractionDigits: 2, 
-            maximumFractionDigits: 2 
-        });
-      }
-   }
 
     if (uiElements.energyInfo) {
         uiElements.energyInfo.innerText = `${formatNumber(gameState.energy)}/${formatNumber(gameState.maxEnergy)}⚡`;
