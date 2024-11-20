@@ -803,7 +803,32 @@ function handleClick(event) {
 
 
 
-// تأثير النقر لعرض عملات الألماس
+const img = document.getElementById('clickableImg');
+
+img.addEventListener('click', (event) => {
+    // --- تأثير الإمالة ---
+    const rect = img.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+
+    const rotateX = ((y / rect.height) - 0.6) * -20;
+    const rotateY = ((x / rect.width) - 0.6) * 20;
+
+    img.style.transform = `translateY(-5px) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+
+    // إعادة الوضع الطبيعي
+    setTimeout(() => {
+        img.style.transform = 'translateY(-5px)';
+    }, 300);
+
+    // --- تأثير الألماس ---
+    const diamondX = event.pageX;
+    const diamondY = event.pageY;
+
+    createDiamondCoinEffect(diamondX, diamondY);
+});
+
+// وظيفة إنشاء تأثير الألماس
 function createDiamondCoinEffect(x, y) {
     const diamond = document.createElement('div');
     diamond.classList.add('diamond-coin');
@@ -826,16 +851,6 @@ function createDiamondCoinEffect(x, y) {
         }, 1000);
     }, 50);
 }
-
-const img = document.getElementById('clickableImg');
-
-img.addEventListener('click', (event) => {
-    const x = event.pageX;
-    const y = event.pageY;
-
-    // إنشاء تأثير الألماس
-    createDiamondCoinEffect(x, y);
-});
 
 
 
@@ -1974,29 +1989,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /////////////////////////////////////
 
-const img = document.getElementById('clickableImg');
 
-img.addEventListener('click', (event) => {
-    // تطبيق الإمالة
-    const rect = img.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-
-    const rotateX = ((y / rect.height) - 0.6) * -20;
-    const rotateY = ((x / rect.width) - 0.6) * 20;
-
-    img.style.transform = `translateY(-5px) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-
-    // إعادة الوضع الطبيعي
-    setTimeout(() => {
-        img.style.transform = 'translateY(-5px)';
-    }, 300);
-});
-
-// إزالة أي انتقالات غير مرغوبة
-img.addEventListener('transitionend', () => {
-    img.style.transition = 'none';
-});
 
 
 
