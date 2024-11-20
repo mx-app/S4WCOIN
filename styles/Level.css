@@ -205,7 +205,7 @@
 }
 
 .arrow {
-    font-size: 14px; /* تخصيص حجم السهم */
+    font-size: 13px; /* تخصيص حجم السهم */
     margin-left: 10px; /* المسافة بين السهم والمحتوى */
     color: #fff;
     opacity: 0.7;
