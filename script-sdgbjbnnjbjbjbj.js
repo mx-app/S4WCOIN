@@ -1076,61 +1076,6 @@ document.getElementById('closeModal').addEventListener('click', function() {
 
 
 
-let currentLevelIndex = 0;
-
-document.addEventListener('DOMContentLoaded', function() {
-    const container = document.querySelector('.level-container');
-    const totalLevels = document.querySelectorAll('.level-item').length;
-    const leftArrow = document.querySelector('.arrow-btn.left');
-    const rightArrow = document.querySelector('.arrow-btn.right');
-
-    // تحديث حالة الأزرار
-    function updateArrows() {
-        if (currentLevelIndex === 0) {
-            leftArrow.classList.add('disabled');
-        } else {
-            leftArrow.classList.remove('disabled');
-        }
-
-        if (currentLevelIndex === totalLevels - 1) {
-            rightArrow.classList.add('disabled');
-        } else {
-            rightArrow.classList.remove('disabled');
-        }
-    }
-
-    function scrollLeft() {
-        const levelWidth = container.clientWidth;
-        if (currentLevelIndex > 0) {
-            currentLevelIndex--;
-            container.scrollTo({
-                left: currentLevelIndex * levelWidth,
-                behavior: 'smooth'
-            });
-        }
-        updateArrows();
-    }
-
-    function scrollRight() {
-        const levelWidth = container.clientWidth;
-        if (currentLevelIndex < totalLevels - 1) {
-            currentLevelIndex++;
-            container.scrollTo({
-                left: currentLevelIndex * levelWidth,
-                behavior: 'smooth'
-            });
-        }
-        updateArrows();
-    }
-
-    // إرفاق الأحداث للأزرار
-    leftArrow.addEventListener('click', scrollLeft);
-    rightArrow.addEventListener('click', scrollRight);
-
-    // تحديث حالة الأزرار عند البدء
-    updateArrows();
-});
-
 
 /////////////////////////////////////////////////
 
@@ -1186,12 +1131,25 @@ buttons.forEach(button => {
 
 
 
-document.addEventListener('DOMContentLoaded', () => {
+
+document.addEventListener('DOMContentLoaded', async () => {
     const taskContainer = document.querySelector('#taskcontainer');
     if (!taskContainer) {
         console.error('Task container element not found.');
         return;
     }
+
+    // استرداد بيانات المستخدم عند تحميل الصفحة
+    const userId = uiElements.userTelegramIdDisplay.innerText; // معرف المستخدم
+    const userData = await loadUserData(userId);
+
+    if (!userData) {
+        console.error('Failed to load user data.');
+        return;
+    }
+
+    const tasksprogress = userData.tasksprogress || [];
+    const balance = userData.balance || 0;
 
     // Fetch tasks from JSON file
     fetch('json/tasks.json')
@@ -1239,127 +1197,157 @@ document.addEventListener('DOMContentLoaded', () => {
                 taskContainer.appendChild(taskElement);
 
                 const taskId = task.id;
-                const taskUrl = task.url;
                 const taskReward = task.reward;
 
-                const taskProgressData = gameState.tasksprogress.find(t => t.task_id === taskId);
-                let taskProgress = taskProgressData ? taskProgressData.progress : 0;
-
-                button.textContent = taskProgress >= 2 ? '✓' : taskProgress === 1 ? 'Verify' : '❯';
-                button.disabled = taskProgress >= 2;
-
-                // Add blur effect for completed tasks
-                if (taskProgress >= 2) {
-                    taskElement.classList.add('completed-task');
+                // التحقق من حالة المهمة
+                const taskProgress = tasksprogress.find(t => t.task_id === taskId);
+                if (taskProgress?.claimed) {
+                    taskElement.classList.add('completed-task'); // إضافة تأثير الضباب
+                    button.textContent = '✓';
+                    button.disabled = true;
+                } else {
+                    button.textContent = taskProgress?.progress === 1 ? 'Verify' : '❯';
+                    button.disabled = false;
                 }
 
-                let countdownTimer;
-
-                button.onclick = () => {
-                    if (taskProgress === 0) {
-                        showLoading(button);
-                        openTaskLink(taskUrl, () => {
-                            taskProgress = 1;
-                            updateTaskProgressInGameState(taskId, taskProgress);
-                            hideLoading(button, 'Verify');
-                            showNotification(uiElements.purchaseNotification, 'Task opened. Verify to claim your reward.');
-                        });
-                    } else if (taskProgress === 1) {
-                        showLoading(button);
-                        clearTimeout(countdownTimer);
-
-                        let countdown = 5;
-                        countdownTimer = setInterval(() => {
-                            if (countdown > 0) {
-                                button.innerHTML = `<span class="loading-spinner"></span>`;
-                                countdown--;
-                            } else {
-                                clearInterval(countdownTimer);
-                                taskProgress = 2;
-                                updateTaskProgressInGameState(taskId, taskProgress);
-                                hideLoading(button, 'Claim');
-                                taskElement.classList.add('completed-task');
-                                showNotification(uiElements.purchaseNotification, 'Task verified. You can now claim the reward.');
-                            }
-                        }, 1000);
-                    } else if (taskProgress === 2) {
-                        claimTaskReward(taskId, taskReward);
-                        button.textContent = '✓';
-                        button.disabled = true;
-                        showNotificationWithStatus(uiElements.purchaseNotification, 'Reward successfully claimed!', 'win');
-                    }
-                };
+                // عند النقر على الزر
+                button.onclick = () => handleTaskAction(taskId, taskReward, button, taskElement, userId);
             });
         })
         .catch(error => console.error('Error fetching tasks:', error));
 });
 
-// Function to show loading animation
+// تحميل بيانات المستخدم
+async function loadUserData(userId) {
+    const { data, error } = await supabase
+        .from('users')
+        .select('tasksprogress, balance')
+        .eq('telegram_id', userId)
+        .single();
+
+    if (error) {
+        console.error('Error loading user data:', error);
+        return null;
+    }
+
+    return data;
+}
+
+// معالجة الإجراءات على المهام
+async function handleTaskAction(taskId, reward, button, taskElement, userId) {
+    const { data: userData, error: fetchError } = await supabase
+        .from('users')
+        .select('tasksprogress, balance')
+        .eq('telegram_id', userId)
+        .single();
+
+    if (fetchError) {
+        console.error('Error fetching user data:', fetchError);
+        return;
+    }
+
+    const tasksprogress = userData.tasksprogress || [];
+    const existingTask = tasksprogress.find(task => task.task_id === taskId);
+
+    if (existingTask?.claimed) {
+        showNotification(uiElements.purchaseNotification, 'You have already claimed this reward.');
+        return;
+    }
+
+    if (!existingTask || existingTask.progress < 2) {
+        // تحديث تقدم المهمة
+        const progress = existingTask ? 2 : 2; // حدد التقدم كـ "مكتملة"
+        const claimed = true;
+
+        if (existingTask) {
+            existingTask.progress = progress;
+            existingTask.claimed = claimed;
+        } else {
+            tasksprogress.push({ task_id: taskId, progress, claimed });
+        }
+
+        // تحديث الرصيد
+        const updatedBalance = (userData.balance || 0) + reward;
+
+        // تحديث قاعدة البيانات
+        const { error: updateError } = await supabase
+            .from('users')
+            .update({
+                tasksprogress: tasksprogress,
+                balance: updatedBalance
+            })
+            .eq('telegram_id', userId);
+
+        if (updateError) {
+            console.error('Error updating user data:', updateError);
+            return;
+        }
+
+        // تحديث واجهة المستخدم
+        button.textContent = '✓';
+        button.disabled = true;
+        taskElement.classList.add('completed-task'); // إضافة تأثير الضباب
+        updatetask(updatedBalance, tasksprogress);
+
+        // عرض إشعار النجاح
+        showNotificationWithStatus(uiElements.purchaseNotification, `Successfully claimed ${reward} coins!`, 'win');
+    }
+}
+
+// تحديث واجهة المستخدم
+function updatetask(updatedBalance, tasksprogress) {
+    // تحديث الرصيد في الواجهة
+    const balanceElement = document.querySelector('#balanceDisplay');
+    if (balanceElement) {
+        balanceElement.textContent = updatedBalance;
+    }
+
+    // تحديث حالة الأزرار للمهام المكتملة
+    const taskButtons = document.querySelectorAll('.task-button');
+    taskButtons.forEach(button => {
+        const taskId = parseInt(button.getAttribute('data-task-id'));
+        const taskProgress = tasksprogress.find(t => t.task_id === taskId);
+
+        if (taskProgress?.claimed) {
+            const taskElement = button.parentElement;
+            taskElement.classList.add('completed-task'); // إضافة تأثير الضباب
+            button.textContent = '✓';
+            button.disabled = true;
+        }
+    });
+}
+
+// إشعار النجاح
+function showNotificationWithStatus(notificationElement, message, status) {
+    notificationElement.textContent = message;
+    notificationElement.classList.add(status);
+    setTimeout(() => {
+        notificationElement.textContent = '';
+        notificationElement.classList.remove(status);
+    }, 3000);
+}
+
+// Function to show loading animation only
 function showLoading(button) {
     button.innerHTML = `<span class="loading-spinner"></span>`;
     button.disabled = true;
 }
 
-// Function to hide loading animation
+// Function to hide loading animation and restore text
 function hideLoading(button, text) {
     button.disabled = false;
     button.innerHTML = text;
 }
 
 // Open task link function
-function openTaskLink(taskUrl, callback) {
+function openTaskLink(taskurl, callback) {
     if (typeof Telegram !== 'undefined' && Telegram.WebApp) {
-        Telegram.WebApp.openLink(taskUrl, { try_instant_view: true });
-        setTimeout(callback, 1000);
+        Telegram.WebApp.openLink(taskurl, { try_instant_view: true });
+        setTimeout(callback, 1000); // Simulate load time
     } else {
-        window.open(taskUrl, '_blank');
-        setTimeout(callback, 1000);
+        window.open(taskurl, '_blank');
+        setTimeout(callback, 1000); // Simulate load time
     }
-}
-
-// Update task progress in gameState
-async function updateTaskProgressInGameState(taskId, progress) {
-    const taskIndex = gameState.tasksprogress.findIndex(task => task.task_id === taskId);
-    if (taskIndex > -1) {
-        gameState.tasksprogress[taskIndex].progress = progress;
-    } else {
-        gameState.tasks.push({ task_id: taskId, url: task.url });
-        gameState.tasksprogress.push({ task_id: taskId, progress: progress, claimed: false });
-    }
-
-    const updatedData = { tasks: gameState.tasks, tasksprogress: gameState.tasksprogress };
-    const isUpdated = await updateGameStateInDatabase(updatedData);
-    if (!isUpdated) {
-        console.error('Failed to update game state in the database.');
-    }
-
-    saveGameState();
-}
-
-// Claim task reward
-async function claimTaskReward(taskId, reward) {
-    const task = gameState.tasksprogress.find(task => task.task_id === taskId);
-
-    if (task && task.claimed) {
-        showNotification(uiElements.purchaseNotification, 'You have already claimed this reward.');
-        return;
-    }
-
-    gameState.balance += reward;
-    if (task) {
-        task.claimed = true;
-    } else {
-        gameState.tasksprogress.push({ task_id: taskId, progress: 2, claimed: true });
-    }
-
-    const updatedData = { balance: gameState.balance, tasksprogress: gameState.tasksprogress };
-    const isUpdated = await updateGameStateInDatabase(updatedData);
-    if (!isUpdated) {
-        console.error('Failed to update game state in the database after claiming reward.');
-    }
-
-    updateUI();
-    saveGameState();
 }
 
 
