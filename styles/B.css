@@ -1,12 +1,12 @@
 .badgee {
   position: absolute;
-  top: 80px;
-  left: 15px; /* To position the badge at the left side */
+  top: 50px;
+  left: 20px; /* To position the badge at the left side */
   background: linear-gradient(45deg, #3b0a45, #2f4f4f, #000000);
   color: white;
   padding: 4px 50px;
   font-weight: bold;
-  transform: rotate(-25deg); /* Make the badge slant */
+  transform: rotate(-30deg); /* Make the badge slant */
   transform-origin: left top; /* Ensure rotation starts from the left top corner */
   text-transform: uppercase;
 }
