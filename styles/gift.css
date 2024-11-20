@@ -34,9 +34,6 @@
 
 /* تصميم كل مربع */
 .gift-box {
-    filter: blur(3px); /* يجعل العنصر ضبابيًا */
-    pointer-events: none; /* تعطيل التفاعل مع العنصر */
-  
     display: flex;
     flex-direction: column; /* ترتيب الصورة والوصف عموديًا */
     align-items: center; /* توسيط المحتوى داخل المربع */
