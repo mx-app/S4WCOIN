@@ -859,7 +859,7 @@ img {
 #lvlnavbarBalanceDisplay::after, 
 #miningnavbarBalanceDisplay::after {
     content: " SP";  /* إضافة النص بعد العدد */
-    margin-left: 3.5px; /* مسافة بين العدد والنص */
+    margin-left: 1px; /* مسافة بين العدد والنص */
     vertical-align: middle; /* محاذاة النص مع العدد */
 }
 
