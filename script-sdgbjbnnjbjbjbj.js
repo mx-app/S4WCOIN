@@ -80,6 +80,7 @@ let gameState = {
     coinBoostLevel: 1,
     energyBoostLevel: 1,
     currentLevel: 1,
+    achievedLevels: [],
     friends: 0,
     fillEnergyCount: 0,
     lastFillTime: Date.now(),
@@ -175,6 +176,7 @@ async function saveGameState() {
         morse_ciphers_progress: gameState.ciphersProgress,
         last_login_date: gameState.lastLoginDate ? new Date(gameState.lastLoginDate).toISOString() : null,
         consecutive_days: gameState.consecutiveDays,
+        achieved_Levels: gameState.achievedLevels,
     };
 
     try {
@@ -314,37 +316,49 @@ const levelThresholds = [
 
 
 // التحقق من الترقية إلى مستوى أعلى
-function checkForLevelUp() {
+async function checkForLevelUp() {
     for (let i = 0; i < levelThresholds.length; i++) {
+        const levelData = levelThresholds[i];
+
+        // تحقق من شروط الترقية
         if (
-            gameState.balance >= levelThresholds[i].threshold &&  // تحقق إذا كان الرصيد يتجاوز حد المستوى
-            gameState.currentLevel < levelThresholds[i].level &&  // تحقق إذا كان المستوى الحالي أقل من المستوى الجديد
-            !gameState.claimedRewards.levels.includes(levelThresholds[i].level)  // تحقق إذا كانت المكافأة لهذا المستوى لم تُطالب
+            gameState.balance >= levelData.threshold &&  // تحقق إذا كان الرصيد يكفي
+            gameState.currentLevel < levelData.level &&  // تحقق إذا كان المستوى الحالي أقل
+            !gameState.achievedLevels.includes(levelData.level)  // تحقق إذا لم يتم الوصول إلى هذا المستوى مسبقًا
         ) {
-            // الترقية إلى المستوى الجديد
-            gameState.currentLevel = levelThresholds[i].level;
+            // ترقية المستخدم إلى المستوى الجديد
+            gameState.currentLevel = levelData.level;
 
-            // تحديث الرصيد المتبقي بعد الترقية
-            gameState.balance -= levelThresholds[i].threshold;
+            // تسجيل المستوى الجديد
+            gameState.achievedLevels.push(levelData.level);
 
-            gameState.claimedRewards.levels.push(levelThresholds[i].level);  // تسجيل أن المكافأة لهذا المستوى قد تم المطالبة بها
-
+            // عرض إشعار الترقية
             showNotification(
                 uiElements.purchaseNotification,
-                `You have been promoted to the level ${gameState.currentLevel}!`
+                `You have been promoted to level ${gameState.currentLevel}!`
             );
 
             // تحديث واجهة المستخدم
             updateUI();
-            saveGameState();  // حفظ الحالة الحالية للعبة
-            updateGameStateInDatabase({
+
+            // تحديث قاعدة البيانات
+            const updatedData = {
                 currentLevel: gameState.currentLevel,
-                balance: gameState.balance,  // تحديث الرصيد بعد الترقية
-                claimedRewards: gameState.claimedRewards,
-            });
+                achieved_levels: gameState.achievedLevels,
+            };
+
+            const isUpdated = await updateGameStateInDatabase(updatedData);
+
+            if (!isUpdated) {
+                console.error('Failed to update levels in the database.');
+            }
+
+            // كسر الحلقة لأن المستخدم تمت ترقيته
+            break;
         }
     }
 }
+
 
 
 
@@ -1083,6 +1097,7 @@ async function updateUserData() {
             puzzles_progress: gameState.puzzlesprogress, 
             used_Promo_Codes: gameState.usedPromoCodes, 
             morse_ciphers_progress: gameState.ciphersProgress, 
+            achieved_Levels: gameState.achievedLevels, 
             last_login_date: gameState.lastLoginDate ? new Date(gameState.lastLoginDate).toISOString() : null,
             consecutive_days: gameState.consecutiveDays
             
