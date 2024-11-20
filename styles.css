@@ -978,7 +978,7 @@ img {
 }
  
 .Profit {
-    top: 4px; 
+    bottom: 5px; 
     display: flex; /* ترتيب العناصر */
     flex-direction: column; /* وضع العناصر فوق بعضها */
     align-items: center; /* توسيط النصوص أفقيًا */
