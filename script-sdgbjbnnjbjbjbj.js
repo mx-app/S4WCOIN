@@ -1216,12 +1216,16 @@ document.addEventListener('DOMContentLoaded', async () => {
                 img.classList.add('task-img');
                 taskElement.appendChild(img);
 
-                // وصف المهمة
+                // Create a container for description and reward
+                const infoContainer = document.createElement('div');
+                infoContainer.classList.add('info-task'); // This will hold both description and reward
+
+                // Task Description
                 const description = document.createElement('p');
                 description.textContent = task.description;
-                taskElement.appendChild(description);
+                infoContainer.appendChild(description);
 
-                // مكافأة المهمة
+               // مكافأة المهمة
                 const rewardContainer = document.createElement('div');
                 rewardContainer.classList.add('task-reward-container');
 
