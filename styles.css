@@ -307,12 +307,6 @@ img {
     height: calc(95% - 69px);
 }
 
-.clickable-image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-}
 
 .clickable-image img {
     width: 260px;
@@ -320,68 +314,22 @@ img {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
-    transition: transform 0.10s ease-in-out ;
-    cursor: pointer;
-    margin-top: -20px; 
-    transform: translateY(-5px);
-    pointer-events: auto;
-    border-radius: 30%;
-    
-}
-
-/*.clickable-image img:active {
-    transform: scale(0.95);
-    filter: none;
-}
-
-@keyframes coin-bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-15px);
-    }
-}
-
-@keyframes fade-out {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-        visibility: hidden;
-    }
-}*/
-
-
-/*.clickable-image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-}
-
-.clickable-image img {
-    width: 270px;
-    height: 270px;
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
+    transition: transform 0.1s ease-in-out;
     cursor: pointer;
     margin-top: -20px;
     transform: translateY(-5px);
-}*/
+    pointer-events: auto; /* التأكد من السماح بالنقر */
+    border-radius: 30%;
+}
 
-
-
- .diamond-coin {
+.diamond-coin {
     position: absolute;
     width: 20px;
     height: 20px;
     background-size: cover;
-    pointer-events: none;
     animation: coin-bounce 1s infinite, fade-out 1s forwards;
-    z-index: 9999;
+    z-index: 1000; /* تقليل الأولوية لتجنب التداخل مع الصورة */
+    pointer-events: none; /* منع التفاعل */
 }
 
 .diamond-coin span {
@@ -389,11 +337,11 @@ img {
     top: -20px;
     right: -10px;
     color: #fff;
-    font-size: 30px;
+    font-size: 18px; /* حجم أصغر لتجنب التداخل */
     font-weight: bold;
-    transform: translate(-50%, -50%);
     pointer-events: none;
 }
+
 
 
 .menu {
