@@ -927,7 +927,7 @@ img {
     font-size: 10px;
     font-weight: bold;
     white-space: nowrap;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
     color: #808080;
 }
 
@@ -978,7 +978,7 @@ img {
 }
  
 .Profit {
-    bottom: 8px; 
+    bottom: 10px; 
     display: flex; /* ترتيب العناصر */
     flex-direction: column; /* وضع العناصر فوق بعضها */
     align-items: center; /* توسيط النصوص أفقيًا */
