@@ -569,11 +569,11 @@ img {
 }
 
 
-.confirmation-modal {
+/*.confirmation-modal {
     background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px); /* تأثير الضبابية */
+    backdrop-filter: blur(10px); 
     padding: 20px;
-    border-radius: 25px 25px 0 0; /* حواف علوية دائرية فقط */
+    border-radius: 25px 25px 0 0; 
     border-top: 2px solid #343434;
     text-align: center;
     position: fixed;
@@ -581,12 +581,39 @@ img {
     left: 0;
     right: 0;
     z-index: 10000;
-    transform: translateY(0); /* يظهر من الأسفل */
+    transform: translateY(0); 
     height: 50vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* توزيع العناصر بين الأعلى والأسفل */
+    justify-content: space-between; 
+}*/
+
+/* تغطية الصفحة بالكامل */
+.confirmation-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px); /* تأثير الضبابية */
+    background-color: rgba(0, 0, 0, 0.5); /* لون شبه شفاف */
 }
+
+/* محتوى النافذة */
+.modal-content {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 25px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
 
 .modal-image img {
     width: 140px; /* حجم الصورة */
