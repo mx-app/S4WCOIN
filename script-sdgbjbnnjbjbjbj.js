@@ -241,6 +241,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 
+document.addEventListener("DOMContentLoaded", function() {
+    updateUI(); // تأكد من تحديث الرصيد عند تحميل الصفحة
+});
+
 
 
 // مستويات اللعبة المتناسقة
