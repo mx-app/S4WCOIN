@@ -2357,32 +2357,32 @@ async function addPromoCodeToUsed(enteredCode) {
 
 
 
-function updateBalancesDisplay() {
-    const mainBalanceElement = document.getElementById("balanceAmount");
-    const balance = mainBalanceElement ? parseFloat(mainBalanceElement.innerText.replace(/[^0-9.-]+/g, "")) : 0;
-
-    const elements = [
-        "navbarBalanceDisplay",
-        "AccountnavbarBalanceDisplay",
-        "tasknavbarBalanceDisplay",
-        "puzzlenavbarBalanceDisplay",
-        "BoostnavbarBalanceDisplay",
-        "lvlnavbarBalanceDisplay",
-        "miningnavbarBalanceDisplay"
-    ];
-
-    elements.forEach(elementId => {
-        const element = document.getElementById(elementId);
-        if (element) {
-            element.innerText = balance.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-        }
-    });
+function updateBalances() {
+  const balance = gameState.balance; // الحصول على الرصيد الحالي من حالة اللعبة
+  const formattedBalance = balance.toLocaleString(); // تنسيق الرصيد بإضافة فواصل الآلاف
+  
+  // تحديث كل عناصر عرض الرصيد
+  const elements = [
+    'navbarBalanceDisplay',
+    'AccountnavbarBalanceDisplay',
+    'tasknavbarBalanceDisplay',
+    'puzzlenavbarBalanceDisplay',
+    'BoostnavbarBalanceDisplay',
+    'lvlnavbarBalanceDisplay',
+    'miningnavbarBalanceDisplay'
+  ];
+  
+  elements.forEach(id => {
+    const element = document.getElementById(id);
+    if (element) element.innerText = formattedBalance;
+  });
 }
 
-// استدعاء الدالة لتحديث الرصيد في جميع العناصر
-updateBalancesDisplay();
-
-
+document.addEventListener('DOMContentLoaded', () => {
+  loadGameState();  // تحميل حالة اللعبة
+  updateBalances();  // تحديث الأرصدة بعد تحميل حالة اللعبة
+  updateAccountSummary(); // تحديث نافذة الإعدادات
+});
 
 /////////////////////////////////////////
 
