@@ -9,6 +9,7 @@
   transform: rotate(-45deg); /* Make the badge slant */
   transform-origin: left top; /* Ensure rotation starts from the left top corner */
   text-transform: uppercase;
+  z-index: 100000;
 }
 
 .Morsecountdown-display {
