@@ -2367,7 +2367,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         'miningPage'
     ]; // الصفحات التي يظهر فيها الشريط
 
-    const currentPage = document.querySelector('body').id; // الحصول على ID الصفحة الحالية
+    // البحث عن الصفحة الحالية بناءً على العنصر الذي يحتوي على class="screen-content"
+    const currentPageElement = document.querySelector('.screen-content');
+    const currentPage = currentPageElement ? currentPageElement.id : null;
 
     // التحقق إذا كانت الصفحة الحالية من الصفحات التي يظهر فيها الشريط
     if (pagesWithNavbar.includes(currentPage)) {
@@ -2377,7 +2379,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     await loadGameState();        // تحميل حالة اللعبة
-    updateNavbar();        
+    updateNavbar();               // تحديث الشريط العلوي
+    updateAccountSummary();       // تحديث نافذة الإعدادات أو ملخص الحساب
     listenToRealtimeChanges();    // البدء في الاستماع للتغييرات من قاعدة البيانات
 });
 
