@@ -1,5 +1,5 @@
 #Profit-in {
-    right: 25px;
+    right: 40px;
     color: #ffffff; /* لون النص */
     transition: padding 0.2s ease; /* تأثير بسيط عند التمدد */
     min-width: 50px; /* عرض أدنى للعنصر */
@@ -7,7 +7,7 @@
 }
 
 #navbarBalanceDisplay {
-    left: 25px;
+    left: 40px;
     color: #ffffff; /* لون النص */
     transition: padding 0.2s ease; /* تأثير بسيط عند التمدد */
     min-width: 50px; /* عرض أدنى للعنصر */
@@ -18,11 +18,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 20px;
+    padding: 8px;
     position: fixed;
-    top: 5px;
+    top: 3px;
     left: 0;
-    width: 90%;
+    width: 75%;
     z-index: 1000;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: rgba(255, 255, 255, 0.05);
