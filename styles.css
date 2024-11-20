@@ -337,9 +337,32 @@ img {
     top: -20px;
     right: -10px;
     color: #fff;
-    font-size: 18px; /* حجم أصغر لتجنب التداخل */
+    font-size: 20px; /* حجم أصغر لتجنب التداخل */
     font-weight: bold;
     pointer-events: none;
+}
+
+@keyframes coin-bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.diamond-coin {
+    will-change: transform, opacity;
 }
 
 
