@@ -1184,7 +1184,6 @@ buttons.forEach(button => {
 
 
 
-
 document.addEventListener('DOMContentLoaded', () => {
     const taskContainer = document.querySelector('#taskcontainer');
     if (!taskContainer) {
@@ -1206,13 +1205,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 img.classList.add('task-img');
                 taskElement.appendChild(img);
 
+                // Create a container for description and reward
                 const infoContainer = document.createElement('div');
                 infoContainer.classList.add('info-task');
 
+                // Task Description
                 const description = document.createElement('p');
                 description.textContent = task.description;
                 infoContainer.appendChild(description);
 
+                // Task Reward
                 const rewardContainer = document.createElement('div');
                 rewardContainer.classList.add('task-reward-container');
 
@@ -1224,34 +1226,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 infoContainer.appendChild(rewardContainer);
                 taskElement.appendChild(infoContainer);
 
+                // Task Button
                 const button = document.createElement('button');
                 button.classList.add('task-button');
                 button.setAttribute('data-task-id', task.id);
-                button.setAttribute('data-url', task.url);
-                button.setAttribute('data-reward', task.reward);
                 taskElement.appendChild(button);
                 taskContainer.appendChild(taskElement);
 
-                const taskId = task.id;
-                const taskReward = task.reward;
-
-                const taskProgressData = gameState.tasksprogress.find(t => t.task_id === taskId);
+                // Check progress from gameState
+                const taskProgressData = gameState.tasksprogress.find(t => t.task_id === task.id);
                 let taskProgress = taskProgressData ? taskProgressData.progress : 0;
-                let claimed = taskProgressData ? taskProgressData.claimed : false;
 
-                button.textContent = claimed ? '✓' : taskProgress === 2 ? 'Claim' : 'Start';
-                button.disabled = claimed;
+                button.textContent = taskProgress >= 2 ? '✓' : taskProgress === 1 ? 'Verify' : '❯';
+                button.disabled = taskProgress >= 2;
 
-                button.onclick = () => {
-                    if (claimed) {
-                        showNotification(uiElements.purchaseNotification, 'You have already claimed this reward.');
-                        return;
-                    }
-
+                button.onclick = async () => {
                     if (taskProgress === 0) {
-                        handleTaskComplete(button, taskId, taskReward);
+                        await openTask(task.id, task.url, button);
+                        taskProgress = 1;
+                    } else if (taskProgress === 1) {
+                        await verifyTask(task.id, button);
+                        taskProgress = 2;
                     } else if (taskProgress === 2) {
-                        handleTaskClaim(button, taskId, taskReward);
+                        await claimTaskReward(task.id, task.reward, button);
                     }
                 };
             });
@@ -1259,70 +1256,82 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => console.error('Error fetching tasks:', error));
 });
 
-// Handle task completion
-function handleTaskComplete(button, taskId, taskReward) {
+// Open task function
+async function openTask(taskId, taskUrl, button) {
     showLoading(button);
-
-    // Simulate task completion
-    setTimeout(async () => {
-        updateTaskProgressInGameState(taskId, 2);
-        hideLoading(button, 'Claim');
-        showNotification(uiElements.purchaseNotification, 'Task completed. Click "Claim" to get your reward.');
-    }, 1000);
+    openTaskLink(taskUrl, async () => {
+        await updateTaskProgressInGameState(taskId, 1);
+        hideLoading(button, 'Verify');
+        showNotification(uiElements.purchaseNotification, 'Task opened. Verify to claim your reward.');
+    });
 }
 
-// Handle claiming task reward
-async function handleTaskClaim(button, taskId, taskReward) {
+// Verify task function
+async function verifyTask(taskId, button) {
+    showLoading(button);
+    setTimeout(async () => {
+        await updateTaskProgressInGameState(taskId, 2);
+        hideLoading(button, 'Claim');
+        showNotification(uiElements.purchaseNotification, 'Task verified. You can now claim the reward.');
+    }, 5000);
+}
+
+// Claim task reward
+async function claimTaskReward(taskId, reward, button) {
     const task = gameState.tasksprogress.find(t => t.task_id === taskId);
-    if (task && task.claimed) {
-        showNotification(uiElements.purchaseNotification, 'You have already claimed this reward.');
+    if (task?.claimed) {
+        showNotification(uiElements.purchaseNotification, 'Reward already claimed.');
         return;
     }
 
-    gameState.balance += taskReward;
+    gameState.balance += reward;
     task.claimed = true;
 
     const updatedData = { balance: gameState.balance, tasksprogress: gameState.tasksprogress };
     const isUpdated = await updateGameStateInDatabase(updatedData);
-    if (!isUpdated) {
-        console.error('Failed to update game state in the database after claiming reward.');
-        return;
-    }
 
-    button.textContent = '✓';
-    button.disabled = true;
-    updateUI();
-    showNotificationWithStatus(uiElements.purchaseNotification, `Successfully claimed ${taskReward} SP!`, 'win');
+    if (isUpdated) {
+        button.textContent = '✓';
+        button.disabled = true;
+        updateUI();
+        showNotificationWithStatus(uiElements.purchaseNotification, `Successfully claimed ${reward} SP!`, 'win');
+    } else {
+        console.error('Failed to update database after claiming reward.');
+    }
 }
 
-// Update task progress in gameState and database
+// Utility functions
 async function updateTaskProgressInGameState(taskId, progress) {
-    const taskIndex = gameState.tasksprogress.findIndex(task => task.task_id === taskId);
+    const taskIndex = gameState.tasksprogress.findIndex(t => t.task_id === taskId);
     if (taskIndex > -1) {
         gameState.tasksprogress[taskIndex].progress = progress;
     } else {
-        gameState.tasksprogress.push({ task_id: taskId, progress: progress, claimed: false });
+        gameState.tasksprogress.push({ task_id: taskId, progress, claimed: false });
     }
 
     const updatedData = { tasksprogress: gameState.tasksprogress };
     const isUpdated = await updateGameStateInDatabase(updatedData);
+
     if (!isUpdated) {
-        console.error('Failed to update game state in the database.');
+        console.error('Failed to update task progress in database.');
     }
 
     saveGameState();
 }
 
-// Show loading spinner
 function showLoading(button) {
     button.innerHTML = `<span class="loading-spinner"></span>`;
     button.disabled = true;
 }
 
-// Hide loading spinner and set text
 function hideLoading(button, text) {
     button.disabled = false;
     button.innerHTML = text;
+}
+
+function openTaskLink(url, callback) {
+    window.open(url, '_blank');
+    setTimeout(callback, 1000);
 }
 
 
