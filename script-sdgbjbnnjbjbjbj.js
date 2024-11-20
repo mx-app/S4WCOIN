@@ -1132,185 +1132,118 @@ buttons.forEach(button => {
 
 
 
-document.addEventListener('DOMContentLoaded', async () => {
+
+document.addEventListener('DOMContentLoaded', () => {
     const taskContainer = document.querySelector('#taskcontainer');
     if (!taskContainer) {
         console.error('Task container element not found.');
         return;
     }
 
-    // استرداد بيانات المستخدم عند تحميل الصفحة
-    const userId = uiElements.userTelegramIdDisplay.innerText; // معرف المستخدم
-    const userData = await loadUserData(userId);
+    
+// Fetch tasks from JSON file
+fetch('json/tasks.json')
+    .then(response => response.json())
+    .then(tasks => {
+        tasks.forEach(task => {
+            const taskElement = document.createElement('div');
+            taskElement.classList.add('task-item');
+            
+            const img = document.createElement('img'); 
+             img.src = task.image;
+             img.alt = 'Task Image';
+             img.classList.add('task-img');
+             taskElement.appendChild(img);
 
-    if (!userData) {
-        console.error('Failed to load user data.');
-        return;
-    }
 
-    const tasksprogress = userData.tasksprogress || [];
-    const balance = userData.balance || 0;
+            // Create a container for description and reward
+            const infoContainer = document.createElement('div');
+            infoContainer.classList.add('info-task'); // This will hold both description and reward
 
-    // Fetch tasks from JSON file
-    fetch('json/tasks.json')
-        .then(response => response.json())
-        .then(tasks => {
-            tasks.forEach(task => {
-                const taskElement = document.createElement('div');
-                taskElement.classList.add('task-item');
+            // Task Description
+            const description = document.createElement('p');
+            description.textContent = task.description;
+            infoContainer.appendChild(description);
 
-                // Task Image
-                const img = document.createElement('img');
-                img.src = task.image;
-                img.alt = 'Task Image';
-                img.classList.add('task-img');
-                taskElement.appendChild(img);
+            // Task Reward without Coin Image
+            const rewardContainer = document.createElement('div');
+            rewardContainer.classList.add('task-reward-container');
+            
+            // حذف أو تعليق الجزء الخاص بإضافة صورة العملة
+            // const rewardIcon = document.createElement('img');
+            // rewardIcon.src = 'i/coii.png'; // مسار صورة العملة
+            // rewardIcon.alt = 'Coinreward';
+            // rewardIcon.classList.add('reward-coin-icon'); // معرف جديد للرمز
+            // rewardContainer.appendChild(rewardIcon);
 
-                // Container for description and reward
-                const infoContainer = document.createElement('div');
-                infoContainer.classList.add('info-task');
+            const rewardText = document.createElement('span');
+            rewardText.textContent = ` ${task.reward} SP`;
+            rewardText.classList.add('task-reward');
+            rewardContainer.appendChild(rewardText);
 
-                // Task Description
-                const description = document.createElement('p');
-                description.textContent = task.description;
-                infoContainer.appendChild(description);
+            infoContainer.appendChild(rewardContainer); // Append reward below description
 
-                // Task Reward
-                const rewardContainer = document.createElement('div');
-                rewardContainer.classList.add('task-reward-container');
+            taskElement.appendChild(infoContainer); // Append the info container to the task element
 
-                const rewardText = document.createElement('span');
-                rewardText.textContent = ` ${task.reward} SP`;
-                rewardText.classList.add('task-reward');
-                rewardContainer.appendChild(rewardText);
+            // Task Button
+            const button = document.createElement('button');
+            button.classList.add('task-button');
+            button.setAttribute('data-task-id', task.id);
+            button.setAttribute('data-url', task.url);
+            button.setAttribute('data-reward', task.reward);
+            taskElement.appendChild(button);
+            taskContainer.appendChild(taskElement);
 
-                infoContainer.appendChild(rewardContainer);
-                taskElement.appendChild(infoContainer);
+            const taskId = task.id;
+            const taskurl = task.url;
+            const taskReward = task.reward;
 
-                // Task Button
-                const button = document.createElement('button');
-                button.classList.add('task-button');
-                button.setAttribute('data-task-id', task.id);
-                button.setAttribute('data-url', task.url);
-                button.setAttribute('data-reward', task.reward);
-                taskElement.appendChild(button);
-                taskContainer.appendChild(taskElement);
+            const taskProgressData = gameState.tasksprogress.find(t => t.task_id === taskId);
+            let taskProgress = taskProgressData ? taskProgressData.progress : 0;
 
-                const taskId = task.id;
-                const taskReward = task.reward;
+            button.textContent = taskProgress >= 2 ? '✓' : taskProgress === 1 ? 'Verify' : '❯';
+            button.disabled = taskProgress >= 2;
 
-                // التحقق من حالة المهمة
-                const taskProgress = tasksprogress.find(t => t.task_id === taskId);
-                if (taskProgress?.claimed) {
-                    taskElement.classList.add('completed-task'); // إضافة تأثير الضباب
-                    button.textContent = '✓';
-                    button.disabled = true;
-                } else {
-                    button.textContent = taskProgress?.progress === 1 ? 'Verify' : '❯';
-                    button.disabled = false;
-                }
+            let countdownTimer;
 
-                // عند النقر على الزر
-                button.onclick = () => handleTaskAction(taskId, taskReward, button, taskElement, userId);
+                button.onclick = () => {
+                    if (taskProgress === 0) {
+                        showLoading(button); // عرض الدائرة فقط بدون نص
+                        openTaskLink(taskurl, () => {
+                            taskProgress = 1;
+                            updateTaskProgressInGameState(taskId, taskProgress); // تحديث حالة المهمة
+                            hideLoading(button, 'Verify');
+                            showNotification(uiElements.purchaseNotification, 'Task opened. Verify to claim your reward.');
+                        });
+                    } else if (taskProgress === 1) {
+                        showLoading(button); // عرض الدائرة فقط بدون نص
+                        clearTimeout(countdownTimer);
+
+                        let countdown = 5;
+                        countdownTimer = setInterval(() => {
+                            if (countdown > 0) {
+                                button.innerHTML = `<span class="loading-spinner"></span>`;
+                                countdown--;
+                            } else {
+                                clearInterval(countdownTimer);
+                                taskProgress = 2;
+                                updateTaskProgressInGameState(taskId, taskProgress); // تحديث حالة المهمة بعد التحقق
+                                hideLoading(button, 'Claim');
+                                showNotification(uiElements.purchaseNotification, 'Task verified. You can now claim the reward.');
+                            }
+                        }, 1000);
+                    } else if (taskProgress === 2) {
+                        claimTaskReward(taskId, taskReward); // استلام المكافأة
+                        button.textContent = '✓';
+                        button.disabled = true;
+                        showNotificationWithStatus(uiElements.purchaseNotification, 'Reward successfully claimed!', 'win');
+                    }
+                };
             });
         })
+    
         .catch(error => console.error('Error fetching tasks:', error));
 });
-
-// تحميل بيانات المستخدم
-async function loadUserData(userId) {
-    const { data, error } = await supabase
-        .from('users')
-        .select('tasksprogress')
-        .eq('telegram_id', userId)
-        .single();
-
-    if (error) {
-        console.error('Error loading user data:', error);
-        return null;
-    }
-
-    return data;
-}
-
-// معالجة الإجراءات على المهام
-async function handleTaskAction(taskId, reward, button, taskElement, userId) {
-    const { data: userData, error: fetchError } = await supabase
-        .from('users')
-        .select('tasksprogress')
-        .eq('telegram_id', userId)
-        .single();
-
-    if (fetchError) {
-        console.error('Error fetching user data:', fetchError);
-        return;
-    }
-
-    const tasksprogress = userData.tasksprogress || [];
-    const existingTask = tasksprogress.find(task => task.task_id === taskId);
-
-    if (existingTask?.claimed) {
-        showNotification(uiElements.purchaseNotification, 'You have already claimed this reward.');
-        return;
-    }
-
-    if (!existingTask || existingTask.progress < 2) {
-        // تحديث تقدم المهمة
-        const progress = existingTask ? 2 : 2; // حدد التقدم كـ "مكتملة"
-        const claimed = true;
-
-        if (existingTask) {
-            existingTask.progress = progress;
-            existingTask.claimed = claimed;
-        } else {
-            tasksprogress.push({ task_id: taskId, progress, claimed });
-        }
-
-        // تحديث الرصيد
-function updateBalance(reward) {
-    gameState.balance += reward;
-    updateUI(); // تحديث الواجهة
-    saveGameState(); // حفظ حالة اللعبة
-}
-
-        // تحديث قاعدة البيانات
-        const { error: updateError } = await supabase
-            .from('users')
-            .update({
-                tasksprogress: tasksprogress
-            })
-            .eq('telegram_id', userId);
-
-        if (updateError) {
-            console.error('Error updating user data:', updateError);
-            return;
-        }
-
-        // تحديث واجهة المستخدم
-        button.textContent = '✓';
-        button.disabled = true;
-        taskElement.classList.add('completed-task'); // إضافة تأثير الضباب
-        updatetask(updatedBalance, tasksprogress);
-
-        // عرض إشعار النجاح
-        showNotificationWithStatus(uiElements.purchaseNotification, `Successfully claimed ${reward} coins!`, 'win');
-    }
-}
-
-
-    // تحديث حالة الأزرار للمهام المكتملة
-    const taskButtons = document.querySelectorAll('.task-button');
-    taskButtons.forEach(button => {
-        const taskId = parseInt(button.getAttribute('data-task-id'));
-        const taskProgress = tasksprogress.find(t => t.task_id === taskId);
-
-        if (taskProgress?.claimed) {
-            const taskElement = button.parentElement;
-            taskElement.classList.add('completed-task'); // إضافة تأثير الضباب
-            button.textContent = '✓';
-            button.disabled = true;
-        }
-    });
 
 // Function to show loading animation only
 function showLoading(button) {
@@ -1331,10 +1264,58 @@ function openTaskLink(taskurl, callback) {
         setTimeout(callback, 1000); // Simulate load time
     } else {
         window.open(taskurl, '_blank');
-        setTimeout(callback, 1000); // Simulate load time
+       setTimeout(callback, 1000); // Simulate load time
     }
 }
 
+// Update task progress in gameState
+async function updateTaskProgressInGameState(taskId, progress) {
+    const taskIndex = gameState.tasksprogress.findIndex(task => task.task_id === taskId);
+    if (taskIndex > -1) {
+        gameState.tasksprogress[taskIndex].progress = progress;
+    } else {
+        gameState.tasksprogress.push({ task_id: taskId, progress: progress, claimed: false });
+    }
+
+    // تحديث البيانات في قاعدة البيانات بعد التعديل
+    const updatedData = { tasksprogress: gameState.tasksprogress }; // بيانات التقدم التي تم تحديثها
+    const isUpdated = await updateGameStateInDatabase(updatedData);
+    if (!isUpdated) {
+        console.error('Failed to update game state in the database.');
+    }
+
+    saveGameState(); // حفظ الحالة في الملف المحلي
+}
+
+// Claim the task reward and update balance
+async function claimTaskReward(taskId, reward) {
+    const task = gameState.tasksprogress.find(task => task.task_id === taskId);
+
+    if (task && task.claimed) {
+        showNotification(uiElements.purchaseNotification, 'You have already claimed this reward.');
+        return;
+    }
+
+    // إضافة المكافأة للتوازن
+    gameState.balance += reward;
+    if (task) {
+        task.claimed = true;
+    } else {
+        gameState.tasksprogress.push({ task_id: taskId, progress: 2, claimed: true });
+    }
+
+    // تحديث البيانات في قاعدة البيانات بعد استلام المكافأة
+    const updatedData = { balance: gameState.balance, tasksprogress: gameState.tasksprogress };
+    const isUpdated = await updateGameStateInDatabase(updatedData);
+    if (!isUpdated) {
+        console.error('Failed to update game state in the database after claiming reward.');
+    }
+
+    updateUI(); // تحديث واجهة المستخدم
+    showNotificationWithStatus(uiElements.purchaseNotification, `Successfully claimed ${reward} SP!`, 'win');
+    updateUserData(); // تحديث بيانات المستخدم
+    saveGameState(); // حفظ الحالة محليًا بعد استلام المكافأة
+}
 
 
 
@@ -2358,70 +2339,6 @@ function showContent(contentId) {
 //////////////////////////////////////
 
 
-// تعريف أسعار ومعلومات الأوراق
-const miningUpgrades = [
-  { id: "Mine1", baseCost: 40, baseProfit: 0.1 },
-  { id: "Mine2", baseCost: 80, baseProfit: 0.2 },
-  { id: "Mine3", baseCost: 120, baseProfit: 0.5 },
-  // أضف المزيد حسب الحاجة
-];
-
-// الرصيد الحالي
-let miningBalance = 10000; // قيمة افتراضية
-let totalProfitPerHour = 0;
-
-// تحديث عرض الرصيد
-function updateMiningDisplay() {
-  document.getElementById("miningBalanceDisplay").textContent = miningBalance.toFixed(2);
-}
-
-// تحديث الأرباح في الساعة
-function updateProfitPerHourDisplay() {
-  totalProfitPerHour = miningUpgrades.reduce((total, upgrade) => {
-    const level = upgrade.level || 1;
-    return total + upgrade.baseProfit * level;
-  }, 0);
-
-  miningUpgrades.forEach((upgrade) => {
-    const profitElement = document.querySelector(`#${upgrade.id} .profit-rate`);
-    const level = upgrade.level || 1;
-    profitElement.textContent = `+${(upgrade.baseProfit * level).toFixed(2)} hr`;
-  });
-}
-
-// شراء ترقية
-function upgradeMining(id) {
-  const upgrade = miningUpgrades.find((u) => u.id === id);
-  if (!upgrade) return;
-
-  const currentLevel = upgrade.level || 1;
-  const upgradeCost = upgrade.baseCost * Math.pow(1.5, currentLevel - 1);
-
-  if (miningBalance >= upgradeCost) {
-    miningBalance -= upgradeCost;
-    upgrade.level = currentLevel + 1;
-
-    // تحديث العرض
-    document.querySelector(`#${id} .upgrademining-level`).textContent = upgrade.level;
-    document.querySelector(`#${id} .upgrademining-cost`).textContent = `${(upgrade.baseCost * Math.pow(1.5, upgrade.level - 1)).toFixed(2)} SP`;
-
-    // تحديث الأرباح
-    updateProfitPerHourDisplay();
-    updateMiningDisplay();
-  } else {
-    alert("رصيدك غير كافٍ للترقية!");
-  }
-}
-
-// إضافة الأحداث للأزرار
-document.querySelectorAll(".upgrade-mining").forEach((upgradeElement) => {
-  const id = upgradeElement.id;
-  upgradeElement.addEventListener("click", () => upgradeMining(id));
-});
-
-// تحديث العرض عند البداية
-updateMiningDisplay();
-updateProfitPerHourDisplay();
 
 
 
