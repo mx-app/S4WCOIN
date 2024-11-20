@@ -21,11 +21,11 @@
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    top: 3px;
+    top: 1px;
     left: 50%; /* نقطة البداية في المنتصف */
     transform: translateX(-50%); /* توسيط العرض */
-    width: 85%;
-    height: 35px;
+    width: 95%;
+    height: 40px;
     z-index: 1000;
     border-bottom: 0.50px solid #343434;
     border-radius: 10px;
