@@ -2352,33 +2352,26 @@ function showContent(contentId) {
 
 
 
-document.addEventListener('DOMContentLoaded', async () => {
-    const navbar = document.getElementById('globalNavbar');
-    const currentPageElement = document.querySelector('.screen-content.active'); 
-    const currentPage = currentPageElement ? currentPageElement.id : null;
-
-    // إذا كانت الصفحة النشطة هي الصفحة الرئيسية، إخفاء الشريط
-    if (currentPage === 'mainPage') {
-        navbar.style.display = 'none'; // إخفاء الشريط
-    } else {
-        navbar.style.display = 'flex'; // إظهار الشريط
-    }
-
-    await loadGameState();        // تحميل حالة اللعبة
-    updateNavbar();               // تحديث الشريط العلوي
-});
-
-// تحديث الرصيد في الشريط العلوي
-function updateNavbar() {
-    const balanceElement = document.getElementById('balanceAmount'); // العنصر الرئيسي للرصيد
-    const navbarBalanceDisplay = document.getElementById('navbarBalanceDisplay');
-
-    if (balanceElement && navbarBalanceDisplay) {
-        navbarBalanceDisplay.innerText = balanceElement.innerText; // تحديث الرصيد
-    }
+function updateBalances() {
+  const balance = gameState.balance; // الحصول على الرصيد الحالي من حالة اللعبة
+  const formattedBalance = balance.toLocaleString(); // تنسيق الرصيد بإضافة فواصل الآلاف
+  
+  // تحديث كل عناصر عرض الرصيد
+  const elements = [
+    'navbarBalanceDisplay'
+  ];
+  
+  elements.forEach(id => {
+    const element = document.getElementById(id);
+    if (element) element.innerText = formattedBalance;
+  });
 }
 
-
+document.addEventListener('DOMContentLoaded', () => {
+  loadGameState();  // تحميل حالة اللعبة
+  updateBalances();  // تحديث الأرصدة بعد تحميل حالة اللعبة
+  updateAccountSummary(); // تحديث نافذة الإعدادات
+});
 
 /////////////////////////////////////////////
 
