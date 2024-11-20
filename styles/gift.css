@@ -15,7 +15,7 @@
     align-items: center; /* توسيط المحتوى داخل المربع */
     justify-content: center; /* توسيط المحتوى عموديًا */
     width: 25%; /* عرض كل مربع ليبقى هناك مسافات بين المربعات */
-    height: 100px;
+    height: 70px;
     margin: 4px;
     background: rgba(255, 255, 255, 0.1); /* خلفية شفافة */
     backdrop-filter: blur(5px); /* تأثير التمويه */
