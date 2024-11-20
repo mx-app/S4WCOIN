@@ -5,6 +5,7 @@
   background: linear-gradient(45deg, #3b0a45, #2f4f4f, #000000);
   color: white;
   padding: 4px 50px;
+  font-size: 13px;
   font-weight: bold;
   transform: rotate(-45deg); /* Make the badge slant */
   transform-origin: left top; /* Ensure rotation starts from the left top corner */
@@ -95,7 +96,7 @@
 }
 
 #Puzzlespage .puzzle-description {
-    margin-top: 70%;
+    margin-top: 72%;
     color: white;
     font-size: 14px;
    /* margin: 10px 0;*/
