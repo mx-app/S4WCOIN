@@ -2354,33 +2354,18 @@ function showContent(contentId) {
 
 document.addEventListener('DOMContentLoaded', async () => {
     const navbar = document.getElementById('globalNavbar');
-    const pagesWithNavbar = [
-        'tasksPage',
-        'accountPage',
-        'Puzzlespage',
-        'gamePage',
-        'boostsPage',
-        'levelPage',
-        'walletPage',
-        'DailyPage',
-        'miningPage'
-    ]; // الصفحات التي يظهر فيها الشريط
-
-    // البحث عن الصفحة الحالية بناءً على العنصر الذي يحتوي على class="screen-content"
-    const currentPageElement = document.querySelector('.screen-content');
+    const currentPageElement = document.querySelector('.screen-content.active'); 
     const currentPage = currentPageElement ? currentPageElement.id : null;
 
-    // التحقق إذا كانت الصفحة الحالية من الصفحات التي يظهر فيها الشريط
-    if (pagesWithNavbar.includes(currentPage)) {
-        navbar.style.display = 'flex'; // إظهار الشريط العلوي
+    // إذا كانت الصفحة النشطة هي الصفحة الرئيسية، إخفاء الشريط
+    if (currentPage === 'mainPage') {
+        navbar.style.display = 'none'; // إخفاء الشريط
     } else {
-        navbar.style.display = 'none'; // إخفاء الشريط العلوي
+        navbar.style.display = 'flex'; // إظهار الشريط
     }
 
     await loadGameState();        // تحميل حالة اللعبة
     updateNavbar();               // تحديث الشريط العلوي
-    updateAccountSummary();       // تحديث نافذة الإعدادات أو ملخص الحساب
-    listenToRealtimeChanges();    // البدء في الاستماع للتغييرات من قاعدة البيانات
 });
 
 // تحديث الرصيد في الشريط العلوي
@@ -2392,6 +2377,7 @@ function updateNavbar() {
         navbarBalanceDisplay.innerText = balanceElement.innerText; // تحديث الرصيد
     }
 }
+
 
 
 /////////////////////////////////////////////
