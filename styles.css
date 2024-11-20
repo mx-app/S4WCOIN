@@ -958,9 +958,9 @@ img {
 #earningsLabel {
     font-size: 10px;
     font-weight: bold;
-    margin: 0; /* إزالة الهوامش */
+    margin-bottom: 1px; /* إزالة الهوامش */
     padding: 0; /* إزالة الحشوات */
-    background-color: #808080;
+    color: #808080;
 }
 
 #earningsText {
