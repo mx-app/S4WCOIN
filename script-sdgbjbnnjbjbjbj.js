@@ -1221,7 +1221,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 async function loadUserData(userId) {
     const { data, error } = await supabase
         .from('users')
-        .select('tasksprogress, balance')
+        .select('tasksprogress')
         .eq('telegram_id', userId)
         .single();
 
@@ -1237,7 +1237,7 @@ async function loadUserData(userId) {
 async function handleTaskAction(taskId, reward, button, taskElement, userId) {
     const { data: userData, error: fetchError } = await supabase
         .from('users')
-        .select('tasksprogress, balance')
+        .select('tasksprogress')
         .eq('telegram_id', userId)
         .single();
 
@@ -1267,14 +1267,17 @@ async function handleTaskAction(taskId, reward, button, taskElement, userId) {
         }
 
         // تحديث الرصيد
-        const updatedBalance = (userData.balance || 0) + reward;
+function updateBalance(reward) {
+    gameState.balance += reward;
+    updateUI(); // تحديث الواجهة
+    saveGameState(); // حفظ حالة اللعبة
+}
 
         // تحديث قاعدة البيانات
         const { error: updateError } = await supabase
             .from('users')
             .update({
-                tasksprogress: tasksprogress,
-                balance: updatedBalance
+                tasksprogress: tasksprogress
             })
             .eq('telegram_id', userId);
 
@@ -1294,13 +1297,6 @@ async function handleTaskAction(taskId, reward, button, taskElement, userId) {
     }
 }
 
-// تحديث واجهة المستخدم
-function updatetask(updatedBalance, tasksprogress) {
-    // تحديث الرصيد في الواجهة
-    const balanceElement = document.querySelector('#balanceDisplay');
-    if (balanceElement) {
-        balanceElement.textContent = updatedBalance;
-    }
 
     // تحديث حالة الأزرار للمهام المكتملة
     const taskButtons = document.querySelectorAll('.task-button');
@@ -1315,17 +1311,6 @@ function updatetask(updatedBalance, tasksprogress) {
             button.disabled = true;
         }
     });
-}
-
-// إشعار النجاح
-function showNotificationWithStatus(notificationElement, message, status) {
-    notificationElement.textContent = message;
-    notificationElement.classList.add(status);
-    setTimeout(() => {
-        notificationElement.textContent = '';
-        notificationElement.classList.remove(status);
-    }, 3000);
-}
 
 // Function to show loading animation only
 function showLoading(button) {
