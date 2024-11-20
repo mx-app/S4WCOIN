@@ -128,10 +128,10 @@
 }
 
 .boost-title {
-    margin-left: 10px;
+    margin-left: 8px;
     /*margin: 0;*/ /* إزالة المسافات بين النصوص */
     color: #fff;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.5;
 } 
 
@@ -154,7 +154,7 @@
     justify-content: space-between; /* توزيع العناصر بالتساوي */
     margin-top: 5px; /* مسافة صغيرة بين الوصف والليفيل/التكلفة */
     color: #808080;
-    font-size: 0.5em; /* حجم النص أصغر قليلاً */
+    font-size: 0.7em; /* حجم النص أصغر قليلاً */
 }
 
 .boost-meta span {
