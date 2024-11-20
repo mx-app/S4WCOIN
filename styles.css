@@ -956,9 +956,11 @@ img {
     padding: 0; /* إزالة أي حشوات */
     height: 100%; /* ضمان الامتداد داخل الحاوية */
     justify-content: center; /* ضمان توسيط المحتوى عموديًا */
+    position: relative; 
 }
 
 #earningsLabel {
+    top: 10px; 
     font-size: 10px;
     font-weight: bold;
     margin: 0; /* إزالة أي هوامش */
