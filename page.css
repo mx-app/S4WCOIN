@@ -1,5 +1,5 @@
 #Profit-in {
-    -right: 20px;
+    margin-right: 20px;
     right: 40px;
     color: #ffffff; /* لون النص */
     transition: padding 0.2s ease; /* تأثير بسيط عند التمدد */
@@ -8,7 +8,7 @@
 }
 
 #navbarBalanceDisplay {
-    -left: 20px;
+    margin-left: 20px;
     left: 40px;
     color: #ffffff; /* لون النص */
     transition: padding 0.2s ease; /* تأثير بسيط عند التمدد */
