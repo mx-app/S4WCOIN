@@ -13,6 +13,7 @@ const uiElements = {
     lvlBalanceDisplay: document.getElementById('lvlnavbarBalanceDisplay'),
     miningBalanceDisplay: document.getElementById('miningnavbarBalanceDisplay'),
     walletBalanceDisplay: document.getElementById('navbarBalanceDisplay'),
+    settingsBalanceDisplay: document.getElementById('settingsBalanceDisplay'),
 
     energyBar: document.getElementById('energyBar'),
     energyInfo: document.getElementById('energyInfo'),
@@ -453,6 +454,9 @@ function updateUI() {
     }
     if (uiElements.puzzleBalanceDisplay) {
         uiElements.puzzleBalanceDisplay.innerText = formattedBalance;
+    }
+    if (uiElements.settingsBalanceDisplay) {
+        uiElements.settingsBalanceDisplay.innerText = formattedBalance;
     }
     if (uiElements.boostBalanceDisplay) {
         uiElements.boostBalanceDisplay.innerText = formattedBalance;
