@@ -1,3 +1,23 @@
+#globalNavbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+    position: fixed;
+    top: 5px;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#balanceContainer, #earningsContainer {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+
 #mainPage {
     padding-top: 50px; /* يمكنك تغيير القيمة حسب الحاجة */
     background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
