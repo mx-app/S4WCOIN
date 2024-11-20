@@ -952,21 +952,26 @@ img {
     flex-direction: column; /* وضع العناصر فوق بعضها */
     align-items: center; /* توسيط النصوص أفقيًا */
     margin: 0; /* إزالة أي تباعد خارجي */
-    gap: 0; /* إزالة المسافة بين العناصر */
+    gap: 0; /* إزالة المسافة بين النصوص */
+    padding: 0; /* إزالة أي حشوات */
+    height: 100%; /* ضمان الامتداد داخل الحاوية */
+    justify-content: center; /* ضمان توسيط المحتوى عموديًا */
 }
 
 #earningsLabel {
     font-size: 10px;
     font-weight: bold;
-    margin-bottom: 1px; /* إزالة الهوامش */
+    margin: 0; /* إزالة أي هوامش */
     padding: 0; /* إزالة الحشوات */
+    line-height: 1; /* تقليل المسافة بين الأسطر */
     color: #808080;
 }
 
 #earningsText {
     font-size: 10px;
     font-weight: bold;
-    margin: 0; /* إزالة الهوامش */
+    margin: 0; /* إزالة أي هوامش */
     padding: 0; /* إزالة الحشوات */
+    line-height: 1; /* تقليل المسافة بين الأسطر */
 }
  
