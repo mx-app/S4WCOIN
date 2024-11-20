@@ -2356,6 +2356,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const navbar = document.getElementById('globalNavbar');
     const currentPage = document.querySelector('body').id; // الحصول على ID الصفحة الحالية
 
+    // التحقق من الصفحة الحالية وإظهار الشريط العلوي عند الحاجة
     if (currentPage !== 'mainPage') {
         navbar.style.display = 'flex'; // إظهار الشريط العلوي في كل الصفحات باستثناء الصفحة الرئيسية
     } else {
@@ -2392,6 +2393,7 @@ function calculateProfitPerHour() {
 }
 
 
+
 /////////////////////////////////////////////
 
 
@@ -2400,43 +2402,11 @@ function calculateProfitPerHour() {
 ////////////////////////////////////////////////
 
 
-// تعريف العناصر
-const hourlyEarningsElement = document.getElementById('hourlyEarnings');  // العنصر لعرض الربح في الساعة
-const earningsTextElement = document.getElementById('earningsText');  // العنصر لعرض النص فقط
-let totalEarnings = 0; // إجمالي الأرباح المتراكمة
-let lastActionTime = Date.now(); // وقت آخر نشاط (بداية التتبع)
 
-// تحديث الربح في الساعة بناءً على النشاط المستمر
-function updateHourlyEarnings() {
-  const currentTime = Date.now();
-  const hoursPassed = (currentTime - lastActionTime) / (1000 * 60 * 60); // حساب الوقت المنقضي بالساعة
-
-  // حساب الربح في الساعة بناءً على النشاط
-  const earningsPerHour = totalEarnings / hoursPassed; 
-  earningsTextElement.textContent = `${earningsPerHour.toFixed(2)}/hr`; // عرض الربح في الساعة
-}
-
-// تتبع النشاط وزيادة الأرباح بناءً على النشاط
-function trackActivity(earnings) {
-  const currentTime = Date.now();
-  
-  // زيادة إجمالي الأرباح بناءً على النشاط
-  totalEarnings += earnings;
-  
-  // تحديث الربح في الساعة بناءً على الوقت المنقضي
-  updateHourlyEarnings();
-  
-  lastActionTime = currentTime; // تحديث وقت آخر نشاط
-}
-
-// تحديث الربح في الساعة بشكل دوري كل دقيقة
-setInterval(updateHourlyEarnings, 60000);  // تحديث الربح كل دقيقة
 
 
 
 /////////////////////////////////////////
-
-
 
 
 
