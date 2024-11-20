@@ -34,6 +34,9 @@
 
 /* تصميم كل مربع */
 .gift-box {
+    filter: blur(3px); /* يجعل العنصر ضبابيًا */
+    pointer-events: none; /* تعطيل التفاعل مع العنصر */
+  
     display: flex;
     flex-direction: column; /* ترتيب الصورة والوصف عموديًا */
     align-items: center; /* توسيط المحتوى داخل المربع */
@@ -41,8 +44,8 @@
     width: 25%; /* عرض كل مربع ليبقى هناك مسافات بين المربعات */
     height: 70px;
     margin: 4px;
-    background: rgba(255, 255, 255, 0.1); /* خلفية شفافة */
-    backdrop-filter: blur(5px); /* تأثير التمويه */
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(5px);
     border-radius: 10px; /* زوايا مستديرة */
     border: 0.5px solid #343434; /* حدود المربع */
     text-align: center; /* محاذاة النصوص للوسط */
