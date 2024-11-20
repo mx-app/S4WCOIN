@@ -329,7 +329,7 @@ img {
     
 }
 
-.clickable-image img:active {
+/*.clickable-image img:active {
     transform: scale(0.95);
     filter: none;
 }
@@ -351,7 +351,7 @@ img {
         opacity: 0;
         visibility: hidden;
     }
-}
+}*/
 
 
 /*.clickable-image {
