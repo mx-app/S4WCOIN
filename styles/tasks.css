@@ -93,7 +93,9 @@
 }
 
 .task-item p {
-    margin: 5px 0;
+    top: 20%; /* مسافة من أعلى الحاوية */
+    left: 80px; /* مسافة من يمين الحاوية */
+   /* margin: 5px 0;*/
     padding: 0;
     width: 100%;
     text-align: left; /* محاذاة الوصف في المنتصف */
