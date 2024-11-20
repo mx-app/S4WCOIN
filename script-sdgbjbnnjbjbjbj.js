@@ -830,18 +830,17 @@ function navigateToScreen(screenId) {
     
 }
 
-// بدء استعادة الطاقة تلقائياً
 function startEnergyRecovery() {
     setInterval(() => {
-        const currentTime = Date.now();
-        const timeDiff = currentTime - gameState.lastFillTime;
-        const recoveredEnergy = Math.floor(timeDiff / (4 * 60 * 1000)); // استعادة الطاقة كل 4 دقائق
-
+        // التأكد من وجود طاقة أقل من الحد الأقصى
         if (gameState.energy < gameState.maxEnergy) {
-            gameState.energy = Math.min(gameState.maxEnergy, gameState.energy + recoveredEnergy);
-            gameState.lastFillTime = currentTime;
+            // إذا كانت الطاقة صفر أو أقل من الحد الأقصى، يتم زيادتها بمقدار 10
+            gameState.energy = Math.min(gameState.maxEnergy, gameState.energy + 10);
 
-            // تحديث البيانات
+            // تحديث الوقت الأخير لملء الطاقة
+            gameState.lastFillTime = Date.now();
+
+            // تحديث واجهة المستخدم وحفظ البيانات
             updateUI();
             saveGameState();
             updateGameStateInDatabase({
@@ -849,7 +848,7 @@ function startEnergyRecovery() {
                 lastFillTime: gameState.lastFillTime,
             });
         }
-    }, 5000);
+    }, 5000); // تنفيذ الدالة كل 5 ثوانٍ
 }
 
 // التحقق من ملء الطاقة
