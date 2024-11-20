@@ -69,7 +69,7 @@
 
 #Puzzlespage .puzzle-item {
     width: 85%; /* عرض الحاوية بنسبة 44% */
-    height: 200px;
+    height: 110px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -86,7 +86,7 @@
 
 #Puzzlespage .puzzle-image {
     width: 100%; /* تجعل الصورة تملأ العرض الكامل */
-    height: 50%; /* تجعل الصورة تملأ الارتفاع الكامل */
+    height: 70%; /* تجعل الصورة تملأ الارتفاع الكامل */
     object-fit: cover; /* لضمان تغطية المساحة بدون تشويه */
     position: absolute; /* لضبط الصورة داخل الحاوية */
     top: 0;
@@ -124,24 +124,6 @@
     justify-content: center; /* محاذاة الأزرار في المنتصف */
 }
 
-#Puzzlespage .bomb-btu,
-#Puzzlespage .puzzle-btn,
-#Puzzlespage .Morse-code, 
-#Puzzlespage .Caesar-btu, 
-#Puzzlespage .room-btu, 
-#Puzzlespage .Numbers-btu {
-    background-color: rgba(0, 0, 0, 0.7);
-    color: #ffffff;
-    border-radius: 10px;
-    font-size: 13px;
-    font-weight: bold;
-    cursor: pointer;
-    width: 75%; 
-    /*display: block;*/
-    margin-top: 5px;
-    height: 35px;
-    position: relative; 
-}
 
 #Puzzlespage .puzzle-item button:hover {
     background: linear-gradient(90deg, #794106, #9f620c, #d69a1c);
@@ -452,3 +434,20 @@
 }  
 
 
+/*#Puzzlespage .bomb-btu,
+#Puzzlespage .puzzle-btn,
+#Puzzlespage .Morse-code, 
+#Puzzlespage .Caesar-btu, 
+#Puzzlespage .room-btu, 
+#Puzzlespage .Numbers-btu {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 75%; 
+    margin-top: 5px;
+    height: 35px;
+    position: relative; 
+}*/
