@@ -1184,6 +1184,7 @@ buttons.forEach(button => {
 
 
 
+
 document.addEventListener('DOMContentLoaded', () => {
     const taskContainer = document.querySelector('#taskcontainer');
     if (!taskContainer) {
@@ -1260,7 +1261,7 @@ document.addEventListener('DOMContentLoaded', () => {
 async function openTask(taskId, taskUrl, button) {
     showLoading(button);
     openTaskLink(taskUrl, async () => {
-        await updateTaskProgressInGameState(taskId, 1);
+        await updateTaskProgressInDatabase(taskId, 1, false); // Update progress in DB
         hideLoading(button, 'Verify');
         showNotification(uiElements.purchaseNotification, 'Task opened. Verify to claim your reward.');
     });
@@ -1270,7 +1271,7 @@ async function openTask(taskId, taskUrl, button) {
 async function verifyTask(taskId, button) {
     showLoading(button);
     setTimeout(async () => {
-        await updateTaskProgressInGameState(taskId, 2);
+        await updateTaskProgressInDatabase(taskId, 2, false); // Update progress in DB
         hideLoading(button, 'Claim');
         showNotification(uiElements.purchaseNotification, 'Task verified. You can now claim the reward.');
     }, 5000);
@@ -1287,38 +1288,58 @@ async function claimTaskReward(taskId, reward, button) {
     gameState.balance += reward;
     task.claimed = true;
 
-    const updatedData = { balance: gameState.balance, tasksprogress: gameState.tasksprogress };
-    const isUpdated = await updateGameStateInDatabase(updatedData);
-
+    const isUpdated = await updateTaskProgressInDatabase(taskId, 2, true); // Mark as claimed in DB
     if (isUpdated) {
         button.textContent = '✓';
         button.disabled = true;
         updateUI();
+        updateGameStateInDatabase({
+            tasks_progress: gameState.tasksProgress,
+        });
+        
         showNotificationWithStatus(uiElements.purchaseNotification, `Successfully claimed ${reward} SP!`, 'win');
     } else {
         console.error('Failed to update database after claiming reward.');
     }
 }
 
-// Utility functions
-async function updateTaskProgressInGameState(taskId, progress) {
-    const taskIndex = gameState.tasksprogress.findIndex(t => t.task_id === taskId);
-    if (taskIndex > -1) {
-        gameState.tasksprogress[taskIndex].progress = progress;
-    } else {
-        gameState.tasksprogress.push({ task_id: taskId, progress, claimed: false });
+// Update task progress in database
+async function updateTaskProgressInDatabase(taskId, progress, claimed) {
+    try {
+        const userTelegramId = uiElements.userTelegramIdDisplay.innerText;
+
+        const { data, error } = await supabase
+            .from('users')
+            .select('tasks_progress')
+            .eq('telegram_id', userTelegramId)
+            .maybeSingle();
+
+        if (error) {
+            console.error('Error fetching task progress from database:', error);
+            return false;
+        }
+
+        const updatedProgress = data?.tasks_progress || {};
+        updatedProgress[taskId] = { progress, claimed };
+
+        const { error: updateError } = await supabase
+            .from('users')
+            .update({ tasks_progress: updatedProgress })
+            .eq('telegram_id', userTelegramId);
+
+        if (updateError) {
+            console.error('Error updating task progress in database:', updateError);
+            return false;
+        }
+
+        return true;
+    } catch (err) {
+        console.error('Error in updateTaskProgressInDatabase:', err);
+        return false;
     }
-
-    const updatedData = { tasksprogress: gameState.tasksprogress };
-    const isUpdated = await updateGameStateInDatabase(updatedData);
-
-    if (!isUpdated) {
-        console.error('Failed to update task progress in database.');
-    }
-
-    saveGameState();
 }
 
+// Utility functions
 function showLoading(button) {
     button.innerHTML = `<span class="loading-spinner"></span>`;
     button.disabled = true;
@@ -1333,8 +1354,6 @@ function openTaskLink(url, callback) {
     window.open(url, '_blank');
     setTimeout(callback, 1000);
 }
-
-
 
 
 
