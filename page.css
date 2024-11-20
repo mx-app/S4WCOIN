@@ -7,7 +7,8 @@
     white-space: nowrap; /* لمنع النص من الانتقال إلى سطر جديد */
 }
 
-#navbarBalanceDisplay {
+#miningnavbarBalanceDisplay, #BoostnavbarBalanceDisplay, #tasknavbarBalanceDisplay, #navbarBalanceDisplay,
+#lvlnavbarBalanceDisplay, #puzzlenavbarBalanceDisplay, #AccountnavbarBalanceDisplay {
     margin-left: 20px;
     left: 40px;
     color: #ffffff; /* لون النص */
