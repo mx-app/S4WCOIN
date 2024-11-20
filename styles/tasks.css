@@ -93,8 +93,6 @@
 }
 
 .task-item p {
-    top: 20%; /* مسافة من أعلى الحاوية */
-    left: 80px; /* مسافة من يمين الحاوية */
    /* margin: 5px 0;*/
     padding: 0;
     width: 100%;
@@ -144,6 +142,8 @@
  
 
 .info-task {
+    top: 20%; /* مسافة من أعلى الحاوية */
+    left: 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
