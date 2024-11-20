@@ -7,7 +7,7 @@
     height: 20px;
     gap: 10px; /* المسافة بين الأزرار */
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.005);
     backdrop-filter: blur(1px);
     position: absolute; /* تحديد الموقع العائم */
     top: 265px; /* تحديد المسافة من الأسفل (يمكنك تعديلها حسب الحاجة) */
@@ -27,7 +27,7 @@
     border-radius: 10px;
     border: none;
     cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.01);
+    background-color: rgba(255, 255, 255, 0.001);
     transition: background-color 0.4s ease, transform 0.4s ease; /* تأثير الانتقال للخلفية */
 }
 
@@ -191,7 +191,7 @@
     color: #ffffff; 
     background-color: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(1px);
-    font-size: 12px;
+    font-size: 11px;
     font-weight: bold;
     border-radius: 8px;
     border: 0.50px solid #343434;
@@ -213,7 +213,7 @@
 .level-button-floating img {
     width: 20px; 
     height: 20px;
-    margin-right: 5px; 
+    margin-right: 4px; 
 }
   
 .centered {
