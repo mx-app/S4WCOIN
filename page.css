@@ -1,4 +1,5 @@
 #Profit-in {
+    font-size: 12px;
     margin-right: 20px;
     right: 40px;
     color: #ffffff; /* لون النص */
@@ -9,6 +10,7 @@
 
 #miningnavbarBalanceDisplay, #BoostnavbarBalanceDisplay, #tasknavbarBalanceDisplay, #navbarBalanceDisplay,
 #lvlnavbarBalanceDisplay, #puzzlenavbarBalanceDisplay, #AccountnavbarBalanceDisplay {
+    font-size: 13px;
     margin-left: 20px;
     left: 40px;
     color: #ffffff; /* لون النص */
@@ -36,7 +38,6 @@
 }
 
 #balanceContainer, #earnContainer {
-    font-size: 13px;
     font-weight: bold;
 }
 
