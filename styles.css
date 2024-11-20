@@ -960,11 +960,11 @@ img {
     font-weight: bold;
     margin: 0; /* إزالة الهوامش */
     padding: 0; /* إزالة الحشوات */
-    opacity: 0.7;
+    background-color: #808080;
 }
 
 #earningsText {
-    font-size: 11px;
+    font-size: 10px;
     font-weight: bold;
     margin: 0; /* إزالة الهوامش */
     padding: 0; /* إزالة الحشوات */
