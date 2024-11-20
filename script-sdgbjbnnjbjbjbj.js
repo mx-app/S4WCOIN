@@ -12,7 +12,8 @@ const uiElements = {
     boostBalanceDisplay: document.getElementById('BoostnavbarBalanceDisplay'),
     lvlBalanceDisplay: document.getElementById('lvlnavbarBalanceDisplay'),
     miningBalanceDisplay: document.getElementById('miningnavbarBalanceDisplay'),
-    
+    walletBalanceDisplay: document.getElementById('navbarBalanceDisplay'),
+
     energyBar: document.getElementById('energyBar'),
     energyInfo: document.getElementById('energyInfo'),
     languageBtn: document.getElementById('languageSwitchBtn'),
@@ -441,8 +442,8 @@ function updateUI() {
     }
 
     // تحديث الرصيد في عناصر مخصصة لكل صفحة
-    if (uiElements.navbarBalanceDisplay) {
-        uiElements.navbarBalanceDisplay.innerText = formattedBalance;
+    if (uiElements.walletBalanceDisplay) {
+        uiElements.walletBalanceDisplay.innerText = formattedBalance;
     }
     if (uiElements.accountBalanceDisplay) {
         uiElements.accountBalanceDisplay.innerText = formattedBalance;
