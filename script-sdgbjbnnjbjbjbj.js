@@ -1475,7 +1475,7 @@ let attempts = 0;
 let puzzleSolved = false;
 let countdownInterval;
 const maxAttempts = 3; // أقصى عدد للمحاولات
-const penaltyAmount = 500; // العقوبة عند الإجابة الخاطئة
+const penaltyAmount = 100; // العقوبة عند الإجابة الخاطئة
 const countdownDuration = 24 * 60 * 60 * 1000; // 24 ساعة بالميلي ثانية
 
 // تحميل الأحاجي من ملف JSON
