@@ -900,6 +900,7 @@ img {
     text-align: center;
 }
 
+
 .separators {
     width: 0.50px;
     height: 20px;
@@ -956,3 +957,11 @@ img {
     background-color: #fff;
     border-radius: 5px;
 }
+
+.left-section {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+ 
