@@ -289,7 +289,7 @@ img {
     -webkit-background-clip: text; 
     background-clip: text;
     color: transparent;
-    /*font-family: 'JetBrains Mono', monospace;*/
+    font-family: 'JetBrains Mono', monospace;
     font-size: 14px; /* حجم الخط */
     font-weight: bold; /* سمك الخط */
     text-align: left; /* المحاذاة لليسار */
