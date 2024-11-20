@@ -6,7 +6,13 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 // تعريف عناصر DOM
 const uiElements = {
     balanceDisplay: document.getElementById('balanceAmount'),
-    navbarBalanceDisplay: document.getElementById("navbarBalanceDisplay"), 
+    accountBalanceDisplay: document.getElementById('AccountnavbarBalanceDisplay'),
+    taskBalanceDisplay: document.getElementById('tasknavbarBalanceDisplay'),
+    puzzleBalanceDisplay: document.getElementById('puzzlenavbarBalanceDisplay'),
+    boostBalanceDisplay: document.getElementById('BoostnavbarBalanceDisplay'),
+    lvlBalanceDisplay: document.getElementById('lvlnavbarBalanceDisplay'),
+    miningBalanceDisplay: document.getElementById('miningnavbarBalanceDisplay'),
+    
     energyBar: document.getElementById('energyBar'),
     energyInfo: document.getElementById('energyInfo'),
     languageBtn: document.getElementById('languageSwitchBtn'),
@@ -426,32 +432,62 @@ async function registerNewUser(userTelegramId, userTelegramName) {
 
 // تحديث واجهة المستخدم بناءً على حالة اللعبة
 function updateUI() {
-    if (uiElements.balanceDisplay) {
-        uiElements.balanceDisplay.innerText = gameState.balance.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-    }
-    
-   // if (uiElements.navbarBalanceDisplay) {
-    //    uiElements.navbarBalanceDisplay.innerText = gameState.balance.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  //  }
+    // تنسيق الرصيد
+    const formattedBalance = gameState.balance.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
+    // تحديث الرصيد العام
+    if (uiElements.balanceDisplay) {
+        uiElements.balanceDisplay.innerText = formattedBalance;
+    }
+
+    // تحديث الرصيد في عناصر مخصصة لكل صفحة
+    if (uiElements.navbarBalanceDisplay) {
+        uiElements.navbarBalanceDisplay.innerText = formattedBalance;
+    }
+    if (uiElements.accountBalanceDisplay) {
+        uiElements.accountBalanceDisplay.innerText = formattedBalance;
+    }
+    if (uiElements.taskBalanceDisplay) {
+        uiElements.taskBalanceDisplay.innerText = formattedBalance;
+    }
+    if (uiElements.puzzleBalanceDisplay) {
+        uiElements.puzzleBalanceDisplay.innerText = formattedBalance;
+    }
+    if (uiElements.boostBalanceDisplay) {
+        uiElements.boostBalanceDisplay.innerText = formattedBalance;
+    }
+    if (uiElements.lvlBalanceDisplay) {
+        uiElements.lvlBalanceDisplay.innerText = formattedBalance;
+    }
+    if (uiElements.miningBalanceDisplay) {
+        uiElements.miningBalanceDisplay.innerText = formattedBalance;
+    }
+
+    // تحديث شريط الطاقة
     const energyPercent = (gameState.energy / gameState.maxEnergy) * 100;
     if (uiElements.energyBar) {
         uiElements.energyBar.style.width = `${energyPercent}%`;
     }
 
+    // تحديث معلومات الطاقة
     if (uiElements.energyInfo) {
         uiElements.energyInfo.innerText = `${formatNumber(gameState.energy)}/${formatNumber(gameState.maxEnergy)}⚡`;
     }
 
+    // تحديث اسم المستوى الحالي
     if (uiElements.currentLevelName) {
         uiElements.currentLevelName.innerText = levelThresholds[gameState.currentLevel - 1].name;
     }
 
+    // تحديث المستوى المعروض
     if (uiElements.displayedLevel) {
         uiElements.displayedLevel.innerText = ` ${gameState.currentLevel}`;
     }
 
+    // حفظ حالة اللعبة
     saveGameState();
+
+    // تحديث شاشات التحسينات والمستويات
     updateBoostsDisplay();
     updateLevelDisplay();
 
@@ -462,6 +498,7 @@ function updateUI() {
         currentLevel: gameState.currentLevel,
     });
 }
+
 
 
 function formatNumber(value) {
