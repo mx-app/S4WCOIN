@@ -2357,7 +2357,10 @@ async function addPromoCodeToUsed(enteredCode) {
 
 
 
-function updateBalancesDisplay(balance) {
+function updateBalancesDisplay() {
+    const mainBalanceElement = document.getElementById("balanceAmount");
+    const balance = mainBalanceElement ? parseFloat(mainBalanceElement.innerText.replace(/[^0-9.-]+/g, "")) : 0;
+
     const elements = [
         "navbarBalanceDisplay",
         "AccountnavbarBalanceDisplay",
@@ -2376,8 +2379,8 @@ function updateBalancesDisplay(balance) {
     });
 }
 
-// استدعاء الدالة مع الرصيد الحالي
-updateBalancesDisplay(gameState.balance);
+// استدعاء الدالة لتحديث الرصيد في جميع العناصر
+updateBalancesDisplay();
 
 
 
