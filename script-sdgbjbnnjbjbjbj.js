@@ -6,6 +6,7 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 // تعريف عناصر DOM
 const uiElements = {
     balanceDisplay: document.getElementById('balanceAmount'),
+    navbarBalanceDisplay: document.getElementById("navbarBalanceDisplay"), 
     energyBar: document.getElementById('energyBar'),
     energyInfo: document.getElementById('energyInfo'),
     languageBtn: document.getElementById('languageSwitchBtn'),
@@ -428,6 +429,14 @@ function updateUI() {
     if (uiElements.energyBar) {
         uiElements.energyBar.style.width = `${energyPercent}%`;
     }
+    
+    if (navbarBalanceDisplay) {
+        navbarBalanceDisplay.innerText = gameState.balance.toLocaleString("en-US", { 
+            minimumFractionDigits: 2, 
+            maximumFractionDigits: 2 
+        });
+      }
+   }
 
     if (uiElements.energyInfo) {
         uiElements.energyInfo.innerText = `${formatNumber(gameState.energy)}/${formatNumber(gameState.maxEnergy)}⚡`;
@@ -2352,26 +2361,8 @@ function showContent(contentId) {
 
 
 
-function updateBalances() {
-  const balance = gameState.balance; // الحصول على الرصيد الحالي من حالة اللعبة
-  const formattedBalance = balance.toLocaleString(); // تنسيق الرصيد بإضافة فواصل الآلاف
-  
-  // تحديث كل عناصر عرض الرصيد
-  const elements = [
-    'navbarBalanceDisplay'
-  ];
-  
-  elements.forEach(id => {
-    const element = document.getElementById(id);
-    if (element) element.innerText = formattedBalance;
-  });
-}
 
-document.addEventListener('DOMContentLoaded', () => {
-  loadGameState();  // تحميل حالة اللعبة
-  updateBalances();  // تحديث الأرصدة بعد تحميل حالة اللعبة
-  updateAccountSummary(); // تحديث نافذة الإعدادات
-});
+
 
 /////////////////////////////////////////////
 
