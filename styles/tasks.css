@@ -143,13 +143,13 @@
 
 .info-task {
     position: absolute;
-    top: 20%; /* مسافة من أعلى الحاوية */
-    left: 80px;
+    top: 30%; /* مسافة من أعلى الحاوية */
+    left: 85px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    /*margin-top: 0;
-    margin-left: 15px;*/
+    margin-top: 0;
+    margin-left: 15px;
 }
  
