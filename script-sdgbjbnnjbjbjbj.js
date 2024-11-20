@@ -812,18 +812,31 @@ function createDiamondCoinEffect(x, y) {
     diamond.appendChild(multiplierText);
     document.body.appendChild(diamond);
 
-    diamond.style.left = `${x - 15}px`; // Adjust for the diamond size
-    diamond.style.top = `${y - 15}px`;
+    // تحديد موقع الألماس بشكل دقيق
+    diamond.style.left = `${x}px`;
+    diamond.style.top = `${y}px`;
 
     const balanceRect = uiElements.balanceDisplay.getBoundingClientRect();
 
+    // تحريك الألماس نحو الرصيد
     setTimeout(() => {
-        diamond.style.transform = `translate(${balanceRect.left - x}px, ${balanceRect.top - y}px) scale(1)`;
+        diamond.style.transform = `translate(${balanceRect.left - x}px, ${balanceRect.top - y}px) scale(0.5)`;
         setTimeout(() => {
             diamond.remove();
         }, 1000);
     }, 50);
 }
+
+const img = document.getElementById('clickableImg');
+
+img.addEventListener('click', (event) => {
+    const x = event.pageX;
+    const y = event.pageY;
+
+    // إنشاء تأثير الألماس
+    createDiamondCoinEffect(x, y);
+});
+
 
 
 // الانتقال بين الشاشات
@@ -1964,28 +1977,26 @@ document.addEventListener('DOMContentLoaded', () => {
 const img = document.getElementById('clickableImg');
 
 img.addEventListener('click', (event) => {
-    // الحصول على حجم الصورة وموقع النقر
+    // تطبيق الإمالة
     const rect = img.getBoundingClientRect();
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
 
-    // حساب النسبة المئوية لموقع النقر لتحديد الدوران المطلوب بدقة
-    const rotateX = ((y / rect.height) - 0.6) * -20; // لتعديل درجة الهبوط والصعود
-    const rotateY = ((x / rect.width) - 0.6) * 20;   // لتعديل الاتجاه الأفقي
+    const rotateX = ((y / rect.height) - 0.6) * -20;
+    const rotateY = ((x / rect.width) - 0.6) * 20;
 
-    // تطبيق التحويلات لإمالة الصورة حسب الموقع
     img.style.transform = `translateY(-5px) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 
-    // إعادة الصورة إلى وضعها الطبيعي بعد فترة قصيرة
+    // إعادة الوضع الطبيعي
     setTimeout(() => {
         img.style.transform = 'translateY(-5px)';
     }, 300);
 });
-// إعادة ضبط تأثير الإمالة عند النقر مرة أخرى
-img.addEventListener('transitionend', () => {
-    img.style.transition = 'none'; // تعطيل الانتقال لإعادة تعيين الإمالة
-});
 
+// إزالة أي انتقالات غير مرغوبة
+img.addEventListener('transitionend', () => {
+    img.style.transition = 'none';
+});
 
 
 
