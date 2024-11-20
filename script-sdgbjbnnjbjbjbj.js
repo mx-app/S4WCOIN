@@ -2088,12 +2088,12 @@ document.addEventListener("DOMContentLoaded", function () {
             
             // بدء زيادة العداد تلقائيًا بمقدار 0.2 عملة كل ثانية
             autoIncrementInterval = setInterval(() => {
-                coinCounter += 0.05;
+                coinCounter += 0.1;
                 counterDisplay.innerText = coinCounter.toFixed(1); // عرض الرقم بفاصلة عشرية واحدة
-                gameState.balance += 0.05;
+                gameState.balance += 0.1;
                 updateUI();
                 saveGameState();
-            }, 1000); // كل ثانية يتم زيادة 0.2 عملة
+            }, 4000); // كل ثانية يتم زيادة 0.2 عملة
         }
     }
     
@@ -2192,24 +2192,20 @@ closeModal.addEventListener("click", () => {
 function updateAccountSummary() {
   // تحديث العناصر الأساسية
   const invitedCountElement = document.getElementById('invitedCount');
-  const balanceDisplayElement = document.getElementById('balanceDisplay');
   const currentLevelNameElement = document.getElementById('currentLevelName');
 
   // تحديث النسخ داخل لوحة الإعدادات
   const settingsInvitedCount = document.getElementById('settingsInvitedCount');
-  const settingsBalanceDisplay = document.getElementById('settingsBalanceDisplay');
   const settingsCurrentLevelName = document.getElementById('settingsCurrentLevelName');
 
   const currentLevelIndex = gameState.currentLevel - 1;
   const currentLevelName = levelThresholds[currentLevelIndex]?.name || 'Unknown';
 
   if (invitedCountElement) invitedCountElement.innerText = gameState.invites.length;
-  if (balanceDisplayElement) balanceDisplayElement.innerText = gameState.balance;
   if (currentLevelNameElement) currentLevelNameElement.innerText = currentLevelName;
 
   // تحديث النسخ في لوحة الإعدادات
   if (settingsInvitedCount) settingsInvitedCount.innerText = gameState.invites.length;
-  if (settingsBalanceDisplay) settingsBalanceDisplay.innerText = gameState.balance;
   if (settingsCurrentLevelName) settingsCurrentLevelName.innerText = currentLevelName;
 }
 
@@ -2291,7 +2287,6 @@ document.getElementById('applyPromoCode').addEventListener('click', async () => 
 
             // تحديث واجهة المستخدم
             updateUI(); 
-            loadGameState();
 
             // حفظ البرومو كود المستخدم في قاعدة البيانات
             const updated = await addPromoCodeToUsed(enteredCode);
@@ -2399,35 +2394,7 @@ async function addPromoCodeToUsed(enteredCode) {
 
 
 
-function updateBalances() {
-  // الحصول على الرصيد من العنصر الرئيسي balanceAmount
-  const balanceElement = document.getElementById('balanceDisplay');
-  const balance = balanceElement ? parseFloat(balanceElement.innerText.replace(/,/g, '')) : 0; // استخراج الرصيد من العنصر
-  
-  const formattedBalance = balance.toLocaleString(); // تنسيق الرصيد بإضافة فواصل الآلاف
 
-  // تحديث كل عناصر عرض الرصيد الأخرى
-  const elements = [
-    'navbarBalanceDisplay',
-    'AccountnavbarBalanceDisplay',
-    'tasknavbarBalanceDisplay',
-    'puzzlenavbarBalanceDisplay',
-    'BoostnavbarBalanceDisplay',
-    'lvlnavbarBalanceDisplay',
-    'miningnavbarBalanceDisplay'
-  ];
-  
-  elements.forEach(id => {
-    const element = document.getElementById(id);
-    if (element) element.innerText = formattedBalance;
-  });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  loadGameState();  // تحميل حالة اللعبة
-  updateBalances();  // تحديث الأرصدة بعد تحميل حالة اللعبة
-  updateAccountSummary(); // تحديث نافذة الإعدادات
-});
 
 
 /////////////////////////////////////////
