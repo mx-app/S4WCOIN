@@ -1,38 +1,3 @@
-#miningBalanceDisplay {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    padding: 8px; /* مسافة داخلية */
-    font-size: 16px; /* حجم الخط */
-    display: flex;
-    align-items: center; /* لضبط المحاذاة الرأسية */
-    border-radius: 10px; /* زوايا دائرية */
-    background-color: rgba(255, 255, 255, 0.09);
-    color: #ffffff; /* لون النص */
-    border: 1px solid #343434;
-    transition: padding 0.2s ease; /* تأثير بسيط عند التمدد */
-    min-width: 50px; /* عرض أدنى للعنصر */
-    white-space: nowrap; /* لمنع النص من الانتقال إلى سطر جديد */
-}
-
-#mine-Profit-per-hour {
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%); /* لضبط العنصر في المنتصف أفقيًا */
-    padding: 8px; /* مسافة داخلية */
-    font-size: 16px; /* حجم الخط */
-    display: flex;
-    align-items: center; /* لضبط المحاذاة الرأسية */
-    border-radius: 10px; /* زوايا دائرية */
-    border: 1px solid #343434;
-    background-color: rgba(255, 255, 255, 0.09);
-    color: #ffffff; /* لون النص */
-    transition: padding 0.2s ease; /* تأثير بسيط عند التمدد */
-    min-width: 50px; /* عرض أدنى للعنصر */
-    white-space: nowrap; /* لمنع النص من الانتقال إلى سطر جديد */
-}
-
 .miningPage-button {
     position: fixed;
     display: flex;
@@ -46,7 +11,7 @@
     color: #ffffff; 
     background-color: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(1px);
-    font-size: 12px;
+    font-size: 11px;
     font-weight: bold;
     border-radius: 8px;
     border: 0.50px solid #343434;
@@ -68,7 +33,7 @@
 .miningPage-button img {
     width: 30px; 
     height: 30px;
-    margin-right: 5px; 
+    margin-right: 4px; 
 } 
 
 .upgrade-mining {
