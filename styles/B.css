@@ -1,3 +1,11 @@
+.boost-item #boosts3, 
+.boost-item #boosts4 {
+    filter: blur(5px); /* يجعل العنصر ضبابيًا */
+    border: 3px solid darkred; /* حواف حمراء داكنة */
+    box-shadow: 0 0 10px red; /* تأثير توهج حول العنصر */
+    pointer-events: none; /* تعطيل التفاعل مع العنصر */
+}
+
 .badgee {
   position: absolute;
   top: 40px;
