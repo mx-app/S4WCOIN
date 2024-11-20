@@ -2352,45 +2352,44 @@ function showContent(contentId) {
 
 
 
-// تحديث جميع الأرصدة في واجهة المستخدم باستخدام رصيد واجهة المستخدم فقط
-function updateBalances() {
-    const balanceElement = uiElements.balanceDisplay; // العنصر الرئيسي للرصيد في واجهة المستخدم
+document.addEventListener('DOMContentLoaded', async () => {
+    const navbar = document.getElementById('globalNavbar');
+    const currentPage = document.querySelector('body').id; // الحصول على ID الصفحة الحالية
 
-    if (!balanceElement) {
-        console.error('Balance display element not found!');
-        return;
+    if (currentPage !== 'mainPage') {
+        navbar.style.display = 'flex'; // إظهار الشريط العلوي في كل الصفحات باستثناء الصفحة الرئيسية
+    } else {
+        navbar.style.display = 'none'; // إخفاء الشريط العلوي في الصفحة الرئيسية
     }
 
-    const formattedBalance = balanceElement.innerText; // الحصول على الرصيد من واجهة المستخدم (المهيأ مسبقًا)
-
-    // قائمة بعناصر واجهة المستخدم المرتبطة بالرصيد
-    const elements = [
-        'tasksBalanceDisplay',
-        'miningBalanceDisplay',
-        'levelBalanceDisplay',
-        'gameBalanceDisplay',
-        'walletBalanceDisplay',
-        'puzzlesBalanceDisplay',
-        'boostsBalanceDisplay',
-        'AccountBalanceDisplay'
-    ];
-
-    // تحديث جميع العناصر الأخرى بناءً على رصيد واجهة المستخدم
-    elements.forEach(id => {
-        const element = document.getElementById(id);
-        if (element) {
-            element.innerText = formattedBalance;
-        }
-    });
-}
-
-// عند تحميل الصفحة
-document.addEventListener('DOMContentLoaded', async () => {
-    await loadGameState();        // تحميل حالة اللعبة من LocalStorage أو قاعدة البيانات
-    updateBalances();             // تحديث جميع الأرصدة في واجهة المستخدم
+    await loadGameState();        // تحميل حالة اللعبة
+    updateNavbar();               // تحديث الشريط العلوي
     updateAccountSummary();       // تحديث نافذة الإعدادات أو ملخص الحساب
     listenToRealtimeChanges();    // البدء في الاستماع للتغييرات من قاعدة البيانات
 });
+
+// تحديث الرصيد والربح لكل ساعة في الشريط العلوي
+function updateNavbar() {
+    const balanceElement = uiElements.balanceDisplay; // العنصر الرئيسي للرصيد
+    const navbarBalanceDisplay = document.getElementById('navbarBalanceDisplay');
+    const earningsText = document.getElementById('earningsText');
+
+    if (balanceElement && navbarBalanceDisplay) {
+        navbarBalanceDisplay.innerText = balanceElement.innerText; // تحديث الرصيد
+    }
+
+    // تحديث الربح لكل ساعة
+    const profitPerHour = calculateProfitPerHour();
+    if (earningsText) {
+        earningsText.innerText = `${profitPerHour.toFixed(2)}/hr`; // تنسيق الرقم إلى خانتين عشريتين
+    }
+}
+
+// دالة لحساب الربح لكل ساعة
+function calculateProfitPerHour() {
+    // افترض أن الربح يعتمد على متغير أو قاعدة بيانات
+    return 0.05 * 10; // مثال: 0.05 لكل عملية * 10 عمليات بالساعه
+}
 
 
 /////////////////////////////////////////////
