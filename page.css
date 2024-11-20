@@ -1,3 +1,19 @@
+#Profit-in {
+    right: 25px;
+    color: #ffffff; /* لون النص */
+    transition: padding 0.2s ease; /* تأثير بسيط عند التمدد */
+    min-width: 50px; /* عرض أدنى للعنصر */
+    white-space: nowrap; /* لمنع النص من الانتقال إلى سطر جديد */
+}
+
+#navbarBalanceDisplay {
+    left: 25px;
+    color: #ffffff; /* لون النص */
+    transition: padding 0.2s ease; /* تأثير بسيط عند التمدد */
+    min-width: 50px; /* عرض أدنى للعنصر */
+    white-space: nowrap; /* لمنع النص من الانتقال إلى سطر جديد */
+}
+
 #globalNavbar {
     display: flex;
     justify-content: space-between;
