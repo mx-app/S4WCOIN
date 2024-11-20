@@ -142,8 +142,8 @@
  
 
 .info-task {
-    position: absolute;
-    top: 30%; /* مسافة من أعلى الحاوية */
+    position: relative;
+    top: 35%; /* مسافة من أعلى الحاوية */
     left: 85px;
     display: flex;
     flex-direction: column;
