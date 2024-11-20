@@ -258,7 +258,7 @@ img {
     max-width: 90%; /* الحد الأقصى للعرض */
     height: 40px;
     margin: 5px;
-    border-radius: 15px;
+    border-radius: 10px;
     border: 0.50px solid #343434;
     transition: width 0.3s ease-in-out; /* تأثير التمدد بسلاسة */
 }
@@ -343,7 +343,7 @@ img {
     top: -20px;
     right: -10px;
     color: #fff;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bold;
     pointer-events: none;
 }
