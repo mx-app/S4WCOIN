@@ -307,6 +307,12 @@ img {
     height: calc(95% - 69px);
 }
 
+.clickable-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+} 
 
 .clickable-image img {
     width: 260px;
