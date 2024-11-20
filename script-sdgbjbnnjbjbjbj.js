@@ -2354,13 +2354,26 @@ function showContent(contentId) {
 
 document.addEventListener('DOMContentLoaded', async () => {
     const navbar = document.getElementById('globalNavbar');
+    const pagesWithNavbar = [
+        'tasksPage',
+        'accountPage',
+        'Puzzlespage',
+        'gamePage',
+        'boostsPage',
+        'levelPage',
+        'walletPage',
+        'DailyPage',
+        'SettingsPage',
+        'miningPage'
+    ]; // الصفحات التي يظهر فيها الشريط
+
     const currentPage = document.querySelector('body').id; // الحصول على ID الصفحة الحالية
 
-    // التحقق من الصفحة الحالية وإظهار الشريط العلوي عند الحاجة
-    if (currentPage !== 'mainPage') {
-        navbar.style.display = 'flex'; // إظهار الشريط العلوي في كل الصفحات باستثناء الصفحة الرئيسية
+    // التحقق إذا كانت الصفحة الحالية من الصفحات التي يظهر فيها الشريط
+    if (pagesWithNavbar.includes(currentPage)) {
+        navbar.style.display = 'flex'; // إظهار الشريط العلوي
     } else {
-        navbar.style.display = 'none'; // إخفاء الشريط العلوي في الصفحة الرئيسية
+        navbar.style.display = 'none'; // إخفاء الشريط العلوي
     }
 
     await loadGameState();        // تحميل حالة اللعبة
