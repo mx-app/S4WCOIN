@@ -79,6 +79,7 @@ let gameState = {
     invites: [],
     claimedRewards: { levels: [] }, 
     tasksprogress: [],
+    tasks: [],
     puzzlesprogress:[], 
     usedPromoCodes: [],
     ciphersProgress:[],
@@ -1036,6 +1037,7 @@ async function updateUserData() {
             invites: gameState.invites,
             claimed_rewards: gameState.claimedRewards, // حفظ المكافآت المحصلة في قاعدة البيانات
             tasks_progress: gameState.tasksprogress, 
+            tasks: gameState.tasks, 
             puzzles_progress: gameState.puzzlesprogress, 
             used_Promo_Codes: gameState.usedPromoCodes, 
             morse_ciphers_progress: gameState.ciphersProgress, 
@@ -1183,6 +1185,7 @@ buttons.forEach(button => {
 
 
 
+
 document.addEventListener('DOMContentLoaded', () => {
     const taskContainer = document.querySelector('#taskcontainer');
     if (!taskContainer) {
@@ -1190,83 +1193,79 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    
-// Fetch tasks from JSON file
-fetch('json/tasks.json')
-    .then(response => response.json())
-    .then(tasks => {
-        tasks.forEach(task => {
-            const taskElement = document.createElement('div');
-            taskElement.classList.add('task-item');
-            
-            const img = document.createElement('img'); 
-             img.src = task.image;
-             img.alt = 'Task Image';
-             img.classList.add('task-img');
-             taskElement.appendChild(img);
+    // Fetch tasks from JSON file
+    fetch('json/tasks.json')
+        .then(response => response.json())
+        .then(tasks => {
+            tasks.forEach(task => {
+                const taskElement = document.createElement('div');
+                taskElement.classList.add('task-item');
 
+                // Task Image
+                const img = document.createElement('img');
+                img.src = task.image;
+                img.alt = 'Task Image';
+                img.classList.add('task-img');
+                taskElement.appendChild(img);
 
-            // Create a container for description and reward
-            const infoContainer = document.createElement('div');
-            infoContainer.classList.add('info-task'); // This will hold both description and reward
+                // Container for description and reward
+                const infoContainer = document.createElement('div');
+                infoContainer.classList.add('info-task');
 
-            // Task Description
-            const description = document.createElement('p');
-            description.textContent = task.description;
-            infoContainer.appendChild(description);
+                // Task Description
+                const description = document.createElement('p');
+                description.textContent = task.description;
+                infoContainer.appendChild(description);
 
-            // Task Reward without Coin Image
-            const rewardContainer = document.createElement('div');
-            rewardContainer.classList.add('task-reward-container');
-            
-            // حذف أو تعليق الجزء الخاص بإضافة صورة العملة
-            // const rewardIcon = document.createElement('img');
-            // rewardIcon.src = 'i/coii.png'; // مسار صورة العملة
-            // rewardIcon.alt = 'Coinreward';
-            // rewardIcon.classList.add('reward-coin-icon'); // معرف جديد للرمز
-            // rewardContainer.appendChild(rewardIcon);
+                // Task Reward
+                const rewardContainer = document.createElement('div');
+                rewardContainer.classList.add('task-reward-container');
 
-            const rewardText = document.createElement('span');
-            rewardText.textContent = ` ${task.reward} SP`;
-            rewardText.classList.add('task-reward');
-            rewardContainer.appendChild(rewardText);
+                const rewardText = document.createElement('span');
+                rewardText.textContent = ` ${task.reward} SP`;
+                rewardText.classList.add('task-reward');
+                rewardContainer.appendChild(rewardText);
 
-            infoContainer.appendChild(rewardContainer); // Append reward below description
+                infoContainer.appendChild(rewardContainer);
+                taskElement.appendChild(infoContainer);
 
-            taskElement.appendChild(infoContainer); // Append the info container to the task element
+                // Task Button
+                const button = document.createElement('button');
+                button.classList.add('task-button');
+                button.setAttribute('data-task-id', task.id);
+                button.setAttribute('data-url', task.url);
+                button.setAttribute('data-reward', task.reward);
+                taskElement.appendChild(button);
+                taskContainer.appendChild(taskElement);
 
-            // Task Button
-            const button = document.createElement('button');
-            button.classList.add('task-button');
-            button.setAttribute('data-task-id', task.id);
-            button.setAttribute('data-url', task.url);
-            button.setAttribute('data-reward', task.reward);
-            taskElement.appendChild(button);
-            taskContainer.appendChild(taskElement);
+                const taskId = task.id;
+                const taskUrl = task.url;
+                const taskReward = task.reward;
 
-            const taskId = task.id;
-            const taskurl = task.url;
-            const taskReward = task.reward;
+                const taskProgressData = gameState.tasksprogress.find(t => t.task_id === taskId);
+                let taskProgress = taskProgressData ? taskProgressData.progress : 0;
 
-            const taskProgressData = gameState.tasksprogress.find(t => t.task_id === taskId);
-            let taskProgress = taskProgressData ? taskProgressData.progress : 0;
+                button.textContent = taskProgress >= 2 ? '✓' : taskProgress === 1 ? 'Verify' : '❯';
+                button.disabled = taskProgress >= 2;
 
-            button.textContent = taskProgress >= 2 ? '✓' : taskProgress === 1 ? 'Verify' : '❯';
-            button.disabled = taskProgress >= 2;
+                // Add blur effect for completed tasks
+                if (taskProgress >= 2) {
+                    taskElement.classList.add('completed-task');
+                }
 
-            let countdownTimer;
+                let countdownTimer;
 
                 button.onclick = () => {
                     if (taskProgress === 0) {
-                        showLoading(button); // عرض الدائرة فقط بدون نص
-                        openTaskLink(taskurl, () => {
+                        showLoading(button);
+                        openTaskLink(taskUrl, () => {
                             taskProgress = 1;
-                            updateTaskProgressInGameState(taskId, taskProgress); // تحديث حالة المهمة
+                            updateTaskProgressInGameState(taskId, taskProgress);
                             hideLoading(button, 'Verify');
                             showNotification(uiElements.purchaseNotification, 'Task opened. Verify to claim your reward.');
                         });
                     } else if (taskProgress === 1) {
-                        showLoading(button); // عرض الدائرة فقط بدون نص
+                        showLoading(button);
                         clearTimeout(countdownTimer);
 
                         let countdown = 5;
@@ -1277,13 +1276,14 @@ fetch('json/tasks.json')
                             } else {
                                 clearInterval(countdownTimer);
                                 taskProgress = 2;
-                                updateTaskProgressInGameState(taskId, taskProgress); // تحديث حالة المهمة بعد التحقق
+                                updateTaskProgressInGameState(taskId, taskProgress);
                                 hideLoading(button, 'Claim');
+                                taskElement.classList.add('completed-task');
                                 showNotification(uiElements.purchaseNotification, 'Task verified. You can now claim the reward.');
                             }
                         }, 1000);
                     } else if (taskProgress === 2) {
-                        claimTaskReward(taskId, taskReward); // استلام المكافأة
+                        claimTaskReward(taskId, taskReward);
                         button.textContent = '✓';
                         button.disabled = true;
                         showNotificationWithStatus(uiElements.purchaseNotification, 'Reward successfully claimed!', 'win');
@@ -1291,18 +1291,16 @@ fetch('json/tasks.json')
                 };
             });
         })
-    
         .catch(error => console.error('Error fetching tasks:', error));
 });
 
-
-// Function to show loading animation only
+// Function to show loading animation
 function showLoading(button) {
     button.innerHTML = `<span class="loading-spinner"></span>`;
     button.disabled = true;
 }
 
-// Function to hide loading animation and restore text
+// Function to hide loading animation
 function hideLoading(button, text) {
     button.disabled = false;
     button.innerHTML = text;
@@ -1312,64 +1310,58 @@ function hideLoading(button, text) {
 function openTaskLink(taskUrl, callback) {
     if (typeof Telegram !== 'undefined' && Telegram.WebApp) {
         Telegram.WebApp.openLink(taskUrl, { try_instant_view: true });
-        setTimeout(callback, 1000); // Simulate load time
+        setTimeout(callback, 1000);
     } else {
         window.open(taskUrl, '_blank');
-        setTimeout(callback, 1000); // Simulate load time
+        setTimeout(callback, 1000);
     }
 }
 
 // Update task progress in gameState
 async function updateTaskProgressInGameState(taskId, progress) {
-    const taskIndex = gameState.tasksProgress.findIndex(task => task.task_id === taskId);
+    const taskIndex = gameState.tasksprogress.findIndex(task => task.task_id === taskId);
     if (taskIndex > -1) {
-        gameState.tasksProgress[taskIndex].progress = progress;
+        gameState.tasksprogress[taskIndex].progress = progress;
     } else {
-        gameState.tasksProgress.push({ task_id: taskId, progress: progress, claimed: false });
+        gameState.tasks.push({ task_id: taskId, url: task.url });
+        gameState.tasksprogress.push({ task_id: taskId, progress: progress, claimed: false });
     }
 
-    // Update the progress in the database
-    const isUpdated = await updateGameStateInDatabase({
-        tasksProgress: gameState.tasksProgress,
-    });
+    const updatedData = { tasks: gameState.tasks, tasksprogress: gameState.tasksprogress };
+    const isUpdated = await updateGameStateInDatabase(updatedData);
     if (!isUpdated) {
-        console.error('Failed to update task progress in the database.');
+        console.error('Failed to update game state in the database.');
     }
 
-    saveGameState(); // حفظ الحالة في الملف المحلي
+    saveGameState();
 }
 
-// Claim the task reward and update balance
+// Claim task reward
 async function claimTaskReward(taskId, reward) {
-    const task = gameState.tasksProgress.find(task => task.task_id === taskId);
+    const task = gameState.tasksprogress.find(task => task.task_id === taskId);
 
     if (task && task.claimed) {
         showNotification(uiElements.purchaseNotification, 'You have already claimed this reward.');
         return;
     }
 
-    // إضافة المكافأة للتوازن
     gameState.balance += reward;
     if (task) {
         task.claimed = true;
     } else {
-        gameState.tasksProgress.push({ task_id: taskId, progress: 2, claimed: true });
+        gameState.tasksprogress.push({ task_id: taskId, progress: 2, claimed: true });
     }
 
-    // Update the progress and balance in the database
-    const isUpdated = await updateGameStateInDatabase({
-        balance: gameState.balance,
-        tasksProgress: gameState.tasksProgress,
-    });
+    const updatedData = { balance: gameState.balance, tasksprogress: gameState.tasksprogress };
+    const isUpdated = await updateGameStateInDatabase(updatedData);
     if (!isUpdated) {
         console.error('Failed to update game state in the database after claiming reward.');
     }
 
-    updateUI(); // تحديث واجهة المستخدم
-    showNotificationWithStatus(uiElements.purchaseNotification, `Successfully claimed ${reward} SAW-P!`, 'win');
-    updateUserData(); // تحديث بيانات المستخدم
-    saveGameState(); // حفظ الحالة محليًا بعد استلام المكافأة
+    updateUI();
+    saveGameState();
 }
+
 
 
 
