@@ -6,7 +6,7 @@
   color: white;
   padding: 4px 80px;
   font-weight: bold;
-  transform: rotate(-10deg); /* Make the badge slant */
+  transform: rotate(-80deg); /* Make the badge slant */
   transform-origin: left top; /* Ensure rotation starts from the left top corner */
   text-transform: uppercase;
 }
