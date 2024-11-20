@@ -2363,7 +2363,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         'levelPage',
         'walletPage',
         'DailyPage',
-        'SettingsPage',
         'miningPage'
     ]; // الصفحات التي يظهر فيها الشريط
 
