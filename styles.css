@@ -927,7 +927,7 @@ img {
     font-size: 10px;
     font-weight: bold;
     white-space: nowrap;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     color: #808080;
 }
 
@@ -948,7 +948,7 @@ img {
 }
 
 .left-section {
-    top: 3px; 
+    top: 5px; 
     display: flex; /* ترتيب العناصر */
     flex-direction: column; /* وضع العناصر فوق بعضها */
     align-items: center; /* توسيط النصوص أفقيًا */
