@@ -1,3 +1,13 @@
+.bos-image {
+    position: absolute; /* جعل الصورة تظهر فوق الخلفية */
+    top: 60px; /* تعديل المسافة من أعلى الحاوية، حسب احتياجك */
+    left: 50%;
+    transform: translateX(-50%); /* توسيط الصورة أفقيا */
+    width: 105px;
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
+}
 /*#boosts3, 
 #boosts4 {
     filter: blur(3px); 
@@ -83,14 +93,14 @@
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
 }*/
 
-/* الصورة المركزية */
+/*
 .bos-image {
     width: 105px;
     height: auto;
     display: block;
     margin: 0 auto;
     margin-bottom: 20px;
-}
+}*/
 
 /* النصوص */
 #b, #pr {
