@@ -1033,11 +1033,13 @@ img {
 
 
 .invite-card {
-  background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+/* background-color: rgba(0, 0, 0, 0.9);*/
   color: #fff;
-  border: 0.5px solid #808080;
+  border: 0.1px solid #808080;
   border-radius: 10px;
-  width: 90%;
+  width: 87%;
   padding: 10px;
   height: 100px;
   margin: 20px auto;
@@ -1046,14 +1048,15 @@ img {
 }
 
 .invite-header h3 {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
   color: #fff; /* لون النص البارز */
 }
 
 .invite-content p {
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.5;
   margin: 10px 0;
+  color: #808080; 
 }
