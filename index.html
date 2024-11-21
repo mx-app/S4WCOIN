@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="google-site-verification" content="SgT4PAGADooer2kIL_VItepZXIvIqUBTNGJVRuF8Cz0" />
+    <link rel="icon" type="image/png" href="i/Slogo.png" />
+    <title>SAWCOIN</title>
+    <script src="Scripts/css.js"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+<body>
+    <!-- Splash Screen -->
+<div class="splash-screen">
+    <h1 class="splash-title"></h1>
+     <p class="splash-subtitle"></p>
+      <div class="splash-loading">
+    <!-- استبدال شريط الطاقة بعلامة التحميل -->
+ <div class='peeek-loading'>
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </div>
+</div>
+                
+ <div class="container" style="display: none;">
+    <!-- Main Page --> 
+    <div id="mainPage" class="screen-content active">
+        <main class="main-content">
+            <div id="balanceContainer" class="balance-container"></div>
+                <!-- معلومات التطبيق (اختياري) -->
+                <!--<div class="app-info">
+                    <img src="i/coinn1.png" alt="App Logo" class="app-logo">
+                    <h1 class="app-name">SAW-COIN</h1>
+                </div>--> 
+
+                <div id="hourlyEarningsContainer">
+                    <div class="left-section">
+                        <p id="earningsLabel">Profit Per Hour</p>
+                        <div class="Profit">
+                          <span id="earningsText">0.00/hr</span>
+                    </div>
+                </div>
+                <div class="separators"></div>
+                <div class="right-section">
+                    <p id="currentLevelCoins">lvl 50k / 100k</p>
+                    <!-- شريط الطاقة -->
+                    <div id="levelEnergyBar">
+                        <div id="levelEnergyFill"></div>
+                    </div>
+                 </div>
+              </div>
+
+             <div class="settings-container">
+             <!--   <button data-target="gamePage" class="Play-game-button">
+                    <img src="i/gam.png" alt="games Icon" class="games-icon">
+                </button>  
+
+                <button id="DailyButton" class="Daily-button">
+                    <img src="i/daily.png" alt="daily Icon" class="daily-icon">
+                </button>-->
+
+                <button data-target="walletPage" class="wallet-button">
+                    <img src="i/wallets.png" alt="wallet Icon" class="wallet-icon">
+                </button>
+
+                <button id="settingsButton" class="settings-button">
+                    <img src="i/person_.png" alt="Settings Icon" class="Settings-icon">
+                </button>
+                 
+                 <button data-target="miningPage" class="miningPage-button">
+                    <img src="i/mine.png" alt="mining Icon" class="mining-icon"> Mine up
+                    <span class="arrow-mining">&#10095;</span>
+                </button>
+
+
+            
+    
+                <!-- نافذة الإعدادات --> 
+                <div id="settingsPanel" class="settings-panel" style="display: none;">
+                    <span id="SettingscloseModal" class="close">&times;</span>
+                    <div class="user-info">
+                        <img src="i/users.png" alt="User Image" class="user-image">
+                        <div class="user-details">
+                            <div class="user-name"><span id="userTelegramName">Username</span></div>
+                            <div class="user-id"><span id="userTelegramId">123456</span></div>
+                        </div>
+                    </div>     
+
+                    <div class="account-summary">
+                        <p>Total Friends : <span id="settingsInvitedCount">0</span></p>
+                        <p>Total Coins : <span id="settingsBalanceDisplay">0</span></p>
+                        <p>Current Level : <span id="settingsCurrentLevelName"></span></p>
+                    </div>
+
+                    <button id="languageButton" class="language-button">
+                        <img src="i/language.png" alt="language Icon" class="language-icon"> Settings
+                    </button>
+                </div>
+            </div>
+
+
+            
+            <div id="balanceC" class="balance-c">
+               <div class="Title">Your balance</div>
+               <div id="balanceAmount">0</div>
+           </div>
+            
+            <button id="levelFloatingBtn" class="level-button-floating">
+                <img src="i/Slogo.png" alt="Current Level Image" class="levelsss-icon">
+                <span id="currentLevelName"></span>
+                <span class="arrow">&#10095;</span>
+            </button>
+
+            <div class="clickable-image">
+                <div class="circles">
+                    <img id="clickableImg" src="i/coinsaw.png" alt="Clickable Image">
+                </div>
+            </div>
+
+            <div class="energy-bar-container">
+              <!--  <div class="progress-bar">
+                    <div class="progress-bar-inner" id="energyBar"></div>
+                </div>-->
+                
+                <div id="energyInfo">⚡500/500</div>
+                <span id="energyText"></span>
+                
+                <div class="separatorr"></div>
+                
+                <button data-target="boostsPage" class="boosts-button">
+                    <img src="i/boostsss.png" alt="boos Icon" class="boos-icon"> boosts
+                </button>
+                
+            </div>
+        </main>
+    </div>
+        
+        <!-- تسجيل يومي  -->
+     <div id="logindailyContainer" class="logindaily-container hidden">
+         <div class="logindaily-content hidden">
+             <span id="logindailycloseModal" class="close">&times;</span>
+             <img src="i/daily.png" alt="logindaily Image" class="logindaily-image">
+             <p id="login">Log in to get the reward</p>
+        <!-- قائمة الأيام مع المكافآت -->
+        <div class="daily-rewards">
+            <div class="daily-item" id="day1">
+                <p id="text-day">Day 1</p>
+                <p id="reward-day"><img src="i/coinsaw.png" alt="logindaily" class="logindaily-icon"> 5k</p>
+            </div>
+            <div class="daily-item" id="day2">
+                <p id="text-day">Day 2</p>
+                <p id="reward-day"><img src="i/coinsaw.png" alt="logindaily" class="logindaily-icon"> 10k</p>
+            </div>
+            <div class="daily-item" id="day3">
+                <p id="text-day">Day 3</p>
+                <p id="reward-day"><img src="i/coinsaw.png" alt="logindaily" class="logindaily-icon"> 15k</p>
+            </div>
+            <div class="daily-item" id="day4">
+                <p id="text-day">Day 4</p>
+                <p id="reward-day"><img src="i/coinsaw.png" alt="logindaily" class="logindaily-icon"> 30k</p>
+            </div>
+            <div class="daily-item" id="day5">
+                <p id="text-day">Day 5</p>
+                <p id="reward-day"><img src="i/coinsaw.png" alt="logindaily" class="logindaily-icon"> 60k</p>
+            </div>
+            <div class="daily-item" id="day6">
+                <p id="text-day">Day 6</p>
+                <p id="reward-day"><img src="i/coinsaw.png" alt="logindaily" class="logindaily-icon"> 100k</p>
+            </div>
+            <div class="daily-item" id="day7">
+                <p id="text-day">Day 7</p>
+                <p id="reward-day"><img src="i/coinsaw.png" alt="logindaily" class="logindaily-icon"> 200k</p>
+            </div>
+            <div class="daily-item" id="day8">
+                <p id="text-day">Day 8</p>
+                <p id="reward-day"><img src="i/coinsaw.png" alt="logindaily" class="logindaily-icon"> 300k</p>
+            </div>
+            <div class="daily-item" id="day9">
+                <p id="text-day">Day 9</p>
+                <p id="reward-day"><img src="i/coinsaw.png" alt="logindaily" class="logindaily-icon"> 400k</p>
+             </div>
+          </div>
+         <button id="loginclaimBtn" class="loginclaim-btn">Claim Rewards</button>
+      </div>
+   </div>
+
+
+       <!-- Account Page -->
+        <div id="accountPage" class="screen-content scrollable">
+         <div id="globalNavbar">
+           <div id="balanceContainer">
+            <span id="AccountnavbarBalanceDisplay">0.00</span> <!-- الرصيد -->
+         </div>
+              <div id="earnContainer">
+              <span id="Profit-in">0.00/hr</span> <!-- الربح لكل ساعة -->
+           </div>
+        </div>
+            
+            <img src="i/group_add.png" alt="invite Image" class="invite-image">
+            
+            <div class="invite-card">
+              <div class="invite-header">
+               <h3>+5,000 SP for Invite</h3>
+               </div>
+               <div class="invite-content">
+                <p>You’ll get 5,000 SP for every invite. Every boss killed by your referral will earn you huge prizes:</p>
+             </div>
+             <div class="invite-icon">
+             <img src="i/group_add.png" alt="Invite Icon" />
+           </div>
+         </div>
+
+            <p id="i">(Invited Friends) : <span id="invitedCount">0</span></p>
+            <ul id="friendsList" class="friends-list"></ul>
+            
+                 <!-- New Invite Reward Fields -->
+           <!-- <div class="invite-rewards">
+                <div class="reward">
+                   <span class="invite-text">(Invite 1 Friend)</span>
+                    <div class="coin-info">
+                    <span class="coin-text">+5,000</span>
+                    <span class="coin-label"> SP</span> 
+                </div>
+             </div>
+           <div class="reward">
+             <span class="invite-text">(Invite 5 Friends)</span>
+                <div class="coin-info">
+                  <span class="coin-text">+30,000</span>
+                    <span class="coin-label"> SP</span> 
+             </div>
+           </div>
+          <div class="reward">
+             <span class="invite-text">(Invite 10 Friends)</span>
+               <div class="coin-info">
+                 <span class="coin-text">+100,000</span>
+                   <span class="coin-label"> SP</span> 
+             </div>
+           </div>
+          </div> -->
+            
+         <div class="invite-section">
+            <button class="invite-more" id="inviteFriendsBtn">
+             <img src="i/group_add.png" alt="Invite Friends Icon" class="invite-icon"> Invite Friends </button>
+             <button class="invite-copy" id="copyInviteLinkBtn">
+             <img src="i/content_copy.png" alt="Copy Icon" class="copy-icon"> </button>
+            </div>
+         </div>
+
+        
+               <!-- Tasks Page -->
+         <div id="tasksPage" class="screen-content scrollable">
+             <div id="globalNavbar">
+        <div id="balanceContainer">
+            <span id="tasknavbarBalanceDisplay">0.00</span> <!-- الرصيد -->
+         </div>
+              <div id="earnContainer">
+              <span id="Profit-in">0.00/hr</span> <!-- الربح لكل ساعة -->
+           </div>
+             </div>
+            <p id="task"> Daily Promo Code </p>
+              <div id="promoContainer" class="promo-container">
+                <div class="promo-input-container">
+                 <div class="promo-box">
+                <input type="text" id="promoCodeInput" placeholder="Enter promo code" class="promo-input">
+                <button id="applyPromoCode" class="apply_PromoCode"> Apply </button>
+               </div>
+            </div>
+         </div>  
+        <div id="DContainer">
+          <div class="daily-itemm" id="daily2">
+             <img src="i/daily.png" alt="Daily Image" class="daily-imagee">
+              <p class="Daily-title">Daily reward</p>
+              <p class="Daily-titlee">+400,000 SP</p>
+               <div class="Daily-meta">
+               <span id="Dailyaew">&#10095;</span>
+            </div>
+         </div>
+       </div>
+          <section id="taskcontainer" class="task-container">
+              <p id="t"> Complete Daily Tasks </p>
+                <!--<div class="tasks">
+            </div>  -->
+      </section>
+    </div>
+
+         <!-- Puzzle Page -->
+   <div id="Puzzlespage" class="screen-content scrollable">
+       <div id="globalNavbar">
+        <div id="balanceContainer">
+            <span id="puzzlenavbarBalanceDisplay">0.00</span> <!-- الرصيد -->
+         </div>
+              <div id="earnContainer">
+              <span id="Profit-in">0.00/hr</span> <!-- الربح لكل ساعة -->
+           </div>
+       </div>
+       
+       <div id="MorseCiphersCountdown" class="Morsecountdown-display"></div>
+       <div id="puzzleCountdown" class="countdown-display"> </div>
+             
+    
+        <div class="puzzles-container">
+             <div class="puzzle-item" id="puzzle1">
+             <img src="i/Puzzleeeee.gif" alt="Daily Puzzle" class="puzzle-image">
+             <p class="puzzle-description"> Puzzles </p>
+        </div>
+            
+           <div class="puzzle-item" id="puzzle2">
+              <img src="i/Morse+code.gif" alt="Morse Cipher" class="puzzle-image">
+               <p class="puzzle-description"> Cipher Morse! </p>
+           </div>
+            
+           <div class="puzzle-item" id="puzzle3">
+               <div class="badge">Soon.</div>
+               <img src="i/Caesar+cipher.gif" alt="Caesar Cipher" class="puzzle-image">
+                <p class="puzzle-description"> Caesar cipher!</p>
+           </div>
+            
+           <div class="puzzle-item" id="puzzle4">
+               <div class="badge">Soon.</div>
+                <img src="i/The+bomb.gif" alt="Puzzle Bomb" class="puzzle-image">
+                <p class="puzzle-description">the bomb!</p>
+           </div>
+            
+           <div class="puzzle-item" id="puzzle5">
+               <div class="badge">Soon.</div>
+               <img src="i/roommm.gif" alt="The Room" class="puzzle-image">
+               <p class="puzzle-description">the room!</p>
+           </div>
+            
+           <div class="puzzle-item" id="puzzle6">
+               <div class="badge">Soon.</div>
+                <img src="i/Puzzle+numbers.gif" alt="Numbers" class="puzzle-image">
+                <p class="puzzle-description">number!</p>
+          </div>
+
+           
+         <!-- morseCipher Container -->
+          <div id="morseCipherContainer" class="hidden">
+             <div class="morse-content">
+              <span id="morsecloseModal" class="close">&times;</span>
+               <p id="morseText"> Morse Cipher </p>
+                <p> Decrypt this message to get the reward</p>
+                 <div class="morseCipherQuestion">Morse Code. : <span id="morseCode"></span></div>
+                 <input type="text" id="morseAnswerInput" class="inputField" placeholder="Enter the answer">
+                  <button id="submitMorseAnswerBtn" class="submitButton">verification</button>
+                   <div id="morseAttemptsDisplay" class="attemptsDisplay"> Attempts. 3 : <span id="morseRemainingAttempts"></span></div>
+                    <div id="morseCipherRewardDisplay" class="rewardDisplay"></div>
+                     <div id="morseCipherNotification" class="notification"></div>
+                    <div id="morseTimerDisplay" class="timerDisplay"></div>
+               </div>
+           </div>
+
+          
+             <div id="caesarPuzzleContainer" class="hidden">
+              <div class="Caesar-content">
+               <h2 id="caesarPuzzleQuestion"></h2>
+                 <p id="caesarPuzzleHint"></p>
+                 <p id="caesarPuzzleRewardDisplay"></p>
+                  <input type="text" id="userCaesarAnswerInput" placeholder="Enter your answer">
+                  <button id="caesarSubmitBtn">Submit</button>
+                   <p id="caesarTimer">00:00:00</p>
+                   <p id="caesarAttemptsDisplay">Remaining Attempts: 3</p>
+                   <div id="caesarPuzzleNotification" class="notification hidden"></div>
+                   <button id="caesarPuzzle1">Open Puzzle</button>
+               </div>
+             </div>
+
+             <!-- Puzzle Container -->
+            <div id="puzzleContainer" class="puzzle-container hidden">
+                <div class="puzzle-content">
+                  <span id="puzzlecloseModal" class="close">&times;</span>
+                    <p id="Puz-to"> Today's Puzzle </p>
+             <!--       <img src="i/numbers.gif" alt="puzzle2 Image" class="puzzle2-image"> -->
+                    <div id="puzzleQuestion"></div>
+                    <div id="puzzleRewardDisplay" class="reward-display"></div>
+                    <div id="puzzleOptions" class="puzzle-options"></div>
+                    <div id="countdownTimer">
+                        <span id="timeText">remaining :</span> 
+                        <span id="timer">60.00</span>
+                    </div>
+                    <div id="attemptsDisplay" class="attempts-display"> Attempts. </div>
+                    <div id="puzzleNotification" class="notification"></div>
+                    <div id="puzzleHint"></div>
+                </div>
+            </div>
+         </div>
+      </div>
+<!-- Boosts Page -->
+<div id="boostsPage" class="screen-content scrollable">
+    <div id="globalNavbar">
+        <div id="balanceContainer">
+            <span id="BoostnavbarBalanceDisplay">0.00</span> <!-- الرصيد -->
+         </div>
+              <div id="earnContainer">
+              <span id="Profit-in">0.00/hr</span> <!-- الربح لكل ساعة -->
+           </div>
+    </div>
+<!-- <p id="bosts">Boosts</p>-->
+ <img src="i/booost.jpg" alt="Boost Image" class="bos-image">
+<!--  <p id="b">You Can Upgrade Your Tap, Energy, And Coins To Earn More</p>-->
+    
+<div class="container-free">
+   <div class="boost-item-free" id="free1">
+    <img src="i/energy.png" alt="Energy Boost Image">
+      <div class="description">
+        <p class="boosts-title">Full Tank</p>
+        <div class="boosts-meta">
+        <span id="energyUpgradeCost">2/2</span>
+       </div>
+    </div>
+  </div>
+    
+    <div class="boost-item-free" id="free2">
+    <img src="i/Click88.png" alt="Energy Boost Image">
+      <div class="description">
+        <p class="boosts-title">Auto click</p>
+        <div class="boosts-meta">
+        <span id="UpdateAttempts">2/2</span>
+       </div>
+     </div>
+   </div>
+</div>
+    
+ <p id="b">Basic Boosts</p>
+  <section class="boosts-container">
+    <div class="boost-item" id="bost1">
+      <img src="i/Clickk.png" alt="Click Boost Image">
+      <div class="description">
+        <p class="boost-title">Hand clicks</p>
+         <div class="boost-meta">
+        <p><span id="boostUpgradeCost">500</span> SP</p>
+      <div class="separatorrr"></div>
+        <p>lvl : ×<span id="clickMultiplier">0</span></p>
+       </div>
+      </div> 
+      <button id="boostUpgradeBtn"> &#10095; </button>
+    </div>
+
+    <div class="boost-item" id="bost2">
+      <img src="i/energy.c.png" alt="Energy Boost Image">
+      <div class="description">
+        <p class="boost-title">Energy limits</p>
+         <div class="boost-meta">
+        <p><span id="coinUpgradeCost">500</span>SP</p>
+      <div class="separatorrr"></div>
+        <p>lvl : <span id="coinBoostLevel">0</span></p>
+       </div>
+      </div>
+      <button id="coinUpgradeBtn"> &#10095; </button>
+    </div>
+  </section>
+    
+ <!-- <p id="pr">Premium Boosts</p>
+    <div id="robotContainer">
+        <img src="i/Robot.png" alt="Robot Icon">
+        <p id="text-robot">Mining robot</p>
+        <span id="robotCostDisplay">50,000 SP</span>
+        <div class="robot-meta">
+        <p>Lvl : <span id="robotLevelDisplay">1</span></p>
+        <div class="separatorrr"></div>
+        <p>Value : <span id="robotClickValueDisplay">0.50</span></p>
+    </div> 
+        <button id="buyRobotBtn">Buy</button>
+        <button id="upgradeRobotBtn">Upgrad</button>
+        <button id="activateRobotBtn" disabled>Activate</button>
+        <p id="robotStatus"> inactive.</p>
+  </div>-->
+</div>
+
+        <!-- Wallet Page -->
+        <div id="walletPage" class="screen-content scrollable">
+          <div id="globalNavbar">
+        <div id="balanceContainer">
+            <span id="navbarBalanceDisplay">0.00</span> <!-- الرصيد -->
+         </div>
+              <div id="earnContainer">
+              <span id="Profit-in">0.00/hr</span> <!-- الربح لكل ساعة -->
+           </div>
+            </div>
+            <section class="wallet-container">
+                <div class="wallet-box">
+                <p> Connect Your Ton wallet </p>
+               <div id="ton-connect"></div>
+             </div>
+         </section> 
+       </div>
+        
+               <!-- Game page -->
+         <div id="gamePage" class="screen-content scrollable">
+             <div id="globalNavbar">
+        <div id="balanceContainer">
+            <span id="gnavbarBalanceDisplay">0.00</span> <!-- الرصيد -->
+         </div>
+              <div id="earnContainer">
+              <span id="Profit-in">0.00/hr</span> <!-- الربح لكل ساعة -->
+           </div>
+             </div>
+              <section class="game-container" id="gameContainer">
+             <!--   <p id="GA">Games</p>-->
+                  
+                  <!-- Game 1 -->
+          <!--  <div class="Gamess"> -->
+             <div class="game-item" id="gameTwo">
+                <img src="i/game1.jpg" alt="Game 2 Image" class="game-image">
+                <p> Escape the dog </p>
+                <button class="game-button" onclick="startGame('https://mx-app.github.io/Dog-game')">Play</button>
+           </div>
+                <!-- Game 2 -->
+            <div class="game-item" id="gameOne">
+               <img src="i/cubess.jpg" alt="Game 1 Image" class="game-image">
+                <p> Tower Blocks </p>
+               <button class="game-button" onclick="startGame('https://mx-app.github.io/pure-stack')">Play</button>
+           </div>
+                  
+            <div class="game-item" id="gamesix">
+               <img src="i/Zombie.jpg" alt="Game 6 Image" class="game-image">
+                <p> Zombie  </p>
+               <button class="game-button" onclick="startGame('https://previews.customer.envatousercontent.com/files/540940222/index.html')">Play</button>
+           </div>
+                  
+               <!-- Game new -->   
+          <div class="game-item" id="gametre">
+               <img src="i/Halloween.jpg" alt="Game 3 Image" class="game-image"> 
+                <p> Halloween </p>
+               <button class="game-button" onclick="startGame('https://mx-app.github.io/Halwen')">Play</button> 
+           </div>
+
+           <div class="game-item" id="gamefor">
+                <img src="i/Therightway.jpg" alt="Game 4 Image" class="game-image">
+                <p> Train delivery </p>
+                <button class="game-button" onclick="startGame('https://mx-app.github.io/Game-puzzles')">Play</button>
+           </div>
+                  
+          <div class="game-item" id="gamefive">
+                <img src="i/forbid.jpg" alt="Game 5 Image" class="game-image">
+                <p> Rock paper scissors </p>
+                <button class="game-button" onclick="startGame('https://mx-app.github.io/rock-paper-scissors')">Play</button>
+            </div>      
+      
+
+        
+     <div id="gameFrameContainer">
+         <span id="closeGamePage" class="close">&times;</span>
+           <iframe id="gameFrame" src="" allowfullscreen></iframe>
+         <div class="counter-container">
+             <p id="coinn">Coin</p>
+             <div id="counterDisplay" class="counter"> 0 </div>
+             <button class="claim-button" onclick="claimCoins()">Claim</button>
+          </div>
+     </div>
+</section>
+</div>
+
+<div id="levelPage" class="screen-content scrollable">
+    <div id="globalNavbar">
+        <div id="balanceContainer">
+            <span id="lvlnavbarBalanceDisplay">0.00</span> <!-- الرصيد -->
+         </div>
+              <div id="earnContainer">
+              <span id="Profit-in">0.00/hr</span> <!-- الربح لكل ساعة -->
+           </div>
+    </div>
+    <div class="levels-info">
+        <div class="additional-level-info">
+            <img id="currentLevelImagee" class="levell-image" src="" alt="Level lImage"> <!-- صورة المستوى -->
+         <div class="level-texxt">
+            <p id="levelPageCurrentLevelName">Level Name</p> <!-- اسم المستوى في صفحة المستويات -->
+            <p id="currentLevelInfo"> lvl <span id="displayedLevel">1</span></p>
+            <p id="levelPageCurrentLevelCoins">Next Lvl 0%</p> <!-- نسبة التقدم في صفحة المستويات -->
+            <div class="energy-barrr-container">
+            <div id="levelPageEnergyFill" class="level-energy-fiill"></div> <!-- شريط الطاقة في صفحة المستويات -->
+            </div>
+         </div>
+       </div>
+        
+      <div id="navigationButtons" class="navigation-buttons">
+          <button>Beginner's</button>
+          <button>Novice </button>
+          <button>Intermediate</button>
+          <button>Advanced</button>
+          <button>Expert's</button>
+     </div>
+        
+      <div class="current-level-info">
+         <p class="level-namee">Level</p>
+            <p class="coin-namee">Level Coins</p>
+        </div>
+     </div>
+         
+<section class="level-container">
+    <!-- Level 1 -->
+    <div class="level-item" id="level1">
+      <div class="level-image-container">
+        <img src="i/lvl1.png" alt="Level 1 Image" class="level10-image">
+     </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 1</p>
+            <p class="level-name">( BEGINNER )</p>
+            <p class="coin-name">1K</p>
+        </div>
+    </div>
+
+    <!-- Level 2 -->
+    <div class="level-item" id="level2">
+      <div class="level-image-container">
+          <img src="i/lvl2.png" alt="Level 2 Image" class="level10-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 2</p>
+            <p class="level-name">( LEARNER )</p>
+            <p class="coin-name">3K</p>
+        </div>
+    </div>
+
+    <!-- Level 3 -->
+    <div class="level-item" id="level3">
+        <div class="level-image-container">
+         
+        <img src="i/lvl3.png" alt="Level 3 Image" class="level10-image">
+    </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 3</p>
+            <p class="level-name">( NOVICE )</p>
+            <p class="coin-name">5K</p>
+        </div>
+    </div>
+
+    <!-- Level 4 -->
+    <div class="level-item" id="level4">
+        <div class="level-image-container">
+         
+        <img src="i/lvl4.png" alt="Level 4 Image" class="level10-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 4</p>
+            <p class="level-name">( APPRENTICE )</p>
+            <p class="coin-name">10K</p>
+        </div>
+    </div>
+
+    <!-- Level 5 -->
+    <div class="level-item" id="level5">
+        <div class="level-image-container">
+         
+        <img src="i/lvl5.png" alt="Level 5 Image" class="level10-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 5</p>
+            <p class="level-name">( EXPLORER )</p>
+            <p class="coin-name">20K</p>
+        </div>
+    </div>
+
+    <!-- Level 6 -->
+    <div class="level-item" id="level6">
+        <div class="level-image-container">
+         
+        <img src="i/lvl6.png" alt="Level 6 Image" class="level10-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 6</p>
+            <p class="level-name">( ADEPT )</p>
+            <p class="coin-name">30K</p>
+        </div>
+    </div>
+
+    <!-- Level 7 -->
+    <div class="level-item" id="level7">
+        <div class="level-image-container">
+         
+        <img src="i/lvl7.png" alt="Level 7 Image" class="level10-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 7</p>
+            <p class="level-name">( SKILLED )</p>
+            <p class="coin-name">50K</p>
+        </div>
+    </div>
+
+    <!-- Level 8 -->
+    <div class="level-item" id="level8">
+        <div class="level-image-container">
+         
+        <img src="i/lvl8.png" alt="Level 8 Image" class="level10-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 8</p>
+            <p class="level-name">( PROFICIENT )</p>
+            <p class="coin-name">100K</p>
+        </div>
+    </div>
+
+    <!-- Level 9 -->
+    <div class="level-item" id="level9">
+        <div class="level-image-container">
+         
+        <img src="i/lvl9.png" alt="Level 9 Image" class="level10-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 9</p>
+            <p class="level-name">( SPECIALIST )</p>
+            <p class="coin-name">150K</p>
+        </div>
+    </div>
+
+    <!-- Level 10 -->
+    <div class="level-item" id="level10">
+        <div class="level-image-container">
+         
+        <img src="i/lvl10.png" alt="Level 10 Image" class="level10-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 10</p>
+            <p class="level-name">( EXPERT )</p>
+            <p class="coin-name">300K</p>
+        </div>
+    </div>
+            
+    <!-- Level 11 -->
+    <div class="level-item" id="level11">
+        <div class="level-image-container">
+         
+        <img src="i/lvl11.png" alt="Level 11 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 11</p>
+            <p class="level-name">( VETERAN )</p>
+            <p class="coin-name">400K</p>
+        </div>
+    </div>
+
+    <!-- Level 12 -->
+    <div class="level-item" id="level12">
+        <div class="level-image-container">
+         
+        <img src="i/lvl12.png" alt="Level 12 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 12</p>
+            <p class="level-name">( MASTER )</p>
+            <p class="coin-name">500K</p>
+        </div>
+    </div>
+
+    <!-- Level 13 -->
+    <div class="level-item" id="level13">
+        <div class="level-image-container">
+         
+        <img src="i/lvl13.png" alt="Level 13 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 13</p>
+            <p class="level-name">( GURU )</p>
+            <p class="coin-name">600K</p>
+        </div>
+    </div>
+
+    <!-- Level 14 -->
+    <div class="level-item" id="level14">
+        <div class="level-image-container">
+         
+        <img src="i/lvl14.png" alt="Level 14 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 14</p>
+            <p class="level-name">( SAGE )</p>
+            <p class="coin-name">700K</p>
+        </div>
+    </div>
+
+    <!-- Level 15 -->
+    <div class="level-item" id="level15">
+        <div class="level-image-container">
+         
+        <img src="i/lvl15.png" alt="Level 15 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 15</p>
+            <p class="level-name">( LEGEND )</p>
+            <p class="coin-name">800K</p>
+        </div>
+    </div>
+
+    <!-- Level 16 -->
+    <div class="level-item" id="level16">
+        <div class="level-image-container">
+         
+        <img src="i/lvl16.png" alt="Level 16 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 16</p>
+            <p class="level-name">( HERO )</p>
+            <p class="coin-name">900K</p>
+        </div>
+    </div>
+
+    <!-- Level 17 -->
+    <div class="level-item" id="level17">
+        <div class="level-image-container">
+         
+        <img src="i/lvl17.png" alt="Level 17 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 17</p>
+            <p class="level-name">( CHAMPION )</p>
+            <p class="coin-name">1M</p>
+        </div>
+    </div>
+
+    <!-- Level 18 -->
+    <div class="level-item" id="level18">
+        <div class="level-image-container">
+         
+        <img src="i/lvl18.png" alt="Level 18 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 18</p>
+            <p class="level-name">( GUARDIAN )</p>
+            <p class="coin-name">1.1M</p>
+        </div>
+    </div>
+
+    <!-- Level 19 -->
+    <div class="level-item" id="level19">
+        <div class="level-image-container">
+         
+        <img src="i/lvl19.png" alt="Level 19 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 19</p>
+            <p class="level-name">( TITAN )</p>
+            <p class="coin-name">1.5M</p>
+        </div>
+    </div>
+
+    <!-- Level 20 -->
+    <div class="level-item" id="level20">
+        <div class="level-image-container">
+         
+        <img src="i/lvl20.png" alt="Level 20 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 20</p>
+            <p class="level-name">( MYTHIC )</p>
+            <p class="coin-name">2M</p>
+        </div>
+    </div>
+
+    <!-- Level 21 -->
+    <div class="level-item" id="level21">
+        <div class="level-image-container">
+         
+        <img src="i/lvl21.png" alt="Level 21 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 21</p>
+            <p class="level-name">( DEITY )</p>
+            <p class="coin-name">2.5M</p>
+        </div>
+    </div>
+
+    <!-- Level 22 -->
+    <div class="level-item" id="level22">
+        <div class="level-image-container">
+         
+        <img src="i/lvl22.png" alt="Level 22 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 22</p>
+            <p class="level-name">( IMMORTAL )</p>
+            <p class="coin-name">3M</p>
+        </div>
+    </div>
+
+    <!-- Level 23 -->
+    <div class="level-item" id="level23">
+        <div class="level-image-container">
+         
+        <img src="i/lvl23.png" alt="Level 23 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 23</p>
+            <p class="level-name">( SUPREME )</p>
+            <p class="coin-name">3.5M</p>
+        </div>
+    </div>
+
+    <!-- Level 24 -->
+    <div class="level-item" id="level24">
+        <div class="level-image-container">
+         
+        <img src="i/lvl24.png" alt="Level 24 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 24</p>
+            <p class="level-name">( CELESTIAL )</p>
+            <p class="coin-name">4M</p>
+        </div>
+    </div>
+
+    <!-- Level 25 -->
+    <div class="level-item" id="level25">
+        <div class="level-image-container">
+         
+        <img src="i/lvl25.png" alt="Level 25 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 25</p>
+            <p class="level-name">( DIVINE )</p>
+            <p class="coin-name">4.5M</p>
+        </div>
+    </div>
+
+    <!-- Level 26 -->
+    <div class="level-item" id="level26">
+        <div class="level-image-container">
+         
+        <img src="i/lvl26.png" alt="Level 26 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 26</p>
+            <p class="level-name">( OMNI )</p>
+            <p class="coin-name">5M</p>
+        </div>
+    </div>
+
+    <!-- Level 27 -->
+    <div class="level-item" id="level27">
+        <div class="level-image-container">
+         
+        <img src="i/lvl27.png" alt="Level 27 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 27</p>
+            <p class="level-name">( COSMIC )</p>
+            <p class="coin-name">5.5M</p>
+        </div>
+    </div>
+
+    <!-- Level 28 -->
+    <div class="level-item" id="level28">
+        <div class="level-image-container">
+         
+        <img src="i/lvl28.png" alt="Level 28 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 28</p>
+            <p class="level-name">( INFINITE )</p>
+            <p class="coin-name">6M</p>
+        </div>
+    </div>
+
+    <!-- Level 29 -->
+    <div class="level-item" id="level29">
+        <div class="level-image-container">
+         
+        <img src="i/lvl29.png" alt="Level 29 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 29</p>
+            <p class="level-name">( TRANSCENDENT )</p>
+            <p class="coin-name">6.5M</p>
+        </div>
+    </div>
+
+    <!-- Level 30 -->
+    <div class="level-item" id="level30">
+        <div class="level-image-container">
+         
+        <img src="i/lvl30.png" alt="Level 30 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 30</p>
+            <p class="level-name">( EPOCH )</p>
+            <p class="coin-name">7M</p>
+        </div>
+    </div>
+            
+    <!-- Level 31 -->
+    <div class="level-item" id="level31">
+        <div class="level-image-container">
+         
+        <img src="i/lvl31.png" alt="Level 31 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 31</p>
+            <p class="level-name">( EON )</p>
+            <p class="coin-name">7.5M</p>
+        </div>
+    </div>
+
+    <!-- Level 32 -->
+    <div class="level-item" id="level32">
+        <div class="level-image-container">
+         
+        <img src="i/lvl32.png" alt="Level 32 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 32</p>
+            <p class="level-name">( LEGENDARY )</p>
+            <p class="coin-name">8.5M</p>
+        </div>
+    </div>
+
+    <!-- Level 33 -->
+    <div class="level-item" id="level33">
+        <div class="level-image-container">
+         
+        <img src="i/lvl33.png" alt="Level 33 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 33</p>
+            <p class="level-name">( ETERNAL )</p>
+            <p class="coin-name">9M</p>
+        </div>
+    </div>
+
+    <!-- Level 34 -->
+    <div class="level-item" id="level34">
+        <div class="level-image-container">
+         
+        <img src="i/lvl34.png" alt="Level 34 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 34</p>
+            <p class="level-name">( SENTINEL )</p>
+            <p class="coin-name">9.5M</p>
+        </div>
+    </div>
+
+    <!-- Level 35 -->
+    <div class="level-item" id="level35">
+        <div class="level-image-container">
+         
+        <img src="i/lvl35.png" alt="Level 35 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 35</p>
+            <p class="level-name">( ARCHON )</p>
+            <p class="coin-name">10M</p>
+        </div>
+    </div>
+
+    <!-- Level 36 -->
+    <div class="level-item" id="level36">
+        <div class="level-image-container">
+         
+        <img src="i/lvl36.png" alt="Level 36 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 36</p>
+            <p class="level-name">( ASCENDANT )</p>
+            <p class="coin-name">10.5M</p>
+        </div>
+    </div>
+
+    <!-- Level 37 -->
+    <div class="level-item" id="level37">
+        <div class="level-image-container">
+         
+        <img src="i/lvl37.png" alt="Level 37 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 37</p>
+            <p class="level-name">( PARAGON )</p>
+            <p class="coin-name">11.05M</p>
+        </div>
+    </div>
+
+    <!-- Level 38 -->
+    <div class="level-item" id="level38">
+        <div class="level-image-container">
+         
+        <img src="i/lvl38.png" alt="Level 38 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 38</p>
+            <p class="level-name">( AETHER )</p>
+            <p class="coin-name">12M</p>
+        </div>
+    </div>
+
+    <!-- Level 39 -->
+    <div class="level-item" id="level39">
+        <div class="level-image-container">
+         
+        <img src="i/lvl39.png" alt="Level 39 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 39</p>
+            <p class="level-name">( QUANTUM )</p>
+            <p class="coin-name">13M</p>
+        </div>
+    </div>
+
+    <!-- Level 40 -->
+    <div class="level-item" id="level40">
+        <div class="level-image-container">
+         
+        <img src="i/lvl40.png" alt="Level 40 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 40</p>
+            <p class="level-name">( INFINITY )</p>
+            <p class="coin-name">13.05M</p>
+        </div>
+    </div>
+            
+   <!-- Level 41 -->
+    <div class="level-item" id="level41">
+        <div class="level-image-container">
+         
+        <img src="i/lvl41.png" alt="Level 41 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 41</p>
+            <p class="level-name">( ETHERIC )</p>
+            <p class="coin-name">14M</p>
+        </div>
+    </div>
+
+    <!-- Level 42 -->
+    <div class="level-item" id="level42">
+        <div class="level-image-container">
+         
+        <img src="i/lvl42.png" alt="Level 42 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 42</p>
+            <p class="level-name">( VOID )</p>
+            <p class="coin-name">15M</p>
+        </div>
+    </div>
+
+    <!-- Level 43 -->
+    <div class="level-item" id="level43">
+        <div class="level-image-container">
+         
+        <img src="i/lvl43.png" alt="Level 43 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 43</p>
+            <p class="level-name">( ANOMALY )</p>
+            <p class="coin-name">16M</p>
+        </div>
+    </div>
+
+    <!-- Level 44 -->
+    <div class="level-item" id="level44">
+        <div class="level-image-container">
+         
+        <img src="i/lvl44.png" alt="Level 44 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 44</p>
+            <p class="level-name">( ZENITH )</p>
+            <p class="coin-name">17M</p>
+        </div>
+    </div>
+
+    <!-- Level 45 -->
+    <div class="level-item" id="level45">
+        <div class="level-image-container">
+         
+        <img src="i/lvl45.png" alt="Level 45 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 45</p>
+            <p class="level-name">( NIRVANA )</p>
+            <p class="coin-name">18M</p>
+        </div>
+    </div>
+
+    <!-- Level 46 -->
+    <div class="level-item" id="level46">
+        <div class="level-image-container">
+         
+        <img src="i/lvl46.png" alt="Level 46 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 46</p>
+            <p class="level-name">( ABSOLUTE )</p>
+            <p class="coin-name">19M</p>
+        </div>
+    </div>
+
+    <!-- Level 47 -->
+    <div class="level-item" id="level47">
+        <div class="level-image-container">
+         
+        <img src="i/lvl47.png" alt="Level 47 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 47</p>
+            <p class="level-name">( OMEGA )</p>
+            <p class="coin-name">20M</p>
+        </div>
+    </div>
+
+    <!-- Level 48 -->
+    <div class="level-item" id="level48">
+        <div class="level-image-container">
+         
+        <img src="i/lvl48.png" alt="Level 48 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 48</p>
+            <p class="level-name">( PRIME )</p>
+            <p class="coin-name">25M</p>
+        </div>
+    </div>
+
+    <!-- Level 49 -->
+    <div class="level-item" id="level49">
+        <div class="level-image-container">
+         
+        <img src="i/lvl49.png" alt="Level 49 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 49</p>
+            <p class="level-name">( SUPERNOVA )</p>
+            <p class="coin-name">30M</p>
+        </div>
+    </div>
+
+    <!-- Level 50 -->
+    <div class="level-item" id="level50">
+        <div class="level-image-container">
+         
+        <img src="i/lvl50.png" alt="Level 50 Image" class="level-image">
+        </div>
+        <div class="level-text">
+            <p class="level-phase">Lvl 50</p>
+            <p class="level-name">( ASCENSION )</p>
+            <p class="coin-name">40M</p>
+         </div>
+      </div>
+ </section>
+</div>
+
+
+     <!-- Mining upgrades pages -->
+<div id="miningPage" class="screen-content scrollable">
+    <div id="globalNavbar">
+        <div id="balanceContainer">
+            <span id="miningnavbarBalanceDisplay">0.00</span> <!-- الرصيد -->
+         </div>
+              <div id="earnContainer">
+              <span id="Profit-in">0.00/hr</span> <!-- الربح لكل ساعة -->
+           </div>
+    </div>
+    <!-- حاوية المؤقت -->
+   <div class="timer-container">
+      <div class="left-section">
+        <!--   <img class="hourglass-image" src="i/Sandyy.png" alt="Sand Glass">-->
+         <div class="text-container">
+            <p class="Combo">Daily Combo</p>
+            <span class="countdown-timer">00:00:00</span>
+         </div>
+     </div>
+     <p class="Combo-bonus">500,000 SP</p>
+   </div>
+    
+ <div class="circles-container">
+    <div class="circle" id="circle1"></div>
+    <div class="circle" id="circle2"></div>
+    <div class="circle" id="circle3"></div>
+    <div class="circle" id="circle4"></div>
+ </div>
+
+     <!-- اللغز اليومي  -->
+    <div class="gift-container">
+        <div class="gift-box">
+            <img src="i/gift.jpg" alt="Gift Box" class="gift-image">
+            <span class="gift-description"></span>
+        </div>
+        <div class="gift-box">
+            <img src="i/gift.jpg" alt="Gift Box" class="gift-image">
+            <span class="gift-description"></span>
+        </div>
+        <div class="gift-box">
+            <img src="i/gift.jpg" alt="Gift Box" class="gift-image">
+            <span class="gift-description"></span>
+        </div>
+        <div class="gift-box">
+            <img src="i/gift.jpg" alt="Gift Box" class="gift-image">
+            <span class="gift-description"></span>
+        </div>
+    </div>
+     
+    <div id="sectionmining1" class="section active">
+        <div class="upgrades-grid">
+    
+            <div class="upgrade-mining" id="Mine1">
+                <img src="i/mine1.png" alt="promotion">
+                <div class="upgrade-details">
+                    <h3><span class="upgrade-name"> The crying laugher </span></h3>
+                    <p> <span class="profit-rate"> +00.0hr</span></p>
+                    <div class="mining-cost-container">
+                    <p>Lvl : <span class="upgrademining-level">1</span></p>
+                    <span class="separatorrr"></span>
+                    <p> <span class="upgrademining-cost">1000</span>  SP</p>
+                </div>
+            </div>
+        </div>
+          
+          <div class="upgrade-mining" id="Mine2">
+                <img src="i/mine2.png" alt="promotion">
+                <div class="upgrade-details">
+                    <h3><span class="upgrade-name">Rio the robot </span></h3>
+                    <p> <span class="profit-rate">+00.0hr</span></p>
+                    <div class="mining-cost-container">
+                    <p>Lvl : <span class="upgrademining-level">1</span></p>
+                        <span class="separatorrr"></span>
+                    <p><span class="upgrademining-cost">1000</span>  SP</p>
+                </div>
+            </div>
+          </div>
+          
+          <div class="upgrade-mining" id="Mine3">
+                <img src="i/mine3.png" alt="promotion">
+                <div class="upgrade-details">
+                    <h3><span class="upgrade-name">Social media </span></h3>
+                    <p> <span class="profit-rate">+00.0hr</span></p>
+                    <div class="mining-cost-container">
+                    <p>Lvl : <span class="upgrademining-level">1</span></p>
+                        <span class="separatorrr"></span>
+                    <p> <span class="upgrademining-cost">1000</span>  SP</p>
+                </div>
+             </div>
+          </div>
+          
+          <div class="upgrade-mining" id="Mine4">
+                <img src="i/mine4.png" alt="promotion">
+                <div class="upgrade-details">
+                    <h3><span class="upgrade-name">Photo gallery </span></h3>
+                    <p> <span class="profit-rate">+00.0hr</span></p>
+                    <div class="mining-cost-container">
+                    <p>Lvl : <span class="upgrademining-level">1</span></p>
+                        <span class="separatorrr"></span>
+                    <p><span class="upgrademining-cost">1000</span>  SP</p>
+                </div>
+             </div>
+          </div>
+          
+          <div class="upgrade-mining" id="Mine5">
+                <img src="i/mine5.png" alt="promotion">
+                <div class="upgrade-details">
+                    <h3><span class="upgrade-name">The painter</span></h3>
+                    <p> <span class="profit-rate">+00.0hr</span></p>
+                    <div class="mining-cost-container">
+                    <p>Lvl : <span class="upgrademining-level">1</span></p>
+                        <span class="separatorrr"></span>
+                    <p><span class="upgrademining-cost">1000</span>  SP</p>
+                </div>
+             </div>
+          </div>
+          
+          <div class="upgrade-mining" id="Mine6">
+                <img src="i/mine6.png" alt="promotion">
+                <div class="upgrade-details">
+                    <h3><span class="upgrade-name">Shark</span></h3>
+                    <p> <span class="profit-rate">+00.0hr</span></p>
+                    <div class="mining-cost-container">
+                    <p>Lvl : <span class="upgrademining-level">1</span></p>
+                        <span class="separatorrr"></span>
+                    <p><span class="upgrademining-cost">1000</span>  SP</p>
+                </div>
+             </div>
+          </div>
+          
+          <div class="upgrade-mining" id="Mine7">
+                <img src="i/mine7.png" alt="promotion">
+                <div class="upgrade-details">
+                    <h3><span class="upgrade-name">Hero</span></h3>
+                    <p> <span class="profit-rate">+00.0hr</span></p>
+                    <div class="mining-cost-container">
+                    <p>Lvl : <span class="upgrademining-level">1</span></p>
+                        <span class="separatorrr"></span>
+                    <p><span class="upgrademining-cost">1000</span>  SP</p>
+                </div>
+             </div>
+          </div>
+          
+          <div class="upgrade-mining" id="Mine8">
+                <img src="i/mine8.png" alt="promotion">
+                <div class="upgrade-details">
+                    <h3><span class="upgrade-name">The rich </span></h3>
+                    <p> <span class="profit-rate">+00.0hr</span></p>
+                    <div class="mining-cost-container">
+                    <p>Lvl : <span class="upgrademining-level">1</span></p>
+                        <span class="separatorrr"></span>
+                    <p><span class="upgrademining-cost">1000</span>  SP</p>
+                </div>
+             </div>
+          </div>
+          
+          <div class="upgrade-mining" id="Mine9">
+                <img src="i/mine9.png" alt="promotion">
+                <div class="upgrade-details">
+                    <h3><span class="upgrade-name">clouds</span></h3>
+                    <p> <span class="profit-rate">+00.0hr</span></p>
+                    <div class="mining-cost-container">
+                    <p>Lvl : <span class="upgrademining-level">1</span></p>
+                        <span class="separatorrr"></span>
+                    <p><span class="upgrademining-cost">1000</span>  SP</p>
+                </div>
+             </div>
+          </div>
+          
+          <div class="upgrade-mining" id="Mine10">
+                <img src="i/mine10.png" alt="promotion">
+                <div class="upgrade-details">
+                    <h3><span class="upgrade-name">Investment</span></h3>
+                    <p> <span class="profit-rate">+00.0hr</span></p>
+                    <div class="mining-cost-container">
+                    <p>Lvl : <span class="upgrademining-level">1</span></p>
+                        <span class="separatorrr"></span>
+                    <p><span class="upgrademining-cost">1000</span>  SP</p>
+                </div>
+             </div>
+          </div>
+
+            <div class="upgrade-mining" id="Mine11">
+                <img src="i/mine11.png" alt="promotion">
+                <div class="upgrade-details">
+                    <h3><span class="upgrade-name">film</span></h3>
+                    <p> <span class="profit-rate">+00.0hr</span></p>
+                    <div class="mining-cost-container">
+                    <p>Lvl : <span class="upgrademining-level">1</span></p>
+                        <span class="separatorrr"></span>
+                    <p> <span class="upgrademining-cost">1000</span>  SP</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="upgrade-mining" id="Mine12">
+             <img src="i/mine12.png" alt="promotion">
+                <div class="upgrade-details">
+                    <h3><span class="upgrade-name">Infinite</span></h3>
+                    <p> <span class="profit-rate">+00.0hr</span></p>
+                    <div class="mining-cost-container">
+                    <p>Lvl : <span class="upgrademining-level">1</span></p>
+                        <span class="separatorrr"></span>
+                    <p> <span class="upgrademining-cost">1000</span>  SP</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="upgrade-mining" id="Mine13">
+                <img src="i/mine13.png" alt="promotion">
+                <div class="upgrade-details">
+                    <h3><span class="upgrade-name">Gift cart</span></h3>
+                    <p> <span class="profit-rate">+00.0hr</span></p>
+                    <div class="mining-cost-container">
+                    <p>Lvl : <span class="upgrademining-level">1</span></p>
+                        <span class="separatorrr"></span>
+                    <p> <span class="upgrademining-cost">1000</span>  SP</p>
+                </div>
+              </div>
+            </div>
+
+             <div class="upgrade-mining" id="Mine14">
+                <img src="i/mine14.png" alt="promotion">
+                <div class="upgrade-details">
+                    <h3><span class="upgrade-name">Virtual reality</span></h3>
+                    <p> <span class="profit-rate">+00.0hr</span></p>
+                    <div class="mining-cost-container">
+                    <p>Lvl : <span class="upgrademining-level">1</span></p>
+                        <span class="separatorrr"></span>
+                    <p> <span class="upgrademining-cost">1000</span>  SP</p>
+                </div>
+              </div>
+             </div>
+        
+            <div class="upgrade-mining" id="Mine15">
+                <img src="i/mine15.png" alt="promotion">
+                <div class="upgrade-details">
+                    <h3><span class="upgrade-name">Games market </span></h3>
+                    <p> <span class="profit-rate">+00.0hr</span></p>
+                    <div class="mining-cost-container">
+                    <p>Lvl : <span class="upgrademining-level">1</span></p>
+                        <span class="separatorrr"></span>
+                    <p> <span class="upgrademining-cost">1000</span>  SP</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="upgrade-mining" id="Mine16">
+                <img src="i/mine16.png" alt="promotion">
+                <div class="upgrade-details">
+                    <h3><span class="upgrade-name">The prince</span></h3>
+                    <p> <span class="profit-rate">+00.0hr</span></p>
+                    <div class="mining-cost-container">
+                    <p>Lvl : <span class="upgrademining-level">1</span></p>
+                        <span class="separatorrr"></span>
+                    <p> <span class="upgrademining-cost">1000</span>  SP</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="upgrade-mining" id="Mine17">
+                <img src="i/mine17.png" alt="promotion">
+                <div class="upgrade-details">
+                    <h3><span class="upgrade-name">Flower cube </span></h3>
+                    <p> <span class="profit-rate">+00.0hr</span></p>
+                    <div class="mining-cost-container">
+                    <p>Lvl : <span class="upgrademining-level">1</span></p>
+                        <span class="separatorrr"></span>
+                    <p> <span class="upgrademining-cost">1000</span>  SP</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="upgrade-mining" id="Mine18">
+                <img src="i/mine18.png" alt="promotion">
+                <div class="upgrade-details">
+                    <h3><span class="upgrade-name">Paint brush </span></h3>
+                    <p> <span class="profit-rate">+00.0hr</span></p>
+                    <div class="mining-cost-container">
+                    <p>Lvl : <span class="upgrademining-level">1</span></p>
+                        <span class="separatorrr"></span>
+                    <p> <span class="upgrademining-cost">1000</span>  SP</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="upgrade-mining" id="Mine19">
+                <img src="i/mine19.png" alt="promotion">
+                <div class="upgrade-details">
+                    <h3><span class="upgrade-name">Diamonds</span></h3>
+                    <p> <span class="profit-rate">+00.0hr</span></p>
+                    <div class="mining-cost-container">
+                    <p>Lvl : <span class="upgrademining-level">1</span></p>
+                        <span class="separatorrr"></span>
+                    <p> <span class="upgrademining-cost">1000</span>  SP</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="upgrade-mining" id="Mine20">
+                <img src="i/mine20.png" alt="promotion">
+                <div class="upgrade-details">
+                    <h3><span class="upgrade-name">Big bank</span></h3>
+                    <p> <span class="profit-rate">+00.0hr</span></p>
+                    <div class="mining-cost-container">
+                    <p>Lvl : <span class="upgrademining-level">1</span></p>
+                        <span class="separatorrr"></span>
+                    <p> <span class="upgrademining-cost">1000</span>  SP</p>
+                </div>
+              </div>
+            </div>
+    
+        </div>
+    </div>
+</div>
+
+     
+
+         <!-- Notifications -->
+      <div id="copyInviteNotification" class="notification top-notification">Invite link copied!</div>
+      <div id="purchaseNotification" class="notification top-notification"></div>
+
+        <!-- Bottom Sheet Modal -->
+      <div id="upgradeConfirmation" class="confirmation-modal" style="display: none;">
+       <div class="modal-content">
+         <span id="closeModal" class="close">&times;</span> 
+           <div class="modal-image">
+           <img src="i/boostsx.gif" alt="Centered Image"> 
+         </div>
+         <span id="upgradeText">Are you sure you want to upgrade? Please note that the upgrade cost will be deducted from your coins.</span>
+          <div class="confirmation-buttons">
+          <button id="confirmUpgradeBtn" class="game-button">Upgrade</button>
+         </div>
+       </div>
+      </div>
+          
+        <!-- Bottom Navigation -->
+        <nav class="menu">
+            <button data-target="mainPage">
+                <img src="i/homeeee.png" alt="Play" class="menu-img">
+                MAIN 
+            </button>
+            <button data-target="tasksPage">
+                <img src="i/taskk.png" alt="Tasks" class="menu-img">
+                TASKS
+            </button>
+            <button data-target="accountPage">
+                <img src="i/Invitations.png" alt="Account" class="menu-img">
+                FRIENS
+            </button>
+            <button data-target="Puzzlespage">
+                <img src="i/puzzl.png" alt="Puzzles" class="menu-img">
+                PUZZLE
+            </button>
+         </nav>
+     </div>
+    
+   <script type="module" src="script-sdgbjbnnjbjbjbj.js"></script>
+     <script type="module" src="Scripts/Not-saving.js"></script>
+       <script type="module" src="Scripts/Level-Group.js"></script>
+    
+</body>
+</html>
