@@ -1,4 +1,23 @@
 .bos-image {
+    position: relative; /* الصورة ستظل مكانها */
+    width: 100%;
+    height: auto;
+    display: block;
+    opacity: 0.7;
+    
+   /* position: absolute; 
+    top: 60px; 
+    left: 50%;
+    transform: translateX(-50%); 
+    width: 130px;
+    height: auto;
+    display: block;
+    margin-bottom: 20px; 
+    opacity: 0.7;
+    z-index: 0;*/
+}
+
+#bosts {
     position: absolute; /* جعل الصورة تظهر فوق الخلفية */
     top: 60px; /* تعديل المسافة من أعلى الحاوية، حسب احتياجك */
     left: 50%;
@@ -9,7 +28,8 @@
     margin-bottom: 20px; 
     opacity: 0.7;
     z-index: 0; 
-}
+} 
+
 /*#boosts3, 
 #boosts4 {
     filter: blur(3px); 
@@ -115,6 +135,7 @@
 
 /* الحاوية الرئيسية */
 .boosts-container {
+    position: relative;
     display: flex;
     flex-direction: column; /* ترتيب العناصر عموديًا */
     align-items: center; /* محاذاة الحاويات في المنتصف أفقيًا */
@@ -122,7 +143,7 @@
     width: 100%; /* عرض الحاوية الرئيسية */
   /*  padding: 10px;*/
     margin-top: 10px;
-    z-index: 1; 
+    z-index: 2; 
 }
 
 /* العنصر الفردي */
