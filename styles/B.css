@@ -1,9 +1,9 @@
-/*#boosts3, 
+#boosts3, 
 #boosts4 {
-    filter: blur(3px); 
-    border: 2px solid darkashen; 
-    pointer-events: none;
-}*/
+    filter: blur(3px); /* يجعل العنصر ضبابيًا */
+    border: 2px solid darkashen; /* حواف حمراء داكنة */
+    pointer-events: none; /* تعطيل التفاعل مع العنصر */
+}
 
 .badgee {
   position: absolute;
@@ -96,8 +96,8 @@
 #b {
     text-align: left;
     font-size: 14px;
-    margin-bottom: 10px;
-    margin-left: 10px;
+    margin-bottom: 5px;
+    margin-left: 12px;
     color: #fff;
 }
 
