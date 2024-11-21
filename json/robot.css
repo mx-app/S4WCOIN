@@ -77,9 +77,9 @@
 }
 
 .robot-meta {
-    display: flex; /* استخدام Flexbox لعرض العناصر بجانب بعضها */
     font-size: 0.6em;
     color: #808080;
+    text-align: center;
 }
 
 
