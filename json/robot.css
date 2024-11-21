@@ -2,20 +2,20 @@
     display: flex;
     align-items: center; /* محاذاة العناصر رأسيًا */
     justify-content: space-between; /* توزيع المساحة بين العناصر */
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    background: linear-gradient(135deg, #000, #808080);
     border-radius: 10px;
-    padding: 20px;
+    padding: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     color: white;
     font-family: 'Arial', sans-serif;
     margin: 20px auto;
-    width: 90%; /* العرض الكلي للحاوية */
-    height: 60px;
+    width: 80%; /* العرض الكلي للحاوية */
+    height: 50px;
 }
 
 #robotContainer img {
-    width: 60px;
-    height: 60px; /* لتحديد أبعاد متساوية */
+    width: 40px;
+    height: 40px; /* لتحديد أبعاد متساوية */
     border-radius: 10px; /* لإعطاء الصورة شكل دائري */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* لإضافة ظل للصورة */
     object-fit: cover; /* التأكد من أن الصورة تناسب الإطار */
@@ -46,10 +46,10 @@
 }
 
 #robotContainer button {
-    background: #000;
+    background: #fff;
     color: #2575fc;
     border: none;
-    padding: 5px 8px;
+    padding: 4px 5px;
     border-radius: 10px;
     font-size: 0.9em;
     cursor: pointer;
