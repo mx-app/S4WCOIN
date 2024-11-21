@@ -16,10 +16,12 @@
 }
 
 #robotContainer img {
-    width: 30px;
-    height: 30px; /* لتحديد أبعاد متساوية */
+    width: 40px;
+    height: 40px; /* لتحديد أبعاد متساوية */
     border-radius: 10px; /* لإعطاء الصورة شكل دائري */
     object-fit: cover; /* التأكد من أن الصورة تناسب الإطار */
+    box-shadow: 0 0 3px rgba(255, 255, 255, 0.5), 0 0 6px rgba(255, 255, 255, 0.3), 0 0 9px rgba(255, 255, 255, 0.2);
+    transition: box-shadow 0.3s ease;
 }
 
 #robotContainer .robot-left {
@@ -79,3 +81,10 @@
     color: #808080;
 }
 
+#text-robot {
+    color: #fff; /* لون النص */
+    font-size: 17px; /* حجم الخط */
+    margin-bottom: 10px; /* إزالة المسافة من الأعلى */
+    margin-top: 5px;
+    text-align: center;
+}
