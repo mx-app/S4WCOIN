@@ -12,11 +12,11 @@
     font-family: 'Arial', sans-serif;
     margin: 20px auto;
     width: 85%; /* العرض الكلي للحاوية */
-    height: 50px;
+    height: 60px;
 }
 
 #robotContainer img {
-    margin-left: 0;
+    margin-left: 3px;
     width: 40px;
     height: 40px; /* لتحديد أبعاد متساوية */
     border-radius: 10px; /* لإعطاء الصورة شكل دائري */
@@ -78,7 +78,6 @@
 
 .robot-meta {
     display: flex; /* استخدام Flexbox لعرض العناصر بجانب بعضها */
-    justify-content: center; /* توسيط العناصر أفقياً */
     font-size: 0.6em;
     color: #808080;
 }
