@@ -688,11 +688,11 @@ function showUpgradeModal(upgradeType) {
         if (upgradeType === 'boost') {
             cost = gameState.boostLevel * 500 + 500;
             uiElements.upgradeText.innerText = `Are you sure you want to upgrade your click multiplier? It will cost ${cost} coins.`;
-            uiElements.currentLevel.innerText = `Current Click Multiplier: ×${gameState.clickMultiplier}`;
+            uiElements.multiplierDisplay.innerText = `Current Click Multiplier: ×${gameState.clickMultiplier}`;
         } else if (upgradeType === 'coin') {
             cost = gameState.coinBoostLevel * 500 + 500;
             uiElements.upgradeText.innerText = `Are you sure you want to upgrade your max coins? It will cost ${cost} coins.`;
-            uiElements.currentLevel.innerText = `Current Max Coins: ${formatNumber(gameState.maxEnergy)}`;
+            uiElements.maxEnergyDisplay.innerText = `Current Max Coins: ${formatNumber(gameState.maxEnergy)}`;
         }
 
         // تحديث العملات المتاحة وتكلفة الترقية
