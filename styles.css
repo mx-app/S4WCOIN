@@ -385,6 +385,7 @@ img {
     z-index: 100;
     border-top-left-radius: 10px; 
     border-top-right-radius: 10px; 
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1); /* ظل متلاشي تدريجي */
 }
 
 .menu button {
@@ -475,7 +476,7 @@ img {
     gap: 8px; /* مسافة بين الصورة والنص */
     width: 75%; 
     height: 60px;
-    background: linear-gradient(90deg, #343434, #1a1a1a); /* تدرج خلفية */
+    background-color: rgba(0, 0, 0, 0.9);
     /* background: #1c1c1c;*/
     color: #fff;
     border: 0.50px solid #343434; 
@@ -489,7 +490,7 @@ img {
 
 
 .invite-more:hover {
-    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
+    background: linear-gradient(90deg, #343434, #1a1a1a);
 } 
 
 #inviteInfo {
@@ -507,7 +508,8 @@ img {
     gap: 8px; /* مسافة بين الصورة والنص */
     width: 20%; 
     height: 60px;
-    background: linear-gradient(90deg, #343434, #1a1a1a); /* تدرج خلفية */
+    background-color: rgba(0, 0, 0, 0.9);
+    /*background: linear-gradient(90deg, #343434, #1a1a1a);*/
     /*background: #1c1c1c;*/
     color: #fff;
     border: 0.50px solid #343434; 
@@ -521,7 +523,7 @@ img {
 } 
 
 .invite-copy:hover {
-   background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
+   background: linear-gradient(90deg, #343434, #1a1a1a);
 } 
 
 .invite-icon {
@@ -546,15 +548,16 @@ img {
 .friends-list {
     margin: 10px auto;
     /*margin-top: 10px;*/
-    border: 0.50px solid #343434; 
+   /* border: 0.50px solid #343434;*/
     padding: 0;
     list-style: none;
-    color: #aaaaaa;
+    color: #808080;
     width: 87%; /* لجعل العرض 80% */
     padding: 8px; 
     font-size: 16px; 
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px); /* تأثير الضبابية */
+    background-color: rgba(255, 255, 255, 0.0008);
+   /* background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);*/ /* تأثير الضبابية */
     border-radius: 10px;      
     display: block;
 }
@@ -872,8 +875,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(1px);
+    background-color: rgba(0, 0, 0, 0.9);
     padding: 5px;
     border-radius: 10px;
     color: #fff;
@@ -972,5 +974,98 @@ img {
     height: 100%; /* ضمان الامتداد داخل الحاوية */
     justify-content: center; /* ضمان توسيط المحتوى عموديًا */
     position: relative; 
+}
+
+
+
+
+#invitedCount {
+    color: #fff;
+}
+
+/*.friends-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}*/
+
+.friend-item {
+    display: flex;
+    justify-content: space-between; /* توزيع العناصر بشكل متساوٍ */
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.0008);
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 10px;
+    border-bottom: 0.50px solid #000;
+    transition: background-color 0.3s ease;
+}
+
+.friend-item:hover {
+    background-color: #1a1a1a;
+}
+
+.friend-info {
+    display: flex;
+    align-items: center;
+}
+
+.friend-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.friend-name {
+    font-size: 14px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.friend-balance {
+    font-size: 12px;
+    color: #808080; /* لون مميز للرصيد */
+    font-weight: bold;
+    text-align: right; /* محاذاة الرصيد إلى اليمين */
+}
+
+
+
+.invite-card {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  border: 0.5px solid #808080;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 300px;
+  margin: 20px auto;
+  font-family: 'Arial', sans-serif;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.invite-header h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #fff; /* لون النص البارز */
+}
+
+.invite-content p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 10px 0;
+}
+
+.invite-icon {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.invite-icon img {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  border: 0.50px solid #808080;
 }
  
