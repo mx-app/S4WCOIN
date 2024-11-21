@@ -42,10 +42,11 @@
 }
 
 #robotContainer button {
-    background: #fff;
-    color: #2575fc;
+    background-color: rgba(0, 0, 0, 0.7);
+    font-weight: bold;
+    color: #808080;
     border: none;
-    padding: 4px 5px;
+    padding: 7px 5px;
     border: 0.50px solid #343434;
     border-radius: 10px;
     font-size: 0.6em;
