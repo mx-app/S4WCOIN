@@ -89,7 +89,7 @@
     opacity: 0.7;
 }
 
-.boost-item button {
+.boost-item, .boost-item-free button {
     margin-right: 5px; 
    /* background-color: rgba(0, 0, 0, 0.7);*/
     background-color: rgba(255, 255, 255, 0.004);
@@ -166,7 +166,7 @@
     line-height: 1.5;
 } 
 
-.boost-item img { 
+.boost-item, .boost-item-free img { 
     width: 40px;
     height: 40px;
     box-shadow: 0 0 3px rgba(255, 255, 255, 0.5), 0 0 6px rgba(255, 255, 255, 0.3), 0 0 9px rgba(255, 255, 255, 0.2);
