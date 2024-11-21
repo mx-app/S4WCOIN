@@ -180,6 +180,10 @@ async function saveGameState() {
         last_login_date: gameState.lastLoginDate ? new Date(gameState.lastLoginDate).toISOString() : null,
         consecutive_days: gameState.consecutiveDays,
         achieved_Levels: gameState.achievedLevels,
+        
+        robot_level: gameState.robotLevel, // مستوى الروبوت
+        robot_active: gameState.robotActive, // حالة الروبوت
+        robot_click_value: gameState.robotClickValue, // قيمة النقر التلقائي
     };
 
     try {
@@ -1127,7 +1131,11 @@ async function updateUserData() {
             morse_ciphers_progress: gameState.ciphersProgress, 
             achieved_Levels: gameState.achievedLevels, 
             last_login_date: gameState.lastLoginDate ? new Date(gameState.lastLoginDate).toISOString() : null,
-            consecutive_days: gameState.consecutiveDays
+            consecutive_days: gameState.consecutiveDays, 
+            
+            robot_level: gameState.robotLevel, // مستوى الروبوت
+            robot_active: gameState.robotActive, // حالة الروبوت
+            robot_click_value: gameState.robotClickValue
             
         })
         .eq('telegram_id', userId);
@@ -2369,7 +2377,7 @@ async function addPromoCodeToUsed(enteredCode) {
 /////////////////////////////////////////
 
 document.getElementById('buyRobotBtn').addEventListener('click', () => {
-    const cost = 1000; // تكلفة شراء الروبوت
+    const cost = 50000; // تكلفة شراء الروبوت
 
     if (gameState.balance >= cost) {
         gameState.balance -= cost;
