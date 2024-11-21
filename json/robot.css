@@ -77,10 +77,18 @@
 }
 
 .robot-meta {
-    font-size: 0.6em;
+    display: flex;
+    flex-direction: row; /* ترتيب الليفيل والتكلفة أفقيًا */
+    justify-content: space-between; /* توزيع العناصر بالتساوي */
+    margin-top: 5px; /* مسافة صغيرة بين الوصف والليفيل/التكلفة */
+    color: #808080;
+    font-size: 0.7em; /* حجم النص أصغر قليلاً */
+}
+
+   /* font-size: 0.7em;
     color: #808080;
     text-align: center;
-}
+}*/
 
 
 #text-robot {
