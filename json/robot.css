@@ -17,6 +17,7 @@
 }
 
 #robotContainer img {
+    margin-left: 4px;
     width: 40px;
     height: 40px; /* لتحديد أبعاد متساوية */
     border-radius: 10px; /* لإعطاء الصورة شكل دائري */
