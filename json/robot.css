@@ -1,0 +1,52 @@
+#robotContainer {
+    width: 300px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: white;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    margin: 20px auto;
+}
+
+#robotContainer h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+#robotContainer p {
+    font-size: 1em;
+    margin: 10px 0;
+}
+
+#robotContainer button {
+    background: #ffffff;
+    color: #2575fc;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#robotContainer button:hover {
+    background-color: #6a11cb;
+    color: white;
+    transform: translateY(-3px);
+}
+
+#robotContainer button:disabled {
+    background: #ccc;
+    color: #fff;
+    cursor: not-allowed;
+}
+
+#robotContainer #robotStatus {
+    font-size: 0.9em;
+    font-style: italic;
+    margin-top: 15px;
+    color: #f0f0f0;
+}
