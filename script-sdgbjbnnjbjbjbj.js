@@ -125,7 +125,6 @@ async function updateGameStateInDatabase(updatedData) {
 async function loadGameState() {
     const userId = uiElements.userTelegramIdDisplay.innerText;
 
-    // تحميل البيانات من قاعدة البيانات مباشرة، دون الالتفات إلى LocalStorage
     try {
         console.log('Loading game state from Supabase...');
         const { data, error } = await supabase
@@ -135,20 +134,21 @@ async function loadGameState() {
             .single();
 
         if (error) {
-            console.error('Error loading game state from Supabase:', error);
+            console.error('Error loading game state from Supabase:', error.message);
             return;
         }
 
         if (data) {
-            gameState = { ...gameState, ...data }; // تحديث حالة اللعبة من قاعدة البيانات
-            updateUI(); // تحديث واجهة المستخدم
+            console.log('Loaded game state:', data); // عرض البيانات المحملة
+            gameState = { ...gameState, ...data };
+            updateUI();
         } else {
             console.warn('No game state found for this user.');
         }
     } catch (err) {
         console.error('Unexpected error:', err);
     }
-} 
+}
 
 
 // حفظ حالة اللعبة في LocalStorage وقاعدة البيانات
@@ -721,7 +721,6 @@ function confirmUpgradeAction() {
         cost = gameState.coinBoostLevel * 500 + 500;
     }
 
-    // التحقق من توافر العملات
     if (gameState.balance >= cost) {
         gameState.balance -= cost;
 
@@ -733,23 +732,21 @@ function confirmUpgradeAction() {
             gameState.maxEnergy += 500;
         }
 
-        // تحديث البيانات
-        updateUI();
-        saveGameState();
+        updateUI(); // تحديث واجهة المستخدم
+        saveGameState(); // حفظ التحديثات
         updateGameStateInDatabase({
             balance: gameState.balance,
-            boostLevel: gameState.boostLevel,
-            clickMultiplier: gameState.clickMultiplier,
-            coinBoostLevel: gameState.coinBoostLevel,
-            maxEnergy: gameState.maxEnergy,
+            boost_level: gameState.boostLevel,
+            click_multiplier: gameState.clickMultiplier,
+            coin_boost_level: gameState.coinBoostLevel,
+            max_energy: gameState.maxEnergy,
         });
 
-        showNotificationWithStatus(uiElements.purchaseNotification, `Successfully upgraded!`, 'win');
+        showNotificationWithStatus(uiElements.purchaseNotification, 'Successfully upgraded!', 'win');
     } else {
-        showNotificationWithStatus(uiElements.purchaseNotification, `Not enough coins!`, 'lose');
+        showNotificationWithStatus(uiElements.purchaseNotification, 'Not enough coins!', 'lose');
     }
 
-    // إخفاء النافذة المنبثقة
     uiElements.upgradeModal.style.display = 'none';
 }
 
