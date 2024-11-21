@@ -15,7 +15,7 @@
 
 .Morsecountdown-display {
     position: absolute;
-    top: 200px;
+    top: 180px;
     right: 55px;
     font-size: 18px; /* حجم الخط */
     display: flex;
@@ -31,7 +31,7 @@
 
 .countdown-display {
     position: absolute;
-    top: 200px;
+    top: 180px;
     left: 55px;
     font-size: 18px; /* حجم الخط */
     display: flex;
@@ -63,7 +63,7 @@
 #Puzzlespage .puzzles-container {
     display: grid;
     grid-template-columns: repeat(2, 44%); /* عرض كل عنصرين بجانب بعض */
-    gap: 15px; /* المسافة بين العناصر */
+    gap: 20px; /* المسافة بين العناصر */
     justify-content: center; /* محاذاة العناصر في المنتصف */
     margin-top: 10px;
 }
