@@ -1,11 +1,5 @@
 .bos-image {
-    position: relative; /* الصورة ستظل مكانها */
-    width: 100%;
-    height: auto;
-    display: block;
-    opacity: 0.7;
-    
-   /* position: absolute; 
+   position: absolute; 
     top: 60px; 
     left: 50%;
     transform: translateX(-50%); 
@@ -14,7 +8,7 @@
     display: block;
     margin-bottom: 20px; 
     opacity: 0.7;
-    z-index: 0;*/
+    z-index: 0;
 }
 
 #bosts {
@@ -27,7 +21,7 @@
     display: block;
     margin-bottom: 20px; 
     opacity: 0.7;
-    z-index: 0; 
+    z-index: 1; 
 } 
 
 /*#boosts3, 
