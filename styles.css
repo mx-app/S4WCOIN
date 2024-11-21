@@ -569,7 +569,7 @@ img {
 }
 
 
-/*.confirmation-modal {
+.confirmation-modal {
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px); 
     padding: 20px;
@@ -586,10 +586,10 @@ img {
     display: flex;
     flex-direction: column;
     justify-content: space-between; 
-}*/
+}
 
-/* تغطية الصفحة بالكامل */
-.confirmation-modal {
+
+/*.confirmation-modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -599,21 +599,20 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    backdrop-filter: blur(5px); /* تأثير الضبابية */
-    background-color: rgba(0, 0, 0, 0.5); /* لون شبه شفاف */
+    backdrop-filter: blur(5px); 
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
-/* محتوى النافذة */
 .modal-content {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);     padding: 20px;
     border-radius: 25px;
     text-align: center;
     width: 90%;
     max-width: 400px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-
+*/
 
 .modal-image img {
     width: 140px; /* حجم الصورة */
