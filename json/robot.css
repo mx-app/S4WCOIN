@@ -16,7 +16,7 @@
 }
 
 #robotContainer img {
-    margin-left: 10px;
+    margin-left: 0;
     width: 40px;
     height: 40px; /* لتحديد أبعاد متساوية */
     border-radius: 10px; /* لإعطاء الصورة شكل دائري */
@@ -77,14 +77,16 @@
 }
 
 .robot-meta {
-    text-align: center;
+    display: flex; /* استخدام Flexbox لعرض العناصر بجانب بعضها */
+    justify-content: center; /* توسيط العناصر أفقياً */
     font-size: 0.6em;
     color: #808080;
 }
 
+
 #text-robot {
     color: #fff; /* لون النص */
-    font-size: 17px; /* حجم الخط */
+    font-size: 14px; /* حجم الخط */
     margin-bottom: 10px; /* إزالة المسافة من الأعلى */
     margin-top: 5px;
     text-align: center;
