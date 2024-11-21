@@ -2432,7 +2432,7 @@ document.getElementById('activateRobotBtn').addEventListener('click', () => {
             gameState.robotActive = false;
             document.getElementById('robotStatus').innerText = 'Robot is inactive.';
         }, 60 * 1000);
-    }, 1000); // يقوم بالنقر كل ثانية
+    }, 200); // يقوم بالنقر كل ثانية
 });
 
 
