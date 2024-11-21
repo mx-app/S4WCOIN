@@ -9,7 +9,8 @@
     color: white;
     font-family: 'Arial', sans-serif;
     margin: 20px auto;
-    width: 400px; /* العرض الكلي للحاوية */
+    width: 90%; /* العرض الكلي للحاوية */
+    height: 60px;
 }
 
 #robotContainer img {
