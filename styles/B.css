@@ -3,10 +3,11 @@
     top: 60px; /* تعديل المسافة من أعلى الحاوية، حسب احتياجك */
     left: 50%;
     transform: translateX(-50%); /* توسيط الصورة أفقيا */
-    width: 105px;
+    width: 130px;
     height: auto;
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 20px; 
+    opacity: 0.7;
 }
 /*#boosts3, 
 #boosts4 {
