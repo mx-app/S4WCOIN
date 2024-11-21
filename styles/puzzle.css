@@ -16,7 +16,7 @@
 .Morsecountdown-display {
     position: absolute;
     top: 180px;
-    right: 55px;
+    right: 50px;
     font-size: 18px; /* حجم الخط */
     display: flex;
     align-items: center; /* لضبط المحاذاة الرأسية */
@@ -32,7 +32,7 @@
 .countdown-display {
     position: absolute;
     top: 180px;
-    left: 55px;
+    left: 50px;
     font-size: 18px; /* حجم الخط */
     display: flex;
     align-items: center; /* لضبط المحاذاة الرأسية */
@@ -46,9 +46,8 @@
 
 /* تأثير الضباب والتوهج عند عدم التفعيل */
 .puzzle-item.inactive {
-    filter: blur(5px); /* يجعل العنصر ضبابيًا */
-    border: 3px solid darkred; /* حواف حمراء داكنة */
-    box-shadow: 0 0 10px red; /* تأثير توهج حول العنصر */
+    filter: blur(10px); /* يجعل العنصر ضبابيًا */
+    border: 2px solid darkred; /* حواف حمراء داكنة */
     pointer-events: none; /* تعطيل التفاعل مع العنصر */
 }
 
