@@ -212,10 +212,10 @@
 } 
 
 .level-button-floating img {
-    width: 20px; 
-    height: 20px;
+    width: 35px; 
+    height: 35px;
     margin-right: 4px; 
-    opacity: 1;
+    opacity: 0.8;
 }
   
 .centered {
