@@ -3,7 +3,7 @@
     top: 60px; 
     left: 50%;
     transform: translateX(-50%); 
-    width: 130px;
+    width: 150px;
     height: auto;
     display: block;
     margin-bottom: 20px; 
@@ -11,18 +11,18 @@
     z-index: 0;
 }
 
-#bosts {
-    position: absolute; /* جعل الصورة تظهر فوق الخلفية */
-    top: 60px; /* تعديل المسافة من أعلى الحاوية، حسب احتياجك */
+/*#bosts {
+    position: absolute;
+    top: 60px; 
     left: 50%;
-    transform: translateX(-50%); /* توسيط الصورة أفقيا */
+    transform: translateX(-50%); 
     width: 130px;
     height: auto;
     display: block;
     margin-bottom: 20px; 
     opacity: 0.7;
     z-index: 1; 
-} 
+}*/
 
 /*#boosts3, 
 #boosts4 {
@@ -121,10 +121,10 @@
 /* النصوص */
 #b, #pr {
     text-align: left;
-    font-size: 14px;
+    font-size: 13px;
     margin-bottom: 0;
     margin-left: 15px;
-    color: #fff;
+    color: #808080;
 }
 
 /* الحاوية الرئيسية */
