@@ -94,6 +94,9 @@ let gameState = {
     ciphersProgress:[],
     lastLoginDate: null, // تاريخ آخر تسجيل دخول
     consecutiveDays: 0,  // عدد الأيام المتتالية التي تم المطالبة فيها بالمكافآت
+    robotLevel: 1, // مستوى الروبوت
+    robotActive: false, // حالة الروبوت
+    robotClickValue: 0.5, 
 };
 
 //تحديث البيانت من الواجهه الي قاعده البيانات 
