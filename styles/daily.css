@@ -1,3 +1,58 @@
+#DContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: space-between; 
+    width: 100%;
+    margin-top: 10px;
+    z-index: 2; 
+}
+
+.daily-itemm {
+    display: flex;
+    flex-direction: row; /* ترتيب المحتوى داخل العنصر أفقيًا */
+    align-items: center; /* محاذاة المحتوى عموديًا */
+    justify-content: space-between; /* توزيع العناصر بالتساوي */
+    width: 90%; /* عرض العنصر */
+    height: 65px;
+    padding: 10px;
+    margin: 10px auto;
+    background: rgba(255, 255, 255, 0.1); /* خلفية شفافة */
+    backdrop-filter: blur(5px); /* تمويه الخلفية */
+    border-radius: 10px; /* زوايا مستديرة */
+    border: 0.5px solid #343434; /* حدود العنصر */
+    box-sizing: border-box; /* لحساب الحواف ضمن الأبعاد */
+    overflow: hidden;
+}
+
+.daily-imagee {
+  width: 40px; /* يمكنك تغيير الحجم حسب الحاجة */
+  height: 40px;
+  border-radius: 10px; /* زوايا مستديرة */
+  border: 0.5px solid #343434; /* حدود العنصر */
+}
+
+.Daily-meta {
+  display: flex;
+  justify-content: flex-end; /* محاذاة السهم إلى اليمين */
+  margin-right: 5px;  
+}
+
+#Dailyaew {
+  text-align: right;
+  font-size: 13px;
+}
+
+.Daily-titlee {
+   font-size: 12px;
+   text-align: center;
+   color: #808080;
+   margin-bottom: 10px;  
+}
+
+
+
 .daily-item.claimed {
     opacity: 0.6;
     filter: blur(2px);
