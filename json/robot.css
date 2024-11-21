@@ -17,11 +17,9 @@
 }
 
 #robotContainer img {
-    margin-left: 0;
     width: 40px;
     height: 40px; /* لتحديد أبعاد متساوية */
     border-radius: 10px; /* لإعطاء الصورة شكل دائري */
-    object-fit: cover; /* التأكد من أن الصورة تناسب الإطار */
     box-shadow: 0 0 3px rgba(255, 255, 255, 0.5), 0 0 6px rgba(255, 255, 255, 0.3), 0 0 9px rgba(255, 255, 255, 0.2);
     transition: box-shadow 0.3s ease;
 }
