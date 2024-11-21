@@ -2,8 +2,8 @@
     display: flex;
     align-items: center; /* محاذاة العناصر رأسيًا */
     justify-content: space-between; /* توزيع المساحة بين العناصر */
-    background-color: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(1px);
+    background: rgba(255, 255, 255, 0.1); /* خلفية شفافة */
+    backdrop-filter: blur(5px); /* تمويه الخلفية */
     border-radius: 10px;
     border: 0.50px solid #343434;
     padding: 5px;
@@ -20,7 +20,6 @@
     height: 30px; /* لتحديد أبعاد متساوية */
     border-radius: 10px; /* لإعطاء الصورة شكل دائري */
     object-fit: cover; /* التأكد من أن الصورة تناسب الإطار */
-    margin-bottom: 10px;
 }
 
 #robotContainer .robot-left {
@@ -39,7 +38,7 @@
 }
 
 #robotContainer .robot-right p {
-    margin: 5px 0;
+    margin-left: 5px;
 }
 
 #robotContainer button {
