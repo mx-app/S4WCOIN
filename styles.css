@@ -613,7 +613,7 @@ img {
     bottom: 10px; /* المسافة من أسفل النافذة */
     left: 50%;
     transform: translateX(-50%); /* توسيط الحاوية أفقياً */
-    width: 80%; /* عرض الحاوية */
+    width: 100%; /* عرض الحاوية */
     z-index: 10000;
 }
 
@@ -623,6 +623,7 @@ img {
     width: 100%; /* التأكد من أن الأزرار تأخذ عرض الحاوية */
     height: 40px;
     color: #fff;
+    font-weight: bold;
     background-color: rgba(0, 0, 0, 0.9);
     margin: 10px 0; /* المسافة بين الأزرار */
 }
