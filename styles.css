@@ -604,7 +604,7 @@ img {
 }
 
  
-.popup-overlay {
+.popup-overlay, .Autoclick-overlay {
     position: relative;
     display: flex;
     flex-direction: column; /* وضع الأزرار فوق بعض */
@@ -617,7 +617,7 @@ img {
     z-index: 1000;
 }
 
-.popup-overlay button {
+.popup-overlay button, .Autoclick-overlay button {
     border-radius: 10px;
     border: 0.50px solid #343434;
     width: 100%; /* التأكد من أن الأزرار تأخذ عرض الحاوية */
@@ -628,14 +628,14 @@ img {
     margin: 10px 0; /* المسافة بين الأزرار */
 }
 
-.popup-overlay img {
+.popup-overlay img, .Autoclick-overlay img {
     width: 100px; /* حجم الصورة */
     height: 100px;
     margin: 10px auto; /* موازنة الصورة في المنتصف */
     display: block;
 }
 
-.popup-content {
+.popup-content, .Autoclick-content {
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     padding: 20px;
@@ -654,15 +654,6 @@ img {
     justify-content: space-between;
     animation: slideUp 0.5s ease-out forwards; /* إضافة تأثير التحريك */
 }
-
-/*@keyframes slideUp {
-    0% {
-        transform: translateX(-50%) translateY(100%);
-    }
-    100% {
-        transform: translateX(-50%) translateY(0);
-    }
-}*/
 
 #closePopupButton {
     position: absolute;
