@@ -605,15 +605,15 @@ img {
 
  
 .popup-overlay {
+    position: relative;
     display: flex;
     flex-direction: column; /* وضع الأزرار فوق بعض */
     align-items: center; /* توسيط الأزرار أفقيًا */
     justify-content: flex-end; /* جعل الأزرار تظهر في أسفل النافذة */
-    position: absolute; /* تأكد من أن الحاوية متمركزة داخل النافذة */
+    /*position: absolute;*/
     left: 50%;
     transform: translateX(-50%); /* توسيط الحاوية أفقياً */
     width: 100%; /* عرض الحاوية */
-    z-index: 10000;
 }
 
 .popup-overlay button {
@@ -654,15 +654,14 @@ img {
     animation: slideUp 0.5s ease-out forwards; /* إضافة تأثير التحريك */
 }
 
-/* تأثير التحريك من الأسفل */
-@keyframes slideUp {
+/*@keyframes slideUp {
     0% {
         transform: translateX(-50%) translateY(100%);
     }
     100% {
         transform: translateX(-50%) translateY(0);
     }
-}
+}*/
 
 #closePopupButton {
     position: absolute;
