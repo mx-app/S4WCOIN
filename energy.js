@@ -42,6 +42,9 @@ const uiElements = {
 // فتح نافذة الطاقة
 uiElements.free1.addEventListener('click', openEnergyPopup);
 
+// فتح نافذة النقر التلقائي
+uiElements.free2Element.addEventListener('click', openAutoclickPopup);
+
 function openEnergyPopup() {
     const currentTime = Date.now();
     const twentyFourHours = 24 * 60 * 60 * 1000; // 24 ساعة بالميلي ثانية
@@ -109,9 +112,6 @@ function updateEnergyUI() {
 
 // *** دوال النقر التلقائي ***
 
-uiElements.free2Element.addEventListener('click', openAutoclickPopup);
-
-// فتح نافذة النقر التلقائي
 function openAutoclickPopup() {
     const currentTime = Date.now();
     const twentyFourHours = 24 * 60 * 60 * 1000;
@@ -152,7 +152,7 @@ function activateAutoclick() {
         const currentTime = Date.now();
         if (currentTime - startTime < clickDuration) {
             uiElements.clickableImg.click();
-            createClickEffect(
+            createDiamondCoinEffect(
                 Math.random() * uiElements.clickableImg.offsetWidth,
                 Math.random() * uiElements.clickableImg.offsetHeight
             );
@@ -169,13 +169,25 @@ function activateAutoclick() {
 }
 
 // إنشاء تأثير النقر
-function createClickEffect(x, y) {
-    const clickEffect = document.createElement('div');
-    clickEffect.classList.add('click-effect');
-    clickEffect.style.left = `${x}px`;
-    clickEffect.style.top = `${y}px`;
-    document.body.appendChild(clickEffect);
-    setTimeout(() => clickEffect.remove(), 500);
+function createDiamondCoinEffect(x, y) {
+    const diamond = document.createElement('div');
+    diamond.classList.add('diamond-coin');
+    const multiplierText = document.createElement('span');
+    multiplierText.textContent = `+${gameState.clickMultiplier}`;
+    diamond.appendChild(multiplierText);
+    document.body.appendChild(diamond);
+
+    diamond.style.left = `${x}px`;
+    diamond.style.top = `${y}px`;
+
+    const balanceRect = uiElements.balanceDisplay.getBoundingClientRect();
+
+    setTimeout(() => {
+        diamond.style.transform = `translate(${balanceRect.left - x}px, ${balanceRect.top - y}px) scale(0.5)`;
+        setTimeout(() => {
+            diamond.remove();
+        }, 1000);
+    }, 50);
 }
 
 // الانتقال إلى الصفحة الرئيسية
@@ -199,8 +211,7 @@ function showNotification(message) {
     setTimeout(() => uiElements.purchaseNotification.classList.remove('show'), 4000);
 }
 
-// تحميل حالة اللعبة عند تحميل الصفحة
+// تحميل حالة البيانات عند تحميل الصفحة
 document.addEventListener('DOMContentLoaded', () => {
-    updateEnergyUI();
     uiElements.updateAttemptsElement.innerText = `${gameState.autClickCount}/2`;
 });
