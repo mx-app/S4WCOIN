@@ -95,9 +95,6 @@ let gameState = {
     ciphersProgress:[],
     lastLoginDate: null, // تاريخ آخر تسجيل دخول
     consecutiveDays: 0,  // عدد الأيام المتتالية التي تم المطالبة فيها بالمكافآت
-    robotLevel: 1, // مستوى الروبوت
-    robotActive: false, // حالة الروبوت
-    robotClickValue: 0.5, 
 };
 
 //تحديث البيانت من الواجهه الي قاعده البيانات 
@@ -183,9 +180,6 @@ async function saveGameState() {
         achieved_Levels: gameState.achievedLevels,
         caesar_puzzles_progress: gameState.caesarPuzzleProgress, 
         
-        robot_level: gameState.robotLevel, // مستوى الروبوت
-        robot_active: gameState.robotActive, // حالة الروبوت
-        robot_click_value: gameState.robotClickValue, // قيمة النقر التلقائي
     };
 
     try {
@@ -761,22 +755,22 @@ function confirmUpgradeAction() {
 
 
 // ملء الطاقة
-function fillEnergyAction() {
-    const twelveHours = 12 * 60 * 60 * 1000;
-    const currentTime = Date.now();
+//function fillEnergyAction() {
+    //const twelveHours = 12 * 60 * 60 * 1000;
+    //const currentTime = Date.now();
 
-    if (gameState.fillEnergyCount < 2 && currentTime - gameState.lastFillTime >= twelveHours) {
-        gameState.energy = gameState.maxEnergy;
-        gameState.fillEnergyCount += 1;
-        gameState.lastFillTime = currentTime;
-        updateUI();
-        showNotification(uiElements.purchaseNotification, 'Energy filled!');
-    } else {
-        showNotification(uiElements.purchaseNotification, 'You need to wait for the next free energy fill.');
-    }
-    updateUserData();
-    saveGameState();
-}
+   // if (gameState.fillEnergyCount < 2 && currentTime - gameState.lastFillTime >= twelveHours) {
+        //gameState.energy = gameState.maxEnergy;
+        //gameState.fillEnergyCount += 1;
+        //gameState.lastFillTime = currentTime;
+       // updateUI();
+        //showNotification(uiElements.purchaseNotification, 'Energy filled!');
+   // } else {
+       // showNotification(uiElements.purchaseNotification, 'You need to wait for the next free energy fill.');
+    //}
+   // updateUserData();
+   // saveGameState();
+//}
 
 
 //تعامل النقر 
@@ -901,23 +895,23 @@ function startEnergyRecovery() {
 }
 
 // التحقق من ملء الطاقة
-function checkEnergyFill() {
-    const currentTime = Date.now();
-    const twelveHours = 12 * 60 * 60 * 1000;
+//function checkEnergyFill() {
+   // const currentTime = Date.now();
+   // const twelveHours = 12 * 60 * 60 * 1000;
 
-    if (currentTime - gameState.lastFillTime >= twelveHours) {
-        gameState.fillEnergyCount = 0;
-        gameState.lastFillTime = currentTime;
+   // if (currentTime - gameState.lastFillTime >= twelveHours) {
+        //gameState.fillEnergyCount = 0;
+       // gameState.lastFillTime = currentTime;
 
         // تحديث البيانات
-        updateUI();
-        saveGameState();
-        updateGameStateInDatabase({
-            fillEnergyCount: gameState.fillEnergyCount,
-            lastFillTime: gameState.lastFillTime,
-        });
-    }
-}
+        //updateUI();
+       // saveGameState();
+       // updateGameStateInDatabase({
+           // fillEnergyCount: gameState.fillEnergyCount,
+           // lastFillTime: gameState.lastFillTime,
+      //  });
+   // }
+//}
 
 //////////////////////////////////
 
@@ -1192,10 +1186,6 @@ async function updateUserData() {
             consecutive_days: gameState.consecutiveDays, 
             caesar_puzzles_progress: gameState.caesarPuzzleProgress, 
      
-            robot_level: gameState.robotLevel, // مستوى الروبوت
-            robot_active: gameState.robotActive, // حالة الروبوت
-            robot_click_value: gameState.robotClickValue
-            
         })
         .eq('telegram_id', userId);
 
@@ -1832,8 +1822,6 @@ document.getElementById('puzzle1').addEventListener('click', function() {
 
 
 
-
-
 ///////////////////////////////////////////////////
 
 
@@ -1841,10 +1829,6 @@ document.getElementById('puzzle1').addEventListener('click', function() {
 
 
 //////////////////////////////////////////////
-
-
-
-
 
 
 
@@ -2047,22 +2031,13 @@ document.addEventListener('DOMContentLoaded', () => {
     
 
 
- 
-
-
-
-
-
 
 /////////////////////////////////////
 
 
 
 
-
 /////////////////////////////////////////////////
-
-
 
 
 
@@ -2278,8 +2253,6 @@ function showContent(contentId) {
 
 
 
-
-
 document.getElementById('applyPromoCode').addEventListener('click', async () => {
     const applyButton = document.getElementById('applyPromoCode');
     const promoCodeInput = document.getElementById('promoCodeInput');
@@ -2418,10 +2391,10 @@ async function addPromoCodeToUsed(enteredCode) {
 }
 
 
-
-
-
 /////////////////////////////////////////
+
+
+
 
 /////////////////////////////////////////
 
@@ -2489,8 +2462,6 @@ document.getElementById('activateRobotBtn').addEventListener('click', () => {
 //////////////////////////////////////
 
 
-
-
 // استلام رابط الدعوة عند الانضمام
 function handleInvite() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -2532,11 +2503,28 @@ document.addEventListener('DOMContentLoaded', handleInvite);
 
 
 
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
 // تفعيل التطبيق
 initializeApp();
 
 
-
 //localStorage.removeItem('gameState'); // مسح حالة اللعبة
 //loadGameState(); // إعادة تحميل حالة اللعبة
-
