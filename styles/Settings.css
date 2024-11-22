@@ -158,11 +158,13 @@
 }
 
 .account-summary p {
+    border-radius: 10px; 
     color: #ffffff;
     background-color: rgba(0, 0, 0, 0.9);
     margin-bottom: 10px; /* إضافة تباعد بين الفقرات */
     width: auto; /* حجم الصورة */
-    height: 20px;
+    height: 15px;
     padding: 10px;
+    font-size: 14px;
 }
  
