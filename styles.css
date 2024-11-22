@@ -664,7 +664,7 @@ img {
     }
 }
 
-.energy-close {
+/*.energy-close {
     position: absolute;
     top: 10px;
     right: 20px;
@@ -672,7 +672,7 @@ img {
     font-weight: bold;
     color: white;
     cursor: pointer;
-} 
+}*/
  
 /*.confirmation-modal {
     position: fixed;
@@ -720,9 +720,9 @@ img {
 /* الأزرار في أسفل النافذة */
 .confirmation-buttons {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
     gap: 13px;
-    margin-top: auto; /* لجعل الأزرار في الأسفل */
+   /* margin-top: auto;*/ /* لجعل الأزرار في الأسفل */
 }
 
 .confirmation-buttons .game-button {
