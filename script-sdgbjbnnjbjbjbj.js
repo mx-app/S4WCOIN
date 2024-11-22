@@ -901,23 +901,23 @@ function startEnergyRecovery() {
 }
 
 // التحقق من ملء الطاقة
-function checkEnergyFill() {
-    const currentTime = Date.now();
-    const twelveHours = 12 * 60 * 60 * 1000;
+//function checkEnergyFill() {
+   // const currentTime = Date.now();
+   // const twelveHours = 12 * 60 * 60 * 1000;
 
-    if (currentTime - gameState.lastFillTime >= twelveHours) {
-        gameState.fillEnergyCount = 0;
-        gameState.lastFillTime = currentTime;
+   // if (currentTime - gameState.lastFillTime >= twelveHours) {
+       // gameState.fillEnergyCount = 0;
+      //  gameState.lastFillTime = currentTime;
 
         // تحديث البيانات
-        updateUI();
-        saveGameState();
-        updateGameStateInDatabase({
-            fillEnergyCount: gameState.fillEnergyCount,
-            lastFillTime: gameState.lastFillTime,
-        });
-    }
-}
+        //updateUI();
+       // saveGameState();
+       // updateGameStateInDatabase({
+           // fillEnergyCount: gameState.fillEnergyCount,
+            //lastFillTime: gameState.lastFillTime,
+       // });
+   // }
+//}
 
 //////////////////////////////////
 
