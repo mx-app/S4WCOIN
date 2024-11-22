@@ -103,7 +103,7 @@
     justify-content: flex-start;
     /*justify-content: center;*//* توسيط النص داخل الحاوية */
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.9);
     font-size: 10px; 
     color: #ffffff; 
     width: 80%;
@@ -145,9 +145,9 @@
 }
 
 .account-summary {
-    background-color: rgba(0, 0, 0, 0.7);
+  /*  background-color: rgba(0, 0, 0, 0.7);*/
     color: #ffffff;
-    border: 0.50px solid #343434;
+   /* border: 0.50px solid #343434;*/
     border-radius: 10px;
     margin: 70px auto 25px auto; 
     width: 90%;
@@ -158,6 +158,11 @@
 }
 
 .account-summary p {
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.9);
     margin-bottom: 10px; /* إضافة تباعد بين الفقرات */
+    width: auto; /* حجم الصورة */
+    height: 20px;
+    padding: 10px;
 }
  
