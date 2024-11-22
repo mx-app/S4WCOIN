@@ -77,9 +77,8 @@
 }
 
 .task-item button {
-    background-color: rgba(255, 255, 255, 0.001);
-    color: #ffffff;
-    opacity: 0.6;
+    background-color: rgba(255, 255, 255, 0.0001);
+    color: #808080;
     border-radius: 10px;
     cursor: pointer;
     width: 20%;
@@ -87,7 +86,7 @@
     transition: background-color 0.3s;
     /*border: 1px solid #343434;*/
     font-weight: bold;
-    font-size: 15px;
+    font-size: 14px;
     z-index: 10;
     margin-left: auto; /* يجعل الزر في الجهة اليمنى */
 }
@@ -138,8 +137,6 @@
     left: 50px; 
     top: 80%;
 }*/
- 
- 
 
 .info-task {
     display: flex;
