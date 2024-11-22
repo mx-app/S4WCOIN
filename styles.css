@@ -879,7 +879,7 @@ img {
     padding: 5px;
     border-radius: 10px;
     color: #fff;
-    border: 0.50px solid #343434;
+    /*border: 0.50px solid #343434;*/
 }
 
 .right-section {
@@ -1033,11 +1033,11 @@ img {
 
 
 .invite-card {
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-/* background-color: rgba(0, 0, 0, 0.9);*/
+/* background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);*/
+  background-color: rgba(0, 0, 0, 0.9);
   color: #fff;
-  border: 0.01px solid #808080;
+/* border: 0.01px solid #808080;*/
   border-radius: 10px;
   width: 87%;
   padding: 10px;
