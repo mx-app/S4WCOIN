@@ -584,7 +584,7 @@ img {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%) translateY(100%); /* بداية من أسفل الشاشة */
-    width: 84%;
+    width: 85%;
     height: 50vh;
     z-index: 10000;
     display: flex;
@@ -609,7 +609,15 @@ img {
     border: 0.50px solid #343434;
     width: 80%;
     height: 40px;
+    color: #fff;
     background-color: rgba(0, 0, 0, 0.9);
+}
+
+.popup-overlay img {
+    width: 50px; /* حجم الصورة */
+    height: 50px;
+    margin: 10px auto; /* موازنة الصورة في المنتصف */
+    display: block;
 }
 
 .popup-content {
@@ -623,7 +631,7 @@ img {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%) translateY(100%); /* بداية من أسفل الشاشة */
-    width: 84%;
+    width: 85%;
     height: 50vh;
     z-index: 10000;
     display: flex;
