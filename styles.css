@@ -614,6 +614,7 @@ img {
     left: 50%;
     transform: translateX(-50%); /* توسيط الحاوية أفقياً */
     width: 100%; /* عرض الحاوية */
+    z-index: 1000;
 }
 
 .popup-overlay button {
