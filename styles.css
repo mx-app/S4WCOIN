@@ -691,8 +691,8 @@ img {
 */
 
 .modal-image img {
-    width: 140px; /* حجم الصورة */
-    height: 140px;
+    width: 120px; /* حجم الصورة */
+    height: 120px;
     margin: 10px auto; /* موازنة الصورة في المنتصف */
     display: block;
     flex-grow: 5;
@@ -714,17 +714,17 @@ img {
     justify-content: space-around;
     gap: 13px;
     margin-top: auto; /* لجعل الأزرار في الأسفل */
-    padding: 10px 0; /* إضافة مسافة للأزرار من الأسفل */
 }
 
 .confirmation-buttons .game-button {
-    padding: 10px 20px;
+    width: 100%; /* التأكد من أن الأزرار تأخذ عرض الحاوية */
+    height: 40px;
     font-size: 15px;
     font-weight: bold;
     border-radius: 10px;
     border: 1px solid #343434; 
     cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.9);
     color: #ffffff;
     transition: background-color 0.3s ease;
 }
