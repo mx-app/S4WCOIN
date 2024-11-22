@@ -22,7 +22,7 @@
     /*background: rgba(255, 255, 255, 0.1); 
     backdrop-filter: blur(5px); */
     border-radius: 10px; /* زوايا مستديرة */
-    border: 0.5px solid #343434; /* حدود العنصر */
+    border: 1px solid #1a1a1a; /* حدود العنصر */
     box-sizing: border-box; /* لحساب الحواف ضمن الأبعاد */
     overflow: hidden;
 }
@@ -32,7 +32,7 @@
   height: 30px;
   padding: 8px;
   border-radius: 10px; /* زوايا مستديرة */
-  border: 0.5px solid #343434; /* حدود العنصر */
+  border: 1px solid #1a1a1a; /* حدود العنصر */
 }
 
 .Daily-meta {
@@ -110,7 +110,7 @@
     flex-direction: column;  /* وضع النص والصورة عموديًا */
     align-items: center;  /* محاذاة العناصر عموديًا في المنتصف */
     justify-content: flex-start;  /* المحاذاة بداية من الأعلى */
-    border: 0.50px solid #343434;
+    border: 1px solid #1a1a1a; 
     border-radius: 10px;
     font-size: 15px;
     padding: 10px;
@@ -181,7 +181,7 @@
     color: #ffffff;
     font-size: 18px;
     font-weight: bold;
-    border: 0.50px solid #343434;
+    border: 1px solid #1a1a1a; 
     border-radius: 10px;
     cursor: pointer;
     margin: 0 auto;
