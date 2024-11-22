@@ -878,7 +878,7 @@ function startEnergyRecovery() {
         // التأكد من وجود طاقة أقل من الحد الأقصى
         if (gameState.energy < gameState.maxEnergy) {
             // إذا كانت الطاقة صفر أو أقل من الحد الأقصى، يتم زيادتها بمقدار 10
-            gameState.energy = Math.min(gameState.maxEnergy, gameState.energy + 2);
+            gameState.energy = Math.min(gameState.maxEnergy, gameState.energy + 5);
 
             // تحديث الوقت الأخير لملء الطاقة
             gameState.lastFillTime = Date.now();
@@ -891,7 +891,7 @@ function startEnergyRecovery() {
                 lastFillTime: gameState.lastFillTime,
             });
         }
-    }, 5000); // تنفيذ الدالة كل 5 ثوانٍ
+    }, 3000); // تنفيذ الدالة كل 5 ثوانٍ
 }
 
 // التحقق من ملء الطاقة
