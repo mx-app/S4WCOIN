@@ -147,29 +147,30 @@
 
 #Puzzlespage .puzzle-content {
     background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px); 
-    padding: 10px; 
+    backdrop-filter: blur(10px);
+    padding: 10px;
     border-radius: 25px 25px 0 0;
     border-top: 2px solid #343434;
     text-align: center;
     position: fixed;
-    bottom: 0;
+    bottom: -100%; /* بدء العنصر خارج الشاشة */
     left: 50%;
-    transform: translateX(-50%) translateY(0); /* للتوسيط من اليمين لليسار */
+    transform: translateX(-50%) translateY(0);
     width: 90%;
     height: 80vh;
-    z-index: 9999; /* قيمة z-index عالية جداً */
+    z-index: 9999;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* تقريب العناصر ببعضها */
-    gap: 5px; /* تقليل المسافة بين العناصر */
-    transition: opacity 0.5s ease, transform 0.5s ease; /* تأثير التحول والظهور */
+    justify-content: flex-start;
+    gap: 5px;
+    transition: bottom 0.8s ease-in-out; /* تحريك العنصر بشكل سلس */
 }
 
-/* عند ظهور النافذة، قم بتغيير الشفافية والموقع */
+/* عند ظهور العنصر */
 #Puzzlespage .puzzle-content.show {
-    transform: translateX(-50%) translateY(0); /* يظهر من الأسفل مع التوسيط */
+    bottom: 0; /* تحديد الموقع النهائي للظهور */
 }
+
 
 
 #Puzzlespage input, 
