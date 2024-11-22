@@ -610,7 +610,6 @@ img {
     align-items: center; /* توسيط الأزرار أفقيًا */
     justify-content: flex-end; /* جعل الأزرار تظهر في أسفل النافذة */
     position: absolute; /* تأكد من أن الحاوية متمركزة داخل النافذة */
-    bottom: 10px; /* المسافة من أسفل النافذة */
     left: 50%;
     transform: translateX(-50%); /* توسيط الحاوية أفقياً */
     width: 100%; /* عرض الحاوية */
@@ -664,6 +663,16 @@ img {
         transform: translateX(-50%) translateY(0);
     }
 }
+
+.energy-close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+} 
  
 /*.confirmation-modal {
     position: fixed;
@@ -722,7 +731,7 @@ img {
     font-size: 15px;
     font-weight: bold;
     border-radius: 10px;
-    border: 1px solid #343434; 
+    border: 0.50px solid #343434; 
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.9);
     color: #ffffff;
@@ -741,7 +750,7 @@ img {
     transform: translateX(-50%);
     background: #1c1c1c;
     color: #fff;
-    padding: 10px 20px; /* زيادة padding لجعل الإشعار طويل */
+    padding: 8px 20px; /* زيادة padding لجعل الإشعار طويل */
     border-radius: 5px;
     border: 1px solid #343434;
     font-size: 15px;
