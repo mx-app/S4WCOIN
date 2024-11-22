@@ -608,14 +608,19 @@ img {
     display: flex;
     flex-direction: column; /* وضع الأزرار فوق بعض */
     align-items: center; /* توسيط الأزرار أفقيًا */
-    position: relative;
-    height: 100%;
+    justify-content: flex-end; /* جعل الأزرار تظهر في أسفل النافذة */
+    position: absolute; /* تأكد من أن الحاوية متمركزة داخل النافذة */
+    bottom: 10px; /* المسافة من أسفل النافذة */
+    left: 50%;
+    transform: translateX(-50%); /* توسيط الحاوية أفقياً */
+    width: 80%; /* عرض الحاوية */
+    z-index: 10000;
 }
 
 .popup-overlay button {
     border-radius: 10px;
     border: 0.50px solid #343434;
-    width: 80%;
+    width: 100%; /* التأكد من أن الأزرار تأخذ عرض الحاوية */
     height: 40px;
     color: #fff;
     background-color: rgba(0, 0, 0, 0.9);
