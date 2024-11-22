@@ -603,6 +603,12 @@ img {
     }
 }
 
+#upgradeText {
+    color: #fff; 
+    font-size: 17px; 
+    margin-bottom: 50px;
+    text-align: center;
+}
  
 .popup-overlay, .Autoclick-overlay {
     position: relative;
