@@ -604,18 +604,13 @@ img {
 }
 
  
-/* التنسيق الأساسي للنافذة المنبثقة */
-/*.popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: r
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}*/
+.popup-overlay button {
+    left: 50%;
+    transform: translateX(-50%); 
+    width: 80%;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.9);
+}
 
 .popup-content {
     background-color: rgba(255, 255, 255, 0.1);
@@ -645,29 +640,6 @@ img {
     100% {
         transform: translateX(-50%) translateY(0);
     }
-}
- 
-
-button {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-#closePopupButton {
-    background-color: #f44336;
-}
-
-#closePopupButton:hover {
-    background-color: #e53935;
 }
 
 
