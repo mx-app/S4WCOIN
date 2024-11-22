@@ -1677,10 +1677,17 @@ async function displayTodaysPuzzle() {
     const optionsHtml = currentPuzzle.options.map(option => `<button class="option-btn">${option}</button>`).join('');
     puzzleOptions.innerHTML = optionsHtml;
 
+   // puzzleContainer.classList.remove('hidden');
+    //updateRemainingAttempts(puzzleProgress?.attempts || 0);
+   // startCountdown();
+//}
+    // إظهار الأحجية بتأثير انتقال
     puzzleContainer.classList.remove('hidden');
+    puzzleContainer.classList.add('show'); // إضافة الكلاس لبدء التأثير
     updateRemainingAttempts(puzzleProgress?.attempts || 0);
     startCountdown();
 }
+
 
 // تشغيل المؤقت
 function startCountdown() {
@@ -1807,7 +1814,7 @@ function updateBalance(amount) {
 // إغلاق الأحجية
 function closePuzzle() {
     clearInterval(countdownInterval); // إيقاف المؤقت عند الإغلاق
-    puzzleContainer.classList.add('hidden');
+    puzzleContainer.classList.remove('show'); // إزالة التأثير عند الإغلاق
     puzzleOptions.innerHTML = '';
     puzzleNotification.innerText = '';
     attempts = 0;
