@@ -154,17 +154,25 @@
     text-align: center;
     position: fixed;
     bottom: 0;
-    left: 0;
-    right: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(0); /* للتوسيط من اليمين لليسار */
     width: 85%;
-    z-index: 9999; /* قيمة z-index عالية جداً */
-    transform: translateY(0); /* يظهر من الأسفل */
     height: 80vh;
+    z-index: 9999; /* قيمة z-index عالية جداً */
     display: flex;
     flex-direction: column;
     justify-content: flex-start; /* تقريب العناصر ببعضها */
     gap: 5px; /* تقليل المسافة بين العناصر */
+    opacity: 0; /* جعل النافذة مخفية في البداية */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* تأثير التحول والظهور */
 }
+
+/* عند ظهور النافذة، قم بتغيير الشفافية والموقع */
+#Puzzlespage .puzzle-content.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0); /* يظهر من الأسفل مع التوسيط */
+}
+
 
 #Puzzlespage input, 
 #Puzzlespage button {
