@@ -2491,9 +2491,6 @@ document.getElementById('activateRobotBtn').addEventListener('click', () => {
 
 //////////////////////////////////////
 
-
-
-
 // استلام رابط الدعوة عند الانضمام
 function handleInvite() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -2529,9 +2526,95 @@ document.addEventListener('DOMContentLoaded', handleInvite);
 
 //////////////////////////////////////////////////////////
 
-//document.querySelector('.puzzle-content').classList.add('show');
 
 
+
+
+// إضافة مستمع الحدث للنقر على عنصر "Full Tank"
+document.getElementById('free1').addEventListener('click', openEnergyPopup);
+
+// دالة لفتح النافذة المنبثقة
+function openEnergyPopup() {
+    const popup = document.getElementById('energyPopup');
+    const attemptsText = document.getElementById('energyAttemptsText');
+    
+    // تحديث المحاولات
+    attemptsText.innerText = `Attempts: ${gameState.fillEnergyCount}/2`;
+
+    // إظهار النافذة
+    popup.style.display = 'block';
+
+    // تحديث منطق الزر لملء الطاقة
+    const fillButton = document.getElementById('fillEnergyButton');
+    if (gameState.fillEnergyCount < 2) {
+        fillButton.textContent = 'Fill Energy';
+        fillButton.addEventListener('click', fillEnergyAction);
+    } else {
+        fillButton.textContent = 'Wait 24 hours';
+        fillButton.disabled = true;
+    }
+
+    // إضافة مستمع الحدث لإغلاق النافذة
+    document.getElementById('closePopupButton').addEventListener('click', closeEnergyPopup);
+}
+
+// دالة لإغلاق النافذة المنبثقة
+function closeEnergyPopup() {
+    const popup = document.getElementById('energyPopup');
+    popup.style.display = 'none';
+}
+
+// تحديث دالة ملء الطاقة
+function fillEnergyAction() {
+    const twentyFourHours = 24 * 60 * 60 * 1000;  // 24 ساعة بالميلي ثانية
+    const currentTime = Date.now();
+
+    // التحقق من عدد المحاولات المتاحة
+    if (gameState.fillEnergyCount < 2) {
+        gameState.energy = gameState.maxEnergy;  // ملء الطاقة
+        gameState.fillEnergyCount += 1;  // زيادة عدد المحاولات
+        gameState.lastFillTime = currentTime;  // تحديث الوقت
+
+        updateUI();  // تحديث الواجهة
+        showNotification(uiElements.purchaseNotification, 'Energy filled!');
+    } else {
+        // إذا تم استهلاك المحاولات
+        if (currentTime - gameState.lastFillTime >= twentyFourHours) {
+            gameState.fillEnergyCount = 0;  // إعادة تعيين المحاولات بعد 24 ساعة
+            gameState.lastFillTime = currentTime;
+            showNotification(uiElements.purchaseNotification, 'You can refill energy again!');
+        } else {
+            // عرض موقت الانتظار
+            const remainingTime = Math.floor((twentyFourHours - (currentTime - gameState.lastFillTime)) / 1000);
+            showNotification(uiElements.purchaseNotification, `You need to wait for ${formatTime(remainingTime)} before refilling.`);
+        }
+    }
+    saveGameState();  // حفظ حالة اللعبة
+    updateUserData();  // تحديث البيانات في قاعدة البيانات
+}
+
+// صياغة الوقت (الساعات:الدقائق:الثواني)
+function formatTime(seconds) {
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const remainingSeconds = seconds % 60;
+    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////
 
 
 
