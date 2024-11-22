@@ -617,7 +617,7 @@ img {
     z-index: 1000;
 }
 
-.popup-overlay button, .Autoclick-overlay button {
+.popup-overlay button, .Autoclick-overlay button, .game-button {
     border-radius: 10px;
     border: 0.50px solid #343434;
     width: 100%; /* التأكد من أن الأزرار تأخذ عرض الحاوية */
@@ -708,16 +708,9 @@ img {
     cursor: pointer;
 }
 
-/* الأزرار في أسفل النافذة */
-.confirmation-buttons {
-    display: flex;
-    justify-content: flex-end;
-    gap: 13px;
-   /* margin-top: auto;*/ /* لجعل الأزرار في الأسفل */
-}
 
-.confirmation-buttons .game-button {
-    width: 100%; /* التأكد من أن الأزرار تأخذ عرض الحاوية */
+/*.confirmation-buttons .game-button {
+    width: 100%; 
     height: 40px;
     font-size: 15px;
     font-weight: bold;
@@ -731,7 +724,7 @@ img {
 
 .confirmation-buttons game-button:hover {
     background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
-}
+}*/
  
 
 .notification {
