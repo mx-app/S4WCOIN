@@ -44,6 +44,7 @@ function openEnergyPopup() {
     if (gameState.fillEnergyCount < 2) {
         uiElements.fillEnergyButton.textContent = 'Fill Energy';
         uiElements.fillEnergyButton.disabled = false;
+        uiElements.fillEnergyButton.removeEventListener('click', fillEnergyAction);
         uiElements.fillEnergyButton.addEventListener('click', fillEnergyAction);
     } else {
         if (currentTime - gameState.lastFillTime < twentyFourHours) {
@@ -53,6 +54,7 @@ function openEnergyPopup() {
         } else {
             uiElements.fillEnergyButton.textContent = 'Refill Energy';
             uiElements.fillEnergyButton.disabled = false;
+            uiElements.fillEnergyButton.removeEventListener('click', fillEnergyAction);
             uiElements.fillEnergyButton.addEventListener('click', fillEnergyAction);
         }
     }
@@ -81,9 +83,12 @@ async function fillEnergyAction() {
         updateUI();
         showNotification('Energy filled!');
 
-        // تحديث قاعدة البيانات
+        // تحديث حالة اللعبة في قاعدة البيانات
         await saveGameState();
         await updateUserData();
+
+        // إعادة تحديث النص الخاص بالمحاولات
+        uiElements.energyAttemptsText.innerText = `Attempts: ${gameState.fillEnergyCount}/2`;
     } else {
         // إذا تم استهلاك المحاولات
         if (currentTime - gameState.lastFillTime >= twentyFourHours) {
