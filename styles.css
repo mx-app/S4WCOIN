@@ -259,7 +259,7 @@ img {
     height: 40px;
     margin: 5px;
     border-radius: 10px;
-    border: 0.50px solid #343434;
+    border: 0.50px solid #1a1a1a;
     transition: width 0.3s ease-in-out; /* تأثير التمدد بسلاسة */
 }
 
