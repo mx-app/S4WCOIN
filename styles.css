@@ -584,7 +584,7 @@ img {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%) translateY(100%); /* بداية من أسفل الشاشة */
-    width: 88%;
+    width: 84%;
     height: 50vh;
     z-index: 10000;
     display: flex;
@@ -605,8 +605,8 @@ img {
 
  
 .popup-overlay button {
-    left: 50%;
-    transform: translateX(-50%); 
+    border-radius: 10px; 
+    border: 0.50px solid #343434;
     width: 80%;
     height: 40px;
     background-color: rgba(0, 0, 0, 0.9);
@@ -623,7 +623,7 @@ img {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%) translateY(100%); /* بداية من أسفل الشاشة */
-    width: 88%;
+    width: 84%;
     height: 50vh;
     z-index: 10000;
     display: flex;
