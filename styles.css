@@ -605,26 +605,30 @@ img {
 
  
 .popup-overlay button {
-    border-radius: 10px; 
+    border-radius: 10px;
     border: 0.50px solid #343434;
     width: 80%;
     height: 40px;
     color: #fff;
     background-color: rgba(0, 0, 0, 0.9);
+    position: absolute; /* لجعل الزر يطفو في أسفل النافذة */
+    bottom: 10px; /* المسافة من أسفل النافذة */
+    left: 50%; /* توسيط الزر أفقيا */
+    transform: translateX(-50%); /* لضمان التوسيط التام */
 }
 
 .popup-overlay img {
-    width: 50px; /* حجم الصورة */
-    height: 50px;
+    width: 100px; /* حجم الصورة */
+    height: 100px;
     margin: 10px auto; /* موازنة الصورة في المنتصف */
     display: block;
 }
 
 .popup-content {
     background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px); 
+    backdrop-filter: blur(10px);
     padding: 20px;
-    border-radius: 25px 25px 0 0; 
+    border-radius: 25px 25px 0 0;
     border-top: 2px solid #343434;
     text-align: center;
     position: fixed;
@@ -649,7 +653,7 @@ img {
         transform: translateX(-50%) translateY(0);
     }
 }
-
+ 
 
 /*.confirmation-modal {
     position: fixed;
