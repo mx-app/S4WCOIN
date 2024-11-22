@@ -211,7 +211,58 @@ function showNotification(message) {
     setTimeout(() => uiElements.purchaseNotification.classList.remove('show'), 4000);
 }
 
-// تحميل حالة البيانات عند تحميل الصفحة
-document.addEventListener('DOMContentLoaded', () => {
-    uiElements.updateAttemptsElement.innerText = `${gameState.autClickCount}/2`;
-});
+// تحديث البيانات في قاعدة البيانات
+async function updateGameStateInDatabase(updatedData) {
+    const userId = uiElements.userTelegramIdDisplay.innerText;
+
+    try {
+        const { data, error } = await supabase
+            .from('users')
+            .update(updatedData)
+            .eq('telegram_id', userId);
+
+        if (error) {
+            console.error('Error updating game state in Supabase:', error);
+            return false;
+        }
+
+        console.log('Game state updated successfully in Supabase:', data);
+        return true;
+    } catch (err) {
+        console.error('Unexpected error while updating game state:', err);
+        return false;
+    }
+}
+
+// تحميل حالة البيانات من قاعدة البيانات
+async function loadGameState() {
+    const userId = uiElements.userTelegramIdDisplay.innerText;
+
+    try {
+        console.log('Loading game state from Supabase...');
+        const { data, error } = await supabase
+            .from('users')
+            .select('*')
+            .eq('telegram_id', userId)
+            .single();
+
+        if (error) {
+            console.error('Error loading game state from Supabase:', error.message);
+            return;
+        }
+
+        if (data) {
+            console.log('Loaded game state:', data); // عرض البيانات المحملة
+            gameState = { ...gameState, ...data };
+            updateEnergyUI();
+            uiElements.updateAttemptsElement.innerText = `${gameState.autClickCount}/2`;
+        } else {
+            console.warn('No game state found for this user.');
+        }
+    } catch (err) {
+        console.error('Unexpected error:', err);
+    }
+}
+
+// تحميل حالة اللعبة عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', loadGameState);
