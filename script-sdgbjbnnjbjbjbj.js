@@ -582,9 +582,9 @@ function registerEventHandlers() {
         });
     }
 
-    if (uiElements.fillEnergyBtn) {
-        uiElements.fillEnergyBtn.addEventListener('click', fillEnergyAction);
-    }
+//   if (uiElements.fillEnergyBtn) {
+     //   uiElements.fillEnergyBtn.addEventListener('click', fillEnergyAction);
+//    }
     
     
     if (uiElements.boostUpgradeBtn) {
