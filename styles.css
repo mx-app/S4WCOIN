@@ -1135,3 +1135,27 @@ img {
   margin: 10px 0;
   color: #808080; 
 }
+
+
+
+
+.click-effect {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(0, 255, 0, 0.7);
+    border-radius: 50%;
+    animation: clickAnimation 0.5s ease-out;
+    pointer-events: none;
+}
+
+@keyframes clickAnimation {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
+} 
