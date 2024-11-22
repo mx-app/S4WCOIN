@@ -75,7 +75,7 @@ let gameState = {
     balance: 0,
     energy: 500,
     maxEnergy: 500,
-    clickMultiplier: 0.5,
+    clickMultiplier: 1,
     boostLevel: 1,
     coinBoostLevel: 1,
     energyBoostLevel: 1,
@@ -729,7 +729,7 @@ function confirmUpgradeAction() {
 
         if (upgradeType === 'boost') {
             gameState.boostLevel += 1;
-            gameState.clickMultiplier += 0.5;
+            gameState.clickMultiplier += 1;
         } else if (upgradeType === 'coin') {
             gameState.coinBoostLevel += 1;
             gameState.maxEnergy += 500;
@@ -878,7 +878,7 @@ function startEnergyRecovery() {
         // التأكد من وجود طاقة أقل من الحد الأقصى
         if (gameState.energy < gameState.maxEnergy) {
             // إذا كانت الطاقة صفر أو أقل من الحد الأقصى، يتم زيادتها بمقدار 10
-            gameState.energy = Math.min(gameState.maxEnergy, gameState.energy + 10);
+            gameState.energy = Math.min(gameState.maxEnergy, gameState.energy + 2);
 
             // تحديث الوقت الأخير لملء الطاقة
             gameState.lastFillTime = Date.now();
