@@ -1055,8 +1055,8 @@ img {
   width: 87%;
   padding: 10px;
   height: 100px;
+  font-weight: bold;
   margin: 20px auto;
-  font-family: 'Arial', sans-serif;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
@@ -1070,6 +1070,7 @@ img {
 .invite-content p {
   font-size: 12px;
   line-height: 1.5;
+  font-weight: bold;
   margin: 10px 0;
   color: #808080; 
 }
