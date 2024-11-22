@@ -22,22 +22,17 @@ const uiElements = {
     energyBar: document.getElementById('energyBar'),
     energyInfo: document.getElementById('energyInfo'),
     fillEnergyButton: document.getElementById('fillEnergyButton'),
-    closePopupButton: document.getElementById('closePopupButton'),
-    energyAttemptsText: document.getElementById('energyAttemptsText'),
-    energyPopup: document.getElementById('energyPopup'),
-    free1: document.getElementById('free1'), // زر تعبئة الطاقة
-
     autClickButton: document.getElementById('AutoclickButton'),
+    updateAttemptsElement: document.getElementById('UpdateAttempts'),
+    energyAttemptsText: document.getElementById('energyAttemptsText'),
     autClickAttemptsText: document.getElementById('AutoclickAttemptsText'),
     autClickPopup: document.getElementById('AutoclickPopup'),
-    clickableImg: document.getElementById('clickableImg'),
-    mainPage: document.getElementById('mainPage'),
+    free1: document.getElementById('free1'), // زر تعبئة الطاقة
     free2Element: document.getElementById('free2'), // زر النقر التلقائي
-    updateAttemptsElement: document.getElementById('UpdateAttempts'),
-    closeAutoclick: document.getElementById('closeAutoclick'),
+    mainPage: document.getElementById('mainPage'),
 };
 
-// *** دوال إدارة الطاقة ***
+// ** دوال إدارة الطاقة **
 
 // فتح نافذة الطاقة
 uiElements.free1.addEventListener('click', openEnergyPopup);
@@ -98,6 +93,9 @@ async function fillEnergyAction() {
         const remainingTime = Math.floor((twentyFourHours - (currentTime - gameState.lastFillTime)) / 1000);
         showNotification(`Wait ${formatTime(remainingTime)} before refilling.`);
     }
+
+    // تحديث قاعدة البيانات
+    updateUserData();
 }
 
 // تحديث واجهة الطاقة
@@ -107,7 +105,7 @@ function updateEnergyUI() {
     uiElements.energyInfo.innerText = `${gameState.energy}/${gameState.maxEnergy} ⚡`;
 }
 
-// *** دوال النقر التلقائي ***
+// ** دوال النقر التلقائي (Autoclick) **
 
 uiElements.free2Element.addEventListener('click', openAutoclickPopup);
 
@@ -135,28 +133,22 @@ function openAutoclickPopup() {
     }
 
     uiElements.autClickPopup.style.display = 'block';
-    uiElements.closeAutoclick.addEventListener('click', closeAutoclickPopup);
-}
-
-// إغلاق نافذة النقر التلقائي
-function closeAutoclickPopup() {
-    uiElements.autClickPopup.style.display = 'none';
 }
 
 // تفعيل النقر التلقائي
-function activateAutoclick() {
-    const clickDuration = 60 * 1000; // دقيقة واحدة
+async function activateAutoclick() {
+    const clickDuration = 30 * 1000; // 30 ثانية
     const startTime = Date.now();
 
     function clickElement() {
         const currentTime = Date.now();
         if (currentTime - startTime < clickDuration) {
-            uiElements.clickableImg.click();
+            // لمحاكاة النقر السريع
             createClickEffect(
                 Math.random() * uiElements.clickableImg.offsetWidth,
                 Math.random() * uiElements.clickableImg.offsetHeight
             );
-            setTimeout(clickElement, 100); // تكرار النقر
+            setTimeout(clickElement, 100); // تكرار النقر كل 100ms
         } else {
             navigateToMainPage();
         }
@@ -166,6 +158,9 @@ function activateAutoclick() {
     gameState.autClickCount += 1;
     gameState.lastAutClickTime = Date.now();
     uiElements.updateAttemptsElement.innerText = `${gameState.autClickCount}/2`;
+
+    // تحديث قاعدة البيانات
+    updateUserData();
 }
 
 // إنشاء تأثير النقر
@@ -178,18 +173,7 @@ function createClickEffect(x, y) {
     setTimeout(() => clickEffect.remove(), 500);
 }
 
-// الانتقال إلى الصفحة الرئيسية
-function navigateToMainPage() {
-    uiElements.mainPage.classList.add('active');
-}
-
-// صياغة الوقت
-function formatTime(seconds) {
-    const hours = Math.floor(seconds / 3600);
-    const minutes = Math.floor((seconds % 3600) / 60);
-    const remainingSeconds = seconds % 60;
-    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
-}
+// ** دوال مساعدة **
 
 // عرض إشعار
 function showNotification(message) {
@@ -199,8 +183,39 @@ function showNotification(message) {
     setTimeout(() => uiElements.purchaseNotification.classList.remove('show'), 4000);
 }
 
-// تحميل حالة اللعبة عند تحميل الصفحة
-document.addEventListener('DOMContentLoaded', () => {
-    updateEnergyUI();
-    uiElements.updateAttemptsElement.innerText = `${gameState.autClickCount}/2`;
-});
+// صياغة الوقت (الساعات:الدقائق:الثواني)
+function formatTime(seconds) {
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const remainingSeconds = seconds % 60;
+    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+}
+
+// ** حفظ التحديثات في قاعدة البيانات **
+
+async function updateUserData() {
+    const userId = uiElements.userTelegramIdDisplay.innerText;
+
+    const updatedData = {
+        balance: gameState.balance,
+        energy: gameState.energy,
+        max_energy: gameState.maxEnergy,
+        fill_energy_count: gameState.fillEnergyCount,
+        last_fill_time: new Date(gameState.lastFillTime).toISOString(),
+        aut_click_count: gameState.autClickCount,
+        last_aut_click_time: new Date(gameState.lastAutClickTime).toISOString(),
+    };
+
+    try {
+        const { error } = await supabase
+            .from('users')
+            .update(updatedData)
+            .eq('telegram_id', userId);
+
+        if (error) {
+            console.error('Error updating user data:', error);
+        }
+    } catch (err) {
+        console.error('Unexpected error while updating user data:', err);
+    }
+}
