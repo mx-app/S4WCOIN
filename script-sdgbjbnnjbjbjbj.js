@@ -761,22 +761,22 @@ function confirmUpgradeAction() {
 
 
 // ملء الطاقة
-function fillEnergyAction() {
-    const twelveHours = 12 * 60 * 60 * 1000;
-    const currentTime = Date.now();
+//function fillEnergyAction() {
+   // const twelveHours = 12 * 60 * 60 * 1000;
+    //const currentTime = Date.now();
 
-    if (gameState.fillEnergyCount < 2 && currentTime - gameState.lastFillTime >= twelveHours) {
-        gameState.energy = gameState.maxEnergy;
-        gameState.fillEnergyCount += 1;
-        gameState.lastFillTime = currentTime;
-        updateUI();
-        showNotification(uiElements.purchaseNotification, 'Energy filled!');
-    } else {
-        showNotification(uiElements.purchaseNotification, 'You need to wait for the next free energy fill.');
-    }
-    updateUserData();
-    saveGameState();
-}
+  //  if (gameState.fillEnergyCount < 2 && currentTime - gameState.lastFillTime >= twelveHours) {
+      //  gameState.energy = gameState.maxEnergy;
+        //gameState.fillEnergyCount += 1;
+        //gameState.lastFillTime = currentTime;
+       // updateUI();
+        //showNotification(uiElements.purchaseNotification, 'Energy filled!');
+   // } else {
+       // showNotification(uiElements.purchaseNotification, 'You need to wait for the next free energy fill.');
+   // }
+    //updateUserData();
+    //saveGameState();
+//}
 
 
 //تعامل النقر 
