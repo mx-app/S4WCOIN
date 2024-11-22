@@ -494,8 +494,8 @@ img {
 } 
 
 #inviteInfo {
-    font-size: 15px;
-    color: #808080;
+    font-size: 14px;
+    color: #fff;
     text-align: center;
     margin-top: 10px;
 
@@ -888,11 +888,11 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.7);
     padding: 5px;
     border-radius: 10px;
     color: #fff;
-    /*border: 0.50px solid #343434;*/
+    border: 0.50px solid #343434;
 }
 
 .right-section {
@@ -993,7 +993,7 @@ img {
 
 
 #invitedCount {
-    color: #808080;
+    color: #fff;
 }
 
 /*.friends-list {
