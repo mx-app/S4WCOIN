@@ -956,7 +956,7 @@ img {
     padding: 5px;
     border-radius: 10px;
     color: #fff;
-    border: 0.50px solid #0d0d0d;
+    border: 0.50px solid #1a1a1a/*#0d0d0d*/;
 }
 
 .right-section {
