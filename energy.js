@@ -22,17 +22,22 @@ const uiElements = {
     energyBar: document.getElementById('energyBar'),
     energyInfo: document.getElementById('energyInfo'),
     fillEnergyButton: document.getElementById('fillEnergyButton'),
-    autClickButton: document.getElementById('AutoclickButton'),
-    updateAttemptsElement: document.getElementById('UpdateAttempts'),
+    closePopupButton: document.getElementById('closePopupButton'),
     energyAttemptsText: document.getElementById('energyAttemptsText'),
+    energyPopup: document.getElementById('energyPopup'),
+    free1: document.getElementById('free1'), // زر تعبئة الطاقة
+
+    autClickButton: document.getElementById('AutoclickButton'),
     autClickAttemptsText: document.getElementById('AutoclickAttemptsText'),
     autClickPopup: document.getElementById('AutoclickPopup'),
-    free1: document.getElementById('free1'), // زر تعبئة الطاقة
-    free2Element: document.getElementById('free2'), // زر النقر التلقائي
+    clickableImg: document.getElementById('clickableImg'),
     mainPage: document.getElementById('mainPage'),
+    free2Element: document.getElementById('free2'), // زر النقر التلقائي
+    updateAttemptsElement: document.getElementById('UpdateAttempts'),
+    closeAutoclick: document.getElementById('closeAutoclick'),
 };
 
-// ** دوال إدارة الطاقة **
+// *** دوال إدارة الطاقة ***
 
 // فتح نافذة الطاقة
 uiElements.free1.addEventListener('click', openEnergyPopup);
@@ -105,7 +110,7 @@ function updateEnergyUI() {
     uiElements.energyInfo.innerText = `${gameState.energy}/${gameState.maxEnergy} ⚡`;
 }
 
-// ** دوال النقر التلقائي (Autoclick) **
+// *** دوال النقر التلقائي ***
 
 uiElements.free2Element.addEventListener('click', openAutoclickPopup);
 
@@ -133,6 +138,12 @@ function openAutoclickPopup() {
     }
 
     uiElements.autClickPopup.style.display = 'block';
+    uiElements.closeAutoclick.addEventListener('click', closeAutoclickPopup);
+}
+
+// إغلاق نافذة النقر التلقائي
+function closeAutoclickPopup() {
+    uiElements.autClickPopup.style.display = 'none';
 }
 
 // تفعيل النقر التلقائي
@@ -143,12 +154,12 @@ async function activateAutoclick() {
     function clickElement() {
         const currentTime = Date.now();
         if (currentTime - startTime < clickDuration) {
-            // لمحاكاة النقر السريع
+            uiElements.clickableImg.click();
             createClickEffect(
                 Math.random() * uiElements.clickableImg.offsetWidth,
                 Math.random() * uiElements.clickableImg.offsetHeight
             );
-            setTimeout(clickElement, 100); // تكرار النقر كل 100ms
+            setTimeout(clickElement, 100); // تكرار النقر
         } else {
             navigateToMainPage();
         }
@@ -173,7 +184,18 @@ function createClickEffect(x, y) {
     setTimeout(() => clickEffect.remove(), 500);
 }
 
-// ** دوال مساعدة **
+// الانتقال إلى الصفحة الرئيسية
+function navigateToMainPage() {
+    uiElements.mainPage.classList.add('active');
+}
+
+// صياغة الوقت
+function formatTime(seconds) {
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const remainingSeconds = seconds % 60;
+    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+}
 
 // عرض إشعار
 function showNotification(message) {
@@ -183,34 +205,22 @@ function showNotification(message) {
     setTimeout(() => uiElements.purchaseNotification.classList.remove('show'), 4000);
 }
 
-// صياغة الوقت (الساعات:الدقائق:الثواني)
-function formatTime(seconds) {
-    const hours = Math.floor(seconds / 3600);
-    const minutes = Math.floor((seconds % 3600) / 60);
-    const remainingSeconds = seconds % 60;
-    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
-}
-
-// ** حفظ التحديثات في قاعدة البيانات **
-
+// تحديث البيانات في قاعدة البيانات
 async function updateUserData() {
-    const userId = uiElements.userTelegramIdDisplay.innerText;
-
     const updatedData = {
         balance: gameState.balance,
         energy: gameState.energy,
-        max_energy: gameState.maxEnergy,
-        fill_energy_count: gameState.fillEnergyCount,
-        last_fill_time: new Date(gameState.lastFillTime).toISOString(),
-        aut_click_count: gameState.autClickCount,
-        last_aut_click_time: new Date(gameState.lastAutClickTime).toISOString(),
+        fillEnergyCount: gameState.fillEnergyCount,
+        lastFillTime: gameState.lastFillTime,
+        autClickCount: gameState.autClickCount,
+        lastAutClickTime: gameState.lastAutClickTime,
     };
 
     try {
         const { error } = await supabase
-            .from('users')
+            .from('users') // تأكد أن اسم الجدول في قاعدة البيانات هو "users"
             .update(updatedData)
-            .eq('telegram_id', userId);
+            .eq('telegram_id', gameState.userId); // استخدم معرف المستخدم لتحديث البيانات
 
         if (error) {
             console.error('Error updating user data:', error);
@@ -219,3 +229,21 @@ async function updateUserData() {
         console.error('Unexpected error while updating user data:', err);
     }
 }
+
+// تحميل حالة اللعبة عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', async () => {
+    // استيراد بيانات المستخدم من قاعدة البيانات
+    const { data, error } = await supabase
+        .from('users') // تأكد أن اسم الجدول هو "users"
+        .select('*')
+        .eq('telegram_id', gameState.userId) // استخدم معرف المستخدم
+        .single();
+
+    if (error) {
+        console.error('Error fetching user data:', error);
+    } else if (data) {
+        gameState = { ...gameState, ...data };
+        updateEnergyUI();
+        uiElements.updateAttemptsElement.innerText = `${gameState.autClickCount}/2`;
+    }
+});
