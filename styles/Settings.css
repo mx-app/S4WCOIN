@@ -128,16 +128,18 @@
 } 
 
 .user-id {
-    font-size: 15px;
+    font-size: 13px;
 } 
 
 .user-name {
-    font-size: 18px;
+    font-size: 14px;
 } 
 
 .user-image {
     width: 35px; /* حجم الصورة */
     height: 35px;
+    border: 0.50px solid #343434;
+    border-radius: 10px;
     display: block;
     margin-left: 8px;
 }
