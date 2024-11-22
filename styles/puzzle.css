@@ -163,14 +163,18 @@
     flex-direction: column;
     justify-content: flex-start; /* تقريب العناصر ببعضها */
     gap: 5px; /* تقليل المسافة بين العناصر */
-    transition: transform 0.5s ease; /* تأثير التحول والظهور */
+    animation: slideUp 0.5s ease-out forwards; /* إضافة تأثير التحريك */
 }
 
-/* عند ظهور النافذة، قم بتغيير الشفافية والموقع */
-#Puzzlespage .puzzle-content.show {
-    transform: translateX(-50%) translateY(0); /* يظهر من الأسفل مع التوسيط */
+/* تأثير التحريك من الأسفل */
+@keyframes slideUp {
+    0% {
+        transform: translateX(-50%) translateY(100%);
+    }
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
 }
-
 
 #Puzzlespage input, 
 #Puzzlespage button {
