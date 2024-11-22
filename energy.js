@@ -42,9 +42,6 @@ const uiElements = {
 // فتح نافذة الطاقة
 uiElements.free1.addEventListener('click', openEnergyPopup);
 
-// فتح نافذة النقر التلقائي
-uiElements.free2Element.addEventListener('click', openAutoclickPopup);
-
 function openEnergyPopup() {
     const currentTime = Date.now();
     const twentyFourHours = 24 * 60 * 60 * 1000; // 24 ساعة بالميلي ثانية
@@ -112,6 +109,9 @@ function updateEnergyUI() {
 
 // *** دوال النقر التلقائي ***
 
+uiElements.free2Element.addEventListener('click', openAutoclickPopup);
+
+// فتح نافذة النقر التلقائي
 function openAutoclickPopup() {
     const currentTime = Date.now();
     const twentyFourHours = 24 * 60 * 60 * 1000;
@@ -152,7 +152,7 @@ function activateAutoclick() {
         const currentTime = Date.now();
         if (currentTime - startTime < clickDuration) {
             uiElements.clickableImg.click();
-            createDiamondCoinEffect(
+            createClickEffect(
                 Math.random() * uiElements.clickableImg.offsetWidth,
                 Math.random() * uiElements.clickableImg.offsetHeight
             );
@@ -169,25 +169,13 @@ function activateAutoclick() {
 }
 
 // إنشاء تأثير النقر
-function createDiamondCoinEffect(x, y) {
-    const diamond = document.createElement('div');
-    diamond.classList.add('diamond-coin');
-    const multiplierText = document.createElement('span');
-    multiplierText.textContent = `+${gameState.clickMultiplier}`;
-    diamond.appendChild(multiplierText);
-    document.body.appendChild(diamond);
-
-    diamond.style.left = `${x}px`;
-    diamond.style.top = `${y}px`;
-
-    const balanceRect = uiElements.balanceDisplay.getBoundingClientRect();
-
-    setTimeout(() => {
-        diamond.style.transform = `translate(${balanceRect.left - x}px, ${balanceRect.top - y}px) scale(0.5)`;
-        setTimeout(() => {
-            diamond.remove();
-        }, 1000);
-    }, 50);
+function createClickEffect(x, y) {
+    const clickEffect = document.createElement('div');
+    clickEffect.classList.add('click-effect');
+    clickEffect.style.left = `${x}px`;
+    clickEffect.style.top = `${y}px`;
+    document.body.appendChild(clickEffect);
+    setTimeout(() => clickEffect.remove(), 500);
 }
 
 // الانتقال إلى الصفحة الرئيسية
@@ -211,58 +199,8 @@ function showNotification(message) {
     setTimeout(() => uiElements.purchaseNotification.classList.remove('show'), 4000);
 }
 
-// تحديث البيانات في قاعدة البيانات
-async function updateGameStateInDatabase(updatedData) {
-    const userId = uiElements.userTelegramIdDisplay.innerText;
-
-    try {
-        const { data, error } = await supabase
-            .from('users')
-            .update(updatedData)
-            .eq('telegram_id', userId);
-
-        if (error) {
-            console.error('Error updating game state in Supabase:', error);
-            return false;
-        }
-
-        console.log('Game state updated successfully in Supabase:', data);
-        return true;
-    } catch (err) {
-        console.error('Unexpected error while updating game state:', err);
-        return false;
-    }
-}
-
-// تحميل حالة البيانات من قاعدة البيانات
-async function loadGameState() {
-    const userId = uiElements.userTelegramIdDisplay.innerText;
-
-    try {
-        console.log('Loading game state from Supabase...');
-        const { data, error } = await supabase
-            .from('users')
-            .select('*')
-            .eq('telegram_id', userId)
-            .single();
-
-        if (error) {
-            console.error('Error loading game state from Supabase:', error.message);
-            return;
-        }
-
-        if (data) {
-            console.log('Loaded game state:', data); // عرض البيانات المحملة
-            gameState = { ...gameState, ...data };
-            updateEnergyUI();
-            uiElements.updateAttemptsElement.innerText = `${gameState.autClickCount}/2`;
-        } else {
-            console.warn('No game state found for this user.');
-        }
-    } catch (err) {
-        console.error('Unexpected error:', err);
-    }
-}
-
 // تحميل حالة اللعبة عند تحميل الصفحة
-document.addEventListener('DOMContentLoaded', loadGameState);
+document.addEventListener('DOMContentLoaded', () => {
+    updateEnergyUI();
+    uiElements.updateAttemptsElement.innerText = `${gameState.autClickCount}/2`;
+});
