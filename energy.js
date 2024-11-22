@@ -1,6 +1,6 @@
 // استيراد المفاتيح من ملف config.js
 import { SUPABASE_URL, SUPABASE_ANON_KEY } from './Scripts/config.js';
-import { createClient } from '@supabase/supabase-js';
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
 // إنشاء اتصال بـ Supabase
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
