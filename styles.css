@@ -315,8 +315,8 @@ img {
 } 
 
 .clickable-image img {
-    width: 260px;
-    height: 260px;
+    width: 275px;
+    height: 275px;
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
@@ -384,7 +384,7 @@ img {
     z-index: 100;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1); /* ظل متلاشي تدريجي */
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.8); /* ظل متلاشي تدريجي */
     transition: box-shadow 0.3s ease; /* إضافة انتقال سلس للتأثير */
 }
 
