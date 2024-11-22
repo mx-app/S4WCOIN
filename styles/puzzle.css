@@ -155,7 +155,7 @@
     position: fixed;
     bottom: 0;
     left: 50%;
-    transform: translateX(-50%) translateY(0); /* للتوسيط من اليمين لليسار */
+    transform: translateX(-50%) translateY(100%); /* بداية من أسفل الشاشة */
     width: 90%;
     height: 80vh;
     z-index: 9999; /* قيمة z-index عالية جداً */
