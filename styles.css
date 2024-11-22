@@ -376,16 +376,22 @@ img {
     border-radius: 10px;
     background-color: rgba(0, 0, 0, 20);
     position: fixed;
-    bottom: 0/*30px*/;
-    box-sizing: border-box; 
+    bottom: 0;
+    box-sizing: border-box;
     width: 100%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 100;
-    border-top-left-radius: 10px; 
-    border-top-right-radius: 10px; 
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1); /* ظل متلاشي تدريجي */
+    transition: box-shadow 0.3s ease; /* إضافة انتقال سلس للتأثير */
 }
+
+.menu.scrolled {
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.3); /* تعديل الظل عند التمرير */
+}
+ 
 
 .menu button {
     color: #fff;
