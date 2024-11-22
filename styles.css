@@ -992,8 +992,10 @@ img {
 
 
 
-#invitedCount {
+#invitedCount, #i {
     color: #fff;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 /*.friends-list {
