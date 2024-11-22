@@ -106,8 +106,6 @@ async function fillEnergyAction() {
 // تحديث واجهة الطاقة
 function updateEnergyUI() {
     const energyPercent = (gameState.energy / gameState.maxEnergy) * 100;
-    uiElements.energyBar.style.width = `${energyPercent}%`;
-    uiElements.energyInfo.innerText = `${gameState.energy}/${gameState.maxEnergy} ⚡`;
 }
 
 // *** دوال النقر التلقائي ***
