@@ -2526,6 +2526,7 @@ document.addEventListener('DOMContentLoaded', handleInvite);
 
 //////////////////////////////////////////////////////////
 
+document.querySelector('.puzzle-content').classList.add('show');
 
 
 
