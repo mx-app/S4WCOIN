@@ -44,7 +44,7 @@
     background: rgba(255, 255, 255, 0.1); 
     backdrop-filter: blur(5px);
     border-radius: 10px; /* زوايا مستديرة */
-    border: 0.5px solid #343434; /* حدود المربع */
+    border: 1px solid #1a1a1a; /* حدود المربع */
     text-align: center; /* محاذاة النصوص للوسط */
     box-sizing: border-box; /* لحساب الحواف ضمن الأبعاد */
 }
@@ -74,7 +74,7 @@
     background: rgba(255, 255, 255, 0.1); /* خلفية شفافة */
     backdrop-filter: blur(5px); /* تأثير التمويه */
     border-radius: 10px; /* زوايا مستديرة */
-    border: 0.5px solid #343434; /* حدود الحاوية */
+    border: 1px solid #1a1a1a; /* حدود الحاوية */
     width: 85%; /* عرض الحاوية */
     margin: 20px auto; /* توسيط الحاوية أفقياً */
 }
