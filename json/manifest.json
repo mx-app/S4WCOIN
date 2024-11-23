@@ -1,20 +1,21 @@
 {
-  "name": "SAW-COIN GAME",
-  "short_name": "MiniApp",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#1a1a1a",
-  "icons": [
+  "name": "SAW-COIN Mini App",  // اسم التطبيق الذي سيظهر للمستخدم
+  "short_name": "MiniApp",  // اسم مختصر يظهر على الأيقونة أو عند التثبيت
+  "start_url": "https://app-sawcoin.vercel.app/",  // الصفحة التي يتم فتحها عند تشغيل التطبيق من الشاشة الرئيسية
+  "display": "standalone", 
+  "background_color": "#000000",  // لون خلفية التطبيق عند التحميل
+  "theme_color": "#000000",  // اللون الذي يظهر في شريط العنوان أو في شريط التنقل
+  "description": "SAW-COIN",
+  "icons": [  // الأيقونات التي سيتم استخدامها في التطبيقات المصغرة
     {
-      "src": "i/log.png",
-      "sizes": "192x192",
-      "type": "image/png"
+      "src": "i/icon-192x192.png",  
+      "sizes": "192x192",  // حجم الأيقونة
+      "type": "image/png"  // نوع الصورة
     },
     {
-      "src": "/logo.png",
-      "sizes": "512x512",
-      "type": "image/png"
+      "src": "i/icon-512x512.png",  
+      "sizes": "512x512",  // حجم الأيقونة
+      "type": "image/png"  // نوع الصورة
     }
   ]
 }
