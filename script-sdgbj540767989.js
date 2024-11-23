@@ -704,11 +704,11 @@ function showUpgradeModal(upgradeType) {
 }
 
 // ربط أزرار الترقية بالنافذة المنبثقة
-document.getElementById('boostUpgradeBtn').addEventListener('click', function() {
+document.getElementById('bost1').addEventListener('click', function() {
     showUpgradeModal('boost');
 });
 
-document.getElementById('coinUpgradeBtn').addEventListener('click', function() {
+document.getElementById('bost2').addEventListener('click', function() {
     showUpgradeModal('coin');
 });
 
