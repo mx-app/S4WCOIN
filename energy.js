@@ -284,37 +284,7 @@ async function saveGameState() {
     }
 }
 
-
-
-
 //////////////////////////////
 
 
 
-
-const AdController = window.Adsgram.init({ blockId: "int-5511" });
-const button = document.getElementById('ad');
-
-const rewardAmount = 5000;
-
-button.addEventListener('click', () => {
-    AdController.show().then((result) => {
-        // User watched the ad till the end or interacted with it
-        // Reward the user
-        rewardUser(rewardAmount);
-        showNotification('You have earned ' + rewardAmount + ' coins for watching the ad!');
-    }).catch((result) => {
-        // Handle the case where there was an issue with showing the ad
-        console.error('Error showing ad: ', result);
-        showNotification('Sorry, there was an error showing the ad. Please try again.');
-    });
-});
-
-// Function to reward the user
-function rewardUser(amount) {
-    // Add the reward to the user's balance (make sure to integrate this with your existing game logic)
-    gameState.balance += amount;
-
-    // Save the updated game state (if necessary)
-    saveGameState();
-}
