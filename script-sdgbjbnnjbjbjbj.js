@@ -15,8 +15,6 @@ const uiElements = {
     walletBalanceDisplay: document.getElementById('navbarBalanceDisplay'),
     settingsBalanceDisplay: document.getElementById('settingsBalanceDisplay'),
     
-    adButton: document.getElementById('ad'), 
-    
     energyBar: document.getElementById('energyBar'),
     energyInfo: document.getElementById('energyInfo'),
     languageBtn: document.getElementById('languageSwitchBtn'),
@@ -2501,20 +2499,20 @@ document.addEventListener('DOMContentLoaded', handleInvite);
 
 
 
-// تعريف مكتبة الإعلانات Adsgram
 const AdController = window.Adsgram.init({ blockId: "int-5512" });
+const button = document.getElementById('ad');
 
-// تحديد المكافأة (مثلاً: 5000 نقطة)
+// Define the reward (e.g., 100 coins)
 const rewardAmount = 5000;
 
-// إضافة حدث النقر على الزر
-uiElements.adButton.addEventListener('click', () => {
+button.addEventListener('click', () => {
     AdController.show().then((result) => {
-        // إذا تم مشاهدة الإعلان بنجاح
+        // User watched the ad till the end or interacted with it
+        // Reward the user
         rewardUser(rewardAmount);
         showNotification('You have earned ' + rewardAmount + ' coins for watching the ad!');
     }).catch((result) => {
-        // إذا حدثت مشكلة أثناء عرض الإعلان
+        // Handle the case where there was an issue with showing the ad
         console.error('Error showing ad: ', result);
         showNotification('Sorry, there was an error showing the ad. Please try again.');
     });
@@ -2531,20 +2529,6 @@ function rewardUser(amount) {
     // Save the updated game state (if necessary)
     saveGameState();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
