@@ -14,7 +14,9 @@ const uiElements = {
     miningBalanceDisplay: document.getElementById('miningnavbarBalanceDisplay'),
     walletBalanceDisplay: document.getElementById('navbarBalanceDisplay'),
     settingsBalanceDisplay: document.getElementById('settingsBalanceDisplay'),
-
+    
+    adButton: document.getElementById('ad'), 
+    
     energyBar: document.getElementById('energyBar'),
     energyInfo: document.getElementById('energyInfo'),
     languageBtn: document.getElementById('languageSwitchBtn'),
@@ -2499,10 +2501,61 @@ document.addEventListener('DOMContentLoaded', handleInvite);
 
 
 
+// تعريف مكتبة الإعلانات Adsgram
 const AdController = window.Adsgram.init({ blockId: "int-5512" });
+
+// تحديد المكافأة (مثلاً: 5000 نقطة)
+const rewardAmount = 5000;
+
+// إضافة حدث النقر على الزر
+uiElements.adButton.addEventListener('click', () => {
+    AdController.show().then((result) => {
+        // إذا تم مشاهدة الإعلان بنجاح
+        rewardUser(rewardAmount);
+        showNotification('You have earned ' + rewardAmount + ' coins for watching the ad!');
+    }).catch((result) => {
+        // إذا حدثت مشكلة أثناء عرض الإعلان
+        console.error('Error showing ad: ', result);
+        showNotification('Sorry, there was an error showing the ad. Please try again.');
+    });
+});
+
+// دالة لمنح المكافأة للمستخدم
+function rewardUser(amount) {
+    // إضافة المكافأة إلى رصيد المستخدم
+    gameState.balance += amount;
+
+    // تحديث واجهة المستخدم
+    updateUI();
+
+    // حفظ حالة اللعبة (اختياري)
+    saveGameState();
+}
+
+// دالة لعرض الإشعارات
+function showNotification(message) {
+    // يمكنك استخدام نظام إشعارات مخصص أو نافذة تنبيه بسيطة
+    alert(message);
+}
+
+// دالة لتحديث واجهة المستخدم
+function updateUI() {
+    // تحديث أي عناصر واجهة مستخدم متعلقة بالرصيد
+    console.log('UI updated');
+}
+
+// دالة لحفظ حالة اللعبة
+function saveGameState() {
+    // يمكنك استخدام التخزين المحلي أو قاعدة بيانات
+    console.log('Game state saved');
+}
+
+
+
+
+/*const AdController = window.Adsgram.init({ blockId: "int-5512" });
 const button = document.getElementById('ad');
 
-// Define the reward (e.g., 100 coins)
 const rewardAmount = 5000;
 
 button.addEventListener('click', () => {
@@ -2528,7 +2581,7 @@ function rewardUser(amount) {
 
     // Save the updated game state (if necessary)
     saveGameState();
-}
+}*/
 
 
 
