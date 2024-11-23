@@ -448,12 +448,12 @@ img {
     background: transparent; 
 }
 
-.menu-img-main {
+/*.menu-img-main {
     width: 37px;
     height: 37px;
     margin-bottom: 3px;
     background: transparent; 
-} 
+}*/
 
 .invite-section {
     display: flex;
