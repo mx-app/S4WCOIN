@@ -1,5 +1,5 @@
 // تحديث واجهة المستخدم بناءً على حالة اللعبة
-function updateUI() {
+export function updateUI() {
     // تنسيق الرصيد
     const formattedBalance = gameState.balance.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
