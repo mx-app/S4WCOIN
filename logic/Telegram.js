@@ -1,13 +1,16 @@
+// telegramIntegration.js
+
+// تحديد إعدادات واجهة تليجرام
 window.Telegram.WebApp.setHeaderColor('#000000');
 window.Telegram.WebApp.setBackgroundColor('#000000');
 
 // تهيئة تكامل تليجرام
 function initializeTelegramIntegration() {
     const telegramApp = window.Telegram.WebApp;
-    
+
     // التحقق من جاهزية التطبيق
     telegramApp.ready();
-    
+
     // التحقق من الصفحة الحالية لإظهار أو إخفاء زر الرجوع
     function updateBackButton() {
         const currentPage = document.querySelector(".page.active"); // الصفحة النشطة
@@ -17,7 +20,7 @@ function initializeTelegramIntegration() {
             telegramApp.BackButton.hide();
         }
     }
-    
+
     // تفعيل حدث زر الرجوع
     telegramApp.BackButton.onClick(() => {
         const currentPage = document.querySelector(".page.active"); // الصفحة النشطة
@@ -46,14 +49,14 @@ function initializeTelegramIntegration() {
         document.documentElement.style.setProperty('--background-color-dark', '#000');
         document.documentElement.style.setProperty('--text-color-dark', '#FFF');
     }
-    
+
     // إدارة حدث المشاركة
     telegramApp.onEvent('share', () => {
         gameState.balance += 50000;
         updateUI();
         showNotification(uiElements.purchaseNotification, 'You received 50,000 coins for inviting a friend!');
-        updateUserData();
-        saveGameState();
+        updateUserData(supabase, uiElements);
+        saveGameState(supabase, uiElements);
     });
 
     // تحديث حالة زر الرجوع عند تحميل الصفحة
@@ -63,10 +66,8 @@ function initializeTelegramIntegration() {
 // استدعاء الدالة عند تحميل الصفحة
 document.addEventListener('DOMContentLoaded', initializeTelegramIntegration);
 
-
-
 // جلب بيانات المستخدم من Telegram والتحقق في قاعدة البيانات
-async function fetchUserDataFromTelegram() {
+export async function fetchUserDataFromTelegram(supabase, uiElements) {
     const telegramApp = window.Telegram.WebApp;
     telegramApp.ready();
 
@@ -95,24 +96,23 @@ async function fetchUserDataFromTelegram() {
     if (data) {
         // المستخدم مسجل مسبقاً
         gameState = { ...gameState, ...data };
-        saveGameState();
+        saveGameState(supabase, uiElements);
         loadFriendsList(); // تحميل قائمة الأصدقاء بعد جلب البيانات
     } else {
         // تسجيل مستخدم جديد
-        await registerNewUser(userTelegramId, userTelegramName);
+        await registerNewUser(supabase, userTelegramId, userTelegramName);
     }
 }
 
 // تسجيل مستخدم جديد في قاعدة البيانات
-async function registerNewUser(userTelegramId, userTelegramName) {
+async function registerNewUser(supabase, userTelegramId, userTelegramName) {
     const { error } = await supabase
         .from('users')
         .insert([{ telegram_id: userTelegramId, username: userTelegramName, balance: gameState.balance }]);
     if (error) {
         console.error('Error inserting new user:', error);
         throw new Error('Failed to register new user');
-   
-     }
-  }
+    }
+}
 
 
