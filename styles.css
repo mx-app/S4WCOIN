@@ -792,6 +792,13 @@ img {
     text-align: center;
  }
 
+#t {
+    color: #808080; 
+    font-size: 15px; 
+    margin: 10px 0;
+    text-align: left;
+}
+
 .levels-info p#l {
     margin-top: 110px; /* يمكنك ضبط القيمة حسب المسافة المطلوبة */
 }
