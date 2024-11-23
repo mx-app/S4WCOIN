@@ -748,7 +748,7 @@ img {
     padding: 8px 20px; /* زيادة padding لجعل الإشعار طويل */
     border-radius: 5px;
     border: 1px solid #343434;
-    font-size: 15px;
+    font-size: 13px;
     z-index: 1000;
     transition: top 0.5s ease, opacity 0.5s ease; /* انتقال لعناصر الظهور والانزلاق */
     opacity: 0; /* البداية غير مرئية */
@@ -763,8 +763,8 @@ img {
 }
 
 .notification-image {
-    width: 28px;
-    height: 28px;
+    width: 20px;
+    height: 20px;
     margin-right: 10px; /* مسافة بين الصورة والنص */
     vertical-align: middle; /* لضمان محاذاة الصورة مع النص */
     display: inline;
