@@ -442,16 +442,17 @@ img {
 }
  
 .menu-img {
-    width: 37px;
-    height: 37px;
+    width: 33px;
+    height: 33px;
     margin-bottom: 3px;
     background: transparent; 
 }
 
-.home-img {
-    width: 30px;
-    height: 30px;
+.menu-img-main {
+    width: 37px;
+    height: 37px;
     margin-bottom: 3px;
+    background: transparent; 
 } 
 
 .invite-section {
