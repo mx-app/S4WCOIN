@@ -70,135 +70,6 @@ const uiElements = {
 
 };
 
-// حالة اللعبة
-let gameState = {
-    balance: 0,
-    energy: 500,
-    maxEnergy: 500,
-    clickMultiplier: 1,
-    boostLevel: 1,
-    coinBoostLevel: 1,
-    energyBoostLevel: 1,
-    currentLevel: 1,
-    achievedLevels: [],
-    friends: 0,
-    fillEnergyCount: 0,
-    lastFillTime: Date.now(),
-    freeEnergyFillTime: null,
-    invites: [],
-    claimedRewards: { levels: [] }, 
-    tasksprogress: [],
-    completedTasks: [],
-    puzzlesprogress:[], 
-    caesarPuzzleProgress:[], 
-    usedPromoCodes: [],
-    ciphersProgress:[],
-    lastLoginDate: null, // تاريخ آخر تسجيل دخول
-    consecutiveDays: 0,  // عدد الأيام المتتالية التي تم المطالبة فيها بالمكافآت
-};
-
-//تحديث البيانت من الواجهه الي قاعده البيانات 
-async function updateGameStateInDatabase(updatedData) {
-    const userId = uiElements.userTelegramIdDisplay.innerText;
-
-    try {
-        const { data, error } = await supabase
-            .from('users')
-            .update(updatedData) // البيانات الجديدة
-            .eq('telegram_id', userId); // شرط التحديث
-
-        if (error) {
-            console.error('Error updating game state in Supabase:', error);
-            return false;
-        }
-
-        console.log('Game state updated successfully in Supabase:', data);
-        return true;
-    } catch (err) {
-        console.error('Unexpected error while updating game state:', err);
-        return false;
-    }
-}
-
-
-
-//تحديث قاعده البيانات 
-async function loadGameState() {
-    const userId = uiElements.userTelegramIdDisplay.innerText;
-
-    try {
-        console.log('Loading game state from Supabase...');
-        const { data, error } = await supabase
-            .from('users')
-            .select('*')
-            .eq('telegram_id', userId)
-            .single();
-
-        if (error) {
-            console.error('Error loading game state from Supabase:', error.message);
-            return;
-        }
-
-        if (data) {
-            console.log('Loaded game state:', data); // عرض البيانات المحملة
-            gameState = { ...gameState, ...data };
-            updateUI();
-        } else {
-            console.warn('No game state found for this user.');
-        }
-    } catch (err) {
-        console.error('Unexpected error:', err);
-    }
-}
-
-
-// حفظ حالة اللعبة في LocalStorage وقاعدة البيانات
-async function saveGameState() {
-    const userId = uiElements.userTelegramIdDisplay.innerText;
-
-    // إنشاء بيانات محدثة للحفظ
-    const updatedData = {
-        balance: gameState.balance,
-        energy: gameState.energy,
-        max_energy: gameState.maxEnergy,
-        click_multiplier: gameState.clickMultiplier,
-        boost_level: gameState.boostLevel,
-        coin_boost_level: gameState.coinBoostLevel,
-        energy_boost_level: gameState.energyBoostLevel,
-        current_level: gameState.currentLevel,
-        friends: gameState.friends,
-        fill_energy_count: gameState.fillEnergyCount,
-        last_fill_time: new Date(gameState.lastFillTime).toISOString(),
-        invites: gameState.invites,
-        claimed_rewards: gameState.claimedRewards,
-        tasks_progress: gameState.tasksProgress,
-        puzzles_progress: gameState.puzzlesProgress,
-        used_promo_codes: gameState.usedPromoCodes,
-        morse_ciphers_progress: gameState.ciphersProgress,
-        last_login_date: gameState.lastLoginDate ? new Date(gameState.lastLoginDate).toISOString() : null,
-        consecutive_days: gameState.consecutiveDays,
-        achieved_Levels: gameState.achievedLevels,
-        caesar_puzzles_progress: gameState.caesarPuzzleProgress, 
-        
-    };
-
-    try {
-        // حفظ البيانات في قاعدة البيانات
-        const { error } = await supabase
-            .from('users')
-            .update(updatedData)
-            .eq('telegram_id', userId);
-
-        if (error) {
-            throw new Error(`Error saving game state: ${error.message}`);
-        }
-
-        console.log('Game state updated successfully.');
-    } catch (err) {
-        console.error(err.message);
-    }
-}
-
 
 
 //تحديث الطاقه 
@@ -228,37 +99,18 @@ async function restoreEnergy() {
 }
 
 
-
-// الاستماع إلى التغييرات في قاعدة البيانات
-function listenToRealtimeChanges() {
-    const userId = uiElements.userTelegramIdDisplay.innerText;
-
-    supabase
-        .channel('public:users')
-        .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'users', filter: `telegram_id=eq.${userId}` }, payload => {
-            console.log('Change received!', payload);
-            gameState = { ...gameState, ...payload.new };
-            updateUI();
-            saveGameState();
-        })
-        .subscribe();
-}
-
 // تهيئة التطبيق عند تحميل الصفحة
 document.addEventListener('DOMContentLoaded', async () => {
     await loadGameState();   
     await restoreEnergy();
     startEnergyRecovery();
+    updateUI(); 
     updateGameStateInDatabase(); 
     listenToRealtimeChanges();   
     await initializeApp();      
     updateInviteFriendsButton();
 });
 
-
-document.addEventListener("DOMContentLoaded", function() {
-    updateUI(); // تأكد من تحديث الرصيد عند تحميل الصفحة
-});
 
 
 
@@ -398,55 +250,6 @@ async function initializeApp() {
     }
 }
 
-// جلب بيانات المستخدم من Telegram والتحقق في قاعدة البيانات
-async function fetchUserDataFromTelegram() {
-    const telegramApp = window.Telegram.WebApp;
-    telegramApp.ready();
-
-    const userTelegramId = telegramApp.initDataUnsafe.user?.id;
-    const userTelegramName = telegramApp.initDataUnsafe.user?.username;
-
-    if (!userTelegramId || !userTelegramName) {
-        throw new Error("Failed to fetch Telegram user data.");
-    }
-
-    uiElements.userTelegramIdDisplay.innerText = userTelegramId;
-    uiElements.userTelegramNameDisplay.innerText = userTelegramName;
-
-    // تحقق من المستخدم في قاعدة البيانات، سجل إذا لم يكن موجودًا
-    const { data, error } = await supabase
-        .from('users')
-        .select('*')
-        .eq('telegram_id', userTelegramId)
-        .maybeSingle(); 
-
-    if (error) {
-        console.error('Error fetching user data:', error);
-        throw new Error('Failed to fetch user data');
-    }
-
-    if (data) {
-        // المستخدم مسجل مسبقاً
-        gameState = { ...gameState, ...data };
-        saveGameState();
-        loadFriendsList(); // تحميل قائمة الأصدقاء بعد جلب البيانات
-    } else {
-        // تسجيل مستخدم جديد
-        await registerNewUser(userTelegramId, userTelegramName);
-    }
-}
-
-// تسجيل مستخدم جديد في قاعدة البيانات
-async function registerNewUser(userTelegramId, userTelegramName) {
-    const { error } = await supabase
-        .from('users')
-        .insert([{ telegram_id: userTelegramId, username: userTelegramName, balance: gameState.balance }]);
-    if (error) {
-        console.error('Error inserting new user:', error);
-        throw new Error('Failed to register new user');
-   
-     }
-  }
 
 
 
@@ -1165,44 +968,6 @@ function openTelegramChat() {
     window.open(inviteLink, '_blank');
 }
 
-// تحديث بيانات المستخدم في Supabase
-async function updateUserData() {
-    const userId = uiElements.userTelegramIdDisplay.innerText;
-
-    const { error } = await supabase
-        .from('users')
-        .update({
-            balance: gameState.balance,
-            energy: gameState.energy,
-            max_energy: gameState.maxEnergy,
-            click_multiplier: gameState.clickMultiplier,
-            boost_level: gameState.boostLevel,
-            coin_boost_level: gameState.coinBoostLevel,
-            energy_boost_level: gameState.energyBoostLevel,
-            current_level: gameState.currentLevel,
-            friends: gameState.friends,
-            fill_energy_count: gameState.fillEnergyCount,
-            last_fill_time: new Date(gameState.lastFillTime).toISOString(),
-            invites: gameState.invites,
-            claimed_rewards: gameState.claimedRewards, // حفظ المكافآت المحصلة في قاعدة البيانات
-            tasks_progress: gameState.tasksprogress, 
-            completed_tasks: gameState.completedTasks, 
-            puzzles_progress: gameState.puzzlesprogress, 
-            used_Promo_Codes: gameState.usedPromoCodes, 
-            morse_ciphers_progress: gameState.ciphersProgress, 
-            achieved_Levels: gameState.achievedLevels, 
-            last_login_date: gameState.lastLoginDate ? new Date(gameState.lastLoginDate).toISOString() : null,
-            consecutive_days: gameState.consecutiveDays, 
-            caesar_puzzles_progress: gameState.caesarPuzzleProgress, 
-     
-        })
-        .eq('telegram_id', userId);
-
-    if (error) {
-        console.error('Error updating user data:', error);
-    }
-}
-
 
 
 
@@ -1527,71 +1292,6 @@ function openTaskLink(taskurl, callback) {
 
 
 
-
-window.Telegram.WebApp.setHeaderColor('#000000');
-window.Telegram.WebApp.setBackgroundColor('#000000');
-
-// تهيئة تكامل تليجرام
-function initializeTelegramIntegration() {
-    const telegramApp = window.Telegram.WebApp;
-    
-    // التحقق من جاهزية التطبيق
-    telegramApp.ready();
-    
-    // التحقق من الصفحة الحالية لإظهار أو إخفاء زر الرجوع
-    function updateBackButton() {
-        const currentPage = document.querySelector(".page.active"); // الصفحة النشطة
-        if (currentPage && currentPage.id !== "home") {
-            telegramApp.BackButton.show();
-        } else {
-            telegramApp.BackButton.hide();
-        }
-    }
-    
-    // تفعيل حدث زر الرجوع
-    telegramApp.BackButton.onClick(() => {
-        const currentPage = document.querySelector(".page.active"); // الصفحة النشطة
-        if (currentPage && currentPage.id !== "mainPage") {
-            // إخفاء الصفحة الحالية والعودة للصفحة الرئيسية
-            currentPage.classList.remove("active");
-            document.getElementById("home").classList.add("active");
-            updateBackButton();
-        } else {
-            telegramApp.close(); // إغلاق WebApp إذا كنا في الصفحة الرئيسية
-        }
-    });
-
-    // إعداد التنقل بين الصفحات
-    document.querySelectorAll(".nav-button").forEach(button => {
-        button.addEventListener("click", (event) => {
-            const targetPageId = event.target.getAttribute("data-target"); // تحديد الصفحة المستهدفة
-            document.querySelectorAll(".page").forEach(page => page.classList.remove("active"));
-            document.getElementById(targetPageId).classList.add("active");
-            updateBackButton();
-        });
-    });
-
-    // تخصيص الألوان بناءً على الثيم
-    if (telegramApp.colorScheme === 'dark') {
-        document.documentElement.style.setProperty('--background-color-dark', '#000');
-        document.documentElement.style.setProperty('--text-color-dark', '#FFF');
-    }
-    
-    // إدارة حدث المشاركة
-    telegramApp.onEvent('share', () => {
-        gameState.balance += 50000;
-        updateUI();
-        showNotification(uiElements.purchaseNotification, 'You received 50,000 coins for inviting a friend!');
-        updateUserData();
-        saveGameState();
-    });
-
-    // تحديث حالة زر الرجوع عند تحميل الصفحة
-    updateBackButton();
-}
-
-// استدعاء الدالة عند تحميل الصفحة
-document.addEventListener('DOMContentLoaded', initializeTelegramIntegration);
 
 
 ///////////////////////////////////////
