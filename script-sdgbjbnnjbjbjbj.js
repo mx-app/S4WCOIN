@@ -2520,34 +2520,16 @@ uiElements.adButton.addEventListener('click', () => {
     });
 });
 
-// دالة لمنح المكافأة للمستخدم
+// Function to reward the user
 function rewardUser(amount) {
-    // إضافة المكافأة إلى رصيد المستخدم
+    // Add the reward to the user's balance (make sure to integrate this with your existing game logic)
     gameState.balance += amount;
 
-    // تحديث واجهة المستخدم
+    // Update the UI with the new balance
     updateUI();
 
-    // حفظ حالة اللعبة (اختياري)
+    // Save the updated game state (if necessary)
     saveGameState();
-}
-
-// دالة لعرض الإشعارات
-function showNotification(message) {
-    // يمكنك استخدام نظام إشعارات مخصص أو نافذة تنبيه بسيطة
-    alert(message);
-}
-
-// دالة لتحديث واجهة المستخدم
-function updateUI() {
-    // تحديث أي عناصر واجهة مستخدم متعلقة بالرصيد
-    console.log('UI updated');
-}
-
-// دالة لحفظ حالة اللعبة
-function saveGameState() {
-    // يمكنك استخدام التخزين المحلي أو قاعدة بيانات
-    console.log('Game state saved');
 }
 
 
