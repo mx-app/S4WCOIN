@@ -2883,6 +2883,12 @@ document.addEventListener('DOMContentLoaded', () => {
     dailyButton.addEventListener('click', function () {
         openDailyLoginModal(userTelegramId);  // تأكد من تمرير userTelegramId هنا
     });
+    
+    updateGameStateInDatabase({
+        balance: gameState.balance,
+        last_login_date: gameState.lastLoginDate ? new Date(gameState.lastLoginDate).toISOString() : null,
+        consecutive_days: gameState.consecutiveDays,
+    });
 });
 
 
