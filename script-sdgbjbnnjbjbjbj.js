@@ -5,7 +5,7 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 
 // استيراد وظائف من ملفات أخرى
-import { gameState, saveGameState, updateGameStateInDatabase } from './logic/Database.js';
+import { gameState, saveGameState, updateGameStateInDatabase, listenToRealtimeChanges, updateUI, loadGameState } from './logic/Database.js';
 import { initializeTelegramIntegration, fetchUserDataFromTelegram } from './logic/Telegram.js';
 
 
