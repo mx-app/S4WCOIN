@@ -762,6 +762,44 @@ function confirmUpgradeAction() {
 }
 
 
+// تحديث عرض التحسينات
+function updateBoostsDisplay() {
+    // حساب التكلفة بناءً على المستويات الحالية
+    const boostUpgradeCost = gameState.boostLevel * 500 + 500;
+    const coinUpgradeCost = gameState.coinBoostLevel * 500 + 500;
+
+    // تحديث تكلفة الترقية في الواجهة
+    if (uiElements.boostUpgradeBtn && document.getElementById('boostUpgradeCost')) {
+        document.getElementById('boostUpgradeCost').innerText = boostUpgradeCost;
+    }
+    if (uiElements.coinUpgradeBtn && document.getElementById('coinUpgradeCost')) {
+        document.getElementById('coinUpgradeCost').innerText = coinUpgradeCost;
+    }
+
+    // تحديث عرض مستوى التحسينات (الترقيات)
+    if (uiElements.boostLevelDisplay && document.getElementById('clickMultiplier')) {
+        document.getElementById('clickMultiplier').innerText = gameState.boostLevel;
+    }
+    if (uiElements.multiplierDisplay && document.getElementById('clickMultiplier')) {
+        uiElements.multiplierDisplay.innerText = gameState.clickMultiplier;
+    }
+    if (uiElements.coinBoostLevelDisplay && document.getElementById('coinBoostLevel')) {
+        document.getElementById('coinBoostLevel').innerText = gameState.coinBoostLevel;
+    }
+
+    // حفظ البيانات في localStorage
+    saveGameState();
+
+    // تحديث البيانات في قاعدة البيانات
+    updateGameStateInDatabase({
+        boostLevel: gameState.boostLevel,
+        coinBoostLevel: gameState.coinBoostLevel,
+        clickMultiplier: gameState.clickMultiplier,
+    });
+}
+
+
+
 // ملء الطاقة
 //function fillEnergyAction() {
     //const twelveHours = 12 * 60 * 60 * 1000;
@@ -779,6 +817,11 @@ function confirmUpgradeAction() {
    // updateUserData();
    // saveGameState();
 //}
+
+
+
+///////////////////////////////////////////
+
 
 
 //تعامل النقر 
@@ -1004,40 +1047,7 @@ function applyGradientToLevel(element, level) {
 }
 
 
-//////////////////////
-
-
-
-
-// تحديث عرض التحسينات
-function updateBoostsDisplay() {
-    const boostUpgradeCost = gameState.boostLevel * 500 + 500;
-    const coinUpgradeCost = gameState.coinBoostLevel * 500 + 500;
-
-    if (uiElements.boostUpgradeBtn) {
-        document.getElementById('boostUpgradeCost').innerText = boostUpgradeCost;
-    }
-    if (uiElements.coinUpgradeBtn) {
-        document.getElementById('coinUpgradeCost').innerText = coinUpgradeCost;
-    }
-
-    if (uiElements.boostLevelDisplay) {
-        uiElements.boostLevelDisplay.innerText = gameState.boostLevel;
-    }
-    if (uiElements.multiplierDisplay) {
-        uiElements.multiplierDisplay.innerText = gameState.clickMultiplier;
-    }
-    if (uiElements.coinBoostLevelDisplay) {
-        uiElements.coinBoostLevelDisplay.innerText = gameState.coinBoostLevel;
-    }
-
-    saveGameState(); // حفظ البيانات في localStorage
-    updateGameStateInDatabase({
-        boostLevel: gameState.boostLevel,
-        coinBoostLevel: gameState.coinBoostLevel,
-        clickMultiplier: gameState.clickMultiplier,
-    }); // تحديث البيانات في قاعدة البيانات
-}
+///////////////////////////////////////
 
 
 // تحسين عرض قائمة الأصدقاء
