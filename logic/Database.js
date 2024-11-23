@@ -105,6 +105,8 @@ export async function saveGameState(supabase, uiElements) {
         consecutive_days: gameState.consecutiveDays,
         achieved_Levels: gameState.achievedLevels,
         caesar_puzzles_progress: gameState.caesarPuzzleProgress, 
+        autClickCount: gameState.autClickCount,
+        lastAutClickTime: gameState.lastAutClickTime,
     };
 
     try {
@@ -167,6 +169,8 @@ export async function updateUserData(supabase, uiElements) {
             last_login_date: gameState.lastLoginDate ? new Date(gameState.lastLoginDate).toISOString() : null,
             consecutive_days: gameState.consecutiveDays, 
             caesar_puzzles_progress: gameState.caesarPuzzleProgress, 
+            autClickCount: gameState.autClickCount,
+            lastAutClickTime: gameState.lastAutClickTime,
         })
         .eq('telegram_id', userId);
 
