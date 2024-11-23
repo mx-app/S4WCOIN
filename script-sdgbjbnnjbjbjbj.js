@@ -2499,7 +2499,7 @@ document.addEventListener('DOMContentLoaded', handleInvite);
 
 
 
-const AdController = window.Adsgram.init({ blockId: "int-5512" });
+const AdController = window.Adsgram.init({ blockId: "int-5511" });
 const button = document.getElementById('ad');
 
 // Define the reward (e.g., 100 coins)
