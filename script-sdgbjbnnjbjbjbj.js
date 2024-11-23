@@ -683,24 +683,18 @@ function showNotificationWithStatus(notificationElement, message, status = '') {
 
 // عرض النافذة المنبثقة بناءً على نوع الترقية (النقر أو العملات)
 function showUpgradeModal(upgradeType) {
-    if (uiElements.upgradeModal) {
-        uiElements.upgradeModal.style.display = 'block';
-        uiElements.upgradeModal.setAttribute('data-upgrade-type', upgradeType);
-
-        let cost;
-        if (upgradeType === 'boost') {
-            cost = gameState.boostLevel * 500 + 500;
-            uiElements.upgradeText.innerText = `Are you sure you want to upgrade your click multiplier? It will cost ${cost} coins.`;
-            uiElements.multiplierDisplay.innerText = `Current Click Multiplier: ×${gameState.clickMultiplier}`;
-        } else if (upgradeType === 'coin') {
-            cost = gameState.coinBoostLevel * 500 + 500;
-            uiElements.upgradeText.innerText = `Are you sure you want to upgrade your max coins? It will cost ${cost} coins.`;
-            uiElements.maxEnergyDisplay.innerText = `Current Max Coins: ${formatNumber(gameState.maxEnergy)}`;
-        }
-
-        // تحديث العملات المتاحة وتكلفة الترقية
-        uiElements.currentCoins.innerText = formatNumber(gameState.balance);
-        uiElements.upgradeCost.innerText = cost;
+    if (upgradeType === 'boost') {
+        document.getElementById('boostUpgradeModal').style.display = 'block';
+        let cost = gameState.boostLevel * 500 + 500;
+        document.getElementById('boostUpgradeText').innerText = `Are you sure you want to upgrade your click multiplier? It will cost ${cost} coins.`;
+        document.getElementById('boostCost').innerText = cost;
+        document.getElementById('boostCurrentLevel').innerText = gameState.boostLevel; // عرض المستوى الحالي
+    } else if (upgradeType === 'coin') {
+        document.getElementById('coinUpgradeModal').style.display = 'block';
+        let cost = gameState.coinBoostLevel * 500 + 500;
+        document.getElementById('coinUpgradeText').innerText = `Are you sure you want to upgrade your max coins? It will cost ${cost} coins.`;
+        document.getElementById('coinCost').innerText = cost;
+        document.getElementById('coinBoostCurrentLevel').innerText = gameState.coinBoostLevel; // عرض المستوى الحالي
     }
 }
 
@@ -711,6 +705,15 @@ document.getElementById('bost1').addEventListener('click', function() {
 
 document.getElementById('bost2').addEventListener('click', function() {
     showUpgradeModal('coin');
+});
+
+// إغلاق النوافذ المنبثقة عند الضغط على زر الإغلاق
+document.getElementById('closeBoostModal').addEventListener('click', function() {
+    document.getElementById('boostUpgradeModal').style.display = 'none';
+});
+
+document.getElementById('closeCoinModal').addEventListener('click', function() {
+    document.getElementById('coinUpgradeModal').style.display = 'none';
 });
 
 // دالة تأكيد الترقية وتحديث حالة اللعبة بعد الترقية
@@ -750,7 +753,12 @@ function confirmUpgradeAction() {
         showNotificationWithStatus(uiElements.purchaseNotification, 'Not enough coins!', 'lose');
     }
 
-    uiElements.upgradeModal.style.display = 'none';
+    // إغلاق النافذة بعد الترقية
+    if (upgradeType === 'boost') {
+        document.getElementById('boostUpgradeModal').style.display = 'none';
+    } else if (upgradeType === 'coin') {
+        document.getElementById('coinUpgradeModal').style.display = 'none';
+    }
 }
 
 
