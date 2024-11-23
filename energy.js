@@ -1,24 +1,5 @@
-// استيراد المفاتيح من ملف config.js
-import { SUPABASE_URL, SUPABASE_ANON_KEY } from './Scripts/config.js';
-import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
-
-// إنشاء اتصال بـ Supabase
-const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-// تعريف حالة اللعبة
-let gameState = {
-    balance: 0,
-    energy: 500,
-    maxEnergy: 500,
-    fillEnergyCount: 0,
-    lastFillTime: Date.now(),
-    autClickCount: 0,    // عدد محاولات النقر التلقائي
-    lastAutClickTime: Date.now(),  // آخر وقت تم فيه استخدام النقر التلقائي
-};
-
 // استيراد العناصر من DOM
 const uiElements = {
-    purchaseNotification: document.getElementById('purchaseNotification'),
     energyBar: document.getElementById('energyBar'),
     energyInfo: document.getElementById('energyInfo'),
     fillEnergyButton: document.getElementById('fillEnergyButton'),
@@ -194,57 +175,3 @@ function formatTime(seconds) {
     const remainingSeconds = seconds % 60;
     return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
 }
-
-// تحديث البيانات في قاعدة البيانات
-async function updateUserData() {
-    const updatedData = {
-        balance: gameState.balance,
-        energy: gameState.energy,
-        fillEnergyCount: gameState.fillEnergyCount,
-        lastFillTime: gameState.lastFillTime,
-        autClickCount: gameState.autClickCount,
-        lastAutClickTime: gameState.lastAutClickTime,
-    };
-
-    try {
-        const { error } = await supabase
-            .from('users') // تأكد أن اسم الجدول في قاعدة البيانات هو "users"
-            .update(updatedData)
-            .eq('telegram_id', gameState.userId); // استخدم معرف المستخدم لتحديث البيانات
-
-        if (error) {
-            console.error('Error updating user data:', error);
-        }
-    } catch (err) {
-        console.error('Unexpected error while updating user data:', err);
-    }
-}
-
-// تحميل حالة اللعبة عند تحميل الصفحة
-document.addEventListener('DOMContentLoaded', async () => {
-    // استيراد بيانات المستخدم من قاعدة البيانات
-    const { data, error } = await supabase
-        .from('users') // تأكد أن اسم الجدول هو "users"
-        .select('*')
-        .eq('telegram_id', gameState.userId) // استخدم معرف المستخدم
-        .single();
-
-    if (error) {
-        console.error('Error fetching user data:', error);
-    } else if (data) {
-        gameState = { ...gameState, ...data };
-        updateEnergyUI();
-        uiElements.updateAttemptsElement.innerText = `${gameState.autClickCount}/2`;
-    }
-});
-
-
-//////////////////////////////////
-
-
-
-
-//////////////////////////////
-
-
-
