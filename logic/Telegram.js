@@ -115,4 +115,18 @@ async function registerNewUser(supabase, userTelegramId, userTelegramName) {
     }
 }
 
+// نسخ رابط الدعوة
+function copyInviteLink() {
+    const inviteLink = `https://t.me/SAWCOIN_BOT?start=${uiElements.userTelegramIdDisplay?.innerText || ''}`;
+    navigator.clipboard.writeText(inviteLink).then(() => {
+        showNotification(uiElements.copyInviteNotification, 'Invite link copied!');
+    }).catch(err => {
+        showNotification(uiElements.purchaseNotification, 'Failed to copy invite link.');
+    });
+}
 
+// مشاركة الدعوة عبر Telegram
+function openTelegramChat() {
+    const inviteLink = `https://t.me/share/url?text=Join SAW COIN GAME and earn 50,000 coins!&url=https://t.me/SAWCOIN_BOT?start=${uiElements.userTelegramIdDisplay?.innerText || ''}`;
+    window.open(inviteLink, '_blank');
+}
