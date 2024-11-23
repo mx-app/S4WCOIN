@@ -2499,36 +2499,39 @@ document.addEventListener('DOMContentLoaded', handleInvite);
 
 
 
-//const AdController = window.Adsgram.init({ blockId: "int-5511" });
-//const button = document.getElementById('ad');
+document.addEventListener('DOMContentLoaded', () => {
+    // تهيئة الإعلانات بعد تحميل الصفحة
+    const AdController = window.Adsgram.init({ blockId: "int-5511" });
+    const button = document.getElementById('ad');
 
-// Define the reward (e.g., 100 coins)
-//const rewardAmount = 5000;
+    // تعريف المكافأة (مثل 5000 عملة)
+    const rewardAmount = 5000;
 
-//button.addEventListener('click', () => {
-    //AdController.show().then((result) => {
-        // User watched the ad till the end or interacted with it
-        // Reward the user
-       // rewardUser(rewardAmount);
-      //  showNotification('You have earned ' + rewardAmount + ' coins for watching the ad!');
-   // }).catch((result) => {
-        // Handle the case where there was an issue with showing the ad
-       // console.error('Error showing ad: ', result);
-      //  showNotification('Sorry, there was an error showing the ad. Please try again.');
-  //  });
-//});
+    button.addEventListener('click', () => {
+        AdController.show().then((result) => {
+            // المستخدم شاهد الإعلان حتى النهاية أو تفاعل معه
+            // مكافأة المستخدم
+            rewardUser(rewardAmount);
+            showNotification('لقد حصلت على ' + rewardAmount + ' عملة لمشاهدتك الإعلان!');
+        }).catch((result) => {
+            // معالجة الحالة إذا حدثت مشكلة في عرض الإعلان
+            console.error('خطأ في عرض الإعلان: ', result);
+            showNotification('عذرًا، حدث خطأ أثناء عرض الإعلان. يرجى المحاولة مرة أخرى.');
+        });
+    });
 
-// Function to reward the user
-//function rewardUser(amount) {
-    // Add the reward to the user's balance (make sure to integrate this with your existing game logic)
-   // gameState.balance += amount;
+    // دالة مكافأة المستخدم
+    function rewardUser(amount) {
+        // إضافة المكافأة إلى رصيد المستخدم (تأكد من دمج هذا مع منطق اللعبة الحالي)
+        gameState.balance += amount;
 
-    // Update the UI with the new balance
-   // updateUI();
+        // تحديث واجهة المستخدم مع الرصيد الجديد
+        updateUI();
 
-    // Save the updated game state (if necessary)
-   // saveGameState();
-//}
+        // حفظ حالة اللعبة المحدثة (إذا لزم الأمر)
+        saveGameState();
+    }
+});
 
 
 
