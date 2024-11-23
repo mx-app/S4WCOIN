@@ -743,7 +743,7 @@ img {
     top: -100px; /* البداية من فوق الشاشة */
     left: 50%;
     transform: translateX(-50%);
-    background: #1c1c1c;
+    background: linear-gradient(90deg, #343434, #000000, #1a1a1a);
     color: #fff;
     padding: 8px 20px; /* زيادة padding لجعل الإشعار طويل */
     border-radius: 5px;
