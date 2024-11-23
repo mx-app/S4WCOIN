@@ -23,6 +23,8 @@ export let gameState = {
     ciphersProgress: [],
     lastLoginDate: null, // تاريخ آخر تسجيل دخول
     consecutiveDays: 0,  // عدد الأيام المتتالية التي تم المطالبة فيها بالمكافآت
+    autClickCount: 0,    // عدد محاولات النقر التلقائي
+    lastAutClickTime: Date.now(),  // آخر وقت تم فيه استخدام النقر التلقائي
 };
 
 // تحديث البيانات من الواجهة إلى قاعدة البيانات
