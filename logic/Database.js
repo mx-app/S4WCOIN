@@ -136,9 +136,8 @@ export function listenToRealtimeChanges(supabase, uiElements) {
         .subscribe();
 }
 
-
 // تحديث بيانات المستخدم في Supabase
- export async function updateUserData(supabase, uiElements) {
+export async function updateUserData(supabase, uiElements) {
     const userId = uiElements.userTelegramIdDisplay.innerText;
 
     const { error } = await supabase
@@ -156,7 +155,7 @@ export function listenToRealtimeChanges(supabase, uiElements) {
             fill_energy_count: gameState.fillEnergyCount,
             last_fill_time: new Date(gameState.lastFillTime).toISOString(),
             invites: gameState.invites,
-            claimed_rewards: gameState.claimedRewards, // حفظ المكافآت المحصلة في قاعدة البيانات
+            claimed_rewards: gameState.claimedRewards,
             tasks_progress: gameState.tasksprogress, 
             completed_tasks: gameState.completedTasks, 
             puzzles_progress: gameState.puzzlesprogress, 
@@ -166,7 +165,6 @@ export function listenToRealtimeChanges(supabase, uiElements) {
             last_login_date: gameState.lastLoginDate ? new Date(gameState.lastLoginDate).toISOString() : null,
             consecutive_days: gameState.consecutiveDays, 
             caesar_puzzles_progress: gameState.caesarPuzzleProgress, 
-     
         })
         .eq('telegram_id', userId);
 
