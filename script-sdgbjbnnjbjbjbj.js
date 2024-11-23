@@ -2500,9 +2500,8 @@ document.addEventListener('DOMContentLoaded', handleInvite);
 
 
 const AdController = window.Adsgram.init({ blockId: "int-5511" });
-const adElement = document.getElementById('ad');
-
-//const button = document.getElementById('ad');
+//const adElement = document.getElementById('ad');
+const button = document.getElementById('ad');
 
 // Define the reward (e.g., 100 coins)
 const rewardAmount = 5000;
