@@ -3,6 +3,13 @@ import { SUPABASE_URL, SUPABASE_ANON_KEY } from './Scripts/config.js';
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+
+// استيراد وظائف من ملفات أخرى
+import { gameState, saveGameState, updateGameStateInDatabase } from './logic/Database.js';
+import { initializeTelegramIntegration, fetchUserDataFromTelegram } from './logic/Telegram.js';
+
+
+
 // تعريف عناصر DOM
 const uiElements = {
     balanceDisplay: document.getElementById('balanceAmount'),
