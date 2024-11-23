@@ -195,14 +195,6 @@ function formatTime(seconds) {
     return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
 }
 
-// عرض إشعار
-function showNotification(message) {
-    if (!uiElements.purchaseNotification) return;
-    uiElements.purchaseNotification.innerText = message;
-    uiElements.purchaseNotification.classList.add('show');
-    setTimeout(() => uiElements.purchaseNotification.classList.remove('show'), 4000);
-}
-
 // تحديث البيانات في قاعدة البيانات
 async function updateUserData() {
     const updatedData = {
@@ -250,39 +242,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 //////////////////////////////////
 
 
-// حفظ حالة اللعبة في LocalStorage وقاعدة البيانات
-async function saveGameState() {
-    const userId = uiElements.userTelegramIdDisplay.innerText;
 
-    // إنشاء بيانات محدثة للحفظ
-    const updatedData = {
-        balance: gameState.balance,
-        energy: gameState.energy,
-        max_energy: gameState.maxEnergy,
-        click_multiplier: gameState.clickMultiplier,
-        boost_level: gameState.boostLevel,
-        coin_boost_level: gameState.coinBoostLevel,
-        energy_boost_level: gameState.energyBoostLevel,
-        caesar_puzzles_progress: gameState.caesarPuzzleProgress, 
-        
-    };
-
-    try {
-        // حفظ البيانات في قاعدة البيانات
-        const { error } = await supabase
-            .from('users')
-            .update(updatedData)
-            .eq('telegram_id', userId);
-
-        if (error) {
-            throw new Error(`Error saving game state: ${error.message}`);
-        }
-
-        console.log('Game state updated successfully.');
-    } catch (err) {
-        console.error(err.message);
-    }
-}
 
 //////////////////////////////
 
