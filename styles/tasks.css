@@ -88,9 +88,9 @@
     transition: background-color 0.3s;
     /*border: 1px solid #343434;*/
     font-weight: bold;
-    font-size: 15px;
+    font-size: 13px;
     z-index: 100;
-    margin-left: 90px; /* يجعل الزر في الجهة اليمنى */
+    margin-left: auto; /* يجعل الزر في الجهة اليمنى */
 } 
 
 .task-item p {
