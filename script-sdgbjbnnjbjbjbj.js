@@ -1208,7 +1208,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const button = document.getElementById('ad');
 
     // تعريف المكافأة (مثل 5000 عملة)
-    const rewardAmount = 5000;
+    const rewardAmount = 1000;
 
     button.addEventListener('click', () => {
         AdController.show().then((result) => {
