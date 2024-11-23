@@ -2857,7 +2857,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateBalance(amount) {
         gameState.balance += amount;
         updateUI(); // تحديث واجهة المستخدم
-        saveGameState(); // حفظ حالة اللعبة
+        saveGameState(); 
+        updateGameStateInDatabase();
     }
 
     // فتح نافذة تسجيل الدخول اليومي
@@ -2882,12 +2883,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // فتح النافذة عند دخول المستخدم
     dailyButton.addEventListener('click', function () {
         openDailyLoginModal(userTelegramId);  // تأكد من تمرير userTelegramId هنا
-    });
-    
-    updateGameStateInDatabase({
-        balance: gameState.balance,
-        last_login_date: gameState.lastLoginDate ? new Date(gameState.lastLoginDate).toISOString() : null,
-        consecutive_days: gameState.consecutiveDays,
     });
 });
 
