@@ -652,17 +652,23 @@ function showNotification(notificationElement, message) {
 function showNotificationWithStatus(notificationElement, message, status = '') {
     if (!notificationElement) return;
 
-    // مسح الفئات السابقة للفوز أو الخسارة
-    notificationElement.classList.remove('win', 'lose');
+    // مسح الفئات السابقة للفوز أو الخسارة أو الخطأ أو الرسالة
+    notificationElement.classList.remove('win', 'lose', 'error', 'message');
 
     // إعداد رابط الصورة بناءً على الحالة
     let imageUrl = '';
     if (status === 'win') {
         notificationElement.classList.add('win');
-        imageUrl = 'i/done.png'; // رابط الصورة لحالة الفوز
+        imageUrl = 'i/Correct0.gif'; // رابط الصورة لحالة الفوز
     } else if (status === 'lose') {
         notificationElement.classList.add('lose');
         imageUrl = 'i/highlight.png'; // رابط الصورة لحالة الخسارة
+    } else if (status === 'error') {
+        notificationElement.classList.add('error');
+        imageUrl = 'i/error.png'; // رابط الصورة لحالة الخطأ
+    } else if (status === 'message') {
+        notificationElement.classList.add('message');
+        imageUrl = 'i/message.png'; // رابط الصورة للإشعار العادي
     }
 
     // إضافة الصورة مع الرسالة باستخدام innerHTML
