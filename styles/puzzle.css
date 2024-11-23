@@ -353,23 +353,23 @@
 
 .morse-content {
     background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px); /* تأثير الضبابية */
-    padding: 10px; /* تقليل الحواف الداخلية */
-    border-radius: 25px 25px 0 0; /* حواف علوية دائرية فقط */
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 25px 25px 0 0;
     border-top: 2px solid #343434;
     text-align: center;
     position: fixed;
     bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 9999; /* قيمة z-index عالية جداً */
-    transform: translateY(0); /* يظهر من الأسفل */
+    left: 50%;
+    transform: translateX(-50%) translateY(100%); /* بداية من أسفل الشاشة */
+    width: 85%;
     height: 65vh;
+    z-index: 10000;
     display: flex;
-    flex-direction: column; /* العناصر ستترتب عموديًا */
-    justify-content: center; /* مركزية العناصر عموديًا */
-    align-items: center;
-    gap: 8px; /* تقليل المسافة بين العناصر */
+    flex-direction: column;
+    justify-content: space-between;
+    animation: slideUp 0.5s ease-out forwards; /* إضافة تأثير التحريك */
 }
 
 #morseCipherContainer {
