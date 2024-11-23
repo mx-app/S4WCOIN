@@ -91,6 +91,7 @@
     font-size: 13px;
     z-index: 100;
     margin-left: auto; /* يجعل الزر في الجهة اليمنى */
+    text-align: right; 
 } 
 
 .task-item p {
@@ -123,7 +124,7 @@
 .task-reward-container {
     position: absolute;
     top: 55%; /* مسافة من أعلى الحاوية */
-    left: 85px; /* مسافة من يمين الحاوية */
+    left: 80px; /* مسافة من يمين الحاوية */
     display: flex;
     align-items: center;
     justify-content: center;
