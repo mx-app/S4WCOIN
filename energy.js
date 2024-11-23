@@ -1,3 +1,6 @@
+import { gameState, saveGameState, updateGameStateInDatabase, listenToRealtimeChanges, updateUI, loadGameState } from 'logic/Database.js';
+
+
 // استيراد العناصر من DOM
 const uiElements = {
     energyBar: document.getElementById('energyBar'),
