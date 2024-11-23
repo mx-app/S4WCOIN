@@ -1228,11 +1228,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // إضافة المكافأة إلى رصيد المستخدم (تأكد من دمج هذا مع منطق اللعبة الحالي)
         gameState.balance += amount;
 
-        // تحديث واجهة المستخدم مع الرصيد الجديد
-        updateUI();
 
-        // حفظ حالة اللعبة المحدثة (إذا لزم الأمر)
+        updateUI();
         saveGameState();
+        updateGameStateInDatabase({
+        balance: gameState.balance,
+    });
+        
     }
 });
 
