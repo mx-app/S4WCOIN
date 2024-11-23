@@ -1605,8 +1605,35 @@
         <button id="AutoclickButton">activation</button>
       </div>
    </div>
+     
+    <!--  نوافذ الترقيه -->
+<div id="boostUpgradeModal" class="confirmation-modal" style="display: none;">
+   <div class="modal-content">
+      <span id="closeBoostModal" class="close">&times;</span> 
+      <div class="modal-image">
+         <img src="i/Clickk.png" alt="Centered Image">
+      </div>
+      <span id="boostUpgradeText">Are you sure you want to upgrade your click multiplier? It will cost <span id="boostCost">500</span> coins.</span>
+      <p>Current Level: ×<span id="boostCurrentLevel">0</span></p>
+      <button id="confirmBoostUpgradeBtn" class="game-button">Upgrade</button>
+   </div>
+</div>
+
+<!-- Bottom Sheet Modal for Coin Upgrade -->
+<div id="coinUpgradeModal" class="confirmation-modal" style="display: none;">
+   <div class="modal-content">
+      <span id="closeCoinModal" class="close">&times;</span> 
+      <div class="modal-image">
+         <img src="i/energy.c.png" alt="Centered Image">
+      </div>
+      <span id="coinUpgradeText">Are you sure you want to upgrade your max coins? It will cost <span id="coinCost">500</span> coins.</span>
+      <p>Current Level: <span id="coinBoostCurrentLevel">0</span></p>
+      <button id="confirmCoinUpgradeBtn" class="game-button">Upgrade</button>
+   </div>
+</div>
+
         <!-- Bottom Sheet Modal -->
-   <div id="upgradeConfirmation" class="confirmation-modal" style="display: none;">
+  <!-- <div id="upgradeConfirmation" class="confirmation-modal" style="display: none;">
       <div class="modal-content">
          <span id="closeModal" class="close">&times;</span> 
            <div class="modal-image">
@@ -1615,7 +1642,7 @@
          <span id="upgradeText">Are you sure you want to upgrade? Please note that the upgrade cost will be deducted from your coins.</span>
           <button id="confirmUpgradeBtn" class="game-button">Upgrade</button>
        </div>
-      </div>
+      </div>-->
           
         <!-- Bottom Navigation -->
         <nav class="menu">
