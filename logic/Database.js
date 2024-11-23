@@ -1,3 +1,75 @@
+// تحديث واجهة المستخدم بناءً على حالة اللعبة
+function updateUI() {
+    // تنسيق الرصيد
+    const formattedBalance = gameState.balance.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+    // تحديث الرصيد العام
+    if (uiElements.balanceDisplay) {
+        uiElements.balanceDisplay.innerText = formattedBalance;
+    }
+
+    // تحديث الرصيد في عناصر مخصصة لكل صفحة
+    if (uiElements.walletBalanceDisplay) {
+        uiElements.walletBalanceDisplay.innerText = formattedBalance;
+    }
+    if (uiElements.accountBalanceDisplay) {
+        uiElements.accountBalanceDisplay.innerText = formattedBalance;
+    }
+    if (uiElements.taskBalanceDisplay) {
+        uiElements.taskBalanceDisplay.innerText = formattedBalance;
+    }
+    if (uiElements.puzzleBalanceDisplay) {
+        uiElements.puzzleBalanceDisplay.innerText = formattedBalance;
+    }
+    if (uiElements.settingsBalanceDisplay) {
+        uiElements.settingsBalanceDisplay.innerText = formattedBalance;
+    }
+    if (uiElements.boostBalanceDisplay) {
+        uiElements.boostBalanceDisplay.innerText = formattedBalance;
+    }
+    if (uiElements.lvlBalanceDisplay) {
+        uiElements.lvlBalanceDisplay.innerText = formattedBalance;
+    }
+    if (uiElements.miningBalanceDisplay) {
+        uiElements.miningBalanceDisplay.innerText = formattedBalance;
+    }
+
+    // تحديث شريط الطاقة
+    const energyPercent = (gameState.energy / gameState.maxEnergy) * 100;
+    if (uiElements.energyBar) {
+        uiElements.energyBar.style.width = `${energyPercent}%`;
+    }
+
+    // تحديث معلومات الطاقة
+    if (uiElements.energyInfo) {
+        uiElements.energyInfo.innerText = `${formatNumber(gameState.energy)}/${formatNumber(gameState.maxEnergy)}⚡`;
+    }
+
+    // تحديث اسم المستوى الحالي
+    if (uiElements.currentLevelName) {
+        uiElements.currentLevelName.innerText = levelThresholds[gameState.currentLevel - 1].name;
+    }
+
+    // تحديث المستوى المعروض
+    if (uiElements.displayedLevel) {
+        uiElements.displayedLevel.innerText = ` ${gameState.currentLevel}`;
+    }
+
+    // حفظ حالة اللعبة
+    saveGameState();
+
+    // تحديث شاشات التحسينات والمستويات
+    updateBoostsDisplay();
+    updateLevelDisplay();
+
+    // إرسال البيانات الجديدة إلى قاعدة البيانات
+    updateGameStateInDatabase({
+        balance: gameState.balance,
+        energy: gameState.energy,
+        currentLevel: gameState.currentLevel,
+    });
+}
+
 // تعريف حالة اللعبة
 export let gameState = {
     balance: 0,
