@@ -77,21 +77,23 @@
     object-fit: cover;
 }
 
+/* الزر داخل خانة المهمة */
 .task-item button {
-    background-color: rgba(255, 255, 255, 0.0001);
-    color: #808080;
-    border-radius: 10px;
-    cursor: pointer;
-    width: 40px; /* تحديد عرض الزر */
-    height: 30px; /* تحديد ارتفاع الزر */
-    transition: background-color 0.3s;
-    font-weight: bold;
-    font-size: 14px;
-    z-index: 10;
-    position: absolute; /* يسمح بتحديد مكان الزر بدقة */
-    bottom: 50%; /* يجعل الزر في أسفل الخانة */
-    right: 2px; /* يجعل الزر في الجهة اليمنى */
-} 
+    background-color: rgba(255, 255, 255, 0.0001); /* لون شفاف افتراضي */
+    color: #808080; /* لون النص */
+    border-radius: 10px; /* زوايا مستديرة للزر */
+    cursor: pointer; /* مؤشر الفأرة */
+    width: 25%; /* عرض الزر */
+    height: 25px; /* ارتفاع الزر */
+    transition: background-color 0.3s; /* تأثير سلس عند التغيير */
+    font-weight: bold; /* النص بالخط العريض */
+    font-size: 14px; /* حجم النص */
+    z-index: 10; /* فوق باقي العناصر */
+    position: absolute; /* تحديد مكان الزر بشكل دقيق */
+    bottom: 40px; /* وضع الزر في أسفل الحاوية */
+    right: 1px; /* محاذاة الزر إلى اليمين */
+}
+
 
 .task-item p {
    /* margin: 5px 0;*/
