@@ -137,3 +137,40 @@ export function listenToRealtimeChanges(supabase, uiElements) {
 }
 
 
+// تحديث بيانات المستخدم في Supabase
+ export async function updateUserData(supabase, uiElements) {
+    const userId = uiElements.userTelegramIdDisplay.innerText;
+
+    const { error } = await supabase
+        .from('users')
+        .update({
+            balance: gameState.balance,
+            energy: gameState.energy,
+            max_energy: gameState.maxEnergy,
+            click_multiplier: gameState.clickMultiplier,
+            boost_level: gameState.boostLevel,
+            coin_boost_level: gameState.coinBoostLevel,
+            energy_boost_level: gameState.energyBoostLevel,
+            current_level: gameState.currentLevel,
+            friends: gameState.friends,
+            fill_energy_count: gameState.fillEnergyCount,
+            last_fill_time: new Date(gameState.lastFillTime).toISOString(),
+            invites: gameState.invites,
+            claimed_rewards: gameState.claimedRewards, // حفظ المكافآت المحصلة في قاعدة البيانات
+            tasks_progress: gameState.tasksprogress, 
+            completed_tasks: gameState.completedTasks, 
+            puzzles_progress: gameState.puzzlesprogress, 
+            used_Promo_Codes: gameState.usedPromoCodes, 
+            morse_ciphers_progress: gameState.ciphersProgress, 
+            achieved_Levels: gameState.achievedLevels, 
+            last_login_date: gameState.lastLoginDate ? new Date(gameState.lastLoginDate).toISOString() : null,
+            consecutive_days: gameState.consecutiveDays, 
+            caesar_puzzles_progress: gameState.caesarPuzzleProgress, 
+     
+        })
+        .eq('telegram_id', userId);
+
+    if (error) {
+        console.error('Error updating user data:', error);
+    }
+}
