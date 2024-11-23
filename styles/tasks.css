@@ -54,7 +54,7 @@
 }
 
 .task-item {
-    width: 85%;
+    width: 98%;
     max-width: 400px;
     margin: 15px 0;
     padding: 15px;
@@ -69,7 +69,7 @@
 } 
  
 .task-img {
-    width: 50px;
+    width: 40px;
     height: auto;
     margin-bottom: 3px; /* إضافة مسافة أسفل الصورة */
     border-radius: 10px;
@@ -89,7 +89,7 @@
     font-weight: bold;
     font-size: 14px;
     z-index: 10;
-    margin-left: auto; /* يجعل الزر في الجهة اليمنى */
+    margin-left: 100px; /* يجعل الزر في الجهة اليمنى */
 }
 
 .task-item p {
