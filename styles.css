@@ -779,9 +779,9 @@ img {
 
 
 .notification-image {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px; /* مسافة بين الصورة والنص */
+    width: 25px;
+    height: 25px;
+    margin-right: 5px; /* مسافة بين الصورة والنص */
     vertical-align: middle; /* لضمان محاذاة الصورة مع النص */
     display: inline;
 }
