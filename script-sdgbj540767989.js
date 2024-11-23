@@ -1221,8 +1221,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // تهيئة الإعلانات بعد تحميل الصفحة
     const AdController = window.Adsgram.init({ blockId: "int-5511" });
     const button = document.getElementById('ad');
+    const purchaseNotification = uiElements.purchaseNotification; // تأكد من وجود هذا العنصر
 
-    // تعريف المكافأة (مثل 5000 عملة)
+    // تحقق من وجود العناصر
+    if (!button || !purchaseNotification) {
+        console.error('Elements not found');
+        return;
+    }
+
+    // تعريف المكافأة (مثل 1000 عملة)
     const rewardAmount = 1000;
 
     button.addEventListener('click', () => {
@@ -1230,11 +1237,11 @@ document.addEventListener('DOMContentLoaded', () => {
             // المستخدم شاهد الإعلان حتى النهاية أو تفاعل معه
             // مكافأة المستخدم
             rewardUser(rewardAmount);
-            showNotification('لقد حصلت على ' + rewardAmount + ' عملة لمشاهدتك الإعلان!');
+            showNotificationWithStatus(purchaseNotification, `You got me ${rewardAmount} Coin for watching the ad`, 'win');
         }).catch((result) => {
             // معالجة الحالة إذا حدثت مشكلة في عرض الإعلان
-            console.error('خطأ في عرض الإعلان: ', result);
-            showNotification('عذرًا، حدث خطأ أثناء عرض الإعلان. يرجى المحاولة مرة أخرى.');
+            console.error('mistake ', result);
+            showNotificationWithStatus(purchaseNotification, 'Sorry, an error occurred while viewing', 'lose');
         });
     });
 
@@ -1243,22 +1250,17 @@ document.addEventListener('DOMContentLoaded', () => {
         // إضافة المكافأة إلى رصيد المستخدم (تأكد من دمج هذا مع منطق اللعبة الحالي)
         gameState.balance += amount;
 
-
         updateUI();
         saveGameState();
         updateGameStateInDatabase({
-        balance: gameState.balance,
-    });
-        
+            balance: gameState.balance,
+        });
     }
 });
 
 
 
 ///////////////////////////////////////////
-
-
-
 
 
 
@@ -2489,7 +2491,7 @@ function rewardReferral(referrerId, invitedId) {
     saveGameState();
     
     // إرسال إشعار للطرفين
-    showNotification(uiElements.purchaseNotification, `You received 5,000 coins for inviting a friend!`);
+    showNotificationWithStatus(uiElements.purchaseNotification, `You received 5,000 coins for inviting a friend!`);
 }
 
 // استدعاء الدالة عند تحميل الصفحة
