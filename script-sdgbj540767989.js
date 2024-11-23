@@ -713,6 +713,17 @@ function showUpgradeModal(upgradeType) {
     }
 }
 
+
+// ربط أزرار الترقية بالنافذة المنبثقة
+document.getElementById('bost1').addEventListener('click', function() {
+    showUpgradeModal('boost');
+});
+
+document.getElementById('bost2').addEventListener('click', function() {
+    showUpgradeModal('coin');
+});
+
+
 // دالة تأكيد الترقية وتحديث حالة اللعبة بعد الترقية
 function confirmUpgradeAction() {
     let cost;
