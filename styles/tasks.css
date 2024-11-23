@@ -82,7 +82,7 @@
     color: #808080;
     border-radius: 10px;
     cursor: pointer;
-    width: 20%; /* تحديد عرض الزر */
+    width: 40px; /* تحديد عرض الزر */
     height: 30px; /* تحديد ارتفاع الزر */
     transition: background-color 0.3s;
     font-weight: bold;
@@ -90,7 +90,7 @@
     z-index: 10;
     position: absolute; /* يسمح بتحديد مكان الزر بدقة */
     bottom: 50%; /* يجعل الزر في أسفل الخانة */
-    right: 1px; /* يجعل الزر في الجهة اليمنى */
+    right: 2px; /* يجعل الزر في الجهة اليمنى */
 } 
 
 .task-item p {
