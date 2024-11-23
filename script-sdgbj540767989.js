@@ -2833,6 +2833,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+    
+    // عرض الصورة الخاصة بكل يوم بعد المطالبة
+    function showRewardImage(day) {
+        rewardImages.forEach((img, index) => {
+            if (index === day - 1) {
+                img.classList.remove('hidden');
+            } else {
+                img.classList.add('hidden');
+            }
+        });
+    }
+
 
     // تحديث الرصيد
     function updateBalance(amount) {
