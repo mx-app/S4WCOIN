@@ -99,3 +99,82 @@ async function checkForLevelUp() {
 }
 
 
+//المستويات 
+function updateLevelDisplay() {
+    checkForLevelUp(); // تحقق من الترقية
+
+    const currentLevelData = levelThresholds.find(lvl => lvl.level === gameState.currentLevel);
+
+    if (currentLevelData) {
+        const progress = Math.min(gameState.balance / currentLevelData.threshold, 1) * 100; // حساب التقدم المشترك
+
+        // تحديث العناصر الرئيسية
+        const mainLevelCoinsElement = document.getElementById('currentLevelCoins');
+        const mainEnergyFill = document.getElementById('levelEnergyFill');
+
+        if (mainLevelCoinsElement && mainEnergyFill) {
+            mainLevelCoinsElement.innerText = `Next Lvl : ${Math.round(progress)}%`;
+            mainEnergyFill.style.width = `${progress}%`;
+        }
+
+        // تحديث صفحة المستويات
+        const levelPageImage = document.getElementById('currentLevelImagee');
+        const levelPageName = document.getElementById('levelPageCurrentLevelName');
+        const levelPageCoinsElement = document.getElementById('levelPageCurrentLevelCoins');
+        const levelPageEnergyFill = document.getElementById('levelPageEnergyFill');
+
+        if (levelPageImage && levelPageName && levelPageCoinsElement && levelPageEnergyFill) {
+            levelPageImage.src = currentLevelData.image;
+            levelPageImage.alt = `Level : ${gameState.currentLevel}`;
+            levelPageName.innerText = `Lvl : ${currentLevelData.name}`;
+
+            applyGradientToLevel(levelPageName, gameState.currentLevel);
+
+            levelPageCoinsElement.innerText = `Next Lvl : ${Math.round(progress)}%`;
+            levelPageEnergyFill.style.width = `${progress}%`;
+        }
+
+        // تحديث الزر العائم
+        const floatingButtonImage = document.getElementById('currentLevelImage');
+        const floatingButtonName = document.getElementById('currentLevelName');
+
+        if (floatingButtonImage && floatingButtonName) {
+            floatingButtonImage.src = currentLevelData.image;
+            floatingButtonImage.alt = ` ${gameState.currentLevel}`;
+            floatingButtonName.innerText = ` ${currentLevelData.name}`;
+
+            floatingButtonName.classList.remove('gradient-level-1', 'gradient-level-2', 'gradient-level-3', 'gradient-level-4', 'gradient-level-5');
+        }
+    }
+
+    // تحديد العنصر النشط
+    document.querySelectorAll('.level-item').forEach(item => {
+        item.classList.remove('current-level');
+    });
+
+    const currentLevelElement = document.getElementById(`level${gameState.currentLevel}`);
+    if (currentLevelElement) {
+        currentLevelElement.classList.add('current-level');
+    }
+}
+
+
+///////////////////
+
+
+function applyGradientToLevel(element, level) {
+    element.className = ""; // إزالة جميع الفئات الحالية
+
+    if (level <= 10) {
+        element.classList.add('gradient-level-1');
+    } else if (level <= 20) {
+        element.classList.add('gradient-level-2');
+    } else if (level <= 30) {
+        element.classList.add('gradient-level-3');
+    } else if (level <= 40) {
+        element.classList.add('gradient-level-4');
+    } else if (level <= 50) {
+        element.classList.add('gradient-level-5');
+    }
+}
+
