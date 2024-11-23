@@ -82,15 +82,16 @@
     color: #808080;
     border-radius: 10px;
     cursor: pointer;
-    width: 20%;
-    height: 30px;
+    width: 20%; /* تحديد عرض الزر */
+    height: 30px; /* تحديد ارتفاع الزر */
     transition: background-color 0.3s;
-    /*border: 1px solid #343434;*/
     font-weight: bold;
     font-size: 14px;
     z-index: 10;
-    margin-left: 100px; /* يجعل الزر في الجهة اليمنى */
-}
+    position: absolute; /* يسمح بتحديد مكان الزر بدقة */
+    bottom: 50%; /* يجعل الزر في أسفل الخانة */
+    right: 1px; /* يجعل الزر في الجهة اليمنى */
+} 
 
 .task-item p {
    /* margin: 5px 0;*/
