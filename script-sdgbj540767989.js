@@ -1617,7 +1617,6 @@ let attempts = 0;
 let puzzleSolved = false;
 let countdownInterval;
 const maxAttempts = 3; // أقصى عدد للمحاولات
-const penaltyAmount = 100; // العقوبة عند الإجابة الخاطئة
 const countdownDuration = 24 * 60 * 60 * 1000; // 24 ساعة بالميلي ثانية
 
 // تحميل الأحاجي من ملف JSON
@@ -1749,7 +1748,6 @@ function startCountdown() {
 function handlePuzzleTimeout() {
     clearInterval(countdownInterval);
     showNotificationWithStatus(puzzleNotification, "Time's up! You failed to solve the puzzle.", 'lose');
-    updateBalance(-penaltyAmount); // خصم العقوبة
     updatePuzzleProgressInDatabase(currentPuzzle.id, false, maxAttempts); // تحديث التقدم
     startCountdownOnButton(24 * 60 * 60); // بدء العد التنازلي لعرض أحجية اليوم التالي
     closePuzzle();
@@ -1794,7 +1792,6 @@ function handlePuzzleWrongAnswer() {
     if (attempts === maxAttempts) {
         clearInterval(countdownInterval);
         showNotification(puzzleNotification, 'You have used all attempts. 500 coins have been deducted.');
-        updateBalance(-penaltyAmount);
         updatePuzzleProgressInDatabase(currentPuzzle.id, false, maxAttempts); // تسجيل المحاولة الفاشلة
         startCountdownOnButton(24 * 60 * 60); // بدء العد التنازلي
         closePuzzle();
@@ -1909,7 +1906,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let morseAttempts = 0;
     let morseSolved = false;
     const morseMaxAttempts = 3;
-    const morsePenaltyAmount = 500; // Penalty for wrong answer
     const countdownDuration = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
     let countdownTimeout = null;
 
@@ -2023,7 +2019,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (morseAttempts >= morseMaxAttempts) {
             showNotification(morseCipherNotification, 'You have used all attempts. 500 coins have been deducted.', 'lose');
-            updateBalance(-morsePenaltyAmount);
             await updateMorseCipherProgress(false);
             startCountdownOnButton(24 * 60 * 60);
             closeMorseCipher();
