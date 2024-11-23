@@ -1,8 +1,20 @@
 import { gameState, saveGameState, updateGameStateInDatabase, listenToRealtimeChanges, updateUI, loadGameState } from 'logic/Database.js';
 
 
+// تعريف حالة اللعبة
+//let gameState = {
+  //  balance: 0,
+   // energy: 500,
+  //  maxEnergy: 500,
+   // fillEnergyCount: 0,
+   // lastFillTime: Date.now(),
+   // autClickCount: 0,    // عدد محاولات النقر التلقائي
+   // lastAutClickTime: Date.now(),  // آخر وقت تم فيه استخدام النقر التلقائي
+//};
+
 // استيراد العناصر من DOM
 const uiElements = {
+    purchaseNotification: document.getElementById('purchaseNotification'),
     energyBar: document.getElementById('energyBar'),
     energyInfo: document.getElementById('energyInfo'),
     fillEnergyButton: document.getElementById('fillEnergyButton'),
@@ -82,15 +94,8 @@ async function fillEnergyAction() {
         const remainingTime = Math.floor((twentyFourHours - (currentTime - gameState.lastFillTime)) / 1000);
         showNotification(`Wait ${formatTime(remainingTime)} before refilling.`);
     }
-
-    // تحديث قاعدة البيانات
-    updateUserData();
 }
 
-// تحديث واجهة الطاقة
-function updateEnergyUI() {
-    const energyPercent = (gameState.energy / gameState.maxEnergy) * 100;
-}
 
 // *** دوال النقر التلقائي ***
 
@@ -129,8 +134,8 @@ function closeAutoclickPopup() {
 }
 
 // تفعيل النقر التلقائي
-async function activateAutoclick() {
-    const clickDuration = 30 * 1000; // 30 ثانية
+function activateAutoclick() {
+    const clickDuration = 60 * 1000; // دقيقة واحدة
     const startTime = Date.now();
 
     function clickElement() {
@@ -151,9 +156,6 @@ async function activateAutoclick() {
     gameState.autClickCount += 1;
     gameState.lastAutClickTime = Date.now();
     uiElements.updateAttemptsElement.innerText = `${gameState.autClickCount}/2`;
-
-    // تحديث قاعدة البيانات
-    updateUserData();
 }
 
 // إنشاء تأثير النقر
@@ -178,3 +180,17 @@ function formatTime(seconds) {
     const remainingSeconds = seconds % 60;
     return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
 }
+
+// عرض إشعار
+function showNotification(message) {
+    if (!uiElements.purchaseNotification) return;
+    uiElements.purchaseNotification.innerText = message;
+    uiElements.purchaseNotification.classList.add('show');
+    setTimeout(() => uiElements.purchaseNotification.classList.remove('show'), 4000);
+}
+
+// تحميل حالة اللعبة عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', () => {
+    updateEnergyUI();
+    uiElements.updateAttemptsElement.innerText = `${gameState.autClickCount}/2`;
+});
