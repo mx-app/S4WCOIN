@@ -2726,6 +2726,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ////////////////////////////////////////////////
 
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
     // عناصر DOM الضرورية
     const dailyButton = document.getElementById('daily2');
@@ -2735,7 +2740,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginClaimBtn = document.getElementById('loginclaimBtn');
     const loginNotification = document.getElementById('login');
     const dayElements = document.querySelectorAll('.daily-item');
-    const dailyRewards = [100, 300, 500, 1000, 2000, 3000, 200000, 300000, 400000];
+    const rewardImages = document.querySelectorAll('.reward-image'); // صور المكافآت
+    const dailyRewards = [100, 500, 2000, 5000, 8000, 15000, 30000, 50000, 100000]; // المكافآت
 
     // الدالة الرئيسية لتسجيل الدخول اليومي
     async function handleDailyLogin() {
@@ -2764,6 +2770,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 loginNotification.innerText = 'You have already claimed today\'s reward.';
                 disableClaimButton();
                 highlightRewardedDays(consecutive_days);
+                showRewardImage(consecutive_days); // عرض الصورة بعد المطالبة
                 return;
             }
 
@@ -2838,13 +2845,13 @@ document.addEventListener('DOMContentLoaded', () => {
     function showRewardImage(day) {
         rewardImages.forEach((img, index) => {
             if (index === day - 1) {
-                img.classList.remove('hidden');
+                img.src = 'i/done.png'; // تحديث مصدر الصورة
+                img.classList.remove('hidden'); // إظهار الصورة
             } else {
-                img.classList.add('hidden');
+                img.classList.add('hidden'); // إخفاء الصور الأخرى
             }
         });
     }
-
 
     // تحديث الرصيد
     function updateBalance(amount) {
@@ -2881,6 +2888,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+
+
+
+
+//////////////////////////////////////////////
 // تفعيل التطبيق
 initializeApp();
 
