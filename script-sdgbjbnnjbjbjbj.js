@@ -1195,11 +1195,57 @@ async function updateUserData() {
 }
 
 
-///////////////////////////////
 
 
 
 
+////////////////////////////////////////////////
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    // تهيئة الإعلانات بعد تحميل الصفحة
+    const AdController = window.Adsgram.init({ blockId: "int-5511" });
+    const button = document.getElementById('ad');
+
+    // تعريف المكافأة (مثل 5000 عملة)
+    const rewardAmount = 5000;
+
+    button.addEventListener('click', () => {
+        AdController.show().then((result) => {
+            // المستخدم شاهد الإعلان حتى النهاية أو تفاعل معه
+            // مكافأة المستخدم
+            rewardUser(rewardAmount);
+            showNotification('لقد حصلت على ' + rewardAmount + ' عملة لمشاهدتك الإعلان!');
+        }).catch((result) => {
+            // معالجة الحالة إذا حدثت مشكلة في عرض الإعلان
+            console.error('خطأ في عرض الإعلان: ', result);
+            showNotification('عذرًا، حدث خطأ أثناء عرض الإعلان. يرجى المحاولة مرة أخرى.');
+        });
+    });
+
+    // دالة مكافأة المستخدم
+    function rewardUser(amount) {
+        // إضافة المكافأة إلى رصيد المستخدم (تأكد من دمج هذا مع منطق اللعبة الحالي)
+        gameState.balance += amount;
+
+        // تحديث واجهة المستخدم مع الرصيد الجديد
+        updateUI();
+
+        // حفظ حالة اللعبة المحدثة (إذا لزم الأمر)
+        saveGameState();
+    }
+});
+
+
+
+///////////////////////////////////////////
+
+
+
+
+
+
+///Bottom menu 
 document.querySelectorAll('button[data-target]').forEach(button => {
     button.addEventListener('click', () => {
         const targetId = button.getAttribute('data-target');
@@ -2398,64 +2444,6 @@ async function addPromoCodeToUsed(enteredCode) {
 
 /////////////////////////////////////////
 
-document.getElementById('buyRobotBtn').addEventListener('click', () => {
-    const cost = 50000; // تكلفة شراء الروبوت
-
-    if (gameState.balance >= cost) {
-        gameState.balance -= cost;
-        gameState.robotLevel = 1;
-        gameState.robotClickValue = 0.5;
-        updateUI();
-        document.getElementById('buyRobotBtn').disabled = true; // إخفاء زر الشراء
-        document.getElementById('activateRobotBtn').disabled = false; // تمكين الروبوت
-        showNotification(uiElements.purchaseNotification, 'Robot purchased successfully!');
-    } else {
-        showNotification(uiElements.purchaseNotification, 'Not enough coins to buy the robot!');
-    }
-});
-
-
-document.getElementById('upgradeRobotBtn').addEventListener('click', () => {
-    const upgradeCost = gameState.robotLevel * 500;
-
-    if (gameState.balance >= upgradeCost) {
-        gameState.balance -= upgradeCost;
-        gameState.robotLevel += 1;
-        gameState.robotClickValue += 0.5; // زيادة قيمة النقرة
-        updateUI();
-        showNotification(uiElements.purchaseNotification, 'Robot upgraded successfully!');
-    } else {
-        showNotification(uiElements.purchaseNotification, 'Not enough coins to upgrade the robot!');
-    }
-});
-
-
-
-let robotInterval;
-
-document.getElementById('activateRobotBtn').addEventListener('click', () => {
-    if (gameState.robotActive) {
-        clearInterval(robotInterval);
-        gameState.robotActive = false;
-        document.getElementById('robotStatus').innerText = 'Robot is inactive.';
-        return;
-    }
-
-    gameState.robotActive = true;
-    document.getElementById('robotStatus').innerText = 'Robot is active.';
-
-    robotInterval = setInterval(() => {
-        gameState.balance += gameState.robotClickValue;
-        updateUI();
-
-        // إيقاف الروبوت بعد دقيقة
-        setTimeout(() => {
-            clearInterval(robotInterval);
-            gameState.robotActive = false;
-            document.getElementById('robotStatus').innerText = 'Robot is inactive.';
-        }, 60 * 1000);
-    }, 200); // يقوم بالنقر كل ثانية
-});
 
 
 
@@ -2499,39 +2487,7 @@ document.addEventListener('DOMContentLoaded', handleInvite);
 
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    // تهيئة الإعلانات بعد تحميل الصفحة
-    const AdController = window.Adsgram.init({ blockId: "int-5511" });
-    const button = document.getElementById('ad');
 
-    // تعريف المكافأة (مثل 5000 عملة)
-    const rewardAmount = 5000;
-
-    button.addEventListener('click', () => {
-        AdController.show().then((result) => {
-            // المستخدم شاهد الإعلان حتى النهاية أو تفاعل معه
-            // مكافأة المستخدم
-            rewardUser(rewardAmount);
-            showNotification('لقد حصلت على ' + rewardAmount + ' عملة لمشاهدتك الإعلان!');
-        }).catch((result) => {
-            // معالجة الحالة إذا حدثت مشكلة في عرض الإعلان
-            console.error('خطأ في عرض الإعلان: ', result);
-            showNotification('عذرًا، حدث خطأ أثناء عرض الإعلان. يرجى المحاولة مرة أخرى.');
-        });
-    });
-
-    // دالة مكافأة المستخدم
-    function rewardUser(amount) {
-        // إضافة المكافأة إلى رصيد المستخدم (تأكد من دمج هذا مع منطق اللعبة الحالي)
-        gameState.balance += amount;
-
-        // تحديث واجهة المستخدم مع الرصيد الجديد
-        updateUI();
-
-        // حفظ حالة اللعبة المحدثة (إذا لزم الأمر)
-        saveGameState();
-    }
-});
 
 
 
