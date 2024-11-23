@@ -695,28 +695,23 @@ function showUpgradeModal(upgradeType) {
         let cost;
         if (upgradeType === 'boost') {
             cost = gameState.boostLevel * 500 + 500;
-            uiElements.upgradeText.innerText = `Are you sure you want to upgrade your click multiplier? It will cost ${cost} coins.`;
+            uiElements.upgradeImage.src = "i/Clickk.png"; // صورة الترقية للـ Boost
+            uiElements.upgradeText.innerText = `Are you sure you want to upgrade your click multiplier?`;
+            uiElements.upgradeDescription.innerText = `This upgrade increases your click multiplier, allowing you to earn more coins per click.`;
             uiElements.currentLevel.innerText = `Current Click Multiplier: ×${gameState.clickMultiplier}`;
         } else if (upgradeType === 'coin') {
             cost = gameState.coinBoostLevel * 500 + 500;
-            uiElements.upgradeText.innerText = `Are you sure you want to upgrade your max coins? It will cost ${cost} coins.`;
+            uiElements.upgradeImage.src = "i/energy.c.png"; // صورة الترقية للـ Coin
+            uiElements.upgradeText.innerText = `Are you sure you want to upgrade your max coins?`;
+            uiElements.upgradeDescription.innerText = `This upgrade increases your maximum coin capacity, allowing you to store more coins.`;
             uiElements.currentLevel.innerText = `Current Max Coins: ${formatNumber(gameState.maxEnergy)}`;
         }
 
         // تحديث العملات المتاحة وتكلفة الترقية
-        uiElements.currentCoins.innerText = formatNumber(gameState.balance);
-        uiElements.upgradeCost.innerText = cost;
+        uiElements.currentCoins.innerText = `Coins Available: ${formatNumber(gameState.balance)}`;
+        uiElements.upgradeCost.innerText = `Upgrade Cost: ${cost}`;
     }
 }
-
-// ربط أزرار الترقية بالنافذة المنبثقة
-document.getElementById('bost1').addEventListener('click', function() {
-    showUpgradeModal('boost');
-});
-
-document.getElementById('bost2').addEventListener('click', function() {
-    showUpgradeModal('coin');
-});
 
 // دالة تأكيد الترقية وتحديث حالة اللعبة بعد الترقية
 function confirmUpgradeAction() {
@@ -735,7 +730,7 @@ function confirmUpgradeAction() {
 
         if (upgradeType === 'boost') {
             gameState.boostLevel += 1;
-            gameState.clickMultiplier += 0.5;
+            gameState.clickMultiplier += 1;
         } else if (upgradeType === 'coin') {
             gameState.coinBoostLevel += 1;
             gameState.maxEnergy += 500;
@@ -760,7 +755,6 @@ function confirmUpgradeAction() {
     // إخفاء النافذة المنبثقة
     uiElements.upgradeModal.style.display = 'none';
 }
-
 
 
 // تحديث عرض التحسينات
