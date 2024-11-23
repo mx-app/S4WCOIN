@@ -247,7 +247,49 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 
-//////////////////////////
+//////////////////////////////////
+
+
+// حفظ حالة اللعبة في LocalStorage وقاعدة البيانات
+async function saveGameState() {
+    const userId = uiElements.userTelegramIdDisplay.innerText;
+
+    // إنشاء بيانات محدثة للحفظ
+    const updatedData = {
+        balance: gameState.balance,
+        energy: gameState.energy,
+        max_energy: gameState.maxEnergy,
+        click_multiplier: gameState.clickMultiplier,
+        boost_level: gameState.boostLevel,
+        coin_boost_level: gameState.coinBoostLevel,
+        energy_boost_level: gameState.energyBoostLevel,
+        caesar_puzzles_progress: gameState.caesarPuzzleProgress, 
+        
+    };
+
+    try {
+        // حفظ البيانات في قاعدة البيانات
+        const { error } = await supabase
+            .from('users')
+            .update(updatedData)
+            .eq('telegram_id', userId);
+
+        if (error) {
+            throw new Error(`Error saving game state: ${error.message}`);
+        }
+
+        console.log('Game state updated successfully.');
+    } catch (err) {
+        console.error(err.message);
+    }
+}
+
+
+
+
+//////////////////////////////
+
+
 
 
 const AdController = window.Adsgram.init({ blockId: "int-5511" });
@@ -272,9 +314,6 @@ button.addEventListener('click', () => {
 function rewardUser(amount) {
     // Add the reward to the user's balance (make sure to integrate this with your existing game logic)
     gameState.balance += amount;
-
-    // Update the UI with the new balance
-    updateUI();
 
     // Save the updated game state (if necessary)
     saveGameState();
