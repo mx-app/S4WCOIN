@@ -2499,36 +2499,36 @@ document.addEventListener('DOMContentLoaded', handleInvite);
 
 
 
-const AdController = window.Adsgram.init({ blockId: "int-5511" });
-const button = document.getElementById('ad');
+//const AdController = window.Adsgram.init({ blockId: "int-5511" });
+//const button = document.getElementById('ad');
 
 // Define the reward (e.g., 100 coins)
-const rewardAmount = 5000;
+//const rewardAmount = 5000;
 
-button.addEventListener('click', () => {
-    AdController.show().then((result) => {
+//button.addEventListener('click', () => {
+    //AdController.show().then((result) => {
         // User watched the ad till the end or interacted with it
         // Reward the user
-        rewardUser(rewardAmount);
-        showNotification('You have earned ' + rewardAmount + ' coins for watching the ad!');
-    }).catch((result) => {
+       // rewardUser(rewardAmount);
+      //  showNotification('You have earned ' + rewardAmount + ' coins for watching the ad!');
+   // }).catch((result) => {
         // Handle the case where there was an issue with showing the ad
-        console.error('Error showing ad: ', result);
-        showNotification('Sorry, there was an error showing the ad. Please try again.');
-    });
-});
+       // console.error('Error showing ad: ', result);
+      //  showNotification('Sorry, there was an error showing the ad. Please try again.');
+  //  });
+//});
 
 // Function to reward the user
-function rewardUser(amount) {
+//function rewardUser(amount) {
     // Add the reward to the user's balance (make sure to integrate this with your existing game logic)
-    gameState.balance += amount;
+   // gameState.balance += amount;
 
     // Update the UI with the new balance
-    updateUI();
+   // updateUI();
 
     // Save the updated game state (if necessary)
-    saveGameState();
-}
+   // saveGameState();
+//}
 
 
 
@@ -2536,7 +2536,19 @@ function rewardUser(amount) {
 
 
 
-
+const AdController = window.Adsgram.init({ blockId: "int-5511" });
+            const button = document.getElementById('ad');
+            button.addEventListener('click', () => {
+                AdController.show().then((result) => {
+                    // user watch ad till the end or close it in interstitial format
+                    // your code to reward user for rewarded format
+                    alert('Reward');
+                }).catch((result) => {
+                    // user get error during playing ad
+                    // do nothing or whatever you want
+                    alert(JSON.stringify(result, null, 4));
+                })
+            })
 
 
 
