@@ -2817,7 +2817,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // تحديث زر المطالبة بالمكافأة
     function updateClaimButton(day, reward) {
-        loginClaimBtn.innerText = `Claim Day ${day} Reward: ${reward}`;
+        loginClaimBtn.innerText = `Claim day${day} : ${reward} SP`;
         loginClaimBtn.disabled = false;
         loginClaimBtn.classList.remove('disabled');
     }
