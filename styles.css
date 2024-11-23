@@ -795,7 +795,6 @@ img {
 #t {
     color: #808080; 
     font-size: 15px; 
-    margin: 10px 0;
     text-align: left;
 }
 
@@ -830,7 +829,7 @@ img {
 
 #task, #Gem {
     color: #808080; /* لون النص */
-    font-size: 20px; /* حجم الخط */
+    font-size: 15px; /* حجم الخط */
     margin-top: 5px; /* إزالة المسافة من الأعلى */
     margin-bottom: 10px;
     text-align: center;
