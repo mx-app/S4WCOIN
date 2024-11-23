@@ -2500,7 +2500,6 @@ document.addEventListener('DOMContentLoaded', handleInvite);
 
 
 const AdController = window.Adsgram.init({ blockId: "int-5512" });
-//const adElement = document.getElementById('ad');
 const button = document.getElementById('ad');
 
 // Define the reward (e.g., 100 coins)
@@ -2530,6 +2529,7 @@ function rewardUser(amount) {
     // Save the updated game state (if necessary)
     saveGameState();
 }
+
 
 
 
