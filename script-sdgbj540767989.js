@@ -659,10 +659,10 @@ function showNotificationWithStatus(notificationElement, message, status = '') {
     let imageUrl = '';
     if (status === 'win') {
         notificationElement.classList.add('win');
-        imageUrl = 'i/Correct0.gif'; // رابط الصورة لحالة الفوز
+        imageUrl = 'i/correct.png'; // رابط الصورة لحالة الفوز
     } else if (status === 'lose') {
         notificationElement.classList.add('lose');
-        imageUrl = 'i/highlight.png'; // رابط الصورة لحالة الخسارة
+        imageUrl = 'i/mistake.png'; // رابط الصورة لحالة الخسارة
     } else if (status === 'error') {
         notificationElement.classList.add('error');
         imageUrl = 'i/error.png'; // رابط الصورة لحالة الخطأ
