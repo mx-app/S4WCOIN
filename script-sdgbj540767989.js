@@ -335,12 +335,6 @@ async function checkForLevelUp() {
             // تسجيل المستوى الجديد
             gameState.achievedLevels.push(levelData.level);
 
-            // عرض إشعار الترقية
-            showNotification(
-                uiElements.purchaseNotification,
-                `You have been promoted to level ${gameState.currentLevel}!`
-            );
-
             // تحديث واجهة المستخدم
             updateUI();
 
