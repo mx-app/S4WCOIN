@@ -5,8 +5,10 @@
     gap: 8px; /* مسافة بين الصورة والنص */
     width: 75%; 
     height: 60px;
-    background-color: rgba(0, 0, 0, 0.9);
-    /* background: #1c1c1c;*/
+   /* background-color: rgba(0, 0, 0, 0.9);*/
+    background-image: url('i/button.jpg');
+    background-size: cover; 
+    background-position: center;
     color: #fff;
     border: 0.50px solid #343434; 
     padding: 20px;
