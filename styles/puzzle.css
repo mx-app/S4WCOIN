@@ -268,14 +268,14 @@
 
 /* Styling for the text next to the timer */
 #timeText {
-    font-size: 18px; /* حجم النص العادي */
+    font-size: 16px; /* حجم النص العادي */
     color: #fff; /* لون النص */
     margin-right: 5px; /* مسافة بين النص والمؤقت */
     text-align: center;
 }
 
 .attempts-display {
-    font-size: 16px; /* حجم الخط */
+    font-size: 15px; /* حجم الخط */
     color: #fff; /* لون النص */
     margin-bottom: 1px; /* مسافة تحت العنوان */
     text-align: center; /* توسيط النص */
@@ -296,7 +296,7 @@
 }
 
 .reward-display {
-    font-size: 18px; 
+    font-size: 15px; 
     color: #fff; /* إخفاء النص ليظهر التدرج */
     padding: 10px 0; /* إضافة مسافة من الأعلى والأسفل */
     text-align: center; /* توسيط النص داخل العنصر */
@@ -306,7 +306,7 @@
  #Puz-to {
     margin-bottom: 35px; /* يمكنك تغيير القيمة حسب المسافة التي تريدها */
     font-weight: bold;
-    font-size: 35px; 
+    font-size: 20px; 
 }
 
 .puzzle-icon {
