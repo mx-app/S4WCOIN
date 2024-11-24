@@ -43,8 +43,6 @@
     font-weight: bold;
 }
 
-
-
 #mainPage {
     padding-top: 50px; /* يمكنك تغيير القيمة حسب الحاجة */
     background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
@@ -71,9 +69,9 @@
 
 
 #Puzzlespage  {
-    padding-bottom: 100px;
+    padding-bottom: 50px;
     overflow-y: auto;
-    padding-top: 100px; /* يمكنك تغيير القيمة حسب الحاجة */
+    padding-top: 150px; /* يمكنك تغيير القيمة حسب الحاجة */
     background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
     background-image: url('i/page.jpg');
     background-size: cover; /* لجعل الصورة تغطي الصفحة بالكامل */
