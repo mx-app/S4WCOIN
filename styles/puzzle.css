@@ -43,17 +43,19 @@
     flex-direction: column;
     align-items: center;
     justify-content: center; /* محاذاة المحتوى داخل الحاوية */
-    border: 1px solid #1a1a1a;
+    border: 1px solid #000;
     border-radius: 10px;
     padding: 5px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
+    background: #1a1a1a;
     text-align: center;
     cursor: pointer;
     overflow: hidden;
     margin: 20px auto; /* لضبط العنصر في المنتصف من اليسار إلى اليمين */
 }
 
+.puzzle-item { 
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.3);
+}
 
 #Puzzlespage .puzzle-image {
     width: 100px; /* تجعل الصورة تملأ العرض الكامل */
