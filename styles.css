@@ -290,10 +290,10 @@ img {
     background-clip: text;
     color: transparent;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 14px; /* حجم الخط */
+    font-size: 15px; /* حجم الخط */
     font-weight: bold; /* سمك الخط */
     text-align: left; /* المحاذاة لليسار */
-    margin-left: 5px;
+    margin-right: 15px;
     direction: rtl; /* الحفاظ على الاتجاه من اليمين لليسار */
     white-space: nowrap;
 }
