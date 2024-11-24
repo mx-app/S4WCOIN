@@ -1292,13 +1292,16 @@ window.addEventListener('popstate', (event) => {
     });
 });
 
-// عند تحميل الصفحة: تعيين القسم بناءً على الرابط الحالي
+
 window.addEventListener('load', () => {
     const hash = window.location.hash.substring(1) || 'mainPage'; // استخراج الـ target من الرابط أو افتراضيًا الصفحة الرئيسية
     document.querySelectorAll('.screen-content').forEach(screen => {
         screen.classList.remove('active');
     });
-    document.getElementById(hash).classList.add('active');
+    const activeScreen = document.getElementById(hash);
+    if (activeScreen) {
+        activeScreen.classList.add('active');
+    }
 
     // تحديث الزر النشط
     document.querySelectorAll('.menu button').forEach(btn => {
@@ -1306,6 +1309,7 @@ window.addEventListener('load', () => {
         btn.classList.toggle('active', target === hash);
     });
 });
+
 
 // إضافة مستمع للأحداث (Event Listener) لكل زر لاستماع للنقرات
 const buttons = document.querySelectorAll('.menu button');
