@@ -1558,9 +1558,16 @@ function initializeTelegramIntegration() {
     telegramApp.BackButton.onClick(() => {
         const currentPage = document.querySelector(".screen-content.active"); // الصفحة النشطة
         if (currentPage && currentPage.id !== "mainPage") {
-            // إخفاء الصفحة الحالية والعودة للصفحة الرئيسية
+            // إخفاء الصفحة الحالية والعودة للصفحة السابقة
             currentPage.classList.remove("active");
-            document.getElementById("mainPage").classList.add("active");
+
+            // العودة إلى الصفحة السابقة (ممكن تعديل حسب الحاجة)
+            const prevPage = document.querySelector(".screen-content.active");
+            if (prevPage) {
+                prevPage.classList.add("active");
+            } else {
+                document.getElementById("mainPage").classList.add("active");
+            }
             updateBackButton();
         } else {
             telegramApp.close(); // إغلاق WebApp إذا كنا في الصفحة الرئيسية
@@ -1599,7 +1606,6 @@ function initializeTelegramIntegration() {
 
 // استدعاء التهيئة عند تحميل الصفحة
 window.addEventListener('load', initializeTelegramIntegration);
-
 
 ///////////////////////////////////////
      
