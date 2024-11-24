@@ -57,8 +57,8 @@
 } 
 
 #Puzzlespage .puzzle-image {
-    width: 70px; /* تجعل الصورة تملأ العرض الكامل */
-    height: 70px; /* تجعل الصورة تملأ الارتفاع الكامل */
+    width: 60px; /* تجعل الصورة تملأ العرض الكامل */
+    height: 60px; /* تجعل الصورة تملأ الارتفاع الكامل */
     object-fit: cover; /* لضمان تغطية المساحة بدون تشويه */
    /* position: absolute;*/ /* لضبط الصورة داخل الحاوية */
     border-radius: 10px; /* نفس الزوايا الدائرية للحاوية */
@@ -80,17 +80,18 @@
 }*/
 
 .puzzle-item .puzzle-description h4 {
-    font-size: 17px;
+    font-size: 18px;
     color: #fff; /* لون مميز للعنوان */
     margin: 0;
     font-weight: bold;
 }
 
 .puzzle-item .puzzle-description p {
-    font-size: 13px;
+    font-size: 12px;
     color: #808080; /* لون فاتح للوصف */
-    margin-top: 5px; /* مسافة بين العنوان والوصف */
-    line-height: 1.4;
+    margin: 10px 0;
+   /* margin-top: 5px;*//* مسافة بين العنوان والوصف */
+    line-height: 1.5;
 }
  
 
