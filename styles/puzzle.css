@@ -30,16 +30,18 @@
 
 #Puzzlespage .puzzles-container {
     display: flex;
-    flex-direction: column; /* المسافة بين العناصر */
-    justify-content: center; /* محاذاة العناصر في المنتصف */
+    flex-direction: column; /* ترتيب العناصر عموديًا */
+    justify-content: center; /* محاذاة العناصر في المنتصف عموديًا */
+    align-items: center; /* محاذاة العناصر في المنتصف أفقيًا */
 }
 
 #Puzzlespage .puzzle-item {
-    width: 88%; /* عرض الحاوية بنسبة 44% */
+    width: 88%; /* عرض الحاوية بنسبة 88% */
     height: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center; /* محاذاة المحتوى داخل الحاوية */
     border: 1px solid #1a1a1a;
     border-radius: 10px;
     padding: 10px;
@@ -48,8 +50,9 @@
     text-align: center;
     cursor: pointer;
     overflow: hidden;
-   /* position: relative;*/
+    margin: 0 auto; /* لضبط العنصر في المنتصف من اليسار إلى اليمين */
 }
+
 
 #Puzzlespage .puzzle-image {
     width: 100%; /* تجعل الصورة تملأ العرض الكامل */
