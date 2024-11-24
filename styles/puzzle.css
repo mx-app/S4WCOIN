@@ -37,8 +37,8 @@
 }
 
 #Puzzlespage .puzzle-item {
-    width: 85%; /* عرض الحاوية بنسبة 88% */
-    height: 150px;
+    width: 90%; /* عرض الحاوية بنسبة 88% */
+    height: 130px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -58,8 +58,8 @@
 }
 
 #Puzzlespage .puzzle-image {
-    width: 100px; /* تجعل الصورة تملأ العرض الكامل */
-    height: 100px; /* تجعل الصورة تملأ الارتفاع الكامل */
+    width: 70px; /* تجعل الصورة تملأ العرض الكامل */
+    height: 70px; /* تجعل الصورة تملأ الارتفاع الكامل */
     object-fit: cover; /* لضمان تغطية المساحة بدون تشويه */
    /* position: absolute;*/ /* لضبط الصورة داخل الحاوية */
     border-radius: 10px; /* نفس الزوايا الدائرية للحاوية */
