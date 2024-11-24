@@ -1533,30 +1533,30 @@ function openTaskLink(taskurl, callback) {
 window.Telegram.WebApp.setHeaderColor('#000000');
 window.Telegram.WebApp.setBackgroundColor('#000000');
 
-// تهيئة تكامل تليجرام
+// تهيئة تكامل Telegram
 function initializeTelegramIntegration() {
     const telegramApp = window.Telegram.WebApp;
-    
-    // التحقق من جاهزية التطبيق
+
+    // التأكد من أن التطبيق جاهز
     telegramApp.ready();
-    
+
     // التحقق من الصفحة الحالية لإظهار أو إخفاء زر الرجوع
     function updateBackButton() {
-        const currentPage = document.querySelector(".page.active"); // الصفحة النشطة
-        if (currentPage && currentPage.id !== "home") {
-            telegramApp.BackButton.show();
+        const currentPage = document.querySelector(".screen-content.active"); // الصفحة النشطة
+        if (currentPage && currentPage.id !== "mainPage") {
+            telegramApp.BackButton.show(); // إظهار الزر إذا لم تكن في الصفحة الرئيسية
         } else {
-            telegramApp.BackButton.hide();
+            telegramApp.BackButton.hide(); // إخفاء الزر في الصفحة الرئيسية
         }
     }
-    
+
     // تفعيل حدث زر الرجوع
     telegramApp.BackButton.onClick(() => {
-        const currentPage = document.querySelector(".page.active"); // الصفحة النشطة
+        const currentPage = document.querySelector(".screen-content.active"); // الصفحة النشطة
         if (currentPage && currentPage.id !== "mainPage") {
             // إخفاء الصفحة الحالية والعودة للصفحة الرئيسية
             currentPage.classList.remove("active");
-            document.getElementById("home").classList.add("active");
+            document.getElementById("mainPage").classList.add("active");
             updateBackButton();
         } else {
             telegramApp.close(); // إغلاق WebApp إذا كنا في الصفحة الرئيسية
@@ -1564,36 +1564,36 @@ function initializeTelegramIntegration() {
     });
 
     // إعداد التنقل بين الصفحات
-    document.querySelectorAll(".nav-button").forEach(button => {
-        button.addEventListener("click", (event) => {
-            const targetPageId = event.target.getAttribute("data-target"); // تحديد الصفحة المستهدفة
-            document.querySelectorAll(".page").forEach(page => page.classList.remove("active"));
+    document.querySelectorAll(".menu button").forEach(button => {
+        button.addEventListener("click", () => {
+            const targetPageId = button.getAttribute("data-target"); // الصفحة المستهدفة
+            document.querySelectorAll(".screen-content").forEach(page => page.classList.remove("active"));
             document.getElementById(targetPageId).classList.add("active");
+
+            // تحديث الزر النشط
+            document.querySelectorAll(".menu button").forEach(btn => btn.classList.remove("active"));
+            button.classList.add("active");
+
+            // تحديث حالة زر الرجوع
             updateBackButton();
         });
     });
 
     // تخصيص الألوان بناءً على الثيم
     if (telegramApp.colorScheme === 'dark') {
-        document.documentElement.style.setProperty('--background-color-dark', '#000');
-        document.documentElement.style.setProperty('--text-color-dark', '#FFF');
+        document.documentElement.style.setProperty('--background-color', '#000');
+        document.documentElement.style.setProperty('--text-color', '#FFF');
+    } else {
+        document.documentElement.style.setProperty('--background-color', '#FFF');
+        document.documentElement.style.setProperty('--text-color', '#000');
     }
-    
-    // إدارة حدث المشاركة
-    telegramApp.onEvent('share', () => {
-        gameState.balance += 50000;
-        updateUI();
-        showNotification(uiElements.purchaseNotification, 'You received 50,000 coins for inviting a friend!');
-        updateUserData();
-        saveGameState();
-    });
 
     // تحديث حالة زر الرجوع عند تحميل الصفحة
     updateBackButton();
 }
 
-// استدعاء الدالة عند تحميل الصفحة
-document.addEventListener('DOMContentLoaded', initializeTelegramIntegration);
+// استدعاء التهيئة عند تحميل الصفحة
+window.addEventListener('load', initializeTelegramIntegration);
 
 
 ///////////////////////////////////////
