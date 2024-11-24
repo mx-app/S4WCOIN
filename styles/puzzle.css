@@ -44,7 +44,7 @@
     justify-content: center; /* محاذاة المحتوى داخل الحاوية */
     border: 1px solid #1a1a1a;
     border-radius: 10px;
-    padding: 10px;
+    padding: 5px;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(5px);
     text-align: center;
@@ -59,17 +59,15 @@
     height: 100px; /* تجعل الصورة تملأ الارتفاع الكامل */
     object-fit: cover; /* لضمان تغطية المساحة بدون تشويه */
    /* position: absolute;*/ /* لضبط الصورة داخل الحاوية */
-    top: 0;
-    left: 0;
     border-radius: 10px; /* نفس الزوايا الدائرية للحاوية */
 }
 
 #Puzzlespage .puzzle-description {
-    margin-top: 72%;
+   /* margin-top: 72%;*/
     color: white;
     font-size: 16px;
-   /* margin: 10px 0;*/
-    padding: 0 10px;
+    margin: 10px 0;
+   /* padding: 0 10px;*/
 }
 
 #Puzzlespage .puzzle2-image {
