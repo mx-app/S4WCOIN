@@ -24,19 +24,17 @@
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    top: 0;
+    top: 5px;
     left: 50%; /* نقطة البداية في المنتصف */
     transform: translateX(-50%); /* توسيط العرض */
     width: 95%;
-    height: 40px;
+    height: 60px;
     z-index: 500;
-    border-bottom: 0.50px solid #343434;
+    border: 1px solid #1a1a1a;
     /*border-radius: 10px;*/
-    border-radius: 0 0 10px 10px; /* زوايا مستديرة في الأسفل فقط */
+    border-radius: 25px; /* زوايا مستديرة في الأسفل فقط */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: rgba(0, 0, 0, 0.8);
-    /*background-color: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(1px);*/
 }
 
 #balanceContainer, #earnContainer {
