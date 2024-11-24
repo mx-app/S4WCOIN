@@ -475,63 +475,6 @@ img {
     margin: 0 auto;
 } 
 
-.invite-more {
-    display: flex;
-    align-items: center; /* توسيط عمودي للصورة والنص */
-    justify-content: center; /* توسيط أفقي */
-    gap: 8px; /* مسافة بين الصورة والنص */
-    width: 75%; 
-    height: 60px;
-    background-color: rgba(0, 0, 0, 0.9);
-    /* background: #1c1c1c;*/
-    color: #fff;
-    border: 0.50px solid #343434; 
-    padding: 20px;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-
-.invite-more:hover {
-    background: linear-gradient(90deg, #343434, #1a1a1a);
-} 
-
-#inviteInfo {
-    font-size: 14px;
-    color: #fff;
-    text-align: center;
-    margin-top: 10px;
-
-} 
-
-.invite-copy {
-    display: flex;
-    align-items: center; /* توسيط عمودي للصورة والنص */
-    justify-content: center; /* توسيط أفقي */
-    gap: 8px; /* مسافة بين الصورة والنص */
-    width: 20%; 
-    height: 60px;
-    background-color: rgba(0, 0, 0, 0.9);
-    /*background: linear-gradient(90deg, #343434, #1a1a1a);*/
-    /*background: #1c1c1c;*/
-    color: #fff;
-    border: 0.50px solid #343434; 
-    padding: 7px;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    z-index: 100;
-} 
-
-.invite-copy:hover {
-   background: linear-gradient(90deg, #343434, #1a1a1a);
-} 
-
 .invite-icon {
     width: 25px;
     height: 25px;
