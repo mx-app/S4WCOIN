@@ -13,7 +13,7 @@ fetch('json/styles.json')
       link.href = file;
       head.appendChild(link);
     });
-    console.log('All CSS files loaded successfully');
+    console.log('successfully');
   })
   .catch(error => {
     console.error('Error loading CSS files:', error);
