@@ -72,13 +72,26 @@
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.3);
 }
 
-#Puzzlespage .puzzle-description {
-   /* margin-top: 72%;*/
+/*#Puzzlespage .puzzle-description {
     color: white;
     font-size: 16px;
     margin:  0;
-   /* padding: 0 10px;*/
+}*/
+
+.puzzle-item .puzzle-description h4 {
+    font-size: 17px;
+    color: #fff; /* لون مميز للعنوان */
+    margin: 0;
+    font-weight: bold;
 }
+
+.puzzle-item .puzzle-description p {
+    font-size: 13px;
+    color: #808080; /* لون فاتح للوصف */
+    margin-top: 5px; /* مسافة بين العنوان والوصف */
+    line-height: 1.4;
+}
+ 
 
 #Puzzlespage .puzzle2-image {
     width: 110px;
