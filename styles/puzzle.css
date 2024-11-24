@@ -1,7 +1,6 @@
 .countdown-display {
     position: absolute;
     top: 180px;
-    left: 50px;
     font-size: 18px; /* حجم الخط */
     display: flex;
     align-items: center; /* لضبط المحاذاة الرأسية */
@@ -37,7 +36,7 @@
 
 #Puzzlespage .puzzle-item {
     width: 85%; /* عرض الحاوية بنسبة 88% */
-    height: 200px;
+    height: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
