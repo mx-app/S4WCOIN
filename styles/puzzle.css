@@ -16,7 +16,7 @@
 
 /* تأثير الضباب والتوهج عند عدم التفعيل */
 .puzzle-item.inactive {
-    filter: blur(20px); /* يجعل العنصر ضبابيًا */
+    filter: blur(10px); /* يجعل العنصر ضبابيًا */
     border: 2px solid darkred; /* حواف حمراء داكنة */
     pointer-events: none; /* تعطيل التفاعل مع العنصر */
 }
@@ -80,14 +80,14 @@
 }*/
 
 .puzzle-item .puzzle-description h4 {
-    font-size: 18px;
+    font-size: 17px;
     color: #fff; /* لون مميز للعنوان */
     margin: 0;
     font-weight: bold;
 }
 
 .puzzle-item .puzzle-description p {
-    font-size: 12px;
+    font-size: 11px;
     color: #808080; /* لون فاتح للوصف */
     margin: 10px 0;
    /* margin-top: 5px;*//* مسافة بين العنوان والوصف */
@@ -265,7 +265,7 @@
 
 #timer {
     color: red;
-    font-size: 15px; /* حجم الخط للمؤقت */
+    font-size: 17px; /* حجم الخط للمؤقت */
     background-color: none; 
     padding: 8px;
     border-radius: 10px;
