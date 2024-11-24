@@ -941,24 +941,6 @@ function startEnergyRecovery() {
     }, 3000); // تنفيذ الدالة كل 5 ثوانٍ
 }
 
-// التحقق من ملء الطاقة
-//function checkEnergyFill() {
-   // const currentTime = Date.now();
-   // const twelveHours = 12 * 60 * 60 * 1000;
-
-   // if (currentTime - gameState.lastFillTime >= twelveHours) {
-        //gameState.fillEnergyCount = 0;
-       // gameState.lastFillTime = currentTime;
-
-        // تحديث البيانات
-        //updateUI();
-       // saveGameState();
-       // updateGameStateInDatabase({
-           // fillEnergyCount: gameState.fillEnergyCount,
-           // lastFillTime: gameState.lastFillTime,
-      //  });
-   // }
-//}
 
 //////////////////////////////////
 
@@ -1264,57 +1246,71 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 ///Bottom menu 
+// التنقل بين الأقسام وتحديث الزر النشط
 document.querySelectorAll('button[data-target]').forEach(button => {
     button.addEventListener('click', () => {
         const targetId = button.getAttribute('data-target');
+        
+        // تحديث الشاشة النشطة
         document.querySelectorAll('.screen-content').forEach(screen => {
             screen.classList.remove('active');
         });
         document.getElementById(targetId).classList.add('active');
+        
+        // تحديث الزر النشط
+        document.querySelectorAll('.menu button').forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        // تحديث سجل التنقل
+        if (targetId === 'mainPage') {
+            // استبدل السجل عند الدخول للصفحة الرئيسية
+            history.replaceState({ target: targetId }, "", `#${targetId}`);
+        } else {
+            // أضف للسجل عند الانتقال لأي صفحة أخرى
+            history.pushState({ target: targetId }, "", `#${targetId}`);
+        }
     });
 });
-
 
 // إغلاق النافذة المنبثقة
 document.getElementById('closeModal').addEventListener('click', function() {
     document.getElementById('upgradeConfirmation').style.display = 'none';
 });
 
+// إدارة زر الرجوع الخاص بالجهاز
+window.addEventListener('popstate', (event) => {
+    const targetId = event.state ? event.state.target : 'mainPage'; // افتراضيًا الرجوع للصفحة الرئيسية
+    document.querySelectorAll('.screen-content').forEach(screen => {
+        screen.classList.remove('active');
+    });
+    document.getElementById(targetId).classList.add('active');
 
+    // تحديث الزر النشط بناءً على القسم الحالي
+    document.querySelectorAll('.menu button').forEach(btn => {
+        const target = btn.getAttribute('data-target');
+        btn.classList.toggle('active', target === targetId);
+    });
+});
 
-
-/////////////////////////////////////////////////
-
-
-
-const buttons = document.querySelectorAll('.menu button');
-
-// تفعيل الزر النشط بناءً على الصفحة الحالية عند تحميل الصفحة
+// عند تحميل الصفحة: تعيين القسم بناءً على الرابط الحالي
 window.addEventListener('load', () => {
-    const currentPage = window.location.pathname; // الحصول على اسم الصفحة الحالية
+    const hash = window.location.hash.substring(1) || 'mainPage'; // استخراج الـ target من الرابط أو افتراضيًا الصفحة الرئيسية
+    document.querySelectorAll('.screen-content').forEach(screen => {
+        screen.classList.remove('active');
+    });
+    document.getElementById(hash).classList.add('active');
 
-    // إزالة الصنف "active" من جميع الأزرار للتأكد من بداية نظيفة
-    buttons.forEach(button => button.classList.remove('active'));
-    
-    // تعيين الزر الرئيسي كزر نشط افتراضي
-    buttons[0].classList.add('active');
-
-    // تعيين الزر النشط إذا تطابق "data-target" مع الصفحة الحالية
-    buttons.forEach(button => {
-        const target = button.getAttribute('data-target'); // الحصول على قيمة "data-target" من كل زر
-        if (currentPage.includes(target)) {
-            // إزالة الصنف "active" من جميع الأزرار
-            buttons.forEach(btn => btn.classList.remove('active'));
-
-            // إضافة الصنف "active" للزر المتطابق مع الصفحة
-            button.classList.add('active');
-        }
+    // تحديث الزر النشط
+    document.querySelectorAll('.menu button').forEach(btn => {
+        const target = btn.getAttribute('data-target');
+        btn.classList.toggle('active', target === hash);
     });
 });
 
 // إضافة مستمع للأحداث (Event Listener) لكل زر لاستماع للنقرات
+const buttons = document.querySelectorAll('.menu button');
 buttons.forEach(button => {
-    button.addEventListener('click', function() {
+    button.addEventListener('click', function () {
         // إزالة الصنف "active" من جميع الأزرار عند النقر على زر
         buttons.forEach(btn => btn.classList.remove('active'));
         
@@ -1328,7 +1324,6 @@ buttons.forEach(button => {
         console.log("التنقل إلى الصفحة:", targetPage); // هذا للعرض فقط في الكونسول
     });
 });
-
 
 
 //////////////////////////////////////
