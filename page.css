@@ -1,6 +1,6 @@
 #Profit-in {
     font-size: 12px;
-    margin-right: 20px;
+    margin-right: 25px;
     right: 40px;
     color: #ffffff; /* لون النص */
     transition: padding 0.2s ease; /* تأثير بسيط عند التمدد */
@@ -11,11 +11,11 @@
 #miningnavbarBalanceDisplay, #BoostnavbarBalanceDisplay, #tasknavbarBalanceDisplay, #navbarBalanceDisplay,
 #lvlnavbarBalanceDisplay, #puzzlenavbarBalanceDisplay, #AccountnavbarBalanceDisplay {
     font-size: 13px;
-    margin-left: 20px;
+    margin-left: 25px;
     left: 40px;
     color: #ffffff; /* لون النص */
     transition: padding 0.2s ease; /* تأثير بسيط عند التمدد */
-    min-width: 50px; /* عرض أدنى للعنصر */
+    min-width: 30px; /* عرض أدنى للعنصر */
     white-space: nowrap; /* لمنع النص من الانتقال إلى سطر جديد */
 }
 
@@ -27,8 +27,8 @@
     top: 5px;
     left: 50%; /* نقطة البداية في المنتصف */
     transform: translateX(-50%); /* توسيط العرض */
-    width: 95%;
-    height: 60px;
+    width: 92%;
+    height: 35px;
     z-index: 500;
     border: 1px solid #1a1a1a;
     /*border-radius: 10px;*/
