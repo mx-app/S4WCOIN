@@ -53,8 +53,8 @@
     margin: 20px auto; /* لضبط العنصر في المنتصف من اليسار إلى اليمين */
 }
 
-.puzzle-item { 
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.3);
+.puzzle-item::hover { 
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.006), 0 0 7px rgba(255, 255, 255, 0.04), 0 0 10px rgba(255, 255, 255, 0.03);
 }
 
 #Puzzlespage .puzzle-image {
