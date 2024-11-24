@@ -60,9 +60,8 @@
 } 
 
 #Puzzlespage .puzzles-container {
-    display: grid;
-    grid-template-columns: repeat(2, 44%); /* عرض كل عنصرين بجانب بعض */
-    gap: 20px; /* المسافة بين العناصر */
+    display: flex;
+    flex-direction: column; /* المسافة بين العناصر */
     justify-content: center; /* محاذاة العناصر في المنتصف */
     margin-top: 10px;
 }
