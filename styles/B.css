@@ -1,3 +1,19 @@
+.user-info {
+    display: flex;
+   /* flex-direction: center;
+    justify-content: flex-start;
+    /*justify-content: center;*//* توسيط النص داخل الحاوية */
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.9);
+    font-size: 13px; 
+    color: #ffffff; 
+    width: 80%;
+    margin: 5px auto;
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid #1a1a1a;
+} 
+
 .boost-item-free {
     display: flex;
     flex-direction: row; /* ترتيب المحتوى داخل العنصر أفقيًا */
