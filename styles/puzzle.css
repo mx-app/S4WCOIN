@@ -36,8 +36,8 @@
 }
 
 #Puzzlespage .puzzle-item {
-    width: 80%; /* عرض الحاوية بنسبة 88% */
-    height: 250px;
+    width: 85%; /* عرض الحاوية بنسبة 88% */
+    height: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -50,18 +50,19 @@
     text-align: center;
     cursor: pointer;
     overflow: hidden;
-    margin: 15px auto; /* لضبط العنصر في المنتصف من اليسار إلى اليمين */
+    margin: 20px auto; /* لضبط العنصر في المنتصف من اليسار إلى اليمين */
 }
 
 
 #Puzzlespage .puzzle-image {
-    width: 100%; /* تجعل الصورة تملأ العرض الكامل */
-    height: 70%; /* تجعل الصورة تملأ الارتفاع الكامل */
+    width: 80%; /* تجعل الصورة تملأ العرض الكامل */
+    height: 50%; /* تجعل الصورة تملأ الارتفاع الكامل */
     object-fit: cover; /* لضمان تغطية المساحة بدون تشويه */
     position: absolute; /* لضبط الصورة داخل الحاوية */
     top: 0;
     left: 0;
     border-radius: 1px; /* نفس الزوايا الدائرية للحاوية */
+    margin-top: 20px; 
 }
 
 #Puzzlespage .puzzle-description {
