@@ -1592,7 +1592,8 @@ function initializeTelegramIntegration() {
         document.documentElement.style.setProperty('--text-color', '#000');
     }
 
-    // تحديث حالة زر الرجوع عند تحميل الصفحة
+    // تحديد الصفحة الرئيسية كصفحة نشطة عند تحميل الصفحة
+    document.getElementById("mainPage").classList.add("active");
     updateBackButton();
 }
 
