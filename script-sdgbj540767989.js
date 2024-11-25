@@ -1244,88 +1244,85 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //////////////////////////////////////
 
-
-function initializeTelegramIntegration() {
-    const telegramApp = window.Telegram.WebApp;
-
-    // التأكد من أن التطبيق جاهز
-    telegramApp.ready();
-
-    // تحديث زر الرجوع بناءً على الصفحة الحالية
-    function updateBackButton() {
-        const currentPage = document.querySelector(".screen-content.active");
-        if (currentPage && currentPage.id !== "mainPage") {
-            telegramApp.BackButton.show(); // إظهار زر الرجوع إذا لم تكن في الصفحة الرئيسية
-        } else {
-            telegramApp.BackButton.hide(); // إخفاء زر الرجوع إذا كنت في الصفحة الرئيسية
-        }
-    }
-
-    // تحديث الزر النشط بناءً على الصفحة النشطة
-    function updateActiveButton(targetPageId) {
-        document.querySelectorAll(".menu button").forEach(btn => {
-            const target = btn.getAttribute("data-target");
-            btn.classList.toggle("active", target === targetPageId);
+///Bottom menu 
+// التنقل بين الأقسام وتحديث الزر النشط
+document.querySelectorAll('button[data-target]').forEach(button => {
+    button.addEventListener('click', () => {
+        const targetId = button.getAttribute('data-target');
+        
+        // تحديث الشاشة النشطة
+        document.querySelectorAll('.screen-content').forEach(screen => {
+            screen.classList.remove('active');
         });
-    }
+        document.getElementById(targetId).classList.add('active');
+        
+        // تحديث الزر النشط
+        document.querySelectorAll('.menu button').forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
 
-    // تفعيل حدث زر الرجوع الخاص بـ Telegram
-    telegramApp.BackButton.onClick(() => {
-        const currentPage = document.querySelector(".screen-content.active");
-        if (currentPage && currentPage.id !== "mainPage") {
-            // إزالة الصفحة الحالية
-            currentPage.classList.remove("active");
-
-            // الرجوع للصفحة الرئيسية أو صفحة سابقة
-            const prevPage = document.querySelector("#mainPage"); // افتراضيًا العودة للصفحة الرئيسية
-            prevPage.classList.add("active");
-
-            // تحديث الزر النشط
-            updateActiveButton(prevPage.id);
-
-            // تحديث زر الرجوع
-            updateBackButton();
+        // تحديث سجل التنقل
+        if (targetId === 'mainPage') {
+            // استبدل السجل عند الدخول للصفحة الرئيسية
+            history.replaceState({ target: targetId }, "", `#${targetId}`);
         } else {
-            telegramApp.close(); // إغلاق WebApp إذا كنت في الصفحة الرئيسية
+            // أضف للسجل عند الانتقال لأي صفحة أخرى
+            history.pushState({ target: targetId }, "", `#${targetId}`);
         }
     });
+});
 
-    // إعداد التنقل بين الأقسام
-    document.querySelectorAll(".menu button").forEach(button => {
-        button.addEventListener("click", () => {
-            const targetPageId = button.getAttribute("data-target");
 
-            // تحديث الصفحة النشطة
-            document.querySelectorAll(".screen-content").forEach(page => page.classList.remove("active"));
-            document.getElementById(targetPageId).classList.add("active");
-
-            // تحديث الزر النشط
-            updateActiveButton(targetPageId);
-
-            // تحديث زر الرجوع
-            updateBackButton();
-        });
+// إدارة زر الرجوع الخاص بالجهاز
+window.addEventListener('popstate', (event) => {
+    const targetId = event.state ? event.state.target : 'mainPage'; // افتراضيًا الرجوع للصفحة الرئيسية
+    document.querySelectorAll('.screen-content').forEach(screen => {
+        screen.classList.remove('active');
     });
+    document.getElementById(targetId).classList.add('active');
 
-    // تخصيص الألوان بناءً على الثيم
-    if (telegramApp.colorScheme === 'dark') {
-        document.documentElement.style.setProperty('--background-color', '#000');
-        document.documentElement.style.setProperty('--text-color', '#FFF');
-    } else {
-        document.documentElement.style.setProperty('--background-color', '#FFF');
-        document.documentElement.style.setProperty('--text-color', '#000');
+    // تحديث الزر النشط بناءً على القسم الحالي
+    document.querySelectorAll('.menu button').forEach(btn => {
+        const target = btn.getAttribute('data-target');
+        btn.classList.toggle('active', target === targetId);
+    });
+});
+
+
+window.addEventListener('load', () => {
+    const hash = window.location.hash.substring(1) || 'mainPage'; // استخراج الـ target من الرابط أو افتراضيًا الصفحة الرئيسية
+    document.querySelectorAll('.screen-content').forEach(screen => {
+        screen.classList.remove('active');
+    });
+    const activeScreen = document.getElementById(hash);
+    if (activeScreen) {
+        activeScreen.classList.add('active');
     }
 
-    // تحديد الصفحة الرئيسية كصفحة افتراضية عند تحميل التطبيق
-    const mainPage = document.getElementById("mainPage");
-    mainPage.classList.add("active");
-    updateActiveButton("mainPage");
-    updateBackButton();
-}
+    // تحديث الزر النشط
+    document.querySelectorAll('.menu button').forEach(btn => {
+        const target = btn.getAttribute('data-target');
+        btn.classList.toggle('active', target === hash);
+    });
+});
 
-// استدعاء التهيئة عند تحميل الصفحة
-window.addEventListener("load", initializeTelegramIntegration);
 
+// إضافة مستمع للأحداث (Event Listener) لكل زر لاستماع للنقرات
+const buttons = document.querySelectorAll('.menu button');
+buttons.forEach(button => {
+    button.addEventListener('click', function () {
+        // إزالة الصنف "active" من جميع الأزرار عند النقر على زر
+        buttons.forEach(btn => btn.classList.remove('active'));
+        
+        // إضافة الصنف "active" للزر الذي تم النقر عليه
+        this.classList.add('active');
+        
+        // الحصول على اسم الصفحة أو القسم المستهدف من الزر
+        const targetPage = this.getAttribute('data-target');
+        
+        // تغيير الصفحة بناءً على الزر
+        console.log("التنقل إلى الصفحة:", targetPage); // هذا للعرض فقط في الكونسول
+    });
+});
 
 
 ///////////////////////////////////////////
@@ -1538,60 +1535,64 @@ function openTaskLink(taskurl, callback) {
 /////////////////////////////////////
 
 
-
-
-window.Telegram.WebApp.setHeaderColor('#000000');
-window.Telegram.WebApp.setBackgroundColor('#000000');
-
-// تهيئة تكامل Telegram
 function initializeTelegramIntegration() {
     const telegramApp = window.Telegram.WebApp;
 
     // التأكد من أن التطبيق جاهز
     telegramApp.ready();
 
-    // التحقق من الصفحة الحالية لإظهار أو إخفاء زر الرجوع
+    // تحديث زر الرجوع بناءً على الصفحة الحالية
     function updateBackButton() {
-        const currentPage = document.querySelector(".screen-content.active"); // الصفحة النشطة
+        const currentPage = document.querySelector(".screen-content.active");
         if (currentPage && currentPage.id !== "mainPage") {
-            telegramApp.BackButton.show(); // إظهار الزر إذا لم تكن في الصفحة الرئيسية
+            telegramApp.BackButton.show(); // إظهار زر الرجوع إذا لم تكن في الصفحة الرئيسية
         } else {
-            telegramApp.BackButton.hide(); // إخفاء الزر في الصفحة الرئيسية
+            telegramApp.BackButton.hide(); // إخفاء زر الرجوع إذا كنت في الصفحة الرئيسية
         }
     }
 
-    // تفعيل حدث زر الرجوع
+    // تحديث الزر النشط بناءً على الصفحة النشطة
+    function updateActiveButton(targetPageId) {
+        document.querySelectorAll(".menu button").forEach(btn => {
+            const target = btn.getAttribute("data-target");
+            btn.classList.toggle("active", target === targetPageId);
+        });
+    }
+
+    // تفعيل حدث زر الرجوع الخاص بـ Telegram
     telegramApp.BackButton.onClick(() => {
-        const currentPage = document.querySelector(".screen-content.active"); // الصفحة النشطة
+        const currentPage = document.querySelector(".screen-content.active");
         if (currentPage && currentPage.id !== "mainPage") {
-            // إخفاء الصفحة الحالية والعودة للصفحة السابقة
+            // إزالة الصفحة الحالية
             currentPage.classList.remove("active");
 
-            // العودة إلى الصفحة السابقة (ممكن تعديل حسب الحاجة)
-            const prevPage = document.querySelector(".screen-content.active");
-            if (prevPage) {
-                prevPage.classList.add("active");
-            } else {
-                document.getElementById("mainPage").classList.add("active");
-            }
+            // الرجوع للصفحة الرئيسية أو صفحة سابقة
+            const prevPage = document.querySelector("#mainPage"); // افتراضيًا العودة للصفحة الرئيسية
+            prevPage.classList.add("active");
+
+            // تحديث الزر النشط
+            updateActiveButton(prevPage.id);
+
+            // تحديث زر الرجوع
             updateBackButton();
         } else {
-            telegramApp.close(); // إغلاق WebApp إذا كنا في الصفحة الرئيسية
+            telegramApp.close(); // إغلاق WebApp إذا كنت في الصفحة الرئيسية
         }
     });
 
-    // إعداد التنقل بين الصفحات
+    // إعداد التنقل بين الأقسام
     document.querySelectorAll(".menu button").forEach(button => {
         button.addEventListener("click", () => {
-            const targetPageId = button.getAttribute("data-target"); // الصفحة المستهدفة
+            const targetPageId = button.getAttribute("data-target");
+
+            // تحديث الصفحة النشطة
             document.querySelectorAll(".screen-content").forEach(page => page.classList.remove("active"));
             document.getElementById(targetPageId).classList.add("active");
 
             // تحديث الزر النشط
-            document.querySelectorAll(".menu button").forEach(btn => btn.classList.remove("active"));
-            button.classList.add("active");
+            updateActiveButton(targetPageId);
 
-            // تحديث حالة زر الرجوع
+            // تحديث زر الرجوع
             updateBackButton();
         });
     });
@@ -1605,13 +1606,16 @@ function initializeTelegramIntegration() {
         document.documentElement.style.setProperty('--text-color', '#000');
     }
 
-    // تحديد الصفحة الرئيسية كصفحة نشطة عند تحميل الصفحة
-    document.getElementById("mainPage").classList.add("active");
+    // تحديد الصفحة الرئيسية كصفحة افتراضية عند تحميل التطبيق
+    const mainPage = document.getElementById("mainPage");
+    mainPage.classList.add("active");
+    updateActiveButton("mainPage");
     updateBackButton();
 }
 
 // استدعاء التهيئة عند تحميل الصفحة
-window.addEventListener('load', initializeTelegramIntegration);
+window.addEventListener("load", initializeTelegramIntegration);
+
 
 ///////////////////////////////////////
      
