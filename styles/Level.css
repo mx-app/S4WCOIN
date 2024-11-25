@@ -35,7 +35,6 @@
 /* الخلفية النشطة */
 .navigation-buttons button.active {
     background: linear-gradient(135deg, rgba(60, 60, 60, 0.9), rgba(30, 30, 30, 0.9));
-    border: 1px solid #343434;
 }
 
 .level-item {
