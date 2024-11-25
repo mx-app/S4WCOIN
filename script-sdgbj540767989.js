@@ -1222,85 +1222,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //////////////////////////////////////
 
-///Bottom menu 
-// التنقل بين الأقسام وتحديث الزر النشط
+
+//القائمه السفليه 
 document.querySelectorAll('button[data-target]').forEach(button => {
     button.addEventListener('click', () => {
         const targetId = button.getAttribute('data-target');
-        
-        // تحديث الشاشة النشطة
         document.querySelectorAll('.screen-content').forEach(screen => {
             screen.classList.remove('active');
         });
         document.getElementById(targetId).classList.add('active');
-        
-        // تحديث الزر النشط
-        document.querySelectorAll('.menu button').forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-
-        // تحديث سجل التنقل
-        if (targetId === 'mainPage') {
-            // استبدل السجل عند الدخول للصفحة الرئيسية
-            history.replaceState({ target: targetId }, "", `#${targetId}`);
-        } else {
-            // أضف للسجل عند الانتقال لأي صفحة أخرى
-            history.pushState({ target: targetId }, "", `#${targetId}`);
-        }
     });
 });
 
 
-// إدارة زر الرجوع الخاص بالجهاز
-window.addEventListener('popstate', (event) => {
-    const targetId = event.state ? event.state.target : 'mainPage'; // افتراضيًا الرجوع للصفحة الرئيسية
-    document.querySelectorAll('.screen-content').forEach(screen => {
-        screen.classList.remove('active');
-    });
-    document.getElementById(targetId).classList.add('active');
 
-    // تحديث الزر النشط بناءً على القسم الحالي
-    document.querySelectorAll('.menu button').forEach(btn => {
-        const target = btn.getAttribute('data-target');
-        btn.classList.toggle('active', target === targetId);
-    });
-});
-
-
-window.addEventListener('load', () => {
-    const hash = window.location.hash.substring(1) || 'mainPage'; // استخراج الـ target من الرابط أو افتراضيًا الصفحة الرئيسية
-    document.querySelectorAll('.screen-content').forEach(screen => {
-        screen.classList.remove('active');
-    });
-    const activeScreen = document.getElementById(hash);
-    if (activeScreen) {
-        activeScreen.classList.add('active');
-    }
-
-    // تحديث الزر النشط
-    document.querySelectorAll('.menu button').forEach(btn => {
-        const target = btn.getAttribute('data-target');
-        btn.classList.toggle('active', target === hash);
-    });
-});
-
-
-// إضافة مستمع للأحداث (Event Listener) لكل زر لاستماع للنقرات
+// أولاً: الحصول على جميع الأزرار داخل القائمة
 const buttons = document.querySelectorAll('.menu button');
+
+// ثانياً: إضافة مستمع للأحداث (Event Listener) لكل زر بحيث يستمع للنقرات
 buttons.forEach(button => {
-    button.addEventListener('click', function () {
-        // إزالة الصنف "active" من جميع الأزرار عند النقر على زر
+    button.addEventListener('click', function() {
+        // عند النقر على زر، يتم إزالة الصف "active" من جميع الأزرار
         buttons.forEach(btn => btn.classList.remove('active'));
         
-        // إضافة الصنف "active" للزر الذي تم النقر عليه
+        // إضافة الصف "active" للزر الذي تم النقر عليه
         this.classList.add('active');
         
-        // الحصول على اسم الصفحة أو القسم المستهدف من الزر
+        // الحصول على اسم الصفحة أو القسم المستهدف من الزر الذي تم النقر عليه
         const targetPage = this.getAttribute('data-target');
         
-        // تغيير الصفحة بناءً على الزر
-        console.log("التنقل إلى الصفحة:", targetPage); // هذا للعرض فقط في الكونسول
+        // هنا يمكنك وضع المنطق الذي يقوم بتغيير الصفحة بناءً على الزر (استبدل هذا المنطق إذا لزم الأمر)
+        // مثال: الانتقال إلى صفحة معينة بناءً على اسم الـ "data-target"
+        // window.location.href = targetPage + ".html";
+        console.log("التنقل إلى الصفحة:", targetPage); // هذا فقط للعرض في الكونسول
     });
 });
+
+// ثالثاً: اختياري: تفعيل الزر النشط بناءً على الصفحة الحالية
+const currentPage = window.location.pathname; // هذا يحصل على اسم الصفحة الحالية من الـ URL
+buttons.forEach(button => {
+    const target = button.getAttribute('data-target'); // الحصول على قيمة "data-target" من كل زر
+    if (currentPage.includes(target)) {
+        button.classList.add('active'); // إضافة الصف "active" للزر الذي يتطابق مع الصفحة الحالية
+    }
+});
+
 
 
 ///////////////////////////////////////////
