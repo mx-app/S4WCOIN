@@ -50,7 +50,7 @@
     border-radius: 15px; /* تدوير أكبر للحواف */
     padding: 20px; /* زيادة الحشوة */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* إضافة ظل للصندوق */
-    width: 80%; /* تحديد العرض بشكل مناسب */
+    width: 85%; /* تحديد العرض بشكل مناسب */
     max-width: 400px; /* تحديد عرض أقصى ليتماشى مع مختلف الأجهزة */
     margin: 0 auto; /* لضمان توسيط الحاوية */
     height: 60vh;
@@ -64,7 +64,7 @@
     font-size: 15px; /* تكبير حجم الخط */
     font-weight: bold;
     color: #808080; /* جعل النص أبيض ليتناسب مع الخلفية */
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 #ton-connect {
@@ -72,7 +72,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 5px; /* إضافة مسافة أعلى الزر */
+    margin-top: 0; /* إضافة مسافة أعلى الزر */
 }
 
 #ton-connect button {
