@@ -1534,22 +1534,23 @@ function openTaskLink(taskurl, callback) {
 
 /////////////////////////////////////
 
+
 function initializeTelegramIntegration() {
     const telegramApp = window.Telegram.WebApp;
 
     // التأكد من أن التطبيق جاهز
     telegramApp.ready();
 
-    // تحديد الصفحة الرئيسية كصفحة افتراضية
-    const mainPageId = "mainPage";
+    // تحديد الصفحات الرئيسية التي لا يظهر بها زر الرجوع
+    const mainPages = ["mainPage", "tasksPage", "accountPage", "Puzzlespage"];
 
     // تحديث زر الرجوع بناءً على الصفحة الحالية
     function updateBackButton() {
         const currentPage = document.querySelector(".screen-content.active");
-        if (currentPage && currentPage.id !== mainPageId) {
-            telegramApp.BackButton.show(); // إظهار زر الرجوع إذا لم تكن في الصفحة الرئيسية
+        if (currentPage && !mainPages.includes(currentPage.id)) {
+            telegramApp.BackButton.show(); // إظهار زر الرجوع في الصفحات الفرعية
         } else {
-            telegramApp.BackButton.hide(); // إخفاء زر الرجوع إذا كنت في الصفحة الرئيسية
+            telegramApp.BackButton.hide(); // إخفاء زر الرجوع في الصفحات الرئيسية
         }
     }
 
@@ -1580,15 +1581,15 @@ function initializeTelegramIntegration() {
     // تفعيل حدث زر الرجوع الخاص بـ Telegram
     telegramApp.BackButton.onClick(() => {
         const currentPage = document.querySelector(".screen-content.active");
-        if (currentPage && currentPage.id !== mainPageId) {
-            navigateToPage(mainPageId); // العودة دائمًا إلى الصفحة الرئيسية
+        if (currentPage && !mainPages.includes(currentPage.id)) {
+            navigateToPage("mainPage"); // العودة دائمًا إلى الصفحة الرئيسية من الصفحات الفرعية
         } else {
-            telegramApp.close(); // إغلاق WebApp إذا كنت في الصفحة الرئيسية
+            telegramApp.close(); // إغلاق WebApp إذا كنت في صفحة رئيسية
         }
     });
 
     // إعداد التنقل بين الأقسام
-    document.querySelectorAll(".menu button").forEach(button => {
+    document.querySelectorAll("button[data-target]").forEach(button => {
         button.addEventListener("click", () => {
             const targetPageId = button.getAttribute("data-target");
 
@@ -1596,7 +1597,7 @@ function initializeTelegramIntegration() {
             navigateToPage(targetPageId);
 
             // تحديث سجل التنقل
-            if (targetPageId === mainPageId) {
+            if (mainPages.includes(targetPageId)) {
                 history.replaceState({ target: targetPageId }, "", `#${targetPageId}`);
             } else {
                 history.pushState({ target: targetPageId }, "", `#${targetPageId}`);
@@ -1606,7 +1607,7 @@ function initializeTelegramIntegration() {
 
     // إدارة التنقل عند استخدام زر الرجوع في المتصفح
     window.addEventListener("popstate", (event) => {
-        const targetPageId = event.state ? event.state.target : mainPageId;
+        const targetPageId = event.state ? event.state.target : "mainPage";
         navigateToPage(targetPageId);
     });
 
@@ -1621,11 +1622,11 @@ function initializeTelegramIntegration() {
 
     // فتح الصفحة الرئيسية عند تحميل التطبيق
     window.addEventListener("load", () => {
-        const hash = window.location.hash.substring(1) || mainPageId;
+        const hash = window.location.hash.substring(1) || "mainPage";
         navigateToPage(hash);
 
         // تحديث سجل التنقل
-        if (hash === mainPageId) {
+        if (mainPages.includes(hash)) {
             history.replaceState({ target: hash }, "", `#${hash}`);
         } else {
             history.pushState({ target: hash }, "", `#${hash}`);
@@ -1635,10 +1636,6 @@ function initializeTelegramIntegration() {
 
 // استدعاء التهيئة عند تحميل الصفحة
 window.addEventListener("load", initializeTelegramIntegration);
-    
-
-
-
 
 
 ///////////////////////////////
