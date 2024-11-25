@@ -1330,6 +1330,9 @@ window.addEventListener("load", initializeTelegramIntegration);
 
 ///////////////////////////////////////////
 
+window.Telegram.WebApp.setHeaderColor('#000000');
+window.Telegram.WebApp.setBackgroundColor('#000000');
+
 // إغلاق النافذة المنبثقة
 document.getElementById('closeModal').addEventListener('click', function() {
     document.getElementById('upgradeConfirmation').style.display = 'none';
