@@ -752,7 +752,7 @@ img {
     text-align: center;
  }
 
-#t, #Daily-earning {
+#t, #Daily-earning, #puzzlessText {
     color: #808080; 
     font-size: 15px; 
     text-align: left;
