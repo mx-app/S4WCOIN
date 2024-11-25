@@ -2662,10 +2662,46 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+///////////////////////////////////////
 
 
 
 
+// إنشاء الطبقة مرة واحدة فقط
+const overlayBackground = document.createElement('div');
+overlayBackground.className = 'overlay-background';
+document.body.appendChild(overlayBackground);
+
+/**
+ * إضافة ضبابية للنافذة عند فتحها
+ * @param {string} modalId - معرف النافذة المفتوحة
+ */
+function showOverlay(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.classList.remove('hidden'); // إظهار النافذة
+        overlayBackground.classList.add('active'); // إظهار الطبقة الشفافة
+    }
+}
+
+/**
+ * إزالة الضبابية عند إغلاق أي نافذة
+ * @param {string} modalId - معرف النافذة المغلقة
+ */
+function hideOverlay(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.classList.add('hidden'); // إخفاء النافذة
+        overlayBackground.classList.remove('active'); // إخفاء الطبقة الشفافة
+    }
+}
+
+// إغلاق الطبقة عند النقر عليها
+overlayBackground.addEventListener('click', () => {
+    const modals = document.querySelectorAll('.modal'); // جميع النوافذ
+    modals.forEach(modal => modal.classList.add('hidden')); // إخفاء جميع النوافذ
+    overlayBackground.classList.remove('active'); // إخفاء الطبقة الشفافة
+});
 
 
 
