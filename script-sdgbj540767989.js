@@ -1540,8 +1540,11 @@ function initializeTelegramIntegration() {
     // التأكد من أن التطبيق جاهز
     telegramApp.ready();
 
-    // الصفحات التي يجب أن يظهر فيها زر الرجوع
+    // الصفحات التي يظهر فيها زر الرجوع
     const pagesWithBackButton = ["levelPage", "miningPage", "walletPage"];
+
+    // تحديد الصفحة الرئيسية كصفحة افتراضية
+    const mainPageId = "mainPage";
 
     // تحديث زر الرجوع بناءً على الصفحة الحالية
     function updateBackButton() {
@@ -1561,23 +1564,25 @@ function initializeTelegramIntegration() {
         });
     }
 
+    // التنقل إلى صفحة معينة
+    function navigateToPage(targetPageId) {
+        // إزالة الصفحة النشطة الحالية
+        document.querySelectorAll(".screen-content").forEach(page => page.classList.remove("active"));
+
+        // تفعيل الصفحة المستهدفة
+        const targetPage = document.getElementById(targetPageId);
+        if (targetPage) {
+            targetPage.classList.add("active");
+        }
+
+        // تحديث زر الرجوع والزر النشط
+        updateActiveButton(targetPageId);
+        updateBackButton();
+    }
+
     // تفعيل حدث زر الرجوع الخاص بـ Telegram
     telegramApp.BackButton.onClick(() => {
-        const currentPage = document.querySelector(".screen-content.active");
-        if (currentPage && currentPage.id !== "mainPage") {
-            // إزالة الصفحة الحالية
-            currentPage.classList.remove("active");
-
-            // الرجوع للصفحة الرئيسية
-            const mainPage = document.querySelector("#mainPage");
-            mainPage.classList.add("active");
-
-            // تحديث زر الرجوع
-            updateActiveButton(mainPage.id);
-            updateBackButton();
-        } else {
-            telegramApp.close(); // إغلاق WebApp إذا كنت في الصفحة الرئيسية
-        }
+        navigateToPage(mainPageId);
     });
 
     // إعداد التنقل بين الأقسام
@@ -1585,14 +1590,22 @@ function initializeTelegramIntegration() {
         button.addEventListener("click", () => {
             const targetPageId = button.getAttribute("data-target");
 
-            // تحديث الصفحة النشطة
-            document.querySelectorAll(".screen-content").forEach(page => page.classList.remove("active"));
-            document.getElementById(targetPageId).classList.add("active");
+            // تحديث التنقل
+            navigateToPage(targetPageId);
 
-            // تحديث زر الرجوع
-            updateActiveButton(targetPageId);
-            updateBackButton();
+            // تحديث سجل التنقل
+            if (targetPageId === mainPageId) {
+                history.replaceState({ target: targetPageId }, "", `#${targetPageId}`);
+            } else {
+                history.pushState({ target: targetPageId }, "", `#${targetPageId}`);
+            }
         });
+    });
+
+    // إدارة التنقل عند استخدام زر الرجوع في المتصفح
+    window.addEventListener("popstate", (event) => {
+        const targetPageId = event.state ? event.state.target : mainPageId;
+        navigateToPage(targetPageId);
     });
 
     // تخصيص الألوان بناءً على الثيم
@@ -1604,26 +1617,30 @@ function initializeTelegramIntegration() {
         document.documentElement.style.setProperty('--text-color', '#000');
     }
 
-    // العودة إلى الصفحة الرئيسية عند إعادة تحميل الصفحة
+    // فتح الصفحة الرئيسية عند تحميل التطبيق
     window.addEventListener("load", () => {
-        const mainPage = document.getElementById("mainPage");
+        const hash = window.location.hash.substring(1) || mainPageId;
+        navigateToPage(hash);
 
-        // تأكد من إزالة جميع الصفحات النشطة
-        document.querySelectorAll(".screen-content").forEach(page => page.classList.remove("active"));
-
-        // تفعيل الصفحة الرئيسية
-        mainPage.classList.add("active");
-
-        // تحديث زر الرجوع
-        updateActiveButton("mainPage");
-        updateBackButton();
+        // تحديث سجل التنقل
+        if (hash === mainPageId) {
+            history.replaceState({ target: hash }, "", `#${hash}`);
+        } else {
+            history.pushState({ target: hash }, "", `#${hash}`);
+        }
     });
 }
 
 // استدعاء التهيئة عند تحميل الصفحة
 window.addEventListener("load", initializeTelegramIntegration);
-///////////////////////////////////////
-     
+
+
+
+
+
+
+
+///////////////////////////////
 
 
 // تعريف عناصر DOM
