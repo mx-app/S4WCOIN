@@ -335,7 +335,8 @@
         <div class="puzzles-container">
             <p id="puzzlessText"> Daily puzzles </p>
               
-             <div class="puzzle-item" id="puzzle1">
+             <!--<div class="puzzle-item" id="puzzle1">-->
+             <div class="puzzle-item" id="puzzle1" onclick="showOverlay('puzzleContainer')">
              <img src="i/puzzl.png" alt="Daily Puzzle" class="puzzle-image">
              <div class="puzzle-description">
              <h4>Daily puzzle challenge</h4>
@@ -408,7 +409,7 @@
              </div>
 
              <!-- Puzzle Container -->
-            <div id="puzzleContainer" class="puzzle-container hidden">
+            <div id="puzzleContainer" class="puzzle-container hidden modal">
                 <div class="puzzle-content">
                <!--   <span id="puzzlecloseModal" class="close">&times;</span>-->
                   <span id="puzzlecloseModal" class="close" onclick="hideOverlay('puzzleContainer')">&times;</span>
