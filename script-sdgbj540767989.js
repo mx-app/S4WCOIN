@@ -1543,10 +1543,11 @@ function initializeTelegramIntegration() {
     // تحديث زر الرجوع بناءً على الصفحة الحالية
     function updateBackButton() {
         const currentPage = document.querySelector(".screen-content.active");
-        if (currentPage && currentPage.id !== "mainPage") {
-            telegramApp.BackButton.show(); // إظهار زر الرجوع إذا لم تكن في الصفحة الرئيسية
+        const pagesWithBackButton = ["levelPage", "miningPage", "walletPage"]; // الصفحات المسموح بها
+        if (currentPage && pagesWithBackButton.includes(currentPage.id)) {
+            telegramApp.BackButton.show(); // إظهار زر الرجوع
         } else {
-            telegramApp.BackButton.hide(); // إخفاء زر الرجوع إذا كنت في الصفحة الرئيسية
+            telegramApp.BackButton.hide(); // إخفاء زر الرجوع
         }
     }
 
@@ -1565,14 +1566,12 @@ function initializeTelegramIntegration() {
             // إزالة الصفحة الحالية
             currentPage.classList.remove("active");
 
-            // الرجوع للصفحة الرئيسية أو صفحة سابقة
-            const prevPage = document.querySelector("#mainPage"); // افتراضيًا العودة للصفحة الرئيسية
+            // الرجوع للصفحة الرئيسية
+            const prevPage = document.querySelector("#mainPage");
             prevPage.classList.add("active");
 
-            // تحديث الزر النشط
-            updateActiveButton(prevPage.id);
-
             // تحديث زر الرجوع
+            updateActiveButton(prevPage.id);
             updateBackButton();
         } else {
             telegramApp.close(); // إغلاق WebApp إذا كنت في الصفحة الرئيسية
@@ -1588,10 +1587,8 @@ function initializeTelegramIntegration() {
             document.querySelectorAll(".screen-content").forEach(page => page.classList.remove("active"));
             document.getElementById(targetPageId).classList.add("active");
 
-            // تحديث الزر النشط
-            updateActiveButton(targetPageId);
-
             // تحديث زر الرجوع
+            updateActiveButton(targetPageId);
             updateBackButton();
         });
     });
@@ -1605,16 +1602,24 @@ function initializeTelegramIntegration() {
         document.documentElement.style.setProperty('--text-color', '#000');
     }
 
-    // تحديد الصفحة الرئيسية كصفحة افتراضية عند تحميل التطبيق
-    const mainPage = document.getElementById("mainPage");
-    mainPage.classList.add("active");
-    updateActiveButton("mainPage");
-    updateBackButton();
+    // العودة إلى الصفحة الرئيسية عند إعادة تحميل الصفحة
+    window.addEventListener("load", () => {
+        const mainPage = document.getElementById("mainPage");
+
+        // تأكد من إزالة جميع الصفحات النشطة
+        document.querySelectorAll(".screen-content").forEach(page => page.classList.remove("active"));
+
+        // تفعيل الصفحة الرئيسية
+        mainPage.classList.add("active");
+
+        // تحديث زر الرجوع
+        updateActiveButton("mainPage");
+        updateBackButton();
+    });
 }
 
 // استدعاء التهيئة عند تحميل الصفحة
 window.addEventListener("load", initializeTelegramIntegration);
-
 
 
 ///////////////////////////////////////
