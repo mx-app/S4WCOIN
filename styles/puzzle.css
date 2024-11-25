@@ -1,3 +1,16 @@
+/* طبقة الخلفية الشفافة */
+#overlayBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* لون شفاف */
+    z-index: 9998; /* أقل قليلاً من نافذة الأحجية */
+    display: none; /* إخفاء الطبقة بشكل افتراضي */
+}
+
+
 .countdown-display {
     position: absolute;
     top: 250px;
