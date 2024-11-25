@@ -1534,17 +1534,18 @@ function openTaskLink(taskurl, callback) {
 
 /////////////////////////////////////
 
-
 function initializeTelegramIntegration() {
     const telegramApp = window.Telegram.WebApp;
 
     // التأكد من أن التطبيق جاهز
     telegramApp.ready();
 
+    // تعريف المتغيرات
+    let activePageId = "mainPage"; // الصفحة الافتراضية
+
     // تحديث زر الرجوع بناءً على الصفحة الحالية
     function updateBackButton() {
-        const currentPage = document.querySelector(".screen-content.active");
-        if (currentPage && currentPage.id !== "mainPage") {
+        if (activePageId !== "mainPage") {
             telegramApp.BackButton.show(); // إظهار زر الرجوع إذا لم تكن في الصفحة الرئيسية
         } else {
             telegramApp.BackButton.hide(); // إخفاء زر الرجوع إذا كنت في الصفحة الرئيسية
@@ -1552,48 +1553,44 @@ function initializeTelegramIntegration() {
     }
 
     // تحديث الزر النشط بناءً على الصفحة النشطة
-    function updateActiveButton(targetPageId) {
+    function updateActiveButton() {
         document.querySelectorAll(".menu button").forEach(btn => {
             const target = btn.getAttribute("data-target");
-            btn.classList.toggle("active", target === targetPageId);
+            btn.classList.toggle("active", target === activePageId);
         });
+    }
+
+    // التنقل بين الصفحات
+    function navigateToPage(targetPageId) {
+        // إزالة الحالة النشطة من جميع الصفحات
+        document.querySelectorAll(".screen-content").forEach(page => page.classList.remove("active"));
+
+        // تعيين الصفحة الجديدة كصفحة نشطة
+        const targetPage = document.getElementById(targetPageId);
+        if (targetPage) {
+            targetPage.classList.add("active");
+            activePageId = targetPageId;
+        }
+
+        // تحديث الزر النشط وزر الرجوع
+        updateActiveButton();
+        updateBackButton();
     }
 
     // تفعيل حدث زر الرجوع الخاص بـ Telegram
     telegramApp.BackButton.onClick(() => {
-        const currentPage = document.querySelector(".screen-content.active");
-        if (currentPage && currentPage.id !== "mainPage") {
-            // إزالة الصفحة الحالية
-            currentPage.classList.remove("active");
-
-            // الرجوع للصفحة الرئيسية أو صفحة سابقة
-            const prevPage = document.querySelector("#mainPage"); // افتراضيًا العودة للصفحة الرئيسية
-            prevPage.classList.add("active");
-
-            // تحديث الزر النشط
-            updateActiveButton(prevPage.id);
-
-            // تحديث زر الرجوع
-            updateBackButton();
+        if (activePageId !== "mainPage") {
+            navigateToPage("mainPage"); // العودة للصفحة الرئيسية
         } else {
             telegramApp.close(); // إغلاق WebApp إذا كنت في الصفحة الرئيسية
         }
     });
 
     // إعداد التنقل بين الأقسام
-    document.querySelectorAll("button[data-target]").forEach(button => {
+    document.querySelectorAll(".menu button").forEach(button => {
         button.addEventListener("click", () => {
             const targetPageId = button.getAttribute("data-target");
-
-            // تحديث الصفحة النشطة
-            document.querySelectorAll(".screen-content").forEach(page => page.classList.remove("active"));
-            document.getElementById(targetPageId).classList.add("active");
-
-            // تحديث الزر النشط
-            updateActiveButton(targetPageId);
-
-            // تحديث زر الرجوع
-            updateBackButton();
+            navigateToPage(targetPageId);
         });
     });
 
@@ -1606,16 +1603,12 @@ function initializeTelegramIntegration() {
         document.documentElement.style.setProperty('--text-color', '#000');
     }
 
-    // تحديد الصفحة الرئيسية كصفحة افتراضية عند تحميل التطبيق
-    const mainPage = document.getElementById("mainPage");
-    mainPage.classList.add("active");
-    updateActiveButton("mainPage");
-    updateBackButton();
+    // تهيئة الصفحة الافتراضية عند تحميل التطبيق
+    navigateToPage(activePageId);
 }
 
 // استدعاء التهيئة عند تحميل الصفحة
 window.addEventListener("load", initializeTelegramIntegration);
-
 
 ///////////////////////////////////////
      
