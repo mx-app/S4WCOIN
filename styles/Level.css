@@ -224,7 +224,7 @@
 } 
 
 .level-item.current-level {
-    border: 2px solid silver; 
+    border: 1px solid silver; 
     background-color: #1a1a1a;
     color: #ffffff; 
     font-weight: bold; 
