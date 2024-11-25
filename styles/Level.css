@@ -261,14 +261,14 @@
     text-align: left;
     display: flex;
     flex-direction: column;
-    margin: 7px; /* مسافة بين العناصر */
+    align-items: left;
+    margin: 10px; /* مسافة بين العناصر */
 }
 
 #levelPageCurrentLevelCoins {
     font-size: 15px;
     font-weight: bold;
-    color: #fff;
-    opacity: 0.7;
+    color: #808080;
     text-align: left; /* تمركز النص */
     margin-bottom: 5px; /* مسافة بين "Next Level" وشريط الطاقة */
 }
