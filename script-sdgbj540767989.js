@@ -1581,7 +1581,7 @@ function initializeTelegramIntegration() {
     });
 
     // إعداد التنقل بين الأقسام
-    document.querySelectorAll(".menu button").forEach(button => {
+    document.querySelectorAll("button[data-target]").forEach(button => {
         button.addEventListener("click", () => {
             const targetPageId = button.getAttribute("data-target");
 
