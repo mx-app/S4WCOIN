@@ -3,7 +3,7 @@
     justify-content: center; /* تمركز الأزرار أفقيًا */
     align-items: center; /* تمركز الأزرار عموديًا */
     padding: 10px;
-    width: 80%;
+    width: 82%;
     border: 1px solid #1a1a1a;
     height: 20px;
     gap: 10px; /* المسافة بين الأزرار */
@@ -411,27 +411,20 @@
 
 
 .energy-barrr-container {
-    width: 150px; /* عرض الحاوية */
-    height: 75px; /* نصف الارتفاع لجعلها نصف دائرة */
+    width: 80px; /* الطول الأفقي للشريط */
+    height: 10px; /* العرض العمودي */
     background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 150px 150px 0 0; /* حواف دائرية من الأعلى فقط */
+    border-radius: 50px; /* لجعل الحواف دائرية بالكامل */
     overflow: hidden;
-    margin: 20px auto; /* تمركز الحاوية في المنتصف */
+    margin: 5px auto; /* تمركز الشريط في المنتصف */
     position: relative;
 }
 
 #levelPageEnergyFill {
-    width: 100%;
-    height: 100%;
+    height: 100%; /* ملء العرض */
+    width: 0; /* يبدأ بدون طاقة */
     background-color: #fff;
-    position: absolute;
-    bottom: 0; /* لملء الشريط من الأسفل للأعلى */
-    transform-origin: bottom; /* نقطة الأصل للتعبئة */
-    transform: scaleY(0); /* يبدأ بدون طاقة */
-    transition: transform 0.3s ease; /* تأثير التعبئة */
-}
-
-/* عند ملء الطاقة */
-.energy-barrr-container.full #levelPageEnergyFill {
-    transform: scaleY(1); /* يتم ملء الشريط بالكامل */
+    border-radius: 50px; /* مطابق لحاوية الشريط */
+    transition: width 0.3s ease; /* تأثير عند تغيير الحجم */
 } 
+
