@@ -1622,20 +1622,22 @@ function initializeTelegramIntegration() {
 
     // فتح الصفحة الرئيسية عند تحميل التطبيق
     window.addEventListener("load", () => {
-        const hash = window.location.hash.substring(1) || "mainPage";
-        navigateToPage(hash);
+        const hash = window.location.hash.substring(1);
+
+        // التحقق من صحة الصفحة أو تعيين الصفحة الافتراضية
+        const defaultPage = "mainPage";
+        const targetPageId = mainPages.includes(hash) ? hash : defaultPage;
+
+        navigateToPage(targetPageId);
 
         // تحديث سجل التنقل
-        if (mainPages.includes(hash)) {
-            history.replaceState({ target: hash }, "", `#${hash}`);
-        } else {
-            history.pushState({ target: hash }, "", `#${hash}`);
-        }
+        history.replaceState({ target: targetPageId }, "", `#${targetPageId}`);
     });
 }
 
 // استدعاء التهيئة عند تحميل الصفحة
 window.addEventListener("load", initializeTelegramIntegration);
+
 
 
 ///////////////////////////////
