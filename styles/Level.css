@@ -225,7 +225,7 @@
 
 .level-item.current-level {
     border: 2px solid silver; 
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.5);
     color: #ffffff; 
     font-weight: bold; 
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.6); /* إضافة توهج */
@@ -249,10 +249,10 @@
 #displayedLevel {
     font-size: 15px;
     font-weight: bold;
-    color: #343434;
-    background-color: #fff;
-    padding: 5px 10px;
-    border-radius: 50%;
+    color: #fff;
+    background-color: #1a1a1a;
+    padding: 4px 4px;
+    border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-right: 10px; /* مسافة بين رقم المستوى واسم المستوى */
 }
