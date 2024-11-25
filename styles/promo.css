@@ -6,7 +6,7 @@
     border: 1px solid #1a1a1a;
     width: 88%;
     height: 45px; /* تأكد من أن البوكس يحتوي على الحجم المطلوب */
-    border-radius: 10px;
+    border-radius: 25px;
 }
 
 .promo-input-container {
