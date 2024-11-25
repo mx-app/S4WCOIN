@@ -1540,10 +1540,12 @@ function initializeTelegramIntegration() {
     // التأكد من أن التطبيق جاهز
     telegramApp.ready();
 
+    // الصفحات التي يجب أن يظهر فيها زر الرجوع
+    const pagesWithBackButton = ["levelPage", "miningPage", "walletPage"];
+
     // تحديث زر الرجوع بناءً على الصفحة الحالية
     function updateBackButton() {
         const currentPage = document.querySelector(".screen-content.active");
-        const pagesWithBackButton = ["levelPage", "miningPage", "walletPage"]; // الصفحات المسموح بها
         if (currentPage && pagesWithBackButton.includes(currentPage.id)) {
             telegramApp.BackButton.show(); // إظهار زر الرجوع
         } else {
@@ -1567,11 +1569,11 @@ function initializeTelegramIntegration() {
             currentPage.classList.remove("active");
 
             // الرجوع للصفحة الرئيسية
-            const prevPage = document.querySelector("#mainPage");
-            prevPage.classList.add("active");
+            const mainPage = document.querySelector("#mainPage");
+            mainPage.classList.add("active");
 
             // تحديث زر الرجوع
-            updateActiveButton(prevPage.id);
+            updateActiveButton(mainPage.id);
             updateBackButton();
         } else {
             telegramApp.close(); // إغلاق WebApp إذا كنت في الصفحة الرئيسية
@@ -1620,8 +1622,6 @@ function initializeTelegramIntegration() {
 
 // استدعاء التهيئة عند تحميل الصفحة
 window.addEventListener("load", initializeTelegramIntegration);
-
-
 ///////////////////////////////////////
      
 
