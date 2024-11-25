@@ -265,22 +265,6 @@
     gap: 5px; /* مسافة بين العناصر */
 }
 
-.energy-barrr-container {
-    width: 80%;
-    height: 10px;
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 5px;
-    overflow: hidden;
-    margin: 5px auto; /* تمركز شريط الطاقة في المنتصف */
-}
-
-#levelPageEnergyFill {
-    height: 100%;
-    width: 0;
-    background-color: #fff;
-    transition: width 0.3s ease;
-}
-
 #levelPageCurrentLevelCoins {
     font-size: 15px;
     font-weight: bold;
@@ -423,4 +407,31 @@
     font-weight: bold;
     padding-right: 20px;
     font-size: 12px;
+} 
+
+
+.energy-barrr-container {
+    width: 150px; /* عرض الحاوية */
+    height: 75px; /* نصف الارتفاع لجعلها نصف دائرة */
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 150px 150px 0 0; /* حواف دائرية من الأعلى فقط */
+    overflow: hidden;
+    margin: 20px auto; /* تمركز الحاوية في المنتصف */
+    position: relative;
+}
+
+#levelPageEnergyFill {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    position: absolute;
+    bottom: 0; /* لملء الشريط من الأسفل للأعلى */
+    transform-origin: bottom; /* نقطة الأصل للتعبئة */
+    transform: scaleY(0); /* يبدأ بدون طاقة */
+    transition: transform 0.3s ease; /* تأثير التعبئة */
+}
+
+/* عند ملء الطاقة */
+.energy-barrr-container.full #levelPageEnergyFill {
+    transform: scaleY(1); /* يتم ملء الشريط بالكامل */
 } 
