@@ -1111,3 +1111,19 @@ img {
   color: #808080; 
 }
 
+/* الطبقة الشفافة العامة */
+.overlay-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* تأثير الضبابية */
+    z-index: 9998; /* خلف النوافذ */
+    display: none; /* مخفية بشكل افتراضي */
+}
+
+/* إظهار الطبقة */
+.overlay-background.active {
+    display: block; /* إظهارها عند الحاجة */
+}
