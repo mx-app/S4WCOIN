@@ -1535,7 +1535,7 @@ function openTaskLink(taskurl, callback) {
 /////////////////////////////////////
 
 
-function initializeTelegramIntegration() {
+ function initializeTelegramIntegration() {
     const telegramApp = window.Telegram.WebApp;
 
     // التأكد من أن التطبيق جاهز
@@ -1571,6 +1571,8 @@ function initializeTelegramIntegration() {
         const targetPage = document.getElementById(targetPageId);
         if (targetPage) {
             targetPage.classList.add("active");
+        } else {
+            console.error(`Page with ID '${targetPageId}' not found.`);
         }
 
         // تحديث زر الرجوع والزر النشط
@@ -1623,22 +1625,21 @@ function initializeTelegramIntegration() {
     // فتح الصفحة الرئيسية عند تحميل التطبيق
     window.addEventListener("load", () => {
         const hash = window.location.hash.substring(1);
-
-        // التحقق من صحة الصفحة أو تعيين الصفحة الافتراضية
         const defaultPage = "mainPage";
-        const targetPageId = mainPages.includes(hash) ? hash : defaultPage;
 
-        navigateToPage(targetPageId);
+        // تحقق من جاهزية العناصر قبل التنقل
+        setTimeout(() => {
+            const targetPageId = mainPages.includes(hash) ? hash : defaultPage;
+            navigateToPage(targetPageId);
 
-        // تحديث سجل التنقل
-        history.replaceState({ target: targetPageId }, "", `#${targetPageId}`);
+            // تحديث سجل التنقل
+            history.replaceState({ target: targetPageId }, "", `#${targetPageId}`);
+        }, 50); // تأخير صغير لضمان تحميل DOM
     });
 }
 
 // استدعاء التهيئة عند تحميل الصفحة
 window.addEventListener("load", initializeTelegramIntegration);
-
-
 
 ///////////////////////////////
 
