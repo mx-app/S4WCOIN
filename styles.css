@@ -423,20 +423,20 @@ img {
     z-index: 2; /* وضع الصورة فوق الخلفية */
 } 
 
-.menu button::before {
+/*.menu button::before {
     content: "";
     position: absolute;
-    top: 0;  /* وضع الخط في بداية الزر من الأعلى */
-    left: 50%;  /* تحديد المكان من اليسار ليكون في منتصف الزر */
-    width: 28%;  /* عرض الخط ليغطي جزء من عرض الزر */
-    height: 1px;  /* سماكة الخط */
-    background-color: #fff;  /* لون الخط */
-    opacity: 0;  /* جعل الخط غير مرئي في البداية */
-    transition: opacity 0.3s ease;  /* إضافة انتقال لتأثير الشفافية */
-    transform: translateX(-50%);  /* تحريك الخط إلى المنتصف أفقيًا */
-}
+    top: 0; 
+    left: 50%;  
+    width: 28%;  
+    height: 1px;  
+    background-color: #fff;  
+    opacity: 0; 
+    transition: opacity 0.3s ease;  
+    transform: translateX(-50%);  
+}*/
 
-.menu button.active::before,
+/*.menu button.active::before,*/
 .menu button:hover::before {
     opacity: 1;  /* جعل الخط مرئي عند التمرير أو عندما يكون الزر نشطًا */
 }
