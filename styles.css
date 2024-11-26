@@ -37,10 +37,8 @@ body {
     margin: 0;
    /* font-family: 'IBM Plex Mono',sans-serif ;
     font-weight: 700;*//* لتحديد وزن الخط */
-   /* font-family: 'Rubik', sans-serif;
-    font-weight: 900;*/
-    font-family: "Bebas Neue", sans-serif;
-    font-weight: 400;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 700;
     background-color: #000;
     color: #fff;
     display: flex;
@@ -750,14 +748,10 @@ img {
     color: #808080; 
     font-size: 17px; 
     margin: 10px 0;
-    font-family: "Quicksand", sans-serif;
-    font-weight: 300;
     text-align: center;
  }
 
 #t, #Daily-earning, #puzzlessText {
-    font-family: "Quicksand", sans-serif;
-    font-weight: 300;
     color: #808080; 
     font-size: 15px; 
     text-align: left;
