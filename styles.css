@@ -687,11 +687,11 @@ img {
     top: -100px; /* البداية من فوق الشاشة */
     left: 50%;
     transform: translateX(-50%);
-    background: linear-gradient(90deg, #343434, #000000, #1a1a1a);
+    background: linear-gradient(45deg, #1a1a1a, #000, #1a1a1a, #000, #1a1a1a);
     color: #fff;
-    padding: 8px 18px; /* زيادة padding لجعل الإشعار طويل */
-    border-radius: 5px;
-    border: 1px solid #343434;
+    padding: 10px 20px; /* زيادة padding لجعل الإشعار طويل */
+    border-radius: 25px;
+    /*border: 1px solid #343434;*/
     font-size: 13px;
     z-index: 1000;
     opacity: 0; /* البداية غير مرئية */
