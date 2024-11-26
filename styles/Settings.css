@@ -99,22 +99,18 @@
 
 .user-info {
     display: flex;
-   /* flex-direction: center;
-    justify-content: flex-start;
-    /*justify-content: center;*//* توسيط النص داخل الحاوية */
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.8);
     font-size: 10px; 
     color: #ffffff; 
     width: 80%;
     height: 80px;
-    border-radius: 10px;
-    border: 0.50px solid #343434;
+    border-radius: 10px; 
     margin-top: 70px; 
     margin-button: 25px; 
     margin: 70px auto 25px auto; /* توسيط الحاوية أفقياً */
     
-  /*  position: absolute;
+  /*position: absolute;
     opacity: 0; 
     pointer-events: none;*/
 } 
@@ -138,7 +134,6 @@
 .user-image {
     width: 35px; /* حجم الصورة */
     height: 35px;
-    border: 0.50px solid #343434;
     border-radius: 10px;
     display: block;
     margin-left: 8px;
@@ -160,7 +155,7 @@
 .account-summary p {
     border-radius: 10px; 
     color: #ffffff;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.8);
     margin-bottom: 15px; /* إضافة تباعد بين الفقرات */
     width: auto; /* حجم الصورة */
     height: 15px;
