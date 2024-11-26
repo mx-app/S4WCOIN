@@ -891,15 +891,16 @@ function navigateToScreen(screenId) {
     const targetScreen = document.getElementById(screenId);
     if (targetScreen) targetScreen.classList.add('active');
 
-    // التحقق إذا كانت الصفحة هي صفحة فرعية
-    const isSubPage = screenId !== 'mainPage'; // افترض أن "mainPage" هي الصفحة الرئيسية
+    // تحقق إذا كانت الصفحة هي واحدة من الصفحات التي تحتوي على القائمة السفلية
+    const pagesWithFooter = ['mainPage', 'tasksPage', 'accountPage', 'Puzzlespage']; // الصفحات التي تحتوي على القائمة السفلية
+    const isFooterPage = pagesWithFooter.includes(screenId);
 
-    // إخفاء/إظهار القائمة السفلية بناءً على الصفحة
+    // إخفاء أو إظهار القائمة السفلية بناءً على ما إذا كانت الصفحة هي صفحة من الصفحات التي تحتوي على القائمة السفلية
     const footerMenu = document.querySelector('.menu'); // تحديد القائمة السفلية باستخدام الكلاس
-    if (isSubPage) {
-        footerMenu.style.display = 'none'; // إخفاء القائمة السفلية في الصفحات الفرعية
+    if (isFooterPage) {
+        footerMenu.style.display = 'flex'; // إظهار القائمة السفلية في الصفحات التي تحتوي عليها
     } else {
-        footerMenu.style.display = 'flex'; // إظهار القائمة السفلية في الصفحة الرئيسية
+        footerMenu.style.display = 'none'; // إخفاء القائمة السفلية في الصفحات الأخرى
     }
 
     // إضافة منطق خاص لصفحة "boostsPage" إذا لزم الأمر
@@ -909,6 +910,10 @@ function navigateToScreen(screenId) {
         if (uiElements.fillEnergyUpgradeBtn) uiElements.fillEnergyUpgradeBtn.style.display = 'block';
     }
 }
+
+
+
+
 
 function startEnergyRecovery() {
     setInterval(() => {
