@@ -749,10 +749,14 @@ img {
     color: #808080; 
     font-size: 17px; 
     margin: 10px 0;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 300;
     text-align: center;
  }
 
 #t, #Daily-earning, #puzzlessText {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 300;
     color: #808080; 
     font-size: 15px; 
     text-align: left;
@@ -1106,7 +1110,8 @@ img {
 .invite-content p {
   font-size: 12px;
   line-height: 1.5;
-  font-weight: bold;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
   margin: 10px 0;
   color: #808080; 
 }
