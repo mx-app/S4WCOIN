@@ -17,7 +17,7 @@
 
 
 .invite-more:hover {
-    background: linear-gradient(135deg, #1a1a1a, #000, #1a1a1a);
+    background: linear-gradient(135deg, #1a1a1a, #000, #1a1a1a, #000, #1a1a1a);
 } 
 
 .invite-copy {
@@ -40,6 +40,5 @@
 } 
 
 .invite-copy:hover {
-   background: linear-gradient(135deg, #1a1a1a, #000, #1a1a1a);
+   background: linear-gradient(135deg, #1a1a1a, #000, #1a1a1a, #000, #1a1a1a);
 } 
-
