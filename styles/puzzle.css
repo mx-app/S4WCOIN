@@ -55,7 +55,6 @@
     display: flex;
     align-items: center; /* محاذاة المحتوى رأسياً في المنتصف */
     justify-content: flex-start; /* محاذاة المحتوى أفقيًا من اليسار */
-    border: 1px solid #000;
     border-radius: 10px;
     padding: 10px;
     background: #1a1a1a;
