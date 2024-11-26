@@ -386,7 +386,7 @@ async function initializeApp() {
         console.log('App initialized successfully.');
     } catch (error) {
         console.error('Error initializing app:', error);
-        showNotificationWithStatus(uiElements.purchaseNotification, 'Failed to initialize app.');
+        showNotification(uiElements.purchaseNotification, 'Failed to initialize app.');
         if (uiElements.splashScreen) uiElements.splashScreen.style.display = 'none';
         if (uiElements.mainContainer) uiElements.mainContainer.style.display = 'flex';
     }
@@ -653,7 +653,7 @@ function showNotificationWithStatus(notificationElement, message, status = '') {
     let imageUrl = '';
     if (status === 'win') {
         notificationElement.classList.add('win');
-        imageUrl = 'i/correct.png'; // رابط الصورة لحالة الفوز
+        imageUrl = 'i/Done.png'; // رابط الصورة لحالة الفوز
     } else if (status === 'lose') {
         notificationElement.classList.add('lose');
         imageUrl = 'i/mistake.png'; // رابط الصورة لحالة الخسارة
@@ -754,7 +754,7 @@ function confirmUpgradeAction() {
 
         showNotificationWithStatus(uiElements.purchaseNotification, `Successfully upgraded!`, 'win');
     } else {
-        showNotificationWithStatus(uiElements.purchaseNotification, `Not enough coins!`, 'lose');
+        showNotification(uiElements.purchaseNotification, `Not enough coins!`);
     }
 
     // إخفاء النافذة المنبثقة
@@ -1200,7 +1200,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }).catch((result) => {
             // معالجة الحالة إذا حدثت مشكلة في عرض الإعلان
             console.error('mistake ', result);
-            showNotificationWithStatus(purchaseNotification, 'Sorry, an error occurred while viewing', 'lose');
+            showNotification(purchaseNotification, 'Sorry, an error occurred while viewing');
         });
     });
 
@@ -1744,7 +1744,7 @@ function startCountdown() {
 // التعامل مع انتهاء الوقت
 function handlePuzzleTimeout() {
     clearInterval(countdownInterval);
-    showNotificationWithStatus(puzzleNotification, "Time's up! You failed to solve the puzzle.", 'lose');
+    showNotification(puzzleNotification, "Time's up! You failed to solve the puzzle.");
     updatePuzzleProgressInDatabase(currentPuzzle.id, false, maxAttempts); // تحديث التقدم
     startCountdownOnButton(24 * 60 * 60); // بدء العد التنازلي لعرض أحجية اليوم التالي
     closePuzzle();
@@ -2117,7 +2117,7 @@ document.getElementById('applyPromoCode').addEventListener('click', async () => 
         const alreadyUsed = await checkIfPromoCodeUsed(enteredCode);
 
         if (alreadyUsed) {
-            applyButton.innerHTML = '⛔';
+            applyButton.innerHTML = '‼️';
             showNotificationWithStatus(uiElements.purchaseNotification, 'You have already used this promo code.', 'win');
             setTimeout(() => {
                 applyButton.innerHTML = 'Apply';
@@ -2164,7 +2164,7 @@ document.getElementById('applyPromoCode').addEventListener('click', async () => 
             applyButton.innerHTML = '❌';
 
             // إظهار إشعار بالخطأ
-            showNotificationWithStatus(uiElements.purchaseNotification, 'Invalid promo code.', 'lose');
+            showNotification(uiElements.purchaseNotification, 'Invalid promo code.');
         }
     } catch (error) {
         console.error('Error fetching promo codes:', error);
@@ -2277,7 +2277,11 @@ function rewardReferral(referrerId, invitedId) {
 // استدعاء الدالة عند تحميل الصفحة
 document.addEventListener('DOMContentLoaded', handleInvite);
 
+
+
 //////////////////////////////////////////////////////////
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const morseCipherContainer = document.getElementById('morseCipherContainer');
