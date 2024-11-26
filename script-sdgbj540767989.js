@@ -386,7 +386,7 @@ async function initializeApp() {
         console.log('App initialized successfully.');
     } catch (error) {
         console.error('Error initializing app:', error);
-        showNotificationWithStatus(uiElements.purchaseNotification, 'Failed to initialize app.', 'lose');
+        showNotificationWithStatus(uiElements.purchaseNotification, 'Failed to initialize app.');
         if (uiElements.splashScreen) uiElements.splashScreen.style.display = 'none';
         if (uiElements.mainContainer) uiElements.mainContainer.style.display = 'flex';
     }
