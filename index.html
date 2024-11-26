@@ -124,7 +124,7 @@
                <div id="balanceAmount">0</div>
            </div>
             
-            <button id="levelFloatingBtn" class="level-button-floating">
+            <button data-target="levelPage" class="level-button-floating">
                 <img src="i/Slogo.png" alt="Current Level Image" class="levelsss-icon">
                 <span id="currentLevelName"></span>
                 <span class="arrow">&#10095;</span>
@@ -333,7 +333,10 @@
              
     
         <div class="puzzles-container">
-             <div class="puzzle-item" id="puzzle1">
+            <p id="puzzlessText"> Daily puzzles </p>
+              
+             <!--<div class="puzzle-item" id="puzzle1">-->
+             <div class="puzzle-item" id="puzzle1" onclick="showOverlay('puzzleContainer')">
              <img src="i/puzzl.png" alt="Daily Puzzle" class="puzzle-image">
              <div class="puzzle-description">
              <h4>Daily puzzle challenge</h4>
@@ -406,9 +409,10 @@
              </div>
 
              <!-- Puzzle Container -->
-            <div id="puzzleContainer" class="puzzle-container hidden">
+            <div id="puzzleContainer" class="puzzle-container hidden modal">
                 <div class="puzzle-content">
-                  <span id="puzzlecloseModal" class="close">&times;</span>
+               <!--   <span id="puzzlecloseModal" class="close">&times;</span>-->
+                  <span id="puzzlecloseModal" class="close" onclick="hideOverlay('puzzleContainer')">&times;</span>
                     <p id="Puz-to"> Today's Puzzle </p>
                     <div id="puzzleQuestion"></div>
                     <div id="puzzleRewardDisplay" class="reward-display"></div>
@@ -436,7 +440,7 @@
            </div>
     </div>
 <!-- <p id="bosts">Boosts</p>-->
- <img src="i/energyy.jpg" alt="Boost Image" class="bos-image">
+ <img src="i/video.gif" alt="Boost Image" class="bos-image">
 <!--  <p id="b">You Can Upgrade Your Tap, Energy, And Coins To Earn More</p>-->
     
 <div class="container-free">
@@ -604,8 +608,8 @@
         <div class="additional-level-info">
             <img id="currentLevelImagee" class="levell-image" src="" alt="Level lImage"> <!-- صورة المستوى -->
          <div class="level-texxt">
-            <p id="levelPageCurrentLevelName">Level Name</p> <!-- اسم المستوى في صفحة المستويات -->
-            <p id="currentLevelInfo"> lvl <span id="displayedLevel">1</span></p>
+            <p id="levelPageCurrentLevelName">Level Name <span id="displayedLevel">1</span></p> <!-- اسم المستوى في صفحة المستويات -->
+            <!-- <p id="currentLevelInfo"> lvl </p>-->
             <p id="levelPageCurrentLevelCoins">Next Lvl 0%</p> <!-- نسبة التقدم في صفحة المستويات -->
             <div class="energy-barrr-container">
             <div id="levelPageEnergyFill" class="level-energy-fiill"></div> <!-- شريط الطاقة في صفحة المستويات -->
@@ -615,10 +619,9 @@
         
       <div id="navigationButtons" class="navigation-buttons">
           <button>Beginner's</button>
-          <button>Novice </button>
+          <button>Novice</button>
           <button>Intermediate</button>
           <button>Advanced</button>
-          <button>Expert's</button>
      </div>
         
       <div class="current-level-info">

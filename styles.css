@@ -423,20 +423,20 @@ img {
     z-index: 2; /* وضع الصورة فوق الخلفية */
 } 
 
-.menu button::before {
+/*.menu button::before {
     content: "";
     position: absolute;
-    top: 0;  /* وضع الخط في بداية الزر من الأعلى */
-    left: 50%;  /* تحديد المكان من اليسار ليكون في منتصف الزر */
-    width: 28%;  /* عرض الخط ليغطي جزء من عرض الزر */
-    height: 1px;  /* سماكة الخط */
-    background-color: #fff;  /* لون الخط */
-    opacity: 0;  /* جعل الخط غير مرئي في البداية */
-    transition: opacity 0.3s ease;  /* إضافة انتقال لتأثير الشفافية */
-    transform: translateX(-50%);  /* تحريك الخط إلى المنتصف أفقيًا */
-}
+    top: 0; 
+    left: 50%;  
+    width: 28%;  
+    height: 1px;  
+    background-color: #fff;  
+    opacity: 0; 
+    transition: opacity 0.3s ease;  
+    transform: translateX(-50%);  
+}*/
 
-.menu button.active::before,
+/*.menu button.active::before,*/
 .menu button:hover::before {
     opacity: 1;  /* جعل الخط مرئي عند التمرير أو عندما يكون الزر نشطًا */
 }
@@ -752,7 +752,7 @@ img {
     text-align: center;
  }
 
-#t, #Daily-earning {
+#t, #Daily-earning, #puzzlessText {
     color: #808080; 
     font-size: 15px; 
     text-align: left;
@@ -924,7 +924,7 @@ img {
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.7);
     padding: 5px;
-    border-radius: 10px;
+    border-radius: 25px;
     color: #fff;
     border: 1px solid #1a1a1a/*#0d0d0d*/;
 }
@@ -1111,3 +1111,19 @@ img {
   color: #808080; 
 }
 
+/* الطبقة الشفافة العامة */
+.overlay-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* تأثير الضبابية */
+    z-index: 9998; /* خلف النوافذ */
+    display: none; /* مخفية بشكل افتراضي */
+}
+
+/* إظهار الطبقة */
+.overlay-background.active {
+    display: block; /* إظهارها عند الحاجة */
+}

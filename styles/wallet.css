@@ -18,7 +18,7 @@
 .wallet-button {
     position: fixed;
     top: 15px; 
-    left: 25px;
+    left: 35px;
     /*left: 265px;*/
    /* border: 1px solid #343434;*/
     background-color: rgba(255, 255, 255, 0.001);
@@ -40,28 +40,31 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    height: 100vh;
+    height: 100vh; /* استخدام كامل الارتفاع */
 }
 
 .wallet-box {
     background-color: rgba(0, 0, 0, 0.7); /* لون خلفية أغمق لتحسين التباين */
     backdrop-filter: blur(8px); /* تأثير ضبابية ناعم */
-    border: 0.50px solid #444; /* حد أغمق */
+   /* border: 0.50px solid #444;*//* حد أغمق */
     border-radius: 15px; /* تدوير أكبر للحواف */
     padding: 20px; /* زيادة الحشوة */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* إضافة ظل للصندوق */
-    width: 80%; /* تحديد العرض بشكل مناسب */
+    width: 85%; /* تحديد العرض بشكل مناسب */
     max-width: 400px; /* تحديد عرض أقصى ليتماشى مع مختلف الأجهزة */
     margin: 0 auto; /* لضمان توسيط الحاوية */
     height: 60vh;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* تأكيد محاذاة المحتوى عموديًا */
 }
 
 .wallet-box p {
     font-size: 15px; /* تكبير حجم الخط */
     font-weight: bold;
     color: #808080; /* جعل النص أبيض ليتناسب مع الخلفية */
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 #ton-connect {
@@ -69,21 +72,24 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 0; /* إضافة مسافة أعلى الزر */
 }
 
 #ton-connect button {
-    background-color: #0088CC; /* لون زر مناسب */
+   /* background-color: rgba(0, 0, 0, 0.009);*/
+    background-color: #0088CC;/* لون زر مناسب */
+    border: 1px solid #1a1a1a;
     color: #fff;
     font-size: 16px;
     font-weight: bold;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 8px;
+    padding: 20px 60px;
+    border-radius: 15px;
     cursor: pointer;
     width: 100%; /* جعل الزر بعرض الصندوق */
     max-width: 300px; /* تحديد عرض أقصى للزر */
 }
 
 #ton-connect button:hover {
-    background-color: #808080; /* تأثير اللون عند التمرير */
-}
+    background-color: #1a1a1a; /* تأثير اللون عند التمرير */
+} 
+

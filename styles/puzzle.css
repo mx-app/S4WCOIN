@@ -1,6 +1,19 @@
+/* طبقة الخلفية الشفافة */
+#overlayBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* لون شفاف */
+    z-index: 9998; /* أقل قليلاً من نافذة الأحجية */
+    display: none; /* إخفاء الطبقة بشكل افتراضي */
+}
+
+
 .countdown-display {
     position: absolute;
-    top: 220px;
+    top: 250px;
     left: 50%;
     transform: translateX(-50%);
     font-size: 18px; /* حجم الخط */
@@ -16,7 +29,7 @@
 
 /* تأثير الضباب والتوهج عند عدم التفعيل */
 .puzzle-item.inactive {
-    filter: blur(20px); /* يجعل العنصر ضبابيًا */
+    filter: blur(10px); /* يجعل العنصر ضبابيًا */
     border: 2px solid darkred; /* حواف حمراء داكنة */
     pointer-events: none; /* تعطيل التفاعل مع العنصر */
 }
@@ -80,14 +93,14 @@
 }*/
 
 .puzzle-item .puzzle-description h4 {
-    font-size: 18px;
+    font-size: 17px;
     color: #fff; /* لون مميز للعنوان */
     margin: 0;
     font-weight: bold;
 }
 
 .puzzle-item .puzzle-description p {
-    font-size: 12px;
+    font-size: 11px;
     color: #808080; /* لون فاتح للوصف */
     margin: 10px 0;
    /* margin-top: 5px;*//* مسافة بين العنوان والوصف */
@@ -265,7 +278,7 @@
 
 #timer {
     color: red;
-    font-size: 15px; /* حجم الخط للمؤقت */
+    font-size: 17px; /* حجم الخط للمؤقت */
     background-color: none; 
     padding: 8px;
     border-radius: 10px;

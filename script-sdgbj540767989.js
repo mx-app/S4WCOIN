@@ -794,28 +794,6 @@ function updateBoostsDisplay() {
 
 
 
-
-
-// ملء الطاقة
-//function fillEnergyAction() {
-    //const twelveHours = 12 * 60 * 60 * 1000;
-    //const currentTime = Date.now();
-
-   // if (gameState.fillEnergyCount < 2 && currentTime - gameState.lastFillTime >= twelveHours) {
-        //gameState.energy = gameState.maxEnergy;
-        //gameState.fillEnergyCount += 1;
-        //gameState.lastFillTime = currentTime;
-       // updateUI();
-        //showNotification(uiElements.purchaseNotification, 'Energy filled!');
-   // } else {
-       // showNotification(uiElements.purchaseNotification, 'You need to wait for the next free energy fill.');
-    //}
-   // updateUserData();
-   // saveGameState();
-//}
-
-
-
 ///////////////////////////////////////////
 
 
@@ -1241,98 +1219,71 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-///////////////////////////////////////////
+
+//////////////////////////////////////
 
 
-
-///Bottom menu 
-// التنقل بين الأقسام وتحديث الزر النشط
+//القائمه السفليه 
 document.querySelectorAll('button[data-target]').forEach(button => {
     button.addEventListener('click', () => {
         const targetId = button.getAttribute('data-target');
-        
-        // تحديث الشاشة النشطة
         document.querySelectorAll('.screen-content').forEach(screen => {
             screen.classList.remove('active');
         });
         document.getElementById(targetId).classList.add('active');
-        
-        // تحديث الزر النشط
-        document.querySelectorAll('.menu button').forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-
-        // تحديث سجل التنقل
-        if (targetId === 'mainPage') {
-            // استبدل السجل عند الدخول للصفحة الرئيسية
-            history.replaceState({ target: targetId }, "", `#${targetId}`);
-        } else {
-            // أضف للسجل عند الانتقال لأي صفحة أخرى
-            history.pushState({ target: targetId }, "", `#${targetId}`);
-        }
     });
 });
+
+
+
+// أولاً: الحصول على جميع الأزرار داخل القائمة
+const buttons = document.querySelectorAll('.menu button');
+
+// ثانياً: إضافة مستمع للأحداث (Event Listener) لكل زر بحيث يستمع للنقرات
+buttons.forEach(button => {
+    button.addEventListener('click', function() {
+        // عند النقر على زر، يتم إزالة الصف "active" من جميع الأزرار
+        buttons.forEach(btn => btn.classList.remove('active'));
+        
+        // إضافة الصف "active" للزر الذي تم النقر عليه
+        this.classList.add('active');
+        
+        // الحصول على اسم الصفحة أو القسم المستهدف من الزر الذي تم النقر عليه
+        const targetPage = this.getAttribute('data-target');
+        
+        // هنا يمكنك وضع المنطق الذي يقوم بتغيير الصفحة بناءً على الزر (استبدل هذا المنطق إذا لزم الأمر)
+        // مثال: الانتقال إلى صفحة معينة بناءً على اسم الـ "data-target"
+        // window.location.href = targetPage + ".html";
+        console.log("التنقل إلى الصفحة:", targetPage); // هذا فقط للعرض في الكونسول
+    });
+});
+
+// ثالثاً: اختياري: تفعيل الزر النشط بناءً على الصفحة الحالية
+const currentPage = window.location.pathname; // هذا يحصل على اسم الصفحة الحالية من الـ URL
+buttons.forEach(button => {
+    const target = button.getAttribute('data-target'); // الحصول على قيمة "data-target" من كل زر
+    if (currentPage.includes(target)) {
+        button.classList.add('active'); // إضافة الصف "active" للزر الذي يتطابق مع الصفحة الحالية
+    }
+});
+
+
+
+///////////////////////////////////////////
+
+window.Telegram.WebApp.setHeaderColor('#000000');
+window.Telegram.WebApp.setBackgroundColor('#000000');
 
 // إغلاق النافذة المنبثقة
 document.getElementById('closeModal').addEventListener('click', function() {
     document.getElementById('upgradeConfirmation').style.display = 'none';
 });
 
-// إدارة زر الرجوع الخاص بالجهاز
-window.addEventListener('popstate', (event) => {
-    const targetId = event.state ? event.state.target : 'mainPage'; // افتراضيًا الرجوع للصفحة الرئيسية
-    document.querySelectorAll('.screen-content').forEach(screen => {
-        screen.classList.remove('active');
-    });
-    document.getElementById(targetId).classList.add('active');
-
-    // تحديث الزر النشط بناءً على القسم الحالي
-    document.querySelectorAll('.menu button').forEach(btn => {
-        const target = btn.getAttribute('data-target');
-        btn.classList.toggle('active', target === targetId);
-    });
-});
-
-// عند تحميل الصفحة: تعيين القسم بناءً على الرابط الحالي
-window.addEventListener('load', () => {
-    const hash = window.location.hash.substring(1) || 'mainPage'; // استخراج الـ target من الرابط أو افتراضيًا الصفحة الرئيسية
-    document.querySelectorAll('.screen-content').forEach(screen => {
-        screen.classList.remove('active');
-    });
-    document.getElementById(hash).classList.add('active');
-
-    // تحديث الزر النشط
-    document.querySelectorAll('.menu button').forEach(btn => {
-        const target = btn.getAttribute('data-target');
-        btn.classList.toggle('active', target === hash);
-    });
-});
-
-// إضافة مستمع للأحداث (Event Listener) لكل زر لاستماع للنقرات
-const buttons = document.querySelectorAll('.menu button');
-buttons.forEach(button => {
-    button.addEventListener('click', function () {
-        // إزالة الصنف "active" من جميع الأزرار عند النقر على زر
-        buttons.forEach(btn => btn.classList.remove('active'));
-        
-        // إضافة الصنف "active" للزر الذي تم النقر عليه
-        this.classList.add('active');
-        
-        // الحصول على اسم الصفحة أو القسم المستهدف من الزر
-        const targetPage = this.getAttribute('data-target');
-        
-        // تغيير الصفحة بناءً على الزر
-        console.log("التنقل إلى الصفحة:", targetPage); // هذا للعرض فقط في الكونسول
-    });
-});
-
-
 //////////////////////////////////////
 
 
 
-
-
-
+// المهام 
 document.addEventListener('DOMContentLoaded', async () => {
     const taskContainer = document.querySelector('#taskcontainer');
     if (!taskContainer) {
@@ -1528,76 +1479,120 @@ function openTaskLink(taskurl, callback) {
 /////////////////////////////////////
 
 
+ 
 
-
-window.Telegram.WebApp.setHeaderColor('#000000');
-window.Telegram.WebApp.setBackgroundColor('#000000');
-
-// تهيئة تكامل تليجرام
 function initializeTelegramIntegration() {
     const telegramApp = window.Telegram.WebApp;
-    
-    // التحقق من جاهزية التطبيق
+
+    // التأكد من أن التطبيق جاهز
     telegramApp.ready();
-    
-    // التحقق من الصفحة الحالية لإظهار أو إخفاء زر الرجوع
+
+    // تحديد الصفحات الرئيسية التي لا يظهر بها زر الرجوع
+    const mainPages = ["mainPage", "tasksPage", "accountPage", "Puzzlespage"];
+
+    // تحديث زر الرجوع بناءً على الصفحة الحالية
     function updateBackButton() {
-        const currentPage = document.querySelector(".page.active"); // الصفحة النشطة
-        if (currentPage && currentPage.id !== "home") {
-            telegramApp.BackButton.show();
+        const currentPage = document.querySelector(".screen-content.active");
+        if (currentPage && !mainPages.includes(currentPage.id)) {
+            telegramApp.BackButton.show(); // إظهار زر الرجوع في الصفحات الفرعية
         } else {
-            telegramApp.BackButton.hide();
+            telegramApp.BackButton.hide(); // إخفاء زر الرجوع في الصفحات الرئيسية
         }
     }
-    
-    // تفعيل حدث زر الرجوع
+
+    // تحديث الزر النشط بناءً على الصفحة النشطة
+    function updateActiveButton(targetPageId) {
+        document.querySelectorAll(".menu button").forEach(btn => {
+            const target = btn.getAttribute("data-target");
+            btn.classList.toggle("active", target === targetPageId);
+        });
+    }
+
+    // التنقل إلى صفحة معينة
+    function navigateToPage(targetPageId) {
+        // إزالة الصفحة النشطة الحالية
+        document.querySelectorAll(".screen-content").forEach(page => page.classList.remove("active"));
+
+        // تفعيل الصفحة المستهدفة
+        const targetPage = document.getElementById(targetPageId);
+        if (targetPage) {
+            targetPage.classList.add("active");
+        }
+
+        // تحديث زر الرجوع والزر النشط
+        updateActiveButton(targetPageId);
+        updateBackButton();
+    }
+
+    // تفعيل حدث زر الرجوع الخاص بـ Telegram
     telegramApp.BackButton.onClick(() => {
-        const currentPage = document.querySelector(".page.active"); // الصفحة النشطة
-        if (currentPage && currentPage.id !== "mainPage") {
-            // إخفاء الصفحة الحالية والعودة للصفحة الرئيسية
-            currentPage.classList.remove("active");
-            document.getElementById("home").classList.add("active");
-            updateBackButton();
+        const currentPage = document.querySelector(".screen-content.active");
+        if (currentPage && !mainPages.includes(currentPage.id)) {
+            navigateToPage("mainPage"); // العودة دائمًا إلى الصفحة الرئيسية من الصفحات الفرعية
         } else {
-            telegramApp.close(); // إغلاق WebApp إذا كنا في الصفحة الرئيسية
+            telegramApp.close(); // إغلاق WebApp إذا كنت في صفحة رئيسية
         }
     });
 
-    // إعداد التنقل بين الصفحات
-    document.querySelectorAll(".nav-button").forEach(button => {
-        button.addEventListener("click", (event) => {
-            const targetPageId = event.target.getAttribute("data-target"); // تحديد الصفحة المستهدفة
-            document.querySelectorAll(".page").forEach(page => page.classList.remove("active"));
-            document.getElementById(targetPageId).classList.add("active");
-            updateBackButton();
+    // إعداد التنقل بين الأقسام
+    document.querySelectorAll("button[data-target]").forEach(button => {
+        button.addEventListener("click", () => {
+            const targetPageId = button.getAttribute("data-target");
+
+            // تحديث التنقل
+            navigateToPage(targetPageId);
+
+            // تحديث سجل التنقل
+            if (mainPages.includes(targetPageId)) {
+                history.replaceState({ target: targetPageId }, "", `#${targetPageId}`);
+            } else {
+                history.pushState({ target: targetPageId }, "", `#${targetPageId}`);
+            }
         });
+    });
+
+    // إدارة التنقل عند استخدام زر الرجوع في المتصفح
+    window.addEventListener("popstate", (event) => {
+        const targetPageId = event.state ? event.state.target : "mainPage";
+        navigateToPage(targetPageId);
     });
 
     // تخصيص الألوان بناءً على الثيم
     if (telegramApp.colorScheme === 'dark') {
-        document.documentElement.style.setProperty('--background-color-dark', '#000');
-        document.documentElement.style.setProperty('--text-color-dark', '#FFF');
+        document.documentElement.style.setProperty('--background-color', '#000');
+        document.documentElement.style.setProperty('--text-color', '#FFF');
+    } else {
+        document.documentElement.style.setProperty('--background-color', '#FFF');
+        document.documentElement.style.setProperty('--text-color', '#000');
     }
-    
-    // إدارة حدث المشاركة
-    telegramApp.onEvent('share', () => {
-        gameState.balance += 50000;
-        updateUI();
-        showNotification(uiElements.purchaseNotification, 'You received 50,000 coins for inviting a friend!');
-        updateUserData();
-        saveGameState();
-    });
 
-    // تحديث حالة زر الرجوع عند تحميل الصفحة
-    updateBackButton();
+    // فتح الصفحة الرئيسية عند تحميل التطبيق
+    window.addEventListener("load", () => {
+        const hash = window.location.hash.substring(1) || "mainPage";
+        const targetPage = document.getElementById(hash);
+
+        // تأكد من أن الصفحة الافتراضية يتم تحميلها إذا لم يتم تعيين صفحة أخرى
+        if (!targetPage || !targetPage.classList.contains("screen-content")) {
+            navigateToPage("mainPage");
+        } else {
+            navigateToPage(hash);
+        }
+
+        // تحديث سجل التنقل
+        if (mainPages.includes(hash)) {
+            history.replaceState({ target: hash }, "", `#${hash}`);
+        } else {
+            history.pushState({ target: hash }, "", `#${hash}`);
+        }
+    });
 }
 
-// استدعاء الدالة عند تحميل الصفحة
-document.addEventListener('DOMContentLoaded', initializeTelegramIntegration);
+// استدعاء التهيئة عند تحميل الصفحة
+window.addEventListener("load", initializeTelegramIntegration);
 
 
-///////////////////////////////////////
-     
+
+///////////////////////////////
 
 
 // تعريف عناصر DOM
@@ -2667,10 +2662,46 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+///////////////////////////////////////
 
 
 
 
+// إنشاء الطبقة مرة واحدة فقط
+const overlayBackground = document.createElement('div');
+overlayBackground.className = 'overlay-background';
+document.body.appendChild(overlayBackground);
+
+/**
+ * إضافة ضبابية للنافذة عند فتحها
+ * @param {string} modalId - معرف النافذة المفتوحة
+ */
+function showOverlay(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.classList.remove('hidden'); // إظهار النافذة
+        overlayBackground.classList.add('active'); // إظهار الطبقة الشفافة
+    }
+}
+
+/**
+ * إزالة الضبابية عند إغلاق أي نافذة
+ * @param {string} modalId - معرف النافذة المغلقة
+ */
+function hideOverlay(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.classList.add('hidden'); // إخفاء النافذة
+        overlayBackground.classList.remove('active'); // إخفاء الطبقة الشفافة
+    }
+}
+
+// إغلاق الطبقة عند النقر عليها
+overlayBackground.addEventListener('click', () => {
+    const modals = document.querySelectorAll('.modal'); // جميع النوافذ
+    modals.forEach(modal => modal.classList.add('hidden')); // إخفاء جميع النوافذ
+    overlayBackground.classList.remove('active'); // إخفاء الطبقة الشفافة
+});
 
 
 
