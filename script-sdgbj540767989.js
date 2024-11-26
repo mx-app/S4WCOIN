@@ -891,11 +891,11 @@ function navigateToScreen(screenId) {
     const targetScreen = document.getElementById(screenId);
     if (targetScreen) targetScreen.classList.add('active');
 
-    // تحقق إذا كانت الصفحة هي واحدة من الصفحات التي تحتوي على القائمة السفلية
-    const pagesWithFooter = ['mainPage', 'tasksPage', 'accountPage', 'Puzzlespage']; // الصفحات التي تحتوي على القائمة السفلية
-    const isFooterPage = pagesWithFooter.includes(screenId);
+    // تحقق إذا كانت الصفحة هي واحدة من الصفحات التي لا تحتوي على القائمة السفلية
+    const pagesWithoutFooter = ['boostsPage', 'levelPage', 'gamePage', 'miningPage', 'walletPage']; // الصفحات التي لا تحتوي على القائمة السفلية
+    const isFooterPage = !pagesWithoutFooter.includes(screenId); // إذا كانت الصفحة ليست ضمن هذه القائمة
 
-    // إخفاء أو إظهار القائمة السفلية بناءً على ما إذا كانت الصفحة هي صفحة من الصفحات التي تحتوي على القائمة السفلية
+    // إخفاء أو إظهار القائمة السفلية بناءً على ما إذا كانت الصفحة تحتوي على القائمة السفلية أم لا
     const footerMenu = document.querySelector('.menu'); // تحديد القائمة السفلية باستخدام الكلاس
     if (isFooterPage) {
         footerMenu.style.display = 'flex'; // إظهار القائمة السفلية في الصفحات التي تحتوي عليها
