@@ -121,14 +121,14 @@
     color: #808080; /* لون النص */
 }
 
-.separatorrr{
+.separatorrr {
     width: 0.50px;
     height: 20px;
     background-color: #808080;
-    margin: 1px 1px;
+    margin: 0 5px;
 } 
 
-.separatorr {
+.separatorrrr {
     width: 0.5px;
     height: 20px;
     background-color: #808080;
