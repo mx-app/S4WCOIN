@@ -879,6 +879,8 @@ function createDiamondCoinEffect(x, y) {
 
 
 
+
+
 // الانتقال بين الشاشات
 function navigateToScreen(screenId) {
     if (uiElements.contentScreens) {
@@ -889,13 +891,23 @@ function navigateToScreen(screenId) {
     const targetScreen = document.getElementById(screenId);
     if (targetScreen) targetScreen.classList.add('active');
 
+    // التحقق إذا كانت الصفحة هي صفحة فرعية
+    const isSubPage = screenId !== 'mainPage'; // افترض أن "mainPage" هي الصفحة الرئيسية
+
+    // إخفاء/إظهار القائمة السفلية بناءً على الصفحة
+    const footerMenu = document.querySelector('.menu'); // تحديد القائمة السفلية باستخدام الكلاس
+    if (isSubPage) {
+        footerMenu.style.display = 'none'; // إخفاء القائمة السفلية في الصفحات الفرعية
+    } else {
+        footerMenu.style.display = 'flex'; // إظهار القائمة السفلية في الصفحة الرئيسية
+    }
+
+    // إضافة منطق خاص لصفحة "boostsPage" إذا لزم الأمر
     if (screenId === 'boostsPage') {
-        
         if (uiElements.boostUpgradeBtn) uiElements.boostUpgradeBtn.style.display = 'block';
         if (uiElements.coinUpgradeBtn) uiElements.coinUpgradeBtn.style.display = 'block';
         if (uiElements.fillEnergyUpgradeBtn) uiElements.fillEnergyUpgradeBtn.style.display = 'block';
     }
-    
 }
 
 function startEnergyRecovery() {
