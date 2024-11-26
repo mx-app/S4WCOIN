@@ -37,9 +37,10 @@ body {
     margin: 0;
    /* font-family: 'IBM Plex Mono',sans-serif ;
     font-weight: 700;*//* لتحديد وزن الخط */
-
-    font-family: 'Rubik', sans-serif;
-    font-weight: 900;
+   /* font-family: 'Rubik', sans-serif;
+    font-weight: 900;*/
+    font-family: "Quicksand", sans-serif;
+    font-weight: 700;
     background-color: #000;
     color: #fff;
     display: flex;
