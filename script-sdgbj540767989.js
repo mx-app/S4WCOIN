@@ -1442,7 +1442,7 @@ async function claimTaskReward(taskId, reward, button) {
         completedTasks.push(taskId);
 
         // تحديث واجهة المستخدم
-        button.textContent = '✓';
+        button.textContent = '✔️';
         button.disabled = true;
         updateUI();
         showNotificationWithStatus(uiElements.purchaseNotification, `Successfully claimed ${reward} coins!`, 'win');
