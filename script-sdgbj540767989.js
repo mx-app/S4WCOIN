@@ -1381,7 +1381,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                 // تعيين نص الزر بناءً على حالة المهمة
                 if (completedTasks.includes(task.id)) {
-                    button.textContent = '✔️';
+                    button.textContent = '✔';
                     button.disabled = true;
                 } else {
                     button.textContent = '❯';
