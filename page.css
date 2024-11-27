@@ -1,4 +1,4 @@
-#Profit-in {
+.Profit-in {
     font-size: 12px;
     margin-right: 25px;
     right: 40px;
@@ -30,7 +30,6 @@
     width: 92%;
     height: 40px;
     z-index: 500;
-    border: 1px solid #1a1a1a;
     /*border-radius: 10px;*/
     border-radius: 25px; /* زوايا مستديرة في الأسفل فقط */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
