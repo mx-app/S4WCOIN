@@ -235,11 +235,11 @@
     display: flex;
     flex-direction: row; /* ترتيب الليفيل والتكلفة أفقيًا */
     justify-content: space-between; /* توزيع العناصر بالتساوي */
-    margin-top: 4px; /* مسافة صغيرة بين الوصف والليفيل/التكلفة */
+    margin-top: 5px; /* مسافة صغيرة بين الوصف والليفيل/التكلفة */
     color: #808080;
     font-size: 0.7em; /* حجم النص أصغر قليلاً */
 }
 
 .boost-meta span {
-    margin-right: 4px; /* مسافة صغيرة بين الليفيل والتكلفة */
+    margin-right: 2px; /* مسافة صغيرة بين الليفيل والتكلفة */
 } 
