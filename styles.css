@@ -908,8 +908,8 @@ img {
 #BoostnavbarBalanceDisplay::after, 
 #lvlnavbarBalanceDisplay::after, 
 #miningnavbarBalanceDisplay::after {
-    content: "$SAW";  /* إضافة النص بعد العدد */
-    margin-left: 1px; /* مسافة بين العدد والنص */
+    content: " $SAW";  /* إضافة النص بعد العدد */
+    margin-left: 2px; /* مسافة بين العدد والنص */
     vertical-align: middle; /* محاذاة النص مع العدد */
 }
 
