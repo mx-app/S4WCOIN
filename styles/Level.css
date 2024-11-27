@@ -34,8 +34,8 @@
 
 /* الخلفية النشطة */
 .navigation-buttons button.active {
-    background: linear-gradient(135deg, rgba(60, 60, 60, 0.9), rgba(30, 30, 30, 0.9));
-}
+    background: linear-gradient(135deg, #1a1a1a, #000, #1a1a1a, #000, #1a1a1a);
+} 
 
 .level-item {
     display: none; /* إخفاء جميع المستويات في البداية */
