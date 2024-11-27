@@ -1090,7 +1090,7 @@ async function loadFriendsList() {
                     // إنشاء عنصر لعرض الرصيد
                     const balanceSpan = document.createElement('span');
                     balanceSpan.classList.add('friend-balance');
-                    balanceSpan.textContent = `${formatNumber(friend.balance)} SP`; // عرض الرصيد
+                    balanceSpan.textContent = `${formatNumber(friend.balance)} $SAW`; // عرض الرصيد
 
                     // إنشاء div يحتوي على الصورة واسم الصديق
                     const friendInfoDiv = document.createElement('div');
@@ -1364,7 +1364,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             // rewardContainer.appendChild(rewardIcon);
  
                 const rewardText = document.createElement('span');
-                rewardText.textContent = `+ ${task.reward} SP`;
+                rewardText.textContent = `+ ${task.reward} $SAW`;
                 rewardText.classList.add('task-reward');
                 rewardContainer.appendChild(rewardText);
 
@@ -1381,7 +1381,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                 // تعيين نص الزر بناءً على حالة المهمة
                 if (completedTasks.includes(task.id)) {
-                    button.textContent = '✓';
+                    button.textContent = '✔️';
                     button.disabled = true;
                 } else {
                     button.textContent = '❯';
@@ -1731,7 +1731,7 @@ async function displayTodaysPuzzle() {
     // عرض السؤال والتلميح والمكافأة
     puzzleQuestion.innerText = currentPuzzle.question;
     puzzleHint.innerText = `Hint : ${currentPuzzle.hint}`;
-    puzzleRewardDisplay.innerText = `Reward : ${currentPuzzle.reward} coins`;
+    puzzleRewardDisplay.innerText = ` ${currentPuzzle.reward} $SAW`;
 
     // عرض الخيارات كأزرار
     const optionsHtml = currentPuzzle.options.map(option => `<button class="option-btn">${option}</button>`).join('');
@@ -2165,7 +2165,7 @@ document.getElementById('applyPromoCode').addEventListener('click', async () => 
             applyButton.innerHTML = '✔️';
 
             // إظهار إشعار بالمكافأة
-            showNotificationWithStatus(uiElements.purchaseNotification, `Successfully added ${reward} coins to your balance!`, 'win');
+            showNotificationWithStatus(uiElements.purchaseNotification, `Successfully added ${reward} $SAW to your balance!`, 'win');
 
             // حفظ الحالة الحالية للعبة وتحديثها في قاعدة البيانات
             updateUI(); 
