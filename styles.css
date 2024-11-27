@@ -908,7 +908,7 @@ img {
 #BoostnavbarBalanceDisplay::after, 
 #lvlnavbarBalanceDisplay::after, 
 #miningnavbarBalanceDisplay::after {
-    content: " SP";  /* إضافة النص بعد العدد */
+    content: "$SAW";  /* إضافة النص بعد العدد */
     margin-left: 1px; /* مسافة بين العدد والنص */
     vertical-align: middle; /* محاذاة النص مع العدد */
 }
