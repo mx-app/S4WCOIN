@@ -1,9 +1,12 @@
+.daily-itemm:hover {
+    background: #1a1a1a; /* حدود العنصر */
+}
+
 .reward-img {
     display: block;
     margin: 10px auto;
     max-width: 35px;  /* يمكنك تعديل الحجم حسب الرغبة */
 }
-
 
 #DContainer {
     position: relative;
