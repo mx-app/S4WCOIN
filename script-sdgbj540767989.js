@@ -501,6 +501,9 @@ function updateUI() {
     if (uiElements.displayedLevel) {
         uiElements.displayedLevel.innerText = ` ${gameState.currentLevel}`;
     }
+    
+    uiElements.clickMultiplierDisplay.innerText = gameState.clickMultiplier;
+    uiElements.boostLevelDisplay.innerText = gameState.boostLevel;
 
     // حفظ حالة اللعبة
     saveGameState();
