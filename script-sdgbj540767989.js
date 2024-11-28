@@ -689,9 +689,10 @@ function showNotificationWithStatus(notificationElement, message, status = '') {
 async function showUpgradeModal(upgradeType) {
     if (!uiElements.upgradeModal) return;
 
+    // إظهار النافذة المنبثقة للترقية
     uiElements.upgradeModal.style.display = 'block';
-    uiElements.upgradeModal.setAttribute('data-upgrade-type', upgradeType);
 
+    // تحديد الترقيات حسب النوع
     const upgrades = {
         boost: {
             cost: gameState.boostLevel * 500 + 500,
@@ -712,6 +713,7 @@ async function showUpgradeModal(upgradeType) {
     const upgrade = upgrades[upgradeType];
     if (!upgrade) return;
 
+    // تحديث محتويات النافذة المنبثقة
     uiElements.upgradeImage.src = upgrade.image;
     uiElements.upgradeText.innerText = upgrade.text;
     uiElements.upgradeDescription.innerText = upgrade.description;
@@ -720,11 +722,15 @@ async function showUpgradeModal(upgradeType) {
     uiElements.upgradeCost.innerText = `Upgrade Cost: ${upgrade.cost}`;
 }
 
-document.getElementById('bost1').addEventListener('click', () => showUpgradeModal('boost'));
-document.getElementById('bost2').addEventListener('click', () => showUpgradeModal('coin'));
+// ربط الأزرار الخاصة بالترقيات
+document.getElementById('boost1').addEventListener('click', () => showUpgradeModal('boost'));
+document.getElementById('boost2').addEventListener('click', () => showUpgradeModal('coin'));
 
 async function confirmUpgradeAction() {
-    const upgradeType = uiElements.upgradeModal.getAttribute('data-upgrade-type');
+    // تحديد نوع الترقية بناءً على العنصر المحدد في النافذة
+    const upgradeType = uiElements.upgradeModal.style.display === 'block' ? 'boost' : 'coin';  // تحديد الترقية بناءً على السياق
+
+    // تعريف الترقيات المختلفة
     const upgrades = {
         boost: { level: 'boostLevel', value: 'clickMultiplier', increment: 1 },
         coin: { level: 'coinBoostLevel', value: 'maxEnergy', increment: 500 },
@@ -739,7 +745,7 @@ async function confirmUpgradeAction() {
         return;
     }
 
-    // تحديث اللعبة
+    // تحديث حالة اللعبة
     gameState.balance -= cost;
     gameState[upgrade.level] += 1;
     gameState[upgrade.value] += upgrade.increment;
@@ -756,9 +762,11 @@ async function confirmUpgradeAction() {
 function updateBoostsDisplay() {
     if (!uiElements) return;
 
+    // تحديث تكلفة الترقيات
     const boostUpgradeCost = gameState.boostLevel * 500 + 500;
     const coinUpgradeCost = gameState.coinBoostLevel * 500 + 500;
 
+    // تحديث الواجهة
     if (uiElements.boostUpgradeBtn) {
         document.getElementById('boostUpgradeCost').innerText = boostUpgradeCost;
     }
@@ -775,7 +783,6 @@ function updateBoostsDisplay() {
         uiElements.coinBoostLevelDisplay.innerText = gameState.coinBoostLevel;
     }
 }
-
 
 
 ///////////////////////////////////////////
