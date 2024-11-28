@@ -364,9 +364,9 @@ img {
     100% {
         opacity: 0;
         visibility: hidden;
+        transform: translateY(-100px); /* جعل الألماس يرتفع أثناء الاختفاء */
     }
 }
-
 
 
 .menu {
