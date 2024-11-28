@@ -251,7 +251,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     startEnergyRecovery();
     updateGameStateInDatabase(); 
     listenToRealtimeChanges();   
-    await initializeApp();      
+    await initializeApp();  
+    updateBoostsDisplay();
     updateInviteFriendsButton();
 });
 
@@ -743,7 +744,9 @@ function confirmUpgradeAction() {
 
         // تحديث البيانات
         updateUI();
-        saveGameState();
+        updateBoostsDisplay();
+        await saveGameState();
+        await loadGameState();   
         updateGameStateInDatabase({
             balance: gameState.balance,
             boostLevel: gameState.boostLevel,
