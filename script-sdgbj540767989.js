@@ -849,29 +849,29 @@ function handleClick(event) {
     }
 }
 
-// وظيفة إنشاء تأثير الألماس
+// وظيفة إنشاء تأثير الرقم فقط
 function createDiamondCoinEffect(x, y) {
-    const diamond = document.createElement('div');
-    diamond.classList.add('diamond-coin');
-    diamond.textContent = `+${gameState.clickMultiplier}`;
-    document.body.appendChild(diamond);
+    const diamondText = document.createElement('div'); // إنشاء العنصر للنص فقط
+    diamondText.classList.add('diamond-text');
+    diamondText.textContent = `+${gameState.clickMultiplier}`; // عرض الرقم فقط
+    document.body.appendChild(diamondText);
 
-    // تحديد موقع الألماس الأولي
-    diamond.style.left = `${x}px`;
-    diamond.style.top = `${y}px`;
+    // تحديد الموقع الأولي للنص
+    diamondText.style.left = `${x}px`;
+    diamondText.style.top = `${y}px`;
 
-    // الحصول على موقع عرض الرصيد لتحريك الألماس نحوه
+    // الحصول على موقع عرض الرصيد لتحريك النص نحوه
     const balanceRect = uiElements.balanceDisplay.getBoundingClientRect();
 
-    // تحريك الألماس بسلاسة
+    // تحريك النص بسلاسة
     setTimeout(() => {
-        diamond.style.transition = 'transform 0.8s ease-out, opacity 0.8s ease-out';
-        diamond.style.transform = `translate(${balanceRect.left - x}px, ${balanceRect.top - y}px) scale(0.5)`;
-        diamond.style.opacity = '0';
+        diamondText.style.transition = 'transform 0.8s ease-out, opacity 0.8s ease-out';
+        diamondText.style.transform = `translate(${balanceRect.left - x}px, ${balanceRect.top - y}px) scale(0.5)`;
+        diamondText.style.opacity = '0';
 
-        // إزالة الألماس بعد انتهاء الحركة
+        // إزالة النص بعد انتهاء الحركة
         setTimeout(() => {
-            diamond.remove();
+            diamondText.remove();
         }, 800);
     }, 50);
 }
