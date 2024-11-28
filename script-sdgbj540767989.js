@@ -1090,7 +1090,7 @@ async function loadFriendsList() {
                     // إنشاء عنصر لعرض الرصيد
                     const balanceSpan = document.createElement('span');
                     balanceSpan.classList.add('friend-balance');
-                    balanceSpan.textContent = `${formatNumber(friend.balance)} $S4W`; // عرض الرصيد
+                    balanceSpan.textContent = `${formatNumber(friend.balance)} S4W`; // عرض الرصيد
 
                     // إنشاء div يحتوي على الصورة واسم الصديق
                     const friendInfoDiv = document.createElement('div');
@@ -1364,7 +1364,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             // rewardContainer.appendChild(rewardIcon);
  
                 const rewardText = document.createElement('span');
-                rewardText.textContent = `+ ${task.reward} $S4W`;
+                rewardText.textContent = `+ ${task.reward} S4W`;
                 rewardText.classList.add('task-reward');
                 rewardContainer.appendChild(rewardText);
 
@@ -1731,7 +1731,7 @@ async function displayTodaysPuzzle() {
     // عرض السؤال والتلميح والمكافأة
     puzzleQuestion.innerText = currentPuzzle.question;
     puzzleHint.innerText = `Hint : ${currentPuzzle.hint}`;
-    puzzleRewardDisplay.innerText = ` ${currentPuzzle.reward} $S4W`;
+    puzzleRewardDisplay.innerText = ` ${currentPuzzle.reward} S4W`;
 
     // عرض الخيارات كأزرار
     const optionsHtml = currentPuzzle.options.map(option => `<button class="option-btn">${option}</button>`).join('');
