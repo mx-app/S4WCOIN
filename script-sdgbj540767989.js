@@ -448,42 +448,33 @@ async function registerNewUser(userTelegramId, userTelegramName) {
 // تحديث واجهة المستخدم بناءً على حالة اللعبة
 function updateUI() {
     // تنسيق الرصيد
-    const formattedBalance = gameState.balance.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const formattedBalance = gameState.balance.toLocaleString("en-US", { 
+        minimumFractionDigits: 2, 
+        maximumFractionDigits: 2 
+    });
 
-    // تحديث الرصيد العام
-    if (uiElements.balanceDisplay) {
-        uiElements.balanceDisplay.innerText = formattedBalance;
-    }
+    // تحديث جميع عناصر الرصيد في الواجهة
+    const balanceElements = [
+        uiElements.balanceDisplay,
+        uiElements.walletBalanceDisplay,
+        uiElements.accountBalanceDisplay,
+        uiElements.taskBalanceDisplay,
+        uiElements.puzzleBalanceDisplay,
+        uiElements.settingsBalanceDisplay,
+        uiElements.boostBalanceDisplay,
+        uiElements.lvlBalanceDisplay,
+        uiElements.miningBalanceDisplay
+    ];
 
-    // تحديث الرصيد في عناصر مخصصة لكل صفحة
-    if (uiElements.walletBalanceDisplay) {
-        uiElements.walletBalanceDisplay.innerText = formattedBalance;
-    }
-    if (uiElements.accountBalanceDisplay) {
-        uiElements.accountBalanceDisplay.innerText = formattedBalance;
-    }
-    if (uiElements.taskBalanceDisplay) {
-        uiElements.taskBalanceDisplay.innerText = formattedBalance;
-    }
-    if (uiElements.puzzleBalanceDisplay) {
-        uiElements.puzzleBalanceDisplay.innerText = formattedBalance;
-    }
-    if (uiElements.settingsBalanceDisplay) {
-        uiElements.settingsBalanceDisplay.innerText = formattedBalance;
-    }
-    if (uiElements.boostBalanceDisplay) {
-        uiElements.boostBalanceDisplay.innerText = formattedBalance;
-    }
-    if (uiElements.lvlBalanceDisplay) {
-        uiElements.lvlBalanceDisplay.innerText = formattedBalance;
-    }
-    if (uiElements.miningBalanceDisplay) {
-        uiElements.miningBalanceDisplay.innerText = formattedBalance;
-    }
+    balanceElements.forEach(element => {
+        if (element) {
+            element.innerText = formattedBalance;
+        }
+    });
 
     // تحديث شريط الطاقة
-    const energyPercent = (gameState.energy / gameState.maxEnergy) * 100;
     if (uiElements.energyBar) {
+        const energyPercent = (gameState.energy / gameState.maxEnergy) * 100;
         uiElements.energyBar.style.width = `${energyPercent}%`;
     }
 
@@ -494,18 +485,26 @@ function updateUI() {
 
     // تحديث اسم المستوى الحالي
     if (uiElements.currentLevelName) {
-        uiElements.currentLevelName.innerText = levelThresholds[gameState.currentLevel - 1].name;
+        const currentLevelName = levelThresholds[gameState.currentLevel - 1]?.name || "Unknown";
+        uiElements.currentLevelName.innerText = currentLevelName;
     }
 
     // تحديث المستوى المعروض
     if (uiElements.displayedLevel) {
         uiElements.displayedLevel.innerText = ` ${gameState.currentLevel}`;
     }
-    
-    uiElements.clickMultiplierDisplay.innerText = gameState.clickMultiplier;
-    uiElements.boostLevelDisplay.innerText = gameState.boostLevel;
 
-    // حفظ حالة اللعبة
+    // تحديث مضاعف النقرة
+    if (uiElements.clickMultiplierDisplay) {
+        uiElements.clickMultiplierDisplay.innerText = gameState.clickMultiplier;
+    }
+
+    // تحديث مستوى التعزيز
+    if (uiElements.boostLevelDisplay) {
+        uiElements.boostLevelDisplay.innerText = gameState.boostLevel;
+    }
+
+    // حفظ حالة اللعبة محليًا
     saveGameState();
 
     // تحديث شاشات التحسينات والمستويات
@@ -517,6 +516,9 @@ function updateUI() {
         balance: gameState.balance,
         energy: gameState.energy,
         currentLevel: gameState.currentLevel,
+        click_multiplier: gameState.clickMultiplier,
+        boost_level: gameState.boostLevel,
+        coin_boost_level: gameState.coinBoostLevel,
     });
 }
 
