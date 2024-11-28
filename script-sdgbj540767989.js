@@ -723,33 +723,28 @@ async function showUpgradeModal(upgradeType) {
 document.getElementById('bost1').addEventListener('click', () => showUpgradeModal('boost'));
 document.getElementById('bost2').addEventListener('click', () => showUpgradeModal('coin'));
 
-async function confirmUpgradeAction() {
+function confirmUpgradeAction() {
     const upgradeType = uiElements.upgradeModal.getAttribute('data-upgrade-type');
-    const upgrades = {
-        boost: { level: 'boostLevel', value: 'clickMultiplier', increment: 1 },
-        coin: { level: 'coinBoostLevel', value: 'maxEnergy', increment: 500 },
-    };
+    let cost;
 
-    const upgrade = upgrades[upgradeType];
-    if (!upgrade) return;
-
-    const cost = gameState[upgrade.level] * 500 + 500;
-    if (gameState.balance < cost) {
-        showNotification(uiElements.purchaseNotification, "Not enough coins!");
-        return;
+    if (upgradeType === 'boost') {
+        cost = gameState.boostLevel * 500 + 500;
+        if (gameState.balance >= cost) {
+            gameState.balance -= cost;
+            gameState.boostLevel++;
+            gameState.clickMultiplier += 1;
+        }
+    } else if (upgradeType === 'coin') {
+        cost = gameState.coinBoostLevel * 500 + 500;
+        if (gameState.balance >= cost) {
+            gameState.balance -= cost;
+            gameState.coinBoostLevel++;
+            gameState.maxEnergy += 500;
+        }
     }
 
-    // تحديث اللعبة
-    gameState.balance -= cost;
-    gameState[upgrade.level] += 1;
-    gameState[upgrade.value] += upgrade.increment;
-
-    // حفظ البيانات وتحديث الواجهة
-    await saveGameState();
-    updateBoostsDisplay();
-    showNotificationWithStatus(uiElements.purchaseNotification, "Successfully upgraded!", "win");
-
-    // إخفاء النافذة المنبثقة
+    saveGameState();
+    updateUI();
     uiElements.upgradeModal.style.display = 'none';
 }
 
