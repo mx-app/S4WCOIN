@@ -581,17 +581,17 @@ function registerEventHandlers() {
     }
     
     
-    if (uiElements.boostUpgradeBtn) {
-        uiElements.boostUpgradeBtn.addEventListener('click', () => {
-            showUpgradeModal('boost');
-        });
-    }
+    //if (uiElements.boostUpgradeBtn) {
+     //   uiElements.boostUpgradeBtn.addEventListener('click', () => {
+        //    showUpgradeModal('boost');
+      //  });
+  //  }
 
-    if (uiElements.coinUpgradeBtn) {
-        uiElements.coinUpgradeBtn.addEventListener('click', () => {
-            showUpgradeModal('coin');
-        });
-    }
+  //  if (uiElements.coinUpgradeBtn) {
+     //   uiElements.coinUpgradeBtn.addEventListener('click', () => {
+         //   showUpgradeModal('coin');
+        //});
+//   }
 
     if (uiElements.fillEnergyUpgradeBtn) {
         uiElements.fillEnergyUpgradeBtn.addEventListener('click', () => {
