@@ -908,9 +908,11 @@ img {
 #BoostnavbarBalanceDisplay::after, 
 #lvlnavbarBalanceDisplay::after, 
 #miningnavbarBalanceDisplay::after {
-    content: " $SAW";  /* إضافة النص بعد العدد */
+    content: " $S4W";  /* إضافة النص بعد العدد */
     margin-left: 2px; /* مسافة بين العدد والنص */
-    vertical-align: middle; /* محاذاة النص مع العدد */
+    display: inline-block; /* يضمن المحاذاة بشكل أفضل */
+    line-height: 1; /* ضبط المحاذاة العمودية */
+    font-size: inherit; /* تأكد من تطابق حجم النص مع النص الأساسي */
 }
 
 
