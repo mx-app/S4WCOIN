@@ -908,7 +908,7 @@ img {
 #BoostnavbarBalanceDisplay::after, 
 #lvlnavbarBalanceDisplay::after, 
 #miningnavbarBalanceDisplay::after {
-    content: " $S4W";  /* إضافة النص بعد العدد */
+    content: " S4W";  /* إضافة النص بعد العدد */
     margin-left: 2px; /* مسافة بين العدد والنص */
     display: inline-block; /* يضمن المحاذاة بشكل أفضل */
     line-height: 1; /* ضبط المحاذاة العمودية */
