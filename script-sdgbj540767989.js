@@ -783,85 +783,105 @@ function updateBoostsDisplay() {
 
 
 
-//تعامل النقر 
+
+// استدعاء الصورة القابلة للنقر
+const img = document.getElementById('clickableImg');
+
+// التعامل مع النقر أو اللمس
+img.addEventListener('pointerdown', (event) => {
+    event.preventDefault(); // منع السلوك الافتراضي
+    const rect = img.getBoundingClientRect();
+
+    // حساب موقع النقرة بالنسبة للصورة
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+
+    // تأثير الإمالة
+    const rotateX = ((y / rect.height) - 0.5) * -15;
+    const rotateY = ((x / rect.width) - 0.5) * 15;
+
+    // تطبيق التحريك السلس
+    img.style.transition = 'transform 0.1s ease-out';
+    img.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+
+    // استدعاء وظيفة النقر
+    handleClick(event);
+
+    // إعادة الوضع الطبيعي للصورة بعد التأثير
+    setTimeout(() => {
+        img.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+    }, 300);
+});
+
+// التعامل مع النقر أو اللمس
 function handleClick(event) {
-    event.preventDefault(); // منع الأحداث المكررة
-    const touchPoints = event.touches ? event.touches : [event]; // التعامل مع اللمس أو النقر الواحد
+    event.preventDefault(); // منع السلوك الافتراضي لمنع التكرار غير الضروري
 
-    for (let i = 0; i < touchPoints.length; i++) {
-        const touch = touchPoints[i];
+    // التعامل مع النقاط: اللمس أو النقر الفردي
+    const touchPoints = event.touches ? Array.from(event.touches) : [event];
+
+    // إنشاء تأثير الألماس لكل نقطة
+    touchPoints.forEach(touch => {
         createDiamondCoinEffect(touch.pageX, touch.pageY);
-    }
+    });
 
-    // التحقق من توافر الطاقة اللازمة لكل نقرة
-    const requiredEnergy = gameState.clickMultiplier * touchPoints.length;
+    // حساب الطاقة المطلوبة لكل لمسة
+    const totalTouches = touchPoints.length;
+    const requiredEnergy = gameState.clickMultiplier * totalTouches;
+
     if (gameState.energy >= requiredEnergy) {
-        gameState.balance += gameState.clickMultiplier * touchPoints.length;
+        // تحديث الرصيد والطاقة
+        gameState.balance += gameState.clickMultiplier * totalTouches;
         gameState.energy -= requiredEnergy;
+
+        // حفظ الحالة وتحديث الواجهة
         saveGameState();
         updateUI();
-        
-        // إرسال التحديث إلى قاعدة البيانات
+
+        // إرسال البيانات إلى قاعدة البيانات
         updateGameStateInDatabase({
             balance: gameState.balance,
             energy: gameState.energy,
         });
     } else {
+        // عرض إشعار بنقص الطاقة
         showNotification(uiElements.purchaseNotification, 'Not enough energy!');
     }
 }
-
-
-
-const img = document.getElementById('clickableImg');
-
-img.addEventListener('click', (event) => {
-    // --- تأثير الإمالة ---
-    const rect = img.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-
-    const rotateX = ((y / rect.height) - 0.6) * -20;
-    const rotateY = ((x / rect.width) - 0.6) * 20;
-
-    img.style.transform = `translateY(-5px) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-
-    // إعادة الوضع الطبيعي
-    setTimeout(() => {
-        img.style.transform = 'translateY(-5px)';
-    }, 300);
-
-    // --- تأثير الألماس ---
-    const diamondX = event.pageX;
-    const diamondY = event.pageY;
-
-    createDiamondCoinEffect(diamondX, diamondY);
-});
 
 // وظيفة إنشاء تأثير الألماس
 function createDiamondCoinEffect(x, y) {
     const diamond = document.createElement('div');
     diamond.classList.add('diamond-coin');
-    const multiplierText = document.createElement('span');
-    multiplierText.textContent = `+${gameState.clickMultiplier}`;
-    diamond.appendChild(multiplierText);
+    diamond.textContent = `+${gameState.clickMultiplier}`;
     document.body.appendChild(diamond);
 
-    // تحديد موقع الألماس بشكل دقيق
+    // تحديد موقع الألماس الأولي
     diamond.style.left = `${x}px`;
     diamond.style.top = `${y}px`;
 
+    // الحصول على موقع عرض الرصيد لتحريك الألماس نحوه
     const balanceRect = uiElements.balanceDisplay.getBoundingClientRect();
 
-    // تحريك الألماس نحو الرصيد
+    // تحريك الألماس بسلاسة
     setTimeout(() => {
+        diamond.style.transition = 'transform 0.8s ease-out, opacity 0.8s ease-out';
         diamond.style.transform = `translate(${balanceRect.left - x}px, ${balanceRect.top - y}px) scale(0.5)`;
+        diamond.style.opacity = '0';
+
+        // إزالة الألماس بعد انتهاء الحركة
         setTimeout(() => {
             diamond.remove();
-        }, 1000);
+        }, 800);
     }, 50);
 }
 
+
+
+
+
+
+//////////////////////////////////////////////////
 
 
 
