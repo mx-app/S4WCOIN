@@ -1319,7 +1319,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         .then(tasks => {
             tasks.forEach(task => {
                 const taskElement = document.createElement('div');
-                taskElement.classList.add('daily-itemm');
+                taskElement.classList.add('task-item');
 
                 // صورة المهمة
                 const img = document.createElement('img');
