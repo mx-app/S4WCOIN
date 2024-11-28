@@ -322,12 +322,34 @@ img {
     transition: transform 0.1s ease-in-out;
     cursor: pointer;
     pointer-events: auto;
-    margin-top: -20px;
-    transform: translateY(-5px);
+    /*margin-top: -20px;
+    transform: translateY(-5px);*/
     border-radius: 30%;
     /*border: 4px solid #1a1a1a;*/
 }
 
+.diamond-text {
+    position: absolute;
+    color: #fff; /* لون النص */
+    font-size: 28px; /* حجم النص */
+    font-weight: bold; /* خط عريض */
+    pointer-events: none; /* تعطيل التفاعل */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); /* إضافة ظل للنص */
+    z-index: 1000;
+    animation: fade-out-move 0.8s ease-out; /* استخدام الرسوم المتحركة */
+}
+
+@keyframes fade-out-move {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-30px); /* تحريك النص للأعلى أثناء الاختفاء */
+    }
+}
+ 
 .diamond-coin {
     position: absolute;
     width: 20px;
