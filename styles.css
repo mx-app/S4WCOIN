@@ -426,6 +426,12 @@ img {
     margin-bottom: 3px;
     background: transparent; 
 }
+.menu svg {
+    width: 33px;
+    height: 33px;
+    margin-bottom: 3px;
+    background: transparent;
+} 
 
 /*.menu-img-main {
     width: 37px;
