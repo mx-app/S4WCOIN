@@ -55,6 +55,7 @@
 
 .task-item {
     width: 88%;
+    height: 65px;
     max-width: 400px;
     margin: 15px 0;
     padding: 15px;
