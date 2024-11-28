@@ -322,10 +322,7 @@ img {
     transition: transform 0.1s ease-in-out;
     cursor: pointer;
     pointer-events: auto;
-    /*margin-top: -20px;
-    transform: translateY(-5px);*/
-    border-radius: 30%;
-    /*border: 4px solid #1a1a1a;*/
+    border-radius: 25px;
 }
 
 .diamond-text {
@@ -346,52 +343,11 @@ img {
     }
     100% {
         opacity: 0;
-        transform: translateY(-30px); /* تحريك النص للأعلى أثناء الاختفاء */
+        transform: translateY(-120px); /* تحريك النص للأعلى أثناء الاختفاء */
     }
 }
  
-.diamond-coin {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-size: cover;
-    pointer-events: none;
-    animation: coin-bounce 1s infinite, fade-out 1s forwards;
-    z-index: 1000;
-}
-
-.diamond-coin span {
-    position: absolute;
-    top: -20px;
-    right: -10px;
-    color: #fff;
-    font-size: 50px;
-    font-weight: bold;
-    pointer-events: none;
-}
-
-@keyframes coin-bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-15px);
-    }
-}
-
-@keyframes fade-out {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-100px); /* جعل الألماس يرتفع أثناء الاختفاء */
-    }
-}
  
-
-
 .menu {
     display: flex;
     justify-content: space-between;
