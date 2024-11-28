@@ -27,7 +27,7 @@
     top: 5px;
     left: 50%; /* نقطة البداية في المنتصف */
     transform: translateX(-50%); /* توسيط العرض */
-    width: 92%;
+    width: 87%;
     height: 38px;
     z-index: 500;
     border: 1px solid #1a1a1a;
