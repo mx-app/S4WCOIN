@@ -1090,7 +1090,7 @@ async function loadFriendsList() {
                     // إنشاء عنصر لعرض الرصيد
                     const balanceSpan = document.createElement('span');
                     balanceSpan.classList.add('friend-balance');
-                    balanceSpan.textContent = `${formatNumber(friend.balance)} $SAW`; // عرض الرصيد
+                    balanceSpan.textContent = `${formatNumber(friend.balance)} $S4W`; // عرض الرصيد
 
                     // إنشاء div يحتوي على الصورة واسم الصديق
                     const friendInfoDiv = document.createElement('div');
@@ -1143,7 +1143,7 @@ function copyInviteLink() {
 
 // مشاركة الدعوة عبر Telegram
 function openTelegramChat() {
-    const inviteLink = `https://t.me/share/url?text=Join SAW COIN GAME and earn 50,000 coins!&url=https://t.me/SAWCOIN_BOT?start=${uiElements.userTelegramIdDisplay?.innerText || ''}`;
+    const inviteLink = `https://t.me/share/url?text=Join SawCoin Game and earn 5,000 $S4W!&url=https://t.me/SAWCOIN_BOT?start=${uiElements.userTelegramIdDisplay?.innerText || ''}`;
     window.open(inviteLink, '_blank');
 }
 
@@ -1213,7 +1213,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // المستخدم شاهد الإعلان حتى النهاية أو تفاعل معه
             // مكافأة المستخدم
             rewardUser(rewardAmount);
-            showNotificationWithStatus(purchaseNotification, `You got me ${rewardAmount} Coin for watching the ad`, 'win');
+            showNotificationWithStatus(purchaseNotification, `You got me ${rewardAmount} $S4W for watching the ad`, 'win');
         }).catch((result) => {
             // معالجة الحالة إذا حدثت مشكلة في عرض الإعلان
             console.error('mistake ', result);
@@ -1364,7 +1364,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             // rewardContainer.appendChild(rewardIcon);
  
                 const rewardText = document.createElement('span');
-                rewardText.textContent = `+ ${task.reward} $SAW`;
+                rewardText.textContent = `+ ${task.reward} $S4W`;
                 rewardText.classList.add('task-reward');
                 rewardContainer.appendChild(rewardText);
 
@@ -1731,7 +1731,7 @@ async function displayTodaysPuzzle() {
     // عرض السؤال والتلميح والمكافأة
     puzzleQuestion.innerText = currentPuzzle.question;
     puzzleHint.innerText = `Hint : ${currentPuzzle.hint}`;
-    puzzleRewardDisplay.innerText = ` ${currentPuzzle.reward} $SAW`;
+    puzzleRewardDisplay.innerText = ` ${currentPuzzle.reward} $S4W`;
 
     // عرض الخيارات كأزرار
     const optionsHtml = currentPuzzle.options.map(option => `<button class="option-btn">${option}</button>`).join('');
@@ -1805,7 +1805,7 @@ function handlePuzzleWrongAnswer() {
 
     if (attempts === maxAttempts) {
         clearInterval(countdownInterval);
-        showNotification(puzzleNotification, 'You have used all attempts. 500 coins have been deducted.');
+        showNotification(puzzleNotification, 'You have used all attempts. 500 $S4W have been deducted.');
         updatePuzzleProgressInDatabase(currentPuzzle.id, false, maxAttempts); // تسجيل المحاولة الفاشلة
         startCountdownOnButton(24 * 60 * 60); // بدء العد التنازلي
         closePuzzle();
@@ -2165,7 +2165,7 @@ document.getElementById('applyPromoCode').addEventListener('click', async () => 
             applyButton.innerHTML = '✔️';
 
             // إظهار إشعار بالمكافأة
-            showNotificationWithStatus(uiElements.purchaseNotification, `Successfully added ${reward} $SAW to your balance!`, 'win');
+            showNotificationWithStatus(uiElements.purchaseNotification, `Successfully added ${reward} $S4W to your balance!`, 'win');
 
             // حفظ الحالة الحالية للعبة وتحديثها في قاعدة البيانات
             updateUI(); 
@@ -2586,7 +2586,7 @@ document.addEventListener('DOMContentLoaded', () => {
             updateBalance(reward);
 
             // تحديث واجهة المستخدم
-            loginNotification.innerText = `Day ${consecutive_days}: You've earned ${reward} coins!`;
+            loginNotification.innerText = `Day ${consecutive_days}: You've earned ${reward} $S4W!`;
             updateClaimButton(consecutive_days, reward);
             highlightRewardedDays(consecutive_days);
 
@@ -2613,7 +2613,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // تحديث زر المطالبة بالمكافأة
     function updateClaimButton(day, reward) {
-        loginClaimBtn.innerText = `Claim day${day} : ${reward} SP`;
+        loginClaimBtn.innerText = `day ${day} : ${reward} $S4W`;
         loginClaimBtn.disabled = false;
         loginClaimBtn.classList.remove('disabled');
     }
