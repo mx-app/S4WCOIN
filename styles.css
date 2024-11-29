@@ -671,7 +671,7 @@ img {
 /* تصميم الإشعار */
 .notification {
     position: fixed;
-    top: -90px; /* البداية من فوق الشاشة */
+    top: -70px; /* البداية من فوق الشاشة */
     left: 50%;
     transform: translateX(-50%);
     background: linear-gradient(45deg, #1a1a1a, #000, #1a1a1a, #000, #1a1a1a);
