@@ -73,17 +73,22 @@
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.3);
 }
 
-/*.puzzle-item svg {
-    width: 40px; 
-    height: 40px; 
-    object-fit: cover;
-}  */
+#Puzzlespage .puzzle1-image {
+    width: 40px; /* تجعل الصورة تملأ العرض الكامل */
+    height: 40px; /* تجعل الصورة تملأ الارتفاع الكامل */
+    object-fit: cover; /* لضمان تغطية المساحة بدون تشويه */
+   /* position: absolute;*/ /* لضبط الصورة داخل الحاوية */
+    border-radius: 10px; /* نفس الزوايا الدائرية للحاوية */
+    margin-right: 25px;
+    margin-left: 10px;
+    box-shadow: 0 0 3px rgba(255, 255, 255, 0.5), 0 0 6px rgba(255, 255, 255, 0.3), 0 0 9px rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    transition: box-shadow 0.3s ease;
+}
 
-/*#Puzzlespage .puzzle-description {
-    color: white;
-    font-size: 16px;
-    margin:  0;
-}*/
+.puzzle1-image:hover {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.3);
+}
 
 .puzzle-item .puzzle-description h4 {
     font-size: 17px;
