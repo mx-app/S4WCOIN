@@ -64,7 +64,8 @@
 #Dailyaew {
   color: #808080;
   text-align: right;
-  font-size: 13px;
+  width: 18px; 
+  height: 18px;
   margin-right: 3px;
 }
 
