@@ -38,6 +38,15 @@
     overflow: hidden;
 }
 
+.daily-itemm svg {
+  width: 22px; /* يمكنك تغيير الحجم حسب الحاجة */
+  height: 22px;
+  padding: 8px;
+  border-radius: 10px; /* زوايا مستديرة */
+  border: 1px solid #1a1a1a; 
+} 
+
+
 .daily-imagee {
   width: 30px; /* يمكنك تغيير الحجم حسب الحاجة */
   height: 30px;
