@@ -248,7 +248,8 @@ img {
 
 .energy-bar-container {
     display: flex;
-    justify-content: center; /* لضبط المحاذاة الأفقية */
+    justify-content: space-between; 
+    /*justify-content: center;*/
     align-items: center; /* لضبط المحاذاة العمودية */
     position: absolute; /* تثبيت الحاوية في مكان محدد */
     bottom: 105px; /* ضبطه ليكون في الجزء السفلي */
