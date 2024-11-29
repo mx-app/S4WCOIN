@@ -150,7 +150,7 @@
 .boosts-button {
     display: flex; /* يتيح ترتيب الأيقونة والنص بجانب بعض */
     align-items: center; /* يجعل الأيقونة والنص متوسطي المحاذاة عموديًا */
-    margin-left: 20px;
+    margin-left: 40px;
     font-size: 15.5px;
     color: #fff;
     font-weight: bold;
