@@ -231,6 +231,7 @@
 
 
 .boost-meta {
+    margin-top: 5px;
     display: flex;
     flex-direction: row; /* ترتيب الليفيل والتكلفة أفقيًا */
     justify-content: space-between; /* توزيع العناصر بالتساوي */
@@ -239,5 +240,6 @@
 }
 
 .boost-meta span {
-    margin-right: 2px; /* مسافة صغيرة بين الليفيل والتكلفة */
+    margin-right: 3px; /* مسافة صغيرة بين الليفيل والتكلفة */
+    margin-left: 3px;
 } 
