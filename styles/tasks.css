@@ -1,8 +1,14 @@
-.task-completed {
-    filter: blur(2px);
-    opacity: 0.6;
-    pointer-events: none;
+.size-6 {
+    width: 18px;
+    height: 18px;
+    color: green;  /* اللون الأخضر لعلامة الصح */
 }
+
+.arrow {
+    width: 18px;
+    height: 18px;
+}
+
 
 .loading-spinner {
     border: 3px solid #ffffff;
