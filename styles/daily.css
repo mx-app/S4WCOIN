@@ -38,7 +38,7 @@
     overflow: hidden;
 }
 
-.daily-itemm svg {
+.size-daily {
   width: 25px; /* يمكنك تغيير الحجم حسب الحاجة */
   height: 25px;
   padding: 8px;
