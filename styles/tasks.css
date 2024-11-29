@@ -4,6 +4,10 @@
     color: green;  /* اللون الأخضر لعلامة الصح */
 }
 
+.size-6 path {
+    stroke-width: 2; /* زيادة سمك الخط */
+} 
+
 .arrow {
     width: 18px;
     height: 18px;
