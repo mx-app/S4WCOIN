@@ -34,7 +34,7 @@
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* إضافة ظل */
 } 
 
-.settings-button {
+.settings-button svg {
     width: 20px;
     height: 20px;
     opacity: 0.8;
