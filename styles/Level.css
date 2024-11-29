@@ -208,8 +208,12 @@
     height: 15px;
     margin-left: 15px; /* المسافة بين السهم والمحتوى */
     color: #808080;
-    transform: scaleX(1.5);
 } 
+
+.arrow path {
+    stroke-width: 2; /* زيادة سمك الخط */
+}
+ 
 
 .levelsss-icon {
     width: 20px; 
