@@ -39,8 +39,8 @@
 }
 
 .daily-itemm svg {
-  width: 22px; /* يمكنك تغيير الحجم حسب الحاجة */
-  height: 22px;
+  width: 25px; /* يمكنك تغيير الحجم حسب الحاجة */
+  height: 25px;
   padding: 8px;
   border-radius: 10px; /* زوايا مستديرة */
   border: 1px solid #1a1a1a; 
