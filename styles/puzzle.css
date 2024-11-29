@@ -48,6 +48,7 @@
     text-align: left; /* لضبط النص إلى اليسار */
     cursor: pointer;
     overflow: hidden;
+    margin-top: 30px;
     margin: 10px auto; /* لضبط العنصر في المنتصف من اليسار إلى اليمين */
 }
 
