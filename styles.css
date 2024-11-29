@@ -310,7 +310,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     flex: 1;
 } 
 
@@ -447,7 +447,7 @@ img {
     justify-content: center; /* يضع الزرين في المنتصف أفقياً */
     gap: 10px; /* يضبط المسافة بين الزرين */
     position: fixed; /* لجعل الزرين عائمين */
-    bottom: 70px; /* المسافة من أسفل الشاشة */
+    bottom: 55px; /* المسافة من أسفل الشاشة */
     left: 50%; /* لتمركز الزرين أفقياً */
     transform: translateX(-50%); /* لتحريك الزرين لتمركزهم */
     width: calc(100% - 40px); /* لضبط العرض لتجنب حدود الشاشة */
