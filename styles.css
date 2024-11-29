@@ -293,7 +293,7 @@ img {
     font-size: 15px; /* حجم الخط */
     font-weight: bold; /* سمك الخط */
     text-align: left; /* المحاذاة لليسار */
-    margin-right: 30px;
+    margin-right: 40px;
     direction: rtl; /* الحفاظ على الاتجاه من اليمين لليسار */
     white-space: nowrap;
 }
