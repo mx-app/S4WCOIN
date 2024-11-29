@@ -1375,20 +1375,30 @@ document.addEventListener('DOMContentLoaded', async () => {
            
                 // زر المهمة
                 const button = document.createElement('button');
-                button.classList.add('task-button');
-                button.setAttribute('data-task-id', task.id);
-                button.setAttribute('data-reward', task.reward);
+                 button.classList.add('task-button');
+                 button.setAttribute('data-task-id', task.id);
+                 button.setAttribute('data-reward', task.reward);
 
-                // تعيين نص الزر بناءً على حالة المهمة
-                if (completedTasks.includes(task.id)) {
-                    button.textContent = '✔';
-                    button.disabled = true;
-                } else {
-                    button.textContent = '❯';
+                 // تعيين نص الزر بناءً على حالة المهمة
+                 if (completedTasks.includes(task.id)) {
+                 // علامة الصح
+                 button.innerHTML = `
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                   <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                 </svg>
+                `;
+                 button.disabled = true;
+             } else {
+                // السهم
+                 button.innerHTML = `
+                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="arrow">
+                     <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                   </svg>
+                 `;
                 }
 
-                taskElement.appendChild(button);
-                taskContainer.appendChild(taskElement);
+               taskElement.appendChild(button);
+               taskContainer.appendChild(taskElement);
 
                 // التعامل مع النقر على الزر
                 let taskProgress = 0;
