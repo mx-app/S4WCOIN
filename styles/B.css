@@ -142,10 +142,9 @@
     opacity: 0.7;
 }
 
-.boosts-button svg {
+.size-Boosts {
     width: 20px; /* عرض العنصر */
     height: 20px;
-    opacity: 0.7;
     margin-right: 4px; 
 } 
 
