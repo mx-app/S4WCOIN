@@ -49,7 +49,7 @@
     border-radius: 10px;
     padding: 10px;
     font-size: 12px;
-    background: #1a1a1a;
+    background: #161616;
     text-align: center;
     overflow: hidden;
 } 
@@ -107,6 +107,6 @@
 .separatorrr {
     width: 1px;
     height: 12px;
-    background-color: #aaa; /* لون الخط الفاصل */
+    background-color: #808080; /* لون الخط الفاصل */
 }
  
