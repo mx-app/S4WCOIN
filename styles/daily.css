@@ -69,6 +69,10 @@
   margin-right: 3px;
 }
 
+#Dailyaew  path {
+    stroke-width: 2; /* زيادة سمك الخط */
+} 
+
 .Daily-titlee {
    font-size: 12px;
    text-align: center;
