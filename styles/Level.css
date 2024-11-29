@@ -208,6 +208,7 @@
     height: 15px;
     margin-left: 15px; /* المسافة بين السهم والمحتوى */
     color: #808080;
+    transform: scaleX(1.5);
 } 
 
 .levelsss-icon {
