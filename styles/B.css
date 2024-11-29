@@ -7,7 +7,7 @@
     height: 60px;
     padding: 10px;
     margin: 5px auto;
-    background: #1a1a1a; 
+    background: #161616; 
    /* background: rgba(255, 255, 255, 0.1); 
     backdrop-filter: blur(5px);*/
     border-radius: 10px; /* زوايا مستديرة */
@@ -203,8 +203,7 @@
     height: 70px;
     padding: 10px;
     margin: 10px auto;
-    background: rgba(255, 255, 255, 0.1); /* خلفية شفافة */
-    backdrop-filter: blur(5px); /* تمويه الخلفية */
+    background: #161616; 
     border-radius: 10px; /* زوايا مستديرة */
     box-sizing: border-box; /* لحساب الحواف ضمن الأبعاد */
     overflow: hidden;
