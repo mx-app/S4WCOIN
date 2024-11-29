@@ -236,8 +236,7 @@
     flex-direction: row; /* ترتيب الليفيل والتكلفة أفقيًا */
     justify-content: space-between; /* توزيع العناصر بالتساوي */
     color: #808080;
-    margin: 10px;
-    font-size: 12px; /* حجم النص أصغر قليلاً */
+    font-size: 10px; /* حجم النص أصغر قليلاً */
 }
 
 .boost-meta span {
