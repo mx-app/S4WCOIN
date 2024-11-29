@@ -30,27 +30,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // تحديد نطاق المستويات بناءً على ترتيب الزر
             switch (index) {
-                case 0: // Beginner's
+                case 0: // Novice
                     levelStart = 1;
                     levelEnd = 10;
                     break;
-                case 1: // Novice
+                case 1: // Intermediate
                     levelStart = 11;
                     levelEnd = 20;
                     break;
-                case 2: // Intermediate
+                case 2: // Advanced
                     levelStart = 21;
                     levelEnd = 30;
                     break;
-                case 3: // Advanced
-                    levelStart = 31;
-                    levelEnd = 40;
-                    break;
-                case 4: // Expert's
-                    levelStart = 41;
-                    levelEnd = 50;
-                    break;
-            }
+                 }
 
             showLevels(levelStart, levelEnd);
         });
