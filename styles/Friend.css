@@ -1,3 +1,70 @@
+
+.invite-section {
+    display: flex;
+    justify-content: center; /* يضع الزرين في المنتصف أفقياً */
+    gap: 10px; /* يضبط المسافة بين الزرين */
+    position: fixed; /* لجعل الزرين عائمين */
+   /* bottom: 60px;*//* المسافة من أسفل الشاشة */
+    left: 50%; /* لتمركز الزرين أفقياً */
+    transform: translateX(-50%); /* لتحريك الزرين لتمركزهم */
+    width: calc(100% - 40px); /* لضبط العرض لتجنب حدود الشاشة */
+    padding: 10px; /* مساحة داخلية حول الأزرار */
+    z-index: 100;
+}
+
+.invite-image {
+    width: 105px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+} 
+
+.invite-icon {
+    width: 25px;
+    height: 25px;
+    margin-right: 0; /* مسافة بين الصورة والنص */
+    flex-shrink: 0;
+}
+
+.copy-icon {
+    width: 25px;
+    height: 25px;
+    margin-right: 0; /* مسافة بين الصورة والنص */
+    flex-shrink: 0;
+} 
+
+.invite-icon img, .copy-icon img {
+    vertical-align: middle;
+}
+ 
+
+.friends-list {
+    margin: 10px auto;
+    /*margin-top: 10px;*/
+   /* border: 0.50px solid #343434;*/
+    padding: 0;
+    list-style: none;
+    color: #808080;
+    width: 87%; /* لجعل العرض 80% */
+    padding: 8px; 
+    font-size: 14px; 
+    background-color: rgba(255, 255, 255, 0.0008);
+   /* background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);*/ /* تأثير الضبابية */
+    border-radius: 10px;      
+    display: block;
+}
+
+.friends-list li {
+    padding: 10px;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.friends-list li:last-child {
+    border-bottom: none;
+}
+
+
 .invite-more {
     display: flex;
     align-items: center; /* توسيط عمودي للصورة والنص */
