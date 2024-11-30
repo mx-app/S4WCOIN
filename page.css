@@ -9,7 +9,7 @@
 }
 
 #miningnavbarBalanceDisplay, #BoostnavbarBalanceDisplay, #tasknavbarBalanceDisplay, #navbarBalanceDisplay,
-#lvlnavbarBalanceDisplay, #puzzlenavbarBalanceDisplay, #AccountnavbarBalanceDisplay {
+#lvlnavbarBalanceDisplay, #puzzlenavbarBalanceDisplay, #AccountnavbarBalanceDisplay, #gnavbarBalanceDisplay {
     font-size: 13px;
     margin-left: 25px;
     left: 40px;
