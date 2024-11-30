@@ -17,12 +17,12 @@
 
 .settings-button {
     position: fixed;
-    top: 15px; 
+    top: 16px; 
     right: 35px;
    /* left: 310px;*/
    /* border: 1px solid #343434;*/
     background-color: rgba(255, 255, 255, 0.001);
-    border-radius: 10px; 
+    border-radius: 5px; 
     padding: 5px; 
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     opacity: 0.7;
