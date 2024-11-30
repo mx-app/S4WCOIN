@@ -178,7 +178,7 @@
     justify-content: center; /* تمركز الصورة داخل الدائرة */
 }
 
- .level-button-floating {
+/* .level-button-floating {
     position: fixed;
     display: flex;
     align-items: center;
@@ -190,7 +190,6 @@
     padding: 5px;
     color: #ffffff; 
     background: #161616;
-  /*  background-color: rgba(0, 0, 0, 0.7);*/
     font-size: 11px;
     font-weight: bold;
     border-radius: 24px;
@@ -201,7 +200,7 @@
 
 .level-button-floating:hover {
     box-shadow: 0 0 6px rgba(255, 255, 255, 0.4), 0 0 12px rgba(255, 255, 255, 0.3), 0 0 18px rgba(255, 255, 255, 0.2);
-}
+}*/
 
 .arrow {
     width: 15px; 
