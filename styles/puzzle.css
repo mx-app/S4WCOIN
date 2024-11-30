@@ -1,3 +1,10 @@
+.icon-puzzle-image {
+    width: 100px;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+} 
+
 .countdown-display {
     position: absolute;
     top: 220px;
