@@ -919,9 +919,10 @@ img {
 }
 
 .icon-user, .icon-wallet {
-    width: 21px; 
-    height: 21px;
-    color: #808080;
+    width: 25px; 
+    height: 25px;
+    color: #fff;
+    opacity: 0.8;
 } 
 
 .right-section {
