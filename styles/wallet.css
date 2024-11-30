@@ -19,18 +19,14 @@
     position: fixed;
     top: 15px; 
     left: 35px;
-    /*left: 265px;*/
-   /* border: 1px solid #343434;*/
     background-color: rgba(255, 255, 255, 0.001);
-    border-radius: 10px; /* لجعل الزر دائري */
+    border-radius: 5px; /* لجعل الزر دائري */
     padding: 5px; /* مساحة إضافية حول الصورة */
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     opacity: 0.7;
 }
 
 .wallet-button:hover {
-    /*  background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);*/
-    transform: translateY(-3px); /* رفع الزر قليلاً */
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* إضافة ظل */
 } 
 
