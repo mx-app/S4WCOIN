@@ -17,7 +17,7 @@
 
 /* صندوق المستخدم */
 .user-box {
-    width: 90%;
+    width: 85%;
     max-width: 300px;
     background-color: #161616; /* خلفية داكنة داخل الصندوق */
     border-radius: 15px;
