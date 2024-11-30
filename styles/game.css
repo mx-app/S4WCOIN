@@ -130,31 +130,23 @@
     margin-bottom: 50px; 
 }*/
 
-#gamePage .game-item {
-    width: 89%; /* عرض الحاوية بنسبة 44% */
-    height: 190px;
+.game-item {
+    filter: blur(5px); /* يجعل العنصر ضبابيًا */
+    pointer-events: none; /* تعطيل التفاعل مع العنصر */
+  
+    width: 88%; /* عرض الحاوية بنسبة 44% */
+    height: 180px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 0.50px solid #343434;
     border-radius: 10px;
     padding: 10px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
+    font-size: 12px;
+    background: #161616;
     text-align: center;
-}
-   /* display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-    width: 88%;
-    max-width: 400px;
-    margin: 15px 0;
-    padding: 15px;
-    text-align: left;
-    border: 1px solid #343434;
-}*/
+    overflow: hidden;
+}  
+
 
 
 #gamePage .game-item img {
