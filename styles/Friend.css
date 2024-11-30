@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center; /* يضع الزرين في المنتصف أفقياً */
     gap: 10px; /* يضبط المسافة بين الزرين */
-    position: fixed; /* لجعل الزرين عائمين */
+    /*position: fixed;*/
    /* bottom: 60px;*//* المسافة من أسفل الشاشة */
     left: 50%; /* لتمركز الزرين أفقياً */
     transform: translateX(-50%); /* لتحريك الزرين لتمركزهم */
