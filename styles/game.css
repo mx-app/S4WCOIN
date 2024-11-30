@@ -70,9 +70,10 @@
 }   
 */
 .games-icon {
-    width: 26px;
-    height: 26px;
+    width: 25px;
+    height: 25px;
     flex-shrink: 0;
+    margin-right: 5px;
 }
 
 .Play-game-button img {
