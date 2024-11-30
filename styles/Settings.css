@@ -104,6 +104,7 @@
 
 .user-info {
     display: flex;
+    justify-content: column; 
     align-items: center;
     background-color: rgba(0, 0, 0, 0.8);
     font-size: 10px; 
@@ -113,7 +114,7 @@
     border-radius: 10px; 
     margin-bottom: auto ; 
     margin-top: 30px; 
-    margin: 70px auto 25px auto; /* توسيط الحاوية أفقياً */
+    margin: 25px auto; /* توسيط الحاوية أفقياً */
     
   /*position: absolute;
     opacity: 0; 
@@ -149,7 +150,7 @@
     color: #ffffff;
    /* border: 0.50px solid #343434;*/
     border-radius: 10px;
-    margin: 70px auto 25px auto; 
+    margin: 25px auto; 
     width: 90%;
     height: 150px;
     padding: 10px;
