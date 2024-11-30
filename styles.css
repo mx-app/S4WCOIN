@@ -918,12 +918,17 @@ img {
     color: #fff;
 }
 
-.icon-user, .icon-wallet {
+.icon-user {
+    width: 28px; 
+    height: 28px;
+    color: #fff;
+}
+
+.icon-wallet {
     width: 25px; 
     height: 25px;
     color: #fff;
-    opacity: 0.8;
-} 
+}  
 
 .right-section {
     text-align: center;
