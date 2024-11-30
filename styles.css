@@ -815,7 +815,7 @@ img {
     border: 0.50px solid #343434;
 }*/
 
-
+#gnavbarBalanceDisplay::after,  
 #navbarBalanceDisplay::after,  
 #AccountnavbarBalanceDisplay::after, 
 #tasknavbarBalanceDisplay::after, 
