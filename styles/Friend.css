@@ -9,7 +9,7 @@
     padding: 10px; /* مساحة داخلية حول الأزرار */
     z-index: 100;
     margin-bottom: 10px;
-    margin-top: 10px;
+    margin-top: 0;
 }
 
 .invite-image {
@@ -70,7 +70,7 @@
     align-items: center; /* توسيط عمودي للصورة والنص */
     justify-content: center; /* توسيط أفقي */
     gap: 8px; /* مسافة بين الصورة والنص */
-    width: 80%; 
+    width: 85%; 
     height: 60px;
     background-color: #161616;
     color: #fff;
