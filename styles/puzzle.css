@@ -1,6 +1,6 @@
 .countdown-display {
     position: absolute;
-    top: 260px;
+    top: 220px;
     left: 50%;
     transform: translateX(-50%);
     font-size: 18px; /* حجم الخط */
@@ -38,7 +38,7 @@
 
 #Puzzlespage .puzzle-item {
     width: 90%; /* عرض الحاوية بنسبة 88% */
-    height: 80px;
+    height: 100px;
     display: flex;
     align-items: center; /* محاذاة المحتوى رأسياً في المنتصف */
     justify-content: flex-start; /* محاذاة المحتوى أفقيًا من اليسار */
@@ -48,7 +48,7 @@
     text-align: left; /* لضبط النص إلى اليسار */
     cursor: pointer;
     overflow: hidden;
-    margin-top: 30px;
+    margin-top: 50px;
     margin: 10px auto; /* لضبط العنصر في المنتصف من اليسار إلى اليمين */
 }
 
