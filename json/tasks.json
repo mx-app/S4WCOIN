@@ -4,62 +4,62 @@
     "url": "https://t.me/Yaytsogram_bot/Yaytsogram?startapp=invite1242305",
     "reward": 15000,
     "description": " YAYTSOGRAM ",
-    "image": "i/IMG_202.jpg"
+    "image": "task/i/IMG_202.jpg"
   },
   {
     "id": 31,
     "url": "https://t.me/SAWCOIN_NEWS",
     "reward": 1000,
     "description": " Saw News ",
-    "image": "i/tloo.jpg"
+    "image": "task/i/tloo.jpg"
   },
   {
     "id": 33,
     "url": "https://t.me/SAW_COIN",
     "reward": 2000,
     "description": "Saw community ",
-    "image": "i/tloo.jpg"
+    "image": "task/i/tloo.jpg"
   },
   {
     "id": 39,
     "url": "https://x.com/SAW_COIN?t=xDVWBxlMJqevExHN05KeKA&s=09",
     "reward": 2000,
     "description": " SawCoin X ",
-    "image": "i/Twitter.png"
+    "image": "task/i/Twitter.png"
   },
   {
     "id": 32,
     "url": "https://t.me/Qyros_wallet",
     "reward": 1000,
     "description": "Qyros wallet",
-    "image": "i/q.jpg"
+    "image": "task/i/q.jpg"
   },
   {
     "id": 34,
     "url": "https://t.me/wcoin_tapbot/wcoin_app?startapp=Njc5MzU1NjI4NA",
     "reward": 1000,
     "description": "W-coin",
-    "image": "i/we.jpg"
+    "image": "task/i/we.jpg"
   },
   {
     "id": 35,
     "url": "https://t.me/playdeckbot/market?startapp=eyJyZWYiOjY3OTM1NTYyODR9",
     "reward": 1800,
     "description": "play deck",
-    "image": "i/pl.jpg"
+    "image": "task/i/pl.jpg"
   },
   {
     "id": 37,
     "url": "https://t.me/gemzcoiN_bot/tap?startapp=7Pl4KS-UTSULzfO0BqjhdWg",
     "reward": 1200,
     "description": "gemz",
-    "image": "i/ge.jpg"
+    "image": "task/i/ge.jpg"
   },
   {
     "id": 38,
     "url": "https://www.binance.info/activity/referral-entry/CPA/together-v4?hl=ar&ref=CPA_0019MKHPW3",
     "reward": 8000,
     "description": "Create an account Binance ",
-    "image": "i/benance.png"
+    "image": "task/i/benance.png"
   }
 ]
