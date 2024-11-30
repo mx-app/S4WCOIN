@@ -8,18 +8,18 @@
 
 /* صورة المستخدم */
 .user-image {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%; /* صورة دائرية */
-    border: 2px solid #ffffff; /* إطار للصورة */
+    width: 80px;
+    height: 80px;
+    border-radius: 10px; /* صورة دائرية */
+    border: 1px solid #343434; /* إطار للصورة */
     margin-bottom: 20px; /* مسافة أسفل الصورة */
 }
 
 /* صندوق المستخدم */
 .user-box {
     width: 90%;
-    max-width: 400px;
-    background-color: #202020; /* خلفية داكنة داخل الصندوق */
+    max-width: 300px;
+    background-color: #161616; /* خلفية داكنة داخل الصندوق */
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -32,7 +32,7 @@
 
 .user-name,
 .user-id {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
     color: #f0f0f0; /* لون النص */
@@ -44,9 +44,9 @@
 
 /* ملخص الحساب */
 .account-summary {
-    width: 100%;
+    width: 85%;
     text-align: left; /* نصوص متراصة إلى اليسار */
-    background-color: #202020;
+    background-color: #161616;
     border-radius: 10px;
     padding: 15px;
     color: #ffffff;
