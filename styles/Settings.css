@@ -1,7 +1,64 @@
-.settings-button img {
-    vertical-align: middle;
-}  
+.settings-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px; /* مسافة بين العناصر */
+}
 
+/* صورة المستخدم */
+.user-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* صورة دائرية */
+    border: 2px solid #ffffff; /* إطار للصورة */
+    margin-bottom: 20px; /* مسافة أسفل الصورة */
+}
+
+/* صندوق المستخدم */
+.user-box {
+    width: 90%;
+    max-width: 400px;
+    background-color: #202020; /* خلفية داكنة داخل الصندوق */
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* تفاصيل المستخدم */
+.user-details {
+    margin-bottom: 20px;
+}
+
+.user-name,
+.user-id {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #f0f0f0; /* لون النص */
+}
+
+.user-id {
+    font-size: 14px;
+}
+
+/* ملخص الحساب */
+.account-summary {
+    width: 100%;
+    text-align: left; /* نصوص متراصة إلى اليسار */
+    background-color: #202020;
+    border-radius: 10px;
+    padding: 15px;
+    color: #ffffff;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.account-summary p {
+    margin: 10px 0;
+}
+
+/* زر الإعدادات */
 .settings-button {
     position: fixed;
     top: 15px; 
@@ -11,99 +68,16 @@
     padding: 5px; 
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     opacity: 0.7;
+    z-index: 1000;
+}
+
+.settings-button img {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
 }
 
 .settings-button:hover {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* إضافة ظل */
-} 
-
-
-/*.settings-container {
-    display: flex;
-    justify-content: column; 
-    align-items: center;
-    width: 100px;
-}  */
-
-.settings-container  {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    height: 100vh; /* استخدام كامل الارتفاع */
-} 
-
-.Settings-icon {
-    width: 25px;
-    height: 25px;
-    flex-shrink: 0;
-} 
-
-
-.user-info {
-    display: flex;
-    justify-content: column; 
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.8);
-    font-size: 10px; 
-    color: #ffffff; 
-    width: 80%;
-    height: 50px;
-    border-radius: 10px; 
-    margin-bottom: auto ; 
-    margin-top: 30px; 
-    margin: 25px auto; /* توسيط الحاوية أفقياً */
-    
-  /*position: absolute;
-    opacity: 0; 
-    pointer-events: none;*/
-} 
-
-.user-details {
-    display: flex;
-    flex-direction: column; /* وضع النصوص تحت بعض */
-  /*  align-items: center;*/
-    margin-left: 38px;
-    
-} 
-
-.user-id {
-    font-size: 13px;
-} 
-
-.user-name {
-    font-size: 14px;
-} 
-
-.user-image {
-    width: 100px; /* حجم الصورة */
-    height: 100px;
-    border-radius: 10px;
-    display: block;
-    margin: 8px;
+    opacity: 1;
 }
-
-.account-summary {
-    color: #ffffff;
-    background-color: #161616;
-    border-radius: 10px;
-    margin: 25px auto; 
-    width: 90%;
-    height: 50px;
-    padding: 10px;
-    line-height: 1.5; /* زيادة التباعد بين السطور */
-    margin-top: 10px;
-}
-
-.account-summary p {
-    border-radius: 10px; 
-    color: #ffffff;
-    background-color: #161616;
-    margin-bottom: 15px; /* إضافة تباعد بين الفقرات */
-    width: auto; /* حجم الصورة */
-    height: 15px;
-    padding: 10px;
-    font-size: 14px;
-}
- 
