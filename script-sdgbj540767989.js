@@ -1070,7 +1070,7 @@ async function loadFriendsList() {
                     // إنشاء عنصر لعرض الرصيد
                     const balanceSpan = document.createElement('span');
                     balanceSpan.classList.add('friend-balance');
-                    balanceSpan.textContent = `${formatNumber(friend.balance)} S4W`; // عرض الرصيد
+                    balanceSpan.textContent = `${formatNumber(friend.balance)} $S4W`; // عرض الرصيد
 
                     // إنشاء div يحتوي على الصورة واسم الصديق
                     const friendInfoDiv = document.createElement('div');
@@ -1344,7 +1344,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             // rewardContainer.appendChild(rewardIcon);
  
                 const rewardText = document.createElement('span');
-                rewardText.textContent = `+ ${task.reward} S4W`;
+                rewardText.textContent = `+ ${task.reward} $S4W`;
                 rewardText.classList.add('task-reward');
                 rewardContainer.appendChild(rewardText);
 
@@ -1432,7 +1432,7 @@ async function claimTaskReward(taskId, reward, button) {
         completedTasks.push(taskId);
 
         // تحديث واجهة المستخدم
-        button.textContent = '✔️';
+        button.textContent = '✓';
         button.disabled = true;
         updateUI();
         showNotificationWithStatus(uiElements.purchaseNotification, `Successfully claimed ${reward} coins!`, 'win');
@@ -1721,7 +1721,7 @@ async function displayTodaysPuzzle() {
     // عرض السؤال والتلميح والمكافأة
     puzzleQuestion.innerText = currentPuzzle.question;
     puzzleHint.innerText = `Hint : ${currentPuzzle.hint}`;
-    puzzleRewardDisplay.innerText = ` ${currentPuzzle.reward} S4W`;
+    puzzleRewardDisplay.innerText = `reward ${currentPuzzle.reward} $S4W`;
 
     // عرض الخيارات كأزرار
     const optionsHtml = currentPuzzle.options.map(option => `<button class="option-btn">${option}</button>`).join('');
@@ -2025,27 +2025,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //////////////////////////////////////////
 
-
-
-const settingsButton = document.getElementById("settingsButton");
-const settingsPanel = document.getElementById("settingsPanel");
-const closeModal = document.getElementById("SettingscloseModal");
-
-// إظهار نافذة الإعدادات عند النقر على زر الإعدادات
-settingsButton.addEventListener("click", () => {
-    settingsPanel.style.display = "block"; // إظهار اللوحة
-});
-
-// إخفاء نافذة الإعدادات عند النقر على زر الإغلاق
-closeModal.addEventListener("click", () => {
-    settingsPanel.style.display = "none"; // إخفاء اللوحة
-});
-
-
-
-//////////////////////
-
-
+//تحديثات الاعدادات
 
 function updateAccountSummary() {
   // تحديث العناصر الأساسية
