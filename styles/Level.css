@@ -215,9 +215,9 @@
 }
  
 
-.levelsss-icon, .main-icone {
-    width: 20px; 
-    height: 20px;
+.levelsss-icon, .main-icone, .icon-user, .icon-wallet {
+    width: 21px; 
+    height: 21px;
     margin-right: 6px; 
 }
 
