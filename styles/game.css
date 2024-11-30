@@ -61,20 +61,12 @@
 
 
 #gamePage .game-container {
-    display: grid;
-    grid-template-columns: repeat(2, 44%); /* عرض كل عنصرين بجانب بعض */
-    gap: 15px; /* المسافة بين العناصر */
-    justify-content: center; /* محاذاة العناصر في المنتصف */
-    margin-top: 10px;
+    display: flex;
+    flex-direction: column; /* ترتيب العناصر عموديًا */
+    justify-content: center; /* محاذاة العناصر في المنتصف عموديًا */
+    align-items: center; /* محاذاة العناصر في المنتصف أفقيًا */
 }
-   /* display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 0;
-    margin-bottom: 50px; 
-}*/
+
 
 .game-item {
     filter: blur(5px); /* يجعل العنصر ضبابيًا */
