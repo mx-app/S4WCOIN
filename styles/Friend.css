@@ -2,9 +2,9 @@
     display: flex;
     justify-content: center; /* يضع الزرين في المنتصف أفقياً */
     gap: 10px; /* يضبط المسافة بين الزرين */
-   /* bottom: 60px;*//* المسافة من أسفل الشاشة */
-   /* left: 50%; 
-    transform: translateX(-50%);*//* لتحريك الزرين لتمركزهم */
+    position: relative; /* يتيح التحكم بالموقع داخل الحاوية */
+    margin-left: auto; /* يدفع العنصر إلى أقصى اليمين */
+    margin-right: auto; /* يدفع العنصر إلى أقصى اليسار */
     width: calc(100% - 40px); /* لضبط العرض لتجنب حدود الشاشة */
     padding: 10px; /* مساحة داخلية حول الأزرار */
     z-index: 100;
