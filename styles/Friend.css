@@ -70,7 +70,7 @@
     align-items: center; /* توسيط عمودي للصورة والنص */
     justify-content: center; /* توسيط أفقي */
     gap: 8px; /* مسافة بين الصورة والنص */
-    width: 75%; 
+    width: 80%; 
     height: 60px;
     background-color: #161616;
     color: #fff;
@@ -93,7 +93,7 @@
     align-items: center; /* توسيط عمودي للصورة والنص */
     justify-content: center; /* توسيط أفقي */
     gap: 8px; /* مسافة بين الصورة والنص */
-    width: 20%; 
+    width: 25%; 
     height: 60px;
     background-color: #161616;
     color: #fff;
