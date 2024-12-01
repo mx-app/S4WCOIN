@@ -371,21 +371,33 @@ async function initializeApp() {
     }
 }
 
-// جلب بيانات المستخدم من Telegram والتحقق في قاعدة البيانات
+// جلب البيانات تليجرام 
 async function fetchUserDataFromTelegram() {
     const telegramApp = window.Telegram.WebApp;
     telegramApp.ready();
 
+    // جلب بيانات المستخدم من Telegram
     const userTelegramId = telegramApp.initDataUnsafe.user?.id;
     const userTelegramName = telegramApp.initDataUnsafe.user?.username;
+    const isPremium = telegramApp.initDataUnsafe.user?.is_premium;
 
     if (!userTelegramId || !userTelegramName) {
         throw new Error("Failed to fetch Telegram user data.");
     }
 
+    // تحديث واجهة المستخدم
     uiElements.userTelegramIdDisplay.innerText = userTelegramId;
     uiElements.userTelegramNameDisplay.innerText = userTelegramName;
 
+    // تحديث حالة الحساب (Premium)
+    const premiumStatusElement = document.getElementById('userPremiumStatus');
+    if (premiumStatusElement) {
+        premiumStatusElement.innerHTML = isPremium
+            ? `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-circle-dashed-check"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.56 3.69a9 9 0 0 0 -2.92 1.95" /><path d="M3.69 8.56a9 9 0 0 0 -.69 3.44" /><path d="M3.69 15.44a9 9 0 0 0 1.95 2.92" /><path d="M8.56 20.31a9 9 0 0 0 3.44 .69" /><path d="M15.44 20.31a9 9 0 0 0 2.92 -1.95" /><path d="M20.31 15.44a9 9 0 0 0 .69 -3.44" /><path d="M20.31 8.56a9 9 0 0 0 -1.95 -2.92" /><path d="M15.44 3.69a9 9 0 0 0 -3.44 -.69" /><path d="M9 12l2 2l4 -4" /></svg>`
+            : `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" /></svg>`;
+    }
+
+    
     // تحقق من المستخدم في قاعدة البيانات، سجل إذا لم يكن موجودًا
     const { data, error } = await supabase
         .from('users')
