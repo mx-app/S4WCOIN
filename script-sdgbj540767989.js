@@ -14,6 +14,7 @@ const uiElements = {
     miningBalanceDisplay: document.getElementById('miningnavbarBalanceDisplay'),
     walletBalanceDisplay: document.getElementById('navbarBalanceDisplay'),
     settingsBalanceDisplay: document.getElementById('settingsBalanceDisplay'),
+    gnavbarBalanceDisplay: document.getElementById('gnavbarBalanceDisplay'),
     
     energyBar: document.getElementById('energyBar'),
     energyInfo: document.getElementById('energyInfo'),
