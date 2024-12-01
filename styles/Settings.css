@@ -1,11 +1,11 @@
 .account-summary p {
-    border-bottom: 1px solid #000; /* خط خفيف */
+    border-bottom: 1px solid #343434; /* خط خفيف */
     padding-bottom: 5px; /* مسافة لتوضيح الحواف */
     margin-bottom: 5px; /* مسافة بين الحواف */
 }
 
 .user-premium-status {
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #343434;
     padding-bottom: 5px;
     margin-bottom: 5px;
 }
