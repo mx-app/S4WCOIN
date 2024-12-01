@@ -1011,6 +1011,7 @@ function applyGradientToLevel(element, level) {
 ///////////////////////////////////////
 
 
+
 // تحسين عرض قائمة الأصدقاء
 async function loadFriendsList() {
     const userId = uiElements.userTelegramIdDisplay.innerText;
@@ -1098,24 +1099,34 @@ async function loadFriendsList() {
             });
 
             // تحديث العدد الإجمالي للأصدقاء
+            const totalFriendsCount = data.invites.length;
             const invitedCountElement = document.getElementById('invitedCount');
+            const settingsInvitedCountElement = document.getElementById('settingsInvitedCount');
+
             if (invitedCountElement) {
-                invitedCountElement.innerText = data.invites.length; // عرض العدد الإجمالي للأصدقاء
+                invitedCountElement.innerText = totalFriendsCount; // عرض العدد الإجمالي للأصدقاء
+            }
+            if (settingsInvitedCountElement) {
+                settingsInvitedCountElement.innerText = totalFriendsCount; // عرض العدد الإجمالي في الإعدادات
             }
         } else {
             uiElements.friendsListDisplay.innerHTML = '<li>No friends invited yet.</li>';
+
             const invitedCountElement = document.getElementById('invitedCount');
+            const settingsInvitedCountElement = document.getElementById('settingsInvitedCount');
+
             if (invitedCountElement) {
                 invitedCountElement.innerText = 0; // إذا لم يكن هناك أصدقاء مدعوون
             }
+            if (settingsInvitedCountElement) {
+                settingsInvitedCountElement.innerText = 0; // إذا لم يكن هناك أصدقاء مدعوون
+            }
         }
-        
     } catch (err) {
         console.error("Unexpected error loading friends list:", err);
         uiElements.friendsListDisplay.innerHTML = `<li>Error: Unexpected issue occurred while loading friends.</li>`;
     }
 }
-
 
 
 
