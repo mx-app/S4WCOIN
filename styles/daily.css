@@ -39,9 +39,9 @@
 }
 
 .size-daily {
-  width: 35px; /* يمكنك تغيير الحجم حسب الحاجة */
-  height: 35px;
-  padding: 8px;
+  width: 30px; /* يمكنك تغيير الحجم حسب الحاجة */
+  height: 30px;
+  padding: 5px;
   border-radius: 10px; /* زوايا مستديرة */
   border: 1px solid #1a1a1a; 
 } 
