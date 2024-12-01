@@ -68,7 +68,7 @@
 
 
 #Puzzlespage  {
-    padding-bottom: 60px;
+    padding-bottom: 100px;
     overflow-y: auto;
     padding-top: 50px; /* يمكنك تغيير القيمة حسب الحاجة */
     background-clip: padding-box; /* تأكد من أن الخلفية لا تؤثر على المسافة */
