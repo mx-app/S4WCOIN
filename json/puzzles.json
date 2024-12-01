@@ -187,7 +187,7 @@
       "options": ["Water", "Wind", "Clock", "Fire"],
       "answer": "Water",
       "hint": "Found in rivers.",
-      "reward": 1500,
+      "reward": 2000,
       "availableDate": "2024-12-02"
     },
     {
@@ -197,7 +197,7 @@
       "options": ["Light", "Air", "Hope", "Shadow"],
       "answer": "Air",
       "hint": "You breathe it.",
-      "reward": 1250,
+      "reward": 2000,
       "availableDate": "2024-12-03"
     },
     {
@@ -207,7 +207,7 @@
       "options": ["Mind", "Knife", "Memory", "Pencil"],
       "answer": "Mind",
       "hint": "Linked to learning.",
-      "reward": 1600,
+      "reward": 2000,
       "availableDate": "2024-12-04"
     },
     {
@@ -217,7 +217,7 @@
       "options": ["Habit", "Muscle", "Will", "Bone"],
       "answer": "Will",
       "hint": "Related to inner strength.",
-      "reward": 1900,
+      "reward": 2000,
       "availableDate": "2024-12-05"
     },
     {
@@ -227,7 +227,7 @@
       "options": ["Bank", "Tree", "Library", "River"],
       "answer": "Bank",
       "hint": "Handles money.",
-      "reward": 1400,
+      "reward": 2000,
       "availableDate": "2024-12-06"
     },
     {
@@ -237,7 +237,7 @@
       "options": ["Feather", "Hope", "Happiness", "Shadow"],
       "answer": "Feather",
       "hint": "It’s very light.",
-      "reward": 1350,
+      "reward": 2000,
       "availableDate": "2024-12-07"
     },
     {
@@ -247,7 +247,7 @@
       "options": ["Letter E", "Void", "Silence", "Infinity"],
       "answer": "Letter E",
       "hint": "A letter in the alphabet.",
-      "reward": 1600,
+      "reward": 2000,
       "availableDate": "2024-12-08"
     },
     {
@@ -257,7 +257,7 @@
       "options": ["Mushroom", "Library", "Dream", "Prison"],
       "answer": "Mushroom",
       "hint": "It’s edible.",
-      "reward": 1450,
+      "reward": 2000,
       "availableDate": "2024-12-09"
     },
     {
@@ -267,7 +267,7 @@
       "options": ["Joke", "Secret", "Promise", "Game"],
       "answer": "Joke",
       "hint": "It’s for entertainment.",
-      "reward": 1200,
+      "reward": 2000,
       "availableDate": "2024-12-10"
     },
     {
@@ -277,7 +277,7 @@
       "options": ["Glove", "Hand", "Statue", "Puppet"],
       "answer": "Glove",
       "hint": "Worn in winter.",
-      "reward": 1300,
+      "reward": 2000,
       "availableDate": "2024-12-11"
     },
     {
@@ -287,7 +287,7 @@
       "options": ["Cloud", "Rain", "Wind", "Shadow"],
       "answer": "Cloud",
       "hint": "Seen in the sky.",
-      "reward": 1700,
+      "reward": 2000,
       "availableDate": "2024-12-12"
     },
     {
