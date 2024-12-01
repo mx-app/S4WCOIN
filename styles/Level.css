@@ -10,6 +10,7 @@
     color: #ffffff; /* لون النص */
     font-family: Arial, sans-serif; /* نوع الخط */
     margin: 0 auto; /* محاذاة في المنتصف */
+    margin-bottom: 50px; 
 }
 
 
