@@ -856,6 +856,12 @@ img {
     color: #fff;
 }  
 
+.games-icon {
+    width: 25px; 
+    height: 25px;
+    margin-right: 6px; 
+} 
+
 .right-section {
     text-align: center;
 }
