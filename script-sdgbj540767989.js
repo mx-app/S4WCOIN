@@ -918,7 +918,7 @@ function startEnergyRecovery() {
 //////////////////////////////////
 
 
-//المستويات 
+// المستويات
 function updateLevelDisplay() {
     checkForLevelUp(); // تحقق من الترقية
 
@@ -937,16 +937,12 @@ function updateLevelDisplay() {
         }
 
         // تحديث صفحة المستويات
-        const levelPageImage = document.getElementById('currentLevelImagee');
         const levelPageName = document.getElementById('levelPageCurrentLevelName');
         const levelPageCoinsElement = document.getElementById('levelPageCurrentLevelCoins');
         const levelPageEnergyFill = document.getElementById('levelPageEnergyFill');
 
-        if (levelPageImage && levelPageName && levelPageCoinsElement && levelPageEnergyFill) {
-            levelPageImage.src = currentLevelData.image;
-            levelPageImage.alt = `Level : ${gameState.currentLevel}`;
+        if (levelPageName && levelPageCoinsElement && levelPageEnergyFill) {
             levelPageName.innerText = `Lvl : ${currentLevelData.name}`;
-
             applyGradientToLevel(levelPageName, gameState.currentLevel);
 
             levelPageCoinsElement.innerText = `Next Lvl : ${Math.round(progress)}%`;
@@ -954,12 +950,9 @@ function updateLevelDisplay() {
         }
 
         // تحديث الزر العائم
-        const floatingButtonImage = document.getElementById('currentLevelImage');
         const floatingButtonName = document.getElementById('currentLevelName');
 
-        if (floatingButtonImage && floatingButtonName) {
-            floatingButtonImage.src = currentLevelData.image;
-            floatingButtonImage.alt = ` ${gameState.currentLevel}`;
+        if (floatingButtonName) {
             floatingButtonName.innerText = `Lvl : ${currentLevelData.name}`;
 
             floatingButtonName.classList.remove('gradient-level-1', 'gradient-level-2', 'gradient-level-3', 'gradient-level-4', 'gradient-level-5');
@@ -976,6 +969,11 @@ function updateLevelDisplay() {
         currentLevelElement.classList.add('current-level');
     }
 }
+
+
+
+
+
 
 
 ///////////////////
