@@ -104,6 +104,13 @@
     vertical-align: middle;
 }
 
+.user-svg {
+    width: 25px;
+    height: 25px;
+    color: #ffffff;
+    vertical-align: middle;
+} 
+
 .settings-button:hover {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* إضافة ظل */
     opacity: 1;
