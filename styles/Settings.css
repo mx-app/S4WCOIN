@@ -8,8 +8,9 @@
 
 /* صورة المستخدم */
 .user-image {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
+    opacity: 0.8;
     border-radius: 10px; /* صورة دائرية */
     border: 1px solid #343434; /* إطار للصورة */
     margin-bottom: 20px; /* مسافة أسفل الصورة */
