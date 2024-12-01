@@ -10,7 +10,7 @@
 
 .current-level-info {
     display: flex;
-    justify-content: center;
+    justify-content: ;
     width: 100%;
     margin-top: 5px;
 } 
@@ -39,9 +39,9 @@
     padding: 3px;
     background-color: #161616;
     border-radius: 10px;
-    max-width: 200px;
-    width: 85%;
-    height: 40px;
+    max-width: 400px;
+    width: 90%;
+    height: 50px;
     color: #ffffff; 
     border-bottom: 1px solid #1a1a1a;
 } 
