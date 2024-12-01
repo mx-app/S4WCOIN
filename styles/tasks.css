@@ -69,32 +69,32 @@
     height: 70px;
     max-width: 400px;
     margin: 15px 0;
-    border-radius: 10px; /* تعديل الحواف إلى 10px */
+    border-radius: 5px;
     border-bottom: 1px solid #1a1a1a;
-    background-color: rgba(255, 255, 255, 0.1); /* تحسين الوضوح */
+    background-color: rgba(255, 255, 255, 0.001);
     display: flex; 
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* لضمان قطع العناصر الزائدة */
+    overflow: hidden;
     position: relative; 
 } 
 
 .task-item img {
     object-fit: cover; /* لتغطية المساحة بالكامل */
     border-radius: 10px; /* جعل الصورة تتبع نفس الحواف الدائرية */
-}
+} 
 
 .task-img {
     width: 40px;
-    height: 40px; /* لتوحيد الأبعاد */
+    height: auto;
     margin-left: 1px;
     margin-bottom: 3px; /* إضافة مسافة أسفل الصورة */
     border-radius: 10px;
     border: 1px solid #1a1a1a; 
-    padding: 4px; /* تقليل البُعد لإبراز التصميم */
+    padding: 8px;
     object-fit: cover;
-    overflow: hidden; /* للتأكد من أن المحتوى يتبع الحواف */
 }
+ 
  
 
 .task-item button {
