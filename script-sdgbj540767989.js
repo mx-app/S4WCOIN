@@ -960,7 +960,7 @@ function updateLevelDisplay() {
         if (floatingButtonImage && floatingButtonName) {
             floatingButtonImage.src = currentLevelData.image;
             floatingButtonImage.alt = ` ${gameState.currentLevel}`;
-            floatingButtonName.innerText = ` ${currentLevelData.name}`;
+            floatingButtonName.innerText = `Lvl : ${currentLevelData.name}`;
 
             floatingButtonName.classList.remove('gradient-level-1', 'gradient-level-2', 'gradient-level-3', 'gradient-level-4', 'gradient-level-5');
         }
@@ -1719,7 +1719,7 @@ async function displayTodaysPuzzle() {
     // عرض السؤال والتلميح والمكافأة
     puzzleQuestion.innerText = currentPuzzle.question;
     puzzleHint.innerText = `Hint : ${currentPuzzle.hint}`;
-    puzzleRewardDisplay.innerText = `reward ${currentPuzzle.reward} $S4W`;
+    puzzleRewardDisplay.innerText = `Reward ${currentPuzzle.reward} $S4W`;
 
     // عرض الخيارات كأزرار
     const optionsHtml = currentPuzzle.options.map(option => `<button class="option-btn">${option}</button>`).join('');
