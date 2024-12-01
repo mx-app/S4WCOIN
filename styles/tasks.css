@@ -116,7 +116,7 @@
     text-align: left; /* محاذاة الوصف في المنتصف */
     color: #fff;
     font-size: 0.85rem; 
-    border-bottom: 1px solid #343434;
+   /* border-bottom: 1px solid #343434;*/
 }
 
 /*.task-reward-container {
