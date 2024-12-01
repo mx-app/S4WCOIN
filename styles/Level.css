@@ -1,7 +1,7 @@
 /* الحاوية الرئيسية */
 .levels-info {
     display: flex; /* استخدام flexbox لترتيب العناصر */
-    justify-content: space-between; /* توزيع العناصر: النصوص في اليسار والشريط في اليمين */
+    justify-content: center; /* توزيع العناصر: النصوص في اليسار والشريط في اليمين */
     align-items: center; /* محاذاة العناصر عموديًا في المنتصف */
     background-color: #161616; /* لون الخلفية */
     border-radius: 10px; /* زوايا مستديرة */
@@ -12,9 +12,6 @@
     margin: 0 auto; /* محاذاة في المنتصف */
     margin-bottom: 50px; 
 }
-
-
-
 
 
 .level-container {
