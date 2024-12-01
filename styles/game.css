@@ -48,9 +48,10 @@
 }
 
 #GA {
-    font-size: 2rem;
-    color: #fff;
+    font-size: 15px;
+    color: #808080;
     margin-bottom: 10px;
+    
 }
 
 #currentGameInfo {
