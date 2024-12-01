@@ -1,3 +1,17 @@
+.user-premium-status svg {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+
+.user-premium-status .size-6 {
+    color: red;
+}
+
+.user-premium-status .icon-tabler {
+    color: blue;
+}
+
 .settings-container {
     display: flex;
     flex-direction: column;
