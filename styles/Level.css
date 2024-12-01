@@ -67,12 +67,8 @@
     width: 100%;
     margin: 0;
     font-size: 15px;
-    margin-top: 30px;
+    margin-top: 0;
 } 
-
-.level-text p {
-    margin: 0; /* إزالة المسافات بين الفقرات */
-}
 
  .levels-image {
     width: 150px; /* حجم ثابت للصورة */
@@ -85,7 +81,7 @@
 .level-phase {
     text-align: left;
     font-weight: bold;
-    margin-left: 20px;
+    margin-left: 30px;
 }
  
 .level-name {
@@ -96,7 +92,7 @@
 .coin-name {
     text-align: right;
     font-weight: bold;
-    padding-right: 30px;
+    margin-right: 30px;
     font-size: 13px;
 } 
 
