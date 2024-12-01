@@ -1,15 +1,17 @@
 /* الحاوية الرئيسية */
 .levels-info {
+    display: flex; /* استخدام flexbox لترتيب العناصر */
+    justify-content: space-between; /* توزيع العناصر: النصوص في اليسار والشريط في اليمين */
+    align-items: center; /* محاذاة العناصر عموديًا في المنتصف */
     background-color: #161616; /* لون الخلفية */
-    border: 1px solid #343434; /* الحواف */
-    border-radius: 8px; /* الزوايا المستديرة */
-    padding: 5px; /* مسافات داخلية */
-    color: #ffffff; /* لون النص */
-    font-family: Arial, sans-serif; /* نوع الخط */
+    border-radius: 10px; /* زوايا مستديرة */
     width: 90%;
     height: 80px;
+    color: #ffffff; /* لون النص */
+    font-family: Arial, sans-serif; /* نوع الخط */
     margin: 0 auto; /* محاذاة في المنتصف */
 }
+
 
 
 
