@@ -1,15 +1,15 @@
-.user-premium-status svg {
-    width: 24px;
-    height: 24px;
-    vertical-align: middle;
-}
-
-.user-premium-status .size-6 {
+.user-premium-status .Error-mark {
     color: red;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
 }
 
 .user-premium-status .icon-tabler {
     color: blue;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
 }
 
 .settings-container {
