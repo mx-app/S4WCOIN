@@ -711,8 +711,8 @@ document.getElementById('bost2').addEventListener('click', function() {
     showUpgradeModal('coin');
 });
 
-// دالة تأكيد الترقية وتحديث حالة اللعبة بعد الترقية
-function confirmUpgradeAction() {
+// تايكد الترقيه 
+async function confirmUpgradeAction() {
     let cost;
     const upgradeType = uiElements.upgradeModal.getAttribute('data-upgrade-type');
 
@@ -734,18 +734,25 @@ function confirmUpgradeAction() {
             gameState.maxEnergy += 500;
         }
 
-        // تحديث البيانات
-        updateUI();
-        saveGameState();
-        updateGameStateInDatabase({
+        // تحديث البيانات في الذاكرة
+        const updatedData = {
             balance: gameState.balance,
             boostLevel: gameState.boostLevel,
             clickMultiplier: gameState.clickMultiplier,
             coinBoostLevel: gameState.coinBoostLevel,
             maxEnergy: gameState.maxEnergy,
-        });
+            // إضافة أي بيانات أخرى تم تعديلها
+        };
 
-        showNotificationWithStatus(uiElements.purchaseNotification, `Successfully upgraded!`, 'win');
+        // تحديث البيانات في قاعدة البيانات
+        const success = await updateGameStateInDatabase(updatedData);
+
+        if (success) {
+            updateUI(); // تحديث واجهة المستخدم
+            showNotificationWithStatus(uiElements.purchaseNotification, `Successfully upgraded!`, 'win');
+        } else {
+            showNotificationWithStatus(uiElements.purchaseNotification, `Error saving upgrade!`, 'lose');
+        }
     } else {
         showNotificationWithStatus(uiElements.purchaseNotification, `Not enough coins!`, 'lose');
     }
