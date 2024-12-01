@@ -1,3 +1,18 @@
+/* تأثير الضباب والتوهج عند عدم التفعيل */
+.daily-itemm.inactive {
+    filter: blur(10px); /* يجعل العنصر ضبابيًا */
+    border: 2px solid darkred; /* حواف حمراء داكنة */
+    pointer-events: none; /* تعطيل التفاعل مع العنصر */
+}
+
+/* تأثير إعادة العنصر لحالته الطبيعية بعد انتهاء العد التنازلي */
+.daily-itemm.active {
+    filter: none; /* إزالة التأثير الضبابي */
+    border: none; /* إزالة الحواف الحمراء */
+    box-shadow: none; /* إزالة التوهج */
+    pointer-events: auto; /* تمكين التفاعل مع العنصر */
+} 
+
 .daily-itemm:hover {
     background: #1a1a1a; /* حدود العنصر */
 }
