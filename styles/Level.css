@@ -1,3 +1,19 @@
+/* الحاوية الرئيسية */
+.levels-info {
+    background-color: #161616; /* لون الخلفية */
+    border: 1px solid #343434; /* الحواف */
+    border-radius: 8px; /* الزوايا المستديرة */
+    padding: 5px; /* مسافات داخلية */
+    color: #ffffff; /* لون النص */
+    font-family: Arial, sans-serif; /* نوع الخط */
+    width: 90%;
+    height: 80px;
+    margin: 0 auto; /* محاذاة في المنتصف */
+}
+
+
+
+
 .level-container {
     display: flex;
     flex-direction: column;
