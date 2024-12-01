@@ -10,7 +10,7 @@
 
 .current-level-info {
     display: flex;
-    justify-content: ;
+    justify-content: space-between;
     width: 100%;
     margin-top: 5px;
 } 
