@@ -85,7 +85,7 @@
 .level-phase {
     text-align: left;
     font-weight: bold;
-    padding-left: 80px;
+    margin-left: 20px;
 }
  
 .level-name {
@@ -96,7 +96,7 @@
 .coin-name {
     text-align: right;
     font-weight: bold;
-     padding-right: 30px;
+    padding-right: 30px;
     font-size: 13px;
 } 
 
