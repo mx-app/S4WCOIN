@@ -79,9 +79,9 @@
     position: relative; 
 } 
 
-/*.task-item:hover {
-    background: #1a1a1a; 
-}*/
+.task-item img {
+  border-radius: 10px;
+}
 
 .task-img {
     width: 40px;
