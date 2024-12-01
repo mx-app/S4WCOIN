@@ -91,7 +91,7 @@
     margin-bottom: 3px; /* إضافة مسافة أسفل الصورة */
     border-radius: 10px;
     border: 1px solid #1a1a1a; 
-    padding: 8px;
+    padding: 2px;
     object-fit: cover;
 }
  
