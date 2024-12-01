@@ -7,7 +7,7 @@
 
 .countdown-display {
     position: absolute;
-    top: 450px;
+    top: 430px;
     left: 50%;
     transform: translateX(-50%);
     font-size: 18px; /* حجم الخط */
