@@ -1,3 +1,17 @@
+/* إضافة حواف للعناصر */
+.user-details,
+.account-summary p {
+    border-bottom: 1px solid #000; /* خط خفيف */
+    padding-bottom: 5px; /* مسافة لتوضيح الحواف */
+    margin-bottom: 5px; /* مسافة بين الحواف */
+}
+
+.user-premium-status {
+    border-bottom: 1px solid #000;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
 .user-premium-status .Error-mark {
     color: red;
     width: 20px;
