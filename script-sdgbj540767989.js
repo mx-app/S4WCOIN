@@ -453,6 +453,7 @@ function updateUI() {
         uiElements.settingsBalanceDisplay,
         uiElements.boostBalanceDisplay,
         uiElements.lvlBalanceDisplay,
+        uiElements.gnavbarBalanceDisplay,
         uiElements.miningBalanceDisplay
     ];
 
