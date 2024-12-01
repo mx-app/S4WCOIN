@@ -353,22 +353,24 @@
     font-size: 12px;
 } 
 
-
 .energy-barrr-container {
-    width: 80px; /* الطول الأفقي للشريط */
-    height: 10px; /* العرض العمودي */
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 50px; /* لجعل الحواف دائرية بالكامل */
-    overflow: hidden;
-    margin: 5px auto; /* تمركز الشريط في المنتصف */
-    position: relative;
+    display: flex;
+    align-items: center; /* محاذاة عمودية للشريط */
+    justify-content: center;
+    width: 80px; /* العرض الأفقي للشريط */
+    height: 10px; /* الارتفاع */
+    background-color: rgba(255, 255, 255, 0.05); /* لون خلفية الشريط */
+    border-radius: 50px; /* حواف دائرية */
+    overflow: hidden; /* لإخفاء التجاوز */
+    position: relative; /* ضروري لتحديد الشريط الداخلي */
 }
 
-#levelPageEnergyFill {
-    height: 100%; /* ملء العرض */
-    width: 0; /* يبدأ بدون طاقة */
-    background-color: #fff;
-    border-radius: 50px; /* مطابق لحاوية الشريط */
-    transition: width 0.3s ease; /* تأثير عند تغيير الحجم */
-} 
+/* ملء الشريط */
+.level-energy-fiill {
+    height: 100%; /* ارتفاع الشريط بالكامل */
+    width: 0%; /* يبدأ بدون ملء */
+    background-color: #fff; /* لون التعبئة */
+    border-radius: 50px; /* مطابق للحاوية */
+    transition: width 0.3s ease; /* تأثير سلس عند تغيير الحجم */
+}
 
