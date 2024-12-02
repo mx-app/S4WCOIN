@@ -195,44 +195,10 @@
     flex-direction: row; /* ترتيب الليفيل والتكلفة أفقيًا */
     justify-content: space-between; /* توزيع العناصر بالتساوي */
     color: #808080;
-    font-size: 10px; /* حجم النص أصغر قليلاً */
+    font-size: 11px; /* حجم النص أصغر قليلاً */
 }
 
 .boost-meta span {
     margin-right: 3px; /* مسافة صغيرة بين الليفيل والتكلفة */
     margin-left: 3px;
 } 
-
-#coinBoostLevel, 
-#coinUpgradeCost, 
-#clickMultiplier, 
-#boostUpgradeCost {
-    margin-right: 5px; /* مسافة صغيرة بين الليفيل والتكلفة */
-    margin-left: 5px;
-    padding: 10px 15px; /* تكبير الحواف الداخلية قليلاً */
-    background: linear-gradient(135deg, #333, #555); /* خلفية متدرجة */
-    color: #fff; /* لون النص أبيض */
-    font-family: 'Rubik', sans-serif; /* اختيار خط حديث */
-    font-weight: 700; /* خط عريض */
-    font-size: 1rem; /* حجم النص */
-    border-radius: 8px; /* زوايا مستديرة */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* ظل جذاب */
-    text-align: center; /* توسيط النص */
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* تأثير عند التفاعل */
-}
-
-#coinBoostLevel:hover, 
-#coinUpgradeCost:hover, 
-#clickMultiplier:hover, 
-#boostUpgradeCost:hover {
-    transform: scale(1.05); /* تكبير بسيط عند التمرير */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4); /* تعزيز الظل */
-}
-
-#coinBoostLevel:active, 
-#coinUpgradeCost:active, 
-#clickMultiplier:active, 
-#boostUpgradeCost:active {
-    transform: scale(0.95); /* تقليل الحجم عند النقر */
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); /* تقليل الظل */
-}
