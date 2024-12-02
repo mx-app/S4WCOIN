@@ -679,89 +679,6 @@ function showNotificationWithStatus(notificationElement, message, status = '') {
 ////////////////////////
 
 
-// عرض النافذة المنبثقة بناءً على نوع الترقية (النقر أو العملات)
-function showUpgradeModal(upgradeType) {
-    if (uiElements.upgradeModal) {
-        uiElements.upgradeModal.style.display = 'block';
-        uiElements.upgradeModal.setAttribute('data-upgrade-type', upgradeType);
-
-        let cost;
-        if (upgradeType === 'boost') {
-            cost = gameState.boostLevel * 500 + 500;
-            uiElements.upgradeText.innerText = `Are you sure you want to upgrade your click multiplier? It will cost ${cost} coins.`;
-            uiElements.currentLevel.innerText = `Current Click Multiplier: ×${gameState.clickMultiplier}`;
-        } else if (upgradeType === 'coin') {
-            cost = gameState.coinBoostLevel * 500 + 500;
-            uiElements.upgradeText.innerText = `Are you sure you want to upgrade your max coins? It will cost ${cost} coins.`;
-            uiElements.currentLevel.innerText = `Current Max Coins: ${formatNumber(gameState.maxEnergy)}`;
-        }
-
-        // تحديث العملات المتاحة وتكلفة الترقية
-        uiElements.currentCoins.innerText = formatNumber(gameState.balance);
-        uiElements.upgradeCost.innerText = cost;
-    }
-}
-
-// ربط أزرار الترقية بالنافذة المنبثقة
-document.getElementById('bost1').addEventListener('click', function() {
-    showUpgradeModal('boost');
-});
-
-document.getElementById('bost2').addEventListener('click', function() {
-    showUpgradeModal('coin');
-});
-
-// تايكد الترقيه 
-async function confirmUpgradeAction() {
-    let cost;
-    const upgradeType = uiElements.upgradeModal.getAttribute('data-upgrade-type');
-
-    if (upgradeType === 'boost') {
-        cost = gameState.boostLevel * 500 + 500;
-    } else if (upgradeType === 'coin') {
-        cost = gameState.coinBoostLevel * 500 + 500;
-    }
-
-    // التحقق من توافر العملات
-    if (gameState.balance >= cost) {
-        gameState.balance -= cost;
-
-        if (upgradeType === 'boost') {
-            gameState.boostLevel += 1;
-            gameState.clickMultiplier += 0.5;
-        } else if (upgradeType === 'coin') {
-            gameState.coinBoostLevel += 1;
-            gameState.maxEnergy += 500;
-        }
-
-        // تحديث البيانات في الذاكرة
-        const updatedData = {
-            balance: gameState.balance,
-            boostLevel: gameState.boostLevel,
-            clickMultiplier: gameState.clickMultiplier,
-            coinBoostLevel: gameState.coinBoostLevel,
-            maxEnergy: gameState.maxEnergy,
-            // إضافة أي بيانات أخرى تم تعديلها
-        };
-
-        // تحديث البيانات في قاعدة البيانات
-        const success = await updateGameStateInDatabase(updatedData);
-
-        if (success) {
-            updateUI(); // تحديث واجهة المستخدم
-            showNotificationWithStatus(uiElements.purchaseNotification, `Successfully upgraded!`, 'win');
-        } else {
-            showNotification(uiElements.purchaseNotification, `Error saving upgrade!`);
-        }
-    } else {
-        showNotification(uiElements.purchaseNotification, `Not enough coins!`);
-    }
-
-    // إخفاء النافذة المنبثقة
-    uiElements.upgradeModal.style.display = 'none';
-}
-
-
 // تحديث عرض التحسينات
 function updateBoostsDisplay() {
     const boostUpgradeCost = gameState.boostLevel * 500 + 500;
@@ -794,9 +711,138 @@ function updateBoostsDisplay() {
 
 
 
-
-
 ///////////////////////////////////////////
+
+
+
+
+
+function showUpgradeModal(type) {
+    if (type === 'boost') {
+        const boostCost = gameState.boostLevel * 500 + 500;
+        document.getElementById('currentBoostLevel').innerText = gameState.boostLevel;
+        document.getElementById('newClickMultiplier').innerText = gameState.clickMultiplier + 1;
+        document.getElementById('boostUpgradeCost').innerText = boostCost;
+
+        document.getElementById('boostUpgradeModal').classList.remove('hidden');
+    } else if (type === 'energy') {
+        const energyCost = gameState.energyBoostLevel * 500 + 500;
+        document.getElementById('currentEnergyLevel').innerText = gameState.energyBoostLevel;
+        document.getElementById('newMaxEnergy').innerText = gameState.maxEnergy + 500;
+        document.getElementById('energyUpgradeCost').innerText = energyCost;
+
+        document.getElementById('energyUpgradeModal').classList.remove('hidden');
+    }
+}
+
+
+function hideUpgradeModal(type) {
+    if (type === 'boost') {
+        document.getElementById('boostUpgradeModal').classList.add('hidden');
+    } else if (type === 'energy') {
+        document.getElementById('energyUpgradeModal').classList.add('hidden');
+    }
+}
+
+
+async function confirmUpgrade(type) {
+    let cost;
+    if (type === 'boost') {
+        cost = gameState.boostLevel * 500 + 500;
+        if (gameState.balance >= cost) {
+            gameState.balance -= cost;
+            gameState.boostLevel += 1;
+            gameState.clickMultiplier += 1;
+        } else {
+            showNotification(uiElements.purchaseNotification, 'Not enough coins!');
+            return;
+        }
+    } else if (type === 'energy') {
+        cost = gameState.energyBoostLevel * 500 + 500;
+        if (gameState.balance >= cost) {
+            gameState.balance -= cost;
+            gameState.energyBoostLevel += 1;
+            gameState.maxEnergy += 500;
+        } else {
+            showNotification(uiElements.purchaseNotification, 'Not enough coins!');
+            return;
+        }
+    }
+
+    updateUI();
+    saveGameState();
+    await saveUpgradeToDB(type); // حفظ البيانات في Supabase
+    hideUpgradeModal(type);
+}
+
+
+async function saveUpgradeToDB(type) {
+    const userId = uiElements.userTelegramIdDisplay.innerText;
+    const updatedData = {
+        balance: gameState.balance,
+    };
+
+    if (type === 'boost') {
+        updatedData.boost_level = gameState.boostLevel;
+        updatedData.click_multiplier = gameState.clickMultiplier;
+    } else if (type === 'energy') {
+        updatedData.energy_boost_level = gameState.energyBoostLevel;
+        updatedData.max_energy = gameState.maxEnergy;
+    }
+
+    const { error } = await supabase
+        .from('users')
+        .update(updatedData)
+        .eq('telegram_id', userId);
+
+    if (error) {
+        console.error('Error saving upgrade to DB:', error);
+        showNotification(uiElements.purchaseNotification, 'Failed to save upgrade to database.');
+    } else {
+        showNotification(uiElements.purchaseNotification, 'Upgrade saved successfully!');
+    }
+}
+
+
+document.getElementById('bost1').addEventListener('click', () => showUpgradeModal('boost'));
+document.getElementById('bost2').addEventListener('click', () => showUpgradeModal('energy'));
+
+document.getElementById('confirmBoostUpgrade').addEventListener('click', () => confirmUpgrade('boost'));
+document.getElementById('cancelBoostUpgrade').addEventListener('click', () => hideUpgradeModal('boost'));
+
+document.getElementById('confirmEnergyUpgrade').addEventListener('click', () => confirmUpgrade('energy'));
+document.getElementById('cancelEnergyUpgrade').addEventListener('click', () => hideUpgradeModal('energy'));
+
+
+async function loadGameStateFromDB() {
+    const userId = uiElements.userTelegramIdDisplay.innerText;
+
+    const { data, error } = await supabase
+        .from('users')
+        .select('*')
+        .eq('telegram_id', userId)
+        .maybeSingle();
+
+    if (error) {
+        console.error('Error loading game state from DB:', error);
+    } else if (data) {
+        gameState.balance = data.balance || 0;
+        gameState.boostLevel = data.boost_level || 1;
+        gameState.clickMultiplier = data.click_multiplier || 1;
+        gameState.energyBoostLevel = data.energy_boost_level || 1;
+        gameState.maxEnergy = data.max_energy || 500;
+
+        updateUI();
+    }
+}
+
+
+
+
+
+
+/////////////////////////////////////////
+
 
 
 
