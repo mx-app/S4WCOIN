@@ -24,7 +24,8 @@ const uiElements = {
     coinBoostLevelDisplay: document.getElementById('coinBoostLevel'),
     coinUpgradeCost: document.getElementById('coinUpgradeCost'),
     boostUpgradeCost: document.getElementById('boostUpgradeCost'),
- 
+    upgradeImage: document.getElementById('upgradeImage'),
+    
     currentLevel: document.getElementById('currentLevel'),  // عنصر يعرض المستوى الحالي
     currentCoins: document.getElementById('currentCoins'),  // عنصر يعرض العملات الحالية
     upgradeCost: document.getElementById('upgradeCost'),    // عنصر يعرض تكلفة الترقية
