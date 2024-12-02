@@ -1941,7 +1941,7 @@ document.getElementById('puzzle1').addEventListener('click', function() {
 
 
 const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
-    manifestUrl: 'https://app-sawcoin.vercel.app/json/tonconnect-manifest.json',
+    manifestUrl: 'https://sawcoin.vercel.app/json/tonconnect-manifest.json',
     buttonRootId: 'ton-connect'
 });
 
