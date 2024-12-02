@@ -1537,9 +1537,7 @@ function openTaskLink(taskurl, callback) {
 /////////////////////////////////////
 
 
- 
-
-function initializeTelegramIntegration() {
+ function initializeTelegramIntegration() {
     const telegramApp = window.Telegram.WebApp;
 
     // التأكد من أن التطبيق جاهز
@@ -1556,6 +1554,14 @@ function initializeTelegramIntegration() {
         } else {
             telegramApp.BackButton.hide(); // إخفاء زر الرجوع في الصفحات الرئيسية
         }
+    }
+
+    // تحديث الزر النشط بناءً على الصفحة النشطة
+    function updateActiveButton(targetPageId) {
+        document.querySelectorAll(".menu button").forEach(btn => {
+            const target = btn.getAttribute("data-target");
+            btn.classList.toggle("active", target === targetPageId);
+        });
     }
 
     // تحديث لون الهيدر بناءً على الصفحة
@@ -1578,8 +1584,9 @@ function initializeTelegramIntegration() {
             targetPage.classList.add("active");
         }
 
-        // تحديث زر الرجوع ولون الهيدر
+        // تحديث زر الرجوع والزر النشط ولون الهيدر
         updateBackButton();
+        updateActiveButton(targetPageId);
         updateHeaderColor(targetPageId);
     }
 
@@ -1647,7 +1654,6 @@ function initializeTelegramIntegration() {
 
 // استدعاء التهيئة عند تحميل الصفحة
 window.addEventListener("load", initializeTelegramIntegration);
-
 
 
 
