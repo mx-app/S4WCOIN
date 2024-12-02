@@ -17,13 +17,12 @@
 
 .wallet-button {
     position: fixed;
-    top: 15px; 
+    top: 10px; 
     left: 35px;
     background-color: rgba(255, 255, 255, 0.001);
     border-radius: 5px; /* لجعل الزر دائري */
     padding: 5px; /* مساحة إضافية حول الصورة */
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    opacity: 0.7;
 }
 
 .wallet-button:hover {
