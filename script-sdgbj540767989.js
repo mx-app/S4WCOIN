@@ -751,10 +751,10 @@ async function confirmUpgradeAction() {
             updateUI(); // تحديث واجهة المستخدم
             showNotificationWithStatus(uiElements.purchaseNotification, `Successfully upgraded!`, 'win');
         } else {
-            showNotificationWithStatus(uiElements.purchaseNotification, `Error saving upgrade!`, 'lose');
+            showNotification(uiElements.purchaseNotification, `Error saving upgrade!`);
         }
     } else {
-        showNotificationWithStatus(uiElements.purchaseNotification, `Not enough coins!`, 'lose');
+        showNotification(uiElements.purchaseNotification, `Not enough coins!`);
     }
 
     // إخفاء النافذة المنبثقة
