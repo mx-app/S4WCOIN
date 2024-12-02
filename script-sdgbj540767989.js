@@ -576,30 +576,12 @@ function registerEventHandlers() {
         uiElements.fillEnergyBtn.addEventListener('click', fillEnergyAction);
     }
     
-    
-    //if (uiElements.boostUpgradeBtn) {
-     //   uiElements.boostUpgradeBtn.addEventListener('click', () => {
-        //    showUpgradeModal('boost');
-      //  });
-  //  }
-
-  //  if (uiElements.coinUpgradeBtn) {
-     //   uiElements.coinUpgradeBtn.addEventListener('click', () => {
-         //   showUpgradeModal('coin');
-        //});
-//   }
-
     if (uiElements.fillEnergyUpgradeBtn) {
         uiElements.fillEnergyUpgradeBtn.addEventListener('click', () => {
             showUpgradeModal('energy');
         });
     }
 
-  //  if (uiElements.withdrawBtn) {
-     //   uiElements.withdrawBtn.addEventListener('click', () => {
-           // showNotification(uiElements.purchaseNotification, 'Coming Soon!');
-     //   });
-  //  }
 
     if (uiElements.confirmWithdrawalBtn) {
         uiElements.confirmWithdrawalBtn.addEventListener('click', () => {
@@ -2633,6 +2615,11 @@ async function showUpgradeModal(upgradeType) {
 
 document.getElementById('bost1').addEventListener('click', () => showUpgradeModal('boost'));
 document.getElementById('bost2').addEventListener('click', () => showUpgradeModal('coin'));
+
+// إغلاق النافذة المنبثقة
+document.getElementById('closeModal').addEventListener('click', function() {
+    document.getElementById('upgradeConfirmation').style.display = 'none';
+});
 
 function confirmUpgradeAction() {
     const upgradeType = uiElements.upgradeModal.getAttribute('data-upgrade-type');
