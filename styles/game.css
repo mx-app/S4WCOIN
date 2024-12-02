@@ -8,7 +8,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    top: 65px; 
+    top: 60px; 
     left: 20px; 
     width: 40%;
     height: 35px;
@@ -20,7 +20,6 @@
     border-radius: 24px;
     cursor: pointer;
     z-index: 100;
-    opacity: 0.8;
  }
 
 .Play-game-button:hover {
