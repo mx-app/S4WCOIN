@@ -1265,6 +1265,7 @@
  <div id="copyInviteNotification" class="notification top-notification">Invite link copied!</div>
   <div id="purchaseNotification" class="notification top-notification"></div>
      
+     <!-- Notifications -->
    <div class="popup-overlay" id="energyPopup" style="display: none;">
      <div class="popup-content">
      <span id="closePopupButton" class="energy-close">&times;</span> 
@@ -1286,7 +1287,7 @@
    </div>
     
 
-        <!-- Bottom Sheet Modal -->
+     <!-- 
     <div id="upgradeConfirmation" class="confirmation-modal" style="display: none;">
        <span id="closeModal" class="close">&times;</span> 
         <div class="modal-image">
@@ -1296,29 +1297,35 @@
         <div class="confirmation-buttons">
         <button id="confirmUpgradeBtn" class="game-button">Upgrade</button>
       </div>
-    </div>
+    </div>-->
 
-     <!-- Bottom Navigation.  homeeee.png -->
-      <!--   <nav class="menu">
-            <button data-target="mainPage">
-                <img src="i/major.png" alt="main" class="menu-img">
-                MAIN 
-            </button>
-            <button data-target="tasksPage">
-                <img src="i/taskk.png" alt="Tasks" class="menu-img">
-                TASKS
-            </button>
-            <button data-target="accountPage">
-                <img src="i/Invitations.png" alt="friend" class="menu-img">
-                FRIENS
-            </button>
-            <button data-target="Puzzlespage">
-                <img src="i/puzzl.png" alt="Puzzles" class="menu-img">
-                PUZZLE
-            </button>
-         </nav>
-      </div> -->
-    
+     
+     <!-- نافذة ترقية النقر -->
+<div id="boostUpgradeModal" class="upgrade-modal hidden">
+    <div class="modal-content">
+        <h3>Upgrade Click Multiplier</h3>
+        <p>Current Level: <span id="currentBoostLevel"></span></p>
+        <p>New Multiplier: ×<span id="newClickMultiplier"></span></p>
+        <p>Cost: <span id="boostUpgradeCost"></span> coins</p>
+        <button id="confirmBoostUpgrade">Confirm</button>
+        <button id="cancelBoostUpgrade">Cancel</button>
+    </div>
+</div>
+
+<!-- نافذة ترقية الطاقة -->
+<div id="energyUpgradeModal" class="upgrade-modal hidden">
+    <div class="modal-content">
+        <h3>Upgrade Max Energy</h3>
+        <p>Current Level: <span id="currentEnergyLevel"></span></p>
+        <p>New Max Energy: <span id="newMaxEnergy"></span></p>
+        <p>Cost: <span id="energyUpgradeCost"></span> coins</p>
+        <button id="confirmEnergyUpgrade">Confirm</button>
+        <button id="cancelEnergyUpgrade">Cancel</button>
+    </div>
+</div>
+
+
+<!-- Bottom Navigation.  homeeee.png -->
    <nav class="menu">
         <button data-target="mainPage">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
