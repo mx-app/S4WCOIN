@@ -39,10 +39,10 @@
 } 
 
 .separatorrrr {
-    width: 0.5px;
+    width: 1px;
     height: 20px;
-    background-color: #808080;
-    margin: 0 5px;
+    background-color: #000;
+    margin: 5px auto;
 }
 
 /* أيقونات */
