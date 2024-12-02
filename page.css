@@ -1,7 +1,13 @@
 #mainPage {
     padding-top: 50px; /* يمكنك تغيير القيمة حسب الحاجة */
     background-clip: padding-box; 
-    background: linear-gradient(90deg, black, gray);
+    background: repeating-linear-gradient(
+                45deg,
+                black,
+                black 10px,
+                gray 10px,
+                gray 20px
+            );
 }
    /* background-image: url('i/pageee.jpg');
     background-size: cover; 
