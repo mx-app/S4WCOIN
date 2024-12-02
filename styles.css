@@ -354,7 +354,6 @@ img {
     display: flex;
     justify-content: space-between;
     padding: 5px;
-    border-radius: 5px;
     background-color: rgba(0, 0, 0, 20);
     position: fixed;
     bottom: 0;
@@ -363,8 +362,8 @@ img {
     left: 50%;
     transform: translateX(-50%);
     z-index: 100;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
     box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.8); /* ظل متلاشي تدريجي */
     transition: box-shadow 0.3s ease; /* إضافة انتقال سلس للتأثير */
 }
