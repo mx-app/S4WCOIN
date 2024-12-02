@@ -1217,6 +1217,7 @@ buttons.forEach(button => {
 
 ///////////////////////////////////////////
 
+window.Telegram.WebApp.setHeaderColor('#000000');
 window.Telegram.WebApp.setBackgroundColor('#000000');
 
 //////////////////////////////////////
