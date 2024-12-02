@@ -249,6 +249,9 @@ function listenToRealtimeChanges() {
 document.addEventListener('DOMContentLoaded', async () => {
     await loadGameState();   
     await restoreEnergy();
+    
+    await loadGameStateFromDB(); 
+    
     startEnergyRecovery();
     updateGameStateInDatabase(); 
     listenToRealtimeChanges();   
