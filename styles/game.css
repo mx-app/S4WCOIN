@@ -8,7 +8,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    top: 60px; 
+    top: 55px; 
     left: 15px; 
     width: 45%;
     height: 35px;
@@ -19,8 +19,10 @@
     font-weight: bold;
     border-radius: 24px;
     cursor: pointer;
-    z-index: 100;
- }
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7); /* ظل عميق أسفل العنصر */
+    z-index: 10; /* لجعله فوق العناصر الأخرى */
+    transform: translateY(-1px); /* تحريك طفيف لأعلى ليبدو كأنه مرتفع */
+} 
 
 .Play-game-button:hover {
     box-shadow: 0 0 6px rgba(255, 255, 255, 0.4), 0 0 12px rgba(255, 255, 255, 0.3), 0 0 18px rgba(255, 255, 255, 0.2);
