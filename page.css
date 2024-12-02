@@ -1,7 +1,7 @@
 .minee-container {
     border-top: 1px solid #1E90FF;
     width: 100%; /* تغطي كامل عرض الشاشة */
-    height: 86%; /* تغطي 70% من الشاشة */
+    height: 84%; /* تغطي 70% من الشاشة */
     position: absolute; /* تموضع مطلق */
     bottom: 0; /* تبدأ من أسفل الشاشة */
     left: 0; /* تبدأ من الحافة اليسرى */
