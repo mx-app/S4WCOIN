@@ -485,7 +485,7 @@ img {
     z-index: 1000;
 }
 
-.popup-overlay button, .Autoclick-overlay button, .modal-content button {
+.popup-overlay button, .Autoclick-overlay button, .game-button {
     border-radius: 10px;
     border: 0.50px solid #343434;
     width: 100%; /* التأكد من أن الأزرار تأخذ عرض الحاوية */
