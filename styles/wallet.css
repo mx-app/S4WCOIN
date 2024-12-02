@@ -19,6 +19,7 @@
     position: fixed;
     top: 10px; 
     left: 35px;
+    z-index: 100;
     background-color: rgba(255, 255, 255, 0.001);
     border-radius: 5px; /* لجعل الزر دائري */
     padding: 5px; /* مساحة إضافية حول الصورة */
