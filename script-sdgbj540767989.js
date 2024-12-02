@@ -1558,12 +1558,13 @@ function initializeTelegramIntegration() {
         }
     }
 
-    // تحديث الزر النشط بناءً على الصفحة النشطة
-    function updateActiveButton(targetPageId) {
-        document.querySelectorAll(".menu button").forEach(btn => {
-            const target = btn.getAttribute("data-target");
-            btn.classList.toggle("active", target === targetPageId);
-        });
+    // تحديث لون الهيدر بناءً على الصفحة
+    function updateHeaderColor(targetPageId) {
+        if (targetPageId === "mainPage") {
+            telegramApp.setHeaderColor("#1E90FF"); // لون مخصص للصفحة الرئيسية
+        } else {
+            telegramApp.setHeaderColor("#000000"); // اللون الافتراضي (أسود)
+        }
     }
 
     // التنقل إلى صفحة معينة
@@ -1577,9 +1578,9 @@ function initializeTelegramIntegration() {
             targetPage.classList.add("active");
         }
 
-        // تحديث زر الرجوع والزر النشط
-        updateActiveButton(targetPageId);
+        // تحديث زر الرجوع ولون الهيدر
         updateBackButton();
+        updateHeaderColor(targetPageId);
     }
 
     // تفعيل حدث زر الرجوع الخاص بـ Telegram
@@ -1627,26 +1628,26 @@ function initializeTelegramIntegration() {
     // فتح الصفحة الرئيسية عند تحميل التطبيق
     window.addEventListener("load", () => {
         const hash = window.location.hash.substring(1) || "mainPage";
-        const targetPage = document.getElementById(hash);
+        const targetPageId = hash || "mainPage";
 
-        // تأكد من أن الصفحة الافتراضية يتم تحميلها إذا لم يتم تعيين صفحة أخرى
-        if (!targetPage || !targetPage.classList.contains("screen-content")) {
-            navigateToPage("mainPage");
-        } else {
-            navigateToPage(hash);
-        }
+        // تحديث الهيدر بناءً على الصفحة الحالية
+        updateHeaderColor(targetPageId);
+
+        // التنقل إلى الصفحة النشطة مباشرة
+        navigateToPage(targetPageId);
 
         // تحديث سجل التنقل
-        if (mainPages.includes(hash)) {
-            history.replaceState({ target: hash }, "", `#${hash}`);
+        if (mainPages.includes(targetPageId)) {
+            history.replaceState({ target: targetPageId }, "", `#${targetPageId}`);
         } else {
-            history.pushState({ target: hash }, "", `#${hash}`);
+            history.pushState({ target: targetPageId }, "", `#${targetPageId}`);
         }
     });
 }
 
 // استدعاء التهيئة عند تحميل الصفحة
 window.addEventListener("load", initializeTelegramIntegration);
+
 
 
 
