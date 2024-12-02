@@ -1,16 +1,9 @@
 #mainPage {
     padding-top: 50px; /* يمكنك تغيير القيمة حسب الحاجة */
     background-clip: padding-box; 
-    background: linear-gradient(90deg, black, gray);
-            background-size: 200% 200%;
-            animation: gradientMove 5s infinite;
-        }
-
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+    background: radial-gradient(circle at 20% 30%, #161616, #000 50%, #161616 100%);
+            background-blend-mode: soft-light;
+}
    /* background-image: url('i/pageee.jpg');
     background-size: cover; 
     background-repeat: no-repeat; 
