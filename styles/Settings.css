@@ -88,13 +88,12 @@
 /* زر الإعدادات */
 .settings-button {
     position: fixed;
-    top: 15px; 
-    right: 35px;
+    top: 10px; 
+    right: 30px;
     background-color: rgba(255, 255, 255, 0.001);
     border-radius: 5px; 
     padding: 5px; 
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    opacity: 0.7;
     z-index: 1000;
 }
 
