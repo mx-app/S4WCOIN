@@ -117,19 +117,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    top: 25px; 
+    top: 20px; 
     left: 20px; 
     width: 40%;
     height: 35px;
     padding: 5px;
     color: #ffffff; 
-    background: #161616;
+    background: #000;
     font-size: 11px;
     font-weight: bold;
     border-radius: 24px;
     cursor: pointer;
     z-index: 100;
-    opacity: 0.8;
  }
 
 .level-button-floating:hover {
