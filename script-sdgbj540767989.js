@@ -2641,10 +2641,11 @@ function confirmUpgradeAction() {
         }
     }
 
-    saveGameState();
+    saveUpgradeState(upgradeType); // حفظ الترقية
     updateUI();
     uiElements.upgradeModal.style.display = 'none';
 }
+
 
 function updateBoostsDisplay() {
     if (!uiElements) return;
@@ -2668,6 +2669,32 @@ function updateBoostsDisplay() {
         uiElements.coinBoostLevelDisplay.innerText = gameState.coinBoostLevel;
     }
 }
+
+function saveUpgradeState(upgradeType) {
+    const upgradeState = {
+        boostLevel: gameState.boostLevel,
+        coinBoostLevel: gameState.coinBoostLevel,
+        clickMultiplier: gameState.clickMultiplier,
+        maxEnergy: gameState.maxEnergy,
+    };
+
+    localStorage.setItem('upgradeState', JSON.stringify(upgradeState));
+}
+
+function loadUpgradeState() {
+    const savedState = localStorage.getItem('upgradeState');
+    if (savedState) {
+        const upgradeState = JSON.parse(savedState);
+        gameState.boostLevel = upgradeState.boostLevel;
+        gameState.coinBoostLevel = upgradeState.coinBoostLevel;
+        gameState.clickMultiplier = upgradeState.clickMultiplier;
+        gameState.maxEnergy = upgradeState.maxEnergy;
+    }
+}
+
+window.addEventListener('load', () => {
+    loadUpgradeState();
+});
 
 
 
