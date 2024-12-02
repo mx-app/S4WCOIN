@@ -204,6 +204,8 @@
 } 
 
 #coinBoostLevel, #coinUpgradeCost, #clickMultiplier, #boostUpgradeCost {
-    margin-right: 3px; /* مسافة صغيرة بين الليفيل والتكلفة */
-    margin-left: 3px;
+    margin-right: 5px; /* مسافة صغيرة بين الليفيل والتكلفة */
+    margin-left: 5px;
+    padding: 10px;
+    background: #000; 
 } 
