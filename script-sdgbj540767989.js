@@ -680,17 +680,6 @@ function showNotificationWithStatus(notificationElement, message, status = '') {
 }
 
 
-////////////////////////
-
-
-
-///////////////////////////////////////////
-
-
-
-
-
-
 
 
 /////////////////////////////////////////
@@ -2607,6 +2596,91 @@ document.addEventListener('DOMContentLoaded', () => {
 ///////////////////////////////////////
 
 
+
+async function showUpgradeModal(upgradeType) {
+    if (!uiElements.upgradeModal) return;
+
+    uiElements.upgradeModal.style.display = 'block';
+    uiElements.upgradeModal.setAttribute('data-upgrade-type', upgradeType);
+
+    const upgrades = {
+        boost: {
+            cost: gameState.boostLevel * 500 + 500,
+            image: "i/Clickk.png",
+            text: "Are you sure you want to upgrade your click multiplier?",
+            description: "This upgrade increases your click multiplier, allowing you to earn more coins per click.",
+            current: `Current Click Multiplier: ×${gameState.clickMultiplier}`,
+        },
+        coin: {
+            cost: gameState.coinBoostLevel * 500 + 500,
+            image: "i/energy.c.png",
+            text: "Are you sure you want to upgrade your max coins?",
+            description: "This upgrade increases your maximum coin capacity, allowing you to store more coins.",
+            current: `Current Max Coins: ${formatNumber(gameState.maxEnergy)}`,
+        },
+    };
+
+    const upgrade = upgrades[upgradeType];
+    if (!upgrade) return;
+
+    uiElements.upgradeImage.src = upgrade.image;
+    uiElements.upgradeText.innerText = upgrade.text;
+    uiElements.upgradeDescription.innerText = upgrade.description;
+    uiElements.currentLevel.innerText = upgrade.current;
+    uiElements.currentCoins.innerText = `Coins Available: ${formatNumber(gameState.balance)}`;
+    uiElements.upgradeCost.innerText = `Upgrade Cost: ${upgrade.cost}`;
+}
+
+document.getElementById('bost1').addEventListener('click', () => showUpgradeModal('boost'));
+document.getElementById('bost2').addEventListener('click', () => showUpgradeModal('coin'));
+
+function confirmUpgradeAction() {
+    const upgradeType = uiElements.upgradeModal.getAttribute('data-upgrade-type');
+    let cost;
+
+    if (upgradeType === 'boost') {
+        cost = gameState.boostLevel * 500 + 500;
+        if (gameState.balance >= cost) {
+            gameState.balance -= cost;
+            gameState.boostLevel++;
+            gameState.clickMultiplier += 1;
+        }
+    } else if (upgradeType === 'coin') {
+        cost = gameState.coinBoostLevel * 500 + 500;
+        if (gameState.balance >= cost) {
+            gameState.balance -= cost;
+            gameState.coinBoostLevel++;
+            gameState.maxEnergy += 500;
+        }
+    }
+
+    saveGameState();
+    updateUI();
+    uiElements.upgradeModal.style.display = 'none';
+}
+
+function updateBoostsDisplay() {
+    if (!uiElements) return;
+
+    const boostUpgradeCost = gameState.boostLevel * 500 + 500;
+    const coinUpgradeCost = gameState.coinBoostLevel * 500 + 500;
+
+    if (uiElements.boostUpgradeBtn) {
+        document.getElementById('boostUpgradeCost').innerText = boostUpgradeCost;
+    }
+    if (uiElements.coinUpgradeBtn) {
+        document.getElementById('coinUpgradeCost').innerText = coinUpgradeCost;
+    }
+    if (uiElements.boostLevelDisplay) {
+        uiElements.boostLevelDisplay.innerText = gameState.boostLevel;
+    }
+    if (uiElements.multiplierDisplay) {
+        uiElements.multiplierDisplay.innerText = gameState.clickMultiplier;
+    }
+    if (uiElements.coinBoostLevelDisplay) {
+        uiElements.coinBoostLevelDisplay.innerText = gameState.coinBoostLevel;
+    }
+}
 
 
 
