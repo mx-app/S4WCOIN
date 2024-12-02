@@ -1,11 +1,11 @@
 .account-summary p {
-    border-bottom: 1px solid #343434; /* خط خفيف */
+    border-bottom: 0.5px solid #343434; /* خط خفيف */
     padding-bottom: 5px; /* مسافة لتوضيح الحواف */
     margin-bottom: 5px; /* مسافة بين الحواف */
 }
 
 .user-premium-status {
-    border-bottom: 1px solid #343434;
+    border-bottom: 0.5px solid #343434;
     padding-bottom: 5px;
     margin-bottom: 5px;
 }
@@ -44,7 +44,7 @@
 
 /* صندوق المستخدم */
 .user-box {
-    width: 90%;
+    width: 95%;
     max-width: 300px;
     background-color: transparent; /* خلفية داكنة داخل الصندوق */
     border-radius: 15px;
@@ -71,7 +71,7 @@
 
 /* ملخص الحساب */
 .account-summary {
-    width: 90%;
+    width: 100%;
     text-align: left; /* نصوص متراصة إلى اليسار */
     background-color:transparent;
     border-radius: 10px;
