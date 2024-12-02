@@ -851,6 +851,9 @@ img {
     padding: 5px;
     border-radius: 25px;
     color: #fff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7); /* ظل عميق أسفل العنصر */
+    z-index: 10; /* لجعله فوق العناصر الأخرى */
+    transform: translateY(-1px); /* تحريك طفيف لأعلى ليبدو كأنه مرتفع */
 }
 
 .user-svg {
