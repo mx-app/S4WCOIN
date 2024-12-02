@@ -249,9 +249,6 @@ function listenToRealtimeChanges() {
 document.addEventListener('DOMContentLoaded', async () => {
     await loadGameState();   
     await restoreEnergy();
-    
-    await loadGameStateFromDB(); 
-    
     startEnergyRecovery();
     updateGameStateInDatabase(); 
     listenToRealtimeChanges();   
@@ -265,6 +262,10 @@ document.addEventListener("DOMContentLoaded", function() {
     updateUI(); // تأكد من تحديث الرصيد عند تحميل الصفحة
 });
 
+document.addEventListener('DOMContentLoaded', async () => {
+    await loadGameStateFromDB(); 
+    updateUI();
+});
 
 
 // مستويات اللعبة المتناسقة
@@ -680,37 +681,6 @@ function showNotificationWithStatus(notificationElement, message, status = '') {
 
 
 ////////////////////////
-
-
-// تحديث عرض التحسينات
-function updateBoostsDisplay() {
-    const boostUpgradeCost = gameState.boostLevel * 500 + 500;
-    const coinUpgradeCost = gameState.coinBoostLevel * 500 + 500;
-
-    if (uiElements.boostUpgradeBtn) {
-        document.getElementById('boostUpgradeCost').innerText = boostUpgradeCost;
-    }
-    if (uiElements.coinUpgradeBtn) {
-        document.getElementById('coinUpgradeCost').innerText = coinUpgradeCost;
-    }
-
-    if (uiElements.boostLevelDisplay) {
-        uiElements.boostLevelDisplay.innerText = gameState.boostLevel;
-    }
-    if (uiElements.multiplierDisplay) {
-        uiElements.multiplierDisplay.innerText = gameState.clickMultiplier;
-    }
-    if (uiElements.coinBoostLevelDisplay) {
-        uiElements.coinBoostLevelDisplay.innerText = gameState.coinBoostLevel;
-    }
-
-    saveGameState(); // حفظ البيانات في localStorage
-    updateGameStateInDatabase({
-        boostLevel: gameState.boostLevel,
-        coinBoostLevel: gameState.coinBoostLevel,
-        clickMultiplier: gameState.clickMultiplier,
-    }); // تحديث البيانات في قاعدة البيانات
-}
 
 
 
@@ -1368,13 +1338,7 @@ buttons.forEach(button => {
 
 ///////////////////////////////////////////
 
-window.Telegram.WebApp.setHeaderColor('#000000');
 window.Telegram.WebApp.setBackgroundColor('#000000');
-
-// إغلاق النافذة المنبثقة
-document.getElementById('closeModal').addEventListener('click', function() {
-    document.getElementById('upgradeConfirmation').style.display = 'none';
-});
 
 //////////////////////////////////////
 
