@@ -201,7 +201,7 @@ img {
     align-items: center; /* لضبط المحاذاة الأفقية للنص */
     justify-content: center; /* محاذاة العناصر في المنتصف عموديًا */
     position: relative;
-    margin-top: 70px; /* قم بزيادة القيمة حسب الحاجة لتحريك الرصيد إلى الأسفل */
+    margin-top: 25px; /* قم بزيادة القيمة حسب الحاجة لتحريك الرصيد إلى الأسفل */
 }
 
 .Title {
@@ -248,20 +248,20 @@ img {
 
 .energy-bar-container {
     display: flex;
-    justify-content: space-between; 
-    /*justify-content: center;*/
-    align-items: center; /* لضبط المحاذاة العمودية */
-    position: absolute; /* تثبيت الحاوية في مكان محدد */
-    bottom: 70px; /* ضبطه ليكون في الجزء السفلي */
+    justify-content: space-between; /* توزيع المحتوى بشكل متساوٍ */
+    align-items: center; /* محاذاة المحتوى عموديًا */
+    position: absolute; /* تموضع مطلق */
+    bottom: 70px; /* المسافة من أسفل الشاشة */
+    left: 50%; /* البدء من منتصف الشاشة */
+    transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
     width: auto; /* جعل العرض مرنًا بناءً على المحتوى */
     min-width: 20%; /* الحد الأدنى للعرض */
     max-width: 90%; /* الحد الأقصى للعرض */
-    height: 40px;
+    height: 40px; /* ارتفاع الحاوية */
     margin: 5px;
-    border-radius: 10px;
-   /* border: 1px solid #1a1a1a;*/
+    border-radius: 10px; /* زوايا دائرية */
     transition: width 0.3s ease-in-out; /* تأثير التمدد بسلاسة */
-}
+} 
 
 .progress-bar {
     width: 150px; 
@@ -311,10 +311,11 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 40px;
+    margin-top: 55px; 
+    /*margin-bottom: 40px;*/
     flex: 1;
 } 
-
+ 
 .clickable-image img {
     width: 270px;
     height: 270px;
@@ -842,7 +843,7 @@ img {
 
 #hourlyEarningsContainer {
     position: fixed;
-    top: 10px;
+    top: 5px;
     width: 86%;
     height: 35px;
     display: flex;
