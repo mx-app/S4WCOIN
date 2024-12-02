@@ -1,3 +1,10 @@
+.icon-gamepad {
+    width: 150px;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+} 
+
 .Play-game-button {
     position: fixed;
     display: flex;
