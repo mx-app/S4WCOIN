@@ -1407,15 +1407,19 @@ function openTaskLink(taskurl, callback) {
 /////////////////////////////////////
 
 
- 
+
+
 function initializeTelegramIntegration() {
     const telegramApp = window.Telegram.WebApp;
 
     // التأكد من أن التطبيق جاهز
     telegramApp.ready();
 
-    // تحديد الصفحات الرئيسية التي لا يظهر بها زر الرجوع
-    const mainPages = ["mainPage", "tasksPage", "accountPage", "Puzzlespage"];
+    // تعريف الصفحات
+    const mainPageId = "mainPage"; // الصفحة الرئيسية
+    const defaultHeaderColor = "#000000"; // اللون الافتراضي (أسود)
+    const mainPageHeaderColor = "#046be2"; // لون الهيدر للصفحة الرئيسية
+    const mainPages = ["mainPage", "tasksPage", "accountPage", "Puzzlespage"]; // الصفحات الرئيسية
 
     // تحديث زر الرجوع بناءً على الصفحة الحالية
     function updateBackButton() {
@@ -1436,11 +1440,12 @@ function initializeTelegramIntegration() {
     }
 
     // تحديث لون الهيدر بناءً على الصفحة
-    function updateHeaderColor(targetPageId) {
-        if (targetPageId === "mainPage") {
-            telegramApp.setHeaderColor("#046be2"); // لون مخصص للصفحة الرئيسية
+    function updateHeaderColor() {
+        const currentPage = document.querySelector(".screen-content.active");
+        if (currentPage && currentPage.id === mainPageId) {
+            telegramApp.setHeaderColor(mainPageHeaderColor); // لون خاص للصفحة الرئيسية
         } else {
-            telegramApp.setHeaderColor("#000000"); // اللون الافتراضي (أسود)
+            telegramApp.setHeaderColor(defaultHeaderColor); // اللون الافتراضي لجميع الصفحات الأخرى
         }
     }
 
@@ -1458,16 +1463,16 @@ function initializeTelegramIntegration() {
         // تحديث زر الرجوع والزر النشط ولون الهيدر
         updateBackButton();
         updateActiveButton(targetPageId);
-        updateHeaderColor(targetPageId);
+        updateHeaderColor();
     }
 
     // تفعيل حدث زر الرجوع الخاص بـ Telegram
     telegramApp.BackButton.onClick(() => {
         const currentPage = document.querySelector(".screen-content.active");
         if (currentPage && !mainPages.includes(currentPage.id)) {
-            navigateToPage("mainPage"); // العودة دائمًا إلى الصفحة الرئيسية من الصفحات الفرعية
+            navigateToPage(mainPageId); // العودة دائمًا إلى الصفحة الرئيسية من الصفحات الفرعية
         } else {
-            telegramApp.close(); // إغلاق WebApp إذا كنت في صفحة رئيسية
+            telegramApp.close(); // إغلاق WebApp إذا كنت في الصفحة الرئيسية
         }
     });
 
@@ -1490,7 +1495,7 @@ function initializeTelegramIntegration() {
 
     // إدارة التنقل عند استخدام زر الرجوع في المتصفح
     window.addEventListener("popstate", (event) => {
-        const targetPageId = event.state ? event.state.target : "mainPage";
+        const targetPageId = event.state ? event.state.target : mainPageId;
         navigateToPage(targetPageId);
     });
 
@@ -1505,26 +1510,17 @@ function initializeTelegramIntegration() {
 
     // فتح الصفحة الرئيسية عند تحميل التطبيق
     window.addEventListener("load", () => {
-        const hash = window.location.hash.substring(1) || "mainPage";
-        const targetPageId = hash || "mainPage";
-
-        // تحديث الهيدر بناءً على الصفحة الحالية
-        updateHeaderColor(targetPageId);
-
-        // التنقل إلى الصفحة النشطة مباشرة
-        navigateToPage(targetPageId);
+        const hash = window.location.hash.substring(1) || mainPageId;
+        navigateToPage(hash);
 
         // تحديث سجل التنقل
-        if (mainPages.includes(targetPageId)) {
-            history.replaceState({ target: targetPageId }, "", `#${targetPageId}`);
-        } else {
-            history.pushState({ target: targetPageId }, "", `#${targetPageId}`);
-        }
+        history.replaceState({ target: hash }, "", `#${hash}`);
     });
 }
 
 // استدعاء التهيئة عند تحميل الصفحة
 window.addEventListener("load", initializeTelegramIntegration);
+
 
 
 
