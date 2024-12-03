@@ -815,7 +815,7 @@ function startEnergyRecovery() {
         // التأكد من وجود طاقة أقل من الحد الأقصى
         if (gameState.energy < gameState.maxEnergy) {
             // إذا كانت الطاقة صفر أو أقل من الحد الأقصى، يتم زيادتها بمقدار 10
-            gameState.energy = Math.min(gameState.maxEnergy, gameState.energy + 5);
+            gameState.energy = Math.min(gameState.maxEnergy, gameState.energy + 15);
 
             // تحديث الوقت الأخير لملء الطاقة
             gameState.lastFillTime = Date.now();
@@ -1407,18 +1407,17 @@ function openTaskLink(taskurl, callback) {
 /////////////////////////////////////
 
 
-
 function initializeTelegramIntegration() {
     const telegramApp = window.Telegram.WebApp;
 
     // التأكد من أن التطبيق جاهز
     telegramApp.ready();
 
-    // تعريف الصفحات والألوان
+    // تعريف الصفحات
     const mainPageId = "mainPage"; // الصفحة الرئيسية
     const defaultHeaderColor = "#000000"; // اللون الافتراضي (أسود)
     const mainPageHeaderColor = "#046be2"; // لون الهيدر للصفحة الرئيسية
-    const mainPages = ["mainPage", "tasksPage", "accountPage", "puzzlesPage"]; // الصفحات الرئيسية
+    const mainPages = ["mainPage", "tasksPage", "accountPage", "Puzzlespage"]; // الصفحات الرئيسية
 
     // تحديث زر الرجوع بناءً على الصفحة الحالية
     function updateBackButton() {
@@ -1440,7 +1439,7 @@ function initializeTelegramIntegration() {
 
     // تحديث لون الهيدر بناءً على الصفحة
     function updateHeaderColor() {
-        const currentPage = document.querySelector(".screen-content.active");
+        const currentPage = document.querySelector(".screen-content.active") || document.getElementById(mainPageId);
         if (currentPage && currentPage.id === mainPageId) {
             telegramApp.setHeaderColor(mainPageHeaderColor); // لون خاص للصفحة الرئيسية
         } else {
@@ -1462,7 +1461,7 @@ function initializeTelegramIntegration() {
         // تحديث زر الرجوع والزر النشط ولون الهيدر
         updateBackButton();
         updateActiveButton(targetPageId);
-        updateHeaderColor();
+        updateHeaderColor(); // تأكد من تحديث الهيدر بعد التفعيل
     }
 
     // تفعيل حدث زر الرجوع الخاص بـ Telegram
@@ -1507,10 +1506,13 @@ function initializeTelegramIntegration() {
         document.documentElement.style.setProperty('--text-color', '#000');
     }
 
-    // فتح الصفحة الرئيسية وتحديث الهيدر افتراضيًا عند تحميل التطبيق
+    // فتح الصفحة الرئيسية عند تحميل التطبيق
     window.addEventListener("load", () => {
         const hash = window.location.hash.substring(1) || mainPageId;
         navigateToPage(hash);
+
+        // تحديث لون الهيدر عند التحميل
+        updateHeaderColor();
 
         // تحديث سجل التنقل
         history.replaceState({ target: hash }, "", `#${hash}`);
