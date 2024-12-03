@@ -136,6 +136,7 @@ img {
 .splash-title {
     top: 80%; 
     font-size: 40px;
+    font-weight: 300;
 }
 
 .splash-subtitle {
@@ -143,8 +144,8 @@ img {
 }
 
 .splash-loading img {
-    top: 40%; 
-    width: 280px;
+    top: 30%; 
+    width: 200px;
 }
  
 /* شريط الطاقة */
