@@ -1144,7 +1144,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //////////////////////////////////////
 
 
-//القائمه السفليه 
+// القائمه السفليه
 document.querySelectorAll('button[data-target]').forEach(button => {
     button.addEventListener('click', () => {
         const targetId = button.getAttribute('data-target');
@@ -1154,8 +1154,6 @@ document.querySelectorAll('button[data-target]').forEach(button => {
         document.getElementById(targetId).classList.add('active');
     });
 });
-
-
 
 // أولاً: الحصول على جميع الأزرار داخل القائمة
 const buttons = document.querySelectorAll('.menu button');
@@ -1172,19 +1170,23 @@ buttons.forEach(button => {
         // الحصول على اسم الصفحة أو القسم المستهدف من الزر الذي تم النقر عليه
         const targetPage = this.getAttribute('data-target');
         
-        // هنا يمكنك وضع المنطق الذي يقوم بتغيير الصفحة بناءً على الزر (استبدل هذا المنطق إذا لزم الأمر)
-        // مثال: الانتقال إلى صفحة معينة بناءً على اسم الـ "data-target"
-        // window.location.href = targetPage + ".html";
-        console.log("التنقل إلى الصفحة:", targetPage); // هذا فقط للعرض في الكونسول
+        // عرض القسم المناسب
+        document.querySelectorAll('.screen-content').forEach(screen => {
+            screen.classList.remove('active');
+        });
+        document.getElementById(targetPage).classList.add('active');
     });
 });
 
-// ثالثاً: اختياري: تفعيل الزر النشط بناءً على الصفحة الحالية
-const currentPage = window.location.pathname; // هذا يحصل على اسم الصفحة الحالية من الـ URL
-buttons.forEach(button => {
-    const target = button.getAttribute('data-target'); // الحصول على قيمة "data-target" من كل زر
-    if (currentPage.includes(target)) {
-        button.classList.add('active'); // إضافة الصف "active" للزر الذي يتطابق مع الصفحة الحالية
+// ثالثاً: تفعيل الزر الافتراضي (الصفحة الرئيسية)
+window.addEventListener('DOMContentLoaded', () => {
+    const defaultButton = document.querySelector('button[data-target="mainPage"]'); // افترض أن الصفحة الرئيسية لها data-target="mainPage"
+    if (defaultButton) {
+        defaultButton.classList.add('active'); // تفعيل الزر افتراضياً
+        const defaultScreen = document.getElementById('mainPage'); // افترض أن الصفحة الرئيسية لها ID="mainPage"
+        if (defaultScreen) {
+            defaultScreen.classList.add('active'); // عرض الشاشة المرتبطة افتراضياً
+        }
     }
 });
 
