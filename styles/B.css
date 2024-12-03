@@ -176,6 +176,7 @@ button .effects {
     height: 70px;
     padding: 10px;
     margin: 10px auto;
+    border: 0.5px solid #161616;
     background: #000; 
     border-radius: 10px; /* زوايا مستديرة */
     box-sizing: border-box; /* لحساب الحواف ضمن الأبعاد */
