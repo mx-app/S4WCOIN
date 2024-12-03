@@ -340,7 +340,6 @@ img {
     position: absolute;
     color: #fff; /* لون النص */
     font-size: 30px; /* حجم النص */
-    font-weight: bold; /* خط عريض */
     pointer-events: none; /* تعطيل التفاعل */
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* إضافة ظل للنص */
     z-index: 1000;
