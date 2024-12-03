@@ -232,7 +232,7 @@ img {
     background-image: url('i/l-coin.png'); /* رابط الصورة */
     background-size: contain;
     background-repeat: no-repeat;
-    margin-right: 3px; /* مسافة بين الصورة والرقم */
+    margin-right: 1px; /* مسافة بين الصورة والرقم */
 }
 
 
@@ -332,16 +332,16 @@ img {
     transition: transform 0.1s ease-in-out;
     cursor: pointer;
     pointer-events: auto;
-    border-radius: 25px;
+    border-radius: 15px;
 }
 
 .diamond-text {
     position: absolute;
     color: #fff; /* لون النص */
-    font-size: 28px; /* حجم النص */
+    font-size: 30px; /* حجم النص */
     font-weight: bold; /* خط عريض */
     pointer-events: none; /* تعطيل التفاعل */
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); /* إضافة ظل للنص */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* إضافة ظل للنص */
     z-index: 1000;
     animation: fade-out-move 0.8s ease-out; /* استخدام الرسوم المتحركة */
 }
