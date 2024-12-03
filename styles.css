@@ -296,6 +296,8 @@ img {
     margin-right: 40px;
     direction: rtl; /* الحفاظ على الاتجاه من اليمين لليسار */
     white-space: nowrap;
+    padding: 15px 5px;
+    background: #161616;
 }
  
  
