@@ -444,7 +444,7 @@ img {
 
 
 .confirmation-modal, .modal-content, .promo-content{
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: #161616;
     backdrop-filter: blur(10px); 
     padding: 20px;
     border-radius: 25px 25px 0 0; 
@@ -512,7 +512,8 @@ img {
 }
 
 .popup-content, .Autoclick-content {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: #161616;
+   /* background-color: rgba(255, 255, 255, 0.1);*/
     backdrop-filter: blur(10px);
     padding: 20px;
     border-radius: 25px 25px 0 0;
