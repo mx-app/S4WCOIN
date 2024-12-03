@@ -354,20 +354,24 @@
          <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" /><path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /><path d="M15 3v4" />
          <path d="M7 3v4" /><path d="M3 11h16" /><path d="M18 16.496v1.504l1 1" />
         </svg>
-
        
        <div id="MorseCiphersCountdown" class="Morsecountdown-display"></div>
        <div id="puzzleCountdown" class="countdown-display"> </div>
-
-       <p id="task"> Daily Promo Code </p>
-          <div id="promoContainer" class="promo-container">
+       
+      <div id="promoContainer" class="hidden">
+        <div class="promo-content">
+         <span id="promocloseModal" class="close">&times;</span>
+          <p id="task"> Daily Promo Code </p>
+            <div id="promoContainer" class="promo-container">
              <div class="promo-input-container">
               <div class="promo-box">
-             <input type="text" id="promoCodeInput" placeholder="Enter promo code" class="promo-input">
-             <button id="applyPromoCode" class="apply_PromoCode"> Apply </button>
-             </div>
+              <input type="text" id="promoCodeInput" placeholder="Enter promo code" class="promo-input">
+              <button id="applyPromoCode" class="apply_PromoCode"> Apply </button>
+              </div>
+            </div>
           </div>
-       </div>  
+        </div>
+     </div>  
        
        <div id="DContainer">
          <p id="Daily-earning"> Daily earning </p>
