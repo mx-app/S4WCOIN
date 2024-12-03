@@ -251,7 +251,7 @@ img {
     justify-content: space-between; /* توزيع المحتوى بشكل متساوٍ */
     align-items: center; /* محاذاة المحتوى عموديًا */
     position: absolute; /* تموضع مطلق */
-    bottom: 110px; /* المسافة من أسفل الشاشة */
+    bottom: 120px; /* المسافة من أسفل الشاشة */
     left: 50%; /* البدء من منتصف الشاشة */
     transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
     width: auto; /* جعل العرض مرنًا بناءً على المحتوى */
@@ -318,8 +318,8 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 5px; 
-    /*margin-bottom: 40px;*/
+    margin-top: 0; 
+    margin-bottom: 10px;
     flex: 1;
 } 
  
@@ -1069,7 +1069,7 @@ img {
       align-items: center;
       justify-content: space-between;
       position: absolute; /* تموضع مطلق */
-      bottom: 60px; /* المسافة من أسفل الشاشة */
+      bottom: 70px; /* المسافة من أسفل الشاشة */
       left: 50%; /* البدء من منتصف الشاشة */
       transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
       width: 90%;
