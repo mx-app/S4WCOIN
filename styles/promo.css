@@ -7,7 +7,7 @@
       left: 50%; /* البدء من منتصف الشاشة */
       transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
       width: 90%;
-      height: 40px;
+      height: 43px;
       font-weight: bold;
       background: #000;
       border-radius: 10px;
@@ -23,14 +23,14 @@
     width: 25px; 
     height: 25px;
     color: #fff;
-    margin-left: 20px;
+    margin-left: 18px;
 }   
 
 .arrow-promo {
     width: 20px; 
     height: 20px;
     color: #808080;
-    margin-right: 25px;
+    margin-right: 23px;
 } 
 
 
