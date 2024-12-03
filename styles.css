@@ -207,7 +207,7 @@ img {
 .Title {
     font-weight: bold;
     margin-bottom: 3px; /* المسافة بين العنوان والرصد */
-    font-size: 14px;
+    font-size: 19px;
     padding-bottom: 1px;
     color: #808080;
 }
@@ -399,7 +399,7 @@ img {
 }
 
 .menu button.active {
-    color: #046be2; /* اللون الأبيض للنص عند النشاط */
+    color: #1E90FF; /* اللون الأبيض للنص عند النشاط */
     background: none;
     opacity: 1; /* إزالة الشفافية عند النشاط */
 }
@@ -1093,8 +1093,8 @@ img {
 }   
 
 .arrow-community {
-    width: 15px; 
-    height: 15px;
+    width: 20px; 
+    height: 20px;
     color: #808080;
     margin-right: 25px;
 } 
