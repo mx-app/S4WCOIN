@@ -265,7 +265,7 @@ img {
 } 
 
 .progress-bar {
-    width: 75%; 
+    width: 50%; 
     height: 7px; 
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px); /* تأثير الضبابية */
@@ -291,10 +291,11 @@ img {
     background-clip: text;
     color: transparent;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 16px; /* حجم الخط */
+    font-size: 13px; /* حجم الخط */
     font-weight: bold; /* سمك الخط */
     text-align: left; /* المحاذاة لليسار */
-    margin-right: 40px;
+    /*margin-right: 40px;*/
+    margin-bottom: 4px;
     direction: rtl; /* الحفاظ على الاتجاه من اليمين لليسار */
     white-space: nowrap;
 }
