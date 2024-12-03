@@ -1144,7 +1144,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //////////////////////////////////////
 
 
-//القائمه السفليه 
+// القائمه السفليه
 document.querySelectorAll('button[data-target]').forEach(button => {
     button.addEventListener('click', () => {
         const targetId = button.getAttribute('data-target');
@@ -1154,8 +1154,6 @@ document.querySelectorAll('button[data-target]').forEach(button => {
         document.getElementById(targetId).classList.add('active');
     });
 });
-
-
 
 // أولاً: الحصول على جميع الأزرار داخل القائمة
 const buttons = document.querySelectorAll('.menu button');
@@ -1172,19 +1170,23 @@ buttons.forEach(button => {
         // الحصول على اسم الصفحة أو القسم المستهدف من الزر الذي تم النقر عليه
         const targetPage = this.getAttribute('data-target');
         
-        // هنا يمكنك وضع المنطق الذي يقوم بتغيير الصفحة بناءً على الزر (استبدل هذا المنطق إذا لزم الأمر)
-        // مثال: الانتقال إلى صفحة معينة بناءً على اسم الـ "data-target"
-        // window.location.href = targetPage + ".html";
-        console.log("التنقل إلى الصفحة:", targetPage); // هذا فقط للعرض في الكونسول
+        // عرض القسم المناسب
+        document.querySelectorAll('.screen-content').forEach(screen => {
+            screen.classList.remove('active');
+        });
+        document.getElementById(targetPage).classList.add('active');
     });
 });
 
-// ثالثاً: اختياري: تفعيل الزر النشط بناءً على الصفحة الحالية
-const currentPage = window.location.pathname; // هذا يحصل على اسم الصفحة الحالية من الـ URL
-buttons.forEach(button => {
-    const target = button.getAttribute('data-target'); // الحصول على قيمة "data-target" من كل زر
-    if (currentPage.includes(target)) {
-        button.classList.add('active'); // إضافة الصف "active" للزر الذي يتطابق مع الصفحة الحالية
+// ثالثاً: تفعيل الزر الافتراضي (الصفحة الرئيسية)
+window.addEventListener('DOMContentLoaded', () => {
+    const defaultButton = document.querySelector('button[data-target="mainPage"]'); // افترض أن الصفحة الرئيسية لها data-target="mainPage"
+    if (defaultButton) {
+        defaultButton.classList.add('active'); // تفعيل الزر افتراضياً
+        const defaultScreen = document.getElementById('mainPage'); // افترض أن الصفحة الرئيسية لها ID="mainPage"
+        if (defaultScreen) {
+            defaultScreen.classList.add('active'); // عرض الشاشة المرتبطة افتراضياً
+        }
     }
 });
 
@@ -1405,14 +1407,19 @@ function openTaskLink(taskurl, callback) {
 /////////////////////////////////////
 
 
- function initializeTelegramIntegration() {
+
+
+function initializeTelegramIntegration() {
     const telegramApp = window.Telegram.WebApp;
 
     // التأكد من أن التطبيق جاهز
     telegramApp.ready();
 
-    // تحديد الصفحات الرئيسية التي لا يظهر بها زر الرجوع
-    const mainPages = ["mainPage", "tasksPage", "accountPage", "Puzzlespage"];
+    // تعريف الصفحات
+    const mainPageId = "mainPage"; // الصفحة الرئيسية
+    const defaultHeaderColor = "#000000"; // اللون الافتراضي (أسود)
+    const mainPageHeaderColor = "#046be2"; // لون الهيدر للصفحة الرئيسية
+    const mainPages = ["mainPage", "tasksPage", "accountPage", "Puzzlespage"]; // الصفحات الرئيسية
 
     // تحديث زر الرجوع بناءً على الصفحة الحالية
     function updateBackButton() {
@@ -1433,11 +1440,12 @@ function openTaskLink(taskurl, callback) {
     }
 
     // تحديث لون الهيدر بناءً على الصفحة
-    function updateHeaderColor(targetPageId) {
-        if (targetPageId === "mainPage") {
-            telegramApp.setHeaderColor("#046be2"); // لون مخصص للصفحة الرئيسية
+    function updateHeaderColor() {
+        const currentPage = document.querySelector(".screen-content.active");
+        if (currentPage && currentPage.id === mainPageId) {
+            telegramApp.setHeaderColor(mainPageHeaderColor); // لون خاص للصفحة الرئيسية
         } else {
-            telegramApp.setHeaderColor("#000000"); // اللون الافتراضي (أسود)
+            telegramApp.setHeaderColor(defaultHeaderColor); // اللون الافتراضي لجميع الصفحات الأخرى
         }
     }
 
@@ -1455,16 +1463,16 @@ function openTaskLink(taskurl, callback) {
         // تحديث زر الرجوع والزر النشط ولون الهيدر
         updateBackButton();
         updateActiveButton(targetPageId);
-        updateHeaderColor(targetPageId);
+        updateHeaderColor();
     }
 
     // تفعيل حدث زر الرجوع الخاص بـ Telegram
     telegramApp.BackButton.onClick(() => {
         const currentPage = document.querySelector(".screen-content.active");
         if (currentPage && !mainPages.includes(currentPage.id)) {
-            navigateToPage("mainPage"); // العودة دائمًا إلى الصفحة الرئيسية من الصفحات الفرعية
+            navigateToPage(mainPageId); // العودة دائمًا إلى الصفحة الرئيسية من الصفحات الفرعية
         } else {
-            telegramApp.close(); // إغلاق WebApp إذا كنت في صفحة رئيسية
+            telegramApp.close(); // إغلاق WebApp إذا كنت في الصفحة الرئيسية
         }
     });
 
@@ -1487,7 +1495,7 @@ function openTaskLink(taskurl, callback) {
 
     // إدارة التنقل عند استخدام زر الرجوع في المتصفح
     window.addEventListener("popstate", (event) => {
-        const targetPageId = event.state ? event.state.target : "mainPage";
+        const targetPageId = event.state ? event.state.target : mainPageId;
         navigateToPage(targetPageId);
     });
 
@@ -1502,26 +1510,18 @@ function openTaskLink(taskurl, callback) {
 
     // فتح الصفحة الرئيسية عند تحميل التطبيق
     window.addEventListener("load", () => {
-        const hash = window.location.hash.substring(1) || "mainPage";
-        const targetPageId = hash || "mainPage";
-
-        // تحديث الهيدر بناءً على الصفحة الحالية
-        updateHeaderColor(targetPageId);
-
-        // التنقل إلى الصفحة النشطة مباشرة
-        navigateToPage(targetPageId);
+        const hash = window.location.hash.substring(1) || mainPageId;
+        navigateToPage(hash);
 
         // تحديث سجل التنقل
-        if (mainPages.includes(targetPageId)) {
-            history.replaceState({ target: targetPageId }, "", `#${targetPageId}`);
-        } else {
-            history.pushState({ target: targetPageId }, "", `#${targetPageId}`);
-        }
+        history.replaceState({ target: hash }, "", `#${hash}`);
     });
 }
 
 // استدعاء التهيئة عند تحميل الصفحة
 window.addEventListener("load", initializeTelegramIntegration);
+
+
 
 
 
