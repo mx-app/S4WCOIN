@@ -43,6 +43,7 @@
     width: 94%;
     height: 45px; /* تأكد من أن البوكس يحتوي على الحجم المطلوب */
     border-radius: 25px;
+    margin-bottom: 150px;
 }
 
 .promo-input-container {
@@ -54,7 +55,7 @@
 }
 
 .promo-input {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 1);
     width: 100%; /* جعل العرض 100% لكي يتم التغطية بالكامل */
     height: 100%;
     font-size: 15px;
