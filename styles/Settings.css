@@ -116,10 +116,9 @@
     opacity: 1;
 }
 
-.icon-container {
+/*.icon-container {
   display: inline-block;
-  /*margin-left: 8px;*//* المسافة بين النص والأيقونة */
-  vertical-align: middle; /* محاذاة الأيقونة مع النص */
+  vertical-align: middle; 
 }
 
 .icon-container svg {
@@ -129,5 +128,21 @@
     height: 25px;
     color: #ffffff;
     vertical-align: middle;
+}*/
+
+ .icon-container {
+  position: relative; /* إنشاء سياق لوضع الأيقونة بالنسبة للنص */
+  display: inline-block;
+  padding-left: 30px; /* مساحة للأيقونة قبل النص */
+  vertical-align: middle; /* محاذاة العمود */
+}
+
+.icon-container svg {
+  position: absolute;
+  left: 0; /* وضع الأيقونة قبل النص */
+  top: 50%; /* وضع الأيقونة في منتصف الحاوية */
+  transform: translateY(-50%); /* ضبط المحاذاة العمودية */
+  width: 20px; /* ضبط حجم الأيقونة */
+  height: 20px;
+  color: #ffffff; /* لون الأيقونة */
 } 
- 
