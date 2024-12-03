@@ -132,9 +132,8 @@
 }*/
 
  .icon-container {
-  position: absolute;/* إنشاء سياق لوضع الأيقونة بالنسبة للنص */
   display: inline-block;
-  /*padding-left: 30px;*//* مساحة للأيقونة قبل النص */
+  padding-right: 30px;
   vertical-align: middle; /* محاذاة العمود */
 }
 
