@@ -787,7 +787,7 @@ function navigateToScreen(screenId) {
     if (targetScreen) targetScreen.classList.add('active');
 
     // تحقق إذا كانت الصفحة هي واحدة من الصفحات التي لا تحتوي على القائمة السفلية
-    const pagesWithoutFooter = ['boostsPage', 'levelPage', 'gamePage', 'miningPage', 'walletPage']; // الصفحات التي لا تحتوي على القائمة السفلية
+    const pagesWithoutFooter = ['levelPage', 'gamePage', 'miningPage', 'walletPage']; // الصفحات التي لا تحتوي على القائمة السفلية
     const isFooterPage = !pagesWithoutFooter.includes(screenId); // إذا كانت الصفحة ليست ضمن هذه القائمة
 
     // إخفاء أو إظهار القائمة السفلية بناءً على ما إذا كانت الصفحة تحتوي على القائمة السفلية أم لا
@@ -799,11 +799,11 @@ function navigateToScreen(screenId) {
     }
 
     // إضافة منطق خاص لصفحة "boostsPage" إذا لزم الأمر
-    if (screenId === 'boostsPage') {
-        if (uiElements.boostUpgradeBtn) uiElements.boostUpgradeBtn.style.display = 'block';
-        if (uiElements.coinUpgradeBtn) uiElements.coinUpgradeBtn.style.display = 'block';
-        if (uiElements.fillEnergyUpgradeBtn) uiElements.fillEnergyUpgradeBtn.style.display = 'block';
-    }
+    //if (screenId === 'boostsPage') {
+      //  if (uiElements.boostUpgradeBtn) uiElements.boostUpgradeBtn.style.display = 'block';
+     //   if (uiElements.coinUpgradeBtn) uiElements.coinUpgradeBtn.style.display = 'block';
+     //   if (uiElements.fillEnergyUpgradeBtn) uiElements.fillEnergyUpgradeBtn.style.display = 'block';
+   // }
 }
 
 
