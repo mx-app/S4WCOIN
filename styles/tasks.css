@@ -1,7 +1,7 @@
 .size-6 {
     width: 18px;
     height: 18px;
-    color: #046be2;  /* اللون الأخضر لعلامة الصح */
+    color: #1E90FF;  /* اللون الأخضر لعلامة الصح */
 }
 
 .size-6 path {
@@ -16,7 +16,7 @@
 
 
 .loading-spinner {
-    border: 3px solid #ffffff;
+    border: 3px solid #1E90FF;
     border-top: 3px solid transparent;
     border-radius: 50%;
     width: 15px;
