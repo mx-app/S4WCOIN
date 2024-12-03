@@ -444,7 +444,7 @@ img {
 } 
 
 
-.confirmation-modal, .modal-content {
+.confirmation-modal, .modal-content, .promo-content{
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px); 
     padding: 20px;
