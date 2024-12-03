@@ -130,7 +130,7 @@
 }*/
 
  .icon-container {
-/* position: relative;*//* إنشاء سياق لوضع الأيقونة بالنسبة للنص */
+  position: relative;/* إنشاء سياق لوضع الأيقونة بالنسبة للنص */
   display: inline-block;
   /*padding-left: 30px;*//* مساحة للأيقونة قبل النص */
   vertical-align: middle; /* محاذاة العمود */
@@ -138,9 +138,9 @@
 
 .icon-container svg {
   position: absolute;
-  left: 8px; /* وضع الأيقونة قبل النص */
-  /*top: 50%;
-  transform: translateY(-50%);*/
+  margin-right: 100px; /* وضع الأيقونة قبل النص */
+  top: 50%;
+  transform: translateY(-50%);
   width: 25px; 
   height: 25px;
   color: #ffffff; /* لون الأيقونة */
