@@ -1407,7 +1407,8 @@ function openTaskLink(taskurl, callback) {
 /////////////////////////////////////
 
 
- function initializeTelegramIntegration() {
+ 
+function initializeTelegramIntegration() {
     const telegramApp = window.Telegram.WebApp;
 
     // التأكد من أن التطبيق جاهز
@@ -1524,6 +1525,7 @@ function openTaskLink(taskurl, callback) {
 
 // استدعاء التهيئة عند تحميل الصفحة
 window.addEventListener("load", initializeTelegramIntegration);
+
 
 
 
