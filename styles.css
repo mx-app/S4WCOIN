@@ -1101,13 +1101,11 @@ img {
 } 
  
 .text {
-    font-weight: bold;
     font-size: 15px;
     margin-right: 50px;
 } 
 
 .text-promo {
-    font-weight: bold;
     font-size: 15px;
-    margin-right: 70px;
+    margin-right: 75px;
 } 
