@@ -16,7 +16,7 @@
     background: linear-gradient(
         to bottom,
         #1A86E6, /* بداية التدرج من الأسود */
-        rgba(0, 0, 0, 1), /* الأزرق منتصف التدرج */
+        #4AB8FF, /* الأزرق منتصف التدرج */
         black
     );
 
