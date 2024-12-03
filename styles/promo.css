@@ -1,3 +1,39 @@
+.promo-code-button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: absolute; /* تموضع مطلق */
+      bottom: 100px; /* المسافة من أسفل الشاشة */
+      left: 50%; /* البدء من منتصف الشاشة */
+      transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
+      width: 90%;
+      height: 40px;
+      font-weight: bold;
+      background: #000;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 15px;
+      font-weight: bold;
+      border: 1px solid #1a1a1a;
+      transition: transform 0.2s, box-shadow 0.2s;
+  } 
+
+.icon-promo {
+    width: 25px; 
+    height: 25px;
+    color: #fff;
+    margin-left: 20px;
+}   
+
+.arrow-promo {
+    width: 20px; 
+    height: 20px;
+    color: #808080;
+    margin-right: 25px;
+} 
+
+
 .promo-box {
     position: relative; /* لجعل الزر يتمركز فوق خانة الإدخال */
     display: flex;
