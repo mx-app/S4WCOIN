@@ -1099,3 +1099,9 @@ img {
     margin-right: 25px;
 } 
  
+.text {
+    font-weight: bold;
+    font-size: 15px;
+    margin-right: 60px;
+} 
+
