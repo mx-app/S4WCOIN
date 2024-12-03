@@ -1435,7 +1435,7 @@ function openTaskLink(taskurl, callback) {
     // تحديث لون الهيدر بناءً على الصفحة
     function updateHeaderColor(targetPageId) {
         if (targetPageId === "mainPage") {
-            telegramApp.setHeaderColor("#1A86E6"); // لون مخصص للصفحة الرئيسية
+            telegramApp.setHeaderColor("#046be2"); // لون مخصص للصفحة الرئيسية
         } else {
             telegramApp.setHeaderColor("#000000"); // اللون الافتراضي (أسود)
         }
