@@ -2004,16 +2004,6 @@ function showContent(contentId) {
 ///////////////////////////////////////
 
 
-
-function openDailyPromoCode() {
-    document.getElementById('promoContainer').classList.remove('hidden');
-}
-
-// إغلاق النافذة عند النقر على زر الإغلاق
-document.getElementById('promocloseModal').addEventListener('click', () => {
-    document.getElementById('promoContainer').classList.add('hidden');
-});
-
 document.getElementById('applyPromoCode').addEventListener('click', async () => {
     const applyButton = document.getElementById('applyPromoCode');
     const promoCodeInput = document.getElementById('promoCodeInput');
@@ -2150,6 +2140,16 @@ async function addPromoCodeToUsed(enteredCode) {
     console.log('Promo code added to used list successfully.');
     return true;
 }
+
+document.getElementById('promocodeBtu').addEventListener('click', function() {
+    document.getElementById('promoContainer').classList.remove('hidden');
+});
+
+// إغلاق النافذة عند النقر على زر الإغلاق
+document.getElementById('promocloseModal').addEventListener('click', () => {
+    document.getElementById('promoContainer').classList.add('hidden');
+});
+
 
 
 /////////////////////////////////////////
