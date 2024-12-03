@@ -206,7 +206,6 @@ img {
 }
 
 .Title {
-    font-weight: bold;
     margin-top: 3px; /* المسافة بين العنوان والرصد */
     font-size: 23px;
     padding-bottom: 1px;
@@ -1110,5 +1109,5 @@ img {
 .text-promo {
     font-weight: bold;
     font-size: 15px;
-    margin-right: 60px;
+    margin-right: 70px;
 } 
