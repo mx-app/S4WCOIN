@@ -2697,12 +2697,25 @@ function loadUpgradeState() {
 window.addEventListener('load', () => {
     loadUpgradeState();
 });
-
-
-
 //////////////////////////////////////
 
+document.getElementById("sendStartButton").addEventListener("click", function() {
+    const userTelegramId = window.userTelegramId; // معرف المستخدم من تليجرام
+    
+    if (!userTelegramId) {
+        alert("لا يمكن العثور على معرف المستخدم. تأكد من أنك تستخدم التطبيق عبر تليجرام.");
+        return;
+    }
 
+    const data = `/start ${userTelegramId}`; // صيغة الرسالة
+    sendData(data); // إرسال البيانات للبوت
+});
+
+function sendData(data) {
+    // إرسال البيانات للبوت عبر Telegram Web Apps
+    Telegram.WebApp.sendData(data); 
+    alert("تم إرسال رسالة /start للبوت.");
+}
 
 
 
