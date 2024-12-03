@@ -214,7 +214,7 @@ img {
 
 #balanceAmount {
     font-family: 'JetBrains Mono', monospace;
-    font-weight: 800;
+    font-weight: 900;
     font-size: 32px;
     color: #fff;
     display: flex;
@@ -290,8 +290,7 @@ img {
     background-clip: text;
     color: transparent;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 12px; /* حجم الخط */
-    font-weight: bold; /* سمك الخط */
+    font-size: 13px; /* حجم الخط */
     text-align: left; /* المحاذاة لليسار */
     /*margin-right: 40px;
     margin-bottom: 4px;*/
@@ -300,7 +299,6 @@ img {
 }
  
  #maxEnergy {
-   font-weight: bold;
    font-size: 15px;  
    white-space: nowrap;
    color: #1a1a1a;
@@ -384,7 +382,6 @@ img {
     padding: 4px;
     box-sizing: border-box; 
     font-size: 10px;
-    font-weight: bold;
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -518,7 +515,6 @@ img {
     width: 100%; /* التأكد من أن الأزرار تأخذ عرض الحاوية */
     height: 40px;
     color: #fff;
-    font-weight: bold;
     background-color: rgba(0, 0, 0, 0.9);
     margin: 10px 0; /* المسافة بين الأزرار */
 }
@@ -556,7 +552,6 @@ img {
     top: 10px;
     right: 20px;
     font-size: 24px;
-    font-weight: bold;
     color: white;
     cursor: pointer;
 }
@@ -599,7 +594,6 @@ img {
     top: 10px;
     right: 20px;
     font-size: 24px;
-    font-weight: bold;
     color: white;
     cursor: pointer;
 }
@@ -939,7 +933,6 @@ img {
 
 #currentLevelCoins {
     font-size: 10px;
-    font-weight: bold;
     white-space: nowrap;
     margin-bottom: 5px;
     color: #808080;
@@ -976,7 +969,6 @@ img {
 
 #earningsLabel {
     font-size: 10px;
-    font-weight: bold;
     margin: 0; /* إزالة أي هوامش */
     padding: 0; /* إزالة الحشوات */
     line-height: 1; /* تقليل المسافة بين الأسطر */
@@ -985,7 +977,6 @@ img {
 
 #earningsText {
     font-size: 10px;
-    font-weight: bold;
     margin: 0; /* إزالة أي هوامش */
     padding: 0; /* إزالة الحشوات */
     line-height: 1; /* تقليل المسافة بين الأسطر */
@@ -1010,7 +1001,6 @@ img {
 #invitedCount, #i {
     color: #fff;
     font-size: 15px;
-    font-weight: bold;
 }
 
 /*.friends-list {
@@ -1071,7 +1061,6 @@ img {
   border-radius: 10px;
   width: 87%;
   height: 60px;
-  font-weight: bold;
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
@@ -1081,7 +1070,6 @@ img {
 
 .invite-header h3 {
   font-size: 18px;
-  font-weight: bold;
   margin-bottom: 5px;
   color: #fff; /* لون النص البارز */
 }
@@ -1090,6 +1078,7 @@ img {
   font-size: 12px;
   line-height: 1.5;
   margin: 5px 0;
+  font-weight: 300;
   color: #808080; 
 }
 
@@ -1109,7 +1098,6 @@ img {
       text-decoration: none;
       color: #fff;
       font-size: 15px;
-      font-weight: bold;
       border: 1px solid #1a1a1a;
       transition: transform 0.2s, box-shadow 0.2s;
   } 
