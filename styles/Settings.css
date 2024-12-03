@@ -139,9 +139,9 @@
 .icon-container svg {
   position: absolute;
   left: 8px; /* وضع الأيقونة قبل النص */
-  top: 50%; /* وضع الأيقونة في منتصف الحاوية */
-  transform: translateY(-50%); /* ضبط المحاذاة العمودية */
-  width: 25px; /* ضبط حجم الأيقونة */
+  /*top: 50%;
+  transform: translateY(-50%);*/
+  width: 25px; 
   height: 25px;
   color: #ffffff; /* لون الأيقونة */
 } 
