@@ -847,11 +847,11 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #000;
+    background: #fff;
     padding: 5px;
     border-radius: 25px;
-    color: #fff;
-    border: 1px solid #1E90FF;
+    color: #000;
+   /* border: 1px solid #1E90FF;*/
    /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);*/ /* ظل عميق أسفل العنصر */
     z-index: 10; /* لجعله فوق العناصر الأخرى */
     transform: translateY(-1px); /* تحريك طفيف لأعلى ليبدو كأنه مرتفع */
