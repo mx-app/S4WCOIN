@@ -471,7 +471,7 @@ img {
     left: 50%;
     transform: translateX(-50%) translateY(100%); /* بداية من أسفل الشاشة */
     width: 85%;
-    height: 30vh;
+    height: 35vh;
     z-index: 10000;
     display: flex;
     flex-direction: column;
@@ -511,7 +511,6 @@ img {
 
 .popup-overlay button, .Autoclick-overlay button, .game-button {
     border-radius: 10px;
-    border: 0.50px solid #343434;
     width: 100%; /* التأكد من أن الأزرار تأخذ عرض الحاوية */
     height: 40px;
     color: #fff;
