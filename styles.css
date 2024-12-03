@@ -208,7 +208,7 @@ img {
 .Title {
     font-weight: bold;
     margin-top: 3px; /* المسافة بين العنوان والرصد */
-    font-size: 20px;
+    font-size: 23px;
     padding-bottom: 1px;
     color: #808080;
 }
@@ -1101,7 +1101,7 @@ img {
     margin-right: 25px;
 } 
  
-.text {
+.text, .text-promo {
     font-weight: bold;
     font-size: 15px;
     margin-right: 50px;
