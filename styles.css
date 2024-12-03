@@ -1092,4 +1092,10 @@ img {
     margin-left: 20px;
 }   
 
-
+.arrow-community {
+    width: 15px; 
+    height: 15px;
+    color: #808080;
+    margin-right: 25px;
+} 
+ 
