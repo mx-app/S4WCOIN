@@ -1407,8 +1407,6 @@ function openTaskLink(taskurl, callback) {
 /////////////////////////////////////
 
 
-
-
 function initializeTelegramIntegration() {
     const telegramApp = window.Telegram.WebApp;
 
@@ -1510,17 +1508,18 @@ function initializeTelegramIntegration() {
 
     // فتح الصفحة الرئيسية عند تحميل التطبيق
     window.addEventListener("load", () => {
-        const hash = window.location.hash.substring(1) || mainPageId;
-        navigateToPage(hash);
+        navigateToPage(mainPageId); // الانتقال إلى الصفحة الرئيسية تلقائيًا
 
         // تحديث سجل التنقل
-        history.replaceState({ target: hash }, "", `#${hash}`);
+        history.replaceState({ target: mainPageId }, "", `#${mainPageId}`);
+
+        // تحديث لون الهيدر افتراضيًا
+        telegramApp.setHeaderColor(mainPageHeaderColor);
     });
 }
 
 // استدعاء التهيئة عند تحميل الصفحة
 window.addEventListener("load", initializeTelegramIntegration);
-
 
 
 
