@@ -132,16 +132,14 @@
 }*/
 
  .icon-container {
+  margin-bottom: 30px; 
   display: inline-block;
-  padding-right: 30px;
   vertical-align: middle; /* محاذاة العمود */
 }
 
 .icon-container svg {
   position: absolute;
-  margin-right: 100px; /* وضع الأيقونة قبل النص */
-  top: 50%;
-  transform: translateY(-50%);
+  margin-left: 10px; /* وضع الأيقونة قبل النص */
   width: 25px; 
   height: 25px;
   color: #ffffff; /* لون الأيقونة */
