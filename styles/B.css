@@ -1,3 +1,23 @@
+button .effects {
+    position: absolute;
+    inset: -15px;
+    pointer-events: none;
+    mask: conic-gradient(
+        from var(--angle) at calc(50% + 15px) calc(50% + 15px), 
+        #0000 40%, 
+        #000 50%, 
+        #0000 60%
+    );
+    animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+    100% {
+        --angle: 360deg;
+    }
+}
+
+
 .badgee {
   position: absolute;
   top: 40px;
