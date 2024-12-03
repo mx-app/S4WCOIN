@@ -20,7 +20,7 @@
     font-weight: bold;
     border-radius: 24px;
     cursor: pointer;
-    border: 1px solid #1E90FF;
+   /* border: 1px solid #1E90FF;*/
     z-index: 10; /* لجعله فوق العناصر الأخرى */
     transform: translateY(-1px); /* تحريك طفيف لأعلى ليبدو كأنه مرتفع */
 } 
