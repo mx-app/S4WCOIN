@@ -134,8 +134,8 @@ img {
 } 
 
 .splash-title {
-    margin-top: 20px;
-    font-size: 45px;
+    top: 80%; 
+    font-size: 40px;
 }
 
 .splash-subtitle {
