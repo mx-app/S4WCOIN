@@ -291,7 +291,7 @@ img {
     background-clip: text;
     color: transparent;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 13px; /* حجم الخط */
+    font-size: 12px; /* حجم الخط */
     font-weight: bold; /* سمك الخط */
     text-align: left; /* المحاذاة لليسار */
     /*margin-right: 40px;
@@ -321,7 +321,7 @@ img {
     align-items: center;
     justify-content: center;
     margin-top: 0; 
-    margin-bottom: 20px;
+    margin-bottom: 35px;
     flex: 1;
 } 
  
