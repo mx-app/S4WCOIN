@@ -227,8 +227,8 @@ img {
 #balanceAmount::before {
     content: "";
     display: inline-block;
-    width: 60px; /* عرض الصورة */
-    height: 60px; /* ارتفاع الصورة */
+    width: 50px; /* عرض الصورة */
+    height: 50px; /* ارتفاع الصورة */
     background-image: url('i/l-coin.png'); /* رابط الصورة */
     background-size: contain;
     background-repeat: no-repeat;
@@ -318,7 +318,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 40px; 
+    margin-top: 28px; 
     /*margin-bottom: 40px;*/
     flex: 1;
 } 
