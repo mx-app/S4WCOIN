@@ -1407,17 +1407,18 @@ function openTaskLink(taskurl, callback) {
 /////////////////////////////////////
 
 
+
 function initializeTelegramIntegration() {
     const telegramApp = window.Telegram.WebApp;
 
     // التأكد من أن التطبيق جاهز
     telegramApp.ready();
 
-    // تعريف الصفحات
+    // تعريف الصفحات والألوان
     const mainPageId = "mainPage"; // الصفحة الرئيسية
     const defaultHeaderColor = "#000000"; // اللون الافتراضي (أسود)
     const mainPageHeaderColor = "#046be2"; // لون الهيدر للصفحة الرئيسية
-    const mainPages = ["mainPage", "tasksPage", "accountPage", "Puzzlespage"]; // الصفحات الرئيسية
+    const mainPages = ["mainPage", "tasksPage", "accountPage", "puzzlesPage"]; // الصفحات الرئيسية
 
     // تحديث زر الرجوع بناءً على الصفحة الحالية
     function updateBackButton() {
@@ -1506,15 +1507,13 @@ function initializeTelegramIntegration() {
         document.documentElement.style.setProperty('--text-color', '#000');
     }
 
-    // فتح الصفحة الرئيسية عند تحميل التطبيق
+    // فتح الصفحة الرئيسية وتحديث الهيدر افتراضيًا عند تحميل التطبيق
     window.addEventListener("load", () => {
-        navigateToPage(mainPageId); // الانتقال إلى الصفحة الرئيسية تلقائيًا
+        const hash = window.location.hash.substring(1) || mainPageId;
+        navigateToPage(hash);
 
         // تحديث سجل التنقل
-        history.replaceState({ target: mainPageId }, "", `#${mainPageId}`);
-
-        // تحديث لون الهيدر افتراضيًا
-        telegramApp.setHeaderColor(mainPageHeaderColor);
+        history.replaceState({ target: hash }, "", `#${hash}`);
     });
 }
 
