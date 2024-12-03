@@ -440,11 +440,10 @@ img {
 
 
 .confirmation-modal, .modal-content {
-    background-color: #161616;
+    background-color: #101010;
     backdrop-filter: blur(10px); 
     padding: 20px;
-    border-radius: 25px 25px 0 0; 
-    border-top: 2px solid #343434;
+    border-radius: 10px 18px 0 0; 
     text-align: center;
     position: fixed;
     bottom: 0;
@@ -463,8 +462,7 @@ img {
     background-color: #101010;
     backdrop-filter: blur(10px); 
     padding: 20px;
-    border-radius: 5px 5px 0 0; 
-    border-top: 2px solid #343434;
+    border-radius: 10px 10px 0 0; 
     text-align: center;
     position: fixed;
     bottom: 0;
@@ -531,7 +529,6 @@ img {
     backdrop-filter: blur(10px);
     padding: 20px;
     border-radius: 25px 25px 0 0;
-    border-top: 2px solid #343434;
     text-align: center;
     position: fixed;
     bottom: 0;
