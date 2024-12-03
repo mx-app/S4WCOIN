@@ -78,7 +78,7 @@
     display: flex; /* يتيح ترتيب الأيقونة والنص بجانب بعض */
     align-items: center; /* يجعل الأيقونة والنص متوسطي المحاذاة عموديًا */
     margin-left: 40px;
-    font-size: 15.5px;
+    font-size: 16.5px;
     color: #fff;
     font-weight: bold;
     background-color: #000;
