@@ -115,3 +115,17 @@
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* إضافة ظل */
     opacity: 1;
 }
+
+.icon-container {
+  display: inline-block;
+  margin-left: 8px; /* المسافة بين النص والأيقونة */
+  vertical-align: middle; /* محاذاة الأيقونة مع النص */
+}
+
+.icon-container svg {
+    width: 28px;
+    height: 28px;
+    color: #ffffff;
+    vertical-align: middle;
+} 
+ 
