@@ -1073,7 +1073,7 @@ img {
       left: 50%; /* البدء من منتصف الشاشة */
       transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
       width: 90%;
-      height: 35px;
+      height: 40px;
       font-weight: bold;
       background: #000;
       border-radius: 10px;
