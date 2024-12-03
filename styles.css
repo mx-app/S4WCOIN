@@ -265,8 +265,8 @@ img {
 } 
 
 .progress-bar {
-    width: 150px; 
-    height: 10px; 
+    width: 75%; 
+    height: 7px; 
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px); /* تأثير الضبابية */
     border-radius: 50px; /* شكل الشريط */
@@ -279,14 +279,14 @@ img {
     height: 100%; /* ارتفاع الشريط الداخلي */
     width: 100%; /* عرض الشريط الداخلي */
     /*background: linear-gradient(90deg, #794106, #9f620c, #d69a1c);*/
-    background:#fff; 
+    background:#000; 
     transition: width 0.5s ease;
 } 
 
 
 #energyInfo {
     background-color: transparent;
-    background: #fff;
+    background: #000;
     -webkit-background-clip: text; 
     background-clip: text;
     color: transparent;
