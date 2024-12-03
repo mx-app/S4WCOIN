@@ -296,12 +296,16 @@ img {
     margin-right: 40px;
     direction: rtl; /* الحفاظ على الاتجاه من اليمين لليسار */
     white-space: nowrap;
-    padding: 10px 5px;
-    background-color: #161616;
-    border-radius: 20px;
 }
  
- 
+ #maxEnergy {
+   font-weight: bold;
+   font-size: 15px;  
+   white-space: nowrap;
+   color: #1a1a1a;
+} 
+
+     
 .main-content {
     display: flex;
     flex-direction: column;
