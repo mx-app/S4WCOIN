@@ -9,6 +9,7 @@
     width: 25px;
     height: 25px;
     flex-shrink: 0;
+    color: #000; 
 }
 
 .wallet-button img {
