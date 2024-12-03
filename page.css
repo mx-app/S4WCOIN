@@ -13,7 +13,13 @@
 #mainPage {
     padding-top: 50px; /* يمكنك تغيير القيمة حسب الحاجة */
     background-clip: padding-box;
-    background: #1E90FF;
+    /* background: #1E90FF;*/
+    background: linear-gradient(
+        to bottom,
+        black, /* بداية التدرج من الأسود */
+        rgba(30, 144, 255, 0.7), /* الأزرق منتصف التدرج */
+        black /* النهاية من الأسود */
+    );
     /*background-image: url('i/pageee.jpg');
     background-size: cover;
     background-repeat: no-repeat;*/ /* لمنع تكرار الصورة */
