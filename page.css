@@ -15,8 +15,8 @@
     background-clip: padding-box;
     background: linear-gradient(
         to bottom,
-        #1568B1, /* بداية التدرج من الأسود */
-        #4AB8FF, /* الأزرق منتصف التدرج */
+        #046be2, /* بداية التدرج من الأسود */
+        #1d85d8, /* الأزرق منتصف التدرج */
         black
     );
 
