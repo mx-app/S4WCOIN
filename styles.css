@@ -206,8 +206,8 @@ img {
 
 .Title {
     font-weight: bold;
-    margin-bottom: 3px; /* المسافة بين العنوان والرصد */
-    font-size: 19px;
+    margin-top: 3px; /* المسافة بين العنوان والرصد */
+    font-size: 20px;
     padding-bottom: 1px;
     color: #808080;
 }
@@ -220,7 +220,7 @@ img {
     display: flex;
     align-items: center; /* لضبط المحاذاة الرأسية بين الصورة والنص */
     justify-content: center; /* لجعل النص والصورة في المنتصف */
-    margin-top: 3.5px; /* المسافة بين العنوان والرصيد */
+    margin-top: 3px; /* المسافة بين العنوان والرصيد */
 }
 
 
@@ -232,7 +232,7 @@ img {
     background-image: url('i/l-coin.png'); /* رابط الصورة */
     background-size: contain;
     background-repeat: no-repeat;
-    margin-right: 1px; /* مسافة بين الصورة والرقم */
+   /* margin-right: 1px;*//* مسافة بين الصورة والرقم */
 }
 
 
@@ -319,7 +319,7 @@ img {
     align-items: center;
     justify-content: center;
     margin-top: 0; 
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     flex: 1;
 } 
  
