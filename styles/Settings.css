@@ -118,13 +118,15 @@
 
 .icon-container {
   display: inline-block;
-  margin-left: 8px; /* المسافة بين النص والأيقونة */
+  /*margin-left: 8px;*//* المسافة بين النص والأيقونة */
   vertical-align: middle; /* محاذاة الأيقونة مع النص */
 }
 
 .icon-container svg {
-    width: 28px;
-    height: 28px;
+    position: absolute;
+    left: 5px;
+    width: 25px;
+    height: 25px;
     color: #ffffff;
     vertical-align: middle;
 } 
