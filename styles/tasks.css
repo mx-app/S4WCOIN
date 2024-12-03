@@ -16,11 +16,11 @@
 
 
 .loading-spinner {
-    border: 3px solid #1E90FF;
+    border: 2.5px solid #0088CC;
     border-top: 3px solid transparent;
     border-radius: 50%;
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     display: inline-block;
     animation: spin 1s linear infinite;
 }
