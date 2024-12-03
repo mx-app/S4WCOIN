@@ -40,7 +40,7 @@
     border-radius: 20px;
     /*border: 1px solid #343434;*/
     cursor: pointer;
-    width: 25%; /* عرض الزر */
+    width: 20%; /* عرض الزر */
     height: 100%; /* تأكد من أنه يغطي نفس ارتفاع خانة الإدخال */
     font-size: 13px;
     display: flex;
@@ -50,7 +50,7 @@
     overflow: hidden;
     -webkit-background-clip: text;
     background-clip: text;
-    margin-right: 10px;
+    margin-right: 1px;
 }
 
 .apply_PromoCode.loading {
