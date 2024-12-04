@@ -58,9 +58,9 @@
 }
 
 .daily-itemm i {
-/* width: 30px; 
-  height: 30px;*/  
-  font-size: 1.4rem;
+  width: 30px; 
+  height: 30px;
+/* font-size: 1.4rem;*/
   padding: 8px;
   border-radius: 10px; /* زوايا مستديرة */
   border: 1px solid #1a1a1a; 
