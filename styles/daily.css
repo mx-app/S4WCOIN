@@ -58,13 +58,18 @@
 }
 
 .daily-itemm i {
+  display: flex; /* يجعل العنصر حاويًا للعناصر داخله */
+  justify-content: center; /* التوسيط أفقيًا */
+  align-items: center; /* التوسيط عموديًا */
   width: 30px; 
   height: 30px;
   font-size: 1.5rem;
-  /*padding: 5px;*/
-  border-radius: 10px; 
+  padding: 5px;
+  border-radius: 10px; /* زوايا مستديرة */
   border: 1px solid #1a1a1a; 
+  box-sizing: border-box; /* لضمان أن الحواف ضمن الحجم المحدد */
 }
+ 
 
 .daily-imagee {
   width: 30px; /* يمكنك تغيير الحجم حسب الحاجة */
