@@ -230,7 +230,7 @@ img {
     display: inline-block;
     font-size: 30px; /* حجم النص */
     font-weight: 700; /* خط غامق */
-    color: #ccc; /* لون النص */
+    color: #fff; /* لون النص */
     margin-left: 2px; /* مسافة بين الرقم والنص */
     text-transform: uppercase; /* تحويل النص إلى أحرف كبيرة */
 }
@@ -246,7 +246,7 @@ img {
     margin-right: 0; 
 }*/
 .main-digits {
-    font-size: 38px; /* تكبير الرقم الأول */
+    font-size: 39px; /* تكبير الرقم الأول */
     font-weight: 900;
     background: linear-gradient(45deg, #1E90FF, #ffffff, #1E90FF); /* التدرج الأزرق-الأبيض */
     -webkit-background-clip: text; /* لتطبيق التدرج على النص فقط */
@@ -276,7 +276,7 @@ img {
 .remaining-digits {
     font-size: 30px; /* باقي الأرقام أصغر */
     font-weight: 700;
-    color: #ccc;
+    color: #fff;
     margin-left: 2px;
 }
 
