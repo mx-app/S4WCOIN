@@ -151,9 +151,8 @@ img {
 /* تصميم دائرة التحميل في المنتصف */
 .loading-spinnerr {
     position: fixed;
-    bottom: 120px;
-    left: 50%; /* وضع العنصر في المنتصف الأفقي */
-    transform: translateX(-50%); /* تحريك العنصر لليمين بمقدار نصف عرضه لضمان التوسيط */
+    bottom: 125px;
+   /* left: 50%;*/
     border: 4px solid rgba(255, 255, 255, 0.3); /* الحواف الشفافة */
     border-top: 4px solid white; /* اللون الأبيض في الجزء العلوي */
     border-radius: 50%; /* جعل الشكل دائريًا */
@@ -254,7 +253,7 @@ img {
     display: inline-block;
     font-size: 30px; /* حجم النص */
     font-weight: 700; /* خط غامق */
-    color: #808080; /* لون النص */
+    color: #ccc; /* لون النص */
     margin-left: 2px; /* مسافة بين الرقم والنص */
     text-transform: uppercase; /* تحويل النص إلى أحرف كبيرة */
 }
@@ -272,7 +271,7 @@ img {
 
  
 .main-digits {
-    font-size: 38px; 
+    font-size: 35px; 
     font-weight: 900;
     color: #fff;
 }
