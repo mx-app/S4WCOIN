@@ -290,7 +290,7 @@ img {
     background-clip: text;
     color: transparent;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 13px; /* حجم الخط */
+    font-size: 12px; /* حجم الخط */
     text-align: left; /* المحاذاة لليسار */
     /*margin-right: 40px;
     margin-bottom: 4px;*/
@@ -448,6 +448,7 @@ img {
 .confirmation-modal, .modal-content {
     background-color: #101010;
     padding: 20px;
+    font-weight: 500;
     border-radius: 10px 10px 0 0; 
     text-align: center;
     position: fixed;
