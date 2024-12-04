@@ -452,18 +452,23 @@ function updateUI() {
         maximumFractionDigits: 2 
     });
 
-    // تحليل الرقم إلى الأرقام الكبيرة والأرقام الصغيرة
     let mainDigits, remainingDigits;
-    if (gameState.balance >= 1_000_000) {
-        // الملايين: الرقم الأول كبير (1) وباقي الرقم متوسط
-        mainDigits = formattedBalance.slice(0, 1); // أول رقم
-        remainingDigits = formattedBalance.slice(1); // باقي الأرقام
+
+    // تحديد الجزء الرئيسي والجزء الباقي بناءً على الحجم
+    if (gameState.balance >= 1_000_000_000) {
+        // مليارات: الرقم الأول كبير
+        mainDigits = formattedBalance.split(",")[0]; // الرقم الأول فقط
+        remainingDigits = formattedBalance.slice(mainDigits.length); // باقي الأرقام
+    } else if (gameState.balance >= 1_000_000) {
+        // ملايين: الرقم الأول أو أول رقمين كبير
+        mainDigits = formattedBalance.split(",")[0]; // الرقم الأول فقط
+        remainingDigits = formattedBalance.slice(mainDigits.length); // باقي الأرقام
     } else if (gameState.balance >= 1_000) {
-        // الآلاف: أول 3 أرقام كبيرة
+        // آلاف: أول 3 أرقام كبيرة
         mainDigits = formattedBalance.split(",")[0]; // أول 3 أرقام
         remainingDigits = formattedBalance.slice(mainDigits.length); // باقي الأرقام
     } else {
-        // أقل من ألف: الرقم بالكامل عادي
+        // أقل من ألف: الرقم بالكامل
         mainDigits = formattedBalance;
         remainingDigits = "";
     }
