@@ -19,7 +19,7 @@
 .wallet-button {
     position: fixed;
     top: 10px; 
-    left: 35px;
+    left: 38px;
     z-index: 100;
     color: #000; 
     background-color: rgba(255, 255, 255, 0.001);
