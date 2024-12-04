@@ -124,8 +124,10 @@ img {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
     background: #000;
     background-size: cover;
     background-position: center;
@@ -149,16 +151,17 @@ img {
 }
 
 .loading-spinnerr {
-    position: relative; /* اجعل الموضع نسبيًا بدلًا من مطلق */
-    margin-top: auto; /* محاذاة مع باقي العناصر */
-    margin-bottom: 125px; /* المسافة المطلوبة من الأسفل */
-    border: 4px solid rgba(255, 255, 255, 0.3); /* الحواف الشفافة */
-    border-top: 4px solid white; /* اللون الأبيض في الجزء العلوي */
-    border-radius: 50%; /* جعل الشكل دائريًا */
+    position: absolute;
+    bottom: 125px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid white;
+    border-radius: 50%;
     width: 25px;
     height: 25px;
-    animation: spin 1s linear infinite; /* التحريك المستمر */
-}
+    animation: spin 1s linear infinite;
+} 
 
 /* حركة التدوير */
 @keyframes spin {
