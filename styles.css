@@ -248,7 +248,7 @@ img {
 .main-digits {
     font-size: 39px; /* تكبير الرقم الأول */
     font-weight: 900;
-    background: linear-gradient(45deg, #1E90FF, #ffffff, #1E90FF); /* التدرج الأزرق-الأبيض */
+    background: linear-gradient(45deg, #046be2, #ffffff, #046be2); /* التدرج الأزرق-الأبيض */
     -webkit-background-clip: text; /* لتطبيق التدرج على النص فقط */
     background-clip: text;
     color: transparent; /* جعل النص شفافًا حتى يظهر التدرج */
