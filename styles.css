@@ -1149,7 +1149,7 @@ img {
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent); /* جعل الشفافية أكثر */
     animation: shine 1.5s infinite;
-    animation-delay: 300s; /* التأثير يظهر كل 5 ثواني */
+    animation-delay: 85s; /* التأثير يظهر كل 5 ثواني */
 }
 
 @keyframes shine {
