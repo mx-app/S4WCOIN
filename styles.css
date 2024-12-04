@@ -151,7 +151,7 @@ img {
 
 .loading-spinnerr {
     position: fixed;
-    bottom: 50px;
+    bottom: 90px;
     left: 50%; /* وضعها في المنتصف من اليسار */
     transform: translateX(-50%); /* تصحيح المحاذاة */
     border: 4px solid rgba(255, 255, 255, 0.3); /* الحواف الشفافة */
