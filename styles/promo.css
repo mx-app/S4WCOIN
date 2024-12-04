@@ -1,5 +1,7 @@
 .promo-labl {
-    margin: 10px auto; /* مسافة من الأعلى والأسفل */
+    margin: 10px 0; /* مسافة من الأعلى والأسفل */
+    display: flex;
+    justify-content: center; /* توسيط الفاصل أفقياً */
 }
 
 .modal-labl {
