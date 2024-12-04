@@ -127,7 +127,6 @@ img {
     height: 100vh;
     width: 100vw;
     background: #000;
-   /* background-image: url('i/sssl.jpg');*/
     background-size: cover; 
     background-position: center;
     position: absolute;
@@ -149,14 +148,15 @@ img {
     width: 200px;
 }
 
+/* تصميم دائرة التحميل في المنتصف */
 .loading-spinnerr {
     position: fixed;
-    bottom: 90px;
-    left: 50%; /* وضعها في المنتصف من اليسار */
-    transform: translateX(-50%); /* تصحيح المحاذاة */
+    bottom: 120px;
+    left: 50%; /* وضع العنصر في المنتصف الأفقي */
+    transform: translateX(-50%); /* تحريك العنصر لليمين بمقدار نصف عرضه لضمان التوسيط */
     border: 4px solid rgba(255, 255, 255, 0.3); /* الحواف الشفافة */
     border-top: 4px solid white; /* اللون الأبيض في الجزء العلوي */
-    border-radius: 50%; /* لجعل الشكل دائريًا */
+    border-radius: 50%; /* جعل الشكل دائريًا */
     width: 25px;
     height: 25px;
     animation: spin 1s linear infinite; /* التحريك المستمر */
@@ -171,7 +171,6 @@ img {
         transform: rotate(360deg);
     }
 }
-
 
  
 /* شريط الطاقة */
