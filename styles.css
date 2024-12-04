@@ -127,7 +127,7 @@ img {
     height: 100vh;
     width: 100vw;
     background: #000;
-    background-size: cover; 
+    background-size: cover;
     background-position: center;
     position: absolute;
 } 
@@ -148,11 +148,12 @@ img {
     width: 200px;
 }
 
-/* تصميم دائرة التحميل في المنتصف */
+/* تعديل دائرة التحميل لتكون في المنتصف */
 .loading-spinnerr {
-    position: fixed;
+    position: absolute; /* استخدام position: absolute لضبط الموقع داخل splash-screen */
     bottom: 125px;
-   /* left: 50%;*/
+    left: 50%; /* وضعها في المنتصف أفقيًا */
+    transform: translate(-50%, -50%); /* تحريكها لمنتصف العنصر تمامًا */
     border: 4px solid rgba(255, 255, 255, 0.3); /* الحواف الشفافة */
     border-top: 4px solid white; /* اللون الأبيض في الجزء العلوي */
     border-radius: 50%; /* جعل الشكل دائريًا */
@@ -170,6 +171,7 @@ img {
         transform: rotate(360deg);
     }
 }
+
 
  
 /* شريط الطاقة */
