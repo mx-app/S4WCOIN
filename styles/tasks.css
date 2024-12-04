@@ -1,9 +1,9 @@
 .description-taskk {
     width: 100%;
     text-align: center;
-    padding-top: 5px;
+    padding-top: 3px;
     z-index: 50;
-    margin-top: 18px;
+    margin-top: 15px;
     position: relative; /* لإبقاء النص في موضعه فوق الصورة */
 }
 
