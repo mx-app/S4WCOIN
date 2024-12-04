@@ -60,8 +60,8 @@
 .daily-itemm i {
   width: 30px; 
   height: 30px;
-  font-size: 1.4rem;
-  padding: 8px;
+  font-size: 1.5rem;
+  padding: 5px;
   border-radius: 10px; /* زوايا مستديرة */
   border: 1px solid #1a1a1a; 
 } 
@@ -70,7 +70,7 @@
 .daily-imagee {
   width: 30px; /* يمكنك تغيير الحجم حسب الحاجة */
   height: 30px;
-  padding: 8px;
+  padding: 5px;
   border-radius: 10px; /* زوايا مستديرة */
   border: 1px solid #1a1a1a; /* حدود العنصر */
 }
