@@ -32,6 +32,10 @@
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* إضافة ظل */
 } 
 
+.wallet-button i {
+    font-size: 1.05rem;
+}  
+
 .wallet-container {
     display: flex;
     flex-direction: column;
