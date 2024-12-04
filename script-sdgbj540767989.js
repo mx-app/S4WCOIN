@@ -2003,6 +2003,9 @@ document.getElementById('applyPromoCode').addEventListener('click', async () => 
     const promoCodeInput = document.getElementById('promoCodeInput');
     const enteredCode = promoCodeInput.value;
 
+    // تهيئة الإعلانات
+    const AdController = window.Adsgram.init({ blockId: "int-5511" });
+
     // إخفاء نص الزر وعرض دائرة تحميل
     applyButton.innerHTML = '';  // إخفاء النص
     applyButton.classList.add('loading');  // إضافة الكلاس loading لعرض دائرة التحميل
@@ -2049,11 +2052,16 @@ document.getElementById('applyPromoCode').addEventListener('click', async () => 
                 return;
             }
 
-            // عرض علامة صح (✔️) عند النجاح
+            // عرض الإشعار بالمكافأة
             applyButton.innerHTML = '✔️';
-
-            // إظهار إشعار بالمكافأة
             showNotificationWithStatus(uiElements.purchaseNotification, `Successfully added ${reward} $S4W to your balance!`, 'win');
+
+            // عرض الإعلان بعد النجاح
+            AdController.show().then(() => {
+                console.log("Ad viewed successfully");
+            }).catch(err => {
+                console.error("Error showing ad:", err);
+            });
 
             // حفظ الحالة الحالية للعبة وتحديثها في قاعدة البيانات
             updateUI(); 
@@ -2062,14 +2070,17 @@ document.getElementById('applyPromoCode').addEventListener('click', async () => 
                 used_Promo_Codes: gameState.usedPromoCodes,
                 balance: gameState.balance,
             });
-
-            
         } else {
-            // عرض علامة خطأ (❌) عند البرومو كود غير صحيح
+            // عرض الإشعار عند البرومو كود غير صحيح
             applyButton.innerHTML = '❌';
-
-            // إظهار إشعار بالخطأ
             showNotification(uiElements.purchaseNotification, 'Invalid promo code.');
+
+            // عرض الإعلان عند الخطأ
+            AdController.show().then(() => {
+                console.log("Ad viewed successfully");
+            }).catch(err => {
+                console.error("Error showing ad:", err);
+            });
         }
     } catch (error) {
         console.error('Error fetching promo codes:', error);
@@ -2083,6 +2094,7 @@ document.getElementById('applyPromoCode').addEventListener('click', async () => 
         }, 3000);
     }
 });
+
 
 // دالة للتحقق من البرومو كود المستخدم من قاعدة البيانات
 async function checkIfPromoCodeUsed(enteredCode) {
