@@ -1416,7 +1416,6 @@ function initializeTelegramIntegration() {
     // تعريف الصفحات
     const mainPageId = "mainPage"; // الصفحة الرئيسية
     const defaultHeaderColor = "#000000"; // اللون الافتراضي (أسود)
-    const mainPageHeaderColor = "#046be2"; // لون الهيدر للصفحة الرئيسية
     const mainPages = ["mainPage", "boostsPage", "tasksPage", "accountPage", "Puzzlespage"]; // الصفحات الرئيسية
 
     // تحديث زر الرجوع بناءً على الصفحة الحالية
@@ -1438,13 +1437,8 @@ function initializeTelegramIntegration() {
     }
 
     // تحديث لون الهيدر بناءً على الصفحة
-    function updateHeaderColor() {
-        const currentPage = document.querySelector(".screen-content.active") || document.getElementById(mainPageId);
-        if (currentPage && currentPage.id === mainPageId) {
-            telegramApp.setHeaderColor(mainPageHeaderColor); // لون خاص للصفحة الرئيسية
-        } else {
-            telegramApp.setHeaderColor(defaultHeaderColor); // اللون الافتراضي لجميع الصفحات الأخرى
-        }
+     function updateHeaderColor() {
+          telegramApp.setHeaderColor(defaultHeaderColor); // اللون الافتراضي لجميع الصفحات
     }
 
     // التنقل إلى صفحة معينة

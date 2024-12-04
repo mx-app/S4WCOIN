@@ -1,3 +1,16 @@
+.promo-labl {
+    width: 100%;
+    margin: 10px 0; /* مسافة من الأعلى والأسفل */
+    display: flex;
+    justify-content: center; /* توسيط الفاصل أفقياً */
+}
+
+.modal-labl {
+    height: 1.5px; /* سمك الفاصل */
+    background-color: #1a1a1a; /* لون الفاصل */
+    width: 100%; /* عرض الفاصل */
+}
+
 .promo-code-button {
       display: flex;
       align-items: center;
@@ -39,7 +52,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid #fff;
+    border: 1px solid #000;
     width: 94%;
     height: 45px; /* تأكد من أن البوكس يحتوي على الحجم المطلوب */
     border-radius: 25px;
@@ -51,7 +64,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    margin-bottom: 30px;
+    margin-top: 40px;
 }
 
 .promo-input {

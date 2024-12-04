@@ -9,7 +9,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    top: 63px; 
+    top: 66px; 
     left: 15px; 
     width: 45%;
     height: 35px;
@@ -29,6 +29,10 @@
     box-shadow: 0 0 6px rgba(255, 255, 255, 0.4), 0 0 12px rgba(255, 255, 255, 0.3), 0 0 18px rgba(255, 255, 255, 0.2);
 }
 
+.Play-game-button i {
+    font-size: 1.3rem;
+    margin-right: 5px;
+} 
 
 .Gamess {
     max-height: 355px; /* تحديد ارتفاع ثابت للحاوية الداخلية */

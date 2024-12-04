@@ -391,15 +391,21 @@ img {
     position: relative;
     background: none;
     margin: 2px;
+    font-weight: 600;
     margin-bottom: 5px;
     opacity: 0.7; /* الشفافية البسيطة للزر الغير نشط */
 }
 
 .menu button.active {
-    color: #0088CC; /* اللون الأبيض للنص عند النشاط */
+    color: #fff; /* اللون الأبيض للنص عند النشاط */
     background: none;
     opacity: 1; /* إزالة الشفافية عند النشاط */
 }
+
+.menu button i {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+} 
 
 .menu button.active img {
     position: relative;
@@ -440,11 +446,9 @@ img {
 
 
 .confirmation-modal, .modal-content {
-    background-color: #161616;
-    backdrop-filter: blur(10px); 
+    background-color: #101010;
     padding: 20px;
-    border-radius: 25px 25px 0 0; 
-    border-top: 2px solid #343434;
+    border-radius: 10px 10px 0 0; 
     text-align: center;
     position: fixed;
     bottom: 0;
@@ -460,11 +464,9 @@ img {
 }
 
 .promo-content {
-    background-color: #101010;
-    backdrop-filter: blur(10px); 
+    background-color: #101010; 
     padding: 20px;
-    border-radius: 5px 5px 0 0; 
-    border-top: 2px solid #343434;
+    border-radius: 10px 10px 0 0; 
     text-align: center;
     position: fixed;
     bottom: 0;
@@ -531,7 +533,6 @@ img {
     backdrop-filter: blur(10px);
     padding: 20px;
     border-radius: 25px 25px 0 0;
-    border-top: 2px solid #343434;
     text-align: center;
     position: fixed;
     bottom: 0;
@@ -686,7 +687,7 @@ img {
     text-align: center;
  }
 
-#t, #Daily-earning {
+#Daily-earning {
     color: #808080; 
     font-size: 15px; 
     text-align: left;
@@ -694,6 +695,17 @@ img {
     margin-top: 10px;
     margin-right: auto;
     margin-left: 20px;
+}
+
+#t {
+    z-index: 100;
+    color: #808080; 
+    font-size: 15px; 
+    text-align: left;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-right: auto;
+    margin-left: 18px;
 }
 
 #puzzlessText {
@@ -870,9 +882,9 @@ img {
 
 #hourlyEarningsContainer {
     position: fixed;
-    top: 8px;
-    width: 90%;
-    height: 35px;
+    top: 11px;
+    width: 89%;
+    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1077,7 +1089,7 @@ img {
   font-size: 12px;
   line-height: 1.5;
   margin: 5px 0;
-  font-weight: 300;
+  font-weight: 400;
   color: #808080; 
 }
 
@@ -1122,5 +1134,5 @@ img {
 
 .text-promo {
     font-size: 15px;
-    margin-right: 75px;
+    margin-right: 65px;
 } 
