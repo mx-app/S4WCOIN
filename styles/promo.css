@@ -1,4 +1,5 @@
 .promo-labl {
+    width: 95%;
     margin: 10px 0; /* مسافة من الأعلى والأسفل */
     display: flex;
     justify-content: center; /* توسيط الفاصل أفقياً */
@@ -6,8 +7,8 @@
 
 .modal-labl {
     height: 1.5px; /* سمك الفاصل */
-    background-color: #808080; /* لون الفاصل */
-    width: 95%; /* عرض الفاصل */
+    background-color: #1a1a1a; /* لون الفاصل */
+    width: 100%; /* عرض الفاصل */
 }
 
 .promo-code-button {
