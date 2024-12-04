@@ -209,7 +209,7 @@ img {
     margin-top: 3px;
     font-size: 23px;
     padding-bottom: 1px;
-    color: #808080;
+    color: #ccc;
 }
 
 #balanceAmount {
@@ -226,8 +226,8 @@ img {
 #balanceAmount::before {
     content: "";
     display: inline-block;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     background-image: url('i/l-coin.png');
     background-size: contain;
     background-repeat: no-repeat;
