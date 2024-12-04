@@ -172,8 +172,8 @@
 }
 
 .logindaily-icon {
-    width: 15px;  /* حجم الصورة */
-    height: 15px;
+    width: 20px;  /* حجم الصورة */
+    height: 20px;
     margin-right: 2px; /* المسافة بين الصورة والنص */
     flex-shrink: 0;
 }
