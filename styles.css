@@ -460,8 +460,7 @@ img {
 }
 
 .promo-content {
-    background-color: #101010;
-    backdrop-filter: blur(10px); 
+    background-color: #101010; 
     padding: 20px;
     border-radius: 10px 10px 0 0; 
     text-align: center;
