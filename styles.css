@@ -1168,6 +1168,29 @@ img {
       transition: transform 0.2s, box-shadow 0.2s;
   } 
 
+.community-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+    animation: shine 2s infinite;
+}
+
+@keyframes shine {
+    0% {
+        left: -100%;
+    }
+    50% {
+        left: 50%;
+    }
+    100% {
+        left: 100%;
+    }
+} 
+
 .community-button i {
     font-size: 1.2rem;
   /* width: 25px; 
