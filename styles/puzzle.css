@@ -159,11 +159,9 @@
 }
 
 #Puzzlespage .puzzle-content {
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px); 
+    background-color: #101010; 
     padding: 10px; 
-    border-radius: 25px 25px 0 0;
-    border-top: 2px solid #343434;
+    border-radius: 10px 10px 0 0;
     color: #ffffff; 
     text-align: center;
     position: fixed;
@@ -341,6 +339,7 @@
 
 
  #Puz-to {
+    margin-top: 20px;
     margin-bottom: 35px; /* يمكنك تغيير القيمة حسب المسافة التي تريدها */
     font-weight: bold;
     font-size: 25px; 
