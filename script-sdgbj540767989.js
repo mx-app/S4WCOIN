@@ -446,10 +446,14 @@ async function registerNewUser(userTelegramId, userTelegramName) {
 
 // تحديث واجهة المستخدم بناءً على حالة اللعبة
 function updateUI() {
+    // استدعاء تأثير الكتابة لتحديث الرصيد الرئيسي
+    const targetBalance = gameState.balance;
+    typeBalance(targetBalance);
+
     // تنسيق الرصيد: استخدام toLocaleString مع الفواصل المناسبة
-    let formattedBalance = gameState.balance.toLocaleString("en-US", {
-        minimumFractionDigits: 0,  // لا نريد عرض الفواصل العشرية إذا لم تكن ضرورية
-        maximumFractionDigits: 0   // نفس الشيء هنا لإزالة الأصفار غير الضرورية
+    let formattedBalance = targetBalance.toLocaleString("en-US", {
+        minimumFractionDigits: 0, // لا نريد عرض الفواصل العشرية إذا لم تكن ضرورية
+        maximumFractionDigits: 0 // نفس الشيء هنا لإزالة الأصفار غير الضرورية
     });
 
     // تحديد الجزء الرئيسي والجزء الباقي بناءً على الحجم
@@ -500,7 +504,7 @@ function updateUI() {
             element.innerText = formattedBalance;
         }
     });
-    
+
     // تحديث شريط الطاقة
     if (uiElements.energyBar) {
         const energyPercent = (gameState.energy / gameState.maxEnergy) * 100;
@@ -2781,24 +2785,18 @@ function sendData(data) {
 
 function typeBalance(targetBalance) {
     const balanceElement = document.getElementById("balanceAmount");
-    let currentBalance = 0;
+    let currentBalance = parseFloat(balanceElement.textContent.replace(/,/g, "")) || 0;
 
-    // تحويل الرقم المستهدف إلى رقم صحيح مع الفواصل
-    const formattedTarget = parseFloat(targetBalance).toLocaleString("en-US");
-
-    // تقسم الرقم النهائي إلى أجزاء لتحديثه تدريجيًا
     const interval = setInterval(() => {
         if (currentBalance >= targetBalance) {
             clearInterval(interval);
-            balanceElement.textContent = formattedTarget; // عرض الرقم النهائي بالكامل
+            balanceElement.textContent = targetBalance.toLocaleString("en-US"); // عرض الرقم النهائي
         } else {
-            currentBalance += Math.ceil(targetBalance / 100); // زيادة تدريجية
+            currentBalance += Math.ceil((targetBalance - currentBalance) / 10); // الزيادة التدريجية
             balanceElement.textContent = currentBalance.toLocaleString("en-US"); // تحديث النص في كل خطوة
         }
-    }, 20); // تحديث الرقم كل 20 ملي ثانية
+    }, 30); // تحديث الرقم كل 30 ملي ثانية
 }
-
-
 
 
 // تفعيل التطبيق
