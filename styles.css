@@ -218,11 +218,23 @@ img {
     font-size: 32px;
     color: #fff;
     display: flex;
-    align-items: center; /* لضبط المحاذاة الرأسية بين الصورة والنص */
-    justify-content: center; /* لجعل النص والصورة في المنتصف */
+    align-items: baseline; /* لضبط المحاذاة الرأسية بين الرقم الرئيسي وباقي الأرقام */
+    justify-content: center;
     margin-top: 3px; /* المسافة بين العنوان والرصيد */
 }
 
+.main-digit {
+    font-size: 40px; /* تكبير الرقم الأول */
+    font-weight: 900;
+    color: #fff;
+}
+
+.remaining-digits {
+    font-size: 28px; /* حجم أصغر لباقي الأرقام */
+    font-weight: 700;
+    color: #ccc; /* لون باهت لباقي الأرقام */
+    margin-left: 2px; /* مسافة صغيرة بين الرقم الأول وباقي الأرقام */
+}
 
 #balanceAmount::before {
     content: "";
