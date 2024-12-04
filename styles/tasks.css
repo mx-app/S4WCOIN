@@ -1,14 +1,31 @@
+.description-taskk {
+    width: 100%;
+    text-align: center;
+    padding-top: 3px;
+    z-index: 50;
+    margin-top: 15px;
+    position: relative; /* لإبقاء النص في موضعه فوق الصورة */
+}
+
+.taskk-title {
+    font-size: 30px;
+    color: white; /* تأكد من أن النص يظهر بوضوح على الصورة */
+    z-index: 100; /* تأكد من أن النص فوق الصورة */
+}
+
 .TASKS-image {
     position: absolute; 
-    top: 50px; 
+    top: 15px;
     left: 50%;
-    transform: translateX(-50%); 
-    width: 300px;
-    height: 300px;
+    opacity: 0.5;
+    border-radius: 15px;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 150px;
     display: block;
-    margin-bottom: 20px; 
-    z-index: 0;
-} 
+    margin-bottom: 20px;
+    z-index: 0; /* تأكد من أن الصورة خلف النص */
+}
 
 
 .size-6 {
@@ -51,6 +68,7 @@
     text-align: center;
     width: 100%;
     max-width: 400px;
+    margin-top: 18px;
     margin-left: auto;
     margin-right: auto; /* لتوسيط الحاوية أفقيًا */
     /*padding: 10px;*/

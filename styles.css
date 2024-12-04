@@ -38,7 +38,7 @@ body {
    /* font-family: 'IBM Plex Mono',sans-serif ;
     font-weight: 700;*//* لتحديد وزن الخط */
     font-family: 'Rubik', sans-serif;
-    font-weight: 700;
+    font-weight: 500;
     background-color: #000;
     color: #fff;
     display: flex;
@@ -134,8 +134,9 @@ img {
 } 
 
 .splash-title {
-    margin-top: 20px;
-    font-size: 45px;
+    top: 80%; 
+    font-size: 40px;
+    font-weight: 500;
 }
 
 .splash-subtitle {
@@ -143,8 +144,8 @@ img {
 }
 
 .splash-loading img {
-    top: 70%; 
-    width: 300px;
+    top: 30%; 
+    width: 200px;
 }
  
 /* شريط الطاقة */
@@ -205,16 +206,15 @@ img {
 }
 
 .Title {
-    font-weight: bold;
     margin-top: 3px; /* المسافة بين العنوان والرصد */
-    font-size: 20px;
+    font-size: 23px;
     padding-bottom: 1px;
     color: #808080;
 }
 
 #balanceAmount {
     font-family: 'JetBrains Mono', monospace;
-    font-weight: 800;
+    font-weight: 900;
     font-size: 32px;
     color: #fff;
     display: flex;
@@ -264,8 +264,8 @@ img {
 } 
 
 .progress-bar {
-    width: 150px; 
-    height: 10px; 
+    width: 50%; 
+    height: 7px; 
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px); /* تأثير الضبابية */
     border-radius: 50px; /* شكل الشريط */
@@ -278,28 +278,27 @@ img {
     height: 100%; /* ارتفاع الشريط الداخلي */
     width: 100%; /* عرض الشريط الداخلي */
     /*background: linear-gradient(90deg, #794106, #9f620c, #d69a1c);*/
-    background:#fff; 
+    background:#000; 
     transition: width 0.5s ease;
 } 
 
 
 #energyInfo {
     background-color: transparent;
-    background: #fff;
+    background: #000;
     -webkit-background-clip: text; 
     background-clip: text;
     color: transparent;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 16px; /* حجم الخط */
-    font-weight: bold; /* سمك الخط */
+    font-size: 13px; /* حجم الخط */
     text-align: left; /* المحاذاة لليسار */
-    margin-right: 40px;
+    /*margin-right: 40px;
+    margin-bottom: 4px;*/
     direction: rtl; /* الحفاظ على الاتجاه من اليمين لليسار */
     white-space: nowrap;
 }
  
  #maxEnergy {
-   font-weight: bold;
    font-size: 15px;  
    white-space: nowrap;
    color: #1a1a1a;
@@ -319,7 +318,7 @@ img {
     align-items: center;
     justify-content: center;
     margin-top: 0; 
-    margin-bottom: 20px;
+    margin-bottom: 35px;
     flex: 1;
 } 
  
@@ -339,7 +338,6 @@ img {
     position: absolute;
     color: #fff; /* لون النص */
     font-size: 30px; /* حجم النص */
-    font-weight: bold; /* خط عريض */
     pointer-events: none; /* تعطيل التفاعل */
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* إضافة ظل للنص */
     z-index: 1000;
@@ -384,7 +382,6 @@ img {
     padding: 4px;
     box-sizing: border-box; 
     font-size: 10px;
-    font-weight: bold;
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -394,15 +391,21 @@ img {
     position: relative;
     background: none;
     margin: 2px;
+    font-weight: 600;
     margin-bottom: 5px;
     opacity: 0.7; /* الشفافية البسيطة للزر الغير نشط */
 }
 
 .menu button.active {
-    color: #0088CC; /* اللون الأبيض للنص عند النشاط */
+    color: #fff; /* اللون الأبيض للنص عند النشاط */
     background: none;
     opacity: 1; /* إزالة الشفافية عند النشاط */
 }
+
+.menu button i {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+} 
 
 .menu button.active img {
     position: relative;
@@ -444,10 +447,8 @@ img {
 
 .confirmation-modal, .modal-content {
     background-color: #101010;
-    backdrop-filter: blur(10px); 
     padding: 20px;
-    border-radius: 25px 25px 0 0; 
-    border-top: 2px solid #343434;
+    border-radius: 10px 10px 0 0; 
     text-align: center;
     position: fixed;
     bottom: 0;
@@ -461,6 +462,24 @@ img {
     justify-content: space-between;
     animation: slideUp 0.5s ease-out forwards; /* إضافة تأثير التحريك */
 }
+
+.promo-content {
+    background-color: #101010; 
+    padding: 20px;
+    border-radius: 10px 10px 0 0; 
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(100%); /* بداية من أسفل الشاشة */
+    width: 85%;
+    height: 35vh;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    animation: slideUp 0.5s ease-out forwards; /* إضافة تأثير التحريك */
+} 
 
 /* تأثير التحريك من الأسفل */
 @keyframes slideUp {
@@ -494,11 +513,9 @@ img {
 
 .popup-overlay button, .Autoclick-overlay button, .game-button {
     border-radius: 10px;
-    border: 0.50px solid #343434;
     width: 100%; /* التأكد من أن الأزرار تأخذ عرض الحاوية */
     height: 40px;
     color: #fff;
-    font-weight: bold;
     background-color: rgba(0, 0, 0, 0.9);
     margin: 10px 0; /* المسافة بين الأزرار */
 }
@@ -511,11 +528,11 @@ img {
 }
 
 .popup-content, .Autoclick-content {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: #161616;
+   /* background-color: rgba(255, 255, 255, 0.1);*/
     backdrop-filter: blur(10px);
     padding: 20px;
     border-radius: 25px 25px 0 0;
-    border-top: 2px solid #343434;
     text-align: center;
     position: fixed;
     bottom: 0;
@@ -535,7 +552,6 @@ img {
     top: 10px;
     right: 20px;
     font-size: 24px;
-    font-weight: bold;
     color: white;
     cursor: pointer;
 }
@@ -578,7 +594,6 @@ img {
     top: 10px;
     right: 20px;
     font-size: 24px;
-    font-weight: bold;
     color: white;
     cursor: pointer;
 }
@@ -672,7 +687,7 @@ img {
     text-align: center;
  }
 
-#t, #Daily-earning {
+#Daily-earning {
     color: #808080; 
     font-size: 15px; 
     text-align: left;
@@ -680,6 +695,17 @@ img {
     margin-top: 10px;
     margin-right: auto;
     margin-left: 20px;
+}
+
+#t {
+    z-index: 100;
+    color: #808080; 
+    font-size: 15px; 
+    text-align: left;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-right: auto;
+    margin-left: 18px;
 }
 
 #puzzlessText {
@@ -721,8 +747,16 @@ img {
     border-right: 2px solid #fff;
 }*/
 
-#task, #Gem {
+#Gem {
     color: #808080; /* لون النص */
+    font-size: 15px; /* حجم الخط */
+    margin-top: 5px; /* إزالة المسافة من الأعلى */
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#task {
+    color: #fff; /* لون النص */
     font-size: 15px; /* حجم الخط */
     margin-top: 5px; /* إزالة المسافة من الأعلى */
     margin-bottom: 10px;
@@ -848,9 +882,9 @@ img {
 
 #hourlyEarningsContainer {
     position: fixed;
-    top: 8px;
-    width: 90%;
-    height: 35px;
+    top: 11px;
+    width: 89%;
+    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -910,7 +944,6 @@ img {
 
 #currentLevelCoins {
     font-size: 10px;
-    font-weight: bold;
     white-space: nowrap;
     margin-bottom: 5px;
     color: #808080;
@@ -947,7 +980,6 @@ img {
 
 #earningsLabel {
     font-size: 10px;
-    font-weight: bold;
     margin: 0; /* إزالة أي هوامش */
     padding: 0; /* إزالة الحشوات */
     line-height: 1; /* تقليل المسافة بين الأسطر */
@@ -956,7 +988,6 @@ img {
 
 #earningsText {
     font-size: 10px;
-    font-weight: bold;
     margin: 0; /* إزالة أي هوامش */
     padding: 0; /* إزالة الحشوات */
     line-height: 1; /* تقليل المسافة بين الأسطر */
@@ -981,7 +1012,6 @@ img {
 #invitedCount, #i {
     color: #fff;
     font-size: 15px;
-    font-weight: bold;
 }
 
 /*.friends-list {
@@ -1042,7 +1072,6 @@ img {
   border-radius: 10px;
   width: 87%;
   height: 60px;
-  font-weight: bold;
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
@@ -1052,7 +1081,6 @@ img {
 
 .invite-header h3 {
   font-size: 18px;
-  font-weight: bold;
   margin-bottom: 5px;
   color: #fff; /* لون النص البارز */
 }
@@ -1061,6 +1089,7 @@ img {
   font-size: 12px;
   line-height: 1.5;
   margin: 5px 0;
+  font-weight: 400;
   color: #808080; 
 }
 
@@ -1080,7 +1109,6 @@ img {
       text-decoration: none;
       color: #fff;
       font-size: 15px;
-      font-weight: bold;
       border: 1px solid #1a1a1a;
       transition: transform 0.2s, box-shadow 0.2s;
   } 
@@ -1100,8 +1128,11 @@ img {
 } 
  
 .text {
-    font-weight: bold;
     font-size: 15px;
     margin-right: 50px;
 } 
 
+.text-promo {
+    font-size: 15px;
+    margin-right: 65px;
+} 

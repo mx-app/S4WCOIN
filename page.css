@@ -6,7 +6,7 @@
     bottom: 0; /* تبدأ من أسفل الشاشة */
     left: 0; /* تبدأ من الحافة اليسرى */
     background: #000000; /* اللون الخلفي */
-    border-radius: 18px 18px 0 0; /* حواف علوية دائرية فقط */
+    border-radius: 23px 23px 0 0; /* حواف علوية دائرية فقط */
    /* box-shadow: 0 -10px 15px rgba(0, 0, 0, 0.5);*/ /* إضافة ظل علوي */
 }
 
@@ -15,6 +15,8 @@
     background-clip: padding-box;
     background: linear-gradient(
         to bottom,
+        #000, 
+        #046be2, 
         #046be2, /* بداية التدرج من الأسود */
         #1d85d8, /* الأزرق منتصف التدرج */
         black

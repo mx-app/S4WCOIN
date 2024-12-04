@@ -72,7 +72,7 @@
     justify-content: center; /* توسيط أفقي */
     gap: 8px; /* مسافة بين الصورة والنص */
     width: 90%; 
-    height: 45px;
+    height: 48px;
     background-color: #1E90FF;
     color: #fff;
     padding: 20px;
@@ -95,7 +95,7 @@
     justify-content: center; /* توسيط أفقي */
     gap: 8px; /* مسافة بين الصورة والنص */
     width: 25%; 
-    height: 45px;
+    height: 48px;
     background-color: #1E90FF;
     color: #fff;
    /* border: 0.50px solid #343434;*/

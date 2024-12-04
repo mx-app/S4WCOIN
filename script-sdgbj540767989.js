@@ -787,7 +787,7 @@ function navigateToScreen(screenId) {
     if (targetScreen) targetScreen.classList.add('active');
 
     // تحقق إذا كانت الصفحة هي واحدة من الصفحات التي لا تحتوي على القائمة السفلية
-    const pagesWithoutFooter = ['boostsPage', 'levelPage', 'gamePage', 'miningPage', 'walletPage']; // الصفحات التي لا تحتوي على القائمة السفلية
+    const pagesWithoutFooter = ['levelPage', 'gamePage', 'miningPage', 'walletPage']; // الصفحات التي لا تحتوي على القائمة السفلية
     const isFooterPage = !pagesWithoutFooter.includes(screenId); // إذا كانت الصفحة ليست ضمن هذه القائمة
 
     // إخفاء أو إظهار القائمة السفلية بناءً على ما إذا كانت الصفحة تحتوي على القائمة السفلية أم لا
@@ -799,11 +799,11 @@ function navigateToScreen(screenId) {
     }
 
     // إضافة منطق خاص لصفحة "boostsPage" إذا لزم الأمر
-    if (screenId === 'boostsPage') {
-        if (uiElements.boostUpgradeBtn) uiElements.boostUpgradeBtn.style.display = 'block';
-        if (uiElements.coinUpgradeBtn) uiElements.coinUpgradeBtn.style.display = 'block';
-        if (uiElements.fillEnergyUpgradeBtn) uiElements.fillEnergyUpgradeBtn.style.display = 'block';
-    }
+    //if (screenId === 'boostsPage') {
+      //  if (uiElements.boostUpgradeBtn) uiElements.boostUpgradeBtn.style.display = 'block';
+     //   if (uiElements.coinUpgradeBtn) uiElements.coinUpgradeBtn.style.display = 'block';
+     //   if (uiElements.fillEnergyUpgradeBtn) uiElements.fillEnergyUpgradeBtn.style.display = 'block';
+   // }
 }
 
 
@@ -1416,8 +1416,7 @@ function initializeTelegramIntegration() {
     // تعريف الصفحات
     const mainPageId = "mainPage"; // الصفحة الرئيسية
     const defaultHeaderColor = "#000000"; // اللون الافتراضي (أسود)
-    const mainPageHeaderColor = "#046be2"; // لون الهيدر للصفحة الرئيسية
-    const mainPages = ["mainPage", "tasksPage", "accountPage", "Puzzlespage"]; // الصفحات الرئيسية
+    const mainPages = ["mainPage", "boostsPage", "tasksPage", "accountPage", "Puzzlespage"]; // الصفحات الرئيسية
 
     // تحديث زر الرجوع بناءً على الصفحة الحالية
     function updateBackButton() {
@@ -1438,13 +1437,8 @@ function initializeTelegramIntegration() {
     }
 
     // تحديث لون الهيدر بناءً على الصفحة
-    function updateHeaderColor() {
-        const currentPage = document.querySelector(".screen-content.active") || document.getElementById(mainPageId);
-        if (currentPage && currentPage.id === mainPageId) {
-            telegramApp.setHeaderColor(mainPageHeaderColor); // لون خاص للصفحة الرئيسية
-        } else {
-            telegramApp.setHeaderColor(defaultHeaderColor); // اللون الافتراضي لجميع الصفحات الأخرى
-        }
+     function updateHeaderColor() {
+          telegramApp.setHeaderColor(defaultHeaderColor); // اللون الافتراضي لجميع الصفحات
     }
 
     // التنقل إلى صفحة معينة
@@ -2004,8 +1998,6 @@ function showContent(contentId) {
 ///////////////////////////////////////
 
 
-
-
 document.getElementById('applyPromoCode').addEventListener('click', async () => {
     const applyButton = document.getElementById('applyPromoCode');
     const promoCodeInput = document.getElementById('promoCodeInput');
@@ -2142,6 +2134,16 @@ async function addPromoCodeToUsed(enteredCode) {
     console.log('Promo code added to used list successfully.');
     return true;
 }
+
+document.getElementById('promocodeBtu').addEventListener('click', function() {
+    document.getElementById('promoContainer').classList.remove('hidden');
+});
+
+// إغلاق النافذة عند النقر على زر الإغلاق
+document.getElementById('promocloseModal').addEventListener('click', () => {
+    document.getElementById('promoContainer').classList.add('hidden');
+});
+
 
 
 /////////////////////////////////////////

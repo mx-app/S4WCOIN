@@ -5,9 +5,9 @@
     margin: 0 auto;
 } 
 
-.wallet-icon {
-    width: 25px;
-    height: 25px;
+.icon-wallet {
+    width: 27px;
+    height: 27px;
     flex-shrink: 0;
     color: #000; 
 }
@@ -18,8 +18,8 @@
 
 .wallet-button {
     position: fixed;
-    top: 10px; 
-    left: 35px;
+    top: 18px; 
+    left: 38px;
     z-index: 100;
     color: #000; 
     background-color: rgba(255, 255, 255, 0.001);
@@ -31,6 +31,10 @@
 .wallet-button:hover {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* إضافة ظل */
 } 
+
+.wallet-button i {
+    font-size: 1.3rem;
+}  
 
 .wallet-container {
     display: flex;

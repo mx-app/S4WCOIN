@@ -18,7 +18,7 @@
     transition: padding 0.2s ease; /* تأثير بسيط عند التمدد */
     min-width: 50px; /* عرض أدنى للعنصر */
     white-space: nowrap; /* لمنع النص من الانتقال إلى سطر جديد */
-    z-index: 10000;
+    z-index: 1000;
 }
 
 /* تأثير الضباب والتوهج عند عدم التفعيل */
@@ -159,11 +159,9 @@
 }
 
 #Puzzlespage .puzzle-content {
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px); 
+    background-color: #101010; 
     padding: 10px; 
-    border-radius: 25px 25px 0 0;
-    border-top: 2px solid #343434;
+    border-radius: 10px 10px 0 0;
     color: #ffffff; 
     text-align: center;
     position: fixed;
@@ -326,7 +324,7 @@
 }
 
 #puzzleQuestion {
-    font-size: 25px; /* حجم الخط أكبر */
+    font-size: 22px; /* حجم الخط أكبر */
     font-weight: bold; /* لجعل النص عريض */
     margin-bottom: 5px; /* إضافة بعض المسافة تحت السؤال */
     text-align: center; /* لتوسيط السؤال */
@@ -341,9 +339,10 @@
 
 
  #Puz-to {
-    margin-bottom: 35px; /* يمكنك تغيير القيمة حسب المسافة التي تريدها */
+    margin-top: 20px;
+    margin-bottom: 15px; /* يمكنك تغيير القيمة حسب المسافة التي تريدها */
     font-weight: bold;
-    font-size: 25px; 
+    font-size: 20px; 
 }
 
 .puzzle-icon {

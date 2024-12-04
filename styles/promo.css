@@ -1,12 +1,62 @@
+.promo-labl {
+    width: 100%;
+    margin: 10px 0; /* مسافة من الأعلى والأسفل */
+    display: flex;
+    justify-content: center; /* توسيط الفاصل أفقياً */
+}
+
+.modal-labl {
+    height: 1.5px; /* سمك الفاصل */
+    background-color: #1a1a1a; /* لون الفاصل */
+    width: 100%; /* عرض الفاصل */
+}
+
+.promo-code-button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: absolute; /* تموضع مطلق */
+      bottom: 130px; /* المسافة من أسفل الشاشة */
+      left: 50%; /* البدء من منتصف الشاشة */
+      transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
+      width: 90%;
+      height: 43px;
+      font-weight: bold;
+      background: #000;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 15px;
+      font-weight: bold;
+      border: 1px solid #1a1a1a;
+      transition: transform 0.2s, box-shadow 0.2s;
+  } 
+
+.icon-promo {
+    width: 25px; 
+    height: 25px;
+    color: #fff;
+    margin-left: 15px;
+}   
+
+.arrow-promo {
+    width: 20px; 
+    height: 20px;
+    color: #808080;
+    margin-right: 20px;
+} 
+
+
 .promo-box {
     position: relative; /* لجعل الزر يتمركز فوق خانة الإدخال */
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #1a1a1a;
+    border: 1px solid #000;
     width: 94%;
     height: 45px; /* تأكد من أن البوكس يحتوي على الحجم المطلوب */
     border-radius: 25px;
+    margin-bottom: 150px;
 }
 
 .promo-input-container {
@@ -14,11 +64,11 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    margin-bottom: 30px;
+    margin-top: 40px;
 }
 
 .promo-input {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 1);
     width: 100%; /* جعل العرض 100% لكي يتم التغطية بالكامل */
     height: 100%;
     font-size: 15px;
@@ -40,7 +90,7 @@
     border-radius: 20px;
     /*border: 1px solid #343434;*/
     cursor: pointer;
-    width: 25%; /* عرض الزر */
+    width: 20%; /* عرض الزر */
     height: 100%; /* تأكد من أنه يغطي نفس ارتفاع خانة الإدخال */
     font-size: 13px;
     display: flex;
@@ -50,7 +100,7 @@
     overflow: hidden;
     -webkit-background-clip: text;
     background-clip: text;
-    margin-right: 10px;
+    margin-right: 1px;
 }
 
 .apply_PromoCode.loading {
