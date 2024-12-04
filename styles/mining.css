@@ -24,6 +24,11 @@
     box-shadow: 0 0 6px rgba(255, 255, 255, 0.4), 0 0 12px rgba(255, 255, 255, 0.3), 0 0 18px rgba(255, 255, 255, 0.2);
 }
 
+.miningPage-button i {
+    font-size: 1.1rem;
+    margin-right: 5px;
+}  
+
 .arrow-mining {
     font-size: 10px; /* تخصيص حجم السهم */
     margin-left: 10px; /* المسافة بين السهم والمحتوى */
