@@ -684,7 +684,7 @@ img {
     text-align: center;
  }
 
-#t, #Daily-earning {
+#Daily-earning {
     color: #808080; 
     font-size: 15px; 
     text-align: left;
@@ -692,6 +692,17 @@ img {
     margin-top: 10px;
     margin-right: auto;
     margin-left: 20px;
+}
+
+#t {
+    z-index: 100;
+    color: #808080; 
+    font-size: 15px; 
+    text-align: left;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-right: auto;
+    margin-left: 18px;
 }
 
 #puzzlessText {
