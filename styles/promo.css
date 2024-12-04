@@ -1,12 +1,10 @@
 .promo-labl {
-    left: 50%; /* البدء من منتصف الشاشة */
-    transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
-    margin: 10px 0; /* مسافة من الأعلى والأسفل */
+    margin: 10px auto; /* مسافة من الأعلى والأسفل */
 }
 
 .modal-labl {
     height: 1.5px; /* سمك الفاصل */
-    background-color: #161616; /* لون الفاصل */
+    background-color: #808080; /* لون الفاصل */
     width: 95%; /* عرض الفاصل */
 }
 
