@@ -2056,12 +2056,14 @@ document.getElementById('applyPromoCode').addEventListener('click', async () => 
             applyButton.innerHTML = '✔️';
             showNotificationWithStatus(uiElements.purchaseNotification, `Successfully added ${reward} $S4W to your balance!`, 'win');
 
-            // عرض الإعلان بعد النجاح
-            AdController.show().then(() => {
-                console.log("Ad viewed successfully");
-            }).catch(err => {
-                console.error("Error showing ad:", err);
-            });
+            // تأخير بسيط قبل عرض الإعلان
+            setTimeout(() => {
+                AdController.show().then(() => {
+                    console.log("Ad viewed successfully");
+                }).catch(err => {
+                    console.error("Error showing ad:", err);
+                });
+            }, 2000); // تأخير بمقدار 2000 ملي ثانية (2 ثانية)
 
             // حفظ الحالة الحالية للعبة وتحديثها في قاعدة البيانات
             updateUI(); 
@@ -2075,12 +2077,14 @@ document.getElementById('applyPromoCode').addEventListener('click', async () => 
             applyButton.innerHTML = '❌';
             showNotification(uiElements.purchaseNotification, 'Invalid promo code.');
 
-            // عرض الإعلان عند الخطأ
-            AdController.show().then(() => {
-                console.log("Ad viewed successfully");
-            }).catch(err => {
-                console.error("Error showing ad:", err);
-            });
+            // تأخير بسيط قبل عرض الإعلان
+            setTimeout(() => {
+                AdController.show().then(() => {
+                    console.log("Ad viewed successfully");
+                }).catch(err => {
+                    console.error("Error showing ad:", err);
+                });
+            }, 2000); // تأخير بمقدار 2000 ملي ثانية (2 ثانية)
         }
     } catch (error) {
         console.error('Error fetching promo codes:', error);
@@ -2091,9 +2095,10 @@ document.getElementById('applyPromoCode').addEventListener('click', async () => 
             applyButton.innerHTML = 'Apply';
             applyButton.classList.remove('loading');
             spinner.remove();
-        }, 3000);
+        }, 2000);
     }
 });
+
 
 
 // دالة للتحقق من البرومو كود المستخدم من قاعدة البيانات
