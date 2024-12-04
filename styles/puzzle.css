@@ -324,7 +324,7 @@
 }
 
 #puzzleQuestion {
-    font-size: 25px; /* حجم الخط أكبر */
+    font-size: 22px; /* حجم الخط أكبر */
     font-weight: bold; /* لجعل النص عريض */
     margin-bottom: 5px; /* إضافة بعض المسافة تحت السؤال */
     text-align: center; /* لتوسيط السؤال */
@@ -340,9 +340,9 @@
 
  #Puz-to {
     margin-top: 20px;
-    margin-bottom: 35px; /* يمكنك تغيير القيمة حسب المسافة التي تريدها */
+    margin-bottom: 15px; /* يمكنك تغيير القيمة حسب المسافة التي تريدها */
     font-weight: bold;
-    font-size: 25px; 
+    font-size: 20px; 
 }
 
 .puzzle-icon {
