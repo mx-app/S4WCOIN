@@ -447,14 +447,14 @@ async function registerNewUser(userTelegramId, userTelegramName) {
 // تحديث واجهة المستخدم بناءً على حالة اللعبة
 function updateUI() {
     // تنسيق الرصيد
-    const formattedBalance = gameState.balance.toLocaleString("en-US", { 
-        minimumFractionDigits: 2, 
-        maximumFractionDigits: 2 
+    let formattedBalance = gameState.balance.toLocaleString("en-US", { 
+        minimumFractionDigits: 1,  // تحديد الحد الأدنى للفواصل العشرية
+        maximumFractionDigits: 1   // تحديد الحد الأقصى للفواصل العشرية
     });
 
+    // تحديد الجزء الرئيسي والجزء الباقي بناءً على الحجم
     let mainDigits, remainingDigits;
 
-    // تحديد الجزء الرئيسي والجزء الباقي بناءً على الحجم
     if (gameState.balance >= 1_000_000_000) {
         // مليارات: الرقم الأول كبير
         mainDigits = formattedBalance.split(",")[0]; // الرقم الأول فقط
@@ -500,7 +500,6 @@ function updateUI() {
             element.innerText = formattedBalance;
         }
     });
-
     
     // تحديث شريط الطاقة
     if (uiElements.energyBar) {
