@@ -47,12 +47,6 @@
     <div id="mainPage" class="screen-content active">
         <main class="main-content">
             <div id="balanceContainer" class="balance-container"></div>
-                <!-- معلومات التطبيق (اختياري) -->
-                <!--<div class="app-info">
-                    <img src="i/coinn1.png" alt="App Logo" class="app-logo">
-                    <h1 class="app-name">SAW-COIN</h1>
-                </div>--> 
-
                 <div id="hourlyEarningsContainer">
                     <div class="left-section">
                         <p id="earningsLabel">Profit Per Hour</p>
@@ -300,37 +294,13 @@
             <p id="i">(Invited Friends) : <span id="invitedCount">0</span></p>
             <ul id="friendsList" class="friends-list"></ul>
             
-                 <!-- New Invite Reward Fields -->
-           <!-- <div class="invite-rewards">
-                <div class="reward">
-                   <span class="invite-text">(Invite 1 Friend)</span>
-                    <div class="coin-info">
-                    <span class="coin-text">+5,000</span>
-                    <span class="coin-label"> SP</span> 
-                </div>
-             </div>
-           <div class="reward">
-             <span class="invite-text">(Invite 5 Friends)</span>
-                <div class="coin-info">
-                  <span class="coin-text">+30,000</span>
-                    <span class="coin-label"> SP</span> 
-             </div>
-           </div>
-          <div class="reward">
-             <span class="invite-text">(Invite 10 Friends)</span>
-               <div class="coin-info">
-                 <span class="coin-text">+100,000</span>
-                   <span class="coin-label"> SP</span> 
-             </div>
-           </div>
-          </div> -->
          </div>
 
         
                <!-- Tasks Page -->
-         <div id="tasksPage" class="screen-content scrollable">
-             <div id="globalNavbar">
-        <div id="balanceContainer">
+      <div id="tasksPage" class="screen-content scrollable">
+        <div id="globalNavbar">
+          <div id="balanceContainer">
             <span id="tasknavbarBalanceDisplay">0.00</span> <!-- الرصيد -->
          </div>
               <div id="earnContainer">
@@ -339,14 +309,14 @@
          </div>
          <img src="i/vv.jpg" alt="User Image" class="TASKS-image">
 
-         <div class="description-taskk">
+          <div class="description-taskk">
            <p class="taskk-title">TASKS</p>
-        </div>  
-          <section id="taskcontainer" class="task-container">
-              <p id="t"> Complete Daily Tasks </p>
-                <!--<div class="tasks">-->
-      </section>
-    </div>
+          </div>  
+        <section id="taskcontainer" class="task-container">
+           <p id="t"> Complete Daily Tasks </p>
+              
+     </section>
+  </div>
 
          <!-- Puzzle Page -->
    <div id="Puzzlespage" class="screen-content scrollable">
@@ -381,15 +351,6 @@
              </svg>
             </div>
          </div>
-           
-     <!--  <div class="daily-itemm" id="puzzlesss">
-             <img src="i/puzzl.png" alt="Daily Image" class="daily-imagee">
-              <p class="Daily-title">Daily puzzle</p>
-              <p class="Daily-titlee">+ ? SP</p>
-               <div class="Daily-meta">
-               <span id="Dailyaew">&#10095;</span>
-            </div>
-           </div>-->
             
           <div class="daily-itemm" id="ad">
              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-daily">
@@ -408,9 +369,7 @@
         <div class="puzzles-container">
             <p id="puzzlessText"> Daily puzzles </p>
               
-     <!--<div class="puzzle-item" id="puzzle1">-->
-        <div class="daily-itemm" id="puzzle1" onclick="showOverlay('puzzleContainer')">
-      <!--     <img src="i/puzzl.png" alt="Daily Puzzle" class="puzzle-image">-->
+         <div class="puzzle-item" id="puzzle1">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-daily">
              <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v0a.64.64 0 0 1-.657.643 48.39 48.39 0 0 1-4.163-.3c.186 1.613.293 3.25.315 4.907a.656.656 0 0 1-.658.663v0c-.355 0-.676-.186-.959-.401a1.647 1.647 0 0 0-1.003-.349c-1.036 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401v0c.31 0 .555.26.532.57a48.039 48.039 0 0 1-.642 5.056c1.518.19 3.058.309 4.616.354a.64.64 0 0 0 .657-.643v0c0-.355-.186-.676-.401-.959a1.647 1.647 0 0 1-.349-1.003c0-1.035 1.008-1.875 2.25-1.875 1.243 0 2.25.84 2.25 1.875 0 .369-.128.713-.349 1.003-.215.283-.4.604-.4.959v0c0 .333.277.599.61.58a48.1 48.1 0 0 0 5.427-.63 48.05 48.05 0 0 0 .582-4.717.532.532 0 0 0-.533-.57v0c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.035 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.37 0 .713.128 1.003.349.283.215.604.401.96.401v0a.656.656 0 0 0 .658-.663 48.422 48.422 0 0 0-.37-5.36c-1.886.342-3.81.574-5.766.689a.578.578 0 0 1-.61-.58v0Z" />
            </svg>
@@ -423,10 +382,10 @@
        </div>
      </div>
              
-         <div class="daily-itemm" id="puzzle2">
-           <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1.5"  stroke-linecap="round"  stroke-linejoin="round" class="size-daily">
-             <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /><path d="M8 8l-2 2l2 2" /><path d="M12 8l2 2l-2 2" />
-           </svg>
+       <div class="daily-itemm" id="puzzle2">
+          <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1.5"  stroke-linecap="round"  stroke-linejoin="round" class="size-daily">
+           <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /><path d="M8 8l-2 2l2 2" /><path d="M12 8l2 2l-2 2" />
+          </svg>
               <p class="Daily-title"> Morse code </p>
               <p class="Daily-titlee">Soon. </p>
              <div class="Daily-meta">
@@ -1284,7 +1243,7 @@
 
     
 
-<!-- Bottom Navigation.  homeeee.png -->
+<!-- Bottom Navigation -->
      <nav class="menu">
     <button data-target="accountPage">
         <i class="fa-solid fa-user-friends"></i>
@@ -1307,51 +1266,6 @@
         <span>EARN</span>
     </button>
      </nav>
-     
- <!--   <nav class="menu">
-       <button data-target="accountPage">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-            </svg>
-            <span>FRIEND</span>
-       </button>
-       <button data-target="boostsPage">
-         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-       <defs>
-        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:1" /> 
-        <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
-        </linearGradient>
-       </defs>
-  
-         <path d="M14.496 21h-4.932l1.014 2h2.904l1.014-2zm-2.514-17.769c.618.537 1.233.883 1.753 1.176 4.556 2.564 2.344 8.886.026 13.593h-3.521c-2.219-4.559-4.545-11.242-.068-13.611.537-.284 1.174-.62 1.81-1.158zm.012-3.231c-1.244 2.489-2.988 2.359-4.38 3.7-4.023 3.872-1.173 11.401 1.398 16.3h5.977c2.57-4.899 5.443-12.269 1.318-16.238-1.407-1.353-3.079-1.297-4.313-3.762zm10.006 20.349c0 .376-.132.778-.416 1.283-.617 1.097-1.418 2.368-1.418 2.368h-1.275s.312-1.096.41-1.406c.275-.881-.217-1.31-.85-1.729-.296-.195-.91-.56-1.271-.772.244-.487.452-.955.669-1.426.989.581 2.212 1.491 2.557 1.978.088-.193.094-.276.094-.294 0-.208-1.52-2.188-2.098-2.933.227-.541.45-1.081.638-1.6l1.585 2.05c.868 1.109 1.375 1.745 1.375 2.481zm-18.625-2.483l1.585-2.05c.188.519.411 1.059.638 1.6-.578.746-2.098 2.725-2.098 2.933 0 .019.006.102.094.294.345-.487 1.567-1.396 2.557-1.978.217.472.425.939.669 1.426-.36.212-.975.578-1.271.772-.633.419-1.125.849-.85 1.729.098.312.41 1.408.41 1.408h-1.275s-.801-1.271-1.418-2.368c-.284-.505-.416-.907-.416-1.283 0-.736.507-1.372 1.375-2.483zm8.625-9.366c.827 0 1.5.673 1.5 1.5s-.673 1.5-1.5 1.5-1.5-.673-1.5-1.5.673-1.5 1.5-1.5zm0-1.5c-1.654 0-3 1.346-3 3s1.346 3 3 3 3-1.346 3-3-1.346-3-3-3z" 
-         fill="url(#grad1)" stroke="black" stroke-width="2"/>
-       </svg>
-          <span>BOOST</span>
-       </button>
-       <button data-target="mainPage">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                <polyline points="9 22 9 12 15 12 15 22"></polyline>
-            </svg>
-            <span>MAIN</span>
-       </button>
-        <button data-target="tasksPage">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M9 11l3 3L22 4"></path>
-                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
-            </svg>
-            <span>TASKS</span>
-        </button>
-        <button data-target="Puzzlespage">
-            <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M13 21h-7a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h12.5" /><path d="M21 15h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5" /><path d="M19 21v1m0 -8v1" /></svg>
-            <span>EARN</span>
-        </button>
-    </nav>-->
     
     <script type="module" src="script-sdgbj540767989.js"></script>
     <script type="module" src="Scripts/Not-saving.js"></script>
