@@ -1,3 +1,11 @@
+.modal-labl {
+    position: relative;
+    height: 1.5px;
+    width: 90%; /* العرض يأخذ 90% من الحاوية */
+    background-color: #161616; /* لون الخط */
+    margin-right: 5px; /* مسافة صغيرة من النص */
+} 
+
 .promo-code-button {
       display: flex;
       align-items: center;
