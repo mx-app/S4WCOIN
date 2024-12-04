@@ -228,7 +228,7 @@ img {
 #balanceAmount::after {
     content: "$S4W"; /* النص المطلوب */
     display: inline-block;
-    font-size: 25px; /* حجم النص */
+    font-size: 30px; /* حجم النص */
     font-weight: 700; /* خط غامق */
     color: #ccc; /* لون النص */
     margin-left: 2px; /* مسافة بين الرقم والنص */
