@@ -223,7 +223,17 @@ img {
     position: relative;
 }
 
-#balanceAmount::before {
+#balanceAmount::after {
+    content: "S4W"; /* النص المطلوب */
+    display: inline-block;
+    font-size: 28px; /* حجم النص */
+    font-weight: 700; /* خط غامق */
+    color: #ccc; /* لون النص */
+    margin-left: 3px; /* مسافة بين الرقم والنص */
+    text-transform: uppercase; /* تحويل النص إلى أحرف كبيرة */
+}
+
+/*#balanceAmount::before {
     content: "";
     display: inline-block;
     width: 55px;
@@ -231,8 +241,8 @@ img {
     background-image: url('i/l-coin.png');
     background-size: contain;
     background-repeat: no-repeat;
-    margin-right: 0; /* مسافة بين الصورة والرقم */
-}
+    margin-right: 0; 
+}*/
 
 .main-digits {
     font-size: 40px; /* الرقم الرئيسي أكبر */
