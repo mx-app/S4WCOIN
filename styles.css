@@ -198,15 +198,15 @@ img {
 
 #balanceC {
     display: flex;
-    flex-direction: column; /* لضبط العناصر في اتجاه عمودي */
-    align-items: center; /* لضبط المحاذاة الأفقية للنص */
-    justify-content: center; /* محاذاة العناصر في المنتصف عموديًا */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     position: relative;
-    margin-top: 25px; /* قم بزيادة القيمة حسب الحاجة لتحريك الرصيد إلى الأسفل */
+    margin-top: 25px;
 }
 
 .Title {
-    margin-top: 3px; /* المسافة بين العنوان والرصد */
+    margin-top: 3px;
     font-size: 23px;
     padding-bottom: 1px;
     color: #808080;
@@ -214,37 +214,37 @@ img {
 
 #balanceAmount {
     font-family: 'JetBrains Mono', monospace;
-    font-weight: 900;
-    font-size: 32px;
-    color: #fff;
     display: flex;
-    align-items: baseline; /* لضبط المحاذاة الرأسية بين الرقم الرئيسي وباقي الأرقام */
+    align-items: center; /* الصورة والرقم بنفس المستوى */
     justify-content: center;
-    margin-top: 3px; /* المسافة بين العنوان والرصيد */
-}
-
-.main-digit {
-    font-size: 40px; /* تكبير الرقم الأول */
-    font-weight: 900;
     color: #fff;
-}
-
-.remaining-digits {
-    font-size: 28px; /* حجم أصغر لباقي الأرقام */
-    font-weight: 700;
-    color: #ccc; /* لون باهت لباقي الأرقام */
-    margin-left: 2px; /* مسافة صغيرة بين الرقم الأول وباقي الأرقام */
+    margin-top: 3px;
+    gap: 4px; /* مسافة بين الأرقام */
+    position: relative;
 }
 
 #balanceAmount::before {
     content: "";
     display: inline-block;
-    width: 50px; /* عرض الصورة */
-    height: 50px; /* ارتفاع الصورة */
-    background-image: url('i/l-coin.png'); /* رابط الصورة */
+    width: 40px;
+    height: 40px;
+    background-image: url('i/l-coin.png');
     background-size: contain;
     background-repeat: no-repeat;
-   /* margin-right: 1px;*//* مسافة بين الصورة والرقم */
+    margin-right: 5px; /* مسافة بين الصورة والرقم */
+}
+
+.main-digits {
+    font-size: 42px; /* الرقم الرئيسي أكبر */
+    font-weight: 900;
+    color: #fff;
+}
+
+.remaining-digits {
+    font-size: 28px; /* باقي الأرقام أصغر */
+    font-weight: 700;
+    color: #ccc;
+    margin-left: 2px;
 }
 
 
