@@ -57,14 +57,28 @@
     overflow: hidden;
 }
 
-.daily-itemm i {
+/*.daily-itemm i {
   width: 30px; 
+  height: 30px;
+  font-size: 1.5rem;
+  padding: 5px;
+  border-radius: 10px; 
+  border: 1px solid #1a1a1a; 
+}*/
+
+
+.daily-itemm i {
+  width: 30px;
   height: 30px;
   font-size: 1.5rem;
   padding: 5px;
   border-radius: 10px; /* زوايا مستديرة */
   border: 1px solid #1a1a1a; 
-} 
+  position: absolute; /* تمكين التمركز */
+  top: 50%; /* التوسيط عموديًا */
+  left: 50%; /* التوسيط أفقيًا */
+  transform: translate(-50%, -50%); /* ضبط المحور للتوسيط الكامل */
+}
 
 
 .daily-imagee {
