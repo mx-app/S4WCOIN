@@ -226,16 +226,16 @@ img {
 #balanceAmount::before {
     content: "";
     display: inline-block;
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
     background-image: url('i/l-coin.png');
     background-size: contain;
     background-repeat: no-repeat;
-    margin-right: 5px; /* مسافة بين الصورة والرقم */
+    margin-right: 0; /* مسافة بين الصورة والرقم */
 }
 
 .main-digits {
-    font-size: 42px; /* الرقم الرئيسي أكبر */
+    font-size: 40px; /* الرقم الرئيسي أكبر */
     font-weight: 900;
     color: #fff;
 }
