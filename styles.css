@@ -1147,9 +1147,9 @@ img {
     left: -100%;
     width: 20%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
-    animation: shine 2s infinite;
-    animation-delay: 5m; /* التأثير يظهر كل 5 دقائق */
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent); /* جعل الشفافية أكثر */
+    animation: shine 1.5s infinite;
+    animation-delay: 300s; /* التأثير يظهر كل 5 ثواني */
 }
 
 @keyframes shine {
@@ -1163,7 +1163,7 @@ img {
         left: 100%;
     }
 }
- 
+
 .community-button i {
     font-size: 1.2rem;
   /* width: 25px; 
