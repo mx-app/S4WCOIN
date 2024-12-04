@@ -447,10 +447,7 @@ async function registerNewUser(userTelegramId, userTelegramName) {
 // تحديث واجهة المستخدم بناءً على حالة اللعبة
 function updateUI() {
     // تنسيق الرصيد
-    let formattedBalance = gameState.balance.toLocaleString("en-US", { 
-        minimumFractionDigits: 1,  // تحديد الحد الأدنى للفواصل العشرية
-        maximumFractionDigits: 1   // تحديد الحد الأقصى للفواصل العشرية
-    });
+    let formattedBalance = parseFloat(gameState.balance).toString();
 
     // تحديد الجزء الرئيسي والجزء الباقي بناءً على الحجم
     let mainDigits, remainingDigits;
