@@ -443,10 +443,27 @@ async function registerNewUser(userTelegramId, userTelegramName) {
   }
 
 
+// تأثير الكتابة التدريجي على الرصيد بالكامل
+function typeBalance(targetBalance) {
+    const balanceElement = document.getElementById("balanceAmount");
+    let currentBalance = parseFloat(balanceElement.textContent.replace(/,/g, "")) || 0;
+
+    const interval = setInterval(() => {
+        if (currentBalance >= targetBalance) {
+            clearInterval(interval);
+            balanceElement.textContent = targetBalance.toLocaleString("en-US"); // عرض الرقم النهائي
+        } else {
+            currentBalance += Math.ceil((targetBalance - currentBalance) / 10); // الزيادة التدريجية
+            balanceElement.textContent = currentBalance.toLocaleString("en-US"); // تحديث النص في كل خطوة
+        }
+    }, 30); // تحديث الرقم كل 30 ملي ثانية
+}
+
+
 
 // تحديث واجهة المستخدم بناءً على حالة اللعبة
 function updateUI() {
-    // استدعاء تأثير الكتابة لتحديث الرصيد الرئيسي
+    // استدعاء تأثير الكتابة لتحديث الرصيد بالكامل
     const targetBalance = gameState.balance;
     typeBalance(targetBalance);
 
@@ -554,7 +571,6 @@ function updateUI() {
         coin_boost_level: gameState.coinBoostLevel,
     });
 }
-
 
 
 function formatNumber(value) {
@@ -2782,21 +2798,6 @@ function sendData(data) {
 }
 
 
-
-function typeBalance(targetBalance) {
-    const balanceElement = document.getElementById("balanceAmount");
-    let currentBalance = parseFloat(balanceElement.textContent.replace(/,/g, "")) || 0;
-
-    const interval = setInterval(() => {
-        if (currentBalance >= targetBalance) {
-            clearInterval(interval);
-            balanceElement.textContent = targetBalance.toLocaleString("en-US"); // عرض الرقم النهائي
-        } else {
-            currentBalance += Math.ceil((targetBalance - currentBalance) / 10); // الزيادة التدريجية
-            balanceElement.textContent = currentBalance.toLocaleString("en-US"); // تحديث النص في كل خطوة
-        }
-    }, 30); // تحديث الرقم كل 30 ملي ثانية
-}
 
 
 // تفعيل التطبيق
