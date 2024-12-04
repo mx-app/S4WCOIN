@@ -397,13 +397,13 @@ img {
 }
 
 .menu button.active {
-    color: #0088CC; /* اللون الأبيض للنص عند النشاط */
+    color: #fff; /* اللون الأبيض للنص عند النشاط */
     background: none;
     opacity: 1; /* إزالة الشفافية عند النشاط */
 }
 
 .menu button i {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     margin-bottom: 5px;
 } 
 
