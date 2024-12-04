@@ -1,10 +1,12 @@
+.promo-labl {
+    margin: 10px 0; /* مسافة من الأعلى والأسفل */
+}
+
 .modal-labl {
-    position: relative;
-    height: 1.5px;
-    width: 90%; /* العرض يأخذ 90% من الحاوية */
-    background-color: #161616; /* لون الخط */
-    margin-right: 5px; /* مسافة صغيرة من النص */
-} 
+    height: 2px; /* سمك الفاصل */
+    background-color: #0088CC; /* لون الفاصل */
+    width: 90%; /* عرض الفاصل */
+}
 
 .promo-code-button {
       display: flex;
