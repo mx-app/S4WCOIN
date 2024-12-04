@@ -245,12 +245,33 @@ img {
     background-repeat: no-repeat;
     margin-right: 0; 
 }*/
-
 .main-digits {
-    font-size: 38px; /* الرقم الرئيسي أكبر */
+    font-size: 38px; /* تكبير الرقم الأول */
+    font-weight: 900;
+    background: linear-gradient(45deg, #1E90FF, #ffffff, #1E90FF); /* التدرج الأزرق-الأبيض */
+    -webkit-background-clip: text; /* لتطبيق التدرج على النص فقط */
+    background-clip: text;
+    color: transparent; /* جعل النص شفافًا حتى يظهر التدرج */
+    animation: gradientMove 2s linear infinite; /* إضافة الحركة للتدرج */
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+} 
+
+/*.main-digits {
+    font-size: 38px; 
     font-weight: 900;
     color: #fff;
-}
+}*/
 
 .remaining-digits {
     font-size: 30px; /* باقي الأرقام أصغر */
