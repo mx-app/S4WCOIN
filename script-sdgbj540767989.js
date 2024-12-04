@@ -452,9 +452,21 @@ function updateUI() {
         maximumFractionDigits: 2 
     });
 
-    // تحديث جميع عناصر الرصيد في الواجهة
+    // تقسيم الرصيد إلى الرقم الأول وباقي الأرقام
+    const [mainDigit, ...remainingDigits] = formattedBalance.split("");
+
+    // تحديث العنصر الرئيسي
+    const balanceAmount = document.getElementById("balanceAmount");
+    const mainDigitElement = document.getElementById("mainDigit");
+    const remainingDigitsElement = document.getElementById("remainingDigits");
+
+    if (mainDigitElement && remainingDigitsElement) {
+        mainDigitElement.textContent = mainDigit; // الرقم الأول
+        remainingDigitsElement.textContent = remainingDigits.join(""); // باقي الأرقام
+    }
+
+    // تحديث باقي عناصر الرصيد في الواجهة
     const balanceElements = [
-        uiElements.balanceDisplay,
         uiElements.walletBalanceDisplay,
         uiElements.accountBalanceDisplay,
         uiElements.taskBalanceDisplay,
@@ -471,6 +483,7 @@ function updateUI() {
             element.innerText = formattedBalance;
         }
     });
+
 
     // تحديث شريط الطاقة
     if (uiElements.energyBar) {
