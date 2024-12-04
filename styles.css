@@ -154,7 +154,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
+    position: fixed;
     bottom: 125px; /* المسافة من الأسفل */
     width: 100%; /* يمتد على كامل عرض الشاشة */
 }
