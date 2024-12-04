@@ -2779,6 +2779,24 @@ function sendData(data) {
 
 
 
+function typeBalance(targetBalance) {
+    const balanceElement = document.getElementById("balanceAmount");
+    let currentBalance = 0;
+
+    // تحويل الرقم المستهدف إلى رقم صحيح مع الفواصل
+    const formattedTarget = parseFloat(targetBalance).toLocaleString("en-US");
+
+    // تقسم الرقم النهائي إلى أجزاء لتحديثه تدريجيًا
+    const interval = setInterval(() => {
+        if (currentBalance >= targetBalance) {
+            clearInterval(interval);
+            balanceElement.textContent = formattedTarget; // عرض الرقم النهائي بالكامل
+        } else {
+            currentBalance += Math.ceil(targetBalance / 100); // زيادة تدريجية
+            balanceElement.textContent = currentBalance.toLocaleString("en-US"); // تحديث النص في كل خطوة
+        }
+    }, 20); // تحديث الرقم كل 20 ملي ثانية
+}
 
 
 
