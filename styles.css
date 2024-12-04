@@ -230,7 +230,7 @@ img {
     display: inline-block;
     font-size: 30px; /* حجم النص */
     font-weight: 700; /* خط غامق */
-    color: #fff; /* لون النص */
+    color: #808080; /* لون النص */
     margin-left: 2px; /* مسافة بين الرقم والنص */
     text-transform: uppercase; /* تحويل النص إلى أحرف كبيرة */
 }
@@ -246,34 +246,12 @@ img {
     margin-right: 0; 
 }*/
 
-.main-digits {
-    font-size: 39px; /* تكبير الرقم الأول */
-    font-weight: 900;
-    background: linear-gradient(45deg, #046be2, #4c91ff, #ffffff); /* التدرج الأزرق الداكن إلى الفاتح مع الأبيض */
-    -webkit-background-clip: text; /* لتطبيق التدرج على النص فقط */
-    background-clip: text;
-    color: transparent; /* جعل النص شفافًا حتى يظهر التدرج */
-    animation: gradientMove 4s ease-in-out infinite; /* إضافة حركة لطيفة للتدرج */
-}
-
-@keyframes gradientMove {
-    0% {
-        background-position: 0% 50%; /* بدء التدرج */
-    }
-    50% {
-        background-position: 100% 50%; /* التدرج في المنتصف */
-    }
-    100% {
-        background-position: 0% 50%; /* العودة إلى البداية */
-    }
-}
-
  
-/*.main-digits {
+.main-digits {
     font-size: 38px; 
     font-weight: 900;
     color: #fff;
-}*/
+}
 
 .remaining-digits {
     font-size: 30px; /* باقي الأرقام أصغر */
