@@ -225,9 +225,9 @@ img {
 }
 
 #balanceAmount::after {
-    content: "S4W"; /* النص المطلوب */
+    content: "$S4W"; /* النص المطلوب */
     display: inline-block;
-    font-size: 28px; /* حجم النص */
+    font-size: 25px; /* حجم النص */
     font-weight: 700; /* خط غامق */
     color: #ccc; /* لون النص */
     margin-left: 0; /* مسافة بين الرقم والنص */
@@ -246,13 +246,13 @@ img {
 }*/
 
 .main-digits {
-    font-size: 40px; /* الرقم الرئيسي أكبر */
+    font-size: 38px; /* الرقم الرئيسي أكبر */
     font-weight: 900;
     color: #fff;
 }
 
 .remaining-digits {
-    font-size: 28px; /* باقي الأرقام أصغر */
+    font-size: 25px; /* باقي الأرقام أصغر */
     font-weight: 700;
     color: #ccc;
     margin-left: 2px;
