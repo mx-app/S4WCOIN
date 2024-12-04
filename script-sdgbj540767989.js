@@ -452,17 +452,29 @@ function updateUI() {
         maximumFractionDigits: 2 
     });
 
-    // تقسيم الرصيد إلى الرقم الأول وباقي الأرقام
-    const [mainDigit, ...remainingDigits] = formattedBalance.split("");
+    // تحليل الرقم إلى الأرقام الكبيرة والأرقام الصغيرة
+    let mainDigits, remainingDigits;
+    if (gameState.balance >= 1_000_000) {
+        // الملايين: الرقم الأول كبير (1) وباقي الرقم متوسط
+        mainDigits = formattedBalance.slice(0, 1); // أول رقم
+        remainingDigits = formattedBalance.slice(1); // باقي الأرقام
+    } else if (gameState.balance >= 1_000) {
+        // الآلاف: أول 3 أرقام كبيرة
+        mainDigits = formattedBalance.split(",")[0]; // أول 3 أرقام
+        remainingDigits = formattedBalance.slice(mainDigits.length); // باقي الأرقام
+    } else {
+        // أقل من ألف: الرقم بالكامل عادي
+        mainDigits = formattedBalance;
+        remainingDigits = "";
+    }
 
-    // تحديث العنصر الرئيسي
-    const balanceAmount = document.getElementById("balanceAmount");
-    const mainDigitElement = document.getElementById("mainDigit");
+    // تحديث DOM
+    const mainDigitsElement = document.getElementById("mainDigits");
     const remainingDigitsElement = document.getElementById("remainingDigits");
 
-    if (mainDigitElement && remainingDigitsElement) {
-        mainDigitElement.textContent = mainDigit; // الرقم الأول
-        remainingDigitsElement.textContent = remainingDigits.join(""); // باقي الأرقام
+    if (mainDigitsElement && remainingDigitsElement) {
+        mainDigitsElement.textContent = mainDigits;
+        remainingDigitsElement.textContent = remainingDigits;
     }
 
     // تحديث باقي عناصر الرصيد في الواجهة
@@ -484,7 +496,7 @@ function updateUI() {
         }
     });
 
-
+    
     // تحديث شريط الطاقة
     if (uiElements.energyBar) {
         const energyPercent = (gameState.energy / gameState.maxEnergy) * 100;
