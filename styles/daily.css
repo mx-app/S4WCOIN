@@ -1,3 +1,7 @@
+.logindaily-content i {
+    font-size: 8rem;
+} 
+
 /* تأثير الضباب والتوهج عند عدم التفعيل */
 .daily-itemm.inactive {
     filter: blur(10px); /* يجعل العنصر ضبابيًا */
