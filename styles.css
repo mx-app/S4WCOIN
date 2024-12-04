@@ -402,6 +402,10 @@ img {
     opacity: 1; /* إزالة الشفافية عند النشاط */
 }
 
+.menu button i {
+    font-size: 1.5rem;
+} 
+
 .menu button.active img {
     position: relative;
     z-index: 2; /* وضع الصورة فوق الخلفية */
