@@ -248,25 +248,34 @@ img {
 .main-digits {
     font-size: 39px; /* تكبير الرقم الأول */
     font-weight: 900;
-    background: linear-gradient(45deg, #046be2, #ffffff, #046be2); /* التدرج الأزرق-الأبيض */
-    -webkit-background-clip: text; /* لتطبيق التدرج على النص فقط */
-    background-clip: text;
-    color: transparent; /* جعل النص شفافًا حتى يظهر التدرج */
-    animation: gradientMove 2s linear infinite; /* إضافة الحركة للتدرج */
+    color: #ffffff; /* لون النص */
+    position: relative;
+    overflow: hidden; /* لمنع النص من تجاوز الحاوية */
 }
 
-@keyframes gradientMove {
+.main-digits::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+    animation: shine 2s infinite;
+}
+
+@keyframes shine {
     0% {
-        background-position: 0% 0%;
+        left: -100%;
     }
     50% {
-        background-position: 100% 100%;
+        left: 50%;
     }
     100% {
-        background-position: 0% 0%;
+        left: 100%;
     }
-} 
-
+}
+ 
 /*.main-digits {
     font-size: 38px; 
     font-weight: 900;
