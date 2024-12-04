@@ -457,11 +457,6 @@ img {
     justify-content: space-between;
     animation: slideUp 0.5s ease-out forwards; /* إضافة تأثير التحريك */
 }
-.modal. {
-    width: 90%;
-    height: 1px;
-    background-color: #808080;
-}  
 
 .promo-content {
     background-color: #101010;
