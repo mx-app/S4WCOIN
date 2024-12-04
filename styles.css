@@ -1114,7 +1114,7 @@ img {
       transition: transform 0.2s, box-shadow 0.2s;
   } 
 
-.icon-community i {
+.community-button i {
     font-size: 1.2rem;
   /* width: 25px; 
     height: 25px;*/
