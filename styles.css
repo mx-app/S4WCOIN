@@ -231,7 +231,7 @@ img {
     font-size: 25px; /* حجم النص */
     font-weight: 700; /* خط غامق */
     color: #ccc; /* لون النص */
-    margin-left: 0; /* مسافة بين الرقم والنص */
+    margin-left: 2px; /* مسافة بين الرقم والنص */
     text-transform: uppercase; /* تحويل النص إلى أحرف كبيرة */
 }
 
@@ -253,7 +253,7 @@ img {
 }
 
 .remaining-digits {
-    font-size: 25px; /* باقي الأرقام أصغر */
+    font-size: 30px; /* باقي الأرقام أصغر */
     font-weight: 700;
     color: #ccc;
     margin-left: 2px;
