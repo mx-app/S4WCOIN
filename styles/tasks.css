@@ -1,29 +1,31 @@
 .description-taskk {
-    width: 100%; /* يضمن أن يملأ العرض بالكامل */
-    text-align: center; /* لتوسيط النص داخل العنصر */
-    padding-top: 20px; /* مسافة من الأعلى */
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
     z-index: 50;
-    margin-top: 45px; /* مسافة من الأعلى لضبط مكان النص في الصفحة */
+    margin-top: 45px;
+    position: relative; /* لإبقاء النص في موضعه فوق الصورة */
 }
 
 .taskk-title {
-    font-size: 30px; /* حجم الخط */
+    font-size: 30px;
+    color: white; /* تأكد من أن النص يظهر بوضوح على الصورة */
+    z-index: 100; /* تأكد من أن النص فوق الصورة */
 }
-
 
 .TASKS-image {
     position: absolute; 
-    top: 10px; 
+    top: 10px;
     left: 50%;
     opacity: 0.5;
     border-radius: 15px;
-    transform: translateX(-50%); 
+    transform: translateX(-50%);
     width: 100%;
     height: 150px;
     display: block;
-    margin-bottom: 20px; 
-    z-index: 0;
-} 
+    margin-bottom: 20px;
+    z-index: 0; /* تأكد من أن الصورة خلف النص */
+}
 
 
 .size-6 {
