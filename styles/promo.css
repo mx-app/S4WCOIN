@@ -68,7 +68,7 @@
 }
 
 .promo-input {
-    background-color: rgba(0, 0, 0, 0.01);
+    background-color: rgba(0, 0, 0, 1);
     width: 100%; /* جعل العرض 100% لكي يتم التغطية بالكامل */
     height: 100%;
     font-size: 15px;
@@ -81,13 +81,14 @@
 }
 
 .apply_PromoCode {
-    position: fixed; /* وضع الزر فوق خانة الإدخال */
+    position: fixed;/* وضع الزر فوق خانة الإدخال */
     top: 0; /* ضعه في الأعلى */
     right: 0; /* وضعه على اليمين */
-    background: #000; /* خلفية الزر */
-    color: transparent; /* النص يكون شفافًا في البداية */
+    background: #fff;
+    color: transparent;
     font-weight: bold;
     border-radius: 20px;
+    /*border: 1px solid #343434;*/
     cursor: pointer;
     width: 20%; /* عرض الزر */
     height: 100%; /* تأكد من أنه يغطي نفس ارتفاع خانة الإدخال */
@@ -97,17 +98,10 @@
     justify-content: center;
     position: relative;
     overflow: hidden;
+    -webkit-background-clip: text;
+    background-clip: text;
     margin-right: 1px;
 }
-
-.apply_PromoCode p {
-    -webkit-background-clip: text; /* الخلفية على النص فقط */
-    background-clip: text; /* نفس التأثير في جميع المتصفحات */
-    background: #fff; /* لون الخلفية الخاص بالنص (تدرج لوني مثلاً) */
-    color: transparent; /* النص شفاف لكي يظهر التدرج اللوني فقط */
-    margin: 0; /* إزالة المسافات الافتراضية حول النص */
-}
- 
 
 .apply_PromoCode.loading {
     pointer-events: none; /* منع النقر أثناء التحميل */
