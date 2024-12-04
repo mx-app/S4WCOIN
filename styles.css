@@ -1114,9 +1114,10 @@ img {
       transition: transform 0.2s, box-shadow 0.2s;
   } 
 
-.icon-community {
-    width: 25px; 
-    height: 25px;
+.icon-community i {
+    font-size: 1.2rem;
+  /* width: 25px; 
+    height: 25px;*/
     color: #fff;
     margin-left: 20px;
 }   
