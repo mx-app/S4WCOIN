@@ -1,3 +1,15 @@
+.description-taskk {
+    width: 100%; /* يضمن أن يملأ العرض بالكامل */
+    text-align: center; /* لتوسيط النص داخل العنصر */
+    padding-top: 20px; /* مسافة من الأعلى */
+    margin-top: 50px; /* مسافة من الأعلى لضبط مكان النص في الصفحة */
+}
+
+.taskk-title {
+    font-size: 30px; /* حجم الخط */
+}
+
+
 .TASKS-image {
     position: absolute; 
     top: 10px; 
