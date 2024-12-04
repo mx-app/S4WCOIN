@@ -1998,12 +1998,13 @@ function showContent(contentId) {
 ///////////////////////////////////////
 
 
-document.getElementById('applyPromoCode').addEventListener('click', async () => {
+
+            
+    document.getElementById('applyPromoCode').addEventListener('click', async () => {
     const applyButton = document.getElementById('applyPromoCode');
     const promoCodeInput = document.getElementById('promoCodeInput');
     const enteredCode = promoCodeInput.value;
-
-    // تهيئة الإعلانات
+        
     const AdController = window.Adsgram.init({ blockId: "int-5511" });
 
     // إخفاء نص الزر وعرض دائرة تحميل
@@ -2021,12 +2022,22 @@ document.getElementById('applyPromoCode').addEventListener('click', async () => 
         const promoData = await response.json();
         const promoCodes = promoData.promoCodes;
 
-        // تحقق مما إذا كان المستخدم قد استخدم هذا البرومو كود من قاعدة البيانات
+        // تحقق مما إذا كان المستخدم قد استخدم هذا البرومو كود مسبقًا
         const alreadyUsed = await checkIfPromoCodeUsed(enteredCode);
 
         if (alreadyUsed) {
             applyButton.innerHTML = '‼️';
             showNotificationWithStatus(uiElements.purchaseNotification, 'You have already used this promo code.', 'win');
+
+            // تأخير بسيط قبل عرض الإعلان
+            setTimeout(() => {
+                AdController.show().then(() => {
+                    console.log("Ad viewed successfully");
+                }).catch(err => {
+                    console.error("Error showing ad:", err);
+                });
+            }, 2000);
+
             setTimeout(() => {
                 applyButton.innerHTML = 'Apply';
                 applyButton.classList.remove('loading');
@@ -2045,7 +2056,7 @@ document.getElementById('applyPromoCode').addEventListener('click', async () => 
             // تحديث واجهة المستخدم
             updateUI(); 
 
-            // حفظ البرومو كود المستخدم في قاعدة البيانات
+            // تسجيل البرومو كود المستخدم في قاعدة البيانات
             const updated = await addPromoCodeToUsed(enteredCode);
             if (!updated) {
                 showNotification(uiElements.purchaseNotification, 'Failed to save promo code in database.', true);
@@ -2063,7 +2074,7 @@ document.getElementById('applyPromoCode').addEventListener('click', async () => 
                 }).catch(err => {
                     console.error("Error showing ad:", err);
                 });
-            }, 2000); // تأخير بمقدار 2000 ملي ثانية (2 ثانية)
+            }, 2000);
 
             // حفظ الحالة الحالية للعبة وتحديثها في قاعدة البيانات
             updateUI(); 
@@ -2084,7 +2095,7 @@ document.getElementById('applyPromoCode').addEventListener('click', async () => 
                 }).catch(err => {
                     console.error("Error showing ad:", err);
                 });
-            }, 2000); // تأخير بمقدار 2000 ملي ثانية (2 ثانية)
+            }, 2000);
         }
     } catch (error) {
         console.error('Error fetching promo codes:', error);
@@ -2095,13 +2106,11 @@ document.getElementById('applyPromoCode').addEventListener('click', async () => 
             applyButton.innerHTML = 'Apply';
             applyButton.classList.remove('loading');
             spinner.remove();
-        }, 2000);
+        }, 3000);
     }
 });
 
-
-
-// دالة للتحقق من البرومو كود المستخدم من قاعدة البيانات
+// دالة للتحقق مما إذا كان البرومو كود مستخدمًا مسبقًا
 async function checkIfPromoCodeUsed(enteredCode) {
     const userId = uiElements.userTelegramIdDisplay.innerText;
 
@@ -2151,6 +2160,7 @@ async function addPromoCodeToUsed(enteredCode) {
     console.log('Promo code added to used list successfully.');
     return true;
 }
+
 
 document.getElementById('promocodeBtu').addEventListener('click', function() {
     document.getElementById('promoContainer').classList.remove('hidden');
