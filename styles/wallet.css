@@ -19,10 +19,12 @@
 #Buttoncontainer {
   position: fixed;
   width: 25%;
+  background-color: #101010;
+  height: 30px;
   top: 13px; /* المسافة من الأعلى */
-  right: 20px; /* المسافة من اليمين */
+  right: 15px; /* المسافة من اليمين */
   display: flex;
-  gap: 5px; /* المسافة بين الأزرار */
+  gap: 10px; /* المسافة بين الأزرار */
   z-index: 1000; /* التأكد من أن الأزرار في المقدمة */
 }
 
