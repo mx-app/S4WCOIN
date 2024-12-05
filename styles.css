@@ -681,7 +681,7 @@ img {
     background: #141414;
     color: #fff;
     padding: 10px 20px; /* زيادة padding لجعل الإشعار طويل */
-    border-radius: 25px;
+    border-radius: 15px;
     border: 1px solid #1a1a1a;
     font-size: 13px;
     z-index: 1000;
@@ -938,7 +938,7 @@ img {
 #hourlyEarningsContainer {
     position: fixed;
     top: 12px;
-    left: 110px; 
+    left: 140px; 
     width: 25%;
     height: 30px;
     display: flex;
