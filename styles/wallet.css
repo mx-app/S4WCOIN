@@ -16,11 +16,21 @@
     vertical-align: middle;
 }  
 
+#Buttoncontainer {
+  position: fixed;
+  width: 25%;
+  top: 13px; /* المسافة من الأعلى */
+  right: 20px; /* المسافة من اليمين */
+  display: flex;
+  gap: 5px; /* المسافة بين الأزرار */
+  z-index: 1000; /* التأكد من أن الأزرار في المقدمة */
+}
+
+
 .wallet-button {
-    position: fixed;
+   /* position: fixed;
     top: 18px; 
-    left: 38px;
-    z-index: 100;
+    left: 38px;*/
     color: #fff; 
     background-color: rgba(255, 255, 255, 0.001);
     border-radius: 5px; /* لجعل الزر دائري */
