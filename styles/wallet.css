@@ -23,7 +23,7 @@
   height: 30px;
   padding: 5px;
   border-radius: 20px; 
-  top: 13px; /* المسافة من الأعلى */
+  top: 12px; /* المسافة من الأعلى */
   right: 15px; /* المسافة من اليمين */
   display: flex;
   gap: 10px; /* المسافة بين الأزرار */
