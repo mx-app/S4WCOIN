@@ -10,7 +10,7 @@
     align-items: center;
     justify-content: center;
     top: 62px; 
-    left: 12px; 
+    left: 17px; 
     width: 40%;
     height: 32px;
     padding: 5px;
@@ -18,7 +18,7 @@
     background: #101010;
     font-size: 12px;
     font-weight: bold;
-    border-radius: 24px;
+    border-radius: 20px;
     cursor: pointer;
    /* border: 1px solid #1E90FF;*/
     z-index: 10; /* لجعله فوق العناصر الأخرى */
