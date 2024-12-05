@@ -399,9 +399,12 @@ async function fetchUserDataFromTelegram() {
     uiElements.userTelegramNameDisplay.innerText = userTelegramName;
     
     // تحديث رسالة الترحيب
-    const welcomeMessageElement = document.getElementById("welcomeMessage");
-    if (welcomeMessageElement) {
-        welcomeMessageElement.innerText = `Welcome back, ${userTelegramName}!`;
+   const welcomeTextElement = document.getElementById("welcomeText");
+   const userNameElement = document.getElementById("userName");
+
+   if (welcomeTextElement && userNameElement) {
+      welcomeTextElement.innerText = "Welcome back";
+      userNameElement.innerText = userTelegramName;
     }
 
     // تحديث حالة الحساب (Premium)
