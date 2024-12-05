@@ -49,20 +49,11 @@
 }*/
 
 
-#Profit-in {
-    font-size: 13px;
-    margin-right: 25px;
-    right: 40px;
-    color: #ffffff; /* لون النص */
-    transition: padding 0.2s ease; /* تأثير بسيط عند التمدد */
-    min-width: 50px; /* عرض أدنى للعنصر */
-    white-space: nowrap; /* لمنع النص من الانتقال إلى سطر جديد */
-}
-
 #miningnavbarBalanceDisplay, #BoostnavbarBalanceDisplay, #tasknavbarBalanceDisplay, #navbarBalanceDisplay,
 #lvlnavbarBalanceDisplay, #puzzlenavbarBalanceDisplay, #AccountnavbarBalanceDisplay, #gnavbarBalanceDisplay {
     font-size: 13px;
-    margin-left: 25px;
+    margin-left: 15px;
+    margin-right: 15px;
     left: 40px;
     color: #ffffff; /* لون النص */
     transition: padding 0.2s ease; /* تأثير بسيط عند التمدد */
@@ -75,23 +66,22 @@
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    top: 5px;
-    left: 50%; /* نقطة البداية في المنتصف */
-    transform: translateX(-50%); /* توسيط العرض */
-    width: 88%;
-    height: 38px;
+    top: 13px;
+    left: 20px; /* نقطة البداية في المنتصف */
+  /*  transform: translateX(-50%);*/ /* توسيط العرض */
+    width: auto;
+    height: 30px;
     z-index: 500;
-    border: 1px solid #1a1a1a;
-    /*border-radius: 10px;*/
+   /* border: 1px solid #1a1a1a;*/
     border-radius: 20px; /* زوايا مستديرة في الأسفل فقط */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: #000;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(3px); 
 }
 
-#balanceContainer, #earnContainer {
+#balanceContainer {
     font-weight: bold;
 }
-
 
 #tasksPage {
     padding-top: 80px; /* يمكنك تغيير القيمة حسب الحاجة */
