@@ -953,15 +953,15 @@ img {
 .right-section {
     position: fixed;
     top: 60px; 
-    right: 12px; 
+    right: 17px; 
     width: 25%;
-    height: 28px;
+    height: 23px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: #101010;
     padding: 5px;
-    border-radius: 25px;
+    border-radius: 20px;
     color: #fff;
    /* border: 1px solid #1E90FF;*/
    /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);*/ /* ظل عميق أسفل العنصر */
