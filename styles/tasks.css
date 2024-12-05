@@ -3,7 +3,7 @@
     text-align: center;
     padding-top: 3px;
     z-index: 50;
-    margin-top: 15px;
+    margin-top: 8px;
     position: relative; /* لإبقاء النص في موضعه فوق الصورة */
 }
 
@@ -31,7 +31,7 @@
 .size-6 {
     width: 18px;
     height: 18px;
-    color: #0088CC;  /* اللون الأخضر لعلامة الصح */
+    color: #3592e7;  /* اللون الأخضر لعلامة الصح */
 }
 
 .size-6 path {
@@ -46,7 +46,7 @@
 
 
 .loading-spinner {
-    border: 2.5px solid #0088CC;
+    border: 2.5px solid #3592e7;
     border-top: 3px solid transparent;
     border-radius: 50%;
     width: 12px;
@@ -68,7 +68,7 @@
     text-align: center;
     width: 100%;
     max-width: 400px;
-    margin-top: 18px;
+    margin-top: 5px;
     margin-left: auto;
     margin-right: auto; /* لتوسيط الحاوية أفقيًا */
     /*padding: 10px;*/
@@ -100,6 +100,7 @@
     height: 70px;
     max-width: 400px;
     margin: 15px 0;
+    /*margin-right: 5px;*/
     border-radius: 5px;
     border-bottom: 1px solid #1a1a1a;
     background-color: rgba(255, 255, 255, 0.001);
