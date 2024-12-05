@@ -952,8 +952,8 @@ img {
 
 .right-section {
     position: fixed;
-    top: 62px; 
-    left: 12px; 
+    top: 60px; 
+    right: 12px; 
     width: 25%;
     height: 28px;
     display: flex;
