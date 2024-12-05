@@ -260,7 +260,7 @@ img {
     font-weight: 600;
     color: #fff;
     position: relative; /* لضبط الموضع */
-    bottom: 3px; /* التعديل الدقيق لموضع النص */
+    bottom: 0.5px; /* التعديل الدقيق لموضع النص */
     margin-left: 3px; /* مسافة بين الرقم والنص */
 }
 
