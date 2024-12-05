@@ -5,7 +5,7 @@
     position: absolute; /* تموضع مطلق */
     bottom: 0; /* تبدأ من أسفل الشاشة */
     left: 0; /* تبدأ من الحافة اليسرى */
-    background: #101010;
+    background: #000;
   /*  background: linear-gradient(
         to bottom,
         #000, 
