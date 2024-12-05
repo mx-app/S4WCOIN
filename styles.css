@@ -250,20 +250,18 @@ img {
     align-items: baseline; /* محاذاة العناصر عند قاعدة النص */
     justify-content: center;
     color: #fff;
-    gap: 3px; /* مسافة بين الرقم والنص */
+    gap: 2px; /* مسافة بين الرقم والنص */
     position: relative;
 }
 
 #balanceAmount::after {
     content: "S4W"; /* النص المطلوب */
-    display: inline-block;
     font-size: 24px; /* حجم النص */
     font-weight: 600;
     color: #fff;
+    position: relative; /* لضبط الموضع */
+    bottom: -3px; /* التعديل الدقيق لموضع النص */
     margin-left: 3px; /* مسافة بين الرقم والنص */
-    align-self: flex-end; /* محاذاة النص أسفل الرقم */
-    line-height: 1; /* تقليل المسافة الرأسية بين السطور */
-    vertical-align: baseline; /* محاذاة النص مع قاعدة الرقم */
 }
 
 .main-digits {
@@ -271,7 +269,6 @@ img {
     font-weight: 550;
     color: #fff;
     line-height: 1; /* لضمان التناسق بين النصوص */
-    vertical-align: baseline; /* محاذاة الأرقام الأساسية */
 }
 
 .remaining-digits {
@@ -279,7 +276,6 @@ img {
     font-weight: 550;
     color: #fff;
     line-height: 1; /* لتقليل الفراغ بين النصوص */
-    vertical-align: baseline; /* محاذاة الأرقام الأساسية */
 }
 
 
