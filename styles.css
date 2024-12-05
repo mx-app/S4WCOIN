@@ -246,61 +246,42 @@ img {
 }
 
 #balanceAmount {
-    font-family: 'JetBrains Mono', monospace;
     display: flex;
-    align-items: center; /* الصورة والرقم بنفس المستوى */
+    align-items: baseline; /* محاذاة العناصر عند قاعدة النص */
     justify-content: center;
     color: #fff;
-    margin-top: 3px;
-    gap: 4px; /* مسافة بين الأرقام */
+    gap: 3px; /* مسافة بين الرقم والنص */
     position: relative;
 }
 
 #balanceAmount::after {
-    content: "$S4W"; /* النص المطلوب */
+    content: "S4W"; /* النص المطلوب */
     display: inline-block;
-    font-size: 30px; /* حجم النص */
-    font-weight: 700; /* خط غامق */
-    color: #ccc; /* لون النص */
-    margin-left: 2px; /* مسافة بين الرقم والنص */
-    text-transform: uppercase; /* تحويل النص إلى أحرف كبيرة */
+    font-size: 24px; /* حجم النص */
+    font-weight: 600;
+    color: #fff;
+    margin-left: 3px; /* مسافة بين الرقم والنص */
+    align-self: flex-end; /* محاذاة النص أسفل الرقم */
+    line-height: 1; /* تقليل المسافة الرأسية بين السطور */
+    vertical-align: baseline; /* محاذاة النص مع قاعدة الرقم */
 }
 
-/*#balanceAmount::before {
-    content: "";
-    display: inline-block;
-    width: 55px;
-    height: 55px;
-    background-image: url('i/l-coin.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    margin-right: 0; 
-}*/
-
- 
 .main-digits {
     font-size: 35px; 
-    font-weight: 900;
+    font-weight: 550;
     color: #fff;
+    line-height: 1; /* لضمان التناسق بين النصوص */
+    vertical-align: baseline; /* محاذاة الأرقام الأساسية */
 }
 
 .remaining-digits {
-    font-size: 30px; /* باقي الأرقام أصغر */
-    font-weight: 700;
+    font-size: 35px; /* باقي الأرقام بنفس الحجم */
+    font-weight: 550;
     color: #fff;
-    margin-left: 2px;
+    line-height: 1; /* لتقليل الفراغ بين النصوص */
+    vertical-align: baseline; /* محاذاة الأرقام الأساسية */
 }
 
-
-.user-level {
-    font-size: 16px; 
-    background: linear-gradient(90deg, #d69a1c, #794106, #d69a1c, #9f620c); /* التدرج اللوني */
-    -webkit-background-clip: text; /* قص الخلفية للنص */
-    background-clip: text;
-    color: transparent; /* جعل النص شفافًا لعرض التدرج */
-    margin-left: 40px;
-}
- 
 
 .energy-bar-container {
     display: flex;
