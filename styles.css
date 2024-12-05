@@ -158,18 +158,15 @@ img {
     top: 50%;
     left: 50%;
     transform: translateX(-50%);
-    width: 100%;
-    height: 100%; /* تأخذ كامل ارتفاع الشاشة */
-    z-index: 9999; /* لتكون فوق جميع العناصر الأخرى */
-    background-color: rgba(0, 0, 0, 0.5); /* خلفية شفافة اختيارية */
+    width: 100%; 
 }
 
-.loading-spinner {
+.loading-spinnerr {
     border: 4px solid rgba(255, 255, 255, 0.3); /* الحواف الشفافة */
     border-top: 4px solid white; /* اللون الأبيض في الجزء العلوي */
     border-radius: 50%; /* جعل الشكل دائريًا */
-    width: 40px;
-    height: 40px;
+    width: 25px;
+    height: 25px;
     animation: spin 1s linear infinite; /* التحريك المستمر */
 }
 
@@ -182,7 +179,7 @@ img {
         transform: rotate(360deg);
     }
 } 
-
+ 
  
 /* شريط الطاقة */
 .energy-bars-container {
