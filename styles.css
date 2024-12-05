@@ -938,8 +938,9 @@ img {
 #hourlyEarningsContainer {
     position: fixed;
     top: 11px;
-    width: 89%;
-    height: 32px;
+    left: 40px; 
+    width: 25%;
+    height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
