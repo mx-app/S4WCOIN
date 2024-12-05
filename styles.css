@@ -1237,12 +1237,13 @@ img {
 }
 
 #welcomeText {
-    font-size: 16px;
+    color: #fff;
+    font-size: 14px;
     font-weight: bold;
 }
 
 #userName {
-    font-size: 14px;
-    font-weight: normal;
-    color: #aaa; /* لون أفتح قليلاً لتمييز الاسم */
+    font-size: 15px;
+    color: #808080; /* لون أفتح قليلاً لتمييز الاسم */
+    margin-right: 10px;
 }
