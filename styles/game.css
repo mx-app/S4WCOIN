@@ -85,7 +85,7 @@
 
 
 .game-item {
-    filter: blur(5px); /* يجعل العنصر ضبابيًا */
+    filter: blur(3px); /* يجعل العنصر ضبابيًا */
     pointer-events: none; /* تعطيل التفاعل مع العنصر */
   
     width: 90%; /* عرض الحاوية بنسبة 88% */
@@ -95,11 +95,11 @@
     justify-content: flex-start; /* محاذاة المحتوى أفقيًا من اليسار */
     border-radius: 10px;
     padding: 10px;
-    background: #161616;
+    background: #101010;
     text-align: left; /* لضبط النص إلى اليسار */
     cursor: pointer;
     overflow: hidden;
-    margin-top: 50px;
+    margin-top: 10px;
     margin: 10px auto; /* لضبط العنصر في المنتصف من اليسار إلى اليمين */
 }
 
