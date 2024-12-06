@@ -9,7 +9,6 @@
     "https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css",
     "styles.css",
     "styles/Settings.css",
-    "json/robot.css", 
     "styles/Friend.css",  
     "styles/puzzle.css",
     "styles/game.css",
