@@ -3,7 +3,7 @@
     display: flex; /* استخدام flexbox لترتيب العناصر */
     justify-content: center; /* توزيع العناصر: النصوص في اليسار والشريط في اليمين */
     align-items: center; /* محاذاة العناصر عموديًا في المنتصف */
-    background-color: #161616; /* لون الخلفية */
+    background-color: #101010; /* لون الخلفية */
     border-radius: 10px; /* زوايا مستديرة */
     width: 90%;
     height: 80px;
@@ -53,7 +53,7 @@
     justify-content: center; /* محاذاة العناصر نحو اليسار */
     margin: 5px 0;
     padding: 3px;
-    background-color: #161616;
+    background-color: #101010;
     border-radius: 10px;
     max-width: 400px;
     width: 90%;
@@ -228,7 +228,6 @@
     width: 86%;
     height: 130px;
     max-width: 400px;
-    border: 1px solid #1a1a1a;
    /* box-shadow: 0 0 4px rgba(255, 255, 255, 0.2), 0 0 8px rgba(255, 255, 255, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;*/
     display: flex;
