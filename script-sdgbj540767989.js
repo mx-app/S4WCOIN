@@ -255,16 +255,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     await restoreEnergy();
     startEnergyRecovery();
     updateGameStateInDatabase(); 
+    updateUI();
     listenToRealtimeChanges();   
     await initializeApp();  
-    updateBoostsDisplay();
-    updateInviteFriendsButton();
+  //  updateBoostsDisplay();
 });
 
 
-document.addEventListener("DOMContentLoaded", function() {
-    updateUI(); // تأكد من تحديث الرصيد عند تحميل الصفحة
-});
+//document.addEventListener("DOMContentLoaded", function() {
+  //  updateUI(); // تأكد من تحديث الرصيد عند تحميل الصفحة
+//});
 
 //document.addEventListener('DOMContentLoaded', async () => {
    // await loadGameStateFromDB(); 
@@ -2783,11 +2783,6 @@ window.addEventListener('load', () => {
     updateBoostsDisplay();
 });
 
-window.addEventListener('click', (event) => {
-    if (event.target === uiElements.upgradeModal) {
-        uiElements.upgradeModal.style.display = 'none';
-    }
-});
 
 //////////////////////////////////////
 
