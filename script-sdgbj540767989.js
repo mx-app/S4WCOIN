@@ -49,24 +49,21 @@ const uiElements = {
     withdrawAmountInput: document.getElementById('withdrawAmount'),
     userTelegramNameDisplay: document.getElementById('userTelegramName'),
     userTelegramIdDisplay: document.getElementById('userTelegramId'),
-    //taskTwoBtn: document.getElementById('taskTwoBtn'),
-    //taskThreeBtn: document.getElementById('taskThreeBtn'),
-   // taskTwoProgress: document.getElementById('taskTwoProgress'),
-    //taskThreeProgress: document.getElementById('taskThreeProgress'),
+
     levelInfoDisplay: document.getElementById('currentLevelInfo') || { innerText: '' },
     friendsListDisplay: document.getElementById('friendsList') || { innerHTML: '' },
     displayedLevel: document.getElementById('displayedLevel'),
     currentLevelName: document.getElementById('currentLevelName'),
-    levelOneProgress: document.getElementById('levelOneProgress'),
-    levelTwoProgress: document.getElementById('levelTwoProgress'),
-    levelThreeProgress: document.getElementById('levelThreeProgress'),
-    levelFourProgress: document.getElementById('levelFourProgress'),
-    levelFiveProgress: document.getElementById('levelFiveProgress'),
-    levelSixProgress: document.getElementById('levelSixProgress'),
-    levelSevenProgress: document.getElementById('levelSevenProgress'),
-    levelEightProgress: document.getElementById('levelEightProgress'),
-    levelNineProgress: document.getElementById('levelNineProgress'),
-    levelTenProgress: document.getElementById('levelTenProgress'),
+   // levelOneProgress: document.getElementById('levelOneProgress'),
+  //  levelTwoProgress: document.getElementById('levelTwoProgress'),
+  //  levelThreeProgress: document.getElementById('levelThreeProgress'),
+   // levelFourProgress: document.getElementById('levelFourProgress'),
+   // levelFiveProgress: document.getElementById('levelFiveProgress'),
+   // levelSixProgress: document.getElementById('levelSixProgress'),
+   // levelSevenProgress: document.getElementById('levelSevenProgress'),
+   // levelEightProgress: document.getElementById('levelEightProgress'),
+   // levelNineProgress: document.getElementById('levelNineProgress'),
+   // levelTenProgress: document.getElementById('levelTenProgress'),
     boostUpgradeBtn: document.getElementById('boostUpgradeBtn'),
     coinUpgradeBtn: document.getElementById('coinUpgradeBtn'),
     fillEnergyUpgradeBtn: document.getElementById('fillEnergyBtn'),
@@ -95,9 +92,7 @@ let gameState = {
     tasksprogress: [],
     completedTasks: [],
     puzzlesprogress:[], 
-    caesarPuzzleProgress:[], 
     usedPromoCodes: [],
-    ciphersProgress:[],
     lastLoginDate: null, // تاريخ آخر تسجيل دخول
     consecutiveDays: 0,  // عدد الأيام المتتالية التي تم المطالبة فيها بالمكافآت
 };
@@ -179,11 +174,9 @@ async function saveGameState() {
         tasks_progress: gameState.tasksProgress,
         puzzles_progress: gameState.puzzlesProgress,
         used_promo_codes: gameState.usedPromoCodes,
-        morse_ciphers_progress: gameState.ciphersProgress,
         last_login_date: gameState.lastLoginDate ? new Date(gameState.lastLoginDate).toISOString() : null,
         consecutive_days: gameState.consecutiveDays,
         achieved_Levels: gameState.achievedLevels,
-        caesar_puzzles_progress: gameState.caesarPuzzleProgress, 
         
     };
 
@@ -258,18 +251,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     updateUI();
     listenToRealtimeChanges();   
     await initializeApp();  
-  //  updateBoostsDisplay();
 });
 
-
-//document.addEventListener("DOMContentLoaded", function() {
-  //  updateUI(); // تأكد من تحديث الرصيد عند تحميل الصفحة
-//});
-
-//document.addEventListener('DOMContentLoaded', async () => {
-   // await loadGameStateFromDB(); 
-    //updateUI();
-//});
 
 
 // مستويات اللعبة المتناسقة
@@ -804,9 +787,6 @@ function createDiamondCoinEffect(x, y) {
 
 
 
-
-
-
 //////////////////////////////////////////////////
 
 
@@ -833,13 +813,6 @@ function navigateToScreen(screenId) {
     } else {
         footerMenu.style.display = 'none'; // إخفاء القائمة السفلية في الصفحات الأخرى
     }
-
-    // إضافة منطق خاص لصفحة "boostsPage" إذا لزم الأمر
-    //if (screenId === 'boostsPage') {
-      //  if (uiElements.boostUpgradeBtn) uiElements.boostUpgradeBtn.style.display = 'block';
-     //   if (uiElements.coinUpgradeBtn) uiElements.coinUpgradeBtn.style.display = 'block';
-     //   if (uiElements.fillEnergyUpgradeBtn) uiElements.fillEnergyUpgradeBtn.style.display = 'block';
-   // }
 }
 
 
@@ -1111,11 +1084,9 @@ async function updateUserData() {
             completed_tasks: gameState.completedTasks, 
             puzzles_progress: gameState.puzzlesprogress, 
             used_Promo_Codes: gameState.usedPromoCodes, 
-            morse_ciphers_progress: gameState.ciphersProgress, 
             achieved_Levels: gameState.achievedLevels, 
             last_login_date: gameState.lastLoginDate ? new Date(gameState.lastLoginDate).toISOString() : null,
             consecutive_days: gameState.consecutiveDays, 
-            caesar_puzzles_progress: gameState.caesarPuzzleProgress, 
      
         })
         .eq('telegram_id', userId);
@@ -1437,9 +1408,6 @@ function openTaskLink(taskurl, callback) {
 
 
 
-
-
-
 /////////////////////////////////////
 
 
@@ -1526,15 +1494,6 @@ function initializeTelegramIntegration() {
         const targetPageId = event.state ? event.state.target : mainPageId;
         navigateToPage(targetPageId);
     });
-
-    // تخصيص الألوان بناءً على الثيم
-    if (telegramApp.colorScheme === 'dark') {
-        document.documentElement.style.setProperty('--background-color', '#000');
-        document.documentElement.style.setProperty('--text-color', '#FFF');
-    } else {
-        document.documentElement.style.setProperty('--background-color', '#FFF');
-        document.documentElement.style.setProperty('--text-color', '#000');
-    }
 
     // فتح الصفحة الرئيسية عند تحميل التطبيق
     window.addEventListener("load", () => {
@@ -1878,110 +1837,10 @@ tonConnectUI.uiOptions = {
 };
 
 
-//////////////////////////////////////////////////
-
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    let coinCounter = 0;
-    let autoIncrementInterval;
-
-    function startGame(gameUrl) {
-        const gameFrameContainer = document.getElementById("gameFrameContainer");
-        const gameFrame = document.getElementById("gameFrame");
-        const counterDisplay = document.getElementById("counterDisplay");
-        const counterContainer = document.querySelector(".counter-container");
-
-        if (gameFrameContainer && gameFrame && counterContainer) {
-            gameFrame.src = gameUrl;
-            gameFrameContainer.style.display = "flex";
-            counterContainer.style.display = "flex";
-            coinCounter = 0;
-            counterDisplay.innerText = coinCounter;
-
-            
-            // بدء زيادة العداد تلقائيًا بمقدار 0.2 عملة كل ثانية
-            autoIncrementInterval = setInterval(() => {
-                coinCounter += 0.1;
-                counterDisplay.innerText = coinCounter.toFixed(1); // عرض الرقم بفاصلة عشرية واحدة
-                gameState.balance += 0.1;
-                updateUI();
-                saveGameState();
-            }, 4000); // كل ثانية يتم زيادة 0.2 عملة
-        }
-    }
-    
-    function closeGameElements() {
-        const gameFrameContainer = document.getElementById("gameFrameContainer");
-        const gameFrame = document.getElementById("gameFrame");
-        const counterContainer = document.querySelector(".counter-container");
-
-        if (gameFrameContainer && gameFrame && counterContainer) {
-            // إخفاء جميع العناصر الخاصة باللعبة باستثناء صفحة الألعاب
-            gameFrameContainer.style.display = "none";
-            gameFrame.src = ""; // إزالة مصدر اللعبة لإيقافها
-            counterContainer.style.display = "none";
-
-            // إيقاف الزيادة التلقائية عند إغلاق العناصر
-            clearInterval(autoIncrementInterval);
-        }
-    }
-
-    function claimCoins() {
-        gameState.balance += coinCounter;
-        updateUI(); // تحديث واجهة المستخدم
-        showNotificationWithStatus(uiElements.purchaseNotification, `You've claimed ${coinCounter} coins!`, 'win');
-        saveGameState();
-        closeGameElements(); // إخفاء العناصر بعد الجمع
-    }
-
-    // إضافة مستمع زر الإغلاق
-    document.getElementById("closeGamePage").addEventListener("click", closeGameElements);
-
-    // تعيين الدوال في النطاق العام
-    window.startGame = startGame;
-    window.closeGamePage = closeGameElements;
-    window.claimCoins = claimCoins;
-});
-
-
-
-/////////////////////////////////////////
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    // تأكد من تعريف المتغير THEME 
-    const THEME = TonConnectUi.THEME;
-
-    // تهيئة واجهة Ton Connect UI مع التخصيصات
-    const tonConnectUI = new TonConnectUi.TonConnectUI({
-        uiPreferences: {
-            theme: THEME.DARK,
-            borderRadius: 's',
-            colorsSet: {
-                [THEME.DARK]: {
-                    connectButton: {
-                        background: '#000000'  // لون خلفية الزر في الثيم الداكن
-                    }
-                },
-                [THEME.LIGHT]: {
-                    text: {
-                        primary: '#FF0000'   // لون النص في الثيم الفاتح
-                    }
-                }
-            }
-        }
-    });
-
-    // ربط واجهة Ton Connect UI بالعنصر المحدد
-    tonConnectUI.render('#ton-connect');
-});
-
 
 //////////////////////////////////////////
 
-//تحديثات الاعدادات
+
 
 function updateAccountSummary() {
   // تحديث العناصر الأساسية
@@ -2031,12 +1890,12 @@ function showContent(contentId) {
     }
 }
 
+
+
 ///////////////////////////////////////
 
 
-
-            
-    document.getElementById('applyPromoCode').addEventListener('click', async () => {
+  document.getElementById('applyPromoCode').addEventListener('click', async () => {
     const applyButton = document.getElementById('applyPromoCode');
     const promoCodeInput = document.getElementById('promoCodeInput');
     const enteredCode = promoCodeInput.value;
@@ -2257,233 +2116,8 @@ document.addEventListener('DOMContentLoaded', handleInvite);
 
 
 
-//////////////////////////////////////////////////////////
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    const morseCipherContainer = document.getElementById('morseCipherContainer');
-    const morsecloseModal = document.getElementById('morsecloseModal');
-    const morseCodeDisplay = document.getElementById('morseCode');
-    const morseAnswerInput = document.getElementById('morseAnswerInput');
-    const submitMorseAnswerBtn = document.getElementById('submitMorseAnswerBtn');
-    const morseCipherNotification = document.getElementById('morseCipherNotification');
-    const morseAttemptsDisplay = document.getElementById('morseRemainingAttempts');
-    const morseCipherRewardDisplay = document.getElementById('morseCipherRewardDisplay');
-    const openMorseCipherBtn = document.getElementById('puzzle2');
-
-    let currentMorseCipher;
-    let morseAttempts = 0;
-    let morseSolved = false;
-    const morseMaxAttempts = 3;
-    let countdownTimeout = null;
-
-    const MorseCiphersCountdownDisplay = document.getElementById('MorseCiphersCountdown');
-
-    // دالة لبدء العد التنازلي على الزر
-    function startCountdownOnButton(seconds) {
-        openMorseCipherBtn.disabled = true;
-
-        const countdownDisplay = document.getElementById('MorseCiphersCountdown');
-        countdownDisplay.innerText = ` ${formatTime(seconds)}`;
-
-        const puzzleItem = document.getElementById('puzzle2');
-        puzzleItem.classList.add('inactive');
-
-        function updateCountdown() {
-            if (seconds > 0) {
-                seconds--;
-                countdownDisplay.innerText = ` ${formatTime(seconds)}`;
-                setTimeout(updateCountdown, 1000);
-            } else {
-                countdownDisplay.innerText = 'Puzzle available now!';
-                puzzleItem.classList.remove('inactive');
-                puzzleItem.classList.add('active');
-                openMorseCipherBtn.disabled = false;
-                openMorseCipherBtn.innerText = 'Open ';
-            }
-        }
-
-        updateCountdown();
-    }
-
-    function formatTime(seconds) {
-        const hours = Math.floor(seconds / 3600);
-        const minutes = Math.floor((seconds % 3600) / 60);
-        const remainingSeconds = seconds % 60;
-        return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
-    }
-
-    async function loadMorseCiphers() {
-        try {
-            const response = await fetch('MorseCiphers.json');
-            if (!response.ok) throw new Error('Failed to load ciphers');
-            const data = await response.json();
-            return data.morse_ciphers;
-        } catch (error) {
-            console.error(error);
-            showNotification(morseCipherNotification, 'Error loading cipher. Please try again later.');
-        }
-    }
-
-    async function getTodaysMorseCipher() {
-        try {
-            const ciphers = await loadMorseCiphers();
-            const userTelegramId = uiElements.userTelegramIdDisplay.innerText;
-
-            const { data, error } = await supabase
-                .from('users')
-                .select('morse_ciphers_progress')
-                .eq('telegram_id', userTelegramId)
-                .maybeSingle();
-
-            if (error) {
-                console.error('Error fetching Morse cipher progress:', error);
-                showNotification(morseCipherNotification, 'Error loading Morse cipher progress. Please try again later.');
-                return null;
-            }
-
-            const ciphersProgress = data?.morse_ciphers_progress || {};
-            const today = new Date().toISOString().split('T')[0];
-            const lastSolvedTime = ciphersProgress.last_solved_time;
-
-            if (lastSolvedTime && new Date() - new Date(lastSolvedTime) < 24 * 60 * 60 * 1000) {
-                const remainingTime = 24 * 60 * 60 - Math.floor((new Date() - new Date(lastSolvedTime)) / 1000);
-                startCountdownOnButton(remainingTime);
-                showNotification(morseCipherNotification, 'Please wait until tomorrow for a new cipher.');
-                return null;
-            }
-
-            const todayCipher = ciphers.find(cipher => cipher.date === today);
-
-            if (!todayCipher) {
-                showNotification(morseCipherNotification, 'No cipher available for today.');
-                return null;
-            }
-
-            return {
-                cipher: todayCipher,
-                attempts: ciphersProgress[todayCipher.id]?.attempts || 0,
-                solved: ciphersProgress[todayCipher.id]?.solved || false
-            };
-        } catch (err) {
-            console.error('Error in getTodaysMorseCipher:', err);
-            showNotificationWithStatus(morseCipherNotification, 'Unexpected error. Please try again later.', 'lose');
-            return null;
-        }
-    }
-
-    async function displayTodaysMorseCipher() {
-        const cipherData = await getTodaysMorseCipher();
-        if (!cipherData) return;
-
-        currentMorseCipher = cipherData.cipher;
-        morseAttempts = cipherData.attempts;
-        morseSolved = cipherData.solved;
-
-        morseCodeDisplay.innerText = currentMorseCipher.morse_code;
-        morseCipherRewardDisplay.innerText = `Reward : ${currentMorseCipher.reward} coins`;
-        showNotification(morseCipherNotification, `Hint : ${currentMorseCipher.hint}`);
-
-        morseCipherContainer.classList.remove('hidden');
-        updateMorseRemainingAttempts(morseAttempts);
-    }
-
-    async function checkMorseCipherAnswer() {
-        const userAnswer = morseAnswerInput.value.trim().toUpperCase();
-
-        if (!userAnswer) {
-            showNotification(morseCipherNotification, 'Please enter an answer before submitting.');
-            return;
-        }
-
-        if (morseAttempts >= morseMaxAttempts || morseSolved) {
-            showNotification(morseCipherNotification, 'You have no attempts left or already solved the cipher.');
-            return;
-        }
-
-        if (userAnswer === currentMorseCipher.answer) {
-            await handleSuccess();
-        } else {
-            morseAttempts++;
-            updateMorseRemainingAttempts(morseAttempts);
-
-            if (morseAttempts >= morseMaxAttempts) {
-                handleMorseCipherTimeout();
-            } else {
-                showNotificationWithStatus(morseCipherNotification, "Incorrect answer. Try again.", 'lose');
-                await updateMorseCipherProgress(currentMorseCipher.id, false, morseAttempts);
-            }
-        }
-    }
-
-    async function handleSuccess() {
-        showNotificationWithStatus(morseCipherNotification, `Correct! You've earned ${currentMorseCipher.reward} coins.`, 'win');
-        updateBalance(currentMorseCipher.reward);
-        morseSolved = true;
-        await updateMorseCipherProgress(currentMorseCipher.id, true, morseAttempts);
-        closeMorseCipher();
-        startCountdownOnButton(24 * 60 * 60);
-    }
-
-    function updateMorseRemainingAttempts(attempts) {
-        morseAttemptsDisplay.innerText = morseMaxAttempts - attempts;
-    }
-
-    function handleMorseCipherTimeout() {
-        showNotificationWithStatus(morseCipherNotification, "You've failed to solve the Morse cipher.", 'lose');
-        updateMorseCipherProgress(currentMorseCipher.id, false, morseMaxAttempts);
-        closeMorseCipher();
-        startCountdownOnButton(24 * 60 * 60);
-    }
-
-    async function updateMorseCipherProgress(cipherId, solved, attempts) {
-        try {
-            const userTelegramId = uiElements.userTelegramIdDisplay.innerText;
-            const lastSolvedTime = solved ? new Date().toISOString() : null;
-
-            const { data, error } = await supabase
-                .from('users')
-                .select('morse_ciphers_progress')
-                .eq('telegram_id', userTelegramId)
-                .maybeSingle();
-
-            if (error) {
-                console.error('Error fetching Morse cipher progress:', error);
-                return;
-            }
-
-            const updatedProgress = {
-                last_cipher_id: cipherId,
-                solved_today: solved,
-                attempts_today: attempts,
-                last_solved_time: lastSolvedTime || data?.morse_ciphers_progress?.last_solved_time,
-            };
-
-            const { error: updateError } = await supabase
-                .from('users')
-                .update({ morse_ciphers_progress: updatedProgress })
-                .eq('telegram_id', userTelegramId);
-
-            if (updateError) {
-                console.error('Error updating Morse cipher progress:', updateError);
-            }
-        } catch (err) {
-            console.error('Error in updateMorseCipherProgress:', err);
-        }
-    }
-
-    openMorseCipherBtn.addEventListener('click', displayTodaysMorseCipher);
-    submitMorseAnswerBtn.addEventListener('click', checkMorseCipherAnswer);
-    morsecloseModal.addEventListener('click', () => {
-        morseCipherContainer.classList.add('hidden');
-    });
-});
-
 
 ////////////////////////////////////////////////
-
-
 
 
 
