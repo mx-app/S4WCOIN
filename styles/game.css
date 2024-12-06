@@ -59,8 +59,8 @@
 }
 
 #GA {
-    color: #808080; 
-    font-size: 17px; 
+    color: #fff; 
+    font-size: 25px; 
     text-align: left;
     margin-bottom: 10px;
     margin-top: 10px;
@@ -99,7 +99,7 @@
     text-align: left; /* لضبط النص إلى اليسار */
     cursor: pointer;
     overflow: hidden;
-    margin-top: 10px;
+    margin-top: 20px;
     margin: 10px auto; /* لضبط العنصر في المنتصف من اليسار إلى اليمين */
 }
 
