@@ -67,7 +67,7 @@
 
 .user-name,
 .user-id {
-    font-size: 16px;
+    font-size: 14px;
 }
 
 /* الحاوية للتفاصيل الإضافية */
@@ -75,7 +75,7 @@
     width: 95%;
     background-color: #101010;
     border-radius: 10px;
-    padding: 20px;
+    padding: 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
@@ -85,7 +85,7 @@
     justify-content: space-between;
     border-bottom: 0.5px solid #343434;
     padding-bottom: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .detail-label {
