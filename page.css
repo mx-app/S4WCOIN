@@ -1,18 +1,12 @@
 .minee-container {
     border-top: 1px solid #101010;
-    width: 100%; /* تغطي كامل عرض الشاشة */
-    height: 85%; /* تغطي 70% من الشاشة */
-    position: absolute; /* تموضع مطلق */
-    bottom: 0; /* تبدأ من أسفل الشاشة */
-    left: 0; /* تبدأ من الحافة اليسرى */
+    width: 100%; 
+    height: 85%; 
+    position: absolute; 
+    bottom: 0; 
+    left: 0; 
     background: #000;
-  /*  background: linear-gradient(
-        to bottom,
-        #000, 
-        #101010, 
-        black
-    );*/
-    border-radius: 20px 20px 0 0;
+    border-radius: 25px 25px 0 0;
 }
 
 #mainPage {
@@ -21,7 +15,7 @@
     background: linear-gradient(
         to bottom,
         #000, 
-        #101010, 
+        #161616, 
         black
     );
 
@@ -168,4 +162,4 @@
     background-clip: padding-box;
     position: relative;
     box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.9); /* ظل داخلي لإضافة عمق للحواف */
-}
+    }
