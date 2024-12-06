@@ -2770,6 +2770,11 @@ window.addEventListener('load', () => {
     updateBoostsDisplay();
 });
 
+window.addEventListener('click', (event) => {
+    if (event.target === uiElements.upgradeModal) {
+        uiElements.upgradeModal.style.display = 'none';
+    }
+});
 
 //////////////////////////////////////
 
