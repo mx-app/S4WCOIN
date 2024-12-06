@@ -1,7 +1,7 @@
 #upgradeTitle {
     font-size: 18px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
 }
 
 #upgradeIconContainer {
@@ -15,7 +15,7 @@
 #currentCoins {
     text-align: center;
     margin: 5px 0;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 
