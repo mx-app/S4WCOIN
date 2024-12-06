@@ -73,7 +73,7 @@
     gap: 8px; /* مسافة بين الصورة والنص */
     width: 90%; 
     height: 48px;
-    background-color: #1E90FF;
+    background-color: #101010;
     color: #fff;
     padding: 20px;
     font-size: 16px;
@@ -96,7 +96,7 @@
     gap: 8px; /* مسافة بين الصورة والنص */
     width: 25%; 
     height: 48px;
-    background-color: #1E90FF;
+    background-color: #101010;
     color: #fff;
    /* border: 0.50px solid #343434;*/
     padding: 7px;
