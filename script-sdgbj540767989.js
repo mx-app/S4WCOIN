@@ -2657,15 +2657,32 @@ async function showUpgradeModal(upgradeType) {
     const upgrades = {
         boost: {
             cost: gameState.boostLevel * 500 + 500,
-            image: "i/Clickk.png",
-            text: "Are you sure you want to upgrade your click multiplier?",
+            icon: `
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-boosts">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M8 13v-8.5a1.5 1.5 0 0 1 3 0v7.5" />
+                    <path d="M11 11.5v-2a1.5 1.5 0 0 1 3 0v2.5" />
+                    <path d="M14 10.5a1.5 1.5 0 0 1 3 0v1.5" />
+                    <path d="M17 11.5a1.5 1.5 0 0 1 3 0v4.5a6 6 0 0 1 -6 6h-2h.208a6 6 0 0 1 -5.012 -2.7l-.196 -.3c-.312 -.479 -1.407 -2.388 -3.286 -5.728a1.5 1.5 0 0 1 .536 -2.022a1.867 1.867 0 0 1 2.28 .28l1.47 1.47" />
+                    <path d="M5 3l-1 -1" />
+                    <path d="M4 7h-1" />
+                    <path d="M14 3l1 -1" />
+                    <path d="M15 6h1" />
+                </svg>
+            `,
+            title: "Hand Clicks",
             description: "This upgrade increases your click multiplier, allowing you to earn more coins per click.",
             current: `Current Click Multiplier: ×${gameState.clickMultiplier}`,
         },
         coin: {
             cost: gameState.coinBoostLevel * 500 + 500,
-            image: "i/energy.c.png",
-            text: "Are you sure you want to upgrade your max coins?",
+            icon: `
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-boosts">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11" />
+                </svg>
+            `,
+            title: "Energy Limits",
             description: "This upgrade increases your maximum coin capacity, allowing you to store more coins.",
             current: `Current Max Coins: ${formatNumber(gameState.maxEnergy)}`,
         },
@@ -2674,12 +2691,12 @@ async function showUpgradeModal(upgradeType) {
     const upgrade = upgrades[upgradeType];
     if (!upgrade) return;
 
-    uiElements.upgradeImage.src = upgrade.image;
-    uiElements.upgradeText.innerText = upgrade.text;
-    uiElements.upgradeDescription.innerText = upgrade.description;
-    uiElements.currentLevel.innerText = upgrade.current;
-    uiElements.currentCoins.innerText = `Coins Available: ${formatNumber(gameState.balance)}`;
-    uiElements.upgradeCost.innerText = `Upgrade Cost: ${upgrade.cost}`;
+    document.getElementById('upgradeIconContainer').innerHTML = upgrade.icon;
+    document.getElementById('upgradeTitle').innerText = upgrade.title;
+    document.getElementById('upgradeDescription').innerText = upgrade.description;
+    document.getElementById('currentLevel').innerText = upgrade.current;
+    document.getElementById('currentCoins').innerText = `Coins Available: ${formatNumber(gameState.balance)}`;
+    document.getElementById('upgradeCost').innerText = `Upgrade Cost: ${upgrade.cost}`;
 }
 
 document.getElementById('bost1').addEventListener('click', () => showUpgradeModal('boost'));
