@@ -1175,7 +1175,7 @@ img {
       color: #fff;
       font-size: 15px;
       overflow: hidden;
-      border: 1px solid #1a1a1a;
+    /*  border: 1px solid #1a1a1a;*/
       transition: transform 0.2s, box-shadow 0.2s;
   } 
 
@@ -1233,7 +1233,7 @@ img {
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 5px; /* مسافة بين النصوص */
+    gap: 6px; /* مسافة بين النصوص */
 }
 
 #welcomeText {
