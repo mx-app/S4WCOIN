@@ -4,6 +4,7 @@
     padding-top: 3px;
     z-index: 50;
     margin-top: 8px;
+    margin-left: 15px;
     position: relative; /* لإبقاء النص في موضعه فوق الصورة */
 }
 
