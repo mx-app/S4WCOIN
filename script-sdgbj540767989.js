@@ -2713,6 +2713,12 @@ function confirmUpgradeAction() {
             gameState.balance -= cost;
             gameState.boostLevel++;
             gameState.clickMultiplier += 1;
+
+            // عرض إشعار بالترقية
+            showNotification(purchaseNotification, `Upgraded successfully ${upgrades.boost.title}`);
+        } else {
+            // عرض إشعار بعدم كفاية الرصيد
+            showNotification(purchaseNotification, 'You dont have enough coins to upgrade');
         }
     } else if (upgradeType === 'coin') {
         cost = gameState.coinBoostLevel * 500 + 500;
@@ -2720,6 +2726,12 @@ function confirmUpgradeAction() {
             gameState.balance -= cost;
             gameState.coinBoostLevel++;
             gameState.maxEnergy += 500;
+
+            // عرض إشعار بالترقية
+             showNotification(purchaseNotification, `Upgraded successfully ${upgrades.coin.title}`);
+        } else {
+            // عرض إشعار بعدم كفاية الرصيد
+            showNotification(purchaseNotification, ' You dont have enough coins to upgrade');
         }
     }
 
@@ -2727,6 +2739,7 @@ function confirmUpgradeAction() {
     updateUI();
     uiElements.upgradeModal.style.display = 'none';
 }
+
 
 
 function updateBoostsDisplay() {
