@@ -2671,7 +2671,6 @@ async function showUpgradeModal(upgradeType) {
                 </svg>
             `,
             title: "Hand Clicks",
-            description: "This upgrade increases your click multiplier, allowing you to earn more coins per click.",
             current: `Current Click Multiplier: ×${gameState.clickMultiplier}`,
         },
         coin: {
@@ -2683,8 +2682,7 @@ async function showUpgradeModal(upgradeType) {
                 </svg>
             `,
             title: "Energy Limits",
-            description: "This upgrade increases your maximum coin capacity, allowing you to store more coins.",
-            current: `Current Max Coins: ${formatNumber(gameState.maxEnergy)}`,
+            current: `Max Coins: ${formatNumber(gameState.maxEnergy)}`,
         },
     };
 
@@ -2693,10 +2691,8 @@ async function showUpgradeModal(upgradeType) {
 
     document.getElementById('upgradeIconContainer').innerHTML = upgrade.icon;
     document.getElementById('upgradeTitle').innerText = upgrade.title;
-    document.getElementById('upgradeDescription').innerText = upgrade.description;
     document.getElementById('currentLevel').innerText = upgrade.current;
-    document.getElementById('currentCoins').innerText = `Coins Available: ${formatNumber(gameState.balance)}`;
-    document.getElementById('upgradeCost').innerText = `Upgrade Cost: ${upgrade.cost}`;
+    document.getElementById('upgradeCost').innerText = `Cost: ${upgrade.cost}`;
 }
 
 document.getElementById('bost1').addEventListener('click', () => showUpgradeModal('boost'));
