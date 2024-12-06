@@ -72,7 +72,7 @@
 
 /* الحاوية للتفاصيل الإضافية */
 .user-box {
-    width: 98%;
+    width: 96%;
     background-color: #101010;
     border-radius: 10px;
     padding: 15px;
@@ -84,7 +84,7 @@
 .account-summary p {
     display: flex;
     justify-content: space-between;
-    border-bottom: 0.5px solid #343434;
+  /*  border-bottom: 0.5px solid #343434;*/
     padding-bottom: 5px;
     margin-bottom: 20px;
     margin-top: 5px;
