@@ -2722,22 +2722,13 @@ function updateBoostsDisplay() {
     const boostUpgradeCost = gameState.boostLevel * 500 + 500;
     const coinUpgradeCost = gameState.coinBoostLevel * 500 + 500;
 
-    if (uiElements.boostUpgradeBtn) {
-        document.getElementById('boostUpgradeCost').innerText = boostUpgradeCost;
-    }
-    if (uiElements.coinUpgradeBtn) {
-        document.getElementById('coinUpgradeCost').innerText = coinUpgradeCost;
-    }
-    if (uiElements.boostLevelDisplay) {
-        uiElements.boostLevelDisplay.innerText = gameState.boostLevel;
-    }
-    if (uiElements.multiplierDisplay) {
-        uiElements.multiplierDisplay.innerText = gameState.clickMultiplier;
-    }
-    if (uiElements.coinBoostLevelDisplay) {
-        uiElements.coinBoostLevelDisplay.innerText = gameState.coinBoostLevel;
-    }
+    document.getElementById('boostUpgradeCost').innerText = boostUpgradeCost;
+    document.getElementById('clickMultiplier').innerText = gameState.boostLevel;
+
+    document.getElementById('coinUpgradeCost').innerText = coinUpgradeCost;
+    document.getElementById('coinBoostLevel').innerText = gameState.coinBoostLevel;
 }
+
 
 function saveUpgradeState(upgradeType) {
     const upgradeState = {
@@ -2763,7 +2754,10 @@ function loadUpgradeState() {
 
 window.addEventListener('load', () => {
     loadUpgradeState();
+    updateBoostsDisplay();
 });
+
+
 //////////////////////////////////////
 
 document.getElementById("sendStartButton").addEventListener("click", function() {
