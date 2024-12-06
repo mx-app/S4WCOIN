@@ -3,13 +3,13 @@
     text-align: left;
     padding-top: 3px;
     z-index: 50;
-    margin-top: 8px;
+    margin-top: 3px;
     margin-left: 15px;
     position: relative; /* لإبقاء النص في موضعه فوق الصورة */
 }
 
 .taskk-title {
-    font-size: 30px;
+    font-size: 28px;
     color: white; /* تأكد من أن النص يظهر بوضوح على الصورة */
     z-index: 100; /* تأكد من أن النص فوق الصورة */
 }
