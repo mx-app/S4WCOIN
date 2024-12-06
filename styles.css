@@ -497,7 +497,7 @@ img {
     animation: slideUp 0.5s ease-out forwards; /* إضافة تأثير التحريك */
 }
 
-#confirmUpgradeBtn:hover {
+.game-button:hover {
     transform: scale(1.05);
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
 }
@@ -1184,6 +1184,11 @@ img {
       transition: transform 0.2s, box-shadow 0.2s;
   } 
 
+.community-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+} 
+
 .community-button::before {
     content: '';
     position: absolute;
@@ -1207,7 +1212,8 @@ img {
         left: 100%;
     }
 }
- 
+
+
 .community-button i {
     font-size: 1.2rem;
   /* width: 25px; 
