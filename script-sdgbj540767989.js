@@ -54,16 +54,6 @@ const uiElements = {
     friendsListDisplay: document.getElementById('friendsList') || { innerHTML: '' },
     displayedLevel: document.getElementById('displayedLevel'),
     currentLevelName: document.getElementById('currentLevelName'),
-   // levelOneProgress: document.getElementById('levelOneProgress'),
-  //  levelTwoProgress: document.getElementById('levelTwoProgress'),
-  //  levelThreeProgress: document.getElementById('levelThreeProgress'),
-   // levelFourProgress: document.getElementById('levelFourProgress'),
-   // levelFiveProgress: document.getElementById('levelFiveProgress'),
-   // levelSixProgress: document.getElementById('levelSixProgress'),
-   // levelSevenProgress: document.getElementById('levelSevenProgress'),
-   // levelEightProgress: document.getElementById('levelEightProgress'),
-   // levelNineProgress: document.getElementById('levelNineProgress'),
-   // levelTenProgress: document.getElementById('levelTenProgress'),
     boostUpgradeBtn: document.getElementById('boostUpgradeBtn'),
     coinUpgradeBtn: document.getElementById('coinUpgradeBtn'),
     fillEnergyUpgradeBtn: document.getElementById('fillEnergyBtn'),
@@ -1793,8 +1783,6 @@ document.getElementById('puzzle1').addEventListener('click', function() {
 });
 
 
-
-
 ///////////////////////////////////////////////////
 
 
@@ -2067,18 +2055,9 @@ document.getElementById('promocloseModal').addEventListener('click', () => {
 });
 
 
-
-/////////////////////////////////////////
-
-
-
-
-/////////////////////////////////////////
-
-
-
-
 //////////////////////////////////////
+
+
 
 
 // استلام رابط الدعوة عند الانضمام
@@ -2118,8 +2097,6 @@ document.addEventListener('DOMContentLoaded', handleInvite);
 
 
 ////////////////////////////////////////////////
-
-
 
 
 document.addEventListener('DOMContentLoaded', () => {
