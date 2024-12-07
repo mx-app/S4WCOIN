@@ -1208,7 +1208,7 @@ img {
     50% {
         left: 0;
     }
-    100% {
+   100% {
         left: 100%;
     }
 }
@@ -1243,7 +1243,7 @@ img {
 #welcomeMessage {
     position: absolute;
     top: 10px;
-    left: 17px;
+    left: 18px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -1261,3 +1261,19 @@ img {
     color: #fff; /* لون أفتح قليلاً لتمييز الاسم */
     margin-right: 10px;
 }
+
+.user-details-i {
+    position: absolute; /* تحديد الموقع بالنسبة للشاشة */
+    top: 10px; /* المسافة من الأعلى */
+    left: 10px; /* المسافة من اليسار */
+    z-index: 100; /* لضمان الظهور فوق العناصر الأخرى */
+}
+
+.userrr-image {
+    width: 30px; /* عرض الصورة */
+    height: 30px; /* ارتفاع الصورة */
+    border-radius: 50%; /* جعل الصورة دائرية */
+    object-fit: cover; /* تأكد من احتواء الصورة داخل الدائرة */
+    border: 1px solid #fff; /* إضافة إطار أبيض حول الصورة */
+}
+ 
