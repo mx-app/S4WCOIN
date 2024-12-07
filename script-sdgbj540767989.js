@@ -15,6 +15,7 @@ const uiElements = {
     walletBalanceDisplay: document.getElementById('navbarBalanceDisplay'),
     settingsBalanceDisplay: document.getElementById('settingsBalanceDisplay'),
     gnavbarBalanceDisplay: document.getElementById('gnavbarBalanceDisplay'),
+    newBalanceDisplay: document.getElementById('newBalanceDisplay'),
     
     energyBar: document.getElementById('energyBar'),
     energyInfo: document.getElementById('energyInfo'),
@@ -483,6 +484,7 @@ function updateUI() {
         uiElements.boostBalanceDisplay,
         uiElements.lvlBalanceDisplay,
         uiElements.gnavbarBalanceDisplay,
+        uiElements.newBalanceDisplay,
         uiElements.miningBalanceDisplay
     ];
 
