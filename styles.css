@@ -1255,6 +1255,6 @@ img {
 
 #userName {
     font-size: 15px;
-    color: #808080; /* لون أفتح قليلاً لتمييز الاسم */
+    color: #fff; /* لون أفتح قليلاً لتمييز الاسم */
     margin-right: 10px;
 }
