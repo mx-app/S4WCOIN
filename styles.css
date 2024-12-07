@@ -1263,7 +1263,7 @@ img {
 
 #topBar {
     position: fixed;
-    top: 0;
+    top: -25px; /* نبدأ بموقع مخفي للشريط */
     left: 50%;
     transform: translateX(-50%);
     width: 95%;
@@ -1273,7 +1273,10 @@ img {
     backdrop-filter: blur(2px);
     color: white;
     border-radius: 20px;
-    display: none; /* البار مخفي في البداية */
+    display: flex; /* البار يحتوي على محتويات */
+    justify-content: space-between;
     z-index: 1000;
-    transition: top 0.3s ease; /* تأثير الانتقال عند التغيير */
+    transition: top 0.3s ease; /* تأثير سلس عند تحريك الشريط */
 }
+
+
