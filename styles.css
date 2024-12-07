@@ -1259,4 +1259,21 @@ img {
     object-fit: cover; /* تأكد من احتواء الصورة داخل الدائرة */
     border: 1px solid #161616; /* إضافة إطار أبيض حول الصورة */
 }
- 
+
+
+#topBar {
+    position: fixed;
+    top: 0;
+    left: 50%; /* البدء من منتصف الشاشة */
+    transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
+    width: 95%;
+    height: 25px; 
+    font-size: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(2px); 
+    color: white;
+    display: flex;
+    justify-content: space-between; /* توزيع المسافة بين الرصيد والطاقة */
+    display: none; /* البار مخفي في البداية */
+    z-index: 1000;
+}
