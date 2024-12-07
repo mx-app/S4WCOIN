@@ -38,6 +38,35 @@
     z-index: 2; 
 }
 
+.daily-itemm::before {
+	/* grid doesn't work for stacking when a stacked item is text node */
+	position: absolute;
+	/* place behind card content, so card text is selectable, etc */
+	z-index: -1;
+	/* best if inset is at least half the border-width with minus */
+	inset: -1em;
+	/* reserve space for border */
+	border: solid 1.25em;
+	border-image: 
+		/* adjust gradient as needed with grayscale palette */
+		conic-gradient(from var(--a), 
+			#161616, #333333, #4d4d4d, #666666, 
+			#808080, #999999, #b3b3b3, #cccccc, 
+			#e6e6e6, #f2f2f2, #d9d9d9, #161616) 1;
+	/* blur this pseudo */
+	filter: blur(.75em);
+	/* tweak animation duration as necessary */
+	animation: a 4s linear infinite;
+	/* needed so pseudo is displayed */
+	content: '';
+}
+
+/* animate --a from its initial-value 0deg to 1turn */
+@keyframes a { 
+	to { --a: 1turn; } 
+}
+
+
 .daily-itemm {
     display: flex;
     flex-direction: row; /* ترتيب المحتوى داخل العنصر أفقيًا */
