@@ -20,7 +20,6 @@
     "styles/Level.css",
     "styles/tasks.css",
     "styles/wallet.css",
-    "styles/gift.css", 
-    "styles/Loading.css"
+    "styles/gift.css"
   ]
 }
