@@ -1,5 +1,5 @@
 .minee-container {
-    border-top: 1px solid #101010;
+    border: 1px solid #101010;
     width: 100%; /* تغطي كامل عرض الشاشة */
     height: 85%; /* تغطي 70% من الشاشة */
     position: absolute; /* تموضع مطلق */
@@ -12,13 +12,13 @@
         #101010, 
         black
     );*/
-    border-radius: 20px 20px 0 0;
+    border-radius: 20px 20px 20px 20px;
 }
 
 #mainPage {
     padding-top: 50px; /* يمكنك تغيير القيمة حسب الحاجة */
     background-clip: padding-box;
-  /*  overflow-y: auto;*/
+    overflow-y: auto;
     background: linear-gradient(
         to bottom,
         #000, 
