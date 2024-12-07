@@ -1264,17 +1264,16 @@ img {
 #topBar {
     position: fixed;
     top: 0;
-    left: 50%; /* البدء من منتصف الشاشة */
-    transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
+    left: 50%;
+    transform: translateX(-50%);
     width: 95%;
-    height: 25px; 
+    height: 25px;
     font-size: 15px;
     background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(2px); 
+    backdrop-filter: blur(2px);
     color: white;
     border-radius: 20px;
-    display: flex;
-    justify-content: space-between; /* توزيع المسافة بين الرصيد والطاقة */
     display: none; /* البار مخفي في البداية */
     z-index: 1000;
+    transition: top 0.3s ease; /* تأثير الانتقال عند التغيير */
 }
