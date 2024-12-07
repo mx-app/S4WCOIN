@@ -327,8 +327,8 @@ img {
     font-family: 'JetBrains Mono', monospace;
     font-size: 12px; /* حجم الخط */
     text-align: left; /* المحاذاة لليسار */
-    /*margin-right: 40px;
-    margin-bottom: 4px;*/
+    margin-left: 4px;
+    margin-right: 4px;
     direction: rtl; /* الحفاظ على الاتجاه من اليمين لليسار */
     white-space: nowrap;
 }
@@ -664,7 +664,7 @@ img {
     transform: translateX(-50%);
     background: #141414;
     color: #fff;
-    padding: 10px 20px; /* زيادة padding لجعل الإشعار طويل */
+    padding: 12px 20px; /* زيادة padding لجعل الإشعار طويل */
     border-radius: 15px;
     border: 1px solid #1a1a1a;
     font-size: 13px;
@@ -937,7 +937,7 @@ img {
 }*/
 
 #hourlyEarningsContainer {
-    position: fixed;
+    position: absolute;
     top: 12px;
     left: 17px; 
     font-size: 14px;
@@ -971,7 +971,7 @@ img {
 } 
 
 .right-section {
-    position: fixed;
+    position: absolute;
     top: 60px; 
     right: 17px; 
     width: auto;
