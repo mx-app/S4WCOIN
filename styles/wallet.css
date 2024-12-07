@@ -93,7 +93,8 @@
 }
 
 #ton-connect button {
-    background: linear-gradient(to right, #1E90FF 25%, #161616 25%);
+    background: #161616;
+    backdrop-filter: blur(2px); 
     border: 1px solid #1a1a1a;
     color: #fff;
     font-size: 16px;
@@ -103,6 +104,7 @@
     cursor: pointer;
     width: 100%; /* جعل الزر بعرض الصندوق */
     max-width: 300px; /* تحديد عرض أقصى للزر */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 #ton-connect button:hover {
