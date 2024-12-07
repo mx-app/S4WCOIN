@@ -95,7 +95,8 @@
     justify-content: flex-start; /* محاذاة المحتوى أفقيًا من اليسار */
     border-radius: 10px;
     padding: 10px;
-    background: #101010;
+    background: #161616;
+    backdrop-filter: blur(2px); 
     text-align: left; /* لضبط النص إلى اليسار */
     cursor: pointer;
     overflow: hidden;
