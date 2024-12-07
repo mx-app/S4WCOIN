@@ -261,7 +261,7 @@ img {
     content: "S4W"; /* النص المطلوب */
     font-size: 24px; /* حجم النص */
     font-weight: 500;
-    font-style: normal;
+    font-style: normal !important;
     color: #fff;
     position: relative; /* لضبط الموضع */
     bottom: 0; /* التعديل الدقيق لموضع النص */
@@ -271,15 +271,15 @@ img {
 .main-digits {
     font-size: 35px; 
     font-weight: 600;
-    font-style: normal;
+    font-style: normal !important; /* استخدام !important لضمان تطبيق التغيير */
     color: #fff;
     line-height: 1; /* لضمان التناسق بين النصوص */
-}
+} 
 
 .remaining-digits {
     font-size: 35px; /* باقي الأرقام بنفس الحجم */
     font-weight: 600;
-    font-style: normal;
+    font-style: normal !important;
     color: #fff;
     line-height: 1; /* لتقليل الفراغ بين النصوص */
 }
