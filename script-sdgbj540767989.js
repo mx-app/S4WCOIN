@@ -2681,6 +2681,32 @@ window.addEventListener('load', () => {
 //////////////////////////////////////
 
 
+let lastScrollTop = 0; // تخزين آخر نقطة تم التمرير إليها
+let topBar = document.getElementById('topBar'); // الحصول على البار
+
+window.addEventListener('scroll', function() {
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll > lastScrollTop) {
+        // التمرير لأسفل: عرض البار
+        topBar.style.display = 'flex';
+        topBar.style.top = '0'; // إبقاء البار في أعلى الصفحة
+    } else {
+        // التمرير لأعلى: إخفاء البار عند الوصول إلى أعلى الصفحة
+        if (currentScroll === 0) {
+            topBar.style.top = '-25px'; // إخفاء البار عند أعلى الصفحة
+            topBar.style.display = 'none'; // إخفاء البار نهائيًا عند التمرير لأعلى
+        }
+    }
+
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // تحديث قيمة آخر نقطة تم التمرير إليها
+});
+
+
+
+
+
+////////////////////////
 
 
 
