@@ -1168,7 +1168,7 @@ img {
       align-items: center;
       justify-content: space-between;
       position: absolute; /* تموضع مطلق */
-      bottom: 76px; /* المسافة من أسفل الشاشة */
+      bottom: 50px; /* المسافة من أسفل الشاشة */
       left: 50%; /* البدء من منتصف الشاشة */
       transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
       width: 90%;
@@ -1179,39 +1179,15 @@ img {
       text-decoration: none;
       color: #fff;
       font-size: 15px;
-      overflow: hidden;
-    /*  border: 1px solid #1a1a1a;*/
+      overflow: hidden; 
       transition: transform 0.2s, box-shadow 0.2s;
   } 
 
 .community-button:hover {
-    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(2px); 
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
 } 
-
-.community-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 20%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent); /* جعل الشفافية أكثر */
-    animation: shine 2s forwards;
-    animation-delay: 90s; /* التأثير يظهر كل 5 دقائق */
-}
-
-@keyframes shine {
-    0% {
-        left: -100%;
-    }
-    50% {
-        left: 0;
-    }
-   100% {
-        left: 100%;
-    }
-}
 
 
 .community-button i {
