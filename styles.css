@@ -253,7 +253,6 @@ img {
     align-items: baseline; /* محاذاة العناصر عند قاعدة النص */
     justify-content: center;
     color: #fff;
-    font-style: normal;
     gap: 2px; /* مسافة بين الرقم والنص */
     position: relative;
 }
@@ -261,7 +260,8 @@ img {
 #balanceAmount::after {
     content: "S4W"; /* النص المطلوب */
     font-size: 24px; /* حجم النص */
-    font-weight: 600;
+    font-weight: 500;
+    font-style: normal;
     color: #fff;
     position: relative; /* لضبط الموضع */
     bottom: 0; /* التعديل الدقيق لموضع النص */
@@ -270,14 +270,16 @@ img {
 
 .main-digits {
     font-size: 35px; 
-    font-weight: 550;
+    font-weight: 600;
+    font-style: normal;
     color: #fff;
     line-height: 1; /* لضمان التناسق بين النصوص */
 }
 
 .remaining-digits {
     font-size: 35px; /* باقي الأرقام بنفس الحجم */
-    font-weight: 550;
+    font-weight: 600;
+    font-style: normal;
     color: #fff;
     line-height: 1; /* لتقليل الفراغ بين النصوص */
 }
