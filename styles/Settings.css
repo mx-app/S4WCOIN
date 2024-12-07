@@ -42,8 +42,9 @@
     align-items: center;
     width: 95%;
     max-width: 400px;
-    background-color: #101010;
-    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(2px); 
+    border-radius: 20px;
     padding: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     margin-bottom: 40px;
@@ -67,14 +68,15 @@
 
 .user-name,
 .user-id {
-    font-size: 16px;
+    font-size: 14px;
 }
 
 /* الحاوية للتفاصيل الإضافية */
 .user-box {
     width: 95%;
-    background-color: #101010;
-    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(2px); 
+    border-radius: 20px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
@@ -83,7 +85,7 @@
 .account-summary p {
     display: flex;
     justify-content: space-between;
-    border-bottom: 0.5px solid #343434;
+    /*border-bottom: 0.5px solid #343434;*/
     padding-bottom: 5px;
     margin-bottom: 10px;
 }
@@ -94,8 +96,7 @@
 }
 
 .detail-value {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
     color: #f0f0f0;
 }
-
