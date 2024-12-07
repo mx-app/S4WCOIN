@@ -1,6 +1,6 @@
 .minee-container {
     border: 1px solid #101010;
-    width: 100%; /* تغطي كامل عرض الشاشة */
+    width: 97%; /* تغطي كامل عرض الشاشة */
     height: 85%; /* تغطي 70% من الشاشة */
     position: absolute; /* تموضع مطلق */
     bottom: 0; /* تبدأ من أسفل الشاشة */
@@ -12,7 +12,7 @@
         #101010, 
         black
     );*/
-    border-radius: 20px 20px 20px 20px;
+    border-radius: 20px;
 }
 
 #mainPage {
