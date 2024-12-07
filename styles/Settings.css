@@ -42,7 +42,7 @@
     align-items: center;
     width: 95%;
     max-width: 400px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: #161616;
     backdrop-filter: blur(2px); 
     border-radius: 20px;
     padding: 15px;
@@ -74,7 +74,7 @@
 /* الحاوية للتفاصيل الإضافية */
 .user-box {
     width: 95%;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: #161616;
     backdrop-filter: blur(2px); 
     border-radius: 20px;
     padding: 20px;
