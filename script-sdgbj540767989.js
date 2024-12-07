@@ -257,19 +257,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     updateGameStateInDatabase(); 
     listenToRealtimeChanges();   
     await initializeApp();  
-    updateBoostsDisplay();
-    updateInviteFriendsButton();
 });
 
 
 document.addEventListener("DOMContentLoaded", function() {
     updateUI(); // تأكد من تحديث الرصيد عند تحميل الصفحة
 });
-
-//document.addEventListener('DOMContentLoaded', async () => {
-   // await loadGameStateFromDB(); 
-    //updateUI();
-//});
 
 
 // مستويات اللعبة المتناسقة
@@ -398,15 +391,15 @@ async function fetchUserDataFromTelegram() {
     uiElements.userTelegramIdDisplay.innerText = userTelegramId;
     uiElements.userTelegramNameDisplay.innerText = userTelegramName;
     
-    // تحديث رسالة الترحيب
-   const welcomeTextElement = document.getElementById("welcomeText");
-   const userNameElement = document.getElementById("userName");
+    // تحديث الرسالة لعرض الاسم فقط مع إضافة النقاط
+    const userNameElement = document.getElementById("userName");
 
-   if (welcomeTextElement && userNameElement) {
-      welcomeTextElement.innerText = "Welcome back";
-      userNameElement.innerText = userTelegramName;
+    if (userNameElement) {
+      const maxLength = 7; // تحديد طول الاسم الذي تريد عرضه قبل النقاط
+      const truncatedName = userTelegramName.length > maxLength ? userTelegramName.slice(0, maxLength) + "..." : userTelegramName;
+      userNameElement.innerText = truncatedName;
     }
-
+    
     // تحديث حالة الحساب (Premium)
     const premiumStatusElement = document.getElementById('userPremiumStatus');
     if (premiumStatusElement) {
