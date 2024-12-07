@@ -32,11 +32,16 @@
 
 /* تنسيق الحاوية الرئيسية */
 .container-gate {
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 98%; 
+    height: auto; 
+    position: absolute; 
     display: flex;
     justify-content: space-between;
     gap: 20px;
     flex-wrap: wrap;
-    padding: 20px;
+    /*padding: 20px;*/
 }
 
 /* تنسيق كل بوابة */
