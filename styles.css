@@ -1242,7 +1242,7 @@ img {
 
 #welcomeMessage {
     position: absolute;
-    top: 12px;
+    top: 10px;
     left: 17px;
     text-align: center;
     display: flex;
