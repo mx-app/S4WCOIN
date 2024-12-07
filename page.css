@@ -1,12 +1,13 @@
 .minee-container {
-    border: 2px solid #101010;
+    border: 1px solid #101010;
     width: 98%; /* تغطي كامل عرض الشاشة */
     height: 85%; /* تغطي 70% من الشاشة */
     position: absolute; /* تموضع مطلق */
     bottom: 0; /* تبدأ من أسفل الشاشة */
     left: 0; /* تبدأ من الحافة اليسرى */
     background: #000;
-    margin: 10px auto; 
+    margin-left: auto; 
+    margin-right: auto; 
   /*  background: linear-gradient(
         to bottom,
         #000, 
