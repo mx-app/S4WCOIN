@@ -1168,7 +1168,7 @@ img {
       align-items: center;
       justify-content: space-between;
       position: absolute; /* تموضع مطلق */
-      bottom: 40px; /* المسافة من أسفل الشاشة */
+      bottom: 35px; /* المسافة من أسفل الشاشة */
       left: 50%; /* البدء من منتصف الشاشة */
       transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
       width: 90%;
