@@ -17,7 +17,7 @@
 }  
 
 #Buttoncontainer {
-  position: fixed;
+  position: absolute;
   width: 25%;
   /*background-color: #101010;*/
   height: 30px;
