@@ -16,7 +16,8 @@ const uiElements = {
     settingsBalanceDisplay: document.getElementById('settingsBalanceDisplay'),
     gnavbarBalanceDisplay: document.getElementById('gnavbarBalanceDisplay'),
     newBalanceDisplay: document.getElementById('newBalanceDisplay'),
-    
+    newEnergyDisplay: document.getElementById('newEnergyDisplay'),
+
     energyBar: document.getElementById('energyBar'),
     energyInfo: document.getElementById('energyInfo'),
     languageBtn: document.getElementById('languageSwitchBtn'),
@@ -498,6 +499,11 @@ function updateUI() {
     if (uiElements.energyBar) {
         const energyPercent = (gameState.energy / gameState.maxEnergy) * 100;
         uiElements.energyBar.style.width = `${energyPercent}%`;
+    }
+    
+    // تحديث شريط الطاقة في topBar
+    if (newEnergyDisplay) {
+        newEnergyDisplay.innerText = `${formatNumber(gameState.energy)}/${formatNumber(gameState.maxEnergy)}⚡`;
     }
 
     // تحديث معلومات الطاقة
