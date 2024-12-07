@@ -24,12 +24,10 @@
       font-weight: bold;
       background: #101010;
       border-radius: 10px;
-      text-decoration: none;
       color: #fff;
       font-size: 15px;
-      font-weight: bold;
-     /* border: 1px solid #1a1a1a;*/
   } 
+
 .promo-code-button:hover { 
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(2px); 
