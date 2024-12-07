@@ -113,7 +113,7 @@
 #mainPage {
     padding-top: 50px; /* يمكنك تغيير القيمة حسب الحاجة */
     background-clip: padding-box;
-    overflow-y: auto;
+   /* overflow-y: auto;*/
     background: linear-gradient(
         to bottom,
         #000, 
