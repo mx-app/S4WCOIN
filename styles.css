@@ -253,6 +253,7 @@ img {
     align-items: baseline; /* محاذاة العناصر عند قاعدة النص */
     justify-content: center;
     color: #fff;
+    font-style: normal;
     gap: 2px; /* مسافة بين الرقم والنص */
     position: relative;
 }
