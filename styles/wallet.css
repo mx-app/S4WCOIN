@@ -93,8 +93,7 @@
 }
 
 #ton-connect button {
-   /* background-color: rgba(0, 0, 0, 0.009);*/
-    background-color: #1E90FF;/* لون زر مناسب */
+    background: linear-gradient(to right, #1E90FF 25%, #161616 25%);
     border: 1px solid #1a1a1a;
     color: #fff;
     font-size: 16px;
@@ -108,5 +107,4 @@
 
 #ton-connect button:hover {
     background-color: #1a1a1a; /* تأثير اللون عند التمرير */
-} 
-
+}
