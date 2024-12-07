@@ -167,7 +167,7 @@ img {
     border-radius: 50%; /* جعل الشكل دائريًا */
     width: 40px;
     height: 40px;
-    animation: spin 1s linear infinite; /* التحريك المستمر */
+    animation: spin 2s linear infinite; /* التحريك المستمر */
 }
 
 /* حركة التدوير */
