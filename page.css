@@ -5,7 +5,7 @@
     width: 98%; /* تغطي كامل عرض الشاشة */
     height: 500px; /* تغطي 70% من الشاشة */
     position: absolute; /* تموضع مطلق */
-    bottom: 0; /* تبدأ من أسفل الشاشة */
+    top: 200px; /* تبدأ من أسفل الشاشة */
     background: #000;
   /*  background: linear-gradient(
         to bottom,
