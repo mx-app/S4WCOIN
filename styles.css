@@ -1116,10 +1116,11 @@ img {
 }
 
 .friend-avatar {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     border-radius: 10px;
     margin-right: 10px;
+    border: 1px solid #161616;
 }
 
 .friend-name {
