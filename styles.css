@@ -1242,8 +1242,8 @@ img {
 
 #welcomeMessage {
     position: absolute;
-    top: 10px;
-    left: 25px;
+    top: 9px;
+    left: 30px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -1264,8 +1264,8 @@ img {
 
 .user-details-i {
     position: absolute; /* تحديد الموقع بالنسبة للشاشة */
-    top: 12px; /* المسافة من الأعلى */
-    left: 10px; /* المسافة من اليسار */
+    top: 15px; /* المسافة من الأعلى */
+    left: 15px; /* المسافة من اليسار */
     z-index: 100; /* لضمان الظهور فوق العناصر الأخرى */
 }
 
