@@ -49,10 +49,7 @@ const uiElements = {
     withdrawAmountInput: document.getElementById('withdrawAmount'),
     userTelegramNameDisplay: document.getElementById('userTelegramName'),
     userTelegramIdDisplay: document.getElementById('userTelegramId'),
-    //taskTwoBtn: document.getElementById('taskTwoBtn'),
-    //taskThreeBtn: document.getElementById('taskThreeBtn'),
-   // taskTwoProgress: document.getElementById('taskTwoProgress'),
-    //taskThreeProgress: document.getElementById('taskThreeProgress'),
+
     levelInfoDisplay: document.getElementById('currentLevelInfo') || { innerText: '' },
     friendsListDisplay: document.getElementById('friendsList') || { innerHTML: '' },
     displayedLevel: document.getElementById('displayedLevel'),
@@ -255,13 +252,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     await restoreEnergy();
     startEnergyRecovery();
     updateGameStateInDatabase(); 
+    updateUI(); 
     listenToRealtimeChanges();   
     await initializeApp();  
-});
-
-
-document.addEventListener("DOMContentLoaded", function() {
-    updateUI(); // تأكد من تحديث الرصيد عند تحميل الصفحة
 });
 
 
@@ -336,9 +329,6 @@ async function checkForLevelUp() {
         }
     }
 }
-
-
-
 
 
 // دالة تهيئة التطبيق
@@ -496,7 +486,7 @@ function updateUI() {
         uiElements.miningBalanceDisplay
     ];
 
-    balanceElements.forEach(element => {
+     balanceElements.forEach(element => {
         if (element) {
             element.innerText = formattedBalance;
         }
@@ -797,9 +787,6 @@ function createDiamondCoinEffect(x, y) {
 
 
 
-
-
-
 //////////////////////////////////////////////////
 
 
@@ -826,13 +813,6 @@ function navigateToScreen(screenId) {
     } else {
         footerMenu.style.display = 'none'; // إخفاء القائمة السفلية في الصفحات الأخرى
     }
-
-    // إضافة منطق خاص لصفحة "boostsPage" إذا لزم الأمر
-    //if (screenId === 'boostsPage') {
-      //  if (uiElements.boostUpgradeBtn) uiElements.boostUpgradeBtn.style.display = 'block';
-     //   if (uiElements.coinUpgradeBtn) uiElements.coinUpgradeBtn.style.display = 'block';
-     //   if (uiElements.fillEnergyUpgradeBtn) uiElements.fillEnergyUpgradeBtn.style.display = 'block';
-   // }
 }
 
 
@@ -1286,13 +1266,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const rewardContainer = document.createElement('div');
                 rewardContainer.classList.add('task-reward-container');
             
-            // حذف أو تعليق الجزء الخاص بإضافة صورة العملة
-            // const rewardIcon = document.createElement('img');
-            // rewardIcon.src = 'i/coii.png'; // مسار صورة العملة
-            // rewardIcon.alt = 'Coinreward';
-            // rewardIcon.classList.add('reward-coin-icon'); // معرف جديد للرمز
-            // rewardContainer.appendChild(rewardIcon);
- 
                 const rewardText = document.createElement('span');
                 rewardText.textContent = `+ ${task.reward} $S4W`;
                 rewardText.classList.add('task-reward');
@@ -1836,7 +1809,6 @@ document.getElementById('puzzle1').addEventListener('click', function() {
 /////////////////////////////////////////////////
 
 
-
 const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
     manifestUrl: 'https://sawcoin.vercel.app/json/tonconnect-manifest.json',
     buttonRootId: 'ton-connect'
@@ -1869,73 +1841,6 @@ checkConnection();
 tonConnectUI.uiOptions = {
     twaReturnUrl: 'https://t.me/SAWCOIN_BOT/GAME'
 };
-
-
-//////////////////////////////////////////////////
-
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    let coinCounter = 0;
-    let autoIncrementInterval;
-
-    function startGame(gameUrl) {
-        const gameFrameContainer = document.getElementById("gameFrameContainer");
-        const gameFrame = document.getElementById("gameFrame");
-        const counterDisplay = document.getElementById("counterDisplay");
-        const counterContainer = document.querySelector(".counter-container");
-
-        if (gameFrameContainer && gameFrame && counterContainer) {
-            gameFrame.src = gameUrl;
-            gameFrameContainer.style.display = "flex";
-            counterContainer.style.display = "flex";
-            coinCounter = 0;
-            counterDisplay.innerText = coinCounter;
-
-            
-            // بدء زيادة العداد تلقائيًا بمقدار 0.2 عملة كل ثانية
-            autoIncrementInterval = setInterval(() => {
-                coinCounter += 0.1;
-                counterDisplay.innerText = coinCounter.toFixed(1); // عرض الرقم بفاصلة عشرية واحدة
-                gameState.balance += 0.1;
-                updateUI();
-                saveGameState();
-            }, 4000); // كل ثانية يتم زيادة 0.2 عملة
-        }
-    }
-    
-    function closeGameElements() {
-        const gameFrameContainer = document.getElementById("gameFrameContainer");
-        const gameFrame = document.getElementById("gameFrame");
-        const counterContainer = document.querySelector(".counter-container");
-
-        if (gameFrameContainer && gameFrame && counterContainer) {
-            // إخفاء جميع العناصر الخاصة باللعبة باستثناء صفحة الألعاب
-            gameFrameContainer.style.display = "none";
-            gameFrame.src = ""; // إزالة مصدر اللعبة لإيقافها
-            counterContainer.style.display = "none";
-
-            // إيقاف الزيادة التلقائية عند إغلاق العناصر
-            clearInterval(autoIncrementInterval);
-        }
-    }
-
-    function claimCoins() {
-        gameState.balance += coinCounter;
-        updateUI(); // تحديث واجهة المستخدم
-        showNotificationWithStatus(uiElements.purchaseNotification, `You've claimed ${coinCounter} coins!`, 'win');
-        saveGameState();
-        closeGameElements(); // إخفاء العناصر بعد الجمع
-    }
-
-    // إضافة مستمع زر الإغلاق
-    document.getElementById("closeGamePage").addEventListener("click", closeGameElements);
-
-    // تعيين الدوال في النطاق العام
-    window.startGame = startGame;
-    window.closeGamePage = closeGameElements;
-    window.claimCoins = claimCoins;
-});
 
 
 
@@ -2027,9 +1932,7 @@ function showContent(contentId) {
 ///////////////////////////////////////
 
 
-
-            
-    document.getElementById('applyPromoCode').addEventListener('click', async () => {
+document.getElementById('applyPromoCode').addEventListener('click', async () => {
     const applyButton = document.getElementById('applyPromoCode');
     const promoCodeInput = document.getElementById('promoCodeInput');
     const enteredCode = promoCodeInput.value;
@@ -2204,15 +2107,6 @@ document.getElementById('promocloseModal').addEventListener('click', () => {
 
 /////////////////////////////////////////
 
-
-
-
-/////////////////////////////////////////
-
-
-
-
-//////////////////////////////////////
 
 
 // استلام رابط الدعوة عند الانضمام
@@ -2774,12 +2668,6 @@ function loadUpgradeState() {
 window.addEventListener('load', () => {
     loadUpgradeState();
     updateBoostsDisplay();
-});
-
-window.addEventListener('click', (event) => {
-    if (event.target === uiElements.upgradeModal) {
-        uiElements.upgradeModal.style.display = 'none';
-    }
 });
 
 //////////////////////////////////////
