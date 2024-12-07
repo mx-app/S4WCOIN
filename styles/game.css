@@ -93,7 +93,7 @@
     display: flex;
     align-items: center; /* محاذاة المحتوى رأسياً في المنتصف */
     justify-content: flex-start; /* محاذاة المحتوى أفقيًا من اليسار */
-    border-radius: 10px;
+    border-radius: 20px;
     padding: 10px;
     background: #161616;
     backdrop-filter: blur(2px); 
