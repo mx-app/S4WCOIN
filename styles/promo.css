@@ -12,21 +12,20 @@
 }
 
 .promo-code-button {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: absolute; /* تموضع مطلق */
-      bottom: 85px; /* المسافة من أسفل الشاشة */
-      left: 50%; /* البدء من منتصف الشاشة */
-      transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
-      width: 90%;
-      height: 43px;
-      font-weight: bold;
-      background: #101010;
-      border-radius: 10px;
-      color: #fff;
-      font-size: 15px;
-  } 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute; /* تموضع مطلق */
+    bottom: 85px; /* المسافة من أسفل الشاشة */
+    left: 50%; /* البدء من منتصف الشاشة */
+    transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
+    width: 90%;
+    height: 43px;
+    background: #101010;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 15px;
+} 
 
 .promo-code-button:hover { 
     background-color: rgba(255, 255, 255, 0.1);
