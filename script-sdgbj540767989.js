@@ -2688,7 +2688,7 @@ window.addEventListener('scroll', function() {
 
     if (currentScroll > lastScrollTop) {
         // التمرير لأسفل: يظهر البار
-        topBar.style.top = '0'; // عرض البار
+        topBar.style.top = '8px'; // عرض البار
     } else {
         // التمرير لأعلى: إخفاء البار عند الوصول إلى أعلى الصفحة
         if (currentScroll === 0) {
@@ -2698,7 +2698,6 @@ window.addEventListener('scroll', function() {
 
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // تحديث قيمة آخر نقطة تم التمرير إليها
 });
-
 
 
 
