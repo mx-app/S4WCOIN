@@ -3,9 +3,9 @@
     left: 50%; /* تبدأ من منتصف الشاشة */
     transform: translateX(-50%); /* يتم تحريكها بشكل أفقي بحيث تكون بالمنتصف */
     width: 98%; /* تغطي كامل عرض الشاشة */
-    height: 600px; /* تغطي 70% من الشاشة */
+    height: 550px; /* تغطي 70% من الشاشة */
     position: absolute; /* تموضع مطلق */
-    top: 100px; /* تبدأ من أسفل الشاشة */
+    top: 110px; /* تبدأ من أسفل الشاشة */
     background: #000;
   /*  background: linear-gradient(
         to bottom,
