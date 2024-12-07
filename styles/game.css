@@ -4,7 +4,7 @@
     color: #000; 
 } 
 
-.Play-game-button {
+/*.Play-game-button {
     position: fixed;
     display: flex;
     align-items: center;
@@ -20,9 +20,15 @@
     font-weight: bold;
     border-radius: 20px;
     cursor: pointer;
-   /* border: 1px solid #1E90FF;*/
-    z-index: 10; /* لجعله فوق العناصر الأخرى */
-    transform: translateY(-1px); /* تحريك طفيف لأعلى ليبدو كأنه مرتفع */
+    z-index: 10; 
+    transform: translateY(-1px); 
+}*/
+
+.Play-game-button {
+    color: #fff; 
+    background-color: rgba(255, 255, 255, 0.001);
+    border-radius: 5px; 
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 } 
 
 .Play-game-button:hover {
@@ -31,7 +37,7 @@
 
 .Play-game-button i {
     font-size: 1.1rem;
-    margin-right: 6px;
+  /*  margin-right: 6px;*/
 } 
 
 .Gamess {
