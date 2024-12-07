@@ -180,7 +180,7 @@
     margin: 10px auto;
     /*border: 1px solid #161616;*/
     background: #101010; 
-    border-radius: 10px; /* زوايا مستديرة */
+    border-radius: 20px; /* زوايا مستديرة */
     box-sizing: border-box; /* لحساب الحواف ضمن الأبعاد */
     overflow: hidden;
 }
