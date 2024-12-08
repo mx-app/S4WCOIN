@@ -1244,6 +1244,7 @@ img {
     font-size: 15px;
     color: #fff; /* لون أفتح قليلاً لتمييز الاسم */
     margin-right: 10px;
+    animation: popIn 0.4s ease forwards;
 }
 
 .user-details-i {
@@ -1251,6 +1252,7 @@ img {
     top: 20px; /* المسافة من الأعلى */
     left: 18px; /* المسافة من اليسار */
     z-index: 100; /* لضمان الظهور فوق العناصر الأخرى */
+    animation: popIn 0.4s ease forwards;
 }
 
 .userrr-image {
