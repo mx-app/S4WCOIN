@@ -1227,7 +1227,7 @@ img {
 #welcomeMessage {
     position: absolute;
     top: 9px;
-    left: 30px;
+    left: 32px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -1250,7 +1250,7 @@ img {
 .user-details-i {
     position: absolute; /* تحديد الموقع بالنسبة للشاشة */
     top: 20px; /* المسافة من الأعلى */
-    left: 18px; /* المسافة من اليسار */
+    left: 22px; /* المسافة من اليسار */
     z-index: 100; /* لضمان الظهور فوق العناصر الأخرى */
     animation: popIn 0.4s ease forwards;
 }
