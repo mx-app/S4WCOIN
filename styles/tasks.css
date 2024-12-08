@@ -18,15 +18,15 @@
 .TASKS-image {
     position: absolute;
     top: 15px;
-    left: 75%;
+    left: 80%;
     opacity: 0.5;
     border-radius: 15px;
     transform: translateX(-50%);
     width: auto; /* استخدم auto بدلاً من 100% */
     max-width: 100%; /* يضمن أن الصورة لا تتجاوز العرض الكامل */
-    height: 150px;
+    height: 100px;
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     z-index: 0; /* تأكد من أن الصورة خلف النص */
 }
  
