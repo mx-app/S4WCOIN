@@ -25,12 +25,12 @@
     border-radius: 20px;
     color: #fff;
     font-size: 15px;
+    animation: popIn 0.3s ease forwards;
 } 
 
 .promo-code-button:hover { 
     background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(2px); 
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(2px);
 } 
 
 .promo-code-button i {
