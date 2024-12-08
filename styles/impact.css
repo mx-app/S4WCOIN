@@ -1,0 +1,30 @@
+#gameTwo {
+    animation: slideInLeft 0.4s ease forwards;
+}
+
+#gameOne {
+    animation: slideInRight 0.4s ease forwards;
+}
+
+#gamesix {
+    animation: slideInLeft 0.4s ease forwards;
+}
+
+#gametre {
+    animation: slideInRight 0.4s ease forwards;
+}
+
+#inviteFriendsBtn {
+    animation: slideInRight 0.4s ease forwards;
+}
+
+#copyInviteLinkBtn {
+    animation: slideInRight 0.4s ease forwards;
+}
+
+#invitedCount {
+    animation: slideInLeft 0.4s ease forwards;
+}
+
+
+
