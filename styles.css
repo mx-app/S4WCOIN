@@ -258,16 +258,27 @@ img {
     position: relative;
 }
 
-#balanceAmount::after {
-    content: "S4W"; /* النص المطلوب */
-    font-size: 24px; /* حجم النص */
+#balanceAmount::before {
+    content: "";
+    display: inline-block;
+    width: 40px; /* عرض الصورة */
+    height: 40px; /* ارتفاع الصورة */
+    background-image: url('i/coins.png'); /* رابط الصورة */
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 2px; /* مسافة بين الصورة والرقم */
+}
+
+/*#balanceAmount::after {
+    content: "S4W";
+    font-size: 24px; 
     font-weight: 500;
     font-style: normal !important;
     color: #fff;
-    position: relative; /* لضبط الموضع */
-    bottom: 0; /* التعديل الدقيق لموضع النص */
-    margin-left: 3px; /* مسافة بين الرقم والنص */
-}
+    position: relative;
+    bottom: 0;
+    margin-left: 3px;
+}*/
 
 .main-digits {
     font-size: 35px; 
