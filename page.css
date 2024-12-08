@@ -1,4 +1,3 @@
-/* طبقة العتامة */
 .overlay {
     position: fixed;
     top: 0;
@@ -22,19 +21,6 @@
     border-radius: 20px;
 }
 
-/*.container-gate {
-    border: 1px solid #101010;
-    left: 50%; 
-    transform: translateX(-50%); 
-    width: 98%; 
-    height: 540px; 
-    position: absolute; 
-    margin-top: 20px;
-    margin-bottom: 15px;
-    background: #000;
-    border-radius: 20px;
-} 
-*/
 
 .container-gate {
     left: 50%;
@@ -169,8 +155,7 @@
     align-items: center;
     position: fixed;
     top: 13px;
-    left: 20px; /* نقطة البداية في المنتصف */
-  /*  transform: translateX(-50%);*/ /* توسيط العرض */
+    left: 25px; 
     width: auto;
     height: 30px;
     z-index: 500;
