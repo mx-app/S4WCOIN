@@ -1185,13 +1185,12 @@ img {
       color: #fff;
       font-size: 15px;
       overflow: hidden; 
-      transition: transform 0.2s, box-shadow 0.2s;
+      animation: popIn 0.5s ease forwards;
   } 
 
 .community-button:hover {
     background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(2px); 
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(2px);
 } 
 
 
