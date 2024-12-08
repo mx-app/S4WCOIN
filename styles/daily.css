@@ -239,3 +239,16 @@
 .loginclaim-btn:hover {
     background-color: #1c1c1c;  /* تغيير اللون عند التمرير فوق الزر */
 } 
+
+
+.logindaily-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* درجة العتامة */
+    z-index: 9; /* وضعها خلف المحتوى */
+    display: none; /* إخفاؤها افتراضيًا */
+}
+ 
