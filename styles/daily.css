@@ -65,6 +65,7 @@
   height: 40px;
   font-size: 1.6rem;
   padding: 5px;
+  margin-left: 5px;
   border-radius: 10px; /* زوايا مستديرة */
   /*border: 1px solid #1a1a1a;*/
   box-sizing: border-box; /* لضمان أن الحواف ضمن الحجم المحدد */
