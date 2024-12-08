@@ -1114,7 +1114,7 @@ img {
     background-color: rgba(255, 255, 255, 0.0008);
     padding: 15px;
     margin: 5px 0;
-    border-radius: 10px;
+    border-radius: 20px;
     border-bottom: 0.50px solid #000;
     transition: background-color 0.3s ease;
 }
