@@ -212,8 +212,8 @@
   color: #0098EA; /* اللون الأخضر */
   text-decoration: none; /* إزالة خط تحت الرابط */
   font-weight: bold; /* جعل النص غامق */
-  font-size: 15px; /* حجم الخط */
-  padding: 8px 20px; /* إضافة مساحة داخلية */
+  font-size: 13px; /* حجم الخط */
+  padding: 5px 20px; /* إضافة مساحة داخلية */
   border: 1px solid #1E2337; /* حدود باللون الأخضر */
   border-radius: 20px; /* حواف مستديرة */
   transition: all 0.3s ease; /* تأثير الانتقال */
@@ -226,8 +226,9 @@
 }
 
 .contact-support {
-  position: fixed; /* تثبيت العنصر في مكانه */
-  top: 12px; /* المسافة من الأعلى */
-  right: 20px; /* المسافة من اليمين */
+  bottom: 28px;
+  left: 50%; /* البدء من منتصف الشاشة */
+  transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
+  position: fixed; 
   z-index: 1000; /* التأكد من ظهور العنصر فوق باقي العناصر */
 } 
