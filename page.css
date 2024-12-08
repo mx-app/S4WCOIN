@@ -6,6 +6,7 @@
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5); /* شفافية */
+    backdrop-filter: blur(2px); 
     display: none; /* إخفاء في البداية */
     z-index: 999; /* أعلى من باقي العناصر */
 }
