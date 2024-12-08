@@ -257,15 +257,15 @@ img {
     font-weight: 400; 
     font-style: normal;
     font-family: 'Archivo Black', sans-serif; /* خط عريض ومميز للأرقام */
-    gap: 2px; /* مسافة بين الصورة والرقم */
+    gap: 1px; /* مسافة بين الصورة والرقم */
     position: relative;
 }
 
 #balanceAmount::before {
     content: "";
     display: inline-block;
-    width: 42px; /* عرض الصورة */
-    height: 42px; /* ارتفاع الصورة */
+    width: 45px; /* عرض الصورة */
+    height: 45px; /* ارتفاع الصورة */
     background-image: url('i/coins.png'); /* رابط الصورة */
     background-size: contain;
     background-repeat: no-repeat;
@@ -286,7 +286,7 @@ img {
 }*/
 
 .main-digits {
-    font-size: 33px; 
+    font-size: 34px; 
     color: #fff;
     line-height: 1; /* لضمان التناسق بين النصوص */
 } 
