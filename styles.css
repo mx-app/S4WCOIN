@@ -255,8 +255,9 @@ img {
     justify-content: center;
     color: #fff;
     font-weight: 700; 
-    font-family: 'Raleway', sans-serif;
-    font-style: normal;
+   /* font-family: 'Raleway', sans-serif;
+    font-style: normal;*/
+    font-family: 'Orbitron', sans-serif; /* خط عريض ومميز للأرقام */
     gap: 2px; /* مسافة بين الصورة والرقم */
     position: relative;
 }
