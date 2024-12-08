@@ -205,3 +205,22 @@
     font-weight: bold;
     color: #f0f0f0;
 }
+
+
+/* تنسيق رابط التواصل مع الدعم */
+.support-link {
+  color: #0098EA; /* اللون الأخضر */
+  text-decoration: none; /* إزالة خط تحت الرابط */
+  font-weight: bold; /* جعل النص غامق */
+  font-size: 15px; /* حجم الخط */
+  padding: 10px 20px; /* إضافة مساحة داخلية */
+  border: 1px solid #1E2337; /* حدود باللون الأخضر */
+  border-radius: 20px; /* حواف مستديرة */
+  transition: all 0.3s ease; /* تأثير الانتقال */
+}
+
+/* عند المرور على الرابط */
+.support-link:hover {
+  background-color: #1E2337; /* تغيير الخلفية إلى الأخضر */
+  color: white; /* تغيير لون النص إلى الأبيض */
+}
