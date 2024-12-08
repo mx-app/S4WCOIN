@@ -2543,10 +2543,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+// فتح النافذة المنبثقة مع طبقة العتامة
 async function showUpgradeModal(upgradeType) {
     if (!uiElements.upgradeModal) return;
 
+    // إظهار النافذة المنبثقة وطبقة العتامة
     uiElements.upgradeModal.style.display = 'block';
+    document.getElementById('overlay').style.display = 'block';
     uiElements.upgradeModal.setAttribute('data-upgrade-type', upgradeType);
 
     const upgrades = {
@@ -2584,20 +2587,26 @@ async function showUpgradeModal(upgradeType) {
     const upgrade = upgrades[upgradeType];
     if (!upgrade) return;
 
+    // تحديث محتوى النافذة بناءً على الترقية
     document.getElementById('upgradeIconContainer').innerHTML = upgrade.icon;
     document.getElementById('upgradeTitle').innerText = upgrade.title;
     document.getElementById('currentLevel').innerText = upgrade.current;
     document.getElementById('upgradeCost').innerText = `Cost: ${upgrade.cost}`;
 }
 
+// إغلاق النافذة المنبثقة
+function closePopup() {
+    document.getElementById('upgradeConfirmation').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
+}
+
+// مستمعي الأحداث
 document.getElementById('bost1').addEventListener('click', () => showUpgradeModal('boost'));
 document.getElementById('bost2').addEventListener('click', () => showUpgradeModal('coin'));
+document.getElementById('closeModal').addEventListener('click', closePopup);
+document.getElementById('overlay').addEventListener('click', closePopup);
 
-// إغلاق النافذة المنبثقة
-document.getElementById('closeModal').addEventListener('click', function() {
-    document.getElementById('upgradeConfirmation').style.display = 'none';
-});
-
+//تاكيد الترقيه 
 function confirmUpgradeAction() {
     const upgradeType = uiElements.upgradeModal.getAttribute('data-upgrade-type');
     let cost;
