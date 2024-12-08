@@ -1,16 +1,16 @@
-#gameTwo {
+#gameTwo, #bost2, #puzzle1 {
     animation: slideInLeft 0.4s ease forwards;
 }
 
-#gameOne {
+#gameOne, #bost1, #daily2 {
     animation: slideInRight 0.4s ease forwards;
 }
 
-#gamesix {
+#gamesix, #taskcontainer {
     animation: slideInLeft 0.4s ease forwards;
 }
 
-#gametre {
+#gametre, #ad {
     animation: slideInRight 0.4s ease forwards;
 }
 
