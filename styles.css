@@ -1239,7 +1239,7 @@ img {
 #welcomeMessage {
     position: absolute;
     top: 9px;
-    left: 32px;
+    left: 36px;
     text-align: center;
     display: flex;
     flex-direction: column;
