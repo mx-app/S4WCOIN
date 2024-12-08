@@ -2389,11 +2389,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const dailyCloseModal = document.getElementById('logindailycloseModal');
     const logindailyContainer = document.getElementById('logindailyContainer');
     const logindailyContent = document.querySelector('.logindaily-content');
+    const logindailyOverlay = document.getElementById('logindailyOverlay'); 
     const loginClaimBtn = document.getElementById('loginclaimBtn');
     const loginNotification = document.getElementById('login');
     const dayElements = document.querySelectorAll('.daily-item');
     const rewardImages = document.querySelectorAll('.reward-image'); // صور المكافآت
-    const dailyRewards = [100, 500, 2000, 5000, 8000, 15000, 30000, 50000, 100000]; // المكافآت
+    const dailyRewards = [100, 500, 2000, 5000, 8000, 15000, 30000, 50000, 100000]; 
 
     // الدالة الرئيسية لتسجيل الدخول اليومي
     async function handleDailyLogin() {
