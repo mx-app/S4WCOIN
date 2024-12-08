@@ -254,9 +254,9 @@ img {
     align-items: center; /* محاذاة الصورة والنص في نفس الخط */
     justify-content: center;
     color: #fff;
-    font-weight: 100; 
+    font-weight: 400; 
     font-style: normal;
-    font-family: 'Rammetto One', sans-serif; /* خط عريض ومميز للأرقام */
+    font-family: 'Archivo Black', sans-serif; /* خط عريض ومميز للأرقام */
     gap: 2px; /* مسافة بين الصورة والرقم */
     position: relative;
 }
@@ -286,13 +286,13 @@ img {
 }*/
 
 .main-digits {
-    font-size: 35px; 
+    font-size: 33px; 
     color: #fff;
     line-height: 1; /* لضمان التناسق بين النصوص */
 } 
 
 .remaining-digits {
-    font-size: 35px; /* باقي الأرقام بنفس الحجم */
+    font-size: 33px; /* باقي الأرقام بنفس الحجم */
     color: #fff;
     line-height: 1; /* لتقليل الفراغ بين النصوص */
 }
