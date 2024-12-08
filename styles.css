@@ -254,7 +254,7 @@ img {
     align-items: center; /* محاذاة الصورة والنص في نفس الخط */
     justify-content: center;
     color: #fff;
-    font-weight: 400; 
+    font-weight: 300; 
     font-style: normal;
     font-family: 'Rammetto One', sans-serif; /* خط عريض ومميز للأرقام */
     gap: 2px; /* مسافة بين الصورة والرقم */
@@ -264,13 +264,13 @@ img {
 #balanceAmount::before {
     content: "";
     display: inline-block;
-    width: 4px; /* عرض الصورة */
-    height: 41px; /* ارتفاع الصورة */
+    width: 42px; /* عرض الصورة */
+    height: 42px; /* ارتفاع الصورة */
     background-image: url('i/coins.png'); /* رابط الصورة */
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center; /* تمركز الصورة */
-    margin-right: 1px; /* مسافة بين الصورة والرقم */
+    margin-right: 0; /* مسافة بين الصورة والرقم */
     vertical-align: middle; /* محاذاة الصورة للوسط */
 }
 
