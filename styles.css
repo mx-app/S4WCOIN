@@ -244,10 +244,9 @@ img {
 .Title {
     margin-bottom: 7px;
     margin-top: 0;
-    font-size: 14px;
+    font-size: 15px;
     padding-bottom: 2px;
     color: #808080;
-    opacity: 0.5;
 }
 
 #balanceAmount {
