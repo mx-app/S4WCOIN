@@ -65,12 +65,12 @@
 
 /* تطبيق تأثير الدخول من اليمين */
 .enter-right {
-  animation: slideInRight 0.3s ease forwards;
+  animation: slideInRight 0.4s ease forwards;
 }
 
 /* تطبيق تأثير الدخول من اليسار */
 .enter-left {
-  animation: slideInLeft 0.3s ease forwards;
+  animation: slideInLeft 0.4s ease forwards;
 }
 
 /* تطبيق تأثير الخروج من اليمين */
@@ -94,7 +94,7 @@
     border-radius: 5px; 
    /* padding: 5px;*/
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    animation: popIn 0.3s ease forwards;
+    animation: popIn 0.4s ease forwards;
 }
 
 .settings-button i {
