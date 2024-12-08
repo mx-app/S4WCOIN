@@ -1,3 +1,55 @@
+/* تأثير الانبثاق */
+@keyframes popIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* تأثير الخروج من اليمين */
+@keyframes slideOutRight {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* تأثير الخروج من اليسار */
+@keyframes slideOutLeft {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+/* تطبيق التأثيرات */
+button {
+  animation: popIn 0.5s ease forwards;
+}
+
+#accountPage > *:not(button) {
+  animation: slideOutRight 0.5s ease forwards;
+}
+
+.slide-out-left {
+  animation: slideOutLeft 0.5s ease forwards;
+}
+ 
+
+
+
 .settings-button {
    /* position: fixed;
     top: 18px; 
