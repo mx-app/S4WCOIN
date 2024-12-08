@@ -6,7 +6,7 @@
     height: 536px; /* تغطي 70% من الشاشة */
     position: absolute; /* تموضع مطلق */
     top: 105px; /* تبدأ من أسفل الشاشة */
-    background: #101010;
+    background: #000;
   /*  background: linear-gradient(
         to bottom,
         #000, 
