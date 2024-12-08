@@ -2699,25 +2699,6 @@ window.addEventListener('scroll', function() {
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // تحديث قيمة آخر نقطة تم التمرير إليها
 });
 
-///////////////////////
-
-
-// تطبيق تأثيرات الدخول والخروج
-document.querySelectorAll('.animated-element').forEach((element, index) => {
-  // تعيين التأثير عند الدخول
-  const direction = index % 2 === 0 ? 'right' : 'left'; // تبديل بين اليمين واليسار
-  element.classList.add(`enter-${direction}`);
-
-  // تأثير الخروج عند النقر
-  element.addEventListener('click', () => {
-    element.classList.remove(`enter-${direction}`);
-    element.classList.add(`exit-${direction}`);
-    setTimeout(() => {
-      element.style.display = 'none'; // إخفاء العنصر بعد انتهاء التأثير
-    }, 500); // نفس مدة الأنيميشن
-  });
-});
-
 
 
 ///////////////////////
