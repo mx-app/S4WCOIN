@@ -25,7 +25,7 @@
     border-radius: 20px;
     color: #fff;
     font-size: 15px;
-   /* animation: popIn 0.3s ease forwards;*/
+    animation: popIn 0.3s ease forwards;
 } 
 
 .promo-code-button:hover { 
