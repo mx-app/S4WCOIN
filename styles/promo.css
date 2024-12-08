@@ -24,8 +24,8 @@
     background: #101010;
     border-radius: 20px;
     color: #fff;
-    font-size: 15px;
-    animation: popIn 0.3s ease forwards;
+    font-size: 13px;
+    /*animation: popIn 0.3s ease forwards;*/
 } 
 
 .promo-code-button:hover { 
