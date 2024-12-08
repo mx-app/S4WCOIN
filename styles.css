@@ -38,7 +38,8 @@ body {
    /* font-family: 'Rubik',sans-serif ;
     font-weight: 700;*//* لتحديد وزن الخط */
     font-family: 'Raleway', sans-serif;
-    font-style: italic;
+    font-style: normal;
+   /* font-style: italic;*/
     font-weight: 700;
     background-color: #000;
     color: #fff;
@@ -264,8 +265,8 @@ img {
 #balanceAmount::before {
     content: "";
     display: inline-block;
-    width: 45px; /* عرض الصورة */
-    height: 45px; /* ارتفاع الصورة */
+    width: 50px; /* عرض الصورة */
+    height: 50px; /* ارتفاع الصورة */
     background-image: url('i/coins.png'); /* رابط الصورة */
     background-size: contain;
     background-repeat: no-repeat;
@@ -286,13 +287,13 @@ img {
 }*/
 
 .main-digits {
-    font-size: 34px; 
+    font-size: 36px; 
     color: #fff;
     line-height: 1; /* لضمان التناسق بين النصوص */
 } 
 
 .remaining-digits {
-    font-size: 33px; /* باقي الأرقام بنفس الحجم */
+    font-size: 36px; /* باقي الأرقام بنفس الحجم */
     color: #fff;
     line-height: 1; /* لتقليل الفراغ بين النصوص */
 }
