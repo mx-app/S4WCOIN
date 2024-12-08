@@ -217,6 +217,7 @@
   border: 1px solid #1E2337; /* حدود باللون الأخضر */
   border-radius: 20px; /* حواف مستديرة */
   transition: all 0.3s ease; /* تأثير الانتقال */
+  animation: popIn 0.4s ease forwards;
 }
 
 /* عند المرور على الرابط */
