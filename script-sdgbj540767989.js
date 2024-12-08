@@ -2515,15 +2515,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // فتح نافذة تسجيل الدخول اليومي
     function openDailyLoginModal(userTelegramId) {
-        logindailyContainer.classList.remove('hidden');
-        logindailyContent.classList.remove('hidden');
-        handleDailyLogin();
-    }
+       logindailyContainer.classList.remove('hidden');
+       logindailyContent.classList.remove('hidden');
+       logindailyOverlay.classList.remove('hidden'); // إظهار العتامة
+       handleDailyLogin();
+   }
 
-    // إغلاق نافذة تسجيل الدخول اليومي
+   // إغلاق نافذة تسجيل الدخول اليومي
     dailyCloseModal.addEventListener('click', function () {
-        logindailyContainer.classList.add('hidden');
-        logindailyContent.classList.add('hidden');
+       logindailyContainer.classList.add('hidden');
+       logindailyContent.classList.add('hidden');
+       logindailyOverlay.classList.add('hidden'); // إخفاء العتامة
     });
 
     // عند الضغط على زر المطالبة بالمكافأة
