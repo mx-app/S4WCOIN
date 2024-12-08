@@ -14,15 +14,15 @@
     animation: slideInRight 0.4s ease forwards;
 }
 
-#inviteFriendsBtn {
-    animation: slideInRight 0.4s ease forwards;
-}
-
-#copyInviteLinkBtn {
+.invite-section {
     animation: slideInRight 0.4s ease forwards;
 }
 
 #invitedCount {
+    animation: slideInLeft 0.4s ease forwards;
+}
+
+.invite-content {
     animation: slideInLeft 0.4s ease forwards;
 }
 
