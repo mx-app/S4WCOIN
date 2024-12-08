@@ -136,6 +136,7 @@
     padding: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     margin-bottom: 40px;
+    animation: slideInLeft 0.4s ease forwards;
 }
 
 /* صورة المستخدم */
@@ -167,6 +168,7 @@
     border-radius: 20px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    animation: slideInRight 0.4s ease forwards;
 }
 
 /* ملخص الحساب */
