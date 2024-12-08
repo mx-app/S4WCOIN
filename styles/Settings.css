@@ -1,14 +1,14 @@
-/* تأثير الانبثاق */
 @keyframes popIn {
   0% {
-    transform: scale(0.8);
     opacity: 0;
+    transform: translateY(20px); /* تأثير الحركة الرأسية */
   }
   100% {
-    transform: scale(1);
     opacity: 1;
+    transform: translateY(0);
   }
 }
+
 
 /* تأثير الدخول من اليمين */
 @keyframes slideInRight {
