@@ -259,6 +259,7 @@ img {
     font-family: 'Archivo Black', sans-serif; /* خط عريض ومميز للأرقام */
     gap: 1px; /* مسافة بين الصورة والرقم */
     position: relative;
+    animation: popIn 0.4s ease forwards;
 }
 
 #balanceAmount::before {
