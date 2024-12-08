@@ -254,20 +254,20 @@ img {
     align-items: center; /* محاذاة الصورة والنص في نفس الخط */
     justify-content: center;
     color: #fff;
-    gap: 4px; /* مسافة بين الصورة والرقم */
+    gap: 2px; /* مسافة بين الصورة والرقم */
     position: relative;
 }
 
 #balanceAmount::before {
     content: "";
     display: inline-block;
-    width: 38px; /* عرض الصورة */
-    height: 38px; /* ارتفاع الصورة */
+    width: 41px; /* عرض الصورة */
+    height: 41px; /* ارتفاع الصورة */
     background-image: url('i/coins.png'); /* رابط الصورة */
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center; /* تمركز الصورة */
-    margin-right: 4px; /* مسافة بين الصورة والرقم */
+    margin-right: 1px; /* مسافة بين الصورة والرقم */
     vertical-align: middle; /* محاذاة الصورة للوسط */
 }
 
