@@ -10,6 +10,30 @@
   }
 }
 
+/* تأثير الدخول من اليمين */
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* تأثير الدخول من اليسار */
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 /* تأثير الخروج من اليمين */
 @keyframes slideOutRight {
   0% {
@@ -34,19 +58,30 @@
   }
 }
 
-/* تطبيق التأثيرات */
+/* تطبيق تأثير الانبثاق على الأزرار */
 button {
   animation: popIn 0.5s ease forwards;
 }
 
-#accountPage > *:not(button) {
+/* تطبيق تأثير الدخول من اليمين */
+.enter-right {
+  animation: slideInRight 0.5s ease forwards;
+}
+
+/* تطبيق تأثير الدخول من اليسار */
+.enter-left {
+  animation: slideInLeft 0.5s ease forwards;
+}
+
+/* تطبيق تأثير الخروج من اليمين */
+.exit-right {
   animation: slideOutRight 0.5s ease forwards;
 }
 
-.slide-out-left {
+/* تطبيق تأثير الخروج من اليسار */
+.exit-left {
   animation: slideOutLeft 0.5s ease forwards;
 }
- 
 
 
 
