@@ -6,7 +6,7 @@
     animation: slideInRight 0.4s ease forwards;
 }
 
-#gamesix, #taskcontainer {
+#gamesix, #taskcontainer, .friend-item {
     animation: slideInLeft 0.4s ease forwards;
 }
 
