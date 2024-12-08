@@ -1,5 +1,16 @@
+/* طبقة العتامة */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* شفافية */
+    display: none; /* إخفاء في البداية */
+    z-index: 999; /* أعلى من باقي العناصر */
+}
+
 .minee-container {
-   /* border: 1px solid #101010;*/
     left: 50%; /* تبدأ من منتصف الشاشة */
     transform: translateX(-50%); /* يتم تحريكها بشكل أفقي بحيث تكون بالمنتصف */
     width: 99%; /* تغطي كامل عرض الشاشة */
@@ -7,12 +18,6 @@
     position: absolute; /* تموضع مطلق */
     top: 105px; /* تبدأ من أسفل الشاشة */
     background: #000;
-  /*  background: linear-gradient(
-        to bottom,
-        #000, 
-        #101010, 
-        black
-    );*/
     border-radius: 20px;
 }
 
