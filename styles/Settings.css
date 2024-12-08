@@ -226,7 +226,7 @@
 }
 
 .contact-support {
-  bottom: 65px;
+  bottom: 85px;
   left: 50%; /* البدء من منتصف الشاشة */
   transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
   position: fixed; 
