@@ -254,7 +254,7 @@ img {
     align-items: center; /* محاذاة الصورة والنص في نفس الخط */
     justify-content: center;
     color: #fff;
-    font-weight: 150; 
+    font-weight: 100; 
     font-style: normal;
     font-family: 'Rammetto One', sans-serif; /* خط عريض ومميز للأرقام */
     gap: 2px; /* مسافة بين الصورة والرقم */
