@@ -806,22 +806,32 @@ function startEnergyRecovery() {
 //////////////////////////////////
 
 
-// المستويات
 function updateLevelDisplay() {
     checkForLevelUp(); // تحقق من الترقية
 
     const currentLevelData = levelThresholds.find(lvl => lvl.level === gameState.currentLevel);
+    const nextLevelData = levelThresholds.find(lvl => lvl.level === gameState.currentLevel + 1);
 
-    if (currentLevelData) {
-        const progress = Math.min(gameState.balance / currentLevelData.threshold, 1) * 100; // حساب التقدم المشترك
+    if (currentLevelData && nextLevelData) {
+        const currentBalance = gameState.balance;
+        const nextLevelThreshold = nextLevelData.threshold;
+        const remainingAmount = Math.max(nextLevelThreshold - currentBalance, 0);
 
         // تحديث العناصر الرئيسية
         const mainLevelCoinsElement = document.getElementById('currentLevelCoins');
         const mainEnergyFill = document.getElementById('levelEnergyFill');
+        const remainingAmountElement = document.getElementById('remainingAmount'); // عنصر للمبلغ المتبقي
 
-        if (mainLevelCoinsElement && mainEnergyFill) {
-            mainLevelCoinsElement.innerText = `Next Lvl : ${Math.round(progress)}%`;
-            mainEnergyFill.style.width = `${progress}%`;
+        if (mainLevelCoinsElement) {
+            mainLevelCoinsElement.innerText = `Balance: ${formatNumber(currentBalance)}`;
+        }
+
+        if (remainingAmountElement) {
+            remainingAmountElement.innerText = `Remaining: ${formatNumber(remainingAmount)}`;
+        }
+
+        if (mainEnergyFill) {
+            mainEnergyFill.style.width = `${(currentBalance / nextLevelThreshold) * 100}%`; // عرض الشريط التقدمي
         }
 
         // تحديث صفحة المستويات
@@ -830,18 +840,18 @@ function updateLevelDisplay() {
         const levelPageEnergyFill = document.getElementById('levelPageEnergyFill');
 
         if (levelPageName && levelPageCoinsElement && levelPageEnergyFill) {
-            levelPageName.innerText = `Lvl : ${currentLevelData.name}`;
+            levelPageName.innerText = `Lvl: ${currentLevelData.name}`;
             applyGradientToLevel(levelPageName, gameState.currentLevel);
 
-            levelPageCoinsElement.innerText = `Next Lvl : ${Math.round(progress)}%`;
-            levelPageEnergyFill.style.width = `${progress}%`;
+            levelPageCoinsElement.innerText = `Required: ${formatNumber(nextLevelThreshold)}`;
+            levelPageEnergyFill.style.width = `${(currentBalance / nextLevelThreshold) * 100}%`;
         }
 
         // تحديث الزر العائم
         const floatingButtonName = document.getElementById('currentLevelName');
 
         if (floatingButtonName) {
-            floatingButtonName.innerText = `Lvl : ${currentLevelData.name}`;
+            floatingButtonName.innerText = `Lvl: ${currentLevelData.name}`;
 
             floatingButtonName.classList.remove('gradient-level-1', 'gradient-level-2', 'gradient-level-3', 'gradient-level-4', 'gradient-level-5');
         }
@@ -857,10 +867,6 @@ function updateLevelDisplay() {
         currentLevelElement.classList.add('current-level');
     }
 }
-
-
-
-
 
 
 
