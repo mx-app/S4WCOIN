@@ -19,7 +19,7 @@
     top: 105px; /* تبدأ من أسفل الشاشة */
    /* background: #000;*/
     border-radius: 20px;
-    background-image: linear-gradient(to right top, #000000, #0a0a0a, #121212, #181818, #1d1d1d, #262627, #303031, #3a3a3b, #4c4b4c, #5e5e5e, #717171, #848484);
+    background-image: linear-gradient(to right top, #000000, #0a0a0a, #121212, #000, #101010, #262627, #000, #3a3a3b, #000, #5e5e5e, #717171, #000);
 }
 
 
