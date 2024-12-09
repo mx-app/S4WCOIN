@@ -763,7 +763,6 @@ function createDiamondCoinEffect(x, y) {
 
 
 
-// الانتقال بين الشاشات
 function navigateToScreen(screenId) {
     if (uiElements.contentScreens) {
         uiElements.contentScreens.forEach(screen => {
@@ -773,20 +772,12 @@ function navigateToScreen(screenId) {
     const targetScreen = document.getElementById(screenId);
     if (targetScreen) targetScreen.classList.add('active');
 
-    // تحقق إذا كانت الصفحة هي واحدة من الصفحات التي لا تحتوي على القائمة السفلية
-    const pagesWithoutFooter = ['levelPage', 'gamePage', 'miningPage', 'walletPage']; // الصفحات التي لا تحتوي على القائمة السفلية
-    const isFooterPage = !pagesWithoutFooter.includes(screenId); // إذا كانت الصفحة ليست ضمن هذه القائمة
-
-    // إخفاء أو إظهار القائمة السفلية بناءً على ما إذا كانت الصفحة تحتوي على القائمة السفلية أم لا
+    // دائمًا إظهار القائمة السفلية بغض النظر عن الشاشة
     const footerMenu = document.querySelector('.menu'); // تحديد القائمة السفلية باستخدام الكلاس
-    if (isFooterPage) {
-        footerMenu.style.display = 'flex'; // إظهار القائمة السفلية في الصفحات التي تحتوي عليها
-    } else {
-        footerMenu.style.display = 'none'; // إخفاء القائمة السفلية في الصفحات الأخرى
+    if (footerMenu) {
+        footerMenu.style.display = 'flex'; // التأكد من أن القائمة السفلية تظهر دائمًا
     }
 }
-
-
 
 
 
