@@ -2492,34 +2492,36 @@ document.addEventListener('DOMContentLoaded', () => {
         saveGameState(); 
         updateGameStateInDatabase();
     }
+// فتح نافذة تسجيل الدخول اليومي
+function openDailyLoginModal(userTelegramId) {
+    logindailyContainer.classList.remove('hidden');
+    logindailyContent.classList.remove('hidden');
+    logindailyOverlay.style.display = 'block'; // تأكد من إظهار الشفافية
+    handleDailyLogin();
+}
 
-    // فتح نافذة تسجيل الدخول اليومي
-    function openDailyLoginModal(userTelegramId) {
-       logindailyContainer.classList.remove('hidden');
-       logindailyContent.classList.remove('hidden');
-       document.getElementById('overlay').style.display = 'block';
-       handleDailyLogin();
-   }
+// إغلاق نافذة تسجيل الدخول اليومي عند النقر على زر الإغلاق
+dailyCloseModal.addEventListener('click', function () {
+    closeDailyLoginModal();
+});
 
-   // إغلاق نافذة تسجيل الدخول اليومي
-    dailyCloseModal.addEventListener('click', function () {
-       logindailyContainer.classList.add('hidden');
-       logindailyContent.classList.add('hidden');
-       document.getElementById('overlay').style.display = 'none';
-    });
-    
-    // إغلاق النافذة عند النقر على الشفافية (overlay)
-    logindailyOverlay.addEventListener('click', function () {
-       logindailyContainer.classList.add('hidden');
-       logindailyContent.classList.add('hidden');
-       document.getElementById('overlay').style.display = 'none';
-    });
+// إغلاق النافذة عند النقر على الشفافية (overlay)
+logindailyOverlay.addEventListener('click', function () {
+    closeDailyLoginModal();
+});
 
-    // عند الضغط على زر المطالبة بالمكافأة
-    loginClaimBtn.addEventListener('click', async function () {
-        await handleDailyLogin();
-        disableClaimButton();
-    });
+// الدالة لإغلاق نافذة تسجيل الدخول اليومي
+function closeDailyLoginModal() {
+    logindailyContainer.classList.add('hidden');
+    logindailyContent.classList.add('hidden');
+    logindailyOverlay.style.display = 'none'; // إخفاء الشفافية
+}
+
+// عند الضغط على زر المطالبة بالمكافأة
+loginClaimBtn.addEventListener('click', async function () {
+    await handleDailyLogin();
+    disableClaimButton();
+});
 
     // فتح النافذة عند دخول المستخدم
     dailyButton.addEventListener('click', function () {
