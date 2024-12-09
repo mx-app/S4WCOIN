@@ -500,14 +500,14 @@ img {
     background-color: #101010;
     padding: 20px;
     font-weight: 500;
-    border-radius: 10px 10px 0 0; 
+    border-radius: 20px 20px 0 0; 
     text-align: center;
     position: fixed;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%) translateY(100%); /* بداية من أسفل الشاشة */
     width: 85%;
-    height: 45vh;
+    height: 44vh;
     z-index: 10000;
     display: flex;
     flex-direction: column;
@@ -523,7 +523,7 @@ img {
 .promo-content {
     background-color: #101010; 
     padding: 20px;
-    border-radius: 10px 10px 0 0; 
+    border-radius: 20px 20px 0 0; 
     text-align: center;
     position: fixed;
     bottom: 0;
@@ -569,7 +569,7 @@ img {
 }
 
 .popup-overlay button, .Autoclick-overlay button, .game-button {
-    border-radius: 10px;
+    border-radius: 20px;
     width: 100%; /* التأكد من أن الأزرار تأخذ عرض الحاوية */
     height: 40px;
     color: #fff;
@@ -650,7 +650,7 @@ img {
     position: absolute;
     top: 10px;
     right: 20px;
-    font-size: 24px;
+    font-size: 30px;
     color: white;
     cursor: pointer;
 }
