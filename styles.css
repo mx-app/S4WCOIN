@@ -1004,8 +1004,8 @@ img {
     padding: 5px;
     border-radius: 20px;
     color: #fff;
-   /* border: 1px solid #1E90FF;*/
-   /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);*/ /* ظل عميق أسفل العنصر */
+    border-bottom: 1px solid #1c1c1c;
+    border-right: 1px solid #1c1c1c;
     z-index: 10; /* لجعله فوق العناصر الأخرى */
     transform: translateY(-1px); /* تحريك طفيف لأعلى ليبدو كأنه مرتفع */
 }
@@ -1120,7 +1120,7 @@ img {
     margin: 5px 0;
     border-radius: 20px;
     border-bottom: 1px solid #1c1c1c;
-    border-right: 1px solid #1c1c1c;
+   /* border-right: 1px solid #1c1c1c;*/
     transition: background-color 0.3s ease;
 }
 
