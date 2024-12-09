@@ -262,36 +262,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 // مستويات اللعبة المتناسقة
 const levelThresholds = [
-    { level: 1, threshold: 400000, name: 'Veteran' },
-    { level: 2, threshold: 500000, name: 'Master' },
-    { level: 3, threshold: 600000, name: 'Guru' },
-    { level: 4, threshold: 700000, name: 'Sage' },
-    { level: 5, threshold: 800000, name: 'Legend' },
-    { level: 6, threshold: 900000, name: 'Hero' },
-    { level: 7, threshold: 1000000, name: 'Champion' },
-    { level: 8, threshold: 1100000, name: 'Guardian' },
-    { level: 9, threshold: 1500000, name: 'Titan' },
-    { level: 10, threshold: 2000000, name: 'Mythic' },
-    { level: 11, threshold: 2500000, name: 'Deity' },
-    { level: 12, threshold: 3000000, name: 'Immortal' },
-    { level: 13, threshold: 3500000, name: 'Supreme' },
-    { level: 14, threshold: 4000000, name: 'Celestial' },
-    { level: 15, threshold: 4500000, name: 'Divine' },
-    { level: 16, threshold: 5000000, name: 'Omni' },
-    { level: 17, threshold: 5500000, name: 'Cosmic' },
-    { level: 18, threshold: 6000000, name: 'Infinite' },
-    { level: 19, threshold: 6500000, name: 'Transcendent' },
-    { level: 20, threshold: 7000000, name: 'Epoch' },
-    { level: 21, threshold: 7500000, name: 'Eon' },
-    { level: 22, threshold: 8500000, name: 'Legendary' },
-    { level: 23, threshold: 9000000, name: 'Eternal' },
-    { level: 24, threshold: 9500000, name: 'Sentinel' },
-    { level: 25, threshold: 10000000, name: 'Archon' },
-    { level: 26, threshold: 10500000, name: 'Ascendant' },
-    { level: 27, threshold: 11050000, name: 'Paragon' },
-    { level: 28, threshold: 12000000, name: 'Aether' },
-    { level: 29, threshold: 13000000, name: 'Quantum' },
-    { level: 30, threshold: 13050000, name: 'Infinity' },
+    { level: 1, threshold: 0, name: 'Platinum Pioneer' }, 
+    { level: 2, threshold: 500000, name: 'Silver Strategist' },
+    { level: 3, threshold: 2000000, name: 'Golden Guardian' }, 
+    { level: 4, threshold: 8000000, name: 'Diamond Defender' }, 
+    { level: 5, threshold: 20000000, name: 'Elite Emperor' }, 
 ];
 
 // التحقق من الترقية إلى مستوى أعلى
@@ -331,7 +306,6 @@ async function checkForLevelUp() {
         }
     }
 }
-
 
 // دالة تهيئة التطبيق
 async function initializeApp() {
