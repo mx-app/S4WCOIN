@@ -195,8 +195,8 @@
 </div>
      
         <!-- تسجيل يومي  -->
-     <div id="logindailyContainer" class="logindaily-container hidden">
-       <div id="logindailyOverlay" class="logindaily-overlay hidden"></div>
+   <div id="overlay" class="overlay" style="display: none;"></div>
+       <div id="logindailyContainer" class="logindaily-container hidden">
          <div class="logindaily-content hidden">
           <span id="logindailycloseModal" class="close">&times;</span>
           <i class="fa-regular fa-calendar-check"></i>
@@ -839,63 +839,64 @@
    <div id="purchaseNotification" class="notification top-notification"></div>
 
      <!-- Puzzle Container -->
-            <div id="puzzleContainer" class="hidden">
-                <div class="puzzle-content">
-                 <span id="puzzlecloseModal" class="close">&times;</span>
-                    <p id="Puz-to"> Today's Puzzle </p>
-                    <div class="promo-labl">
-                    <div class="modal-labl"></div>
-                    </div>
-                    <div id="puzzleQuestion"></div>
-                    <div id="puzzleRewardDisplay" class="reward-display"></div>
-                    <div id="puzzleOptions" class="puzzle-options"></div>
-                    <div id="countdownTimer">
-                        <span id="timeText">remaining :</span> 
-                        <span id="timer">60.00</span>
-                    </div>
-                    <div id="attemptsDisplay" class="attempts-display"> Attempts. </div>
-                    <div id="puzzleNotification" class="notification"></div>
-                    <div id="puzzleHint"></div>
-                </div>
-            </div> 
+   <div id="overlay" class="overlay" style="display: none;"></div>
+       <div id="puzzleContainer" class="hidden">
+         <div class="puzzle-content">
+           <span id="puzzlecloseModal" class="close">&times;</span>
+             <p id="Puz-to"> Today's Puzzle </p>
+              <div class="promo-labl">
+              <div class="modal-labl"></div>
+              </div>
+              <div id="puzzleQuestion"></div>
+               <div id="puzzleRewardDisplay" class="reward-display"></div>
+               <div id="puzzleOptions" class="puzzle-options"></div>
+               <div id="countdownTimer">
+                  <span id="timeText">remaining :</span> 
+                   <span id="timer">60.00</span>
+               </div>
+               <div id="attemptsDisplay" class="attempts-display"> Attempts. </div>
+               <div id="puzzleNotification" class="notification"></div>
+               <div id="puzzleHint"></div>
+            </div>
+        </div> 
      
+      <div id="overlay" class="overlay" style="display: none;"></div>
         <div id="promoContainer" class="hidden">
            <div class="promo-content">
-              <span id="promocloseModal" class="close">&times;</span>
-                 <p id="task"> Daily Treasure Codes </p>
-                  <div class="promo-labl">
-                   <div class="modal-labl"></div>
-                  </div>
-                   <div id="promoContainer" class="promo-container">
-                    <div class="promo-input-container">
-                    <div class="promo-box">
-                    <input type="text" id="promoCodeInput" placeholder="Enter Treasure code" class="promo-input">
-                     <button id="applyPromoCode" class="apply_PromoCode"> Apply </button>
-                   </div>
-                 </div>
+            <span id="promocloseModal" class="close">&times;</span>
+              <p id="task"> Daily Treasure Codes </p>
+               <div class="promo-labl">
+               <div class="modal-labl"></div>
                </div>
+               <div id="promoContainer" class="promo-container">
+               <div class="promo-input-container">
+               <div class="promo-box">
+               <input type="text" id="promoCodeInput" placeholder="Enter Treasure code" class="promo-input">
+                <button id="applyPromoCode" class="apply_PromoCode"> Apply </button>
+                </div>
               </div>
-            </div>  
+            </div>
+         </div>
+      </div>  
      
-<div id="overlay" class="overlay" style="display: none;"></div>
- <div id="upgradeConfirmation" class="confirmation-modal" style="display: none;">
-    <span id="closeModal" class="close">&times;</span>
-    <div class="modal-header">
-      <h2 id="upgradeTitle">Upgrade</h2>
-        <div class="promo-labl">
-           <div class="modal-labl"></div>
-        </div>
-        <div id="upgradeIconContainer">
-            <!-- الأيقونة ستُعرض هنا -->
-        </div>
-    </div>
-    <p id="upgradeCost"></p>
-    <p id="currentLevel"></p>
-    <p id="currentCoins"></p>
-    <div class="confirmation-buttons">
-        <button id="confirmUpgradeBtn" class="game-button">Upgrade</button>
-    </div>
- </div>
+   <div id="overlay" class="overlay" style="display: none;"></div>
+      <div id="upgradeConfirmation" class="confirmation-modal" style="display: none;">
+         <span id="closeModal" class="close">&times;</span>
+          <div class="modal-header">
+           <h2 id="upgradeTitle">Upgrade</h2>
+           <div class="promo-labl">
+              <div class="modal-labl"></div>
+          </div>
+           <div id="upgradeIconContainer">
+         </div>
+       </div>
+         <p id="upgradeCost"></p>
+         <p id="currentLevel"></p>
+         <p id="currentCoins"></p>
+         <div class="confirmation-buttons">
+         <button id="confirmUpgradeBtn" class="game-button">Upgrade</button>
+     </div>
+  </div>
     
 
 <!-- Bottom Navigation -->
