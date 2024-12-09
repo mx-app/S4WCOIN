@@ -680,7 +680,8 @@ img {
     top: -70px; /* البداية من فوق الشاشة */
     left: 50%;
     transform: translateX(-50%);
-    background: #141414;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(0.5px); 
     color: #fff;
     padding: 12px 20px; /* زيادة padding لجعل الإشعار طويل */
     border-radius: 15px;
@@ -1118,9 +1119,8 @@ img {
     padding: 15px;
     margin: 5px 0;
     border-radius: 20px;
-    border-bottom: 1px solid #101010;
-    border-right: 1px solid #101010;
-    border-left: 1px solid #101010;
+    border-bottom: 1px solid #1c1c1c;
+    border-right: 1px solid #1c1c1c;
     transition: background-color 0.3s ease;
 }
 
