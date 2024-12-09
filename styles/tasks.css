@@ -126,7 +126,7 @@
 } 
 
 .task-img {
-    width: 40px;
+    width: 38px;
     height: auto;
     margin-bottom: 3px; /* إضافة مسافة أسفل الصورة */
     border-radius: 50%;
@@ -149,7 +149,7 @@
     /*border: 1px solid #343434;*/
     font-weight: bold;
     font-size: 13px;
-    margin-right: 15px;
+    margin-right: 14px;
     z-index: 100;
     margin-left: auto; /* يجعل الزر في الجهة اليمنى */
     text-align: right; 
