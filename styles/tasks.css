@@ -216,7 +216,9 @@
 } 
 
 #task-earn {
+    height: 90%;
     width: 100%;
     max-width: 400px;
     overflow-y: auto; 
+    border-radius: 10px;
 } 
