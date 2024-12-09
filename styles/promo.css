@@ -25,6 +25,8 @@
     border-radius: 20px;
     color: #fff;
     font-size: 13px;
+    border-bottom: 1px solid #1c1c1c;
+    border-right: 1px solid #1c1c1c;
     /*animation: popIn 0.3s ease forwards;*/
 } 
 
