@@ -1,8 +1,8 @@
-#gameTwo, #bost2, #puzzle1, #globalNavbar {
+#gameTwo, #bost2, #puzzle1, #globalNavbar, #minee1 {
     animation: slideInLeft 0.4s ease forwards;
 }
 
-#gameOne, #bost1, #daily2 {
+#gameOne, #bost1, #daily2, #minee2 {
     animation: slideInRight 0.4s ease forwards;
 }
 
