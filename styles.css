@@ -931,11 +931,11 @@ img {
 #miningnavbarBalanceDisplay::before {
     content: ""; /* لا نحتاج نصًا هنا */
     display: inline-block;
-    width: 25px; /* تحديد عرض الصورة */
-    height: 25px; /* تحديد ارتفاع الصورة */
+    width: 26px; /* تحديد عرض الصورة */
+    height: 26px; /* تحديد ارتفاع الصورة */
     background-image: url('i/coins.png'); /* مسار الصورة */
     background-size: cover; /* لتغطية العنصر بالصورة بشكل جيد */
-    margin-right: 5px; /* مسافة بين الصورة والنص */
+    margin-right: 1px; /* مسافة بين الصورة والنص */
     vertical-align: middle; /* لضبط المحاذاة العمودية */
 }
 
