@@ -901,7 +901,7 @@ img {
     color: #808080;
     text-align: left;
     margin-left: 20px;
-}
+ } 
 
 /*#miningnavbarBalanceDisplay, #BoostnavbarBalanceDisplay, #tasknavbarBalanceDisplay, #navbarBalanceDisplay,
 #lvlnavbarBalanceDisplay, #puzzlenavbarBalanceDisplay, #AccountnavbarBalanceDisplay {
@@ -921,21 +921,23 @@ img {
     border: 0.50px solid #343434;
 }*/
 
-#gnavbarBalanceDisplay::after,  
-#navbarBalanceDisplay::after,  
-#AccountnavbarBalanceDisplay::after, 
-#tasknavbarBalanceDisplay::after, 
-#puzzlenavbarBalanceDisplay::after,
-#BoostnavbarBalanceDisplay::after, 
-#lvlnavbarBalanceDisplay::after, 
-#miningnavbarBalanceDisplay::after {
-    content: " $S4W";  /* إضافة النص بعد العدد */
-    margin-left: 2px; /* مسافة بين العدد والنص */
-    display: inline-block; /* يضمن المحاذاة بشكل أفضل */
-    line-height: 1; /* ضبط المحاذاة العمودية */
-    font-size: inherit; /* تأكد من تطابق حجم النص مع النص الأساسي */
+#gnavbarBalanceDisplay::before,  
+#navbarBalanceDisplay::before,  
+#AccountnavbarBalanceDisplay::before, 
+#tasknavbarBalanceDisplay::before, 
+#puzzlenavbarBalanceDisplay::before,
+#BoostnavbarBalanceDisplay::before, 
+#lvlnavbarBalanceDisplay::before, 
+#miningnavbarBalanceDisplay::before {
+    content: ""; /* لا نحتاج نصًا هنا */
+    display: inline-block;
+    width: 25px; /* تحديد عرض الصورة */
+    height: 25px; /* تحديد ارتفاع الصورة */
+    background-image: url('i/coins.png'); /* مسار الصورة */
+    background-size: cover; /* لتغطية العنصر بالصورة بشكل جيد */
+    margin-right: 5px; /* مسافة بين الصورة والنص */
+    vertical-align: middle; /* لضبط المحاذاة العمودية */
 }
-
 
 /*#hourlyEarningsContainer {
     position: fixed;
