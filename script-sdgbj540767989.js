@@ -361,7 +361,7 @@ async function fetchUserDataFromTelegram() {
     const userNameElement = document.getElementById("userName");
 
     if (userNameElement) {
-      const maxLength = 7; // تحديد طول الاسم الذي تريد عرضه قبل النقاط
+      const maxLength = 4; // تحديد طول الاسم الذي تريد عرضه قبل النقاط
       const truncatedName = userTelegramName.length > maxLength ? userTelegramName.slice(0, maxLength) + "..." : userTelegramName;
       userNameElement.innerText = truncatedName;
     }
