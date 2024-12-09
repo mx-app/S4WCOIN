@@ -17,9 +17,13 @@
     height: 536px; /* تغطي 70% من الشاشة */
     position: absolute; /* تموضع مطلق */
     top: 105px; /* تبدأ من أسفل الشاشة */
-   /* background: #000;*/
-    border-radius: 20px;
-    background-image: linear-gradient(to left top, #000000, #050404, #090809, #0d0d0d, #101011, #101011, #101011, #101011, #0d0d0d, #090809, #050404, #000000);
+    background: radial-gradient(
+        circle, 
+        #101010 0%,       /* منتصف العنصر */
+        black 70%         /* تدرج إلى الأسود باتجاه الحواف */
+    ), 
+    black;              /* حواف العنصر سوداء بالكامل */
+    border-radius: 20px; /* زوايا مستديرة */
 } 
 
 .container-gate {
