@@ -1758,40 +1758,30 @@ function updateBalance(amount) {
 // إغلاق الأحجية
 function closePuzzle() {
     clearInterval(countdownInterval); // إيقاف المؤقت عند الإغلاق
-    document.getElementById('puzzleContainer').classList.add('hidden');
-    document.getElementById('puzzleOverlay').style.display = 'none'; // إخفاء الشفافية
-    document.getElementById('puzzleOptions').innerHTML = '';
-    document.getElementById('puzzleNotification').innerText = '';
+    puzzleContainer.classList.add('hidden');
+    puzzleOptions.innerHTML = '';
+    puzzleNotification.innerText = '';
     attempts = 0;
     puzzleSolved = false;
 }
 
-// مستمعات الأحداث للأزرار
-document.getElementById('puzzlecloseModal').addEventListener('click', function() {
-    closePuzzle(); // إغلاق الأحجية
-});
-
-// إظهار الأحجية عند الضغط على زر "puzzle1"
-document.getElementById('puzzle1').addEventListener('click', function() {
-    document.getElementById('puzzleContainer').classList.remove('hidden');
-    document.getElementById('puzzleOverlay').style.display = 'block'; // إظهار الشفافية
-});
-
-// إغلاق النافذة عند النقر على الشفافية (overlay)
-document.getElementById('puzzleOverlay').addEventListener('click', function() {
-    closePuzzle(); // إغلاق الأحجية
-});
-
-// مستمع حدث للأزرار داخل الخيارات
-document.getElementById('puzzleOptions').addEventListener('click', function (event) {
+// مستمعات الأحداث
+puzzleOptions.addEventListener('click', function (event) {
     if (event.target.classList.contains('option-btn')) {
-        checkPuzzleAnswer(event.target); // تحقق من الإجابة
+        checkPuzzleAnswer(event.target);
     }
 });
+openPuzzleBtn.addEventListener('click', displayTodaysPuzzle);
 
-// فتح الأحجية عند النقر على زر "openPuzzleBtn"
-document.getElementById('openPuzzleBtn').addEventListener('click', displayTodaysPuzzle);
+document.getElementById('puzzlecloseModal').addEventListener('click', function() {
+    document.getElementById('puzzleContainer').classList.add('hidden');
+    document.getElementById('overlay').style.display = 'none';
+});
 
+document.getElementById('puzzle1').addEventListener('click', function() {
+    document.getElementById('puzzleContainer').classList.remove('hidden');
+    document.getElementById('overlay').style.display = 'block';
+});
 
 
 ///////////////////////////////////////////////////
