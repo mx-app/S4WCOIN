@@ -60,7 +60,7 @@
 }
 
 .wallet-box {
-    background-color: rgba(0, 0, 0, 0.7); /* لون خلفية أغمق لتحسين التباين */
+    background-color: rgba(0, 0, 0, 0.0007); /* لون خلفية أغمق لتحسين التباين */
     backdrop-filter: blur(8px); /* تأثير ضبابية ناعم */
    /* border: 0.50px solid #444;*//* حد أغمق */
     border-radius: 15px; /* تدوير أكبر للحواف */
@@ -94,7 +94,8 @@
 #ton-connect button {
     background: #161616;
     backdrop-filter: blur(2px); 
-    /*border: 1px solid #1a1a1a;*/
+    border-bottom: 1px solid #1c1c1c;
+    border-right: 1px solid #1c1c1c;
     color: #fff;
     font-size: 16px;
     font-weight: bold;
@@ -108,6 +109,5 @@
 }
 
 #ton-connect button:hover {
-    background-color: #1a1a1a; 
-    border: 1px solid #1a1a1a;
+    background-color: #1a1a1a;
 }
