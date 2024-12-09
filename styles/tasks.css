@@ -100,7 +100,7 @@
 }
 
 .task-item {
-    width: 93%;
+    width: 94%;
     height: 70px;
     max-width: 400px;
     margin: 15px 0;
@@ -149,7 +149,7 @@
     /*border: 1px solid #343434;*/
     font-weight: bold;
     font-size: 13px;
-    margin-right: 10px;
+    margin-right: 12px;
     z-index: 100;
     margin-left: auto; /* يجعل الزر في الجهة اليمنى */
     text-align: right; 
