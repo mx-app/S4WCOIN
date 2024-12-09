@@ -2079,16 +2079,37 @@ async function addPromoCodeToUsed(enteredCode) {
 }
 
 
+//document.getElementById('promocodeBtu').addEventListener('click', function() {
+//   document.getElementById('promoContainer').classList.remove('hidden');
+//   document.getElementById('overlay').style.display = 'block';
+//});
+
+//document.getElementById('promocloseModal').addEventListener('click', () => {
+//   document.getElementById('promoContainer').classList.add('hidden');
+//    document.getElementById('overlay').style.display = 'none';
+//});
+
+// عند الضغط على زر برومو كود
 document.getElementById('promocodeBtu').addEventListener('click', function() {
     document.getElementById('promoContainer').classList.remove('hidden');
-    document.getElementById('overlay').style.display = 'block';
+    document.getElementById('promocodeoverlay').style.display = 'block'; // إظهار الشفافية
 });
 
-// إغلاق النافذة عند النقر على زر الإغلاق
+// إغلاق نافذة البرومو كود عند النقر على زر الإغلاق
 document.getElementById('promocloseModal').addEventListener('click', () => {
-    document.getElementById('promoContainer').classList.add('hidden');
-    document.getElementById('overlay').style.display = 'none';
+    closePromoModal();
 });
+
+// إغلاق نافذة البرومو كود عند النقر على الشفافية (overlay)
+document.getElementById('promocodeoverlay').addEventListener('click', () => {
+    closePromoModal();
+});
+
+// دالة لإغلاق نافذة البرومو كود
+function closePromoModal() {
+    document.getElementById('promoContainer').classList.add('hidden');
+    document.getElementById('promocodeoverlay').style.display = 'none'; // إخفاء الشفافية
+}
 
 
 
