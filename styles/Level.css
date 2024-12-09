@@ -11,6 +11,8 @@
     font-family: Arial, sans-serif; /* نوع الخط */
     margin: 0 auto; /* محاذاة في المنتصف */
     margin-bottom: 50px; 
+    border-bottom: 1px solid #1c1c1c;
+    border-right: 1px solid #1c1c1c; 
 }
 
 
@@ -59,7 +61,8 @@
     width: 90%;
     height: 50px;
     color: #ffffff; 
-    border-bottom: 1px solid #1a1a1a;
+    border-bottom: 1px solid #1c1c1c;
+    border-right: 1px solid #1c1c1c;
 } 
 
 
