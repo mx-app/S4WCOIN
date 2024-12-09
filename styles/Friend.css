@@ -74,6 +74,8 @@
     width: 90%; 
     height: 55px;
     background-color: #101010;
+    border-bottom: 1px solid #1c1c1c;
+    border-right: 1px solid #1c1c1c;
     color: #fff;
     padding: 20px;
     font-size: 16px;
@@ -98,7 +100,8 @@
     height: 55px;
     background-color: #101010;
     color: #fff;
-   /* border: 0.50px solid #343434;*/
+    border-bottom: 1px solid #1c1c1c;
+    border-right: 1px solid #1c1c1c;
     padding: 7px;
     font-size: 16px;
     font-weight: bold;
