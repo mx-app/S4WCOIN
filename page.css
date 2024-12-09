@@ -19,9 +19,8 @@
     top: 105px; /* تبدأ من أسفل الشاشة */
    /* background: #000;*/
     border-radius: 20px;
-    background-image: linear-gradient(to right top bottom, #000000, #101010, #141414, #1a1a1a, #222222, #2a2a2a, #333333, #3b3b3b, #444444, #505050);
+    background-image: linear-gradient(to left top, #000000, #050404, #090809, #0d0d0d, #101011, #101011, #101011, #101011, #0d0d0d, #090809, #050404, #000000);
 } 
-
 
 .container-gate {
     left: 50%;
