@@ -146,7 +146,8 @@
     width: 95%;
     max-width: 400px;
     background-color: #161616;
-    backdrop-filter: blur(2px); 
+    border-bottom: 1px solid #1c1c1c;
+    border-right: 1px solid #1c1c1c;
     border-radius: 20px;
     padding: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
@@ -179,7 +180,8 @@
 .user-box {
     width: 95%;
     background-color: #161616;
-    backdrop-filter: blur(2px); 
+    border-bottom: 1px solid #1c1c1c;
+    border-right: 1px solid #1c1c1c;
     border-radius: 20px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
