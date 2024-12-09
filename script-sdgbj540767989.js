@@ -28,9 +28,9 @@ const uiElements = {
     boostUpgradeCost: document.getElementById('boostUpgradeCost'),
     upgradeImage: document.getElementById('upgradeImage'),
     
-    currentLevel: document.getElementById('currentLevel'),  // عنصر يعرض المستوى الحالي
-    currentCoins: document.getElementById('currentCoins'),  // عنصر يعرض العملات الحالية
-    upgradeCost: document.getElementById('upgradeCost'),    // عنصر يعرض تكلفة الترقية
+    currentLevel: document.getElementById('currentLevel'),  
+    currentCoins: document.getElementById('currentCoins'),  
+    upgradeCost: document.getElementById('upgradeCost'),   
     purchaseNotification: document.getElementById('purchaseNotification'),
     copyInviteNotification: document.getElementById('copyInviteNotification'),
     clickableImg: document.getElementById('clickableImg'),
@@ -51,21 +51,10 @@ const uiElements = {
     withdrawAmountInput: document.getElementById('withdrawAmount'),
     userTelegramNameDisplay: document.getElementById('userTelegramName'),
     userTelegramIdDisplay: document.getElementById('userTelegramId'),
-
     levelInfoDisplay: document.getElementById('currentLevelInfo') || { innerText: '' },
     friendsListDisplay: document.getElementById('friendsList') || { innerHTML: '' },
     displayedLevel: document.getElementById('displayedLevel'),
-    currentLevelName: document.getElementById('currentLevelName'),
-    levelOneProgress: document.getElementById('levelOneProgress'),
-    levelTwoProgress: document.getElementById('levelTwoProgress'),
-    levelThreeProgress: document.getElementById('levelThreeProgress'),
-    levelFourProgress: document.getElementById('levelFourProgress'),
-    levelFiveProgress: document.getElementById('levelFiveProgress'),
-    levelSixProgress: document.getElementById('levelSixProgress'),
-    levelSevenProgress: document.getElementById('levelSevenProgress'),
-    levelEightProgress: document.getElementById('levelEightProgress'),
-    levelNineProgress: document.getElementById('levelNineProgress'),
-    levelTenProgress: document.getElementById('levelTenProgress'),
+    currentLevelName: document.getElementById('currentLevelName'),    
     boostUpgradeBtn: document.getElementById('boostUpgradeBtn'),
     coinUpgradeBtn: document.getElementById('coinUpgradeBtn'),
     fillEnergyUpgradeBtn: document.getElementById('fillEnergyBtn'),
@@ -975,7 +964,7 @@ async function loadFriendsList() {
                     // إنشاء عنصر لعرض الرصيد
                     const balanceSpan = document.createElement('span');
                     balanceSpan.classList.add('friend-balance');
-                    balanceSpan.textContent = `${formatNumber(friend.balance)} $S4W`; // عرض الرصيد
+                    balanceSpan.textContent = `${formatNumber(friend.balance)} $SWT`; // عرض الرصيد
 
                     // إنشاء div يحتوي على الصورة واسم الصديق
                     const friendInfoDiv = document.createElement('div');
@@ -1108,7 +1097,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // المستخدم شاهد الإعلان حتى النهاية أو تفاعل معه
             // مكافأة المستخدم
             rewardUser(rewardAmount);
-            showNotificationWithStatus(purchaseNotification, `You got me ${rewardAmount} $S4W for watching the ad`, 'win');
+            showNotificationWithStatus(purchaseNotification, `You got me ${rewardAmount} $SWT for watching the ad`, 'win');
         }).catch((result) => {
             // معالجة الحالة إذا حدثت مشكلة في عرض الإعلان
             console.error('mistake ', result);
@@ -1249,7 +1238,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 rewardContainer.classList.add('task-reward-container');
             
                 const rewardText = document.createElement('span');
-                rewardText.textContent = `+ ${task.reward} $S4W`;
+                rewardText.textContent = `+ ${task.reward} $SWT`;
                 rewardText.classList.add('task-reward');
                 rewardContainer.appendChild(rewardText);
 
@@ -1625,7 +1614,7 @@ async function displayTodaysPuzzle() {
     // عرض السؤال والتلميح والمكافأة
     puzzleQuestion.innerText = currentPuzzle.question;
     puzzleHint.innerText = `Hint : ${currentPuzzle.hint}`;
-    puzzleRewardDisplay.innerText = `Reward ${currentPuzzle.reward} $S4W`;
+    puzzleRewardDisplay.innerText = `Reward ${currentPuzzle.reward} $SWT`;
 
     // عرض الخيارات كأزرار
     const optionsHtml = currentPuzzle.options.map(option => `<button class="option-btn">${option}</button>`).join('');
@@ -1698,7 +1687,7 @@ function handlePuzzleWrongAnswer() {
 
     if (attempts === maxAttempts) {
         clearInterval(countdownInterval);
-        showNotification(puzzleNotification, 'You have used all attempts. 500 $S4W have been deducted.');
+        showNotification(puzzleNotification, 'You have used all attempts. 500 $SWT have been deducted.');
         updatePuzzleProgressInDatabase(currentPuzzle.id, false, maxAttempts); // تسجيل المحاولة الفاشلة
         startCountdownOnButton(24 * 60 * 60); // بدء العد التنازلي
         closePuzzle();
@@ -1941,7 +1930,7 @@ document.getElementById('applyPromoCode').addEventListener('click', async () => 
 
         if (alreadyUsed) {
             applyButton.innerHTML = '‼️';
-            showNotificationWithStatus(uiElements.purchaseNotification, 'You have already used this promo code.', 'win');
+            showNotification(uiElements.purchaseNotification, 'You have already used this promo code.');
 
             // تأخير بسيط قبل عرض الإعلان
             setTimeout(() => {
@@ -1979,7 +1968,7 @@ document.getElementById('applyPromoCode').addEventListener('click', async () => 
 
             // عرض الإشعار بالمكافأة
             applyButton.innerHTML = '✔️';
-            showNotificationWithStatus(uiElements.purchaseNotification, `Successfully added ${reward} $S4W to your balance!`, 'win');
+            showNotificationWithStatus(uiElements.purchaseNotification, `Successfully added ${reward} $SWT to your balance!`, 'win');
 
             // تأخير بسيط قبل عرض الإعلان
             setTimeout(() => {
@@ -2074,17 +2063,6 @@ async function addPromoCodeToUsed(enteredCode) {
     console.log('Promo code added to used list successfully.');
     return true;
 }
-
-
-//document.getElementById('promocodeBtu').addEventListener('click', function() {
-//   document.getElementById('promoContainer').classList.remove('hidden');
-//   document.getElementById('overlay').style.display = 'block';
-//});
-
-//document.getElementById('promocloseModal').addEventListener('click', () => {
-//   document.getElementById('promoContainer').classList.add('hidden');
-//    document.getElementById('overlay').style.display = 'none';
-//});
 
 // عند الضغط على زر برومو كود
 document.getElementById('promocodeBtu').addEventListener('click', function() {
@@ -2440,7 +2418,7 @@ document.addEventListener('DOMContentLoaded', () => {
             updateBalance(reward);
 
             // تحديث واجهة المستخدم
-            loginNotification.innerText = `Day ${consecutive_days}: You've earned ${reward} $S4W!`;
+            loginNotification.innerText = `Day ${consecutive_days}: You've earned ${reward} $SWT!`;
             updateClaimButton(consecutive_days, reward);
             highlightRewardedDays(consecutive_days);
 
@@ -2600,7 +2578,7 @@ async function showUpgradeModal(upgradeType) {
     document.getElementById('upgradeIconContainer').innerHTML = upgrade.icon;
     document.getElementById('upgradeTitle').innerText = upgrade.title;
     document.getElementById('currentLevel').innerText = upgrade.current;
-    document.getElementById('upgradeCost').innerText = `Cost: ${upgrade.cost}`;
+    document.getElementById('upgradeCost').innerText = `Cost: ${upgrade.cost} $SWT`;
 }
 
 // إغلاق النافذة المنبثقة
