@@ -364,6 +364,7 @@ img {
     align-items: center;
     justify-content: center;
     height: calc(95% - 69px);
+    overflow-y: auto; 
 }
 
 .clickable-image {
