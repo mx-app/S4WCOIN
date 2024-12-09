@@ -2507,6 +2507,13 @@ document.addEventListener('DOMContentLoaded', () => {
        logindailyContent.classList.add('hidden');
        document.getElementById('overlay').style.display = 'none';
     });
+    
+    // إغلاق النافذة عند النقر على الشفافية (overlay)
+    logindailyOverlay.addEventListener('click', function () {
+       logindailyContainer.classList.add('hidden');
+       logindailyContent.classList.add('hidden');
+       document.getElementById('overlay').style.display = 'none';
+    });
 
     // عند الضغط على زر المطالبة بالمكافأة
     loginClaimBtn.addEventListener('click', async function () {
