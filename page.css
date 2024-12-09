@@ -17,8 +17,14 @@
     height: 536px; /* تغطي 70% من الشاشة */
     position: absolute; /* تموضع مطلق */
     top: 105px; /* تبدأ من أسفل الشاشة */
-    background: #000;
+   /* background: #000;*/
     border-radius: 20px;
+    background: linear-gradient(
+        to bottom,
+        #2A4C65, 
+        #FD8A95, 
+        #F9B294
+    );
 }
 
 
