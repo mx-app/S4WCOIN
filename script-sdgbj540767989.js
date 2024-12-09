@@ -1684,9 +1684,8 @@ function handlePuzzleSuccess() {
     const puzzleReward = currentPuzzle.reward;
     showNotificationWithStatus(puzzleNotification, `Correct! You've earned ${puzzleReward} coins.`, 'win');
     updateBalance(puzzleReward);
-
     updatePuzzleProgressInDatabase(currentPuzzle.id, true, attempts); // تحديث التقدم في قاعدة البيانات
-
+    closePuzzle();
     puzzleSolved = true;
     document.querySelectorAll('.option-btn').forEach(btn => btn.disabled = true);
     startCountdownOnButton(24 * 60 * 60); // بدء العد التنازلي لعرض أحجية اليوم التالي
@@ -1759,31 +1758,39 @@ function updateBalance(amount) {
 // إغلاق الأحجية
 function closePuzzle() {
     clearInterval(countdownInterval); // إيقاف المؤقت عند الإغلاق
-    puzzleContainer.classList.add('hidden');
-    puzzleOptions.innerHTML = '';
-    puzzleNotification.innerText = '';
+    document.getElementById('puzzleContainer').classList.add('hidden');
+    document.getElementById('puzzleOverlay').style.display = 'none'; // إخفاء الشفافية
+    document.getElementById('puzzleOptions').innerHTML = '';
+    document.getElementById('puzzleNotification').innerText = '';
     attempts = 0;
     puzzleSolved = false;
 }
 
-// مستمعات الأحداث
-puzzleOptions.addEventListener('click', function (event) {
-    if (event.target.classList.contains('option-btn')) {
-        checkPuzzleAnswer(event.target);
-    }
-});
-openPuzzleBtn.addEventListener('click', displayTodaysPuzzle);
-
+// مستمعات الأحداث للأزرار
 document.getElementById('puzzlecloseModal').addEventListener('click', function() {
-    document.getElementById('puzzleContainer').classList.add('hidden');
-    document.getElementById('overlay').style.display = 'none';
+    closePuzzle(); // إغلاق الأحجية
 });
 
+// إظهار الأحجية عند الضغط على زر "puzzle1"
 document.getElementById('puzzle1').addEventListener('click', function() {
     document.getElementById('puzzleContainer').classList.remove('hidden');
-    document.getElementById('overlay').style.display = 'block';
+    document.getElementById('puzzleOverlay').style.display = 'block'; // إظهار الشفافية
 });
 
+// إغلاق النافذة عند النقر على الشفافية (overlay)
+document.getElementById('puzzleOverlay').addEventListener('click', function() {
+    closePuzzle(); // إغلاق الأحجية
+});
+
+// مستمع حدث للأزرار داخل الخيارات
+document.getElementById('puzzleOptions').addEventListener('click', function (event) {
+    if (event.target.classList.contains('option-btn')) {
+        checkPuzzleAnswer(event.target); // تحقق من الإجابة
+    }
+});
+
+// فتح الأحجية عند النقر على زر "openPuzzleBtn"
+document.getElementById('openPuzzleBtn').addEventListener('click', displayTodaysPuzzle);
 
 
 
