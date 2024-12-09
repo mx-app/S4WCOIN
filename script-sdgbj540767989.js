@@ -1802,9 +1802,12 @@ openPuzzleBtn.addEventListener('click', displayTodaysPuzzle);
 
 document.getElementById('puzzlecloseModal').addEventListener('click', function() {
     document.getElementById('puzzleContainer').classList.add('hidden');
+    document.getElementById('overlay').style.display = 'none';
 });
+
 document.getElementById('puzzle1').addEventListener('click', function() {
     document.getElementById('puzzleContainer').classList.remove('hidden');
+    document.getElementById('overlay').style.display = 'block';
 });
 
 
@@ -2104,11 +2107,13 @@ async function addPromoCodeToUsed(enteredCode) {
 
 document.getElementById('promocodeBtu').addEventListener('click', function() {
     document.getElementById('promoContainer').classList.remove('hidden');
+    document.getElementById('overlay').style.display = 'block';
 });
 
 // إغلاق النافذة عند النقر على زر الإغلاق
 document.getElementById('promocloseModal').addEventListener('click', () => {
     document.getElementById('promoContainer').classList.add('hidden');
+    document.getElementById('overlay').style.display = 'none';
 });
 
 
@@ -2518,7 +2523,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function openDailyLoginModal(userTelegramId) {
        logindailyContainer.classList.remove('hidden');
        logindailyContent.classList.remove('hidden');
-       logindailyOverlay.classList.remove('hidden'); // إظهار العتامة
+       document.getElementById('overlay').style.display = 'block';
        handleDailyLogin();
    }
 
@@ -2526,7 +2531,7 @@ document.addEventListener('DOMContentLoaded', () => {
     dailyCloseModal.addEventListener('click', function () {
        logindailyContainer.classList.add('hidden');
        logindailyContent.classList.add('hidden');
-       logindailyOverlay.classList.add('hidden'); // إخفاء العتامة
+       document.getElementById('overlay').style.display = 'none';
     });
 
     // عند الضغط على زر المطالبة بالمكافأة
