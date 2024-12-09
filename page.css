@@ -31,7 +31,7 @@
     left: 50%;
     transform: translateX(-50%);
     width: 98%;
-    height: auto;
+    height: 60px;
     position: relative; /* استخدم relative لتجنب التداخل مع العناصر الأخرى */
     display: flex;
     justify-content: space-between;
@@ -110,7 +110,7 @@
 #mainPage {
     padding-top: 50px; /* يمكنك تغيير القيمة حسب الحاجة */
     background-clip: padding-box;
-    overflow-y: auto;
+    /*overflow-y: auto;*/
     background: linear-gradient(
         to bottom,
         #000, 
