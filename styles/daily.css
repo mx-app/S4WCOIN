@@ -246,8 +246,16 @@
 
 #login1 {
     color: #fff; /* لون النص */
-    font-size: 15px; /* حجم الخط */
+    font-size: 18px; /* حجم الخط */
     margin-top: 5px; /* إزالة المسافة من الأعلى */
     margin-bottom: 5px;
+    text-align: center;
+}
+
+#logins {
+    color: #fff; /* لون النص */
+    font-size: 15px; /* حجم الخط */
+    margin-top: 0; /* إزالة المسافة من الأعلى */
+    margin-bottom: 0;
     text-align: center;
 }
