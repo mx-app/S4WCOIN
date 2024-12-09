@@ -214,3 +214,9 @@
     margin-bottom: 18px;
     margin-left: 18px;
 } 
+
+#task-earn {
+    width: 100%;
+    max-width: 400px;
+    overflow-y: auto; 
+} 
