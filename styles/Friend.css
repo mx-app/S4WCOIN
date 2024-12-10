@@ -6,8 +6,8 @@
     padding: 8px; 
     background: radial-gradient(circle at bottom right, 
   #1AC9FF, 
-  #2D83EC 10%, 
-  #202020 70%);
+  #2D83EC 5%, 
+  #101010 80%);
     border-radius: 20px;
     border-bottom: 1px solid #1c1c1c;
     border-right: 1px solid #1c1c1c;
@@ -80,8 +80,8 @@
     width: 90%; 
     height: 50px;
     background-color: #fff;
-    border-bottom: 1px solid #1c1c1c;
-    border-right: 1px solid #1c1c1c;
+    /*border-bottom: 1px solid #1c1c1c;
+    border-right: 1px solid #1c1c1c;*/
     color: #000;
     padding: 20px;
     font-size: 16px;
@@ -108,8 +108,8 @@
     height: 50px;
     background-color: #fff;
     color: #000;
-    border-bottom: 1px solid #1c1c1c;
-    border-right: 1px solid #1c1c1c;
+    /*border-bottom: 1px solid #1c1c1c;
+    border-right: 1px solid #1c1c1c;*/
     padding: 7px;
     font-size: 16px;
     font-weight: bold;
@@ -167,7 +167,7 @@
     justify-content: space-between;
     align-items: center;
     background-color: rgba(0, 0, 0,0.00001);
-    padding: 15px;
+    padding: 10px;
     margin: 5px; 
     width: 100%;
     border-radius: 20px;
@@ -175,7 +175,7 @@
 }
  
 .friend-item:hover {
-    background-color: #202020;
+    background-color: #101010;
 }
 
 .friend-info {

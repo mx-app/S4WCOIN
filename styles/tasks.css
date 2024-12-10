@@ -4,12 +4,12 @@
     padding-top: 3px;
     z-index: 50;
     margin-top: 3px;
-    margin-left: 15px;
+    margin-left: 16px;
     position: relative; /* لإبقاء النص في موضعه فوق الصورة */
 }
 
 .taskk-title {
-    font-size: 28px;
+    font-size: 24px;
     color: #fff; /* تأكد من أن النص يظهر بوضوح على الصورة */
     z-index: 100; /* تأكد من أن النص فوق الصورة */
     animation: popIn 0.4s ease forwards;
@@ -17,21 +17,21 @@
 
 .TASKS-image {
     position: absolute;
-    top: 15px;
+    top: 30px;
     left: 83%;
-    color: #1AC9FF;
     transform: translateX(-50%);
     width: auto;
-    max-width: 100%; 
+    max-width: 100%;
     display: block;
     margin-bottom: 20px;
-    z-index: 0; 
-}
+    z-index: 0;
+    stroke: url(#gradient); /* تطبيق تدرج على الحواف (الخطوط) */
+} 
 
 .size-6 {
     width: 18px;
     height: 18px;
-    color: #1AC9FF;  /* اللون الأخضر لعلامة الصح */
+    color: #2D83EC;  /* اللون الأخضر لعلامة الصح */
 }
 
 .size-6 path {

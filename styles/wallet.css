@@ -47,8 +47,8 @@
 } 
 
 .wallet-button i {
-    font-size: 1.1rem;
-    background: linear-gradient(to right, #2D83EC, #1AC9FF);
+    font-size: 1.2rem;
+    background: linear-gradient(to bottom, #2D83EA, #2D83EC);
     -webkit-background-clip: text; /* تطبيق التدرج على النص */
     -webkit-text-fill-color: transparent; /* جعل النص شفافًا ليظهر التدرج */
 } 
@@ -95,8 +95,8 @@
 }
 
 #ton-connect button {
-    background: linear-gradient(to right, #2D83EC, #1AC9FF);
-    backdrop-filter: blur(2px); 
+    background: #2D83EC;
+   /* backdrop-filter: blur(2px);*/
     border-bottom: 1px solid #1c1c1c;
     border-right: 1px solid #1c1c1c;
     color: #fff;

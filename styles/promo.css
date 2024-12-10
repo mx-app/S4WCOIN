@@ -1,44 +1,81 @@
-.promo-labl {
-    width: 100%;
-    margin: 10px 0; /* مسافة من الأعلى والأسفل */
-    display: flex;
-    justify-content: center; /* توسيط الفاصل أفقياً */
+.community-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute; /* تموضع مطلق */
+  bottom: 24px; /* المسافة من أسفل الشاشة */
+  left: 50%; /* البدء من منتصف الشاشة */
+  transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
+  width: 85%;
+  height: 36px;
+  font-weight: bold;
+  backdrop-filter: blur(2px); 
+  background: linear-gradient(45deg, #101010, #2D83EC, #161616);
+  background-size: 100% 100%; /* تغطية كاملة بدون خطوط */
+  border-bottom: 1px solid #1c1c1c;
+  border-right: 1px solid #1c1c1c;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 13px;
+  overflow: hidden;
 }
 
-.modal-labl {
-    height: 1.5px; /* سمك الفاصل */
-    background-color: #1a1a1a; /* لون الفاصل */
-    width: 100%; /* عرض الفاصل */
-}
+/*.community-button:hover {
+    background: linear-gradient(to left, #2D83EC, #1AC9FF);
+}*/
 
+.community-button i {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-left: 20px;
+}   
+
+.arrow-community {
+    width: 20px; 
+    height: 20px;
+    color: #fff;
+    margin-right: 25px;
+} 
+ 
+.text {
+    font-size: 15px;
+    margin-right: 55px;
+} 
+
+.text-promo {
+    font-size: 15px;
+    margin-right: 50px;
+    font-family: 'Raleway', sans-serif;
+} 
+ 
+ 
 .promo-code-button {
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: absolute; /* تموضع مطلق */
-    bottom: 77px; /* المسافة من أسفل الشاشة */
+    bottom: 73px; /* المسافة من أسفل الشاشة */
     left: 50%; /* البدء من منتصف الشاشة */
     transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
-    width: 90%;
-    height: 43px;
-    background: linear-gradient(to right, #2D83EC, #1AC9FF); /* تدرج لوني من الأزرق إلى السماوي */
+    width: 85%;
+    height: 39px;
+    background: linear-gradient(45deg, #101010, #2D83EC, #161616);
+    background-size: 100% 100%; /* تغطية كاملة بدون خطوط */
     border-radius: 20px;
     color: #fff;
     font-size: 13px;
     border-bottom: 1px solid #1c1c1c;
     border-right: 1px solid #1c1c1c;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* إضافة ظل ناعم */
-    transition: background 0.3s ease, transform 0.3s ease; /* تأثير انتقال للتدرج */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.promo-code-button:hover {
-    background: linear-gradient(to left, #2D83EC, #1AC9FF); /* عكس التدرج عند التمرير */
-}
+/*.promo-code-button:hover {
+    background: linear-gradient(to left, #2D83EC, #1AC9FF);
+}*/
 
 .promo-code-button i {
     font-size: 1.2rem;
-  /* width: 25px; 
-    height: 25px;*/
     color: #fff;
     margin-left: 15px;
 }    
@@ -49,7 +86,6 @@
     color: #fff;
     margin-right: 20px;
 } 
-
 
 .promo-box {
     position: relative; /* لجعل الزر يتمركز فوق خانة الإدخال */
@@ -130,3 +166,15 @@
     height: 25px;
     margin-right: 3px;
 }
+.promo-labl {
+    width: 100%;
+    margin: 10px 0; /* مسافة من الأعلى والأسفل */
+    display: flex;
+    justify-content: center; /* توسيط الفاصل أفقياً */
+}
+
+.modal-labl {
+    height: 1.5px; /* سمك الفاصل */
+    background-color: #1a1a1a; /* لون الفاصل */
+    width: 100%; /* عرض الفاصل */
+} 
