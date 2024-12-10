@@ -21,7 +21,8 @@
     transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
     width: 90%;
     height: 43px;
-    background: #101010;
+    background: #0098EA;
+   /* background: #101010;*/
     border-radius: 20px;
     color: #fff;
     font-size: 13px;
