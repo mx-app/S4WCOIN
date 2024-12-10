@@ -1,3 +1,19 @@
+.buttons-container {
+  display: flex; /* جعل العناصر أفقية */
+  gap: 10px; /* إضافة مسافة بين الزرين */
+  justify-content: center; /* توسيط العناصر أفقيًا */
+  align-items: center; /* محاذاة العناصر عموديًا */
+  position: absolute; /* تموضع الحاوية */
+  bottom: 25px; /* المسافة من أسفل الشاشة */
+  left: 50%; /* البدء من منتصف الشاشة */
+  transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
+  width: 90%;
+}
+
+.promo-code-button, .community-button {
+  flex: 1; /* جعل الأزرار تأخذ نفس العرض */
+}
+
 .community-button {
       display: flex;
       align-items: center;
