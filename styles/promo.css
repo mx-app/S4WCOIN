@@ -11,7 +11,6 @@
   /*backdrop-filter: blur(2px);*/
   background: linear-gradient(45deg, #2D83EC, #101010, #2D83EC, #161616);
   background-size: 300% 300%; /* يجعل التدرجات ديناميكية */
-
   border-bottom: 1px solid #1c1c1c;
   border-right: 1px solid #1c1c1c;
   border-radius: 20px;
@@ -61,8 +60,10 @@
     transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
     width: 85%;
     height: 39px;
-    background: linear-gradient(45deg, #101010, #2D83EC, #161616);
-    background-size: 100% 100%; /* تغطية كاملة بدون خطوط */
+    background: linear-gradient(45deg, #2D83EC, #101010, #2D83EC, #161616);
+    background-size: 300% 300%; /* يجعل التدرجات ديناميكية */
+   /* background: linear-gradient(45deg, #101010, #2D83EC, #161616);
+    background-size: 100% 100%;*//* تغطية كاملة بدون خطوط */
     border-radius: 20px;
     color: #fff;
     font-size: 13px;
