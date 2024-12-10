@@ -21,11 +21,6 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      position: absolute; /* تموضع مطلق */
-      bottom: 25px; /* المسافة من أسفل الشاشة */
-      left: 50%; /* البدء من منتصف الشاشة */
-      transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
-      width: 90%;
       height: 40px;
       font-weight: bold;
       background: linear-gradient(to right, #2D83EC, #1AC9FF);
@@ -77,11 +72,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: absolute; /* تموضع مطلق */
-    bottom: 77px; /* المسافة من أسفل الشاشة */
-    left: 50%; /* البدء من منتصف الشاشة */
-    transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
-    width: 90%;
     height: 43px;
     background: linear-gradient(to right, #2D83EC, #1AC9FF); /* تدرج لوني من الأزرق إلى السماوي */
     border-radius: 20px;
