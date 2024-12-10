@@ -150,8 +150,8 @@
     text-align: left; 
     margin-top: 20px;
     margin-left: 25px;
-    display: flex;
-    align-items: center; /* للمحاذاة العمودية */
+   /* display: flex;
+    align-items: center;*/
 }
 
 #refreshIcon {
