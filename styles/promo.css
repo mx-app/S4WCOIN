@@ -7,7 +7,7 @@
   left: 50%; /* البدء من منتصف الشاشة */
   transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
   width: 88%;
-  height: 37px;
+  height: 36px;
   font-weight: bold;
   backdrop-filter: blur(2px); 
   background: linear-gradient(45deg, #101010, #2D83EC, #161616);
@@ -55,7 +55,7 @@
     align-items: center;
     justify-content: space-between;
     position: absolute; /* تموضع مطلق */
-    bottom: 77px; /* المسافة من أسفل الشاشة */
+    bottom: 75px; /* المسافة من أسفل الشاشة */
     left: 50%; /* البدء من منتصف الشاشة */
     transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
     width: 88%;
