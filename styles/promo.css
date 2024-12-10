@@ -32,7 +32,6 @@
 }
 
 .promo-code-button:hover {
-    transform: scale(1.05); /* تكبير الزر قليلاً عند المرور فوقه */
     background: linear-gradient(to left, #2D83EC, #1AC9FF); /* عكس التدرج عند التمرير */
 }
 
