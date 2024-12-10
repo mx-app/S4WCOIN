@@ -1,17 +1,20 @@
 .buttons-container {
   display: flex; /* جعل العناصر أفقية */
-  gap: 10px; /* إضافة مسافة بين الزرين */
-  justify-content: center; /* توسيط العناصر أفقيًا */
+  justify-content: space-between; /* توزيع العناصر بين اليمين واليسار */
   align-items: center; /* محاذاة العناصر عموديًا */
   position: absolute; /* تموضع الحاوية */
   bottom: 25px; /* المسافة من أسفل الشاشة */
   left: 50%; /* البدء من منتصف الشاشة */
   transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
-  width: 90%;
+  width: 90%; /* عرض الحاوية */
 }
 
-.promo-code-button, .community-button {
-  flex: 1; /* جعل الأزرار تأخذ نفس العرض */
+.promo-code-button {
+  flex: 0; /* اجعل الزر يأخذ حجمه الطبيعي */
+}
+
+.community-button {
+  flex: 0; /* اجعل الرابط يأخذ حجمه الطبيعي */
 }
 
 .community-button {
