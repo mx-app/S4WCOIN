@@ -64,6 +64,7 @@
     height: 180px;
     padding: 8px; 
     font-size: 14px; 
+    overflow-y: auto; 
     background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(2px); 
     border-radius: 10px;      
@@ -176,7 +177,7 @@
     align-items: center;
     background-color: #101010;
     padding: 15px;
-    margin: 5px auto; /* توسيط العنصر عموديا من اليمين لليسار */
+    margin: 10px auto; /* توسيط العنصر عموديا من اليمين لليسار */
     width: 98%; /* تحديد عرض العنصر ليكون 80% من العرض الكلي */
     border-radius: 20px;
     border-bottom: 1px solid #1c1c1c;
