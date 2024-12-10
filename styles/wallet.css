@@ -47,8 +47,8 @@
 } 
 
 .wallet-button i {
-    font-size: 1.1rem;
-    background: linear-gradient(to bottom, #101010, #2D83EC);
+    font-size: 1.2rem;
+    background: linear-gradient(to bottom, #1a1a1a, #2D83EC);
     -webkit-background-clip: text; /* تطبيق التدرج على النص */
     -webkit-text-fill-color: transparent; /* جعل النص شفافًا ليظهر التدرج */
 } 
