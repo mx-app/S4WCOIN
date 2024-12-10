@@ -61,12 +61,10 @@
     list-style: none;
     color: #808080;
     width: 90%; /* لجعل العرض 80% */
-    height: 180px;
     padding: 8px; 
     font-size: 14px; 
-    overflow-y: auto; 
-    background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(2px); 
+    background-color: rgba(255, 255, 255, 0.0002);
+   /* backdrop-filter: blur(2px);*/
     border-radius: 10px;      
     display: block;
 }
