@@ -21,20 +21,20 @@
     transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
     width: 90%;
     height: 43px;
-    background: #0098EA;
-   /* background: #101010;*/
+    background: linear-gradient(to right, #2D83EC, #1AC9FF); /* تدرج لوني من الأزرق إلى السماوي */
     border-radius: 20px;
     color: #fff;
     font-size: 13px;
     border-bottom: 1px solid #1c1c1c;
     border-right: 1px solid #1c1c1c;
-    /*animation: popIn 0.3s ease forwards;*/
-} 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* إضافة ظل ناعم */
+    transition: background 0.3s ease, transform 0.3s ease; /* تأثير انتقال للتدرج */
+}
 
-.promo-code-button:hover { 
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(2px);
-} 
+.promo-code-button:hover {
+    transform: scale(1.05); /* تكبير الزر قليلاً عند المرور فوقه */
+    background: linear-gradient(to left, #2D83EC, #1AC9FF); /* عكس التدرج عند التمرير */
+}
 
 .promo-code-button i {
     font-size: 1.2rem;
@@ -47,7 +47,7 @@
 .arrow-promo {
     width: 20px; 
     height: 20px;
-    color: #808080;
+    color: #fff;
     margin-right: 20px;
 } 
 
