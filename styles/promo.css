@@ -9,10 +9,10 @@
       width: 90%;
       height: 40px;
       font-weight: bold;
-      background: radial-gradient(circle at bottom right, 
+      background: linear-gradient(to bottom right, 
   #1AC9FF, 
-  #2D83EC 5%, 
-  #101010 80%);
+  #2D83EC, 
+  #101010);
       border-bottom: 1px solid #1c1c1c;
       border-right: 1px solid #1c1c1c;
       border-radius: 20px;
