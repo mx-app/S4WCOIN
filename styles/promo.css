@@ -30,7 +30,7 @@
       border-radius: 20px;
       text-decoration: none;
       color: #fff;
-      font-size: 13px;
+      font-size: 12px;
       overflow: hidden; 
      /* animation: popIn 0.5s ease forwards;*/
   } 
@@ -45,19 +45,19 @@
   /* width: 25px; 
     height: 25px;*/
     color: #fff;
-    margin-left: 20px;
+   /* margin-left: 20px;*/
 }   
 
 .arrow-community {
     width: 20px; 
     height: 20px;
     color: #fff;
-    margin-right: 25px;
+   /* margin-right: 25px;*/
 } 
  
 .text {
     font-size: 15px;
-    margin-right: 50px;
+    /*margin-right: 50px;*/
 } 
 
 .text-promo {
@@ -76,7 +76,7 @@
     background: linear-gradient(to right, #2D83EC, #1AC9FF); /* تدرج لوني من الأزرق إلى السماوي */
     border-radius: 20px;
     color: #fff;
-    font-size: 13px;
+    font-size: 12px;
     border-bottom: 1px solid #1c1c1c;
     border-right: 1px solid #1c1c1c;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* إضافة ظل ناعم */
@@ -92,14 +92,14 @@
   /* width: 25px; 
     height: 25px;*/
     color: #fff;
-    margin-left: 15px;
+    /*margin-left: 15px;*/
 }    
 
 .arrow-promo {
     width: 20px; 
     height: 20px;
     color: #fff;
-    margin-right: 20px;
+  /*  margin-right: 20px;*/
 } 
 
 
