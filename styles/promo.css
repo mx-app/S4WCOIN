@@ -10,7 +10,7 @@
   height: 40px;
   font-weight: bold;
   backdrop-filter: blur(2px); 
-  background: linear-gradient(135deg, #101010, #2D83EC, #161616);
+  background: linear-gradient(45deg, #101010, #2D83EC, #161616);
   background-size: 100% 100%; /* تغطية كاملة بدون خطوط */
   border-bottom: 1px solid #1c1c1c;
   border-right: 1px solid #1c1c1c;
