@@ -16,7 +16,7 @@
     width: 99%; /* تغطي كامل عرض الشاشة */
     height: 536px;
    /* height: 85px;*/
-    overflow-y: auto;
+   /* overflow-y: auto;*/
     position: absolute; /* تموضع مطلق */
     top: 105px; /* تبدأ من أسفل الشاشة */
     background: radial-gradient(
