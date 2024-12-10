@@ -615,14 +615,14 @@ img {
     width: 280px; /* عرض ثابت للإشعار */
     max-width: 82%; /* الحد الأقصى لعرض الإشعار بنسبة 90% من الشاشة */
     text-align: left; /* محاذاة النص إلى المنتصف */
-    /*transition: opacity 0.5s ease, top 0.5s ease;*/
+    transition: opacity 0.5s ease, top 0.5s ease;
     animation: popIn 0.4s ease forwards;
 }
 
 /* عند تفعيل الإشعار */
 .notification.show {
     animation: popIn 0.4s ease forwards;
-   /* animation: slideDown 0.5s ease-out forwards;*/
+    animation: slideDown 0.5s ease-out forwards;
     opacity: 1; /* مرئية */
 }
 
