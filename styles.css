@@ -160,17 +160,19 @@ img {
     top: 45%;
     left: 50%;
     transform: translateX(-50%);
-    width: 100%; 
+    width: 100%;
 }
 
-.loading-spinner {
+.loading-spinnerr {
     border: 7px solid rgba(255, 255, 255, 0.3); /* الحواف الشفافة */
-    border-top: 7px solid transparent; /* جعل الجزء العلوي شفاف */
+    border-top: 7px solid transparent; /* جعل الحافة العلوية شفافة لتطبيق التدرج */
     border-radius: 50%; /* جعل الشكل دائريًا */
     width: 55px;
     height: 55px;
     animation: spin 3s linear infinite; /* التحريك المستمر */
-    background: conic-gradient(from 0deg, #2D83EC, #1AC9FF); /* التدرج اللوني */
+    background: conic-gradient(#2D83EC, #1AC9FF, #101010); /* التدرج اللوني */
+    -webkit-mask: radial-gradient(circle, transparent 55%, black 56%);
+    mask: radial-gradient(circle, transparent 55%, black 56%);
 }
 
 /* حركة التدوير */
