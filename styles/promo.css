@@ -9,7 +9,7 @@
       width: 88%;
       height: 40px;
       font-weight: bold;
-      background: linear-gradient(90deg, #101010, #2D83EC);
+      background: linear-gradient(90deg, #101010, #2D83EC, #161616);
       border-bottom: 1px solid #1c1c1c;
       border-right: 1px solid #1c1c1c;
       border-radius: 20px;
@@ -60,7 +60,7 @@
     transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
     width: 88%;
     height: 43px;
-    background: linear-gradient(90deg, #101010, #2D83EC);
+    background: linear-gradient(90deg, #101010, #2D83EC, #161616);
     border-radius: 20px;
     color: #fff;
     font-size: 13px;
