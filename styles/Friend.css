@@ -157,17 +157,17 @@
 #refreshIcon {
     color: #fff;
     font-size: 16px;
-    margin-left: 10px; /* مسافة بين الأيقونة والنص */
+    margin-left: 10px;
     cursor: pointer;
     position: absolute;
-    right: -150px; /* تحريك الأيقونة نحو الجانب الأيمن */
-    top: 0; /* محاذاة رأسية */
+    right: -150px;
+    top: 0;
     transition: transform 0.5s linear; /* تأثير دوران سريع */
 }
 
 /* إضافة تأثير دوران عند النقر */
 #refreshIcon:active {
-    transform: rotate(360deg); /* 360 درجة أي دورة واحدة */
+    transform: rotate(360deg); /* تأثير دوران كامل */
 }
 
 .friend-item {
@@ -176,15 +176,13 @@
     align-items: center;
     background-color: rgba(255, 255, 255, 0.0008);
     padding: 15px;
-    margin: 5px;
-    margin-left: auto; /* يدفع العنصر إلى أقصى اليمين */
-    margin-right: auto; /* يدفع العنصر إلى أقصى اليسار */
-    width: 100%;
+    margin: 5px auto; /* توسيط العنصر عموديا من اليمين لليسار */
+    width: 95%; /* تحديد عرض العنصر ليكون 80% من العرض الكلي */
     border-radius: 20px;
     border-bottom: 1px solid #1c1c1c;
     transition: background-color 0.3s ease;
 }
-
+ 
 .friend-item:hover {
     background-color: #1a1a1a;
 }
