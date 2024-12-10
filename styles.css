@@ -1034,7 +1034,8 @@ img {
       width: 90%;
       height: 40px;
       font-weight: bold;
-      background: #101010;
+      background: #0098EA;
+     /* background: #101010;*/
       border-bottom: 1px solid #1c1c1c;
       border-right: 1px solid #1c1c1c;
       border-radius: 20px;
