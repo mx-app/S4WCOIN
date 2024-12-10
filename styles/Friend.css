@@ -138,18 +138,18 @@
 
 #invitedCount {
     color: #fff;
-    font-size: 15px;
+    font-size: 16px;
     text-align: left; 
     margin-top: 20px;
-    margin-left: 25px;
+    margin-left: 2px;
 }
 
 #i {
     color: #fff;
-    font-size: 15px;
+    font-size: 16px;
     text-align: left; 
     margin-top: 20px;
-    margin-left: 2px;
+    margin-left: 25px;
 }
 
 .friend-item {
