@@ -66,14 +66,16 @@
     transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
     width: 90%;
     height: 43px;
-    background: linear-gradient(to right, #2D83EC, #1AC9FF); /* تدرج لوني من الأزرق إلى السماوي */
+    background: radial-gradient(circle at bottom right, 
+  #1AC9FF, 
+  #2D83EC 5%, 
+  #101010 80%);
     border-radius: 20px;
     color: #fff;
     font-size: 13px;
     border-bottom: 1px solid #1c1c1c;
     border-right: 1px solid #1c1c1c;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* إضافة ظل ناعم */
-    transition: background 0.3s ease, transform 0.3s ease; /* تأثير انتقال للتدرج */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .promo-code-button:hover {
