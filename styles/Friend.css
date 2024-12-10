@@ -160,7 +160,7 @@
     margin-left: 10px; /* مسافة بين الأيقونة والنص */
     cursor: pointer;
     position: absolute;
-    right: -130px; /* تحريك الأيقونة نحو الجانب الأيمن */
+    right: -150px; /* تحريك الأيقونة نحو الجانب الأيمن */
     top: 0; /* محاذاة رأسية */
     transition: transform 0.5s linear; /* تأثير دوران سريع */
 }
@@ -176,7 +176,9 @@
     align-items: center;
     background-color: rgba(255, 255, 255, 0.0008);
     padding: 15px;
-    margin: 5px 0;
+    margin: 5px;
+    margin-left: auto; /* يدفع العنصر إلى أقصى اليمين */
+    margin-right: auto; /* يدفع العنصر إلى أقصى اليسار */
     width: 100%;
     border-radius: 20px;
     border-bottom: 1px solid #1c1c1c;
