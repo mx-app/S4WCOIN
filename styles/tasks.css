@@ -19,7 +19,9 @@
     position: absolute;
     top: 15px;
     left: 83%;
-    color: #0088CC;
+    background: linear-gradient(to right, #2D83EC, #1AC9FF);
+    -webkit-background-clip: text; /* تطبيق التدرج على النص */
+    -webkit-text-fill-color: transparent; /* جعل النص شفافًا ليظهر التدرج */
     transform: translateX(-50%);
     width: auto;
     max-width: 100%; 
