@@ -21,15 +21,12 @@
   overflow: hidden;
 }
 
-.community-button:hover {
+/*.community-button:hover {
     background: linear-gradient(to left, #2D83EC, #1AC9FF);
-} 
-
+}*/
 
 .community-button i {
     font-size: 1.2rem;
-  /* width: 25px; 
-    height: 25px;*/
     color: #fff;
     margin-left: 20px;
 }   
@@ -73,14 +70,12 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.promo-code-button:hover {
-    background: linear-gradient(to left, #2D83EC, #1AC9FF); /* عكس التدرج عند التمرير */
-}
+/*.promo-code-button:hover {
+    background: linear-gradient(to left, #2D83EC, #1AC9FF);
+}*/
 
 .promo-code-button i {
     font-size: 1.2rem;
-  /* width: 25px; 
-    height: 25px;*/
     color: #fff;
     margin-left: 15px;
 }    
