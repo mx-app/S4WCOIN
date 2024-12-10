@@ -3,8 +3,9 @@
     margin-left: auto; /* يدفع العنصر إلى أقصى اليمين */
     margin-right: auto; /* يدفع العنصر إلى أقصى اليسار */
     width: 95%; /* لضبط العرض لتجنب حدود الشاشة */
-    padding: 15px; /* مساحة داخلية حول الأزرار */
+    padding: 10px; /* مساحة داخلية حول الأزرار */
     background-color: #101010;
+    border-radius: 20px;
     border-bottom: 1px solid #1c1c1c;
     border-right: 1px solid #1c1c1c;
 }
