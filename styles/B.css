@@ -182,7 +182,7 @@
     align-items: center; /* محاذاة المحتوى عموديًا */
     justify-content: space-between; /* توزيع العناصر بالتساوي */
     width: 93%; /* عرض العنصر */
-    height: 70px;
+    height: 62px;
     padding: 10px;
     margin: 10px auto;
     border-bottom: 1px solid #1c1c1c;
