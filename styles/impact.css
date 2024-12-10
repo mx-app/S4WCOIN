@@ -14,7 +14,7 @@
     animation: slideInRight 0.4s ease forwards;
 }
 
-.invite-section {
+.invite {
     animation: slideInRight 0.4s ease forwards;
 }
 
@@ -22,9 +22,9 @@
     animation: slideInLeft 0.4s ease forwards;
 }
 
-.invite-content {
+/*.invite-content {
     animation: slideInLeft 0.4s ease forwards;
-}
+}*/
 
 
 
