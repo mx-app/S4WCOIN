@@ -23,8 +23,7 @@
     width: calc(100% - 40px); /* لضبط العرض لتجنب حدود الشاشة */
     padding: 10px; /* مساحة داخلية حول الأزرار */
     z-index: 100;
-    margin-bottom: 10px;
-    margin-top: 0;
+    margin-top: 10px;
 }
 
 .invite-image {
@@ -104,6 +103,7 @@
 .invite-more:hover {
     background: #161616;
     border: 1px solid #1a1a1a;
+    color: #fff;
 } 
 
 .invite-copy {
@@ -133,14 +133,23 @@
 .invite-copy:hover {
    background: #161616;
    border: 1px solid #1a1a1a;
+   color: #fff;
 } 
 
-#invitedCount, #i {
+#invitedCount {
     color: #fff;
     font-size: 15px;
     text-align: left; 
     margin-top: 20px;
     margin-left: 25px;
+}
+
+#i {
+    color: #fff;
+    font-size: 15px;
+    text-align: left; 
+    margin-top: 20px;
+    margin-left: 2px;
 }
 
 .friend-item {
