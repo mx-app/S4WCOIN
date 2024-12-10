@@ -3,7 +3,7 @@
     margin-left: auto; /* يدفع العنصر إلى أقصى اليمين */
     margin-right: auto; /* يدفع العنصر إلى أقصى اليسار */
     width: 90%; /* لضبط العرض لتجنب حدود الشاشة */
-    padding: 8px; /* مساحة داخلية حول الأزرار */
+    padding: 8px; 
     background: linear-gradient(135deg, #202020, #2D83EC 30%, #1AC9FF 70%, #202020);
     border-radius: 20px;
     border-bottom: 1px solid #1c1c1c;
