@@ -6,7 +6,7 @@
   bottom: 25px; /* المسافة من أسفل الشاشة */
   left: 50%; /* البدء من منتصف الشاشة */
   transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
-  width: 88%;
+  width: 85%;
   height: 36px;
   font-weight: bold;
   backdrop-filter: blur(2px); 
@@ -58,7 +58,7 @@
     bottom: 75px; /* المسافة من أسفل الشاشة */
     left: 50%; /* البدء من منتصف الشاشة */
     transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
-    width: 88%;
+    width: 85%;
     height: 39px;
     background: linear-gradient(45deg, #101010, #2D83EC, #161616);
     background-size: 100% 100%; /* تغطية كاملة بدون خطوط */
