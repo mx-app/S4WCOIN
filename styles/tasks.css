@@ -19,12 +19,12 @@
     position: absolute;
     top: 15px;
     left: 83%;
-    opacity: 0.5;
+    color: golden;
     border-radius: 15px;
     transform: translateX(-50%);
     width: auto; /* استخدم auto بدلاً من 100% */
     max-width: 100%; /* يضمن أن الصورة لا تتجاوز العرض الكامل */
-    height: 100px;
+   /* height: 100px;*/
     display: block;
     margin-bottom: 20px;
     z-index: 0; /* تأكد من أن الصورة خلف النص */
