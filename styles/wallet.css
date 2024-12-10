@@ -95,8 +95,8 @@
 }
 
 #ton-connect button {
-    background: linear-gradient(to right, #2D83EC, #1AC9FF);
-    backdrop-filter: blur(2px); 
+    background: #2D83EC;
+   /* backdrop-filter: blur(2px);*/
     border-bottom: 1px solid #1c1c1c;
     border-right: 1px solid #1c1c1c;
     color: #fff;
