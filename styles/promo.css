@@ -6,7 +6,7 @@
       bottom: 25px; /* المسافة من أسفل الشاشة */
       left: 50%; /* البدء من منتصف الشاشة */
       transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
-      width: 90%;
+      width: 88%;
       height: 40px;
       font-weight: bold;
       background: linear-gradient(90deg, #101010, #2D83EC);
@@ -48,9 +48,6 @@
 .text-promo {
     font-size: 15px;
     margin-right: 50px;
-    font-family: 'Raleway', sans-serif;
-    font-style: italic;
-    font-weight: 700;
 } 
  
 .promo-code-button {
@@ -61,9 +58,9 @@
     bottom: 77px; /* المسافة من أسفل الشاشة */
     left: 50%; /* البدء من منتصف الشاشة */
     transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
-    width: 90%;
+    width: 88%;
     height: 43px;
-    background: linear-gradient(120deg, #101010, #2D83EC, #161616);
+    background: linear-gradient(90deg, #101010, #2D83EC);
     border-radius: 20px;
     color: #fff;
     font-size: 13px;
