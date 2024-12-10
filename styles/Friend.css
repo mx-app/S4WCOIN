@@ -54,21 +54,14 @@
  
 
 .friends-list {
-    margin-left: auto; /* يدفع العنصر إلى أقصى اليمين */
-    margin-right: 20px; /* يدفع العنصر إلى أقصى اليسار */
-    margin-top: 5px;
-    margin-bottom: 5px;
-    /*margin-top: 10px;*/
-   /* border: 0.50px solid #343434;*/
-    padding: 0;
+    margin: 5px auto; /* يضبط الهامش العلوي والسفلي بـ 5px ويجعل العنصر في المنتصف أفقيًا */
+    width: 90%; /* العرض المحدد للحاوية */
+    /*padding: 8px;*/
     list-style: none;
     color: #808080;
-    width: 90%; /* لجعل العرض 80% */
-    padding: 8px; 
-    font-size: 14px; 
+    font-size: 14px;
     background-color: rgba(255, 255, 255, 0.0002);
-   /* backdrop-filter: blur(2px);*/
-    border-radius: 10px;      
+    border-radius: 10px;
     display: block;
 }
 
@@ -76,12 +69,7 @@
     padding: 10px;
     border-bottom: 1px solid #1a1a1a;
 }
-
-/*.friends-list li:last-child {
-    border-bottom: none;
-}*/
-
-
+ 
 .invite-more {
     display: flex;
     align-items: center; /* توسيط عمودي للصورة والنص */
