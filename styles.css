@@ -241,10 +241,10 @@ img {
 }
 
 .Title {
-    margin-bottom: 7px;
+    margin-bottom: 5px;
     margin-top: 0;
     font-size: 15px;
-    padding-bottom: 2px;
+    padding-bottom: 1px;
     color: #808080;
 }
 
@@ -273,17 +273,6 @@ img {
     margin-right: 0; /* مسافة بين الصورة والرقم */
     vertical-align: middle; /* محاذاة الصورة للوسط */
 }
-
-/*#balanceAmount::after {
-    content: "S4W";
-    font-size: 24px; 
-    font-weight: 500;
-    font-style: normal !important;
-    color: #fff;
-    position: relative;
-    bottom: 0;
-    margin-left: 3px;
-}*/
 
 .main-digits {
     font-size: 36px; 
