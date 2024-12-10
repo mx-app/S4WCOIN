@@ -19,16 +19,14 @@
     position: absolute;
     top: 15px;
     left: 83%;
-    background: linear-gradient(to right, #2D83EC, #1AC9FF);
-    -webkit-background-clip: text; /* تطبيق التدرج على النص */
-    -webkit-text-fill-color: transparent; /* جعل النص شفافًا ليظهر التدرج */
     transform: translateX(-50%);
     width: auto;
-    max-width: 100%; 
+    max-width: 100%;
     display: block;
     margin-bottom: 20px;
-    z-index: 0; 
-}
+    z-index: 0;
+    stroke: url(#gradient); /* تطبيق تدرج على الحواف (الخطوط) */
+} 
 
 .size-6 {
     width: 18px;
