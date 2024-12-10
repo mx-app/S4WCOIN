@@ -60,12 +60,12 @@
     padding: 0;
     list-style: none;
     color: #808080;
-    width: 87%; /* لجعل العرض 80% */
+    width: 90%; /* لجعل العرض 80% */
+    height: 180px;
     padding: 8px; 
     font-size: 14px; 
-    background-color: rgba(255, 255, 255, 0.0008);
-   /* background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);*/ /* تأثير الضبابية */
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(2px); 
     border-radius: 10px;      
     display: block;
 }
@@ -75,9 +75,9 @@
     border-bottom: 1px solid #1a1a1a;
 }
 
-.friends-list li:last-child {
+/*.friends-list li:last-child {
     border-bottom: none;
-}
+}*/
 
 
 .invite-more {
@@ -148,7 +148,7 @@
     color: #fff;
     font-size: 16px;
     margin-top: 20px;
-    margin-left: 25px;
+    margin-left: 22px;
     position: relative;
     display: inline-block; /* تجعل العناصر تأخذ موقعها المناسب */
     text-align: left;
