@@ -19,23 +19,19 @@
     position: absolute;
     top: 15px;
     left: 83%;
-    color: golden;
-    border-radius: 15px;
+    color: #0098EA;
     transform: translateX(-50%);
-    width: auto; /* استخدم auto بدلاً من 100% */
-    max-width: 100%; /* يضمن أن الصورة لا تتجاوز العرض الكامل */
-   /* height: 100px;*/
+    width: auto;
+    max-width: 100%; 
     display: block;
     margin-bottom: 20px;
-    z-index: 0; /* تأكد من أن الصورة خلف النص */
+    z-index: 0; 
 }
- 
-
 
 .size-6 {
     width: 18px;
     height: 18px;
-    color: #3592e7;  /* اللون الأخضر لعلامة الصح */
+    color:  #0098EA;  /* اللون الأخضر لعلامة الصح */
 }
 
 .size-6 path {
