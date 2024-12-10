@@ -44,7 +44,7 @@
     align-items: center; /* محاذاة المحتوى عموديًا */
     justify-content: space-between; /* توزيع العناصر بالتساوي */
     width: 95%; /* عرض العنصر */
-    height: 65px;
+    height: 55px;
     padding: 10px;
     margin: 10px auto;
     font-size: 0.85rem; 
