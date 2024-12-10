@@ -12,7 +12,6 @@
     margin-top: 15px;
 }
 
-
 .invite-section {
     display: flex;
     justify-content: center; /* يضع الزرين في المنتصف أفقياً */
@@ -54,7 +53,7 @@
  
 
 .friends-list {
-    margin: 10px auto; /* يضبط الهامش العلوي والسفلي بـ 5px ويجعل العنصر في المنتصف أفقيًا */
+    margin: 10px 0; /* يضبط الهامش العلوي والسفلي بـ 5px ويجعل العنصر في المنتصف أفقيًا */
     width: 88%; /* العرض المحدد للحاوية */
     height: auto;
     /*padding: 8px;*/
@@ -163,20 +162,18 @@
 
 .friend-item {
     display: flex;
-    justify-content: space-between; /* توزيع العناصر بشكل متساوٍ */
+    justify-content: space-between;
     align-items: center;
     background-color: rgba(0, 0, 0,0.00001);
     padding: 15px;
-    margin: 5px; /* توسيط العنصر عموديا من اليمين لليسار */
-  /*  margin-right: 15px;*/
-    width: 100%; /* تحديد عرض العنصر ليكون 80% من العرض الكلي */
+    margin: 5px; 
+    width: 100%;
     border-radius: 20px;
-    border-bottom: 1px solid #1c1c1c;
     transition: background-color 0.3s ease;
 }
  
 .friend-item:hover {
-    background-color: #1a1a1a;
+    background-color: #202020;
 }
 
 .friend-info {
