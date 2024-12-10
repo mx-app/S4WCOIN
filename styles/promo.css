@@ -9,7 +9,7 @@
   width: 85%;
   height: 36px;
   /*backdrop-filter: blur(2px);*/
-  background: linear-gradient(45deg, #2D83EC, #101010, #2D83EC, #161616);
+  background: #2D83EC;
   background-size: 300% 300%; /* يجعل التدرجات ديناميكية */
   border-bottom: 1px solid #1c1c1c;
   border-right: 1px solid #1c1c1c;
