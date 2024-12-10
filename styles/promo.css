@@ -48,7 +48,9 @@
 .text-promo {
     font-size: 15px;
     margin-right: 50px;
+    font-family: 'Raleway', sans-serif;
 } 
+ 
  
 .promo-code-button {
     display: flex;
