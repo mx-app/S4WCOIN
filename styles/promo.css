@@ -9,8 +9,13 @@
   width: 85%;
   height: 36px;
   backdrop-filter: blur(2px); 
-  background: linear-gradient(45deg, #101010, #2D83EC, #161616);
-  background-size: 100% 100%; /* تغطية كاملة بدون خطوط */
+  background: linear-gradient(90deg, 
+    rgba(128, 128, 128, 0.2) 0%,   /* لمسة رمادية خفيفة على الجانب الأول */
+    #2D83EC 30%,                  /* الأزرق الرئيسي */
+    #2D83EC 70%,                  /* الحفاظ على اللون الأزرق في المنتصف */
+    rgba(128, 128, 128, 0.2) 100% /* لمسة رمادية خفيفة على الجانب الآخر */
+);
+  background-size: 100% 100%; /* تغطية كاملة للخلفية */
   border-bottom: 1px solid #1c1c1c;
   border-right: 1px solid #1c1c1c;
   border-radius: 20px;
