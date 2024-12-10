@@ -9,10 +9,14 @@
       width: 90%;
       height: 40px;
       font-weight: bold;
-      background: linear-gradient(to bottom right, 
-  #161616, 
-  #2D83EC, 
-  #101010);
+      background: linear-gradient(
+  to bottom right,
+  #161616,
+  #20262C,
+  #2D83EC,
+  #1A2E40,
+  #101010
+);
       border-bottom: 1px solid #1c1c1c;
       border-right: 1px solid #1c1c1c;
       border-radius: 20px;
