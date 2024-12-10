@@ -150,6 +150,20 @@
     text-align: left; 
     margin-top: 20px;
     margin-left: 25px;
+    display: flex;
+    align-items: center; /* للمحاذاة العمودية */
+}
+
+#refreshIcon {
+    color: #fff;
+    font-size: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out; /* تأثير الدوران */
+}
+
+#refreshIcon.rotate {
+    transform: rotate(360deg);
 }
 
 .friend-item {
