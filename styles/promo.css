@@ -6,7 +6,7 @@
   bottom: 25px; /* المسافة من أسفل الشاشة */
   left: 50%; /* البدء من منتصف الشاشة */
   transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
-  width: 90%; /* عرض الحاوية */
+  width: 95%; /* عرض الحاوية */
 }
 
 .promo-code-button {
@@ -18,21 +18,19 @@
 }
 
 .community-button {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 40px;
-      font-weight: bold;
-      background: linear-gradient(to right, #2D83EC, #1AC9FF);
-     /* background: #101010;*/
-      border-bottom: 1px solid #1c1c1c;
-      border-right: 1px solid #1c1c1c;
-      border-radius: 20px;
-      color: #fff;
-      font-size: 12px;
-      overflow: hidden; 
-     /* animation: popIn 0.5s ease forwards;*/
-  } 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 43px;
+    background: linear-gradient(to right, #2D83EC, #1AC9FF); /* تدرج لوني من الأزرق إلى السماوي */
+    border-radius: 20px;
+    color: #fff;
+    font-size: 12px;
+    border-bottom: 1px solid #1c1c1c;
+    border-right: 1px solid #1c1c1c;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* إضافة ظل ناعم */
+
+}
 
 .community-button:hover {
     background: linear-gradient(to left, #2D83EC, #1AC9FF);
