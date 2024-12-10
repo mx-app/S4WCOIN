@@ -1900,43 +1900,44 @@ function showContent(contentId) {
 ///////////////////////////////////////
 
 
-document.getElementById('applyPromoCode').addEventListener('click', async () => {
+
+document.getElementById('applyPromoCode')?.addEventListener('click', async () => {
     const applyButton = document.getElementById('applyPromoCode');
     const promoCodeInput = document.getElementById('promoCodeInput');
+    if (!applyButton || !promoCodeInput) return;
+
     const enteredCode = promoCodeInput.value;
-        
     const AdController = window.Adsgram.init({ blockId: "int-5511" });
 
-    // إخفاء نص الزر وعرض دائرة تحميل
-    applyButton.innerHTML = '';  // إخفاء النص
-    applyButton.classList.add('loading');  // إضافة الكلاس loading لعرض دائرة التحميل
+    // إخفاء نص الزر وعرض دائرة التحميل
+    applyButton.innerHTML = '';
+    applyButton.classList.add('loading');
 
-    // إنشاء دائرة التحميل
     const spinner = document.createElement('div');
     spinner.classList.add('spinner');
     applyButton.appendChild(spinner);
 
     try {
         // تحميل البرومو كود من ملف JSON
-        const response = await fetch('json/promocodes.json');
+        const response = await fetch('json/promocodes.json').catch(err => {
+            console.error('Error loading promo codes:', err);
+            return null;
+        });
+        if (!response) return;
+
         const promoData = await response.json();
         const promoCodes = promoData.promoCodes;
 
-        // تحقق مما إذا كان المستخدم قد استخدم هذا البرومو كود مسبقًا
+        // تحقق مما إذا كان البرومو كود مستخدمًا مسبقًا
         const alreadyUsed = await checkIfPromoCodeUsed(enteredCode);
 
         if (alreadyUsed) {
+            // عند استخدام الكود مسبقًا
             applyButton.innerHTML = '‼️';
             showNotification(uiElements.purchaseNotification, 'You have already used this promo code.');
 
-            // تأخير بسيط قبل عرض الإعلان
-            setTimeout(() => {
-                AdController.show().then(() => {
-                    console.log("Ad viewed successfully");
-                }).catch(err => {
-                    console.error("Error showing ad:", err);
-                });
-            }, 2000);
+            // عرض الإعلان
+            showAd(AdController);
 
             setTimeout(() => {
                 applyButton.innerHTML = 'Apply';
@@ -1946,59 +1947,45 @@ document.getElementById('applyPromoCode').addEventListener('click', async () => 
             return;
         }
 
-        // التحقق مما إذا كان البرومو كود صحيحًا
+        // إذا كان الكود صالحًا وغير مستخدم
         if (promoCodes[enteredCode]) {
             const reward = promoCodes[enteredCode];
 
-            // إضافة المكافأة إلى رصيد المستخدم
+            // إضافة المكافأة لرصيد المستخدم
             gameState.balance += reward;
 
             // تحديث واجهة المستخدم
-            updateUI(); 
+            updateUI();
 
-            // تسجيل البرومو كود المستخدم في قاعدة البيانات
+            // حفظ الكود ككود مستخدم
             const updated = await addPromoCodeToUsed(enteredCode);
             if (!updated) {
                 showNotification(uiElements.purchaseNotification, 'Failed to save promo code in database.', true);
                 return;
             }
 
-            // عرض الإشعار بالمكافأة
             applyButton.innerHTML = '✔️';
             showNotificationWithStatus(uiElements.purchaseNotification, `Successfully added ${reward} $SWT to your balance!`, 'win');
 
-            // تأخير بسيط قبل عرض الإعلان
-            setTimeout(() => {
-                AdController.show().then(() => {
-                    console.log("Ad viewed successfully");
-                }).catch(err => {
-                    console.error("Error showing ad:", err);
-                });
-            }, 2000);
+            // عرض الإعلان
+            showAd(AdController);
 
-            // حفظ الحالة الحالية للعبة وتحديثها في قاعدة البيانات
-            updateUI(); 
-            saveGameState();  // حفظ الحالة الحالية
+            // حفظ الحالة الحالية
+            saveGameState();
             await updateGameStateInDatabase({
                 used_Promo_Codes: gameState.usedPromoCodes,
                 balance: gameState.balance,
             });
         } else {
-            // عرض الإشعار عند البرومو كود غير صحيح
+            // إذا كان الكود غير صالح
             applyButton.innerHTML = '❌';
             showNotification(uiElements.purchaseNotification, 'Invalid promo code.');
 
-            // تأخير بسيط قبل عرض الإعلان
-            setTimeout(() => {
-                AdController.show().then(() => {
-                    console.log("Ad viewed successfully");
-                }).catch(err => {
-                    console.error("Error showing ad:", err);
-                });
-            }, 2000);
+            // عرض الإعلان
+            showAd(AdController);
         }
     } catch (error) {
-        console.error('Error fetching promo codes:', error);
+        console.error('Error processing promo code:', error);
         applyButton.innerHTML = 'Error';
     } finally {
         // إعادة النص العادي للزر بعد 3 ثواني
@@ -2018,14 +2005,14 @@ async function checkIfPromoCodeUsed(enteredCode) {
         .from('users')
         .select('used_Promo_Codes')
         .eq('telegram_id', userId)
-        .single(); // احصل على سجل المستخدم
+        .single();
 
     if (error) {
         console.error('Error fetching used promo codes:', error);
         return false;
     }
 
-    const usedPromoCodes = data.used_Promo_Codes || [];
+    const usedPromoCodes = data?.used_Promo_Codes || [];
     return usedPromoCodes.includes(enteredCode);
 }
 
@@ -2033,6 +2020,7 @@ async function checkIfPromoCodeUsed(enteredCode) {
 async function addPromoCodeToUsed(enteredCode) {
     const userId = uiElements.userTelegramIdDisplay.innerText;
 
+    // جلب الأكواد الحالية
     const { data, error } = await supabase
         .from('users')
         .select('used_Promo_Codes')
@@ -2044,7 +2032,15 @@ async function addPromoCodeToUsed(enteredCode) {
         return false;
     }
 
-    const usedPromoCodes = data.used_Promo_Codes || [];
+    const usedPromoCodes = data?.used_Promo_Codes || [];
+
+    // إذا كان الكود مضافًا بالفعل
+    if (usedPromoCodes.includes(enteredCode)) {
+        console.warn('Promo code already used!');
+        return false;
+    }
+
+    // أضف الكود إلى القائمة واحفظه في قاعدة البيانات
     usedPromoCodes.push(enteredCode);
 
     const { error: updateError } = await supabase
@@ -2059,6 +2055,17 @@ async function addPromoCodeToUsed(enteredCode) {
 
     console.log('Promo code added to used list successfully.');
     return true;
+}
+
+// دالة لعرض الإعلان
+function showAd(adController) {
+    setTimeout(() => {
+        adController.show().then(() => {
+            console.log("Ad viewed successfully");
+        }).catch(err => {
+            console.error("Error showing ad:", err);
+        });
+    }, 2000);
 }
 
 // عند الضغط على زر برومو كود
