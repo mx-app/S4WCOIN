@@ -139,33 +139,35 @@
 #invitedCount {
     color: #fff;
     font-size: 16px;
-    text-align: left; 
-    margin-top: 20px;
     margin-left: 2px;
 }
 
 #i {
     color: #fff;
     font-size: 16px;
-    text-align: left; 
     margin-top: 20px;
     margin-left: 25px;
-   /* display: flex;
-    align-items: center;*/
+    position: relative;
+    display: inline-block; /* تجعل العناصر تأخذ موقعها المناسب */
+    text-align: left;
 }
 
 #refreshIcon {
     color: #fff;
     font-size: 16px;
-    margin-right: 20px;
-    margin-left: auto;
+    margin-left: 10px; /* مسافة بين الأيقونة والنص */
     cursor: pointer;
-    transition: transform 0.3s ease-in-out; /* تأثير الدوران */
+    position: absolute;
+    right: -30px; /* تحريك الأيقونة نحو الجانب الأيمن */
+    top: 0; /* محاذاة رأسية */
+    transition: transform 2s ease-in-out; /* تأثير الدوران */
 }
 
-#refreshIcon.rotate {
-    transform: rotate(360deg);
+/* إضافة تأثير الدوران عند النقر */
+#refreshIcon:active {
+    transform: rotate(720deg); /* 720 درجة أي دورتين */
 }
+
 
 .friend-item {
     display: flex;
