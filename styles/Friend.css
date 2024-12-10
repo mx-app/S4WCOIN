@@ -54,7 +54,10 @@
  
 
 .friends-list {
-    margin: 2px auto;
+    margin-left: auto; /* يدفع العنصر إلى أقصى اليمين */
+    margin-right: auto; /* يدفع العنصر إلى أقصى اليسار */
+    margin-top: 5px;
+    margin-bottom: 5px;
     /*margin-top: 10px;*/
    /* border: 0.50px solid #343434;*/
     padding: 0;
@@ -176,7 +179,7 @@
     background-color: #101010;
     padding: 15px;
     margin: 5px; /* توسيط العنصر عموديا من اليمين لليسار */
-    margin-right: 15px;
+  /*  margin-right: 15px;*/
     width: 98%; /* تحديد عرض العنصر ليكون 80% من العرض الكلي */
     border-radius: 20px;
     border-bottom: 1px solid #1c1c1c;
