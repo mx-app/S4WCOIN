@@ -4,11 +4,10 @@
     margin-right: auto; /* يدفع العنصر إلى أقصى اليسار */
     width: 90%; /* لضبط العرض لتجنب حدود الشاشة */
     padding: 8px; 
-    background: linear-gradient(135deg, 
-  #202020 20%, 
-  #2D83EC 40%, 
-  #202020 60%, 
-  #1AC9FF 80%);
+    background: radial-gradient(circle at bottom right, 
+  #1AC9FF, 
+  #2D83EC 30%, 
+  #202020 70%);
     border-radius: 20px;
     border-bottom: 1px solid #1c1c1c;
     border-right: 1px solid #1c1c1c;
