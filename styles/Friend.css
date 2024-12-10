@@ -4,7 +4,11 @@
     margin-right: auto; /* يدفع العنصر إلى أقصى اليسار */
     width: 90%; /* لضبط العرض لتجنب حدود الشاشة */
     padding: 8px; 
-    background: linear-gradient(135deg, #202020, #2D83EC 30%, #1AC9FF 70%, #202020);
+    background: linear-gradient(135deg, 
+  #202020 20%, 
+  #2D83EC 40%, 
+  #202020 60%, 
+  #1AC9FF 80%);
     border-radius: 20px;
     border-bottom: 1px solid #1c1c1c;
     border-right: 1px solid #1c1c1c;
@@ -65,10 +69,9 @@
     display: block;
 }
 
-.friends-list li {
+/*.friends-list li {
     padding: 10px;
-    border-bottom: 1px solid #1a1a1a;
-}
+}*/
  
 .invite-more {
     display: flex;
