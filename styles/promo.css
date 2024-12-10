@@ -60,7 +60,7 @@
     transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
     width: 85%;
     height: 39px;
-    background: linear-gradient(45deg, #2D83EC, #101010, #2D83EC, #161616);
+    background: #2D83EC;
     background-size: 300% 300%; /* يجعل التدرجات ديناميكية */
    /* background: linear-gradient(45deg, #101010, #2D83EC, #161616);
     background-size: 100% 100%;*//* تغطية كاملة بدون خطوط */
