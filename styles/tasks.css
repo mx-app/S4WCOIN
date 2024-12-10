@@ -19,7 +19,7 @@
     position: absolute;
     top: 15px;
     left: 83%;
-    color: #0098EA;
+    color: #2D83EC;
     transform: translateX(-50%);
     width: auto;
     max-width: 100%; 
@@ -31,7 +31,7 @@
 .size-6 {
     width: 18px;
     height: 18px;
-    color:  #0098EA;  /* اللون الأخضر لعلامة الصح */
+    color: #2D83EC;  /* اللون الأخضر لعلامة الصح */
 }
 
 .size-6 path {
