@@ -414,14 +414,14 @@ img {
     display: flex;
     justify-content: space-between;
     padding: 5px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(2px); 
     position: fixed;
     bottom: 5px;
     border-radius: 20px;
-    border-top: 1px solid #1c1c1c;
+    border: 1px solid #1c1c1c;
     /*box-sizing: border-box;*/
-    width: 97%;
+    width: 90%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 100;
