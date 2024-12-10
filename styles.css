@@ -160,19 +160,16 @@ img {
     top: 45%;
     left: 50%;
     transform: translateX(-50%);
-    width: 100%;
+    width: 100%; 
 }
 
 .loading-spinnerr {
     border: 7px solid rgba(255, 255, 255, 0.3); /* الحواف الشفافة */
-    border-top: 7px solid transparent; /* جعل الحافة العلوية شفافة لتطبيق التدرج */
+    border-top: 7px solid #2D83EC; /* اللون الأبيض في الجزء العلوي */
     border-radius: 50%; /* جعل الشكل دائريًا */
     width: 55px;
     height: 55px;
     animation: spin 3s linear infinite; /* التحريك المستمر */
-    background: conic-gradient(#2D83EC, #1AC9FF, #101010); /* التدرج اللوني */
-    -webkit-mask: radial-gradient(circle, transparent 55%, black 56%);
-    mask: radial-gradient(circle, transparent 55%, black 56%);
 }
 
 /* حركة التدوير */
@@ -183,7 +180,7 @@ img {
     100% {
         transform: rotate(360deg);
     }
-}
+}  
  
  
 /* شريط الطاقة */
