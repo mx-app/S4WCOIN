@@ -56,6 +56,7 @@
 .friends-list {
     margin: 5px auto; /* يضبط الهامش العلوي والسفلي بـ 5px ويجعل العنصر في المنتصف أفقيًا */
     width: 90%; /* العرض المحدد للحاوية */
+    height: auto;
     /*padding: 8px;*/
     list-style: none;
     color: #808080;
