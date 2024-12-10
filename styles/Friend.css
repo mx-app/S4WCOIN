@@ -86,7 +86,7 @@
     justify-content: center; /* توسيط أفقي */
     gap: 8px; /* مسافة بين الصورة والنص */
     width: 90%; 
-    height: 55px;
+    height: 50px;
     background-color: #fff;
     border-bottom: 1px solid #1c1c1c;
     border-right: 1px solid #1c1c1c;
@@ -95,6 +95,7 @@
     font-size: 16px;
     font-weight: bold;
     border-radius: 25px;
+    margin-top: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -112,7 +113,7 @@
     justify-content: center; /* توسيط أفقي */
     gap: 8px; /* مسافة بين الصورة والنص */
     width: 25%; 
-    height: 55px;
+    height: 50px;
     background-color: #fff;
     color: #000;
     border-bottom: 1px solid #1c1c1c;
@@ -121,6 +122,7 @@
     font-size: 16px;
     font-weight: bold;
     border-radius: 25px;
+    margin-top: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
     z-index: 100;
@@ -158,16 +160,15 @@
     margin-left: 10px; /* مسافة بين الأيقونة والنص */
     cursor: pointer;
     position: absolute;
-    right: -150px; /* تحريك الأيقونة نحو الجانب الأيمن */
+    right: -130px; /* تحريك الأيقونة نحو الجانب الأيمن */
     top: 0; /* محاذاة رأسية */
-    transition: transform 2s ease-in-out; /* تأثير الدوران */
+    transition: transform 0.5s linear; /* تأثير دوران سريع */
 }
 
-/* إضافة تأثير الدوران عند النقر */
+/* إضافة تأثير دوران عند النقر */
 #refreshIcon:active {
-    transform: rotate(720deg); /* 720 درجة أي دورتين */
+    transform: rotate(360deg); /* 360 درجة أي دورة واحدة */
 }
-
 
 .friend-item {
     display: flex;
@@ -176,7 +177,7 @@
     background-color: rgba(255, 255, 255, 0.0008);
     padding: 15px;
     margin: 5px 0;
-    width: 95%;
+    width: 100%;
     border-radius: 20px;
     border-bottom: 1px solid #1c1c1c;
     transition: background-color 0.3s ease;
