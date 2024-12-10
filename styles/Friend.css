@@ -157,7 +157,8 @@
 #refreshIcon {
     color: #fff;
     font-size: 16px;
-    margin-left: 10px;
+    margin-right: 20px;
+    margin-left: auto;
     cursor: pointer;
     transition: transform 0.3s ease-in-out; /* تأثير الدوران */
 }
