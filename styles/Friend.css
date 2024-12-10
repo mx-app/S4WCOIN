@@ -3,7 +3,7 @@
     margin-left: auto; /* يدفع العنصر إلى أقصى اليمين */
     margin-right: auto; /* يدفع العنصر إلى أقصى اليسار */
     width: 90%; /* لضبط العرض لتجنب حدود الشاشة */
-    padding: 10px; /* مساحة داخلية حول الأزرار */
+    padding: 8px; /* مساحة داخلية حول الأزرار */
     background-color: #101010;
     border-radius: 20px;
     border-bottom: 1px solid #1c1c1c;
@@ -139,7 +139,8 @@
     color: #fff;
     font-size: 15px;
     text-align: left; 
-    margin-top: 10px;
+    margin-top: 20px;
+    margin-left: 25px;
 }
 
 .friend-item {
