@@ -94,7 +94,7 @@
     height: 200px;
     display: flex;
     align-items: center; /* محاذاة المحتوى رأسياً في المنتصف */
-    justify-content: flex-start; /* محاذاة المحتوى أفقيًا من اليسار */
+    justify-content: space-between; /* محاذاة المحتوى أفقيًا من اليسار */
     border-radius: 20px;
     padding: 10px;
     border-bottom: 1px solid #1c1c1c;
