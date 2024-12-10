@@ -2,7 +2,7 @@
     position: relative; /* يتيح التحكم بالموقع داخل الحاوية */
     margin-left: auto; /* يدفع العنصر إلى أقصى اليمين */
     margin-right: auto; /* يدفع العنصر إلى أقصى اليسار */
-    width: 95%; /* لضبط العرض لتجنب حدود الشاشة */
+    width: 90%; /* لضبط العرض لتجنب حدود الشاشة */
     padding: 10px; /* مساحة داخلية حول الأزرار */
     background-color: #101010;
     border-radius: 20px;
@@ -132,3 +132,83 @@
    background: #161616;
    border: 1px solid #1a1a1a;
 } 
+
+#invitedCount, #i {
+    color: #fff;
+    font-size: 15px;
+}
+
+.friend-item {
+    display: flex;
+    justify-content: space-between; /* توزيع العناصر بشكل متساوٍ */
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.0008);
+    padding: 15px;
+    margin: 5px 0;
+    width: 95%;
+    border-radius: 20px;
+    border-bottom: 1px solid #1c1c1c;
+   /* border-right: 1px solid #1c1c1c;*/
+    transition: background-color 0.3s ease;
+}
+
+.friend-item:hover {
+    background-color: #1a1a1a;
+}
+
+.friend-info {
+    display: flex;
+    align-items: center;
+}
+
+.friend-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    margin-right: 10px;
+    border: 1px solid #161616;
+}
+
+.friend-name {
+    font-size: 14px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.friend-balance {
+    font-size: 12px;
+    color: #808080; /* لون مميز للرصيد */
+    font-weight: bold;
+    text-align: right; /* محاذاة الرصيد إلى اليمين */
+}
+
+
+.invite-card {
+/* background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);*/
+  background-color: rgba(0, 0, 0,0.00001);
+  color: #fff;
+  border-radius: 10px;
+  width: 87%;
+  height: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);*/
+}
+
+.invite-header h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: #fff; /* لون النص البارز */
+}
+
+.invite-content p {
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 5px 0;
+  font-weight: 400;
+  color: #808080; 
+}
+
