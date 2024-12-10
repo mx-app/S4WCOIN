@@ -511,6 +511,7 @@ img {
     height: 44vh;
     z-index: 10000;
     display: flex;
+    overflow-y: auto;
     flex-direction: column;
     justify-content: space-between;
     animation: slideUp 0.5s ease-out forwards; /* إضافة تأثير التحريك */
@@ -533,6 +534,7 @@ img {
     width: 85%;
     height: 35vh;
     z-index: 10000;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -556,20 +558,9 @@ img {
     text-align: center;
 }
  
-.popup-overlay, .Autoclick-overlay {
-    position: relative;
-    display: flex;
-    flex-direction: column; /* وضع الأزرار فوق بعض */
-    align-items: center; /* توسيط الأزرار أفقيًا */
-    justify-content: flex-end; /* جعل الأزرار تظهر في أسفل النافذة */
-    /*position: absolute;*/
-    left: 50%;
-    transform: translateX(-50%); /* توسيط الحاوية أفقياً */
-    width: 100%; /* عرض الحاوية */
-    z-index: 1000;
-}
 
-.popup-overlay button, .Autoclick-overlay button, .game-button {
+
+.game-button {
     border-radius: 20px;
     width: 100%; /* التأكد من أن الأزرار تأخذ عرض الحاوية */
     height: 40px;
@@ -578,32 +569,6 @@ img {
     margin: 10px 0; /* المسافة بين الأزرار */
 }
 
-.popup-overlay img, .Autoclick-overlay img {
-    width: 100px; /* حجم الصورة */
-    height: 100px;
-    margin: 10px auto; /* موازنة الصورة في المنتصف */
-    display: block;
-}
-
-.popup-content, .Autoclick-content {
-    background-color: #161616;
-   /* background-color: rgba(255, 255, 255, 0.1);*/
-    backdrop-filter: blur(10px);
-    padding: 20px;
-    border-radius: 25px 25px 0 0;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%) translateY(100%); /* بداية من أسفل الشاشة */
-    width: 85%;
-    height: 50vh;
-    z-index: 10000;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    animation: slideUp 0.5s ease-out forwards; /* إضافة تأثير التحريك */
-}
 
 #closePopupButton, #closeAutoclick {
     position: absolute;
@@ -613,31 +578,6 @@ img {
     color: white;
     cursor: pointer;
 }
- 
-/*.confirmation-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 10000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(5px); 
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.modal-content {
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);     padding: 20px;
-    border-radius: 25px;
-    text-align: center;
-    width: 90%;
-    max-width: 400px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-*/
 
 .modal-image img {
     width: 120px; /* حجم الصورة */
@@ -657,24 +597,6 @@ img {
 }
 
 
-/*.confirmation-buttons .game-button {
-    width: 100%; 
-    height: 40px;
-    font-size: 15px;
-    font-weight: bold;
-    border-radius: 10px;
-    border: 0.50px solid #343434; 
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.9);
-    color: #ffffff;
-    transition: background-color 0.3s ease;
-}
-
-.confirmation-buttons game-button:hover {
-    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
-}*/
- 
-
 /* تصميم الإشعار */
 .notification {
     position: fixed;
@@ -693,12 +615,14 @@ img {
     width: 280px; /* عرض ثابت للإشعار */
     max-width: 82%; /* الحد الأقصى لعرض الإشعار بنسبة 90% من الشاشة */
     text-align: left; /* محاذاة النص إلى المنتصف */
-    transition: opacity 0.5s ease, top 0.5s ease; /* انتقال لعناصر الظهور والانزلاق */
+    /*transition: opacity 0.5s ease, top 0.5s ease;*/
+    animation: popIn 0.4s ease forwards;
 }
 
 /* عند تفعيل الإشعار */
 .notification.show {
-    animation: slideDown 0.5s ease-out forwards; /* تأثير التحريك */
+    animation: popIn 0.4s ease forwards;
+   /* animation: slideDown 0.5s ease-out forwards;*/
     opacity: 1; /* مرئية */
 }
 
