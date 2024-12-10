@@ -68,9 +68,9 @@
     display: block;
 }
 
-/*.friends-list li {
-    padding: 10px;
-}*/
+.friends-list li {
+    margin-left: 20px;
+}
  
 .invite-more {
     display: flex;
