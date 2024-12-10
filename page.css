@@ -114,8 +114,10 @@
     /*overflow-y: auto;*/
     background: linear-gradient(
         to bottom,
-        #101010, 
+        #000, 
         #161616, 
+        #101010, 
+        #141414, 
         black
     );
 
