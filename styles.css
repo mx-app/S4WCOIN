@@ -165,11 +165,11 @@ img {
 
 .loading-spinnerr {
     border: 7px solid rgba(255, 255, 255, 0.3); /* الحواف الشفافة */
-    border-top: 7px solid #2D83EC; /* اللون الأبيض في الجزء العلوي */
+    border-top: 7px solid #fff; /* اللون الأبيض في الجزء العلوي */
     border-radius: 50%; /* جعل الشكل دائريًا */
     width: 55px;
     height: 55px;
-    animation: spin 3s linear infinite; /* التحريك المستمر */
+    animation: spin 2s linear infinite; /* التحريك المستمر */
 }
 
 /* حركة التدوير */
