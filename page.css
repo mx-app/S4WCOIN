@@ -15,7 +15,7 @@
     transform: translateX(-50%); /* يتم تحريكها بشكل أفقي بحيث تكون بالمنتصف */
     width: 99%; /* تغطي كامل عرض الشاشة */
     height: 536px;
-    border-top: 2px solid #101010;
+    border-top: 2px solid #1c1c1c;
     position: absolute; /* تموضع مطلق */
     top: 102px; /* تبدأ من أسفل الشاشة */
     background: radial-gradient(
