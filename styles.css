@@ -35,12 +35,11 @@ button, input, select, textarea, img, a {
 
 body {
     margin: 0;
-   /* font-family: 'Rubik',sans-serif ;
-    font-weight: 700;*//* لتحديد وزن الخط */
-    font-family: 'Raleway', sans-serif;
-    font-style: normal;
-   /* font-style: italic;*/
+    font-family: 'Rubik',sans-serif ;
     font-weight: 700;
+   /* font-family: 'Raleway', sans-serif;
+    font-style: normal;*/
+   /* font-style: italic;*/
     background-color: #000;
     color: #fff;
     display: flex;
