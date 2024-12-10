@@ -17,7 +17,7 @@
     height: 536px;
     border-top: 2px solid #101010;
     position: absolute; /* تموضع مطلق */
-    top: 105px; /* تبدأ من أسفل الشاشة */
+    top: 102px; /* تبدأ من أسفل الشاشة */
     background: radial-gradient(
         circle, 
         #101010 2%,       /* منتصف العنصر */
