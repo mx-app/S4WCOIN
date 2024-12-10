@@ -163,13 +163,14 @@ img {
     width: 100%; 
 }
 
-.loading-spinnerr {
+.loading-spinner {
     border: 7px solid rgba(255, 255, 255, 0.3); /* الحواف الشفافة */
-    border-top: 7px solid white; /* اللون الأبيض في الجزء العلوي */
+    border-top: 7px solid transparent; /* جعل الجزء العلوي شفاف */
     border-radius: 50%; /* جعل الشكل دائريًا */
     width: 55px;
     height: 55px;
     animation: spin 3s linear infinite; /* التحريك المستمر */
+    background: conic-gradient(from 0deg, #2D83EC, #1AC9FF); /* التدرج اللوني */
 }
 
 /* حركة التدوير */
@@ -180,7 +181,7 @@ img {
     100% {
         transform: rotate(360deg);
     }
-} 
+}
  
  
 /* شريط الطاقة */
