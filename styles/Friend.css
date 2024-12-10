@@ -158,7 +158,7 @@
     margin-left: 10px; /* مسافة بين الأيقونة والنص */
     cursor: pointer;
     position: absolute;
-    right: -80px; /* تحريك الأيقونة نحو الجانب الأيمن */
+    right: -130px; /* تحريك الأيقونة نحو الجانب الأيمن */
     top: 0; /* محاذاة رأسية */
     transition: transform 2s ease-in-out; /* تأثير الدوران */
 }
