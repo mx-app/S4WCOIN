@@ -27,7 +27,7 @@
 } 
 
 .Play-game-button:hover {
-    box-shadow: 0 0 6px rgba(255, 255, 255, 0.4), 0 0 12px rgba(255, 255, 255, 0.3), 0 0 18px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 1px rgba(255, 255, 255, 0.4), 0 0 3px rgba(255, 255, 255, 0.3), 0 0 3px rgba(255, 255, 255, 0.2);
 }
 
 .Play-game-button i {
@@ -80,49 +80,40 @@
 
 .game-container {
     display: flex;
-    flex-direction: column; /* ترتيب الألعاب بشكل عمودي */
-    gap: 20px; /* مسافة بين البطاقات */
-    align-items: center;
+    flex-direction: column; /* ترتيب الألعاب عموديًا */
+    gap: 20px; /* مسافة بين العناصر */
+    align-items: flex-start; /* محاذاة للعناصر لليسار */
+    padding: 10px;
 }
 
 .game-item {
     display: flex;
-    align-items: center; /* محاذاة الصورة والنص في نفس المستوى */
-    background: #101010;
-    border-radius: 20px;
-    padding: 15px;
-    width: 90%; /* عرض البطاقة */
-    max-width: 400px; /* تحديد عرض أقصى */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    flex-direction: column; /* الصورة فوق النص */
+    align-items: flex-start; /* محاذاة العناصر لليسار */
+    width: 100%; /* عرض الصورة بالكامل */
+}
+
+.game-image {
+    width: 100%; /* تجعل الصورة تملأ العرض */
+    max-width: 600px; /* حد أقصى لحجم الصورة */
+    border-radius: 15px; /* زوايا دائرية */
+    cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.game-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+.game-image:hover {
+    transform: scale(1.05); /* تكبير الصورة عند التمرير */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* تأثير الظل */
 }
 
-.game-item img {
-    width: 70px; /* حجم الصورة */
-    height: 70px;
-    border-radius: 10px;
-    margin-right: 15px;
-    object-fit: cover;
-    box-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+.game-title {
+    font-size: 1.2rem;
+    color: #fff; /* لون النص */
+    margin-top: 10px; /* مسافة بين النص والصورة */
+    margin-left: 10px; /* محاذاة النص لليسار */
+    font-weight: bold;
 }
-
-.game-info {
-    display: flex;
-    flex-direction: column; /* النص والأزرار تحت بعض */
-    justify-content: center;
-}
-
-.game-info p {
-    font-size: 1rem;
-    color: #fff;
-    margin: 0 0 10px;
-}
-
+ 
 .game-button {
     background-color: rgba(0, 0, 0, 0.7);
     color: #ffffff;
