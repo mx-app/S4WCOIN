@@ -1,16 +1,15 @@
-.community-button {
+/*.community-button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: absolute; /* تموضع مطلق */
-  bottom: 24px; /* المسافة من أسفل الشاشة */
-  left: 50%; /* البدء من منتصف الشاشة */
-  transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
+  position: absolute; 
+  bottom: 24px; 
+  left: 50%; 
+  transform: translateX(-50%); 
   width: 85%;
   height: 36px;
-  /*backdrop-filter: blur(2px);*/
   background: #101010;
-  background-size: 300% 300%; /* يجعل التدرجات ديناميكية */
+  background-size: 300% 300%; 
   border-bottom: 1px solid #1c1c1c;
   border-right: 1px solid #1c1c1c;
   border-radius: 20px;
@@ -18,7 +17,7 @@
   color: #fff;
   font-size: 13px;
   overflow: hidden;
-}
+}*/
 
 /*.community-button:hover {
     background: linear-gradient(to left, #2D83EC, #1AC9FF);
