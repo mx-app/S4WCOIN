@@ -90,13 +90,14 @@
     display: flex;
     flex-direction: column; /* الصورة فوق النص */
     align-items: flex-start; /* محاذاة العناصر لليسار */
-    width: 100%; /* عرض الصورة بالكامل */
+    width: 90%; /* عرض الصورة بالكامل */
+    height: 170px;
 }
 
 .game-image {
     width: 100%; /* تجعل الصورة تملأ العرض */
-    max-width: 600px; /* حد أقصى لحجم الصورة */
-    border-radius: 15px; /* زوايا دائرية */
+    max-width: 500px; /* حد أقصى لحجم الصورة */
+    border-radius: 20px; /* زوايا دائرية */
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -107,10 +108,10 @@
 }
 
 .game-title {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #fff; /* لون النص */
     margin-top: 10px; /* مسافة بين النص والصورة */
-    margin-left: 10px; /* محاذاة النص لليسار */
+    margin-left: 20px; /* محاذاة النص لليسار */
     font-weight: bold;
 }
  
