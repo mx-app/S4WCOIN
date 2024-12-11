@@ -91,7 +91,7 @@
     flex-direction: column; /* الصورة فوق النص */
     align-items: flex-start; /* محاذاة العناصر لليسار */
     width: 90%; /* عرض الصورة بالكامل */
-    height: 170px;
+    height: 250px;
 }
 
 .game-image {
