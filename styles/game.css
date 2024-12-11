@@ -92,10 +92,12 @@
     align-items: flex-start; /* محاذاة العناصر لليسار */
     width: 90%; /* عرض الصورة بالكامل */
     height: 250px;
+    margin: 5px auto;
 }
 
 .game-image {
     width: 100%; /* تجعل الصورة تملأ العرض */
+    height: 100%;
     max-width: 500px; /* حد أقصى لحجم الصورة */
     border-radius: 20px; /* زوايا دائرية */
     cursor: pointer;
