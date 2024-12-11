@@ -9,7 +9,7 @@
   width: 85%;
   height: 36px;
   /*backdrop-filter: blur(2px);*/
-  background: #2D83EC;
+  background: #101010;
   background-size: 300% 300%; /* يجعل التدرجات ديناميكية */
   border-bottom: 1px solid #1c1c1c;
   border-right: 1px solid #1c1c1c;
@@ -60,7 +60,7 @@
     transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
     width: 85%;
     height: 39px;
-    background: #2D83EC;
+    background: #101010;
     background-size: 300% 300%; /* يجعل التدرجات ديناميكية */
    /* background: linear-gradient(45deg, #101010, #2D83EC, #161616);
     background-size: 100% 100%;*//* تغطية كاملة بدون خطوط */
