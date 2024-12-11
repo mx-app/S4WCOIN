@@ -1,3 +1,15 @@
+.coming-soon-text {
+    position: absolute;
+    top: 50%; /* محاذاة النص عموديًا */
+    left: 50%; /* محاذاة النص أفقيًا */
+    transform: translate(-50%, -50%); /* لجعل النص في المنتصف تمامًا */
+    color: #fff; /* لون النص */
+    font-size: 1.5rem; /* حجم النص */
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7); /* ظل النص لجعله واضحًا */
+    pointer-events: none; /* لمنع النص من تعطيل النقر على الصورة */
+}
+
 .icon-gamepad {
     display: block;
     margin: 5px auto;
