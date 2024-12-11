@@ -17,10 +17,8 @@
     "page.css",
     "styles/daily.css",
     "styles/B.css",
-    "styles/mining.css",
     "styles/Level.css",
     "styles/tasks.css",
-    "styles/wallet.css",
-    "styles/gift.css"
+    "styles/wallet.css"
   ]
 }
