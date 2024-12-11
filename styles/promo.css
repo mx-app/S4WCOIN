@@ -19,9 +19,10 @@
   overflow: hidden;
 }
 
-/*.community-button:hover {
-    background: linear-gradient(to left, #2D83EC, #1AC9FF);
-}*/
+.community-button:hover {
+    border-bottom: 1px solid #1c1c1c;
+    border-right: 1px solid #1c1c1c;
+}
 
 .community-button i {
     font-size: 1.2rem;
@@ -71,9 +72,11 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/*.promo-code-button:hover {
-    background: linear-gradient(to left, #2D83EC, #1AC9FF);
-}*/
+.promo-code-button:hover {
+    border-bottom: 1px solid #1c1c1c;
+    border-right: 1px solid #1c1c1c;
+}
+
 
 .promo-code-button i {
     font-size: 1.2rem;
