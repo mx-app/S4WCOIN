@@ -87,6 +87,9 @@
 }
 
 .game-item {
+    filter: blur(3px); /* يجعل العنصر ضبابيًا */
+    pointer-events: none; /* تعطيل التفاعل مع العنصر */
+
     display: flex;
     flex-direction: column; /* الصورة فوق النص */
     align-items: flex-start; /* محاذاة العناصر لليسار */
