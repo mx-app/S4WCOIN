@@ -1,4 +1,4 @@
-/*.community-button {
+.community-button {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -17,7 +17,7 @@
   color: #fff;
   font-size: 13px;
   overflow: hidden;
-}*/
+}
 
 /*.community-button:hover {
     background: linear-gradient(to left, #2D83EC, #1AC9FF);
