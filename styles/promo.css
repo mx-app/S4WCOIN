@@ -3,11 +3,11 @@
   align-items: center;
   justify-content: space-between;
   position: absolute; 
-  bottom: 24px; 
+  bottom: 28px; 
   left: 50%; 
   transform: translateX(-50%); 
   width: 85%;
-  height: 36px;
+  height: 45px;
   background: #101010;
   background-size: 300% 300%; 
   border-bottom: 1px solid #1c1c1c;
