@@ -486,36 +486,29 @@
        </div>
         
                <!-- Game page -->
-         <div id="gamePage" class="screen-content scrollable">
-             <div id="globalNavbar">
+     <div id="gamePage" class="screen-content scrollable">
+      <div id="globalNavbar">
         <div id="balanceContainer">
             <span id="gnavbarBalanceDisplay">0.00</span> <!-- الرصيد -->
            </div>
         </div>
              
           <section class="game-container" id="gameContainer">
-    <p id="GA">GAMES</p>   
+           <p id="GA">GAMES</p>   
     
-    <!-- بطاقة اللعبة الأولى -->
-    <div class="game-item" id="gameOne">
-        <img src="i/Zombie.jpg" alt="Zombie Game" class="game-image">
-        <div class="game-info">
-            <p>Zombie</p>
-            <button class="game-button" onclick="startGame('https://previews.customer.envatousercontent.com/files/540940222/index.html')">Play</button>
+          <!-- اللعبة الأولى -->
+         <div class="game-item">
+            <img id="gameOne" src="i/Zombie.jpg" alt="Zombie Game" class="game-image" onclick="startGame('https://previews.customer.envatousercontent.com/files/540940222/index.html')">
+            <p class="game-title">Zombie</p>
         </div>
-    </div>
     
-    <!-- بطاقة اللعبة الثانية -->
-    <div class="game-item" id="gameTwo">
-        <img src="i/Halloween.jpg" alt="Halloween Game" class="game-image">
-        <div class="game-info">
-            <p>Halloween</p>
-            <button class="game-button" onclick="startGame('https://mx-app.github.io/Halwen')">Play</button>
-        </div>
-    </div>
-</section>
-
-    </div>
+          <!-- اللعبة الثانية -->
+        <div class="game-item">
+           <img id="gameTwo" src="i/Halloween.jpg" alt="Halloween Game" class="game-image" onclick="startGame('https://mx-app.github.io/Halwen')">
+            <p class="game-title">Halloween</p>
+       </div>
+   </section>
+ </div>
 
   <div id="levelPage" class="screen-content scrollable">
      <div id="globalNavbar">
