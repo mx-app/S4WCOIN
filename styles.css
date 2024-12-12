@@ -322,14 +322,14 @@ img {
     bottom: 80px; /* المسافة من أسفل الشاشة */
     left: 50%; /* البدء من منتصف الشاشة */
     transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
-    width: 85%; 
+    width: 80%; 
     margin: 0 auto; 
     border-radius: 10px; /* زوايا دائرية */
     transition: width 0.3s ease-in-out; /* تأثير التمدد بسلاسة */
 } 
 
 .progress-bar {
-    width: 80%; 
+    width: 70%; 
     height: 10px; 
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px); /* تأثير الضبابية */
