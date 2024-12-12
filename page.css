@@ -103,6 +103,7 @@
 
 #mainPage {
     padding-top: 50px; /* يمكنك تغيير القيمة حسب الحاجة */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), #101010);
     background-clip: padding-box;
 } 
 
