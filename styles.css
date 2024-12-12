@@ -322,17 +322,17 @@ img {
     bottom: 65px; /* المسافة من أسفل الشاشة */
     left: 50%; /* البدء من منتصف الشاشة */
     transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
-    width: auto; /* جعل العرض مرنًا بناءً على المحتوى */
-    min-width: 20%; /* الحد الأدنى للعرض */
-    max-width: 90%; /* الحد الأقصى للعرض */
-    height: 40px; /* ارتفاع الحاوية */
+    /*width: auto;
+    min-width: 20%; 
+    max-width: 90%; 
+    height: 40px;*/ 
     margin: 5px;
     border-radius: 10px; /* زوايا دائرية */
     transition: width 0.3s ease-in-out; /* تأثير التمدد بسلاسة */
 } 
 
 .progress-bar {
-    width: 90%; 
+    width: 80%; 
     height: 11px; 
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px); /* تأثير الضبابية */
