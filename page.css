@@ -103,9 +103,16 @@
 
 #mainPage {
     padding-top: 50px; /* يمكنك تغيير القيمة حسب الحاجة */
+    position: relative;
+    height: 10%; /* 10% من ارتفاع الشاشة */
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), #101010);
     background-clip: padding-box;
-} 
+}
+
+/*#mainPage {
+    padding-top: 50px; 
+    background-clip: padding-box;
+}*/
 
 
 #miningnavbarBalanceDisplay, #BoostnavbarBalanceDisplay, #tasknavbarBalanceDisplay, #navbarBalanceDisplay,
