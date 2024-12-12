@@ -15,9 +15,6 @@ const uiElements = {
     walletBalanceDisplay: document.getElementById('navbarBalanceDisplay'),
     settingsBalanceDisplay: document.getElementById('settingsBalanceDisplay'),
     gnavbarBalanceDisplay: document.getElementById('gnavbarBalanceDisplay'),
-    newBalanceDisplay: document.getElementById('newBalanceDisplay'),
-    newEnergyDisplay: document.getElementById('newEnergyDisplay'),
-
     energyBar: document.getElementById('energyBar'),
     energyInfo: document.getElementById('energyInfo'),
     languageBtn: document.getElementById('languageSwitchBtn'),
@@ -27,7 +24,6 @@ const uiElements = {
     coinUpgradeCost: document.getElementById('coinUpgradeCost'),
     boostUpgradeCost: document.getElementById('boostUpgradeCost'),
     upgradeImage: document.getElementById('upgradeImage'),
-    
     currentLevel: document.getElementById('currentLevel'),  
     currentCoins: document.getElementById('currentCoins'),  
     upgradeCost: document.getElementById('upgradeCost'),   
@@ -448,7 +444,6 @@ function updateUI() {
         uiElements.boostBalanceDisplay,
         uiElements.lvlBalanceDisplay,
         uiElements.gnavbarBalanceDisplay,
-        uiElements.newBalanceDisplay,
         uiElements.miningBalanceDisplay
     ];
 
@@ -462,11 +457,6 @@ function updateUI() {
     if (uiElements.energyBar) {
         const energyPercent = (gameState.energy / gameState.maxEnergy) * 100;
         uiElements.energyBar.style.width = `${energyPercent}%`;
-    }
-    
-    // تحديث شريط الطاقة في topBar
-    if (newEnergyDisplay) {
-        newEnergyDisplay.innerText = `${formatNumber(gameState.energy)}/${formatNumber(gameState.maxEnergy)}⚡`;
     }
 
     // تحديث معلومات الطاقة
@@ -2679,26 +2669,6 @@ window.addEventListener('load', () => {
 });
 
 //////////////////////////////////////
-
-let lastScrollTop = 0; // تخزين آخر نقطة تم التمرير إليها
-let topBar = document.getElementById('topBar'); // الحصول على البار
-
-window.addEventListener('scroll', function() {
-    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-    if (currentScroll > lastScrollTop) {
-        // التمرير لأسفل: يظهر البار
-        topBar.style.top = '8px'; // عرض البار
-    } else {
-        // التمرير لأعلى: إخفاء البار عند الوصول إلى أعلى الصفحة
-        if (currentScroll === 0) {
-            topBar.style.top = '-25px'; // إخفاء البار
-        }
-    }
-
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // تحديث قيمة آخر نقطة تم التمرير إليها
-});
-
 
 
 ///////////////////////
