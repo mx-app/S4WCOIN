@@ -15,7 +15,7 @@
     height: 32px;
     padding: 5px;
     color: #fff; 
-    background: linear-gradient(45deg, #101010, #000000);
+    background: #101010;
     font-size: 12px;
     font-weight: bold;
     border-radius: 20px;
@@ -25,11 +25,7 @@
     z-index: 10; /* لجعله فوق العناصر الأخرى */
     transform: translateY(-1px); /* تحريك طفيف لأعلى ليبدو كأنه مرتفع */
 } 
-
-.Play-game-button:hover {
-    box-shadow: 0 0 1px rgba(255, 255, 255, 0.4), 0 0 3px rgba(255, 255, 255, 0.3), 0 0 3px rgba(255, 255, 255, 0.2);
-}
-
+ 
 .Play-game-button i {
     font-size: 1.1rem;
     margin-right: 6px;
