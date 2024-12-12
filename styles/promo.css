@@ -8,9 +8,9 @@
   transform: translateX(-50%); 
   width: 90%;
   height: 40px;
-  background-color: rgba(255, 255, 255, 0.0001);
+  background-color: #101010;
   background-size: 300% 300%; 
-  border: 1px solid #1c1c1c; 
+/* border: 1px solid #1c1c1c;*/
   border-radius: 20px;
   text-decoration: none;
   color: #fff;
