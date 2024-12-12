@@ -319,7 +319,7 @@ img {
     justify-content: center; /* توزيع المحتوى بشكل متساوٍ */
     align-items: center; /* محاذاة المحتوى عموديًا */
     position: absolute; /* تموضع مطلق */
-    bottom: 70px; /* المسافة من أسفل الشاشة */
+    bottom: 80px; /* المسافة من أسفل الشاشة */
     left: 50%; /* البدء من منتصف الشاشة */
     transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
     width: 85%; 
