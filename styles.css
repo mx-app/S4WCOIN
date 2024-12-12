@@ -453,7 +453,7 @@ img {
 .menu button.active i {
     font-size: 1.2rem;
     margin-bottom: 5px;
-    background: linear-gradient(to bottom, #2D83EC, #4375ca, #1AC9FF);
+    background: linear-gradient(to right, #2D83EC, #4375ca, #0088CC);
     -webkit-background-clip: text; /* تطبيق التدرج على النص */
     -webkit-text-fill-color: transparent; /* جعل النص شفافًا ليظهر التدرج */
 }
