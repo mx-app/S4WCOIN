@@ -582,11 +582,14 @@ img {
     position: absolute;
     top: 10px;
     right: 20px;
-    font-size: 30px;
+    font-size: 25px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(2px); 
+    border-radius: 50%;
     color: white;
     cursor: pointer;
 }
-
 
 /* تصميم الإشعار */
 .notification {
