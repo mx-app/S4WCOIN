@@ -40,7 +40,7 @@ body {
    /* font-family: 'Raleway', sans-serif;
     font-style: normal;*/
    /* font-style: italic;*/
-    background-color: #000;
+    background-color: #101010;
     color: #fff;
     display: flex;
     justify-content: center;
@@ -87,8 +87,8 @@ body {
     linear-gradient(221deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
     background-size: cover;
     background-position: center;
-    border-top-left-radius: 0; 
-    border-top-right-radius: 0; 
+    border-top-left-radius: 15px; 
+    border-top-right-radius: 15px; 
 }
  
  
