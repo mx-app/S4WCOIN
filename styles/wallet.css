@@ -32,8 +32,8 @@
 
 
 .wallet-button {
-   width: 30px; /* تحديد عرض ثابت */
-    height: 30px; /* نفس القيمة مثل العرض */
+    width: 35px; /* تحديد عرض ثابت */
+    height: 35px; /* نفس القيمة مثل العرض */
     padding: 0; /* لضبط المساحة الداخلية */
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(2px); 
