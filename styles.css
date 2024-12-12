@@ -941,8 +941,8 @@ img {
     border-bottom: 1px solid #1c1c1c;
     border-right: 1px solid #1c1c1c;
     z-index: 10; /* لجعله فوق العناصر الأخرى */
-    transform: translateY(-1px); /* تحريك طفيف لأعلى ليبدو كأنه مرتفع */
-}
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+} 
 
 
 .separators {
