@@ -408,23 +408,16 @@ img {
     justify-content: space-between;
     padding: 5px;
     background-color: #101010;
-   /* backdrop-filter: blur(5px);*/
     position: fixed;
     bottom: 5px;
     border-radius: 20px;
-   /* border: 1px solid #fff;*/
-    /*box-sizing: border-box;*/
     width: 88%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 100;
-   /* box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.8);*/ /* ظل متلاشي تدريجي */
     transition: box-shadow 0.3s ease; /* إضافة انتقال سلس للتأثير */
-}
-
-/*.menu.scrolled {
-    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.3); 
-}*/ 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+} 
 
 .menu button {
     color: #808080;
