@@ -64,11 +64,8 @@
 
 .wallet-box {
     background-color: rgba(0, 0, 0, 0.0007); /* لون خلفية أغمق لتحسين التباين */
-    backdrop-filter: blur(8px); /* تأثير ضبابية ناعم */
-   /* border: 0.50px solid #444;*//* حد أغمق */
     border-radius: 15px; /* تدوير أكبر للحواف */
     padding: 20px; /* زيادة الحشوة */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* إضافة ظل للصندوق */
     width: 85%; /* تحديد العرض بشكل مناسب */
     max-width: 400px; /* تحديد عرض أقصى ليتماشى مع مختلف الأجهزة */
     margin: 0 auto; /* لضمان توسيط الحاوية */
