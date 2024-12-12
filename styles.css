@@ -1083,3 +1083,10 @@ img {
     object-fit: cover; /* تأكد من احتواء الصورة داخل الدائرة */
     border: 1px solid #161616; /* إضافة إطار أبيض حول الصورة */
 }
+
+
+.right-section { 
+    font-size: 1rem;
+    color:#2D83EC;
+    margin-right: 1px;
+}    
