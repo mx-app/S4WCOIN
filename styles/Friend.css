@@ -79,7 +79,7 @@
     gap: 8px; /* مسافة بين الصورة والنص */
     width: 90%; 
     height: 50px;
-    background-color: #fff;
+    background-color: #F7F9FB;
     /*border-bottom: 1px solid #1c1c1c;
     border-right: 1px solid #1c1c1c;*/
     color: #000;
@@ -106,7 +106,7 @@
     gap: 8px; /* مسافة بين الصورة والنص */
     width: 25%; 
     height: 50px;
-    background-color: #fff;
+    background-color: #F7F9FB;
     color: #000;
     /*border-bottom: 1px solid #1c1c1c;
     border-right: 1px solid #1c1c1c;*/
