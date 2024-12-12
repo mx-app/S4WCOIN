@@ -325,9 +325,8 @@ img {
     transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
     width: 80%; 
     margin: 0 auto; 
-    border-radius: 10px; /* زوايا دائرية */
     transition: width 0.3s ease-in-out; /* تأثير التمدد بسلاسة */
-    gap: 10px; /* مسافة بين الأيقونة والشريط */
+   /* gap: 10px;*/
 }
 
 .progress-bar {
@@ -343,7 +342,7 @@ img {
 }
 
 .energy-icon {
-    font-size: 1.5rem; /* حجم الأيقونة */
+    font-size: 1.4rem; /* حجم الأيقونة */
     color: #F7F9FB; /* لون ذهبي */
     position: absolute; /* جعل الأيقونة فوق الشريط */
     left: 50px; /* الموقع الأفقي للزائد الأيقونة */
