@@ -319,13 +319,10 @@ img {
     justify-content: space-between; /* توزيع المحتوى بشكل متساوٍ */
     align-items: center; /* محاذاة المحتوى عموديًا */
     position: absolute; /* تموضع مطلق */
-    bottom: 65px; /* المسافة من أسفل الشاشة */
+    bottom: 85px; /* المسافة من أسفل الشاشة */
     left: 50%; /* البدء من منتصف الشاشة */
     transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
-    /*width: auto;
-    min-width: 20%; 
-    max-width: 90%; 
-    height: 40px;*/ 
+    width: 90%; 
     margin: 5px;
     border-radius: 10px; /* زوايا دائرية */
     transition: width 0.3s ease-in-out; /* تأثير التمدد بسلاسة */
