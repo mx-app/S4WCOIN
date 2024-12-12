@@ -321,13 +321,14 @@ img {
     align-items: center; /* محاذاة المحتوى عموديًا */
     position: absolute; /* تموضع مطلق */
     bottom: 80px; /* المسافة من أسفل الشاشة */
-    left: 50%; /* البدء من منتصف الشاشة */
+    left: 50%; /* المنتصف أفقيًا */
     transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
     width: 80%; 
     margin: 0 auto; 
     border-radius: 10px; /* زوايا دائرية */
     transition: width 0.3s ease-in-out; /* تأثير التمدد بسلاسة */
-} 
+    gap: 10px; /* مسافة بين الأيقونة والشريط */
+}
 
 .progress-bar {
     width: 70%; 
@@ -336,7 +337,17 @@ img {
     backdrop-filter: blur(10px); /* تأثير الضبابية */
     border-radius: 50px; /* شكل الشريط */
     overflow: hidden; /* قص المحتوى الزائد */
-    margin-bottom: 5px; /* مسافة بسيطة بين المعلومات والشريط */
+    display: flex; /* جعل العناصر ترتب بشكل أفقي */
+    align-items: center; /* محاذاة الأيقونة والمحتويات الأخرى */
+    z-index: 9;
+}
+
+.energy-icon {
+    font-size: 1.5rem; /* حجم الأيقونة */
+    color: #FFD700; /* لون ذهبي */
+    position: absolute; /* جعل الأيقونة فوق الشريط */
+    left: 5px; /* الموقع الأفقي للزائد الأيقونة */
+    z-index: 10;
 }
 
 .progress-bar-inner {
@@ -345,7 +356,6 @@ img {
     background: linear-gradient(90deg, #4375ca, #2D83EC);
     transition: width 0.5s ease;
 } 
-
 
 #energyInfo {
     background-color: transparent;
