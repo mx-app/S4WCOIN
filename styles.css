@@ -448,7 +448,15 @@ img {
 .menu button i {
     font-size: 1.2rem;
     margin-bottom: 5px;
-} 
+}
+
+.menu button.active i {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    background: linear-gradient(to bottom, #ffffff, #4375ca);
+    -webkit-background-clip: text; /* تطبيق التدرج على النص */
+    -webkit-text-fill-color: transparent; /* جعل النص شفافًا ليظهر التدرج */
+}
 
 .menu button.active img {
     position: relative;
