@@ -271,6 +271,7 @@ img {
     margin-bottom: 5px;
     margin-top: 0;
     font-size: 15px;
+    font-weight: 400; 
     padding-bottom: 1px;
     color: #808080;
 }
