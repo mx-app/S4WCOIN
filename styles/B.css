@@ -85,24 +85,6 @@
     vertical-align: middle;
 }
 
-/* أزرار */
-/*.boosts-button {
-    margin-left: 20px;
-    font-size: 15.5px;
-    color: #fff;
-    font-weight: bold;
-    background-color: rgba(255, 255, 255, 0.004);
-    border-radius: 10px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    opacity: 0.7;
-}
-
-.size-Boosts {
-    width: 20px; 
-    height: 20px;
-    margin-right: 4px; 
-}*/
-
 .boosts-button {
     display: flex; /* يتيح ترتيب الأيقونة والنص بجانب بعض */
     align-items: center; /* يجعل الأيقونة والنص متوسطي المحاذاة عموديًا */
@@ -140,19 +122,6 @@
     transition: background-color 0.3s ease;
 }
 
-/*.boost-item button:hover {
-    background: linear-gradient(90deg, #562a04, #794106, #9f620c, #d69a1c);
-}*/
-
-/*
-.bos-image {
-    width: 105px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    margin-bottom: 20px;
-}*/
-
 /* النصوص */
 #b, #pr {
     text-align: left;
@@ -169,8 +138,7 @@
     flex-direction: column; /* ترتيب العناصر عموديًا */
     align-items: center; /* محاذاة الحاويات في المنتصف أفقيًا */
     justify-content: space-between; /* محاذاة العناصر في منتصف الصفحة */
-    width: 100%; /* عرض الحاوية الرئيسية */
-  /*  padding: 10px;*/
+    width: 100%; 
     margin-top: 50px;
     z-index: 2; 
 }
@@ -191,6 +159,7 @@
     border-radius: 20px; /* زوايا مستديرة */
     box-sizing: border-box; /* لحساب الحواف ضمن الأبعاد */
     overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .boost-title {
