@@ -453,7 +453,7 @@ img {
 .menu button.active i {
     font-size: 1.2rem;
     margin-bottom: 5px;
-    background: linear-gradient(to bottom, #ffffff, #4375ca);
+    background: linear-gradient(to bottom, #2D83EC, #4375ca, #ffffff);
     -webkit-background-clip: text; /* تطبيق التدرج على النص */
     -webkit-text-fill-color: transparent; /* جعل النص شفافًا ليظهر التدرج */
 }
@@ -463,20 +463,6 @@ img {
     z-index: 2; /* وضع الصورة فوق الخلفية */
 } 
 
-/*.menu button::before {
-    content: "";
-    position: absolute;
-    top: 0; 
-    left: 50%;  
-    width: 28%;  
-    height: 1px;  
-    background-color: #fff;  
-    opacity: 0; 
-    transition: opacity 0.3s ease;  
-    transform: translateX(-50%);  
-}*/
-
-/*.menu button.active::before,*/
 .menu button:hover::before {
     opacity: 1;  /* جعل الخط مرئي عند التمرير أو عندما يكون الزر نشطًا */
 }
