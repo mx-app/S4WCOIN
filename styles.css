@@ -404,6 +404,8 @@ img {
  
  
 .menu {
+    border-bottom: 1px solid #1c1c1c;
+    border-right: 1px solid #1c1c1c;
     display: flex;
     justify-content: space-between;
     padding: 5px;
