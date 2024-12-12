@@ -152,7 +152,7 @@
     margin-left: 10px;
     cursor: pointer;
     position: absolute;
-    right: -150px;
+    right: -140px;
     top: 0;
     transition: transform 0.5s linear; /* تأثير دوران سريع */
 }
