@@ -319,7 +319,7 @@ img {
     justify-content: space-between; /* توزيع المحتوى بشكل متساوٍ */
     align-items: center; /* محاذاة المحتوى عموديًا */
     position: absolute; /* تموضع مطلق */
-    bottom: 50px; /* المسافة من أسفل الشاشة */
+    bottom: 65px; /* المسافة من أسفل الشاشة */
     left: 50%; /* البدء من منتصف الشاشة */
     transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
     width: auto; /* جعل العرض مرنًا بناءً على المحتوى */
@@ -332,8 +332,8 @@ img {
 } 
 
 .progress-bar {
-    width: 60%; 
-    height: 8px; 
+    width: 90%; 
+    height: 11px; 
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px); /* تأثير الضبابية */
     border-radius: 50px; /* شكل الشريط */
