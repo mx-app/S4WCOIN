@@ -101,13 +101,13 @@
 
 
 .settings-button {
-   /* position: fixed;
-    top: 18px; 
-    right: 38px;*/
+    width: 35px; /* تحديد عرض ثابت */
+    height: 35px; /* نفس القيمة مثل العرض */
+    padding: 0; /* لضبط المساحة الداخلية */
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(2px); 
+    border-radius: 50%;
     color: #fff; 
-    background-color: rgba(255, 255, 255, 0.001);
-    border-radius: 5px; 
-   /* padding: 5px;*/
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     animation: popIn 0.4s ease forwards;
 }
