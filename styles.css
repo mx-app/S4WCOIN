@@ -87,8 +87,8 @@ body {
     linear-gradient(221deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
     background-size: cover;
     background-position: center;
-    border-top-left-radius: 15px; 
-    border-top-right-radius: 15px; 
+    border-top-left-radius: 20px; 
+    border-top-right-radius: 20px; 
 }
  
  
