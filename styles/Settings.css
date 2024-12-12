@@ -104,8 +104,7 @@
     width: 35px; /* تحديد عرض ثابت */
     height: 35px; /* نفس القيمة مثل العرض */
     padding: 0; /* لضبط المساحة الداخلية */
-    background-color: rgba(255, 255, 255, 0.09);
-    backdrop-filter: blur(2px); 
+    background-color: rgba(255, 255, 255, 0.05);
     border-radius: 50%;
     color: #fff; 
     transition: transform 0.2s ease, box-shadow 0.2s ease;
