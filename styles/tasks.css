@@ -116,7 +116,7 @@
 
 .task-item img {
     object-fit: cover; /* لتغطية المساحة بالكامل */
-    border-radius: 10px; /* جعل الصورة تتبع نفس الحواف الدائرية */
+    border-radius: 50%; /* جعل الصورة تتبع نفس الحواف الدائرية */
 } 
 
 .task-img {
