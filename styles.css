@@ -362,6 +362,7 @@ img {
     margin-top: 20px; 
     margin-bottom: 0;
     flex: 1;
+    animation: popIn 0.4s ease forwards;
 } 
  
 .clickable-image img {
@@ -1048,24 +1049,3 @@ img {
     object-fit: cover; /* تأكد من احتواء الصورة داخل الدائرة */
     border: 1px solid #161616; /* إضافة إطار أبيض حول الصورة */
 }
-
-
-#topBar {
-    position: fixed;
-    top: -50px; /* نبدأ بموقع مخفي للشريط */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 95%;
-    height: 25px;
-    font-size: 15px;
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(2px);
-    color: white;
-    border-radius: 20px;
-    display: flex; /* البار يحتوي على محتويات */
-    justify-content: space-between;
-    z-index: 1000;
-    transition: top 0.3s ease; /* تأثير سلس عند تحريك الشريط */
-}
-
-
