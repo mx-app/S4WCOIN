@@ -1079,15 +1079,15 @@ img {
 
 .user-details-i {
     position: absolute; /* تحديد الموقع بالنسبة للشاشة */
-    top: 19px; /* المسافة من الأعلى */
+    top: 18px; /* المسافة من الأعلى */
     left: 24px; /* المسافة من اليسار */
     z-index: 100; /* لضمان الظهور فوق العناصر الأخرى */
     animation: popIn 0.4s ease forwards;
 }
 
 .userrr-image {
-    width: 23px; /* عرض الصورة */
-    height: 23px; /* ارتفاع الصورة */
+    width: 28px; /* عرض الصورة */
+    height: 28px; /* ارتفاع الصورة */
     border-radius: 50%; /* جعل الصورة دائرية */
     object-fit: cover; /* تأكد من احتواء الصورة داخل الدائرة */
     border: 1px solid #161616; /* إضافة إطار أبيض حول الصورة */
