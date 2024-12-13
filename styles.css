@@ -1056,7 +1056,7 @@ img {
 
 #welcomeMessage {
     position: absolute;
-    top: 8.5px;
+    top: 11px;
     left: 45px;
     text-align: center;
     display: flex;
