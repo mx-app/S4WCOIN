@@ -667,19 +667,19 @@ img.addEventListener('pointerdown', (event) => {
     const y = event.clientY - rect.top;
 
     // تأثير الإمالة
-    const rotateX = ((y / rect.height) - 0.4) * -10;
-    const rotateY = ((x / rect.width) - 0.4) * 10;
+    const rotateX = ((y / rect.height) - 0.5) * -10;
+    const rotateY = ((x / rect.width) - 0.5) * 10;
 
     // تطبيق التحريك السلس
     img.style.transition = 'transform 0.1s ease-out';
-    img.style.transform = `perspective(500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    img.style.transform = `perspective(700px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 
     // استدعاء وظيفة النقر
     handleClick(event);
 
     // إعادة الوضع الطبيعي للصورة بعد التأثير
     setTimeout(() => {
-        img.style.transform = 'perspective(500px) rotateX(0) rotateY(0)';
+        img.style.transform = 'perspective(700px) rotateX(0) rotateY(0)';
     }, 300);
 });
 
