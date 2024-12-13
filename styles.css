@@ -264,7 +264,7 @@ img {
     align-items: center;
     justify-content: center;
     position: relative;
-    margin-top: 150px;
+    margin-top: 70px;
 }
 
 .Title {
@@ -425,7 +425,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 20px; 
+    margin-top: 0; 
     margin-bottom: 0;
     flex: 1;
     animation: popIn 0.4s ease forwards;
