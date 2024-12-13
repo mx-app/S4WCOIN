@@ -695,14 +695,11 @@ function handleClick(event) {
         createDiamondCoinEffect(touch.pageX, touch.pageY);
     });
 
-
     // تفعيل الاهتزاز
-    if (navigator.vibrate) {
-        navigator.vibrate(100); // الاهتزاز لمدة 100 مللي ثانية
-    }
+   // if (navigator.vibrate) {
+     //   navigator.vibrate(100); 
+  //  }
 
-
-    
     // حساب الطاقة المطلوبة لكل لمسة
     const totalTouches = touchPoints.length;
     const requiredEnergy = gameState.clickMultiplier * totalTouches;
