@@ -105,6 +105,7 @@
 #mainPage {
     backdrop-filter: blur(3px); 
     padding-top: 50px; 
+    overflow-y: auto; 
     background-clip: padding-box;
 }
 

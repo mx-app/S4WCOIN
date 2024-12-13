@@ -264,7 +264,7 @@ img {
     align-items: center;
     justify-content: center;
     position: relative;
-    margin-top: 25px;
+    margin-top: 70px;
 }
 
 .Title {
@@ -320,7 +320,7 @@ img {
     justify-content: center; /* توزيع المحتوى بشكل متساوٍ */
     align-items: center; /* محاذاة المحتوى عموديًا */
     position: absolute; /* تموضع مطلق */
-    bottom: 88px; /* المسافة من أسفل الشاشة */
+    bottom: 150px; /* المسافة من أسفل الشاشة */
     left: 50%; /* المنتصف أفقيًا */
     transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
     width: 80%; 
@@ -425,8 +425,8 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 20px; 
-    margin-bottom: 0;
+    margin-top: 0; 
+    margin-bottom: 60px;
     flex: 1;
     animation: popIn 0.4s ease forwards;
 } 
