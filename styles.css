@@ -320,7 +320,7 @@ img {
     justify-content: center; /* توزيع المحتوى بشكل متساوٍ */
     align-items: center; /* محاذاة المحتوى عموديًا */
     position: absolute; /* تموضع مطلق */
-    bottom: 120px; /* المسافة من أسفل الشاشة */
+    bottom: 140px; /* المسافة من أسفل الشاشة */
     left: 50%; /* المنتصف أفقيًا */
     transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
     width: 80%; 
@@ -426,7 +426,7 @@ img {
     align-items: center;
     justify-content: center;
     margin-top: 0; 
-    margin-bottom: 25px;
+    margin-bottom: 30px;
     flex: 1;
     animation: popIn 0.4s ease forwards;
 } 
