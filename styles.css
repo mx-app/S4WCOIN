@@ -359,7 +359,7 @@ img {
     pointer-events: none;
 }
 
-.energy-bar::after {
+.progress-bar::after {
     animation-duration: 6s;
     animation-direction: reverse;
     opacity: 0.2;
