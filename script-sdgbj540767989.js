@@ -667,8 +667,8 @@ img.addEventListener('pointerdown', (event) => {
     const y = event.clientY - rect.top;
 
     // تأثير الإمالة
-    const rotateX = ((y / rect.height) - 0.5) * -10;
-    const rotateY = ((x / rect.width) - 0.5) * 10;
+    const rotateX = ((y / rect.height) - 0.5) * -14;
+    const rotateY = ((x / rect.width) - 0.5) * 14;
 
     // تطبيق التحريك السلس
     img.style.transition = 'transform 0.1s ease-out';
