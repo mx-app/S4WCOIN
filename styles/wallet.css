@@ -1,9 +1,21 @@
 .walletTon-image {
+position: absolute; 
+    top: 65px; 
+    left: 50%;
+    transform: translateX(-50%); 
+    width: 120px;
+    height: auto;
+    display: block;
+    margin-bottom: 20px; 
+    z-index: 0;
+} 
+
+/*.walletTon-image {
     width: 100px;
     height: 100px;
     margin: 15px auto;
     display: block;
-} 
+}*/
 
 .wallet-image {
     width: 140px;
