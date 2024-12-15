@@ -471,7 +471,8 @@ img {
     display: flex;
     justify-content: space-between;
     padding: 5px;
-    background-color: #101010;
+    background-color: rgba(16, 16, 16, 0.9); 
+   /* background-color: #101010;*/
     position: fixed;
     bottom: 8px;
     border-radius: 20px;
