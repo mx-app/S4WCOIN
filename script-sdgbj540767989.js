@@ -1382,8 +1382,8 @@ function initializeTelegramIntegration() {
 
     // تعريف الصفحات
     const mainPageId = "mainPage"; // الصفحة الرئيسية
-    const defaultHeaderColor = "#101010"; // اللون الافتراضي (أسود)
-    const mainPages = ["mainPage", "boostsPage", "tasksPage", "accountPage", "Puzzlespage"]; // الصفحات الرئيسية
+    const defaultHeaderColor = "#101010"; 
+    const mainPages = ["mainPage"]; 
 
     // تحديث زر الرجوع بناءً على الصفحة الحالية
     function updateBackButton() {
