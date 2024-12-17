@@ -2739,30 +2739,42 @@ async function fetchLeaderboard() {
 
 async function fetchUserRank() {
     try {
-        const userId = uiElements.userTelegramIdDisplay.innerText;
-        if (!userTelegramId) throw new Error("Telegram ID is missing.");
+        // قراءة معرف المستخدم الحالي
+        const userTelegramId = parseInt(uiElements.userTelegramIdDisplay?.innerText || '0', 10);
+        if (!userTelegramId) throw new Error("Telegram ID is missing or invalid.");
 
-        // استدعاء RPC
+        console.log("Fetching rank for Telegram ID:", userTelegramId);
+
+        // استدعاء الدالة المخزنة RPC
         const { data, error } = await supabase.rpc('get_user_rank', { user_id: userTelegramId });
 
-        // التحقق من وجود خطأ
         if (error) {
-            console.error('Error fetching user rank:', error.message);
+            console.error('Error fetching user rank from RPC:', error.message);
             throw new Error('Failed to fetch user rank.');
         }
 
-        // التحقق من البيانات العائدة
+        console.log("Rank data fetched:", data);
+
+        // التحقق من وجود بيانات صحيحة
         if (!data || data.length === 0) {
             console.warn('No rank data found for the user.');
-            updateUserRankDisplay('N/A', 'N/A', 0);
+            updateUserRankDisplay('N/A', 'Anonymous', 0);
             return;
         }
 
-        // استخراج البيانات المرجعة
-        const { rank, username, balance } = data[0];
-        updateUserRankDisplay(rank, username || 'Anonymous', balance || 0);
+        // استخراج البيانات المحدثة
+        const rankData = data[0];
+        console.log("Rank Data Object:", rankData);
+
+        const rank = rankData.rank || 'N/A';
+        const username = rankData.username || 'Anonymous';
+        const balance = rankData.balance || 0;
+
+        // تحديث الواجهة
+        updateUserRankDisplay(rank, username, balance);
     } catch (err) {
-        console.error('Error fetching user rank:', err.message);
+        console.error('Error in fetchUserRank:', err.message);
+        updateUserRankDisplay('N/A', 'N/A', 0); // عرض قيم افتراضية في حالة الخطأ
     }
 }
 
