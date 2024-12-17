@@ -1,3 +1,106 @@
+/* تصميم الزر الأساسي */
+.toggle-btn {
+    background-color: transparent; /* خلفية شفافة */
+    border: 1px solid transparent; /* إطار شفاف */
+    border-radius: 20px; /* حواف دائرية */
+    padding: 6px 18px; /* مسافات داخلية */
+    font-size: 15px;
+    cursor: pointer;
+    transition: color 0.3s, border-color 0.3s; /* تأثيرات الانتقال */
+}
+
+/* الحالة المفعّلة للزر */
+.toggle-btn.active {
+    color: #2D83EC; /* لون النص عند التشغيل */
+    border-color: #2D83EC; /* لون الإطار */
+}
+
+/* الحالة الموقوفة للزر */
+.toggle-btn.inactive {
+    color: #f44336; /* لون النص عند الإيقاف */
+    border-color: #f44336; /* لون الإطار */
+}
+
+#leaderboardPage {
+    padding-top: 40px;
+    padding-bottom: 100px;
+    overflow-y: auto;
+    background-clip: padding-box;
+    position: relative;
+    background-color: #1A1A1A;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.9); /* ظل داخلي لإضافة عمق للحواف */
+} 
+
+.Leaders-image { 
+    width: 150px;
+    margin: 10px auto;
+    height: auto;
+    display: block;
+}   
+
+#Leaders-txt {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 25px; /* يمكنك تغيير القيمة حسب المسافة التي تريدها */
+    font-weight: bold;
+    font-size: 20px; 
+}
+
+#Leaders-txxt {
+    text-align: left;
+    color: #808080;
+    margin-top: 15px;
+    margin-left: 20px;
+    margin-bottom: 10px; /* يمكنك تغيير القيمة حسب المسافة التي تريدها */
+    font-weight: bold;
+    font-size: 15px; 
+}
+
+.leaderboard-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%; 
+    margin: 0 auto;
+    margin-bottom: 15px;
+    height: 60px;
+    background-color: #101010;
+    border-radius: 20px;
+    border-bottom: 1px solid #1a1a1a;
+    border-right: 1px solid #1a1a1a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+} 
+
+.leaderboard-avatar {
+    width: 36px;
+    height: auto;
+    border-radius: 50%;
+    margin-left: 10px;
+    border: 1px solid #161616; 
+    padding: 2px;
+    object-fit: cover;
+}
+
+.leaderboard-username {
+    flex: 1;
+    font-size: 14px;
+    margin-left: 10px;
+} 
+
+.leaderboard-balance {
+    font-size: 13px;
+    color: #fff;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.leaderboard-rank {
+    font-size: 13px;
+    font-weight: bold;
+    margin-right: 10px;
+    color: #4375ca;
+}
+
 .overlay {
     position: fixed;
     top: 0;
