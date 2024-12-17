@@ -169,13 +169,13 @@
 }
 
 #text-day {
-    font-size: 15px;
+    font-size: 13px;
     font-weight: bold;
     margin-bottom: 10px;  /* إضافة مسافة بين النص والصورة */
 }
 
 #reward-day {
-    font-size: 11px;
+    font-size: 10px;
     display: flex;
     align-items: center;
 }
