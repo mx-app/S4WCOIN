@@ -651,7 +651,34 @@ function showNotificationWithStatus(notificationElement, message, status = '') {
 /////////////////////////////////////////
 
 
+    // تحديد الزر
+const vibrationToggle = document.getElementById('vibrationToggle');
 
+// الحالة الافتراضية
+let isVibrationEnabled = JSON.parse(localStorage.getItem('vibrationEnabled')) ?? true; 
+
+// تحديث مظهر الزر
+updateVibrationButton();
+
+// التعامل مع الضغط على الزر لتغيير الحالة
+vibrationToggle.addEventListener('click', () => {
+    isVibrationEnabled = !isVibrationEnabled; // تبديل الحالة
+    localStorage.setItem('vibrationEnabled', JSON.stringify(isVibrationEnabled)); // حفظ الحالة
+    updateVibrationButton(); // تحديث المظهر
+});
+
+// تحديث نص ومظهر الزر
+function updateVibrationButton() {
+    if (isVibrationEnabled) {
+        vibrationToggle.textContent = 'Vibration: On';
+        vibrationToggle.classList.remove('inactive');
+        vibrationToggle.classList.add('active');
+    } else {
+        vibrationToggle.textContent = 'Vibration: Off';
+        vibrationToggle.classList.remove('active');
+        vibrationToggle.classList.add('inactive');
+    }
+}
 
 
 // استدعاء الصورة القابلة للنقر
@@ -695,13 +722,11 @@ function handleClick(event) {
         createDiamondCoinEffect(touch.pageX, touch.pageY);
     });
 
-    
-    // تفعيل الاهتزاز
-    if (navigator.vibrate) {
+    // تفعيل الاهتزاز عند تفعيل الخيار
+    if (isVibrationEnabled && navigator.vibrate) {
         navigator.vibrate(80); 
     }
 
-    
     // حساب الطاقة المطلوبة لكل لمسة
     const totalTouches = touchPoints.length;
     const requiredEnergy = gameState.clickMultiplier * totalTouches;
