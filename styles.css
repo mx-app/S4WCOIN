@@ -264,7 +264,7 @@ img {
     align-items: center;
     justify-content: center;
     position: relative;
-    margin-top: 70px;
+    margin-top: 40px;
 }
 
 .Title {
@@ -314,10 +314,10 @@ img {
     line-height: 1; /* لتقليل الفراغ بين النصوص */
 }
 
-
 .energy-bar-container {
     display: flex;
-    justify-content: center; /* توزيع المحتوى بشكل متساوٍ */
+    flex-direction: column; /* ترتيب عمودي */
+    justify-content: center; /* محاذاة عمودية للمحتوى */
     align-items: center; /* محاذاة المحتوى عموديًا */
     position: absolute; /* تموضع مطلق */
     bottom: 150px; /* المسافة من أسفل الشاشة */
@@ -326,8 +326,7 @@ img {
     width: 80%; 
     margin: 0 auto; 
     transition: width 0.3s ease-in-out; /* تأثير التمدد بسلاسة */
-   /* gap: 10px;*/
-}
+} 
 
 .progress-bar {
     width: 70%; 
@@ -397,14 +396,15 @@ img {
     background-clip: text;
     color: transparent;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 12px; /* حجم الخط */
-    text-align: left; /* المحاذاة لليسار */
+    font-size: 16px; /* حجم الخط */
+    text-align: center; /* المحاذاة لليسار */
     margin-left: 4px;
     margin-right: 4px;
+    margin-bottom: 8px;
     direction: rtl; /* الحفاظ على الاتجاه من اليمين لليسار */
     white-space: nowrap;
 }
- 
+
  #maxEnergy {
    font-size: 15px;  
    white-space: nowrap;
