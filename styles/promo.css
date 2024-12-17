@@ -5,12 +5,12 @@
   align-items: center;
   justify-content: space-between;
   position: absolute; 
-  bottom: 85px; 
+  bottom: 90px; 
   left: 50%; 
   transform: translateX(-50%); 
   width: 87%;
   height: 40px;
-  background-color: #101010;
+  background-color: rgba(16, 16, 16, 0.9);
   background-size: 300% 300%; 
   border-radius: 20px;
   text-decoration: none;
