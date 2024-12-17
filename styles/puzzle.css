@@ -169,9 +169,10 @@
     left: 50%;
     transform: translateX(-50%) translateY(100%); /* بداية من أسفل الشاشة */
     width: 90%;
-    height: 70vh;
+    height: 60vh;
     z-index: 9999; /* قيمة z-index عالية جداً */
     display: flex;
+    overflow-y: auto;
     flex-direction: column;
     justify-content: flex-start; /* تقريب العناصر ببعضها */
     gap: 5px; /* تقليل المسافة بين العناصر */
