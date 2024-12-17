@@ -536,10 +536,9 @@ img {
     background: transparent; 
 }
 
-.menu svg {
-    width: 23px;
-    height: 23px;
-    margin-bottom: 3px;
+.menu img {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
     background: transparent;
 } 
 
