@@ -537,10 +537,11 @@ img {
 }
 
 .existing-image {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-    background: transparent;
-} 
+    width: 24px; /* عرض مناسب للصورة */
+    height: 24px; /* ارتفاع مناسب للصورة */
+    object-fit: contain; /* احتواء الصورة */
+}
+ 
 
 
 .confirmation-modal, .modal-content {
