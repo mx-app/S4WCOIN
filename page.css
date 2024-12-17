@@ -216,8 +216,8 @@
 
 #miningnavbarBalanceDisplay, #BoostnavbarBalanceDisplay, #tasknavbarBalanceDisplay, #navbarBalanceDisplay,
 #lvlnavbarBalanceDisplay, #puzzlenavbarBalanceDisplay, #AccountnavbarBalanceDisplay, #gnavbarBalanceDisplay {
-    font-size: 13px;
-    margin-left: 8px;
+    font-size: 14px;
+    margin-left: 4px;
     margin-right: 15px;
     left: 40px;
     color: #ffffff; /* لون النص */
