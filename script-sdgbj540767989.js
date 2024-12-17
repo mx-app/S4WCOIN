@@ -15,6 +15,8 @@ const uiElements = {
     walletBalanceDisplay: document.getElementById('navbarBalanceDisplay'),
     settingsBalanceDisplay: document.getElementById('settingsBalanceDisplay'),
     gnavbarBalanceDisplay: document.getElementById('gnavbarBalanceDisplay'),
+    leaderboardnavbarBalanceDisplay: document.getElementById('leaderboardnavbarBalanceDisplay'),
+    
     energyBar: document.getElementById('energyBar'),
     energyInfo: document.getElementById('energyInfo'),
     languageBtn: document.getElementById('languageSwitchBtn'),
@@ -443,6 +445,7 @@ function updateUI() {
         uiElements.settingsBalanceDisplay,
         uiElements.boostBalanceDisplay,
         uiElements.lvlBalanceDisplay,
+        uiElements.leaderboardnavbarBalanceDisplay,
         uiElements.gnavbarBalanceDisplay,
         uiElements.miningBalanceDisplay
     ];
