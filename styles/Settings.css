@@ -214,19 +214,24 @@
 
 .contact-support {
   top: 18px;
-  right: 25px; /* البدء من منتصف الشاشة */
+  right: 70px; /* البدء من منتصف الشاشة */
   position: absolute; 
   z-index: 100; /* التأكد من ظهور العنصر فوق باقي العناصر */
 } 
 
-.contact-support i, .contact-support-Chat i{
+.contact-support i {
+    font-size: 1.5rem;
+    color: #2D83EC;
+}  
+
+.contact-support-Chat i{
     font-size: 1.5rem;
     color: #fff;
-}  
+}   
 
 .contact-support-Chat {
   top: 18px;
-  right: 80px; /* البدء من منتصف الشاشة */
+  right: 25px; /* البدء من منتصف الشاشة */
   position: absolute; 
   z-index: 100; /* التأكد من ظهور العنصر فوق باقي العناصر */
 }  
