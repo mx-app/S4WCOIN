@@ -929,6 +929,7 @@ img {
     background-image: url('i/coinnc.png'); /* مسار الصورة */
     background-size: cover; /* لتغطية العنصر بالصورة بشكل جيد */
     margin-right: 1px; /* مسافة بين الصورة والنص */
+    margin-left: 0;
     vertical-align: middle; /* لضبط المحاذاة العمودية */
 }
 
