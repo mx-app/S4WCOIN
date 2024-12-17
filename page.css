@@ -232,7 +232,7 @@
 }
 
 
-#miningnavbarBalanceDisplay, #BoostnavbarBalanceDisplay, #tasknavbarBalanceDisplay, #navbarBalanceDisplay,
+#leaderboardnavbarBalanceDisplay, #miningnavbarBalanceDisplay, #BoostnavbarBalanceDisplay, #tasknavbarBalanceDisplay, #navbarBalanceDisplay,
 #lvlnavbarBalanceDisplay, #puzzlenavbarBalanceDisplay, #AccountnavbarBalanceDisplay, #gnavbarBalanceDisplay {
     font-size: 14px;
     margin-left: 0;
@@ -244,7 +244,7 @@
     white-space: nowrap; /* لمنع النص من الانتقال إلى سطر جديد */
 } 
 
-
+#leaderboardnavbarBalanceDisplay::before,
 #gnavbarBalanceDisplay::before,  
 #navbarBalanceDisplay::before,  
 #AccountnavbarBalanceDisplay::before, 
