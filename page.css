@@ -224,6 +224,26 @@
     transition: padding 0.2s ease; /* تأثير بسيط عند التمدد */
     min-width: 30px; /* عرض أدنى للعنصر */
     white-space: nowrap; /* لمنع النص من الانتقال إلى سطر جديد */
+} 
+
+
+#gnavbarBalanceDisplay::before,  
+#navbarBalanceDisplay::before,  
+#AccountnavbarBalanceDisplay::before, 
+#tasknavbarBalanceDisplay::before, 
+#puzzlenavbarBalanceDisplay::before,
+#BoostnavbarBalanceDisplay::before, 
+#lvlnavbarBalanceDisplay::before, 
+#miningnavbarBalanceDisplay::before {
+    content: ""; /* لا نحتاج نصًا هنا */
+    display: inline-block;
+    width: 28px; /* تحديد عرض الصورة */
+    height: 28px; /* تحديد ارتفاع الصورة */
+    background-image: url('i/coinnc.png'); /* مسار الصورة */
+    background-size: cover; /* لتغطية العنصر بالصورة بشكل جيد */
+    margin-right: 2px; /* مسافة بين الصورة والنص */
+    margin-left: 0;
+    vertical-align: middle; /* لضبط المحاذاة العمودية */
 }
 
 #globalNavbar {
