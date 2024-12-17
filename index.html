@@ -623,27 +623,63 @@
   </div>
     
 
+<!-- صفحه المتصدرين  -->
+<div id="leaderboardPage" class="screen-content hidden">
+  <div id="globalNavbar">
+     <div id="balanceContainer">
+       <span id="leaderboardnavbarBalanceDisplay">0.00</span> <!-- الرصيد -->
+     </div>
+    </div>
+    <img src="i/video.gif" alt="Leaders Image" class="Leaders-image">
+    <p id="Leaders-txt">Leaderboard</p>
+
+    <!-- عرض ترتيب المستخدم الشخصي -->
+    <div id="userRanking" class="user-ranking">
+        <div class="leaderboard-row" id="currentUserRow">
+            <img src="https://sawcoin.vercel.app/i/users.jpg" alt="User Avatar" class="leaderboard-avatar" id="userAvatar" />
+            <span class="leaderboard-username" id="userUsername">--</span>
+            <span class="leaderboard-balance" id="userBalance">-- Coins</span>
+            <span class="leaderboard-rank" id="userRank">#--</span>
+        </div>
+    </div>
+    <p id="Leaders-txxt">Top 10</p>
+    <!-- عرض قائمة أفضل 10 لاعبين -->
+    <div id="leaderboardContainer" class="leaderboard-container">
+        <!-- يتم ملء هذه القائمة ديناميكيًا -->
+    </div>
+ </div>
+    
+
 <!-- Bottom Navigation -->
-     <nav class="menu">
-   <button data-target="mainPage">
-        <i class="fa-solid fa-house"></i>
-        <span>Main</span>
-   </button>
+ <nav class="menu">
    <button data-target="boostsPage">
         <i class="fa-solid fa-rocket"></i>
         <span>Boosts</span>
-    </button>
+   </button>
+
     <button data-target="accountPage">
         <i class="fa-solid fa-user-friends"></i>
         <span>Friends</span>
     </button>
-    <button data-target="tasksPage">
+         
+    <button data-target="mainPage">
+        <i class="fa-solid fa-house"></i>
+        <span>Main</span>
+     </button>
+         
+     <button data-target="leaderboardPage">
+       <i class="fa-solid fa-ranking-star"></i>
+        <span>Leaders</span>
+     </button>
+
+     <button data-target="tasksPage">
         <i class="fa-solid fa-coins"></i>
       <!--  <i class="fa-solid fa-list-check"></i>-->
         <span>Earn</span>
-    </button>
-     </nav>
-    
+     </button>
+ </nav>
+
+     
     <script type="module" src="script-sdgbj540767989.js"></script>
     <script type="module" src="Scripts/Not-saving.js"></script>
     
