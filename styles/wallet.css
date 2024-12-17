@@ -37,12 +37,11 @@
 
 #Buttoncontainer {
   position: absolute;
-  width: 25%;
+  width: 35%;
   height: 30px;
-  padding: 5px;
   border-radius: 20px; 
-  top: 12px; /* المسافة من الأعلى */
-  right: 17px; /* المسافة من اليمين */
+  top: 15px; /* المسافة من الأعلى */
+  right: 12px; /* المسافة من اليمين */
   display: flex;
   gap: 15px; /* المسافة بين الأزرار */
   z-index: 1000; /* التأكد من أن الأزرار في المقدمة */
@@ -55,8 +54,8 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: rgba(255, 255, 255, 0.00009);
     backdrop-filter: blur(5px); 
-    width: 35px; /* تحديد عرض ثابت */
-    height: 35px; /* نفس القيمة مثل العرض */
+    width: 30px; /* تحديد عرض ثابت */
+    height: 30px; /* نفس القيمة مثل العرض */
     padding: 0; /* لضبط المساحة الداخلية */
     border-radius: 50%;
     margin-left: 5px; 
