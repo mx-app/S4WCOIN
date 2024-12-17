@@ -46,15 +46,13 @@
             </div>
           </div>
             
-             <div class="right-section animated-element">
-               <div id="energyInfo">
-                 <i class="fa-solid fa-bolt"></i> 500/500
-             </div>
-          </div>
-
-
-           <!-- زر المحفظة -->
+             <!-- زر المحفظة -->
             <div id="Buttoncontainer">
+                <!-- زر الألعاب -->
+             <button data-target="gamePage" class="Play-game-button">
+               <i class="fa-solid fa-gamepad"></i>
+             </button>
+                
              <button data-target="walletPage" class="wallet-button">
                 <i class="fa-solid fa-wallet"></i>
              </button>
@@ -64,15 +62,6 @@
                 <i class="fa-solid fa-user-gear"></i>
              </button>
             </div>
-            
-            <!-- زر الألعاب -->
-             <button data-target="gamePage" class="Play-game-button">
-               <i class="fa-solid fa-gamepad"></i>
-              Game
-             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="arrow">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-             </svg>
-             </button>
 
           <!--  <div id="mineeContainer" class="minee-container"> -->
               <div id="balanceC" class="balance-c">
@@ -89,7 +78,7 @@
              </div>
              
             <div class="energy-bar-container">
-              <i class="fa-solid fa-bolt energy-icon"></i>
+              <div id="energyInfo"> 500/500 </div>
                 <div class="progress-bar">
                 <div class="progress-bar-inner" id="energyBar"></div>
              </div>
