@@ -294,7 +294,7 @@ img {
     display: inline-block;
     width: 50px; /* عرض الصورة */
     height: 50px; /* ارتفاع الصورة */
-    background-image: url('i/coinnc.png'); /* رابط الصورة */
+    background-image: url('i/coinss.png'); /* رابط الصورة */
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center; /* تمركز الصورة */
@@ -924,9 +924,9 @@ img {
 #miningnavbarBalanceDisplay::before {
     content: ""; /* لا نحتاج نصًا هنا */
     display: inline-block;
-    width: 26px; /* تحديد عرض الصورة */
-    height: 26px; /* تحديد ارتفاع الصورة */
-    background-image: url('i/coinns.png'); /* مسار الصورة */
+    width: 25px; /* تحديد عرض الصورة */
+    height: 25px; /* تحديد ارتفاع الصورة */
+    background-image: url('i/coinnc.png'); /* مسار الصورة */
     background-size: cover; /* لتغطية العنصر بالصورة بشكل جيد */
     margin-right: 1px; /* مسافة بين الصورة والنص */
     vertical-align: middle; /* لضبط المحاذاة العمودية */
