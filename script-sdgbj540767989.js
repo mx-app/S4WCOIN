@@ -971,7 +971,7 @@ async function loadFriendsList() {
 
                     // إنشاء عنصر الصورة الافتراضية
                     const img = document.createElement('img');
-                    img.src = 'i/users.jpg'; // رابط الصورة الافتراضية
+                    img.src = 'i/usere.jpg'; // رابط الصورة الافتراضية
                     img.alt = `${friend.telegram_id} Avatar`;
                     img.classList.add('friend-avatar');
 
