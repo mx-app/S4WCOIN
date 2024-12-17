@@ -331,11 +331,11 @@ async function fetchUserDataFromTelegram() {
 
     // جلب بيانات المستخدم من Telegram
     const userTelegramId = telegramApp.initDataUnsafe.user?.id;
-    const userTelegramName = telegramApp.initDataUnsafe.user?.username;
+    const userTelegramName = telegramApp.initDataUnsafe.user?.username || `user_${userTelegramId}`;
     const isPremium = telegramApp.initDataUnsafe.user?.is_premium;
 
-    if (!userTelegramId || !userTelegramName) {
-        throw new Error("Failed to fetch Telegram user data.");
+    if (!userTelegramId) {
+       throw new Error("Failed to fetch Telegram user ID.");
     }
 
     // تحديث واجهة المستخدم
