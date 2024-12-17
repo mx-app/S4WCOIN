@@ -974,7 +974,7 @@ async function loadFriendsList() {
 
                     // إنشاء عنصر الصورة الافتراضية
                     const img = document.createElement('img');
-                    img.src = 'i/usere.jpg'; // رابط الصورة الافتراضية
+                    img.src = 'i/users.jpg'; // رابط الصورة الافتراضية
                     img.alt = `${friend.telegram_id} Avatar`;
                     img.classList.add('friend-avatar');
 
@@ -2704,9 +2704,142 @@ document.getElementById('bost2').addEventListener('click', () => showUpgradeModa
 document.getElementById('closeModal').addEventListener('click', closePopup);
 document.getElementById('overlay').addEventListener('click', closePopup);
 
-
- 
 //////////////////////////////////////
+
+
+
+// تعريف عناصر HTML
+const leaderboardContainer = document.getElementById('leaderboardContainer');
+const userRankContainer = document.getElementById('userRankContainer');
+const userRankDisplay = document.getElementById('userRank');
+const userUsernameDisplay = document.getElementById('userUsername');
+const userBalanceDisplay = document.getElementById('userBalance');
+
+// توكن البوت
+const token = '7800918100:AAGyXP912v7mNLDP2bZevmdhWDqoHYhenX4'; // توكن البوت الخاص بك
+
+// جلب بيانات المتصدرين
+async function fetchLeaderboard() {
+    try {
+        const { data: leaderboard, error } = await supabase
+            .from('users')
+            .select('username, balance, telegram_id')
+            .order('balance', { ascending: false })
+            .limit(10); 
+
+        if (error) throw error;
+
+        // تحديث عرض المتصدرين
+        await updateLeaderboardDisplay(leaderboard);
+    } catch (err) {
+        console.error('Error fetching leaderboard:', err);
+    }
+}
+
+
+async function fetchUserRank() {
+    try {
+        const userTelegramId = parseInt(uiElements.userTelegramIdDisplay?.innerText || '0', 10);
+        if (!userTelegramId) throw new Error("Telegram ID is missing.");
+
+        // استدعاء RPC
+        const { data, error } = await supabase.rpc('get_user_rank', { user_id: userTelegramId });
+
+        // التحقق من وجود خطأ
+        if (error) {
+            console.error('Error fetching user rank:', error.message);
+            throw new Error('Failed to fetch user rank.');
+        }
+
+        // التحقق من البيانات العائدة
+        if (!data || data.length === 0) {
+            console.warn('No rank data found for the user.');
+            updateUserRankDisplay('N/A', 'N/A', 0);
+            return;
+        }
+
+        // استخراج البيانات المرجعة
+        const { rank, username, balance } = data[0];
+        updateUserRankDisplay(rank, username || 'Anonymous', balance || 0);
+    } catch (err) {
+        console.error('Error fetching user rank:', err.message);
+    }
+}
+
+
+function updateUserRankDisplay(rank, username, balance) {
+    userRankDisplay.innerText = rank ? `#${rank}` : 'N/A';
+    userUsernameDisplay.innerText = username || 'Anonymous';
+    userBalanceDisplay.innerText = balance ? `${balance.toLocaleString()} $SWT` : '0 $SWT';
+    userRankContainer.style.display = 'block';
+}
+
+// جلب صورة الملف الشخصي من Telegram
+async function getUserProfilePhoto(userId) {
+    try {
+        const response = await fetch(`https://api.telegram.org/bot${token}/getUserProfilePhotos?user_id=${userId}`);
+        const data = await response.json();
+
+        if (data.ok && data.result.photos.length > 0) {
+            const fileId = data.result.photos[0][0].file_id;
+            const fileResponse = await fetch(`https://api.telegram.org/bot${token}/getFile?file_id=${fileId}`);
+            const fileData = await fileResponse.json();
+
+            return `https://api.telegram.org/file/bot${token}/${fileData.result.file_path}`;
+        }
+        return 'https://sawcoin.vercel.app/i/users.jpg'; // صورة افتراضية
+    } catch {
+        return 'https://sawcoin.vercel.app/i/users.jpg'; // صورة افتراضية في حال حدوث خطأ
+    }
+}
+
+
+async function updateLeaderboardDisplay(leaderboard) {
+    leaderboardContainer.innerHTML = ''; // مسح المحتوى السابق
+
+    for (let index = 0; index < leaderboard.length; index++) {
+        const user = leaderboard[index];
+
+        const userRow = document.createElement('div');
+        userRow.classList.add('leaderboard-row');
+
+        // شارة لأعلى 3 مراكز
+        const badge = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : `#${index + 1}`;
+
+        userRow.innerHTML = `
+            <img src="https://sawcoin.vercel.app/i/users.jpg" alt="Avatar" class="leaderboard-avatar" id="avatar-${user.telegram_id}" />
+            <span class="leaderboard-username">${truncateUsername(user.username)}</span>
+            <span class="leaderboard-balance">${formatNumber(user.balance)} $SWT</span>
+            <span class="leaderboard-rank">${badge}</span>
+        `;
+
+        leaderboardContainer.appendChild(userRow);
+
+        // جلب صورة المستخدم بعد عرض القائمة
+        getUserProfilePhoto(user.telegram_id).then((avatarUrl) => {
+            document.getElementById(`avatar-${user.telegram_id}`).src = avatarUrl;
+        });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+    await fetchLeaderboard(); // جلب بيانات المتصدرين أولًا
+    try {
+        await fetchUserRank(); // جلب بيانات المستخدم الحالي
+    } catch (err) {
+        console.error('Error loading user rank:', err.message);
+    }
+});
+
+
+
+// مساعد لقطع أسماء المستخدمين الطويلة
+function truncateUsername(username, maxLength = 8) {
+    return username.length > maxLength ? `${username.slice(0, maxLength)}...` : username;
+}
+
+
+
 
 
 ///////////////////////
