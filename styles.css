@@ -292,8 +292,8 @@ img {
 #balanceAmount::before {
     content: "";
     display: inline-block;
-    width: 50px; /* عرض الصورة */
-    height: 50px; /* ارتفاع الصورة */
+    width: 38px; /* عرض الصورة */
+    height: 38px; /* ارتفاع الصورة */
     background-image: url('i/coinss.png'); /* رابط الصورة */
     background-size: contain;
     background-repeat: no-repeat;
