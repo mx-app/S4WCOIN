@@ -395,8 +395,10 @@ img {
     -webkit-background-clip: text; 
     background-clip: text;
     color: transparent;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 16px; /* حجم الخط */
+    font-family: 'Rubik',sans-serif ;
+    font-weight: 700;
+   /* font-family: 'JetBrains Mono', monospace;*/
+    font-size: 15px; /* حجم الخط */
     text-align: center; /* المحاذاة لليسار */
     margin-left: 4px;
     margin-right: 4px;
