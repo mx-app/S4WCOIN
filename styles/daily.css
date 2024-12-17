@@ -244,7 +244,7 @@
 #login1 {
     color: #fff; /* لون النص */
     font-size: 18px; /* حجم الخط */
-    margin-top: 0; /* إزالة المسافة من الأعلى */
+    margin-top: 7px; /* إزالة المسافة من الأعلى */
     margin-bottom: 0;
     text-align: center;
 }
