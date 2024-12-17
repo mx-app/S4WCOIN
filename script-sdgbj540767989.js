@@ -2739,7 +2739,7 @@ async function fetchLeaderboard() {
 
 async function fetchUserRank() {
     try {
-        const userTelegramId = parseInt(uiElements.userTelegramIdDisplay?.innerText || '0', 10);
+        const userId = uiElements.userTelegramIdDisplay.innerText;
         if (!userTelegramId) throw new Error("Telegram ID is missing.");
 
         // استدعاء RPC
