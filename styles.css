@@ -521,6 +521,7 @@ img {
 }
 
 .menu button.active img {
+    opacity: 1;
     position: relative;
     z-index: 2; /* وضع الصورة فوق الخلفية */
 } 
@@ -537,8 +538,9 @@ img {
 }
 
 .existing-image {
-    width: 24px; /* عرض مناسب للصورة */
-    height: 24px; /* ارتفاع مناسب للصورة */
+    opacity: 0.7;
+    width: 40px; /* عرض مناسب للصورة */
+    height: 40px; /* ارتفاع مناسب للصورة */
     object-fit: contain; /* احتواء الصورة */
 }
  
