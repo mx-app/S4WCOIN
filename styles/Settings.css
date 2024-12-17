@@ -221,12 +221,12 @@
 
 .contact-support i, .contact-support-Chat i{
     font-size: 1.5rem;
-    color: #2D83EC;
+    color: #fff;
 }  
 
 .contact-support-Chat {
   top: 18px;
-  right: 50px; /* البدء من منتصف الشاشة */
+  right: 80px; /* البدء من منتصف الشاشة */
   position: absolute; 
   z-index: 100; /* التأكد من ظهور العنصر فوق باقي العناصر */
 }  
