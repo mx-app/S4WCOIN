@@ -2740,7 +2740,7 @@ async function fetchLeaderboard() {
 async function fetchUserRank() {
     try {
         // قراءة معرف المستخدم الحالي
-        const userTelegramId = parseInt(uiElements.userTelegramIdDisplay?.innerText || '0', 10);
+        const userTelegramId = uiElements.userTelegramIdDisplay.innerText; // الحصول على Telegram ID من واجهة المستخدم
         if (!userTelegramId) throw new Error("Telegram ID is missing or invalid.");
 
         console.log("Fetching rank for Telegram ID:", userTelegramId);
