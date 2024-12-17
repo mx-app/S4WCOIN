@@ -896,7 +896,8 @@ img {
     margin-left: 20px;
  } 
 
-#hourlyEarningsContainer {
+
+/*#hourlyEarningsContainer {
     position: absolute;
     top: 12px;
     left: 17px; 
@@ -904,13 +905,11 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    /*background: #101010;*/
     padding: 5px;
-  /*  border-radius: 25px;*/
     color: #fff;
     z-index: 10; 
     transform: translateY(-1px); 
-}
+}*/
 
 
 .user-svg {
@@ -1036,15 +1035,15 @@ img {
     position: relative; 
 }
 
-#welcomeMessage {
+/*#welcomeMessage {
     position: absolute;
     top: 11px;
     left: 45px;
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 6px; /* مسافة بين النصوص */
-}
+    gap: 6px; 
+}*/
 
 #welcomeText {
     color: #fff;
@@ -1056,20 +1055,21 @@ img {
     font-size: 15px;
     color: #fff; /* لون أفتح قليلاً لتمييز الاسم */
     margin-right: 10px;
+    margin-left: 5px;
     animation: popIn 0.4s ease forwards;
 }
 
-.user-details-i {
-    position: absolute; /* تحديد الموقع بالنسبة للشاشة */
-    top: 18px; /* المسافة من الأعلى */
-    left: 24px; /* المسافة من اليسار */
-    z-index: 100; /* لضمان الظهور فوق العناصر الأخرى */
+/*.user-details-i {
+    position: absolute; 
+    top: 18px; 
+    left: 24px; 
+    z-index: 100; 
     animation: popIn 0.4s ease forwards;
-}
+}*/
 
 .userrr-image {
-    width: 32px; /* عرض الصورة */
-    height: 32px; /* ارتفاع الصورة */
+    width: 30px; /* عرض الصورة */
+    height: 30px; /* ارتفاع الصورة */
     border-radius: 50%; /* جعل الصورة دائرية */
     object-fit: cover; /* تأكد من احتواء الصورة داخل الدائرة */
     border: 1px solid #161616; /* إضافة إطار أبيض حول الصورة */
@@ -1081,3 +1081,4 @@ img {
     color:#2D83EC;
     margin-right: 1px;
 }    
+
