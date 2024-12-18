@@ -916,7 +916,7 @@ function applyGradientToLevel(element, level) {
 
 
 
-// تحسين عرض قائمة الأصدقاء
+ // تحسين عرض قائمة الأصدقاء مع حد أقصى 10 أصدقاء
 async function loadFriendsList() {
     const userId = uiElements.userTelegramIdDisplay.innerText;
 
@@ -944,8 +944,11 @@ async function loadFriendsList() {
         if (data && data.invites && Array.isArray(data.invites) && data.invites.length > 0) {
             uiElements.friendsListDisplay.innerHTML = ''; // مسح القائمة القديمة
 
+            // تحديد الحد الأقصى إلى 10 أصدقاء فقط
+            const limitedInvites = data.invites.slice(0, 10);
+
             // جلب بيانات الأصدقاء بما في ذلك الرصيد لكل معرف
-            const friendsPromises = data.invites.map(async (friendId) => {
+            const friendsPromises = limitedInvites.map(async (friendId) => {
                 const { data: friendData, error: friendError } = await supabase
                     .from('users')
                     .select('telegram_id, balance')
@@ -2635,7 +2638,7 @@ async function fetchLeaderboard() {
             .from('users')
             .select('username, balance, telegram_id')
             .order('balance', { ascending: false })
-            .limit(10); 
+            .limit(5); 
 
         if (error) throw error;
 
