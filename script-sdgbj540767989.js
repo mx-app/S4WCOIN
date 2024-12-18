@@ -81,7 +81,6 @@ let gameState = {
     tasksprogress: [],
     completedTasks: [],
     puzzlesprogress:[], 
-    usedPromoCodes: [],
     lastLoginDate: null, // تاريخ آخر تسجيل دخول
     consecutiveDays: 0,  // عدد الأيام المتتالية التي تم المطالبة فيها بالمكافآت
 };
@@ -162,7 +161,6 @@ async function saveGameState() {
         claimed_rewards: gameState.claimedRewards,
         tasks_progress: gameState.tasksProgress,
         puzzles_progress: gameState.puzzlesProgress,
-        used_promo_codes: gameState.usedPromoCodes,
         last_login_date: gameState.lastLoginDate ? new Date(gameState.lastLoginDate).toISOString() : null,
         consecutive_days: gameState.consecutiveDays,
         achieved_Levels: gameState.achievedLevels,
@@ -1072,7 +1070,6 @@ async function updateUserData() {
             tasks_progress: gameState.tasksprogress, 
             completed_tasks: gameState.completedTasks, 
             puzzles_progress: gameState.puzzlesprogress, 
-            used_Promo_Codes: gameState.usedPromoCodes, 
             achieved_Levels: gameState.achievedLevels, 
             last_login_date: gameState.lastLoginDate ? new Date(gameState.lastLoginDate).toISOString() : null,
             consecutive_days: gameState.consecutiveDays, 
