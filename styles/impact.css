@@ -2,7 +2,7 @@
     animation: slideInLeft 0.4s ease forwards;
 }
 
-#gameC-2, #bost1, #daily2 {
+#gameC-2, #bost1, #daily2, .user-ranking {
     animation: slideInRight 0.4s ease forwards;
 }
 
@@ -22,7 +22,7 @@
     animation: slideInLeft 0.4s ease forwards;
 }
 
-.contact-support-Chat, .contact-support, .contact-support-community, .user-ranking {
+.contact-support-Chat, .contact-support, .contact-support-community, .Leaders-image {
    animation: popIn 0.4s ease forwards;
 }
 
