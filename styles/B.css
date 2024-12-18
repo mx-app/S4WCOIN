@@ -1,7 +1,7 @@
 #boos-txt {
     text-align: center;
     margin-top: 10px;
-    margin-bottom: 10px; /* يمكنك تغيير القيمة حسب المسافة التي تريدها */
+    margin-bottom: 0; /* يمكنك تغيير القيمة حسب المسافة التي تريدها */
     font-weight: bold;
     font-size: 20px; 
 }
@@ -57,7 +57,7 @@
     height: auto;
     margin: 10px auto;
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 } 
 
 /* النصوص العامة */
