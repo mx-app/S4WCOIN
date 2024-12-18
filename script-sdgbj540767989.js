@@ -81,9 +81,7 @@ let gameState = {
     tasksprogress: [],
     completedTasks: [],
     puzzlesprogress:[], 
-    caesarPuzzleProgress:[], 
     usedPromoCodes: [],
-    ciphersProgress:[],
     lastLoginDate: null, // تاريخ آخر تسجيل دخول
     consecutiveDays: 0,  // عدد الأيام المتتالية التي تم المطالبة فيها بالمكافآت
 };
@@ -165,11 +163,9 @@ async function saveGameState() {
         tasks_progress: gameState.tasksProgress,
         puzzles_progress: gameState.puzzlesProgress,
         used_promo_codes: gameState.usedPromoCodes,
-        morse_ciphers_progress: gameState.ciphersProgress,
         last_login_date: gameState.lastLoginDate ? new Date(gameState.lastLoginDate).toISOString() : null,
         consecutive_days: gameState.consecutiveDays,
         achieved_Levels: gameState.achievedLevels,
-        caesar_puzzles_progress: gameState.caesarPuzzleProgress, 
         
     };
 
@@ -1077,11 +1073,9 @@ async function updateUserData() {
             completed_tasks: gameState.completedTasks, 
             puzzles_progress: gameState.puzzlesprogress, 
             used_Promo_Codes: gameState.usedPromoCodes, 
-            morse_ciphers_progress: gameState.ciphersProgress, 
             achieved_Levels: gameState.achievedLevels, 
             last_login_date: gameState.lastLoginDate ? new Date(gameState.lastLoginDate).toISOString() : null,
             consecutive_days: gameState.consecutiveDays, 
-            caesar_puzzles_progress: gameState.caesarPuzzleProgress, 
      
         })
         .eq('telegram_id', userId);
