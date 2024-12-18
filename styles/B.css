@@ -1,3 +1,11 @@
+#boos-txt {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px; /* يمكنك تغيير القيمة حسب المسافة التي تريدها */
+    font-weight: bold;
+    font-size: 20px; 
+}
+
 #upgradeTitle {
     font-size: 18px;
     margin-top: 5px;
