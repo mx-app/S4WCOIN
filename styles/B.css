@@ -49,15 +49,14 @@
 }
 
 .bos-image {
-   position: absolute; 
+   /* position: absolute; 
     top: 65px; 
     left: 50%;
-    transform: translateX(-50%); 
+    transform: translateX(-50%);*/
     width: 150px;
     height: auto;
     display: block;
-    margin-bottom: 20px; 
-    z-index: 0;
+    margin-bottom: 20px;
 } 
 
 /* النصوص العامة */
