@@ -1887,13 +1887,14 @@ function showContent(contentId) {
 ///////////////////////////////////////
 
 
-document.getElementById('applyPromoCode')?.addEventListener('click', async () => {
+
+ document.getElementById('applyPromoCode')?.addEventListener('click', async () => {
     const applyButton = document.getElementById('applyPromoCode');
     const promoCodeInput = document.getElementById('promoCodeInput');
     if (!applyButton || !promoCodeInput) return;
 
     const enteredCode = promoCodeInput.value.trim();
-    const userId = uiElements.userTelegramIdDisplay.innerText; // معرف المستخدم
+    const AdController = window.Adsgram.init({ blockId: "int-5511" });
 
     // إخفاء نص الزر وعرض دائرة التحميل
     applyButton.innerHTML = '';
@@ -1915,15 +1916,17 @@ document.getElementById('applyPromoCode')?.addEventListener('click', async () =>
         const promoCodes = promoData.promoCodes;
 
         // تحقق مما إذا كان البرومو كود مستخدمًا مسبقًا
-        const alreadyUsed = checkIfPromoCodeUsed(userId, enteredCode);
+        const alreadyUsed = checkIfPromoCodeUsed(enteredCode);
 
         if (alreadyUsed) {
-            // عند استخدام الكود مسبقًا
             applyButton.innerHTML = '‼️';
             showNotification(uiElements.purchaseNotification, 'You have already used this promo code.');
 
+            // عرض الإعلان
+            showAd(AdController);
+
             setTimeout(() => {
-                resetApplyButton(applyButton, spinner);
+                resetButton(applyButton, spinner);
             }, 3000);
             return;
         }
@@ -1939,46 +1942,67 @@ document.getElementById('applyPromoCode')?.addEventListener('click', async () =>
             updateUI();
 
             // حفظ الكود ككود مستخدم
-            addPromoCodeToUsed(userId, enteredCode);
+            addPromoCodeToUsed(enteredCode);
 
             applyButton.innerHTML = '✔️';
             showNotificationWithStatus(uiElements.purchaseNotification, `Successfully added ${reward} $SWT to your balance!`, 'win');
 
+            // عرض الإعلان
+            showAd(AdController);
+
             // حفظ الحالة الحالية
             saveGameState();
+            localStorage.setItem('balance', gameState.balance);
         } else {
-            // إذا كان الكود غير صالح
             applyButton.innerHTML = '❌';
             showNotification(uiElements.purchaseNotification, 'Invalid promo code.');
+
+            // عرض الإعلان
+            showAd(AdController);
         }
     } catch (error) {
         console.error('Error processing promo code:', error);
         applyButton.innerHTML = 'Error';
     } finally {
+        // مسح محتوى خانة الإدخال وإعادة النص العادي للزر بعد 3 ثوانٍ
+        promoCodeInput.value = '';
         setTimeout(() => {
-            resetApplyButton(applyButton, spinner);
+            resetButton(applyButton, spinner);
         }, 3000);
     }
 });
 
-// دالة لإعادة تعيين زر "تطبيق"
-function resetApplyButton(button, spinner) {
-    button.innerHTML = 'Apply';
-    button.classList.remove('loading');
-    spinner.remove();
-}
-
 // دالة للتحقق مما إذا كان البرومو كود مستخدمًا مسبقًا
-function checkIfPromoCodeUsed(userId, enteredCode) {
-    const usedPromoCodes = JSON.parse(localStorage.getItem(`usedPromoCodes_${userId}`)) || [];
+function checkIfPromoCodeUsed(enteredCode) {
+    const usedPromoCodes = JSON.parse(localStorage.getItem('usedPromoCodes')) || [];
     return usedPromoCodes.includes(enteredCode);
 }
 
 // دالة لإضافة البرومو كود إلى الأكواد المستخدمة
-function addPromoCodeToUsed(userId, enteredCode) {
-    const usedPromoCodes = JSON.parse(localStorage.getItem(`usedPromoCodes_${userId}`)) || [];
-    usedPromoCodes.push(enteredCode);
-    localStorage.setItem(`usedPromoCodes_${userId}`, JSON.stringify(usedPromoCodes));
+function addPromoCodeToUsed(enteredCode) {
+    const usedPromoCodes = JSON.parse(localStorage.getItem('usedPromoCodes')) || [];
+    if (!usedPromoCodes.includes(enteredCode)) {
+        usedPromoCodes.push(enteredCode);
+        localStorage.setItem('usedPromoCodes', JSON.stringify(usedPromoCodes));
+    }
+}
+
+// دالة لعرض الإعلان
+function showAd(adController) {
+    setTimeout(() => {
+        adController.show().then(() => {
+            console.log("Ad viewed successfully");
+        }).catch(err => {
+            console.error("Error showing ad:", err);
+        });
+    }, 2000);
+}
+
+// دالة لإعادة تعيين الزر
+function resetButton(button, spinner) {
+    button.innerHTML = 'Apply';
+    button.classList.remove('loading');
+    spinner.remove();
 }
 
 // عند الضغط على زر برومو كود
@@ -2002,8 +2026,6 @@ function closePromoModal() {
     document.getElementById('promoContainer').classList.add('hidden');
     document.getElementById('promocodeoverlay').style.display = 'none'; // إخفاء الشفافية
 }
-
-
 
 
 /////////////////////////////////////////
