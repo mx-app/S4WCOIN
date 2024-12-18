@@ -2758,10 +2758,10 @@ function truncateUsername(username, maxLength = 8) {
 //////////////////////
 
 
-//function clearAllLocalStorage() {
-   // localStorage.clear(); 
-   // console.log("All local storage data has been cleared.");
-//}
+function clearAllLocalStorage() {
+    localStorage.clear(); 
+    console.log("All local storage data has been cleared.");
+}
 
 
 /////////////////////////
