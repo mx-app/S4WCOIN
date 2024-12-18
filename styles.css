@@ -469,12 +469,10 @@ img {
  
 .menu {
     border-bottom: 1px solid #1c1c1c;
-    border-right: 1px solid #1c1c1c;
     display: flex;
     justify-content: space-between;
-    padding: 5px;
-    background-color: rgba(16, 16, 16, 0.9); 
-   /* background-color: #101010;*/
+    padding: 10px 5px;
+    background-color: rgba(16, 16, 16, 0.9);
     position: fixed;
     bottom: 13px;
     border-radius: 20px;
@@ -482,55 +480,61 @@ img {
     left: 50%;
     transform: translateX(-50%);
     z-index: 100;
-    transition: box-shadow 0.3s ease; /* إضافة انتقال سلس للتأثير */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-} 
+}
 
 .menu button {
     color: #808080;
-    padding: 4px;
-    box-sizing: border-box; 
     font-size: 12px;
     cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
     flex: 1;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    position: relative;
     background: none;
+    border: none;
     margin: 2px;
     font-weight: 600;
-    margin-bottom: 5px;
 }
 
-.menu button.active {
-    color: #fff; /* اللون الأبيض للنص عند النشاط */
-    background: none; 
+.menu button span {
+    margin-top: 5px;
+    font-size: 11px;
+    color: #808080;
+}
+
+.menu button .icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: transparent;
+    transition: all 0.3s ease;
 }
 
 .menu button i {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
+    font-size: 1.4rem;
+    color: #808080;
+    transition: color 0.3s ease;
+}
+
+.menu button.active .icon-wrapper {
+    background-color: #2D83EC;
 }
 
 .menu button.active i {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-    background: linear-gradient(to right, #2D83EC, #4375ca, #0088CC);
-    -webkit-background-clip: text; /* تطبيق التدرج على النص */
-    -webkit-text-fill-color: transparent; /* جعل النص شفافًا ليظهر التدرج */
+    color: #fff;
 }
 
-.menu button.active img {
-    opacity: 1;
-    position: relative;
-    z-index: 2; /* وضع الصورة فوق الخلفية */
+.menu button.active span {
+    color: #fff;
+}
+
+.menu button:hover .icon-wrapper {
+    background-color: rgba(45, 131, 236, 0.5);
 } 
-
-.menu button:hover::before {
-    opacity: 1;  /* جعل الخط مرئي عند التمرير أو عندما يكون الزر نشطًا */
-}
  
 .menu-img {
     width: 33px;
