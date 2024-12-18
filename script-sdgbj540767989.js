@@ -76,6 +76,9 @@ let gameState = {
     lastFillTime: Date.now(),
     freeEnergyFillTime: null,
     invites: [],
+    
+    claimedRewards: { levels: [] },
+    
     tasksprogress: [],
     completedTasks: [],
     puzzlesprogress:[], 
@@ -156,6 +159,9 @@ async function saveGameState() {
         fill_energy_count: gameState.fillEnergyCount,
         last_fill_time: new Date(gameState.lastFillTime).toISOString(),
         invites: gameState.invites,
+        
+        claimed_rewards: gameState.claimedRewards,
+      
         tasks_progress: gameState.tasksProgress,
         puzzles_progress: gameState.puzzlesProgress,
         last_login_date: gameState.lastLoginDate ? new Date(gameState.lastLoginDate).toISOString() : null,
@@ -1063,6 +1069,9 @@ async function updateUserData() {
             fill_energy_count: gameState.fillEnergyCount,
             last_fill_time: new Date(gameState.lastFillTime).toISOString(),
             invites: gameState.invites,
+            
+            claimed_rewards: gameState.claimedRewards, // حفظ المكافآت المحصلة في قاعدة البيانات
+        
             tasks_progress: gameState.tasksprogress, 
             completed_tasks: gameState.completedTasks, 
             puzzles_progress: gameState.puzzlesprogress, 
