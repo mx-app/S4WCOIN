@@ -570,9 +570,9 @@ img {
 
 .confirmation-modal, .modal-content {
     background: rgba(255, 255, 255, 0.1); /* لون شبه شفاف */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* ظل خفيف */
     backdrop-filter: blur(3px); /* التأثير الضبابي */
-    border: 1px solid rgba(255, 255, 255, 0.2); /* حدود زجاجية */
+    border: 1px solid rgba(255, 255, 255, 0.05); /* حدود زجاجية */
 
   /*  background-color: #101010;*/
     padding: 20px;
