@@ -2703,24 +2703,6 @@ document.getElementById('overlay').addEventListener('click', closePopup);
 
 
 
-document.addEventListener('DOMContentLoaded', async () => {
-    // التحقق من تحميل جميع العناصر الأساسية
-    if (!leaderboardContainer || !userRankContainer || !userRankDisplay || !userUsernameDisplay || !userBalanceDisplay) {
-        console.error('Some HTML elements are missing. Please check the DOM structure.');
-        return;
-    }
-
-    try {
-        // جلب بيانات المتصدرين
-        await fetchLeaderboard();
-
-        // جلب بيانات ترتيب المستخدم
-        await fetchUserRank();
-    } catch (err) {
-        console.error('Error during initialization:', err.message);
-    }
-});
-
 // تعريف عناصر HTML
 const leaderboardContainer = document.getElementById('leaderboardContainer');
 const userRankContainer = document.getElementById('userRankContainer');
@@ -2738,7 +2720,7 @@ async function fetchLeaderboard() {
             .from('users')
             .select('username, balance, telegram_id')
             .order('balance', { ascending: false })
-            .limit(10);
+            .limit(10); 
 
         if (error) throw error;
 
@@ -2749,10 +2731,11 @@ async function fetchLeaderboard() {
     }
 }
 
+
 async function fetchUserRank() {
     try {
         // قراءة معرف المستخدم الحالي
-        const userTelegramId = uiElements.userTelegramIdDisplay?.innerText; // الحصول على Telegram ID من واجهة المستخدم
+        const userTelegramId = uiElements.userTelegramIdDisplay.innerText; // الحصول على Telegram ID من واجهة المستخدم
         if (!userTelegramId) throw new Error("Telegram ID is missing or invalid.");
 
         console.log("Fetching rank for Telegram ID:", userTelegramId);
@@ -2790,6 +2773,7 @@ async function fetchUserRank() {
     }
 }
 
+
 function updateUserRankDisplay(rank, username, balance) {
     userRankDisplay.innerText = rank ? `#${rank}` : 'N/A';
     userUsernameDisplay.innerText = username || 'Anonymous';
@@ -2815,6 +2799,7 @@ async function getUserProfilePhoto(userId) {
         return 'https://sawcoin.vercel.app/i/users.jpg'; // صورة افتراضية في حال حدوث خطأ
     }
 }
+
 
 async function updateLeaderboardDisplay(leaderboard) {
     leaderboardContainer.innerHTML = ''; // مسح المحتوى السابق
@@ -2843,6 +2828,13 @@ async function updateLeaderboardDisplay(leaderboard) {
         });
     }
 }
+
+document.addEventListener('DOMContentLoaded', async () => {
+  await fetchLeaderboard(); 
+  await fetchUserRank();
+});
+
+
 
 // مساعد لقطع أسماء المستخدمين الطويلة
 function truncateUsername(username, maxLength = 8) {
