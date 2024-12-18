@@ -214,7 +214,7 @@
 
 .contact-support {
   top: 18px;
-  right: 125px; /* البدء من منتصف الشاشة */
+  left: 25px; /* البدء من منتصف الشاشة */
   position: absolute; 
   z-index: 100; /* التأكد من ظهور العنصر فوق باقي العناصر */
 } 
