@@ -16,7 +16,6 @@ const uiElements = {
     settingsBalanceDisplay: document.getElementById('settingsBalanceDisplay'),
     gnavbarBalanceDisplay: document.getElementById('gnavbarBalanceDisplay'),
     leaderboardnavbarBalanceDisplay: document.getElementById('leaderboardnavbarBalanceDisplay'),
-    
     energyBar: document.getElementById('energyBar'),
     energyInfo: document.getElementById('energyInfo'),
     languageBtn: document.getElementById('languageSwitchBtn'),
@@ -77,12 +76,11 @@ let gameState = {
     lastFillTime: Date.now(),
     freeEnergyFillTime: null,
     invites: [],
-    claimedRewards: { levels: [] }, 
     tasksprogress: [],
     completedTasks: [],
     puzzlesprogress:[], 
-    lastLoginDate: null, // تاريخ آخر تسجيل دخول
-    consecutiveDays: 0,  // عدد الأيام المتتالية التي تم المطالبة فيها بالمكافآت
+    lastLoginDate: null, 
+    consecutiveDays: 0, 
 };
 
 //تحديث البيانت من الواجهه الي قاعده البيانات 
@@ -158,7 +156,6 @@ async function saveGameState() {
         fill_energy_count: gameState.fillEnergyCount,
         last_fill_time: new Date(gameState.lastFillTime).toISOString(),
         invites: gameState.invites,
-        claimed_rewards: gameState.claimedRewards,
         tasks_progress: gameState.tasksProgress,
         puzzles_progress: gameState.puzzlesProgress,
         last_login_date: gameState.lastLoginDate ? new Date(gameState.lastLoginDate).toISOString() : null,
@@ -1066,7 +1063,6 @@ async function updateUserData() {
             fill_energy_count: gameState.fillEnergyCount,
             last_fill_time: new Date(gameState.lastFillTime).toISOString(),
             invites: gameState.invites,
-            claimed_rewards: gameState.claimedRewards, // حفظ المكافآت المحصلة في قاعدة البيانات
             tasks_progress: gameState.tasksprogress, 
             completed_tasks: gameState.completedTasks, 
             puzzles_progress: gameState.puzzlesprogress, 
@@ -1476,15 +1472,6 @@ function initializeTelegramIntegration() {
         const targetPageId = event.state ? event.state.target : mainPageId;
         navigateToPage(targetPageId);
     });
-
-    // تخصيص الألوان بناءً على الثيم
-    if (telegramApp.colorScheme === 'dark') {
-        document.documentElement.style.setProperty('--background-color', '#000');
-        document.documentElement.style.setProperty('--text-color', '#FFF');
-    } else {
-        document.documentElement.style.setProperty('--background-color', '#FFF');
-        document.documentElement.style.setProperty('--text-color', '#000');
-    }
 
     // فتح الصفحة الرئيسية عند تحميل التطبيق
     window.addEventListener("load", () => {
