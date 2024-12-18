@@ -466,8 +466,7 @@ img {
     }
 }
  
- 
-.menu {
+ .menu {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -483,6 +482,14 @@ img {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
+.menu-item-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
 .menu-item {
     background: none;
     border: none;
@@ -494,7 +501,6 @@ img {
     height: 50px;
     border-radius: 50%;
     margin: 0 10px;
-    position: relative;
     transition: all 0.3s ease;
 }
 
@@ -528,9 +534,6 @@ img {
     color: #808080;
     text-align: center;
     margin-top: 5px;
-    flex-basis: 100%;
-    position: relative;
-    top: -5px; /* لضبط المسافة بين النص والقائمة */
 }
 
 .menu-item:hover .icon-wrapper {
@@ -539,23 +542,9 @@ img {
 
 .menu-item:hover i {
     color: #fff;
-}  
-
-
-.menu-img {
-    width: 33px;
-    height: 33px;
-    margin-bottom: 3px;
-    background: transparent; 
 }
 
-.existing-image {
-    opacity: 0.8;
-    width: 40px; /* عرض مناسب للصورة */
-    height: 40px; /* ارتفاع مناسب للصورة */
-    object-fit: contain; /* احتواء الصورة */
-}
- 
+
 
 
 .confirmation-modal, .modal-content {
