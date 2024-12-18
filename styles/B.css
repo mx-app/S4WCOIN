@@ -146,7 +146,7 @@
     align-items: center; /* محاذاة الحاويات في المنتصف أفقيًا */
     justify-content: space-between; /* محاذاة العناصر في منتصف الصفحة */
     width: 100%; 
-    margin-top: 50px;
+    margin-top: 15px;
     z-index: 2; 
 }
 
