@@ -2,11 +2,11 @@
     animation: slideInLeft 0.4s ease forwards;
 }
 
-#gameC-2, #bost1, #daily2, .contact-support {
+#gameC-2, #bost1, #daily2, .user-ranking {
     animation: slideInRight 0.4s ease forwards;
 }
 
-#taskcontainer, .friend-item, #promocodeBtu {
+#taskcontainer, .friend-item, #promocodeBtu, #leaderboardContainer {
     animation: slideInLeft 0.4s ease forwards;
 }
 
@@ -22,9 +22,8 @@
     animation: slideInLeft 0.4s ease forwards;
 }
 
-/*.invite-content {
-    animation: slideInLeft 0.4s ease forwards;
-}*/
-
+.contact-support-Chat, .contact-support, .contact-support-community, .Leaders-image {
+   animation: popIn 0.4s ease forwards;
+}
 
 

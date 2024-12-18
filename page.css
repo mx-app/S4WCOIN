@@ -9,7 +9,7 @@
     height: 30px;
     z-index: 500;
     border: 1px solid #1c1c1c;
-    border-radius: 20px; /* زوايا مستديرة في الأسفل فقط */
+    border-radius: 25px; /* زوايا مستديرة في الأسفل فقط */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: rgba(255, 255, 255, 0.00009);
     backdrop-filter: blur(5px); 
@@ -40,7 +40,7 @@
 }
 
 #leaderboardPage {
-    padding-top: 40px;
+    padding-top: 50px;
     padding-bottom: 100px;
     overflow-y: auto;
     background-clip: padding-box;
@@ -73,6 +73,21 @@
     font-weight: bold;
     font-size: 15px; 
 }
+
+.user-ranking {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%; 
+    margin: 0 auto;
+    margin-bottom: 15px;
+    height: 60px;
+    border: 1px solid #1c1c1c;
+    border-radius: 20px; /* زوايا مستديرة في الأسفل فقط */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.00009);
+    backdrop-filter: blur(5px); 
+} 
 
 .leaderboard-row {
     display: flex;
@@ -232,7 +247,7 @@
 }
 
 
-#miningnavbarBalanceDisplay, #BoostnavbarBalanceDisplay, #tasknavbarBalanceDisplay, #navbarBalanceDisplay,
+#leaderboardnavbarBalanceDisplay, #miningnavbarBalanceDisplay, #BoostnavbarBalanceDisplay, #tasknavbarBalanceDisplay, #navbarBalanceDisplay,
 #lvlnavbarBalanceDisplay, #puzzlenavbarBalanceDisplay, #AccountnavbarBalanceDisplay, #gnavbarBalanceDisplay {
     font-size: 14px;
     margin-left: 0;
@@ -244,7 +259,7 @@
     white-space: nowrap; /* لمنع النص من الانتقال إلى سطر جديد */
 } 
 
-
+#leaderboardnavbarBalanceDisplay::before,
 #gnavbarBalanceDisplay::before,  
 #navbarBalanceDisplay::before,  
 #AccountnavbarBalanceDisplay::before, 

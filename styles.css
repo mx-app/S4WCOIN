@@ -264,7 +264,7 @@ img {
     align-items: center;
     justify-content: center;
     position: relative;
-    margin-top: 70px;
+    margin-top: 40px;
 }
 
 .Title {
@@ -292,13 +292,13 @@ img {
 #balanceAmount::before {
     content: "";
     display: inline-block;
-    width: 40px; /* عرض الصورة */
-    height: 40px; /* ارتفاع الصورة */
+    width: 42px; /* عرض الصورة */
+    height: 42px; /* ارتفاع الصورة */
     background-image: url('i/coinss.png'); /* رابط الصورة */
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center; /* تمركز الصورة */
-    margin-right: 0; /* مسافة بين الصورة والرقم */
+    margin-right: 2px; /* مسافة بين الصورة والرقم */
     vertical-align: middle; /* محاذاة الصورة للوسط */
 }
 
@@ -314,24 +314,23 @@ img {
     line-height: 1; /* لتقليل الفراغ بين النصوص */
 }
 
-
 .energy-bar-container {
     display: flex;
-    justify-content: center; /* توزيع المحتوى بشكل متساوٍ */
+    flex-direction: column; /* ترتيب عمودي */
+    justify-content: center; /* محاذاة عمودية للمحتوى */
     align-items: center; /* محاذاة المحتوى عموديًا */
     position: absolute; /* تموضع مطلق */
-    bottom: 150px; /* المسافة من أسفل الشاشة */
+    bottom: 125px; /* المسافة من أسفل الشاشة */
     left: 50%; /* المنتصف أفقيًا */
     transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
     width: 80%; 
     margin: 0 auto; 
     transition: width 0.3s ease-in-out; /* تأثير التمدد بسلاسة */
-   /* gap: 10px;*/
-}
+} 
 
 .progress-bar {
-    width: 70%; 
-    height: 10px; 
+    width: 80%; 
+    height: 15px; 
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px); /* تأثير الضبابية */
     border-radius: 50px; /* شكل الشريط */
@@ -396,15 +395,18 @@ img {
     -webkit-background-clip: text; 
     background-clip: text;
     color: transparent;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px; /* حجم الخط */
-    text-align: left; /* المحاذاة لليسار */
+    font-family: 'Rubik',sans-serif ;
+    font-weight: 700;
+   /* font-family: 'JetBrains Mono', monospace;*/
+    font-size: 15px; /* حجم الخط */
+    text-align: center; /* المحاذاة لليسار */
     margin-left: 4px;
     margin-right: 4px;
+    margin-bottom: 8px;
     direction: rtl; /* الحفاظ على الاتجاه من اليمين لليسار */
     white-space: nowrap;
 }
- 
+
  #maxEnergy {
    font-size: 15px;  
    white-space: nowrap;
@@ -426,7 +428,7 @@ img {
     align-items: center;
     justify-content: center;
     margin-top: 0; 
-    margin-bottom: 60px;
+    margin-bottom: 80px;
     flex: 1;
     animation: popIn 0.4s ease forwards;
 } 
@@ -463,85 +465,107 @@ img {
         transform: translateY(-120px); /* تحريك النص للأعلى أثناء الاختفاء */
     }
 }
- 
- 
+
 .menu {
-    border-bottom: 1px solid #1c1c1c;
-    border-right: 1px solid #1c1c1c;
     display: flex;
     justify-content: space-between;
-    padding: 5px;
-    background-color: rgba(16, 16, 16, 0.9); 
-   /* background-color: #101010;*/
+    align-items: center;
+    height: 50px;
     position: fixed;
-    bottom: 8px;
+    bottom: 20px;
     border-radius: 20px;
-    width: 88%;
+    width: 89%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 100;
-    transition: box-shadow 0.3s ease; /* إضافة انتقال سلس للتأثير */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-} 
+    padding-bottom: 40px; /* لإعطاء مساحة للنصوص */
+}
 
-.menu button {
-    color: #808080;
-    padding: 4px;
-    box-sizing: border-box; 
-    font-size: 12px;
-    cursor: pointer;
+.menu-list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    border: 1px solid #1c1c1c;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.00009);
+    backdrop-filter: blur(5px); 
+    border-radius: 20px;
+    width: 100%;
+    z-index: 100;
+}
+ 
+.menu-item-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
     flex: 1;
-    transition: background-color 0.3s ease, color 0.3s ease;
     position: relative;
+}
+
+.menu-item {
     background: none;
-    margin: 2px;
-    font-weight: 600;
-    margin-bottom: 5px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 5px auto;
+    transition: all 0.3s ease;
 }
 
-.menu button.active {
-    color: #fff; /* اللون الأبيض للنص عند النشاط */
-    background: none; 
+.icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: transparent;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.menu button i {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
+.menu-item i {
+    font-size: 1.3rem;
+    color: #808080;
+    transition: color 0.3s ease;
 }
 
-.menu button.active i {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-    background: linear-gradient(to right, #2D83EC, #4375ca, #0088CC);
-    -webkit-background-clip: text; /* تطبيق التدرج على النص */
-    -webkit-text-fill-color: transparent; /* جعل النص شفافًا ليظهر التدرج */
+.menu-item.active .icon-wrapper {
+    background-color: #2D83EC;
+}
+
+.menu-label.active {
+    color: #fff;
+}
+
+.menu-label {
+    position: absolute;
+    top: 60px; /* إخراج النص من حدود القائمة */
+    font-size: 12px;
+    color: #808080;
+    text-align: center;
+    transition: color 0.3s ease;
 }
 
 .menu button.active img {
+   opacity: 1;
     position: relative;
     z-index: 2; /* وضع الصورة فوق الخلفية */
 } 
 
 .menu button:hover::before {
     opacity: 1;  /* جعل الخط مرئي عند التمرير أو عندما يكون الزر نشطًا */
-}
- 
-.menu-img {
-    width: 33px;
-    height: 33px;
-    margin-bottom: 3px;
-    background: transparent; 
+} 
+
+.menu-item.active i {
+    color: #fff;
 }
 
-.menu svg {
-    width: 23px;
-    height: 23px;
-    margin-bottom: 3px;
-    background: transparent;
-} 
 
 
 .confirmation-modal, .modal-content {

@@ -15,6 +15,8 @@ const uiElements = {
     walletBalanceDisplay: document.getElementById('navbarBalanceDisplay'),
     settingsBalanceDisplay: document.getElementById('settingsBalanceDisplay'),
     gnavbarBalanceDisplay: document.getElementById('gnavbarBalanceDisplay'),
+    leaderboardnavbarBalanceDisplay: document.getElementById('leaderboardnavbarBalanceDisplay'),
+    
     energyBar: document.getElementById('energyBar'),
     energyInfo: document.getElementById('energyInfo'),
     languageBtn: document.getElementById('languageSwitchBtn'),
@@ -79,9 +81,7 @@ let gameState = {
     tasksprogress: [],
     completedTasks: [],
     puzzlesprogress:[], 
-    caesarPuzzleProgress:[], 
     usedPromoCodes: [],
-    ciphersProgress:[],
     lastLoginDate: null, // تاريخ آخر تسجيل دخول
     consecutiveDays: 0,  // عدد الأيام المتتالية التي تم المطالبة فيها بالمكافآت
 };
@@ -163,11 +163,9 @@ async function saveGameState() {
         tasks_progress: gameState.tasksProgress,
         puzzles_progress: gameState.puzzlesProgress,
         used_promo_codes: gameState.usedPromoCodes,
-        morse_ciphers_progress: gameState.ciphersProgress,
         last_login_date: gameState.lastLoginDate ? new Date(gameState.lastLoginDate).toISOString() : null,
         consecutive_days: gameState.consecutiveDays,
         achieved_Levels: gameState.achievedLevels,
-        caesar_puzzles_progress: gameState.caesarPuzzleProgress, 
         
     };
 
@@ -443,6 +441,7 @@ function updateUI() {
         uiElements.settingsBalanceDisplay,
         uiElements.boostBalanceDisplay,
         uiElements.lvlBalanceDisplay,
+        uiElements.leaderboardnavbarBalanceDisplay,
         uiElements.gnavbarBalanceDisplay,
         uiElements.miningBalanceDisplay
     ];
@@ -971,7 +970,7 @@ async function loadFriendsList() {
 
                     // إنشاء عنصر الصورة الافتراضية
                     const img = document.createElement('img');
-                    img.src = 'i/usere.jpg'; // رابط الصورة الافتراضية
+                    img.src = 'i/users.jpg'; // رابط الصورة الافتراضية
                     img.alt = `${friend.telegram_id} Avatar`;
                     img.classList.add('friend-avatar');
 
@@ -1074,11 +1073,9 @@ async function updateUserData() {
             completed_tasks: gameState.completedTasks, 
             puzzles_progress: gameState.puzzlesprogress, 
             used_Promo_Codes: gameState.usedPromoCodes, 
-            morse_ciphers_progress: gameState.ciphersProgress, 
             achieved_Levels: gameState.achievedLevels, 
             last_login_date: gameState.lastLoginDate ? new Date(gameState.lastLoginDate).toISOString() : null,
             consecutive_days: gameState.consecutiveDays, 
-            caesar_puzzles_progress: gameState.caesarPuzzleProgress, 
      
         })
         .eq('telegram_id', userId);
@@ -1837,38 +1834,6 @@ tonConnectUI.uiOptions = {
 /////////////////////////////////////////
 
 
-
-document.addEventListener('DOMContentLoaded', function() {
-    // تأكد من تعريف المتغير THEME 
-    const THEME = TonConnectUi.THEME;
-
-    // تهيئة واجهة Ton Connect UI مع التخصيصات
-    const tonConnectUI = new TonConnectUi.TonConnectUI({
-        uiPreferences: {
-            theme: THEME.DARK,
-            borderRadius: 's',
-            colorsSet: {
-                [THEME.DARK]: {
-                    connectButton: {
-                        background: '#000000'  // لون خلفية الزر في الثيم الداكن
-                    }
-                },
-                [THEME.LIGHT]: {
-                    text: {
-                        primary: '#FF0000'   // لون النص في الثيم الفاتح
-                    }
-                }
-            }
-        }
-    });
-
-    // ربط واجهة Ton Connect UI بالعنصر المحدد
-    tonConnectUI.render('#ton-connect');
-});
-
-
-//////////////////////////////////////////
-
 //تحديثات الاعدادات
 
 function updateAccountSummary() {
@@ -1923,12 +1888,12 @@ function showContent(contentId) {
 
 
 
-document.getElementById('applyPromoCode')?.addEventListener('click', async () => {
+ document.getElementById('applyPromoCode')?.addEventListener('click', async () => {
     const applyButton = document.getElementById('applyPromoCode');
     const promoCodeInput = document.getElementById('promoCodeInput');
     if (!applyButton || !promoCodeInput) return;
 
-    const enteredCode = promoCodeInput.value;
+    const enteredCode = promoCodeInput.value.trim();
     const AdController = window.Adsgram.init({ blockId: "int-5511" });
 
     // إخفاء نص الزر وعرض دائرة التحميل
@@ -1951,10 +1916,9 @@ document.getElementById('applyPromoCode')?.addEventListener('click', async () =>
         const promoCodes = promoData.promoCodes;
 
         // تحقق مما إذا كان البرومو كود مستخدمًا مسبقًا
-        const alreadyUsed = await checkIfPromoCodeUsed(enteredCode);
+        const alreadyUsed = checkIfPromoCodeUsed(enteredCode);
 
         if (alreadyUsed) {
-            // عند استخدام الكود مسبقًا
             applyButton.innerHTML = '‼️';
             showNotification(uiElements.purchaseNotification, 'You have already used this promo code.');
 
@@ -1962,121 +1926,70 @@ document.getElementById('applyPromoCode')?.addEventListener('click', async () =>
             showAd(AdController);
 
             setTimeout(() => {
-                applyButton.innerHTML = 'Apply';
-                applyButton.classList.remove('loading');
-                spinner.remove();
+                resetButton(applyButton, spinner);
             }, 3000);
             return;
         }
 
-        // إذا كان الكود صالحًا وغير مستخدم
         if (promoCodes[enteredCode]) {
-            const reward = promoCodes[enteredCode];
+         const reward = promoCodes[enteredCode];
 
-            // إضافة المكافأة لرصيد المستخدم
-            gameState.balance += reward;
+         // إضافة المكافأة لرصيد المستخدم
+         gameState.balance += reward;
+   
+         // تحديث واجهة المستخدم
+        updateUI();
 
-            // تحديث واجهة المستخدم
-            updateUI();
+       // حفظ الكود ككود مستخدم
+        addPromoCodeToUsed(enteredCode);
 
-            // حفظ الكود ككود مستخدم
-            const updated = await addPromoCodeToUsed(enteredCode);
-            if (!updated) {
-                showNotification(uiElements.purchaseNotification, 'Failed to save promo code in database.', true);
-                return;
-            }
+        applyButton.innerHTML = '✔️';
+         showNotificationWithStatus(uiElements.purchaseNotification, `Successfully added ${reward} $SWT to your balance!`, 'win');
 
-            applyButton.innerHTML = '✔️';
-            showNotificationWithStatus(uiElements.purchaseNotification, `Successfully added ${reward} $SWT to your balance!`, 'win');
+         // عرض الإعلان
+         showAd(AdController);
 
-            // عرض الإعلان
-            showAd(AdController);
+         // حفظ الحالة الحالية
+         saveGameState();
+         localStorage.setItem('balance', gameState.balance);
 
-            // حفظ الحالة الحالية
-            saveGameState();
-            await updateGameStateInDatabase({
-                used_Promo_Codes: gameState.usedPromoCodes,
-                balance: gameState.balance,
-            });
-        } else {
-            // إذا كان الكود غير صالح
-            applyButton.innerHTML = '❌';
-            showNotification(uiElements.purchaseNotification, 'Invalid promo code.');
+         // إغلاق نافذة البرومو كود
+        closePromoModal();
+    } else {
+       applyButton.innerHTML = '❌';
+       showNotification(uiElements.purchaseNotification, 'Invalid promo code.');
 
-            // عرض الإعلان
-            showAd(AdController);
-        }
+       // عرض الإعلان
+       showAd(AdController);
+
+       // إغلاق نافذة البرومو كود
+       closePromoModal();
+      }
     } catch (error) {
         console.error('Error processing promo code:', error);
         applyButton.innerHTML = 'Error';
     } finally {
-        // إعادة النص العادي للزر بعد 3 ثواني
+        // مسح محتوى خانة الإدخال وإعادة النص العادي للزر بعد 3 ثوانٍ
+        promoCodeInput.value = '';
         setTimeout(() => {
-            applyButton.innerHTML = 'Apply';
-            applyButton.classList.remove('loading');
-            spinner.remove();
+            resetButton(applyButton, spinner);
         }, 3000);
     }
 });
 
 // دالة للتحقق مما إذا كان البرومو كود مستخدمًا مسبقًا
-async function checkIfPromoCodeUsed(enteredCode) {
-    const userId = uiElements.userTelegramIdDisplay.innerText;
-
-    const { data, error } = await supabase
-        .from('users')
-        .select('used_Promo_Codes')
-        .eq('telegram_id', userId)
-        .single();
-
-    if (error) {
-        console.error('Error fetching used promo codes:', error);
-        return false;
-    }
-
-    const usedPromoCodes = data?.used_Promo_Codes || [];
+function checkIfPromoCodeUsed(enteredCode) {
+    const usedPromoCodes = JSON.parse(localStorage.getItem('usedPromoCodes')) || [];
     return usedPromoCodes.includes(enteredCode);
 }
 
 // دالة لإضافة البرومو كود إلى الأكواد المستخدمة
-async function addPromoCodeToUsed(enteredCode) {
-    const userId = uiElements.userTelegramIdDisplay.innerText;
-
-    // جلب الأكواد الحالية
-    const { data, error } = await supabase
-        .from('users')
-        .select('used_Promo_Codes')
-        .eq('telegram_id', userId)
-        .single();
-
-    if (error) {
-        console.error('Error fetching used promo codes:', error);
-        return false;
+function addPromoCodeToUsed(enteredCode) {
+    const usedPromoCodes = JSON.parse(localStorage.getItem('usedPromoCodes')) || [];
+    if (!usedPromoCodes.includes(enteredCode)) {
+        usedPromoCodes.push(enteredCode);
+        localStorage.setItem('usedPromoCodes', JSON.stringify(usedPromoCodes));
     }
-
-    const usedPromoCodes = data?.used_Promo_Codes || [];
-
-    // إذا كان الكود مضافًا بالفعل
-    if (usedPromoCodes.includes(enteredCode)) {
-        console.warn('Promo code already used!');
-        return false;
-    }
-
-    // أضف الكود إلى القائمة واحفظه في قاعدة البيانات
-    usedPromoCodes.push(enteredCode);
-
-    const { error: updateError } = await supabase
-        .from('users')
-        .update({ used_Promo_Codes: usedPromoCodes })
-        .eq('telegram_id', userId);
-
-    if (updateError) {
-        console.error('Error updating used promo codes:', updateError);
-        return false;
-    }
-
-    console.log('Promo code added to used list successfully.');
-    return true;
 }
 
 // دالة لعرض الإعلان
@@ -2090,8 +2003,15 @@ function showAd(adController) {
     }, 2000);
 }
 
+// دالة لإعادة تعيين الزر
+function resetButton(button, spinner) {
+    button.innerHTML = 'Apply';
+    button.classList.remove('loading');
+    spinner.remove();
+}
+
 // عند الضغط على زر برومو كود
-document.getElementById('promocodeBtu').addEventListener('click', function() {
+document.getElementById('promocodeBtu').addEventListener('click', function () {
     document.getElementById('promoContainer').classList.remove('hidden');
     document.getElementById('promocodeoverlay').style.display = 'block'; // إظهار الشفافية
 });
@@ -2111,7 +2031,6 @@ function closePromoModal() {
     document.getElementById('promoContainer').classList.add('hidden');
     document.getElementById('promocodeoverlay').style.display = 'none'; // إخفاء الشفافية
 }
-
 
 
 /////////////////////////////////////////
@@ -2701,17 +2620,159 @@ document.getElementById('bost2').addEventListener('click', () => showUpgradeModa
 document.getElementById('closeModal').addEventListener('click', closePopup);
 document.getElementById('overlay').addEventListener('click', closePopup);
 
-
- 
 //////////////////////////////////////
 
 
-///////////////////////
+
+
+// تعريف عناصر HTML
+const leaderboardContainer = document.getElementById('leaderboardContainer');
+const userRankContainer = document.getElementById('userRankContainer');
+const userRankDisplay = document.getElementById('userRank');
+const userUsernameDisplay = document.getElementById('userUsername');
+const userBalanceDisplay = document.getElementById('userBalance');
+
+// توكن البوت
+const token = '7800918100:AAGyXP912v7mNLDP2bZevmdhWDqoHYhenX4'; // توكن البوت الخاص بك
+
+// جلب بيانات المتصدرين
+async function fetchLeaderboard() {
+    try {
+        const { data: leaderboard, error } = await supabase
+            .from('users')
+            .select('username, balance, telegram_id')
+            .order('balance', { ascending: false })
+            .limit(10); 
+
+        if (error) throw error;
+
+        // تحديث عرض المتصدرين
+        await updateLeaderboardDisplay(leaderboard);
+    } catch (err) {
+        console.error('Error fetching leaderboard:', err);
+    }
+}
+
+
+async function fetchUserRank() {
+    try {
+        // قراءة معرف المستخدم الحالي
+        const userTelegramId = uiElements.userTelegramIdDisplay.innerText; // الحصول على Telegram ID من واجهة المستخدم
+        if (!userTelegramId) throw new Error("Telegram ID is missing or invalid.");
+
+        console.log("Fetching rank for Telegram ID:", userTelegramId);
+
+        // استدعاء الدالة المخزنة RPC
+        const { data, error } = await supabase.rpc('get_user_rank', { user_id: userTelegramId });
+
+        if (error) {
+            console.error('Error fetching user rank from RPC:', error.message);
+            throw new Error('Failed to fetch user rank.');
+        }
+
+        console.log("Rank data fetched:", data);
+
+        // التحقق من وجود بيانات صحيحة
+        if (!data || data.length === 0) {
+            console.warn('No rank data found for the user.');
+            updateUserRankDisplay('N/A', 'Anonymous', 0);
+            return;
+        }
+
+        // استخراج البيانات المحدثة
+        const rankData = data[0];
+        console.log("Rank Data Object:", rankData);
+
+        const rank = rankData.rank || 'N/A';
+        const username = rankData.username || 'Anonymous';
+        const balance = rankData.balance || 0;
+
+        // تحديث الواجهة
+        updateUserRankDisplay(rank, username, balance);
+    } catch (err) {
+        console.error('Error in fetchUserRank:', err.message);
+        updateUserRankDisplay('N/A', 'N/A', 0); // عرض قيم افتراضية في حالة الخطأ
+    }
+}
+
+
+function updateUserRankDisplay(rank, username, balance) {
+    userRankDisplay.innerText = rank ? `#${rank}` : 'N/A';
+    userUsernameDisplay.innerText = username || 'Anonymous';
+    userBalanceDisplay.innerText = balance ? `${balance.toLocaleString()} $SWT` : '0 $SWT';
+    userRankContainer.style.display = 'block';
+}
+
+// جلب صورة الملف الشخصي من Telegram
+async function getUserProfilePhoto(userId) {
+    try {
+        const response = await fetch(`https://api.telegram.org/bot${token}/getUserProfilePhotos?user_id=${userId}`);
+        const data = await response.json();
+
+        if (data.ok && data.result.photos.length > 0) {
+            const fileId = data.result.photos[0][0].file_id;
+            const fileResponse = await fetch(`https://api.telegram.org/bot${token}/getFile?file_id=${fileId}`);
+            const fileData = await fileResponse.json();
+
+            return `https://api.telegram.org/file/bot${token}/${fileData.result.file_path}`;
+        }
+        return 'https://sawcoin.vercel.app/i/users.jpg'; // صورة افتراضية
+    } catch {
+        return 'https://sawcoin.vercel.app/i/users.jpg'; // صورة افتراضية في حال حدوث خطأ
+    }
+}
+
+
+async function updateLeaderboardDisplay(leaderboard) {
+    leaderboardContainer.innerHTML = ''; // مسح المحتوى السابق
+
+    for (let index = 0; index < leaderboard.length; index++) {
+        const user = leaderboard[index];
+
+        const userRow = document.createElement('div');
+        userRow.classList.add('leaderboard-row');
+
+        // شارة لأعلى 3 مراكز
+        const badge = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : `#${index + 1}`;
+
+        userRow.innerHTML = `
+            <img src="https://sawcoin.vercel.app/i/users.jpg" alt="Avatar" class="leaderboard-avatar" id="avatar-${user.telegram_id}" />
+            <span class="leaderboard-username">${truncateUsername(user.username)}</span>
+            <span class="leaderboard-balance">${formatNumber(user.balance)} $SWT</span>
+            <span class="leaderboard-rank">${badge}</span>
+        `;
+
+        leaderboardContainer.appendChild(userRow);
+
+        // جلب صورة المستخدم بعد عرض القائمة
+        getUserProfilePhoto(user.telegram_id).then((avatarUrl) => {
+            document.getElementById(`avatar-${user.telegram_id}`).src = avatarUrl;
+        });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+  await fetchLeaderboard(); 
+  await fetchUserRank();
+});
+
+// مساعد لقطع أسماء المستخدمين الطويلة
+function truncateUsername(username, maxLength = 8) {
+    return username.length > maxLength ? `${username.slice(0, maxLength)}...` : username;
+}
+
+
+//////////////////////
+
+
+//function clearAllLocalStorage() {
+   // localStorage.clear(); 
+   // console.log("All local storage data has been cleared.");
+//}
+
+
+/////////////////////////
 
 
 // تفعيل التطبيق
 initializeApp();
-
-
-//localStorage.removeItem('gameState'); // مسح حالة اللعبة
-//loadGameState(); // إعادة تحميل حالة اللعبة

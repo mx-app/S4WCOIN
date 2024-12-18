@@ -220,7 +220,32 @@
 } 
 
 .contact-support i {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: #2D83EC;
 }  
-  
+
+.contact-support-community {
+  top: 18px;
+  left: 75px; /* البدء من منتصف الشاشة */
+  position: absolute; 
+  z-index: 100; /* التأكد من ظهور العنصر فوق باقي العناصر */
+} 
+
+.contact-support-community i {
+    font-size: 1.3rem;
+    color: #fff;
+}  
+ 
+
+.contact-support-Chat i{
+    font-size: 1.3rem;
+    color: #fff;
+}   
+
+.contact-support-Chat {
+  top: 18px;
+  left: 25px; /* البدء من منتصف الشاشة */
+  position: absolute; 
+  z-index: 100; /* التأكد من ظهور العنصر فوق باقي العناصر */
+}  
+

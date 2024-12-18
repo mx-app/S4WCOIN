@@ -37,12 +37,11 @@
 
 #Buttoncontainer {
   position: absolute;
-  width: 25%;
+  width: 40%;
   height: 30px;
-  padding: 5px;
   border-radius: 20px; 
-  top: 12px; /* المسافة من الأعلى */
-  right: 17px; /* المسافة من اليمين */
+  top: 15px; /* المسافة من الأعلى */
+  right: 20px; /* المسافة من اليمين */
   display: flex;
   gap: 15px; /* المسافة بين الأزرار */
   z-index: 1000; /* التأكد من أن الأزرار في المقدمة */

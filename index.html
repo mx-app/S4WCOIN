@@ -36,7 +36,7 @@
             
              <div id="stingContainer">
               <div class="user-details-i animated-element">
-                <img src="i/usere.jpg" alt="User Image" class="userrr-image">
+                <img src="i/users.jpg" alt="User Image" class="userrr-image">
               </div>
               <div id="hourlyEarningsContainer">
                  <div id="welcomeMessage">
@@ -46,33 +46,20 @@
             </div>
           </div>
             
-             <div class="right-section animated-element">
-               <div id="energyInfo">
-                 <i class="fa-solid fa-bolt"></i> 500/500
-             </div>
-          </div>
-
-
-           <!-- زر المحفظة -->
+             <!-- زر المحفظة -->
             <div id="Buttoncontainer">
              <button data-target="walletPage" class="wallet-button">
                 <i class="fa-solid fa-wallet"></i>
              </button>
-
+                <!-- زر الألعاب -->
+             <button data-target="gamePage" class="Play-game-button">
+                 <i class="fa-solid fa-dice"></i>
+             </button>
              <!-- زر الإعدادات -->
              <button data-target="SettingsPage" class="settings-button">
                 <i class="fa-solid fa-user-gear"></i>
              </button>
             </div>
-            
-            <!-- زر الألعاب -->
-             <button data-target="gamePage" class="Play-game-button">
-               <i class="fa-solid fa-gamepad"></i>
-              Game
-             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="arrow">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-             </svg>
-             </button>
 
           <!--  <div id="mineeContainer" class="minee-container"> -->
               <div id="balanceC" class="balance-c">
@@ -89,13 +76,13 @@
              </div>
              
             <div class="energy-bar-container">
-              <i class="fa-solid fa-bolt energy-icon"></i>
+              <div id="energyInfo"> 500/500 </div>
                 <div class="progress-bar">
                 <div class="progress-bar-inner" id="energyBar"></div>
              </div>
           </div>
                 
-           <div id="minee2" class="minee-2">
+         <!--  <div id="minee2" class="minee-2">
               <a href="https://t.me/SAW_COIN" class="community-button">
                 <i class="fa-solid fa-users"></i>
                   <span class="text">Join our community </span>
@@ -103,7 +90,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                   </svg>
                 </a>
-             </div>
+             </div>-->
             
     <!--  <div class="container-gate">
         <div class="portal">
@@ -151,7 +138,7 @@
         
         <!-- كارت معلومات الحساب -->
         <div class="user-details-card animated-element">
-            <img src="i/usere.jpg" alt="User Image" class="user-image">
+            <img src="i/users.jpg" alt="User Image" class="user-image">
             <div class="user-details-text">
                 <div class="user-name">NAME: <span id="userTelegramName"></span></div>
                 <div class="user-id">ID: <span id="userTelegramId"></span></div>
@@ -190,6 +177,16 @@
          <i class="fa-solid fa-headset"></i>
      </a>
   </div>
+     <div class="contact-support-community">
+       <a href="https://t.me/SAW_COIN" target="_blank" class="support-link">
+         <i class="fa-solid fa-users"></i>
+     </a>
+ </div>
+     <div class="contact-support-Chat">
+       <a href="https://t.me/SAW_Chat" target="_blank" class="support-link">
+         <i class="fa-solid fa-comments"></i>
+     </a>
+  </div> 
 </div>
      
      
@@ -282,9 +279,7 @@
             
             <div class="invite-section">
               <button class="invite-more" id="inviteFriendsBtn">
-                 <svg  xmlns="http://www.w3.org/2000/svg"  width="25"  height="25"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round" class="invite-icon"> 
-                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" /><path d="M3 21v-2a4 4 0 0 1 4 -4h4c.96 0 1.84 .338 2.53 .901" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /><path d="M16 19h6" /><path d="M19 16v6" />
-                 </svg>
+                 <i class="fa-solid fa-user-plus"></i>
                   Invite Friends
               </button>
                 
@@ -635,27 +630,85 @@
   </div>
     
 
-<!-- Bottom Navigation -->
-     <nav class="menu">
-   <button data-target="mainPage">
-        <i class="fa-solid fa-house"></i>
-        <span>Main</span>
-   </button>
-   <button data-target="boostsPage">
-        <i class="fa-solid fa-rocket"></i>
-        <span>Boosts</span>
-    </button>
-    <button data-target="accountPage">
-        <i class="fa-solid fa-user-friends"></i>
-        <span>Friends</span>
-    </button>
-    <button data-target="tasksPage">
-        <i class="fa-solid fa-coins"></i>
-      <!--  <i class="fa-solid fa-list-check"></i>-->
-        <span>Earn</span>
-    </button>
-     </nav>
+<!-- صفحه المتصدرين  -->
+<div id="leaderboardPage" class="screen-content hidden">
+  <div id="globalNavbar">
+     <div id="balanceContainer">
+       <span id="leaderboardnavbarBalanceDisplay">0.00</span> 
+     </div>
+    </div>
+    <img src="i/Leaderboard.png" alt="Leaders Image" class="Leaders-image">
+    <p id="Leaders-txt">Leaderboard</p>
+
+    <!-- عرض ترتيب المستخدم الشخصي -->
+    <div id="userRanking" class="user-ranking">
+       <!-- <div class="leaderboard-row" id="currentUserRow">-->
+         <img src="https://sawcoin.vercel.app/i/users.jpg" alt="User Avatar" class="leaderboard-avatar" id="userAvatar" />
+         <span class="leaderboard-username" id="userUsername"></span>
+         <span class="leaderboard-balance" id="userBalance"></span>
+         <span class="leaderboard-rank" id="userRank"></span>
+     </div>
+
+
+    <p id="Leaders-txxt">Top 10</p>
+    <!-- عرض قائمة أفضل 10 لاعبين -->
+    <div id="leaderboardContainer" class="leaderboard-container">
+        <!-- يتم ملء هذه القائمة ديناميكيًا -->
+    </div>
+ </div>
     
+
+<!-- Bottom Navigation -->
+<nav class="menu">
+ <div class="menu-list">
+    <div class="menu-item-container">
+        <button data-target="boostsPage" class="menu-item">
+            <div class="icon-wrapper">
+                <i class="fa-solid fa-rocket"></i>
+            </div>
+        </button>
+        <span class="menu-label">Boosts</span>
+    </div>
+
+    <div class="menu-item-container">
+        <button data-target="accountPage" class="menu-item">
+            <div class="icon-wrapper">
+                <i class="fa-solid fa-user-friends"></i>
+            </div>
+        </button>
+        <span class="menu-label">Friends</span>
+    </div>
+
+    <div class="menu-item-container">
+        <button data-target="mainPage" class="menu-item">
+            <div class="icon-wrapper">
+                <i class="fa-solid fa-house-chimney"></i>
+            </div>
+        </button>
+        <span class="menu-label">Main</span>
+    </div>
+
+    <div class="menu-item-container">
+        <button data-target="leaderboardPage" class="menu-item">
+            <div class="icon-wrapper">
+                <i class="fa-solid fa-ranking-star"></i>
+            </div>
+        </button>
+        <span class="menu-label">Leaders</span>
+    </div>
+
+    <div class="menu-item-container">
+        <button data-target="tasksPage" class="menu-item">
+            <div class="icon-wrapper">
+                <i class="fa-solid fa-coins"></i>
+            </div>
+        </button>
+        <span class="menu-label">Earn</span>
+    </div>
+  </div>
+</nav>
+
+     
     <script type="module" src="script-sdgbj540767989.js"></script>
     <script type="module" src="Scripts/Not-saving.js"></script>
     
