@@ -1931,35 +1931,40 @@ function showContent(contentId) {
             return;
         }
 
-        // إذا كان الكود صالحًا وغير مستخدم
         if (promoCodes[enteredCode]) {
-            const reward = promoCodes[enteredCode];
+         const reward = promoCodes[enteredCode];
 
-            // إضافة المكافأة لرصيد المستخدم
-            gameState.balance += reward;
+         // إضافة المكافأة لرصيد المستخدم
+         gameState.balance += reward;
+   
+         // تحديث واجهة المستخدم
+        updateUI();
 
-            // تحديث واجهة المستخدم
-            updateUI();
+       // حفظ الكود ككود مستخدم
+        addPromoCodeToUsed(enteredCode);
 
-            // حفظ الكود ككود مستخدم
-            addPromoCodeToUsed(enteredCode);
+        applyButton.innerHTML = '✔️';
+         showNotificationWithStatus(uiElements.purchaseNotification, `Successfully added ${reward} $SWT to your balance!`, 'win');
 
-            applyButton.innerHTML = '✔️';
-            showNotificationWithStatus(uiElements.purchaseNotification, `Successfully added ${reward} $SWT to your balance!`, 'win');
+         // عرض الإعلان
+         showAd(AdController);
 
-            // عرض الإعلان
-            showAd(AdController);
+         // حفظ الحالة الحالية
+         saveGameState();
+         localStorage.setItem('balance', gameState.balance);
 
-            // حفظ الحالة الحالية
-            saveGameState();
-            localStorage.setItem('balance', gameState.balance);
-        } else {
-            applyButton.innerHTML = '❌';
-            showNotification(uiElements.purchaseNotification, 'Invalid promo code.');
+         // إغلاق نافذة البرومو كود
+        closePromoModal();
+    } else {
+       applyButton.innerHTML = '❌';
+       showNotification(uiElements.purchaseNotification, 'Invalid promo code.');
 
-            // عرض الإعلان
-            showAd(AdController);
-        }
+       // عرض الإعلان
+       showAd(AdController);
+
+       // إغلاق نافذة البرومو كود
+       closePromoModal();
+      }
     } catch (error) {
         console.error('Error processing promo code:', error);
         applyButton.innerHTML = 'Error';
