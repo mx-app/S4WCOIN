@@ -214,7 +214,7 @@
 
 .contact-support {
   top: 18px;
-  right: 75px; /* البدء من منتصف الشاشة */
+  right: 125px; /* البدء من منتصف الشاشة */
   position: absolute; 
   z-index: 100; /* التأكد من ظهور العنصر فوق باقي العناصر */
 } 
@@ -223,6 +223,19 @@
     font-size: 1.3rem;
     color: #2D83EC;
 }  
+
+.contact-support-community {
+  top: 18px;
+  right: 75px; /* البدء من منتصف الشاشة */
+  position: absolute; 
+  z-index: 100; /* التأكد من ظهور العنصر فوق باقي العناصر */
+} 
+
+.contact-support-community i {
+    font-size: 1.3rem;
+    color: #fff;
+}  
+ 
 
 .contact-support-Chat i{
     font-size: 1.3rem;
