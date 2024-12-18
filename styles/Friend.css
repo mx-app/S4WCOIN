@@ -1,3 +1,10 @@
+.Invitations-image { 
+    width: 150px;
+    margin: 10px auto;
+    height: auto;
+    display: block;
+}   
+
 .invite {
     position: relative; /* يتيح التحكم بالموقع داخل الحاوية */
     margin-left: auto; /* يدفع العنصر إلى أقصى اليمين */
