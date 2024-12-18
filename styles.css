@@ -569,7 +569,12 @@ img {
 
 
 .confirmation-modal, .modal-content {
-    background-color: #101010;
+    background: rgba(255, 255, 255, 0.2); /* لون شبه شفاف */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+    backdrop-filter: blur(10px); /* التأثير الضبابي */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* حدود زجاجية */
+
+  /*  background-color: #101010;*/
     padding: 20px;
     font-weight: 500;
     border-radius: 20px 20px 0 0; 
