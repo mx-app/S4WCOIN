@@ -214,7 +214,7 @@
 
 .contact-support {
   top: 18px;
-  left: 25px; /* البدء من منتصف الشاشة */
+  right: 25px; /* البدء من منتصف الشاشة */
   position: absolute; 
   z-index: 100; /* التأكد من ظهور العنصر فوق باقي العناصر */
 } 
@@ -226,7 +226,7 @@
 
 .contact-support-community {
   top: 18px;
-  right: 75px; /* البدء من منتصف الشاشة */
+  left: 75px; /* البدء من منتصف الشاشة */
   position: absolute; 
   z-index: 100; /* التأكد من ظهور العنصر فوق باقي العناصر */
 } 
@@ -244,7 +244,7 @@
 
 .contact-support-Chat {
   top: 18px;
-  right: 25px; /* البدء من منتصف الشاشة */
+  left: 25px; /* البدء من منتصف الشاشة */
   position: absolute; 
   z-index: 100; /* التأكد من ظهور العنصر فوق باقي العناصر */
 }  
