@@ -74,6 +74,21 @@
     font-size: 15px; 
 }
 
+.user-ranking {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%; 
+    margin: 0 auto;
+    margin-bottom: 15px;
+    height: 60px;
+    border: 1px solid #1c1c1c;
+    border-radius: 20px; /* زوايا مستديرة في الأسفل فقط */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.00009);
+    backdrop-filter: blur(5px); 
+} 
+
 .leaderboard-row {
     display: flex;
     align-items: center;
