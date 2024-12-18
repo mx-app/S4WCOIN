@@ -983,7 +983,7 @@ async function loadFriendsList() {
                     // إنشاء عنصر لعرض الرصيد
                     const balanceSpan = document.createElement('span');
                     balanceSpan.classList.add('friend-balance');
-                    balanceSpan.textContent = `${formatNumber(friend.balance)} $SWT`; // عرض الرصيد
+                    balanceSpan.textContent = `${formatNumber(friend.balance)} $SAW`; // عرض الرصيد
 
                     // إنشاء div يحتوي على الصورة واسم الصديق
                     const friendInfoDiv = document.createElement('div');
@@ -1256,7 +1256,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 rewardContainer.classList.add('task-reward-container');
             
                 const rewardText = document.createElement('span');
-                rewardText.textContent = `+ ${task.reward} $SWT`;
+                rewardText.textContent = `+ ${task.reward} $SAW`;
                 rewardText.classList.add('task-reward');
                 rewardContainer.appendChild(rewardText);
 
@@ -1623,7 +1623,7 @@ async function displayTodaysPuzzle() {
     // عرض السؤال والتلميح والمكافأة
     puzzleQuestion.innerText = currentPuzzle.question;
     puzzleHint.innerText = `Hint : ${currentPuzzle.hint}`;
-    puzzleRewardDisplay.innerText = `Reward ${currentPuzzle.reward} $SWT`;
+    puzzleRewardDisplay.innerText = `Reward ${currentPuzzle.reward} $SAW`;
 
     // عرض الخيارات كأزرار
     const optionsHtml = currentPuzzle.options.map(option => `<button class="option-btn">${option}</button>`).join('');
@@ -1937,7 +1937,7 @@ function showContent(contentId) {
         addPromoCodeToUsed(enteredCode);
 
         applyButton.innerHTML = '✔️';
-         showNotificationWithStatus(uiElements.purchaseNotification, `Successfully added ${reward} $SWT to your balance!`, 'win');
+         showNotificationWithStatus(uiElements.purchaseNotification, `Successfully added ${reward} $SAW to your balance!`, 'win');
 
          // عرض الإعلان
          showAd(AdController);
@@ -2514,7 +2514,7 @@ async function showUpgradeModal(upgradeType) {
     document.getElementById('upgradeIconContainer').innerHTML = upgrade.icon;
     document.getElementById('upgradeTitle').innerText = upgrade.title;
     document.getElementById('currentLevel').innerText = upgrade.current;
-    document.getElementById('upgradeCost').innerText = `Cost: ${upgrade.cost} $SWT`;
+    document.getElementById('upgradeCost').innerText = `Cost: ${upgrade.cost} $SAW`;
 }
 
 // إغلاق النافذة المنبثقة
@@ -2692,7 +2692,7 @@ async function fetchUserRank() {
 function updateUserRankDisplay(rank, username, balance) {
     userRankDisplay.innerText = rank ? `#${rank}` : 'N/A';
     userUsernameDisplay.innerText = username || 'Anonymous';
-    userBalanceDisplay.innerText = balance ? `${balance.toLocaleString()} $SWT` : '0 $SWT';
+    userBalanceDisplay.innerText = balance ? `${balance.toLocaleString()} $SAW` : '0 $SAW';
     userRankContainer.style.display = 'block';
 }
 
@@ -2731,7 +2731,7 @@ async function updateLeaderboardDisplay(leaderboard) {
         userRow.innerHTML = `
             <img src="https://sawcoin.vercel.app/i/users.jpg" alt="Avatar" class="leaderboard-avatar" id="avatar-${user.telegram_id}" />
             <span class="leaderboard-username">${truncateUsername(user.username)}</span>
-            <span class="leaderboard-balance">${formatNumber(user.balance)} $SWT</span>
+            <span class="leaderboard-balance">${formatNumber(user.balance)} $SAW</span>
             <span class="leaderboard-rank">${badge}</span>
         `;
 
