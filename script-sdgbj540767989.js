@@ -2756,21 +2756,23 @@ document.addEventListener('DOMContentLoaded', async () => {
   await fetchUserRank();
 });
 
-
-
 // مساعد لقطع أسماء المستخدمين الطويلة
 function truncateUsername(username, maxLength = 8) {
     return username.length > maxLength ? `${username.slice(0, maxLength)}...` : username;
 }
 
 
+//////////////////////
 
-///////////////////////
+
+//function clearAllLocalStorage() {
+   // localStorage.clear(); 
+   // console.log("All local storage data has been cleared.");
+//}
+
+
+/////////////////////////
 
 
 // تفعيل التطبيق
 initializeApp();
-
-
-//localStorage.removeItem('gameState'); // مسح حالة اللعبة
-//loadGameState(); // إعادة تحميل حالة اللعبة
