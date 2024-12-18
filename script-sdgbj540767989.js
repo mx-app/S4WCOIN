@@ -1834,38 +1834,6 @@ tonConnectUI.uiOptions = {
 /////////////////////////////////////////
 
 
-
-document.addEventListener('DOMContentLoaded', function() {
-    // تأكد من تعريف المتغير THEME 
-    const THEME = TonConnectUi.THEME;
-
-    // تهيئة واجهة Ton Connect UI مع التخصيصات
-    const tonConnectUI = new TonConnectUi.TonConnectUI({
-        uiPreferences: {
-            theme: THEME.DARK,
-            borderRadius: 's',
-            colorsSet: {
-                [THEME.DARK]: {
-                    connectButton: {
-                        background: '#000000'  // لون خلفية الزر في الثيم الداكن
-                    }
-                },
-                [THEME.LIGHT]: {
-                    text: {
-                        primary: '#FF0000'   // لون النص في الثيم الفاتح
-                    }
-                }
-            }
-        }
-    });
-
-    // ربط واجهة Ton Connect UI بالعنصر المحدد
-    tonConnectUI.render('#ton-connect');
-});
-
-
-//////////////////////////////////////////
-
 //تحديثات الاعدادات
 
 function updateAccountSummary() {
@@ -1919,14 +1887,13 @@ function showContent(contentId) {
 ///////////////////////////////////////
 
 
-
 document.getElementById('applyPromoCode')?.addEventListener('click', async () => {
     const applyButton = document.getElementById('applyPromoCode');
     const promoCodeInput = document.getElementById('promoCodeInput');
     if (!applyButton || !promoCodeInput) return;
 
-    const enteredCode = promoCodeInput.value;
-    const AdController = window.Adsgram.init({ blockId: "int-5511" });
+    const enteredCode = promoCodeInput.value.trim();
+    const userId = uiElements.userTelegramIdDisplay.innerText; // معرف المستخدم
 
     // إخفاء نص الزر وعرض دائرة التحميل
     applyButton.innerHTML = '';
@@ -1948,20 +1915,15 @@ document.getElementById('applyPromoCode')?.addEventListener('click', async () =>
         const promoCodes = promoData.promoCodes;
 
         // تحقق مما إذا كان البرومو كود مستخدمًا مسبقًا
-        const alreadyUsed = await checkIfPromoCodeUsed(enteredCode);
+        const alreadyUsed = checkIfPromoCodeUsed(userId, enteredCode);
 
         if (alreadyUsed) {
             // عند استخدام الكود مسبقًا
             applyButton.innerHTML = '‼️';
             showNotification(uiElements.purchaseNotification, 'You have already used this promo code.');
 
-            // عرض الإعلان
-            showAd(AdController);
-
             setTimeout(() => {
-                applyButton.innerHTML = 'Apply';
-                applyButton.classList.remove('loading');
-                spinner.remove();
+                resetApplyButton(applyButton, spinner);
             }, 3000);
             return;
         }
@@ -1977,118 +1939,50 @@ document.getElementById('applyPromoCode')?.addEventListener('click', async () =>
             updateUI();
 
             // حفظ الكود ككود مستخدم
-            const updated = await addPromoCodeToUsed(enteredCode);
-            if (!updated) {
-                showNotification(uiElements.purchaseNotification, 'Failed to save promo code in database.', true);
-                return;
-            }
+            addPromoCodeToUsed(userId, enteredCode);
 
             applyButton.innerHTML = '✔️';
             showNotificationWithStatus(uiElements.purchaseNotification, `Successfully added ${reward} $SWT to your balance!`, 'win');
 
-            // عرض الإعلان
-            showAd(AdController);
-
             // حفظ الحالة الحالية
             saveGameState();
-            await updateGameStateInDatabase({
-                used_Promo_Codes: gameState.usedPromoCodes,
-                balance: gameState.balance,
-            });
         } else {
             // إذا كان الكود غير صالح
             applyButton.innerHTML = '❌';
             showNotification(uiElements.purchaseNotification, 'Invalid promo code.');
-
-            // عرض الإعلان
-            showAd(AdController);
         }
     } catch (error) {
         console.error('Error processing promo code:', error);
         applyButton.innerHTML = 'Error';
     } finally {
-        // إعادة النص العادي للزر بعد 3 ثواني
         setTimeout(() => {
-            applyButton.innerHTML = 'Apply';
-            applyButton.classList.remove('loading');
-            spinner.remove();
+            resetApplyButton(applyButton, spinner);
         }, 3000);
     }
 });
 
+// دالة لإعادة تعيين زر "تطبيق"
+function resetApplyButton(button, spinner) {
+    button.innerHTML = 'Apply';
+    button.classList.remove('loading');
+    spinner.remove();
+}
+
 // دالة للتحقق مما إذا كان البرومو كود مستخدمًا مسبقًا
-async function checkIfPromoCodeUsed(enteredCode) {
-    const userId = uiElements.userTelegramIdDisplay.innerText;
-
-    const { data, error } = await supabase
-        .from('users')
-        .select('used_Promo_Codes')
-        .eq('telegram_id', userId)
-        .single();
-
-    if (error) {
-        console.error('Error fetching used promo codes:', error);
-        return false;
-    }
-
-    const usedPromoCodes = data?.used_Promo_Codes || [];
+function checkIfPromoCodeUsed(userId, enteredCode) {
+    const usedPromoCodes = JSON.parse(localStorage.getItem(`usedPromoCodes_${userId}`)) || [];
     return usedPromoCodes.includes(enteredCode);
 }
 
 // دالة لإضافة البرومو كود إلى الأكواد المستخدمة
-async function addPromoCodeToUsed(enteredCode) {
-    const userId = uiElements.userTelegramIdDisplay.innerText;
-
-    // جلب الأكواد الحالية
-    const { data, error } = await supabase
-        .from('users')
-        .select('used_Promo_Codes')
-        .eq('telegram_id', userId)
-        .single();
-
-    if (error) {
-        console.error('Error fetching used promo codes:', error);
-        return false;
-    }
-
-    const usedPromoCodes = data?.used_Promo_Codes || [];
-
-    // إذا كان الكود مضافًا بالفعل
-    if (usedPromoCodes.includes(enteredCode)) {
-        console.warn('Promo code already used!');
-        return false;
-    }
-
-    // أضف الكود إلى القائمة واحفظه في قاعدة البيانات
+function addPromoCodeToUsed(userId, enteredCode) {
+    const usedPromoCodes = JSON.parse(localStorage.getItem(`usedPromoCodes_${userId}`)) || [];
     usedPromoCodes.push(enteredCode);
-
-    const { error: updateError } = await supabase
-        .from('users')
-        .update({ used_Promo_Codes: usedPromoCodes })
-        .eq('telegram_id', userId);
-
-    if (updateError) {
-        console.error('Error updating used promo codes:', updateError);
-        return false;
-    }
-
-    console.log('Promo code added to used list successfully.');
-    return true;
-}
-
-// دالة لعرض الإعلان
-function showAd(adController) {
-    setTimeout(() => {
-        adController.show().then(() => {
-            console.log("Ad viewed successfully");
-        }).catch(err => {
-            console.error("Error showing ad:", err);
-        });
-    }, 2000);
+    localStorage.setItem(`usedPromoCodes_${userId}`, JSON.stringify(usedPromoCodes));
 }
 
 // عند الضغط على زر برومو كود
-document.getElementById('promocodeBtu').addEventListener('click', function() {
+document.getElementById('promocodeBtu').addEventListener('click', function () {
     document.getElementById('promoContainer').classList.remove('hidden');
     document.getElementById('promocodeoverlay').style.display = 'block'; // إظهار الشفافية
 });
@@ -2108,6 +2002,7 @@ function closePromoModal() {
     document.getElementById('promoContainer').classList.add('hidden');
     document.getElementById('promocodeoverlay').style.display = 'none'; // إخفاء الشفافية
 }
+
 
 
 
