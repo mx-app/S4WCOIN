@@ -2835,12 +2835,8 @@ async function updateLeaderboardDisplay(leaderboard) {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-    await fetchLeaderboard(); // جلب بيانات المتصدرين أولًا
-    try {
-        await fetchUserRank(); // جلب بيانات المستخدم الحالي
-    } catch (err) {
-        console.error('Error loading user rank:', err.message);
-    }
+  await fetchLeaderboard(); 
+  await fetchUserRank();
 });
 
 
