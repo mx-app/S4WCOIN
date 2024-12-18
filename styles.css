@@ -468,9 +468,9 @@ img {
  
  
 .menu {
-    border-bottom: 1px solid #1c1c1c;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 10px 5px;
     background-color: rgba(16, 16, 16, 0.9);
     position: fixed;
@@ -483,27 +483,22 @@ img {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-.menu button {
-    color: #808080;
-    font-size: 12px;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 1;
+.menu-item {
     background: none;
     border: none;
-    margin: 2px;
-    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 0 10px;
+    position: relative;
+    transition: all 0.3s ease;
 }
 
-.menu button span {
-    margin-top: 5px;
-    font-size: 11px;
-    color: #808080;
-}
-
-.menu button .icon-wrapper {
+.icon-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -511,31 +506,42 @@ img {
     height: 40px;
     border-radius: 50%;
     background-color: transparent;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.menu button i {
-    font-size: 1.4rem;
+.menu-item i {
+    font-size: 1.5rem;
     color: #808080;
     transition: color 0.3s ease;
 }
 
-.menu button.active .icon-wrapper {
+.menu-item.active .icon-wrapper {
     background-color: #2D83EC;
 }
 
-.menu button.active i {
+.menu-item.active i {
     color: #fff;
 }
 
-.menu button.active span {
-    color: #fff;
+.menu-label {
+    font-size: 11px;
+    color: #808080;
+    text-align: center;
+    margin-top: 5px;
+    flex-basis: 100%;
+    position: relative;
+    top: -5px; /* لضبط المسافة بين النص والقائمة */
 }
 
-.menu button:hover .icon-wrapper {
+.menu-item:hover .icon-wrapper {
     background-color: rgba(45, 131, 236, 0.5);
-} 
- 
+}
+
+.menu-item:hover i {
+    color: #fff;
+}  
+
+
 .menu-img {
     width: 33px;
     height: 33px;
