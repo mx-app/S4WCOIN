@@ -185,31 +185,40 @@ async function saveGameState() {
 
 
 
-//تحديث الطاقه 
 async function restoreEnergy() {
     try {
+        // استعادة وقت آخر ملء للطاقة من التخزين المحلي
+        const lastFillTime = parseInt(localStorage.getItem('lastFillTime'), 10) || Date.now();
         const currentTime = Date.now();
-        const timeDiff = currentTime - gameState.lastFillTime;
+        const timeDiff = currentTime - lastFillTime;
 
         // حساب الطاقة المستعادة
         const recoveredEnergy = Math.floor(timeDiff / (4 * 60 * 1000)); // استعادة الطاقة كل 4 دقائق
         gameState.energy = Math.min(gameState.maxEnergy, gameState.energy + recoveredEnergy);
-        gameState.lastFillTime = currentTime; // تحديث وقت آخر استعادة
+
+        // تحديث وقت آخر استعادة للطاقة
+        gameState.lastFillTime = currentTime;
+        localStorage.setItem('lastFillTime', gameState.lastFillTime);
 
         // تحديث واجهة المستخدم
         updateUI();
 
         // حفظ حالة اللعبة
-        await saveGameState();
+        await saveGameState(); // حفظ حالة اللعبة (ما عدا lastFillTime)
 
         console.log('Energy restored successfully.');
     } catch (err) {
         console.error('Error restoring energy:', err.message);
 
         // إشعار بفشل الاستعادة
-        showNotificationWithStatus(uiElements.purchaseNotification, `Failed to restore energy. Please reload.`, 'lose');
+        showNotificationWithStatus(
+            uiElements.purchaseNotification,
+            `Failed to restore energy. Please reload.`,
+            'lose'
+        );
     }
 }
+
 
 
 
@@ -798,27 +807,26 @@ function navigateToScreen(screenId) {
 }
 
 
-
 function startEnergyRecovery() {
     setInterval(() => {
         // التأكد من وجود طاقة أقل من الحد الأقصى
         if (gameState.energy < gameState.maxEnergy) {
-            // إذا كانت الطاقة صفر أو أقل من الحد الأقصى، يتم زيادتها بمقدار 10
+            // إذا كانت الطاقة أقل من الحد الأقصى، يتم زيادتها
             gameState.energy = Math.min(gameState.maxEnergy, gameState.energy + 500);
 
             // تحديث الوقت الأخير لملء الطاقة
             gameState.lastFillTime = Date.now();
 
+            // حفظ وقت آخر ملء للطاقة في التخزين المحلي
+            localStorage.setItem('lastFillTime', gameState.lastFillTime);
+
             // تحديث واجهة المستخدم وحفظ البيانات
             updateUI();
-            saveGameState();
-            updateGameStateInDatabase({
-                energy: gameState.energy,
-                lastFillTime: gameState.lastFillTime,
-            });
+            saveGameState(); // حفظ حالة اللعبة (ما عدا lastFillTime)
         }
-    }, 4000); // تنفيذ الدالة كل 5 ثوانٍ
+    }, 4000); // تنفيذ الدالة كل 4 ثوانٍ
 }
+
 
 
 //////////////////////////////////
