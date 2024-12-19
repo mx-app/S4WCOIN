@@ -72,11 +72,7 @@ let gameState = {
     currentLevel: 1,
     achievedLevels: [],
     friends: 0,
-   // fillEnergyCount: 0,
-   // lastFillTime: Date.now(),
-    //freeEnergyFillTime: null,
     invites: [],
-    //claimedRewards: { levels: [] },
     tasksprogress: [],
     completedTasks: [],
     puzzlesprogress:[], 
@@ -148,16 +144,9 @@ async function saveGameState() {
         balance: gameState.balance,
         energy: gameState.energy,
         max_energy: gameState.maxEnergy,
-      //  click_multiplier: gameState.clickMultiplier,
-       // boost_level: gameState.boostLevel,
-      //  coin_boost_level: gameState.coinBoostLevel,
-       // energy_boost_level: gameState.energyBoostLevel,
         current_level: gameState.currentLevel,
         friends: gameState.friends,
-       // fill_energy_count: gameState.fillEnergyCount,
-       // last_fill_time: new Date(gameState.lastFillTime).toISOString(),
         invites: gameState.invites,
-       //claimed_rewards: gameState.claimedRewards,
         tasks_progress: gameState.tasksProgress,
         puzzles_progress: gameState.puzzlesProgress,
         last_login_date: gameState.lastLoginDate ? new Date(gameState.lastLoginDate).toISOString() : null,
@@ -500,10 +489,6 @@ function updateUI() {
     updateGameStateInDatabase({
         balance: gameState.balance,
         energy: gameState.energy,
-        //currentLevel: gameState.currentLevel,
-       // click_multiplier: gameState.clickMultiplier,
-        //boost_level: gameState.boostLevel,
-       // coin_boost_level: gameState.coinBoostLevel,
     });
 }
 
@@ -1055,7 +1040,7 @@ function copyInviteLink() {
 
 // مشاركة الدعوة عبر Telegram
 function openTelegramChat() {
-    const inviteLink = `https://t.me/share/url?text=Join SawCoin Game and earn 5,000 $S4W!&url=https://t.me/SAWCOIN_BOT?start=${uiElements.userTelegramIdDisplay?.innerText || ''}`;
+    const inviteLink = `https://t.me/share/url?text=Join Saw Token Game and earn 5,000 $SAW!&url=https://t.me/SAWCOIN_BOT?start=${uiElements.userTelegramIdDisplay?.innerText || ''}`;
     window.open(inviteLink, '_blank');
 }
 
@@ -1069,16 +1054,9 @@ async function updateUserData() {
             balance: gameState.balance,
             energy: gameState.energy,
             max_energy: gameState.maxEnergy,
-           // click_multiplier: gameState.clickMultiplier,
-           // boost_level: gameState.boostLevel,
-           // coin_boost_level: gameState.coinBoostLevel,
-           // energy_boost_level: gameState.energyBoostLevel,
             current_level: gameState.currentLevel,
             friends: gameState.friends,
-           // fill_energy_count: gameState.fillEnergyCount,
-            //last_fill_time: new Date(gameState.lastFillTime).toISOString(),
             invites: gameState.invites,
-           // claimed_rewards: gameState.claimedRewards, // حفظ المكافآت المحصلة في قاعدة البيانات
             tasks_progress: gameState.tasksprogress, 
             completed_tasks: gameState.completedTasks, 
             puzzles_progress: gameState.puzzlesprogress, 
@@ -1198,12 +1176,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 ///////////////////////////////////////////
-
-window.Telegram.WebApp.setHeaderColor('#101010');
-//window.Telegram.WebApp.setBackgroundColor('#101010');
-
-//////////////////////////////////////
-
 
 
 // المهام 
@@ -1505,7 +1477,7 @@ function initializeTelegramIntegration() {
 // استدعاء التهيئة عند تحميل الصفحة
 window.addEventListener("load", initializeTelegramIntegration);
 
-
+window.Telegram.WebApp.setHeaderColor('#101010');
 
 
 ///////////////////////////////
@@ -1529,8 +1501,8 @@ let currentPuzzle;
 let attempts = 0;
 let puzzleSolved = false;
 let countdownInterval;
-const maxAttempts = 3; // أقصى عدد للمحاولات
-const countdownDuration = 24 * 60 * 60 * 1000; // 24 ساعة بالميلي ثانية
+const maxAttempts = 3; 
+const countdownDuration = 24 * 60 * 60 * 1000; 
 
 // تحميل الأحاجي من ملف JSON
 async function loadPuzzles() {
