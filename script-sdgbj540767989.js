@@ -2083,11 +2083,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const dailyRewards = [100, 500, 2000, 5000, 8000, 15000, 30000, 50000, 100000]; 
 
     // الدالة الرئيسية لتسجيل الدخول اليومي
-    async function handleDailyLogin() {
-        try {
-            const userTelegramId = uiElements.userTelegramIdDisplay.innerText; // الحصول على Telegram ID من واجهة المستخدم
+async function handleDailyLogin() {
+    try {
+        const userTelegramId = uiElements.userTelegramIdDisplay.innerText;
 
-            // جلب بيانات المستخدم من قاعدة البيانات
+        // جلب بيانات المستخدم من LocalStorage أولاً
+        let localData = JSON.parse(localStorage.getItem('dailyLoginData')) || {};
+        let { last_login_date, consecutive_days } = localData;
+
+        // إذا لم تكن البيانات موجودة محليًا، قم بجلبها من قاعدة البيانات
+        if (!last_login_date || !consecutive_days) {
             const { data, error } = await supabase
                 .from('users')
                 .select('last_login_date, consecutive_days')
@@ -2100,59 +2105,67 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            let { last_login_date, consecutive_days } = data;
-            consecutive_days = consecutive_days || 0; // تعيين قيمة افتراضية إذا كانت غير موجودة
-            const today = new Date().toISOString().split('T')[0]; // تاريخ اليوم فقط (YYYY-MM-DD)
-
-            // التحقق من حالة تسجيل الدخول اليومي
-            if (last_login_date === today) {
-                loginNotification.innerText = 'You have already claimed today\'s reward.';
-                disableClaimButton();
-                highlightRewardedDays(consecutive_days);
-                showRewardImage(consecutive_days); // عرض الصورة بعد المطالبة
-                return;
-            }
-
-            // التحقق من استمرارية الأيام المتتالية
-            const lastLoginDateObj = new Date(last_login_date);
-            const isConsecutive = (new Date(today).getDate() - lastLoginDateObj.getDate()) === 1 && new Date(today).getMonth() === lastLoginDateObj.getMonth() && new Date(today).getFullYear() === lastLoginDateObj.getFullYear();
-
-            if (isConsecutive) {
-                consecutive_days++;
-                if (consecutive_days > dailyRewards.length) consecutive_days = dailyRewards.length;
-            } else {
-                consecutive_days = 1; // إعادة تعيين إلى اليوم الأول إذا فات المستخدم يوم
-            }
-
-            // إضافة المكافأة للمستخدم بناءً على عدد الأيام المتتالية
-            const reward = dailyRewards[consecutive_days - 1];
-            updateBalance(reward);
-
-            // تحديث واجهة المستخدم
-            loginNotification.innerText = `Day ${consecutive_days}: You've earned ${reward} $SWT!`;
-            updateClaimButton(consecutive_days, reward);
-            highlightRewardedDays(consecutive_days);
-
-            // تحديث قاعدة البيانات
-            const { updateError } = await supabase
-                .from('users')
-                .update({
-                    last_login_date: today,
-                    consecutive_days: consecutive_days
-                })
-                .eq('telegram_id', userTelegramId);
-
-            if (updateError) {
-                console.error('Error updating daily login data:', updateError);
-                loginNotification.innerText = 'Error saving progress. Please try again later.';
-            } else {
-                console.log('Database updated successfully');
-            }
-        } catch (error) {
-            console.error('Unexpected error in daily login:', error);
-            loginNotification.innerText = 'Error processing your daily login. Please try again later.';
+            // حفظ البيانات في LocalStorage
+            localData = data;
+            localStorage.setItem('dailyLoginData', JSON.stringify(localData));
+            ({ last_login_date, consecutive_days } = data);
         }
-    }
+
+        consecutive_days = consecutive_days || 0; // تعيين قيمة افتراضية إذا كانت غير موجودة
+        const today = new Date().toISOString().split('T')[0];
+
+        // التحقق من حالة تسجيل الدخول اليومي
+        if (last_login_date === today) {
+            loginNotification.innerText = 'You have already claimed today\'s reward.';
+            disableClaimButton();
+            highlightRewardedDays(consecutive_days);
+            showRewardImage(consecutive_days);
+            return;
+        }
+
+        // التحقق من استمرارية الأيام المتتالية
+        const lastLoginDateObj = new Date(last_login_date);
+        const isConsecutive = (new Date(today).getDate() - lastLoginDateObj.getDate()) === 1 &&
+                              new Date(today).getMonth() === lastLoginDateObj.getMonth() &&
+                              new Date(today).getFullYear() === lastLoginDateObj.getFullYear();
+
+        if (isConsecutive) {
+            consecutive_days++;
+            if (consecutive_days > dailyRewards.length) consecutive_days = dailyRewards.length;
+        } else {
+            consecutive_days = 1; // إعادة تعيين إلى اليوم الأول
+        }
+
+        // إضافة المكافأة
+        const reward = dailyRewards[consecutive_days - 1];
+        updateBalance(reward);
+
+        // تحديث واجهة المستخدم
+        loginNotification.innerText = `Day ${consecutive_days}: You've earned ${reward} $SWT!`;
+        updateClaimButton(consecutive_days, reward);
+        highlightRewardedDays(consecutive_days);
+
+        // تحديث البيانات في LocalStorage
+        localData = { last_login_date: today, consecutive_days };
+        localStorage.setItem('dailyLoginData', JSON.stringify(localData));
+
+        // تحديث قاعدة البيانات
+        const { updateError } = await supabase
+            .from('users')
+            .update(localData)
+            .eq('telegram_id', userTelegramId);
+
+        if (updateError) {
+            console.error('Error updating daily login data:', updateError);
+            loginNotification.innerText = 'Error saving progress. Please try again later.';
+        } else {
+            console.log('Database updated successfully');
+        }
+    } catch (error) {
+        console.error('Unexpected error in daily login:', error);
+        loginNotification.innerText = 'Error processing your daily login. Please try again later.';
+      }
+   }
 
     // تحديث زر المطالبة بالمكافأة
     function updateClaimButton(day, reward) {
