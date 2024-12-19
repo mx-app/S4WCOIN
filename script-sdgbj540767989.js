@@ -1801,6 +1801,25 @@ const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
     buttonRootId: 'ton-connect'
 });
 
+// دالة للتحقق من وجود محفظة مخزنة مسبقًا
+async function initializeWallet() {
+    try {
+        // استرجاع بيانات المحفظة
+        const connectedWallet = await tonConnectUI.getWallet();
+
+        if (connectedWallet) {
+            console.log("Wallet is already connected:", connectedWallet);
+            // يمكنك استدعاء أي وظائف أخرى تحتاج إلى عنوان المحفظة
+        } else {
+            console.log("No wallet connected. Initiating connection...");
+            await connectToWallet();
+        }
+    } catch (error) {
+        console.error("Error initializing wallet:", error.message || error);
+    }
+}
+
+// دالة لربط المحفظة في حال عدم وجود اتصال
 async function connectToWallet() {
     try {
         const connectedWallet = await tonConnectUI.connectWallet();
@@ -1810,31 +1829,8 @@ async function connectToWallet() {
     }
 }
 
-async function checkConnection() {
-    try {
-        const connectedWallet = await tonConnectUI.getWallet();
-
-        if (!connectedWallet) {
-            console.log("Wallet is not connected. Initiating connection...");
-            await connectToWallet();
-        } else {
-            console.log("Wallet is already connected:", connectedWallet);
-        }
-    } catch (error) {
-        if (Object.keys(error).length === 0) {
-            console.error("Unknown error occurred while checking wallet connection.");
-        } else {
-            console.error("Error checking wallet connection:", error.message || error);
-        }
-    }
-}
-
-// استدعاء دالة التحقق عند تحميل الصفحة
-document.addEventListener('DOMContentLoaded', checkConnection);
-
-tonConnectUI.uiOptions = {
-    twaReturnUrl: 'https://t.me/SAWCOIN_BOT/GAME'
-};
+// استدعاء دالة التهيئة عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', initializeWallet);
 
 
 
