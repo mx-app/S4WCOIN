@@ -320,7 +320,7 @@ img {
     justify-content: center; /* محاذاة عمودية للمحتوى */
     align-items: center; /* محاذاة المحتوى عموديًا */
     position: absolute; /* تموضع مطلق */
-    bottom: 125px; /* المسافة من أسفل الشاشة */
+    bottom: 135px; /* المسافة من أسفل الشاشة */
     left: 50%; /* المنتصف أفقيًا */
     transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
     width: 80%; 
