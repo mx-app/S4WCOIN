@@ -76,9 +76,7 @@ let gameState = {
     lastFillTime: Date.now(),
     freeEnergyFillTime: null,
     invites: [],
-    
     claimedRewards: { levels: [] },
-    
     tasksprogress: [],
     completedTasks: [],
     puzzlesprogress:[], 
@@ -150,18 +148,16 @@ async function saveGameState() {
         balance: gameState.balance,
         energy: gameState.energy,
         max_energy: gameState.maxEnergy,
-        click_multiplier: gameState.clickMultiplier,
-        boost_level: gameState.boostLevel,
-        coin_boost_level: gameState.coinBoostLevel,
-        energy_boost_level: gameState.energyBoostLevel,
+      //  click_multiplier: gameState.clickMultiplier,
+       // boost_level: gameState.boostLevel,
+      //  coin_boost_level: gameState.coinBoostLevel,
+       // energy_boost_level: gameState.energyBoostLevel,
         current_level: gameState.currentLevel,
         friends: gameState.friends,
         fill_energy_count: gameState.fillEnergyCount,
         last_fill_time: new Date(gameState.lastFillTime).toISOString(),
         invites: gameState.invites,
-        
         claimed_rewards: gameState.claimedRewards,
-      
         tasks_progress: gameState.tasksProgress,
         puzzles_progress: gameState.puzzlesProgress,
         last_login_date: gameState.lastLoginDate ? new Date(gameState.lastLoginDate).toISOString() : null,
@@ -944,8 +940,11 @@ async function loadFriendsList() {
         if (data && data.invites && Array.isArray(data.invites) && data.invites.length > 0) {
             uiElements.friendsListDisplay.innerHTML = ''; // مسح القائمة القديمة
 
+            // إزالة المعرّفات المكررة باستخدام Set
+            const uniqueInvites = [...new Set(data.invites)];
+
             // تحديد الحد الأقصى إلى 10 أصدقاء فقط
-            const limitedInvites = data.invites.slice(0, 10);
+            const limitedInvites = uniqueInvites.slice(0, 10);
 
             // جلب بيانات الأصدقاء بما في ذلك الرصيد لكل معرف
             const friendsPromises = limitedInvites.map(async (friendId) => {
@@ -1006,7 +1005,7 @@ async function loadFriendsList() {
             });
 
             // تحديث العدد الإجمالي للأصدقاء
-            const totalFriendsCount = data.invites.length;
+            const totalFriendsCount = uniqueInvites.length;
             const invitedCountElement = document.getElementById('invitedCount');
             const settingsInvitedCountElement = document.getElementById('settingsInvitedCount');
 
@@ -1063,18 +1062,16 @@ async function updateUserData() {
             balance: gameState.balance,
             energy: gameState.energy,
             max_energy: gameState.maxEnergy,
-            click_multiplier: gameState.clickMultiplier,
-            boost_level: gameState.boostLevel,
-            coin_boost_level: gameState.coinBoostLevel,
-            energy_boost_level: gameState.energyBoostLevel,
+           // click_multiplier: gameState.clickMultiplier,
+           // boost_level: gameState.boostLevel,
+           // coin_boost_level: gameState.coinBoostLevel,
+           // energy_boost_level: gameState.energyBoostLevel,
             current_level: gameState.currentLevel,
             friends: gameState.friends,
             fill_energy_count: gameState.fillEnergyCount,
             last_fill_time: new Date(gameState.lastFillTime).toISOString(),
             invites: gameState.invites,
-            
             claimed_rewards: gameState.claimedRewards, // حفظ المكافآت المحصلة في قاعدة البيانات
-        
             tasks_progress: gameState.tasksprogress, 
             completed_tasks: gameState.completedTasks, 
             puzzles_progress: gameState.puzzlesprogress, 
@@ -2534,13 +2531,8 @@ function truncateUsername(username, maxLength = 8) {
 //////////////////////
 
 
-//function clearAllLocalStorage() {
-//   localStorage.clear(); 
-  //  console.log("All local storage data has been cleared.");
-//}
 
 
-/////////////////////////
 
 
 // تفعيل التطبيق
