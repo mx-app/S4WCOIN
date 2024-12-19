@@ -2466,7 +2466,7 @@ async function fetchUserRank() {
 
 
 function updateUserRankDisplay(rank, username, balance) {
-    userRankDisplay.innerText = rank ? `#${rank}` : 'N/A';
+    userRankDisplay.innerText = rank ? `${rank}#` : 'N/A';
     userUsernameDisplay.innerText = username || 'Anonymous';
     userBalanceDisplay.innerText = balance ? `${balance.toLocaleString()} $SAW` : '0 $SAW';
     userRankContainer.style.display = 'block';
@@ -2502,7 +2502,7 @@ async function updateLeaderboardDisplay(leaderboard) {
         userRow.classList.add('leaderboard-row');
 
         // شارة لأعلى 3 مراكز
-        const badge = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : `#${index + 1}`;
+        const badge = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : `${index + 1}#`;
 
         userRow.innerHTML = `
             <img src="https://sawcoin.vercel.app/i/users.jpg" alt="Avatar" class="leaderboard-avatar" id="avatar-${user.telegram_id}" />
