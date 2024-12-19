@@ -1795,44 +1795,32 @@ document.getElementById('puzzle1').addEventListener('click', function() {
 
 /////////////////////////////////////////////////
 
+        // تهيئة الكائن مع manifestUrl وزر الاتصال
+        const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+            manifestUrl: 'https://sawcoin.vercel.app/json/tonconnect-manifest.json',
+            buttonRootId: 'ton-connect'
+        });
 
-const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
-    manifestUrl: 'https://sawcoin.vercel.app/json/tonconnect-manifest.json',
-    buttonRootId: 'ton-connect'
-});
+        // تهيئة uiOptions (اختياري)
+        tonConnectUI.uiOptions = {
+            twaReturnUrl: 'https://t.me/SAWCOIN_BOT/GAME'
+        };
 
-// دالة للتحقق من وجود محفظة مخزنة مسبقًا
-async function initializeWallet() {
-    try {
-        // استرجاع بيانات المحفظة
-        const connectedWallet = await tonConnectUI.getWallet();
-
-        if (connectedWallet) {
-            console.log("Wallet is already connected:", connectedWallet);
-            // يمكنك استدعاء أي وظائف أخرى تحتاج إلى عنوان المحفظة
-        } else {
-            console.log("No wallet connected. Initiating connection...");
-            await connectToWallet();
+        // وظيفة الاتصال بالمحفظة
+        async function connectToWallet() {
+            try {
+                const connectedWallet = await tonConnectUI.connectWallet();
+                console.log("Wallet connected successfully:", connectedWallet);
+                // قم بتنفيذ العمليات الخاصة بك هنا باستخدام connectedWallet
+            } catch (error) {
+                console.error("Error connecting to wallet:", error);
+            }
         }
-    } catch (error) {
-        console.error("Error initializing wallet:", error.message || error);
-    }
-}
 
-// دالة لربط المحفظة في حال عدم وجود اتصال
-async function connectToWallet() {
-    try {
-        const connectedWallet = await tonConnectUI.connectWallet();
-        console.log("Wallet connected successfully:", connectedWallet);
-    } catch (error) {
-        console.error("Error connecting to wallet:", error.message || error);
-    }
-}
-
-// استدعاء دالة التهيئة عند تحميل الصفحة
-document.addEventListener('DOMContentLoaded', initializeWallet);
-
-
+        // استدعاء وظيفة الاتصال عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', () => {
+            connectToWallet();
+        });
 
 /////////////////////////////////////////
 
