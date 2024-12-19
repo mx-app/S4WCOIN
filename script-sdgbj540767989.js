@@ -74,7 +74,7 @@ let gameState = {
     friends: 0,
     fillEnergyCount: 0,
     lastFillTime: Date.now(),
-    freeEnergyFillTime: null,
+   // freeEnergyFillTime: null,
     invites: [],
    // claimedRewards: { levels: [] },
     tasksprogress: [],
@@ -155,7 +155,7 @@ async function saveGameState() {
         current_level: gameState.currentLevel,
         friends: gameState.friends,
         fill_energy_count: gameState.fillEnergyCount,
-        last_fill_time: new Date(gameState.lastFillTime).toISOString(),
+       // last_fill_time: new Date(gameState.lastFillTime).toISOString(),
         invites: gameState.invites,
        // claimed_rewards: gameState.claimedRewards,
         tasks_progress: gameState.tasksProgress,
@@ -501,10 +501,10 @@ function updateUI() {
     updateGameStateInDatabase({
         balance: gameState.balance,
         energy: gameState.energy,
-        currentLevel: gameState.currentLevel,
-        click_multiplier: gameState.clickMultiplier,
-        boost_level: gameState.boostLevel,
-        coin_boost_level: gameState.coinBoostLevel,
+        //currentLevel: gameState.currentLevel,
+        //click_multiplier: gameState.clickMultiplier,
+       // boost_level: gameState.boostLevel,
+       // coin_boost_level: gameState.coinBoostLevel,
     });
 }
 
@@ -1076,8 +1076,8 @@ async function updateUserData() {
            // energy_boost_level: gameState.energyBoostLevel,
             current_level: gameState.currentLevel,
             friends: gameState.friends,
-            fill_energy_count: gameState.fillEnergyCount,
-            last_fill_time: new Date(gameState.lastFillTime).toISOString(),
+           // fill_energy_count: gameState.fillEnergyCount,
+         //   last_fill_time: new Date(gameState.lastFillTime).toISOString(),
             invites: gameState.invites,
             // claimed_rewards: gameState.claimedRewards, // حفظ المكافآت المحصلة في قاعدة البيانات
             tasks_progress: gameState.tasksprogress, 
