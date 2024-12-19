@@ -1802,28 +1802,35 @@ const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
 });
 
 async function connectToWallet() {
-    const connectedWallet = await tonConnectUI.connectWallet();
-    // يمكنك تنفيذ بعض العمليات باستخدام connectedWallet إذا لزم الأمر
-    console.log(connectedWallet);
+    try {
+        const connectedWallet = await tonConnectUI.connectWallet();
+        console.log("Wallet connected successfully:", connectedWallet);
+    } catch (error) {
+        console.error("Error connecting to wallet:", error.message || error);
+    }
 }
 
 async function checkConnection() {
     try {
-        const isConnected = await tonConnectUI.isWalletConnected();
-        
-        if (!isConnected) {
-            // إذا لم يتم الربط، أظهر واجهة الربط
+        const connectedWallet = await tonConnectUI.getWallet();
+
+        if (!connectedWallet) {
+            console.log("Wallet is not connected. Initiating connection...");
             await connectToWallet();
         } else {
-            console.log("Wallet is already connected.");
+            console.log("Wallet is already connected:", connectedWallet);
         }
     } catch (error) {
-        console.error("Error checking wallet connection:", error);
+        if (Object.keys(error).length === 0) {
+            console.error("Unknown error occurred while checking wallet connection.");
+        } else {
+            console.error("Error checking wallet connection:", error.message || error);
+        }
     }
 }
 
 // استدعاء دالة التحقق عند تحميل الصفحة
-checkConnection();
+document.addEventListener('DOMContentLoaded', checkConnection);
 
 tonConnectUI.uiOptions = {
     twaReturnUrl: 'https://t.me/SAWCOIN_BOT/GAME'
