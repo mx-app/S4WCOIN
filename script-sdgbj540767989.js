@@ -608,9 +608,11 @@ function showNotificationWithStatus(notificationElement, message, status = '') {
 
     // إعداد رابط الصورة بناءً على الحالة
     let imageUrl = '';
+    let confettiImage = ''; // رابط صورة الاحتفال
     if (status === 'win') {
         notificationElement.classList.add('win');
         imageUrl = 'i/done.png'; // رابط الصورة لحالة الفوز
+        confettiImage = '<img src="i/confetti.webp" class="confetti-image" alt="">';
     } else if (status === 'lose') {
         notificationElement.classList.add('lose');
         imageUrl = 'i/mistake.png'; // رابط الصورة لحالة الخسارة
@@ -622,8 +624,12 @@ function showNotificationWithStatus(notificationElement, message, status = '') {
         imageUrl = 'i/message.png'; // رابط الصورة للإشعار العادي
     }
 
-    // إضافة الصورة مع الرسالة باستخدام innerHTML
-    notificationElement.innerHTML = `<img src="${imageUrl}" class="notification-image" alt=""> ${message}`;
+    // إضافة الصورة مع الرسالة وصورة الاحتفال عند الفوز
+    notificationElement.innerHTML = `
+        <img src="${imageUrl}" class="notification-image" alt="">
+        ${message}
+        ${status === 'win' ? confettiImage : ''}
+    `;
 
     // إظهار الإشعار
     notificationElement.classList.add('show');
@@ -633,6 +639,7 @@ function showNotificationWithStatus(notificationElement, message, status = '') {
         notificationElement.classList.remove('show');
     }, 4000);
 }
+
 
 
 
