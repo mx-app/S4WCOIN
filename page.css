@@ -1,9 +1,9 @@
 #clickSection {
   position: fixed;
-  bottom: 110px;
+  bottom: 120px;
   left: 50%; 
   transform: translateX(-50%); 
-  width: 90%;
+  width: 89%;
   height: 50px;
   background-color: #101010;
   display: flex;
