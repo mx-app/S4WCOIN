@@ -2535,6 +2535,26 @@ function truncateUsername(username, maxLength = 8) {
 
 //////////////////////
 
+async function debugSupabaseUpdate(cleanedData) {
+    for (const [key, value] of Object.entries(cleanedData)) {
+        if (value === null || value === undefined) {
+            console.warn(`Warning: Column "${key}" has invalid value:`, value);
+        }
+    }
+
+    const { error } = await supabase
+        .from('users')
+        .update(cleanedData)
+        .eq('telegram_id', userId);
+
+    if (error) {
+        console.error('Supabase Error:', error);
+        console.error('Details:', error.details);
+        console.error('Hint:', error.hint);
+    } else {
+        console.log('Update successful.');
+    }
+}
 
 
 
