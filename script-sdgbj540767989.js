@@ -697,25 +697,27 @@ function updateVibrationButton() {
 
 
 
-    // استدعاء الصورة القابلة للنقر
-const img = document.getElementById('clickableImg');
-let isClicking = false; // لمنع النقرات المكررة
-let localClickCount = 0; // عداد النقرات المحلي
-let localEnergyConsumed = 0; // الطاقة المستهلكة محليًا
-const energyUpdateThreshold = 50; // الحد الأدنى من الطاقة المستهلكة لتحديث قاعدة البيانات
+    
 
-// تحميل البيانات المحلية
+// تعريف عناصر DOM
+const img = document.getElementById('clickableImg');
+const claimButton = document.getElementById('claimButton');
+
+// القيم المحلية
+let localClickCount = 0;
+let localEnergyConsumed = 0;
+const energyUpdateThreshold = 50; // الحد الأدنى لتحديث الطاقة في قاعدة البيانات
+
+// تحميل القيم المحلية من Local Storage
 function loadLocalData() {
-    const storedClicks = localStorage.getItem('clickCount');
-    const storedEnergy = localStorage.getItem('energyConsumed');
-    localClickCount = storedClicks ? parseInt(storedClicks, 10) : 0;
-    localEnergyConsumed = storedEnergy ? parseInt(storedEnergy, 10) : 0;
+    localClickCount = parseInt(localStorage.getItem('clickCount')) || 0;
+    localEnergyConsumed = parseInt(localStorage.getItem('energyConsumed')) || 0;
 
     updateClickCountUI();
     updateEnergyUI();
 }
 
-// تحديث واجهة المستخدم
+// تحديث عدد النقرات في الواجهة
 function updateClickCountUI() {
     const clickCountDisplay = document.getElementById('clickCountDisplay');
     if (clickCountDisplay) {
@@ -723,6 +725,7 @@ function updateClickCountUI() {
     }
 }
 
+// تحديث شريط الطاقة في الواجهة
 function updateEnergyUI() {
     const energyBar = document.getElementById('energyBar');
     const energyInfo = document.getElementById('energyInfo');
@@ -738,13 +741,9 @@ function updateEnergyUI() {
 
 // التعامل مع النقر
 img.addEventListener('pointerdown', (event) => {
-    if (isClicking) return; // منع النقرات المتكررة
-    isClicking = true;
-
     event.preventDefault(); // منع السلوك الافتراضي
     const rect = img.getBoundingClientRect();
 
-    // حساب موقع النقرة بالنسبة للصورة
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
 
@@ -757,14 +756,11 @@ img.addEventListener('pointerdown', (event) => {
 
     handleClick(event);
 
-    // إعادة الوضع الطبيعي للصورة بعد التأثير
     setTimeout(() => {
         img.style.transform = 'perspective(700px) rotateX(0) rotateY(0)';
-        isClicking = false; // السماح بالنقر التالي
     }, 300);
 });
 
-// التعامل مع النقر
 function handleClick(event) {
     const requiredEnergy = gameState.clickMultiplier;
     const currentEnergy = gameState.maxEnergy - localEnergyConsumed;
@@ -782,18 +778,14 @@ function handleClick(event) {
 
     updateClickCountUI();
     updateEnergyUI();
-    createDiamondCoinEffect(event.pageX, event.pageY); // تأثير الألماس
 
-    if (isVibrationEnabled && navigator.vibrate) {
-        navigator.vibrate(80);
-    }
+    createDiamondCoinEffect(event.pageX, event.pageY);
 
     if (localEnergyConsumed >= energyUpdateThreshold) {
         updateEnergyInDatabase();
     }
 }
 
-// تأثير الألماس
 function createDiamondCoinEffect(x, y) {
     const diamondText = document.createElement('div');
     diamondText.classList.add('diamond-text');
@@ -813,20 +805,18 @@ function createDiamondCoinEffect(x, y) {
     }, 50);
 }
 
-// تحديث الطاقة في قاعدة البيانات
 async function updateEnergyInDatabase() {
     try {
         await updateGameStateInDatabase({
             energy: gameState.maxEnergy - localEnergyConsumed,
         });
-        localEnergyConsumed = 0;
-        console.log('Energy updated in database successfully.');
+        localEnergyConsumed = 0; // إعادة تعيين الطاقة المحلية
+        console.log('Energy updated successfully.');
     } catch (error) {
-        console.error('Error updating energy in database:', error);
+        console.error('Failed to update energy:', error);
     }
 }
 
-// التعامل مع زر "Claim"
 async function handleClaim() {
     if (localClickCount === 0) {
         showNotification(uiElements.purchaseNotification, 'No clicks to claim.');
@@ -849,21 +839,17 @@ async function handleClaim() {
 
         showNotificationWithStatus(uiElements.purchaseNotification, `You claimed ${totalReward} coins!`, 'win');
     } catch (error) {
-        console.error('Error claiming clicks:', error);
-        showNotification(uiElements.purchaseNotification, 'Failed to claim clicks. Try again later.');
+        console.error('Failed to claim clicks:', error);
+        showNotification(uiElements.purchaseNotification, 'Failed to claim. Try again later.');
     }
 }
 
-// تهيئة التطبيق عند بدء التشغيل
 document.addEventListener('DOMContentLoaded', () => {
     loadLocalData();
-
-    const claimButton = document.getElementById('claimButton');
     if (claimButton) {
         claimButton.addEventListener('click', handleClaim);
     }
 });
-
 
 
 
