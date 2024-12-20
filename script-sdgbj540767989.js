@@ -751,7 +751,7 @@ img.addEventListener('pointerdown', (event) => {
     img.style.transition = 'transform 0.1s ease-out';
     img.style.transform = `perspective(700px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 
-    handleClick(event);
+  //  handleClick(event);
 
     // إعادة الوضع الطبيعي للصورة بعد التأثير
     setTimeout(() => {
