@@ -447,15 +447,15 @@ function updateUI() {
     });
 
     // تحديث شريط الطاقة
-    if (uiElements.energyBar) {
-        const energyPercent = (gameState.energy / gameState.maxEnergy) * 100;
-        uiElements.energyBar.style.width = `${energyPercent}%`;
-    }
+    //if (uiElements.energyBar) {
+      //  const energyPercent = (gameState.energy / gameState.maxEnergy) * 100;
+      //  uiElements.energyBar.style.width = `${energyPercent}%`;
+   // }
 
     // تحديث معلومات الطاقة
-    if (uiElements.energyInfo) {
-        uiElements.energyInfo.innerText = `${formatNumber(gameState.energy)}/${formatNumber(gameState.maxEnergy)}⚡`;
-    }
+   // if (uiElements.energyInfo) {
+      //  uiElements.energyInfo.innerText = `${formatNumber(gameState.energy)}/${formatNumber(gameState.maxEnergy)}⚡`;
+   // }
 
     // تحديث اسم المستوى الحالي
     if (uiElements.currentLevelName) {
