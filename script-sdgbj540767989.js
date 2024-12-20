@@ -714,64 +714,46 @@ img.addEventListener('pointerdown', (event) => {
     }, 300);
 });
 
-
-// تخزين التغييرات مؤقتًا
-let updateBuffer = {
-    balance: 0,
-    energy: 0
-};
-
-// فترة التحديث
-const updateInterval = 5000; // 5 ثوانٍ
-
-// وظيفة تحديث قاعدة البيانات بشكل دوري
-function updateDatabasePeriodically() {
-    if (updateBuffer.balance !== 0 || updateBuffer.energy !== 0) {
-        // إرسال التحديثات إلى قاعدة البيانات
-        updateGameStateInDatabase(updateBuffer);
-
-        // إعادة تعيين التخزين المؤقت
-        updateBuffer.balance = 0;
-        updateBuffer.energy = 0;
-    }
-}
-
-// استدعاء تحديث قاعدة البيانات بشكل دوري
-setInterval(updateDatabasePeriodically, updateInterval);
-
-// تحديث الحالة عند النقر
+// التعامل مع النقر أو اللمس
 function handleClick(event) {
-    event.preventDefault();
+    event.preventDefault(); // منع السلوك الافتراضي لمنع التكرار غير الضروري
 
+    // التعامل مع النقاط: اللمس أو النقر الفردي
     const touchPoints = event.touches ? Array.from(event.touches) : [event];
+
+    // إنشاء تأثير الألماس لكل نقطة
+    touchPoints.forEach(touch => {
+        createDiamondCoinEffect(touch.pageX, touch.pageY);
+    });
+
+    // تفعيل الاهتزاز عند تفعيل الخيار
+    if (isVibrationEnabled && navigator.vibrate) {
+        navigator.vibrate(80); 
+    }
+
+    // حساب الطاقة المطلوبة لكل لمسة
     const totalTouches = touchPoints.length;
     const requiredEnergy = gameState.clickMultiplier * totalTouches;
 
     if (gameState.energy >= requiredEnergy) {
-        // تحديث الرصيد والطاقة محليًا
-        const balanceChange = gameState.clickMultiplier * totalTouches;
-        const energyChange = -requiredEnergy;
+        // تحديث الرصيد والطاقة
+        gameState.balance += gameState.clickMultiplier * totalTouches;
+        gameState.energy -= requiredEnergy;
 
-        gameState.balance += balanceChange;
-        gameState.energy += energyChange;
-
-        // تحديث التخزين المؤقت
-        updateBuffer.balance += balanceChange;
-        updateBuffer.energy += energyChange;
-
-        // تحديث الواجهة
+        // حفظ الحالة وتحديث الواجهة
+        saveGameState();
         updateUI();
 
-        // إنشاء تأثير النقرة
-        touchPoints.forEach(touch => {
-            createDiamondCoinEffect(touch.pageX, touch.pageY);
+        // إرسال البيانات إلى قاعدة البيانات
+        updateGameStateInDatabase({
+            balance: gameState.balance,
+            energy: gameState.energy,
         });
     } else {
         // عرض إشعار بنقص الطاقة
         showNotification(uiElements.purchaseNotification, 'Not enough energy!');
     }
 }
-
 
 // وظيفة إنشاء تأثير الرقم فقط
 function createDiamondCoinEffect(x, y) {
@@ -799,8 +781,6 @@ function createDiamondCoinEffect(x, y) {
         }, 800);
     }, 50);
 }
-
-
 
 //////////////////////////////////////////////////
 
