@@ -696,36 +696,37 @@ function updateVibrationButton() {
 
 
 
-    // تعريف عناصر DOM
+    // استدعاء الصورة القابلة للنقر
 const img = document.getElementById('clickableImg');
-const claimButton = document.getElementById('claimButton');
-
-// القيم المحلية
-let localClickCount = 0;
-let localEnergyConsumed = 0;
-let activeTouches = new Set(); // لتتبع النقاط النشطة
+let localClickCount = 0; // عداد النقرات المحلي
+let localEnergyConsumed = 0; // الطاقة المستهلكة محليًا
 const energyUpdateThreshold = 50; // الحد الأدنى لتحديث الطاقة في قاعدة البيانات
+let isUpdatingDatabase = false; // منع التحديث المتكرر للبيانات
 
-// تحميل القيم المحلية من Local Storage
+// تحميل البيانات المحلية عند بدء التطبيق
 function loadLocalData() {
-    localClickCount = parseInt(localStorage.getItem('clickCount')) || 0;
-    localEnergyConsumed = parseInt(localStorage.getItem('energyConsumed')) || 0;
+    const storedClicks = localStorage.getItem('clickCount');
+    const storedEnergy = localStorage.getItem('energyConsumed');
+    localClickCount = storedClicks ? parseInt(storedClicks, 10) : 0;
+    localEnergyConsumed = storedEnergy ? parseInt(storedEnergy, 10) : 0;
 
     updateClickCountUI();
     updateEnergyUI();
 }
 
-// تحديث واجهة المستخدم
+// تحديث واجهة المستخدم لعرض عدد النقرات
 function updateClickCountUI() {
     const clickCountDisplay = document.getElementById('clickCountDisplay');
     if (clickCountDisplay) {
-        clickCountDisplay.innerText = localClickCount;
+        clickCountDisplay.innerText = localClickCount.toLocaleString();
     }
 }
 
+// تحديث واجهة المستخدم لشريط الطاقة
 function updateEnergyUI() {
     const energyBar = document.getElementById('energyBar');
     const energyInfo = document.getElementById('energyInfo');
+
     const currentEnergy = gameState.maxEnergy - localEnergyConsumed;
 
     if (energyBar) {
@@ -739,35 +740,22 @@ function updateEnergyUI() {
 // التعامل مع النقر
 img.addEventListener('pointerdown', (event) => {
     event.preventDefault();
+    handleClick(event);
 
-    // التأكد من أن النقرة لم تُسجل سابقًا
-    if (!activeTouches.has(event.pointerId)) {
-        activeTouches.add(event.pointerId);
-
-        // تأثير الإمالة
-        const rect = img.getBoundingClientRect();
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
-        const rotateX = ((y / rect.height) - 0.5) * -14;
-        const rotateY = ((x / rect.width) - 0.5) * 14;
-
-        img.style.transition = 'transform 0.1s ease-out';
-        img.style.transform = `perspective(700px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-
-        handleClick(event);
-
-        setTimeout(() => {
-            img.style.transform = 'perspective(700px) rotateX(0) rotateY(0)';
-        }, 300);
-    }
+    // تطبيق تأثير الإمالة
+    const rect = img.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    const rotateX = ((y / rect.height) - 0.5) * -14;
+    const rotateY = ((x / rect.width) - 0.5) * 14;
+    img.style.transition = 'transform 0.1s ease-out';
+    img.style.transform = `perspective(700px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    setTimeout(() => {
+        img.style.transform = 'perspective(700px) rotateX(0) rotateY(0)';
+    }, 300);
 });
 
-// إزالة النقاط النشطة عند انتهاء اللمس
-img.addEventListener('pointerup', (event) => {
-    activeTouches.delete(event.pointerId);
-});
-
-// التعامل مع النقرة
+// منطق النقر
 function handleClick(event) {
     const requiredEnergy = gameState.clickMultiplier;
     const currentEnergy = gameState.maxEnergy - localEnergyConsumed;
@@ -785,15 +773,18 @@ function handleClick(event) {
 
     updateClickCountUI();
     updateEnergyUI();
-
     createDiamondCoinEffect(event.pageX, event.pageY);
 
-    if (localEnergyConsumed >= energyUpdateThreshold) {
+    if (isVibrationEnabled && navigator.vibrate) {
+        navigator.vibrate(80);
+    }
+
+    if (localEnergyConsumed >= energyUpdateThreshold && !isUpdatingDatabase) {
         updateEnergyInDatabase();
     }
 }
 
-// إنشاء تأثير الألماس
+// تأثير الألماس
 function createDiamondCoinEffect(x, y) {
     const diamondText = document.createElement('div');
     diamondText.classList.add('diamond-text');
@@ -808,25 +799,28 @@ function createDiamondCoinEffect(x, y) {
         diamondText.style.transition = 'transform 0.8s ease-out, opacity 0.8s ease-out';
         diamondText.style.transform = `translate(${balanceRect.left - x}px, ${balanceRect.top - y}px) scale(0.5)`;
         diamondText.style.opacity = '0';
-
         setTimeout(() => diamondText.remove(), 800);
     }, 50);
 }
 
 // تحديث الطاقة في قاعدة البيانات
 async function updateEnergyInDatabase() {
+    isUpdatingDatabase = true;
+
     try {
-        await updateGameStateInDatabase({
-            energy: gameState.maxEnergy - localEnergyConsumed,
-        });
+        const currentEnergy = gameState.maxEnergy - localEnergyConsumed;
+        await updateGameStateInDatabase({ energy: currentEnergy });
         localEnergyConsumed = 0;
-        console.log('Energy updated successfully.');
+        localStorage.setItem('energyConsumed', localEnergyConsumed);
+        console.log('Energy updated in database successfully.');
     } catch (error) {
-        console.error('Failed to update energy:', error);
+        console.error('Error updating energy in database:', error);
+    } finally {
+        isUpdatingDatabase = false;
     }
 }
 
-// التعامل مع جمع العملات
+// التعامل مع زر المطالبة
 async function handleClaim() {
     if (localClickCount === 0) {
         showNotification(uiElements.purchaseNotification, 'No clicks to claim.');
@@ -849,18 +843,21 @@ async function handleClaim() {
 
         showNotificationWithStatus(uiElements.purchaseNotification, `You claimed ${totalReward} coins!`, 'win');
     } catch (error) {
-        console.error('Failed to claim clicks:', error);
-        showNotification(uiElements.purchaseNotification, 'Failed to claim. Try again later.');
+        console.error('Error claiming clicks:', error);
+        showNotification(uiElements.purchaseNotification, 'Failed to claim clicks. Try again later.');
     }
 }
 
-// تهيئة التطبيق عند بدء التشغيل
+// تهيئة التطبيق
 document.addEventListener('DOMContentLoaded', () => {
     loadLocalData();
+
+    const claimButton = document.getElementById('claimButton');
     if (claimButton) {
         claimButton.addEventListener('click', handleClaim);
     }
 });
+
 
 
 //////////////////////////////////////////////////
