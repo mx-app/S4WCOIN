@@ -2464,7 +2464,7 @@ async function fetchUserRank() {
 
         if (error) {
             console.error('Error fetching user rank from RPC:', error.message);
-            throw new Error('Failed to fetch user rank.');
+            return; // إنهاء التنفيذ بدون عرض بيانات
         }
 
         console.log("Rank data fetched:", data);
@@ -2472,33 +2472,30 @@ async function fetchUserRank() {
         // التحقق من وجود بيانات صحيحة
         if (!data || data.length === 0) {
             console.warn('No rank data found for the user.');
-            updateUserRankDisplay('N/A', 'Anonymous', 0);
-            return;
+            return; // إنهاء التنفيذ بدون عرض بيانات
         }
 
         // استخراج البيانات المحدثة
         const rankData = data[0];
         console.log("Rank Data Object:", rankData);
 
-        const rank = rankData.rank || 'N/A';
-        const username = rankData.username || 'Anonymous';
-        const balance = rankData.balance || 0;
-
         // تحديث الواجهة
-        updateUserRankDisplay(rank, username, balance);
+        updateUserRankDisplay(rankData.rank, rankData.username, rankData.balance);
     } catch (err) {
         console.error('Error in fetchUserRank:', err.message);
-        updateUserRankDisplay('N/A', 'N/A', 0); // عرض قيم افتراضية في حالة الخطأ
     }
 }
 
-
 function updateUserRankDisplay(rank, username, balance) {
-    userRankDisplay.innerText = rank ? `${rank}#` : 'N/A';
-    userUsernameDisplay.innerText = username || 'Anonymous';
-    userBalanceDisplay.innerText = balance ? `${balance.toLocaleString()} $SAW` : '0 $SAW';
-    userRankContainer.style.display = 'block';
+    // تحديث العناصر فقط إذا كانت البيانات موجودة
+    if (rank !== undefined && username !== undefined && balance !== undefined) {
+        userRankDisplay.innerText = `${rank}#`;
+        userUsernameDisplay.innerText = username;
+        userBalanceDisplay.innerText = `${balance.toLocaleString()} $SAW`;
+        userRankContainer.style.display = 'block';
+    }
 }
+
 
 // جلب صورة الملف الشخصي من Telegram
 async function getUserProfilePhoto(userId) {
