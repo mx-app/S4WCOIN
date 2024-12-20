@@ -2,13 +2,12 @@
   display: flex;
   align-items: center;
   position: absolute;
-  top: 20%; /* تحديد الجزء العلوي 30% */
-  width: 100%;
-  margin: 10px auto;
+  top: 15%; /* تحديد الجزء العلوي 30% */
+/* margin: 10px auto;*/
 }
 
 #WalletBalanceuser {
-    font-size: 28px;
+    font-size: 35px;
     color: #fff;
     text-align: center;
 }
@@ -19,7 +18,7 @@
   align-items: center;
   position: absolute;
   top: 25%; /* تحديد الجزء العلوي 30% */
-  width: 100%;
+  width: 90%;
   margin: 10px auto;
 }
 
