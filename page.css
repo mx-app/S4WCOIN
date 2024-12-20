@@ -3,7 +3,7 @@
   justify-content: space-around;
   align-items: center;
   position: absolute;
-  top: 30%; /* تحديد الجزء العلوي 30% */
+  top: 25%; /* تحديد الجزء العلوي 30% */
   width: 100%;
   padding: 10px 0;
 }
@@ -17,11 +17,11 @@
 }
 
 .wallet-buttonn i {
-  background-color: #008cba; /* لون الزر */
+  background-color: #101010; /* لون الزر */
   color: white;
   border-radius: 50%; /* جعل الزر دائري */
-  width: 60px;
-  height: 60px;
+  width: 45px;
+  height: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,7 +39,7 @@
 .wallet-buttonn p {
   margin-top: 8px;
   font-size: 14px;
-  color: #333;
+  color: #fff;
   font-weight: bold;
 }
 
