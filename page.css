@@ -1,6 +1,6 @@
 .confetti-effect {
     position: fixed;
-    bottom: 0; /* تحت الإشعار مباشرة */
+    top: 50px; /* تحت الإشعار مباشرة */
     left: 0;
     width: 100%; /* تملأ العرض بالكامل */
     height: auto; /* تحافظ على نسبة الصورة */
