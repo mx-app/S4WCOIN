@@ -1,8 +1,16 @@
+#balanceuser {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 20%; /* تحديد الجزء العلوي 30% */
+  width: 100%;
+  margin: 10px auto;
+}
+
 #WalletBalanceuser {
     font-size: 28px;
     color: #fff;
     text-align: center;
-    margin: 10px auto;
 }
 
 .button-container {
