@@ -5,7 +5,7 @@
   position: absolute;
   top: 25%; /* تحديد الجزء العلوي 30% */
   width: 100%;
-  padding: 10px 0;
+  margin: 10px auto;
 }
 
 .wallet-buttonn {
