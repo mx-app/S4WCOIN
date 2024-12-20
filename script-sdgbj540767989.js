@@ -691,9 +691,13 @@ function updateVibrationButton() {
 
 
 
+//////////////////////////////////////////
 
 
-// استدعاء الصورة القابلة للنقر
+
+
+
+    // استدعاء الصورة القابلة للنقر
 const img = document.getElementById('clickableImg');
 let isClicking = false; // لمنع النقرات المكررة
 let localClickCount = 0; // عداد النقرات المحلي
@@ -751,7 +755,7 @@ img.addEventListener('pointerdown', (event) => {
     img.style.transition = 'transform 0.1s ease-out';
     img.style.transform = `perspective(700px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 
-  //  handleClick(event);
+    handleClick(event);
 
     // إعادة الوضع الطبيعي للصورة بعد التأثير
     setTimeout(() => {
@@ -778,7 +782,7 @@ function handleClick(event) {
 
     updateClickCountUI();
     updateEnergyUI();
-    createDiamondCoinEffect(event.pageX, event.pageY);
+    createDiamondCoinEffect(event.pageX, event.pageY); // تأثير الألماس
 
     if (isVibrationEnabled && navigator.vibrate) {
         navigator.vibrate(80);
@@ -859,7 +863,6 @@ document.addEventListener('DOMContentLoaded', () => {
         claimButton.addEventListener('click', handleClaim);
     }
 });
-
 
 
 
