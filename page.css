@@ -1,25 +1,26 @@
 #clickSection {
   position: fixed;
   bottom: 180px;
-  right: 0;
+  left: 50%; 
+  transform: translateX(-50%); 
   width: 80%;
   height: 50px;
-  background-color: #101010; /* لون رمادي داكن */
+  background-color: #101010;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 auto; 
   border-radius: 20px;
 }
 
 #clickSection div {
   color: white;
   font-size: 15px;
+  margin-left: 10px; 
   font-weight: bold;
 }
 
 #claimButton {
-  background-color: #4375ca; /* لون أزرق */
+  background-color: #4375ca; 
   color: white;
   border: none;
   border-radius: 20px;
@@ -27,6 +28,7 @@
   height: 80%;
   font-size: 15px;
   cursor: pointer;
+  margin-right: 10px; 
   transition: background-color 0.3s;
 }
 
