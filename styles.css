@@ -316,11 +316,11 @@ img {
 
 .energy-bar-container {
     display: flex;
-    flex-direction: column; /* ترتيب عمودي */
+   /* flex-direction: column;*/
     justify-content: center; /* محاذاة عمودية للمحتوى */
     align-items: center; /* محاذاة المحتوى عموديًا */
     position: absolute; /* تموضع مطلق */
-    bottom: 135px; /* المسافة من أسفل الشاشة */
+    bottom: 145px; /* المسافة من أسفل الشاشة */
     left: 50%; /* المنتصف أفقيًا */
     transform: translateX(-50%); /* تحريك الحاوية إلى المنتصف أفقيًا */
     width: 80%; 
@@ -329,8 +329,8 @@ img {
 } 
 
 .progress-bar {
-    width: 80%; 
-    height: 13px; 
+    width: 60%; 
+    height: 20px; 
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px); /* تأثير الضبابية */
     border-radius: 50px; /* شكل الشريط */
