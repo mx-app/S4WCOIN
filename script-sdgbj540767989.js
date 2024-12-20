@@ -2460,7 +2460,7 @@ async function fetchUserRank() {
         console.log("Fetching rank for Telegram ID:", userTelegramId);
 
         // استدعاء الدالة المخزنة RPC
-        const { data, error } = await supabase.rpc('get_user_rank', { telegram_id: userId });
+        const { data, error } = await supabase.rpc('get_user_rank', { user_id: userTelegramId });
 
         if (error) {
             console.error('Error fetching user rank from RPC:', error.message);
