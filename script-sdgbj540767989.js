@@ -692,6 +692,9 @@ function updateVibrationButton() {
 
 
 
+
+
+
 // استدعاء الصورة القابلة للنقر
 const img = document.getElementById('clickableImg');
 let localClickCount = 0; // عداد النقرات المحلي
@@ -751,7 +754,7 @@ img.addEventListener('pointerdown', (event) => {
     img.style.transform = `perspective(700px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 
     // استدعاء وظيفة النقر
-    handleClick(event);
+    handleClick(x, y);
 
     // إعادة الوضع الطبيعي للصورة بعد التأثير
     setTimeout(() => {
@@ -759,10 +762,8 @@ img.addEventListener('pointerdown', (event) => {
     }, 300);
 });
 
-// التعامل مع النقر أو اللمس
-function handleClick(event) {
-    event.preventDefault(); // منع السلوك الافتراضي
-
+// التعامل مع النقر
+function handleClick(x, y) {
     // التحقق من الطاقة
     const requiredEnergy = gameState.clickMultiplier;
     const currentEnergy = gameState.maxEnergy - localEnergyConsumed;
@@ -785,7 +786,7 @@ function handleClick(event) {
     updateEnergyUI();
 
     // إنشاء تأثير الألماس
-    createDiamondCoinEffect(event.pageX, event.pageY);
+    createDiamondCoinEffect(x, y);
 
     // تفعيل الاهتزاز عند تفعيل الخيار
     if (isVibrationEnabled && navigator.vibrate) {
@@ -874,6 +875,8 @@ document.addEventListener('DOMContentLoaded', () => {
         claimButton.addEventListener('click', handleClaim);
     }
 });
+
+
 
 
 
