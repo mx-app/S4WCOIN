@@ -83,6 +83,8 @@
 }
 
 .wallet-box {
+    position: absolute;
+    top: 15px; 
     background-color: rgba(0, 0, 0, 0.0007); /* لون خلفية أغمق لتحسين التباين */
     border-radius: 15px; /* تدوير أكبر للحواف */
    /* padding: 20px;*/
