@@ -690,8 +690,31 @@ function updateVibrationButton() {
 }
 
 
+
+
+
 // استدعاء الصورة القابلة للنقر
 const img = document.getElementById('clickableImg');
+let localClickCount = 0; // عداد النقرات المحلي
+let localEnergyConsumed = 0; // الطاقة المستهلكة محليًا
+const energyUpdateThreshold = 50; // الحد الأدنى من الطاقة المستهلكة لتحديث قاعدة البيانات
+
+// تحميل بيانات النقرات من Local Storage عند بدء التطبيق
+function loadLocalClicks() {
+    const storedClicks = localStorage.getItem('clickCount');
+    localClickCount = storedClicks ? parseInt(storedClicks, 10) : 0;
+
+    // تحديث واجهة المستخدم
+    updateClickCountUI();
+}
+
+// تحديث واجهة المستخدم لعرض عدد النقرات
+function updateClickCountUI() {
+    const clickCountDisplay = document.getElementById('clickCountDisplay');
+    if (clickCountDisplay) {
+        clickCountDisplay.innerText = localClickCount;
+    }
+}
 
 // التعامل مع النقر أو اللمس
 img.addEventListener('pointerdown', (event) => {
@@ -721,71 +744,130 @@ img.addEventListener('pointerdown', (event) => {
 
 // التعامل مع النقر أو اللمس
 function handleClick(event) {
-    event.preventDefault(); // منع السلوك الافتراضي لمنع التكرار غير الضروري
+    event.preventDefault(); // منع السلوك الافتراضي
 
-    // التعامل مع النقاط: اللمس أو النقر الفردي
-    const touchPoints = event.touches ? Array.from(event.touches) : [event];
-
-    // إنشاء تأثير الألماس لكل نقطة
-    touchPoints.forEach(touch => {
-        createDiamondCoinEffect(touch.pageX, touch.pageY);
-    });
-
-    // تفعيل الاهتزاز عند تفعيل الخيار
-    if (isVibrationEnabled && navigator.vibrate) {
-        navigator.vibrate(80); 
-    }
-
-    // حساب الطاقة المطلوبة لكل لمسة
-    const totalTouches = touchPoints.length;
-    const requiredEnergy = gameState.clickMultiplier * totalTouches;
+    // حساب الطاقة المطلوبة لكل نقرة
+    const requiredEnergy = gameState.clickMultiplier;
 
     if (gameState.energy >= requiredEnergy) {
-        // تحديث الرصيد والطاقة
-        gameState.balance += gameState.clickMultiplier * totalTouches;
+        // تحديث عداد النقرات والطاقة المستهلكة
+        localClickCount++;
+        localEnergyConsumed += requiredEnergy;
+
+        // تقليل الطاقة من رصيد المستخدم
         gameState.energy -= requiredEnergy;
 
-        // حفظ الحالة وتحديث الواجهة
-        saveGameState();
-        updateUI();
+        // تحديث واجهة المستخدم
+        updateClickCountUI();
+        updateEnergyUI();
 
-        // إرسال البيانات إلى قاعدة البيانات
-        updateGameStateInDatabase({
-            balance: gameState.balance,
-            energy: gameState.energy,
-        });
+        // إنشاء تأثير الألماس
+        createDiamondCoinEffect(event.pageX, event.pageY);
+
+        // إذا تجاوزت الطاقة المستهلكة الحد، قم بتحديث قاعدة البيانات
+        if (localEnergyConsumed >= energyUpdateThreshold) {
+            updateEnergyInDatabase();
+        }
     } else {
         // عرض إشعار بنقص الطاقة
         showNotification(uiElements.purchaseNotification, 'Not enough energy!');
     }
+
+    // حفظ عدد النقرات في Local Storage
+    localStorage.setItem('clickCount', localClickCount);
 }
 
-// وظيفة إنشاء تأثير الرقم فقط
+// إنشاء تأثير الألماس
 function createDiamondCoinEffect(x, y) {
-    const diamondText = document.createElement('div'); // إنشاء العنصر للنص فقط
+    const diamondText = document.createElement('div');
     diamondText.classList.add('diamond-text');
-    diamondText.textContent = `+${gameState.clickMultiplier}`; // عرض الرقم فقط
+    diamondText.textContent = `+${gameState.clickMultiplier}`;
     document.body.appendChild(diamondText);
 
-    // تحديد الموقع الأولي للنص
     diamondText.style.left = `${x}px`;
     diamondText.style.top = `${y}px`;
 
-    // الحصول على موقع عرض الرصيد لتحريك النص نحوه
     const balanceRect = uiElements.balanceDisplay.getBoundingClientRect();
-
-    // تحريك النص بسلاسة
     setTimeout(() => {
         diamondText.style.transition = 'transform 0.8s ease-out, opacity 0.8s ease-out';
         diamondText.style.transform = `translate(${balanceRect.left - x}px, ${balanceRect.top - y}px) scale(0.5)`;
         diamondText.style.opacity = '0';
 
-        // إزالة النص بعد انتهاء الحركة
-        setTimeout(() => {
-            diamondText.remove();
-        }, 800);
+        setTimeout(() => diamondText.remove(), 800);
     }, 50);
 }
+
+// تحديث الطاقة في قاعدة البيانات
+async function updateEnergyInDatabase() {
+    try {
+        await updateGameStateInDatabase({
+            energy: gameState.energy,
+        });
+
+        // إعادة تعيين عداد الطاقة المستهلكة
+        localEnergyConsumed = 0;
+
+        console.log('Energy updated in database successfully.');
+    } catch (error) {
+        console.error('Error updating energy in database:', error);
+    }
+}
+
+// التعامل مع زر "Claim"
+async function handleClaim() {
+    if (localClickCount === 0) {
+        showNotification(uiElements.purchaseNotification, 'No clicks to claim.');
+        return;
+    }
+
+    // تحديث الرصيد العام
+    const totalReward = localClickCount * gameState.clickMultiplier;
+    gameState.balance += totalReward;
+
+    try {
+        // تحديث الرصيد في قاعدة البيانات
+        await updateGameStateInDatabase({
+            balance: gameState.balance,
+        });
+
+        // إعادة تعيين عداد النقرات
+        localClickCount = 0;
+        localStorage.setItem('clickCount', localClickCount);
+
+        // تحديث واجهة المستخدم
+        updateUI();
+        updateClickCountUI();
+
+        showNotificationWithStatus(uiElements.purchaseNotification, `You claimed ${totalReward} coins!`, 'win');
+    } catch (error) {
+        console.error('Error claiming clicks:', error);
+        showNotification(uiElements.purchaseNotification, 'Failed to claim clicks. Try again later.');
+    }
+}
+
+// تحديث واجهة الطاقة
+function updateEnergyUI() {
+    const energyBar = document.getElementById('energyBar');
+    const energyInfo = document.getElementById('energyInfo');
+    const currentEnergy = gameState.energy;
+
+    if (energyBar) {
+        energyBar.style.width = `${(currentEnergy / gameState.maxEnergy) * 100}%`;
+    }
+    if (energyInfo) {
+        energyInfo.innerText = `${currentEnergy}/${gameState.maxEnergy}⚡`;
+    }
+}
+
+// تهيئة التطبيق عند بدء التشغيل
+document.addEventListener('DOMContentLoaded', () => {
+    loadLocalClicks();
+
+    const claimButton = document.getElementById('claimButton');
+    if (claimButton) {
+        claimButton.addEventListener('click', handleClaim);
+    }
+});
 
 
 
