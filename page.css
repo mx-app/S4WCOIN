@@ -1,3 +1,45 @@
+.button-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  top: 30%; /* تحديد الجزء العلوي 30% */
+  width: 100%;
+  padding: 10px 0;
+}
+
+.wallet-button {
+  background-color: #008cba; /* لون الزر */
+  color: white;
+  border: none;
+  border-radius: 50%; /* جعل الأزرار دائرية */
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.wallet-button:hover {
+  transform: scale(1.1); /* تأثير تكبير عند التمرير */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
+
+
+
+
+
+
 #stingContainer {
     display: flex;
     justify-content: space-between;
