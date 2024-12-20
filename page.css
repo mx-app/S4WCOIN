@@ -1,3 +1,41 @@
+#clickSection {
+  position: fixed;
+  bottom: 150px;
+  right: 0;
+  width: 90%;
+  height: 40px;
+  background-color: #101010; /* لون رمادي داكن */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#clickSection div {
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#claimButton {
+  background-color: #4375ca; /* لون أزرق */
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#claimButton:hover {
+  background-color: #0056b3; /* لون أزرق داكن عند التمرير */
+}
+
+
+
 .confetti-effect {
     position: fixed;
     top: 40px; /* تحت الإشعار مباشرة */
