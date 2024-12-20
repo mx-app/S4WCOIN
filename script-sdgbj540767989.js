@@ -2413,7 +2413,6 @@ async function fetchLeaderboard() {
     }
 }
 
-
 async function fetchUserRank() {
     try {
         // قراءة معرف المستخدم الحالي
@@ -2450,12 +2449,17 @@ async function fetchUserRank() {
 }
 
 function updateUserRankDisplay(rank, username, balance) {
-    // تحديث العناصر فقط إذا كانت البيانات موجودة
     if (rank !== undefined && username !== undefined && balance !== undefined) {
         userRankDisplay.innerText = `${rank}#`;
-        userUsernameDisplay.innerText = username;
-        userBalanceDisplay.innerText = `${balance.toLocaleString()} $SAW`;
-        userRankContainer.style.display = 'block';
+        userUsernameDisplay.innerText = truncateUsername(username);
+        userBalanceDisplay.innerText = `${formatNumber(balance)} $SAW`;
+
+        // تحديث صورة الملف الشخصي
+        getUserProfilePhoto(uiElements.userTelegramIdDisplay.innerText).then((avatarUrl) => {
+            document.getElementById('userAvatar').src = avatarUrl;
+        });
+
+        userRankContainer.style.display = 'flex'; // إظهار الحاوية
     }
 }
 
@@ -2512,11 +2516,38 @@ document.addEventListener('DOMContentLoaded', async () => {
   await fetchUserRank();
 });
 
+
+//////////////////////
+
+async function updateUserImage(telegramId, imageElementId) {
+    try {
+        // جلب صورة المستخدم من Telegram API
+        const avatarUrl = await getUserProfilePhoto(telegramId);
+        
+        // تحديث العنصر المحدد
+        const imageElement = document.getElementById(imageElementId);
+        if (imageElement) {
+            imageElement.src = avatarUrl; // تعيين الرابط للصورة
+        }
+    } catch (error) {
+        console.error("Error updating user image:", error);
+    }
+}
+
+// استدعاء الوظيفة لتحديث الصور في العناصر المطلوبة
+document.addEventListener("DOMContentLoaded", () => {
+    const userTelegramId = document.getElementById('userTelegramId').innerText; // قراءة Telegram ID من الواجهة
+    
+    if (userTelegramId) {
+        updateUserImage(userTelegramId, "userDetailsImage");
+        updateUserImage(userTelegramId, "stingUserImage");
+    }
+});
+
 // مساعد لقطع أسماء المستخدمين الطويلة
 function truncateUsername(username, maxLength = 8) {
     return username.length > maxLength ? `${username.slice(0, maxLength)}...` : username;
 }
-
 
 //////////////////////
 
