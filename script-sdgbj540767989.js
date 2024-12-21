@@ -753,6 +753,7 @@ img.addEventListener('pointerdown', (event) => {
     }, 300);
 });
 
+
 // منطق النقر الفردي
 function handleSingleTouch(event) {
     event.preventDefault();
@@ -773,7 +774,7 @@ function handleSingleTouch(event) {
         return;
     }
 
-    // تحديث رصيد النقرات والطاقة المستهلكة
+    // تحديث رصيد النقرات والطاقة المستهلكة مرة واحدة فقط
     localClickBalance += clickValue;
     localEnergyConsumed += requiredEnergy;
 
@@ -781,10 +782,11 @@ function handleSingleTouch(event) {
     localStorage.setItem('clickBalance', localClickBalance);
     localStorage.setItem('energyConsumed', localEnergyConsumed);
 
+    // تحديث واجهة المستخدم
     updateClickBalanceUI();
     updateEnergyUI();
 
-    // إنشاء تأثير الألماس بناءً على موقع النقرة
+    // إنشاء تأثير الألماس
     createDiamondCoinEffect(event.pageX, event.pageY);
 
     // تفعيل الاهتزاز إذا كان مفعّلاً
@@ -797,6 +799,7 @@ function handleSingleTouch(event) {
         updateEnergyInDatabase();
     }
 }
+
 
 function createDiamondCoinEffect(x, y) {
     const diamondText = document.createElement('div');
@@ -817,6 +820,7 @@ function createDiamondCoinEffect(x, y) {
         setTimeout(() => diamondText.remove(), 800);
     }, 50);
 }
+
 
 // تحديث الطاقة في قاعدة البيانات
 async function updateEnergyInDatabase() {
@@ -903,19 +907,19 @@ function navigateToScreen(screenId) {
 
 function startEnergyRecovery() {
     setInterval(() => {
+        // حساب الطاقة الحالية من اللعبة
+        const currentEnergy = gameState.maxEnergy - localEnergyConsumed;
+
         // التأكد من وجود طاقة أقل من الحد الأقصى
-        if (gameState.energy < gameState.maxEnergy) {
-            // إذا كانت الطاقة أقل من الحد الأقصى، يتم زيادتها
-            gameState.energy = Math.min(gameState.maxEnergy, gameState.energy + 500);
+        if (currentEnergy < gameState.maxEnergy) {
+            // زيادة الطاقة
+            localEnergyConsumed = Math.max(localEnergyConsumed - 500, 0);
 
-            // تحديث الوقت الأخير لملء الطاقة
-            gameState.lastFillTime = Date.now();
-
-            // حفظ وقت آخر ملء للطاقة في التخزين المحلي
-            localStorage.setItem('lastFillTime', gameState.lastFillTime);
-
+            // تحديث واجهة المستخدم
             updateEnergyUI();
-            saveGameState(); // حفظ حالة اللعبة (ما عدا lastFillTime)
+
+            // تحديث البيانات المحلية
+            localStorage.setItem('energyConsumed', localEnergyConsumed);
         }
     }, 4000); // تنفيذ الدالة كل 4 ثوانٍ
 }
