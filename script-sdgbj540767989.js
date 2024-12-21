@@ -486,7 +486,7 @@ function updateUI() {
     // إرسال البيانات الجديدة إلى قاعدة البيانات
     updateGameStateInDatabase({
         balance: gameState.balance,
-        energy: gameState.energy,
+        //energy: gameState.energy,
     });
 }
 
@@ -698,7 +698,7 @@ function updateVibrationButton() {
 const img = document.getElementById('clickableImg');
 let localClickBalance = 0; // رصيد النقرات المحلي
 let localEnergyConsumed = 0; // الطاقة المستهلكة محليًا
-const energyUpdateThreshold = 50; // الحد الأدنى لتحديث الطاقة في قاعدة البيانات
+const energyUpdateThreshold = 100; // الحد الأدنى لتحديث الطاقة في قاعدة البيانات
 let isUpdatingDatabase = false; // منع التحديث المتكرر للبيانات
 
 // تحميل البيانات المحلية عند بدء التطبيق
