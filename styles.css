@@ -314,22 +314,22 @@ img {
     line-height: 1; /* لتقليل الفراغ بين النصوص */
 }
 
-.energy-bar-container {
+/*.energy-bar-container {
     display: flex;
     flex-direction: center;
-    justify-content: center; /* محاذاة عمودية للمحتوى */
-    align-items: center; /* محاذاة المحتوى عموديًا */
+    justify-content: center;
+    align-items: center; 
     /*position: absolute; 
     bottom: 165px;
     left: 50%;
-    transform: translateX(-50%); *//* تحريك الحاوية إلى المنتصف أفقيًا */
+    transform: translateX(-50%); 
     width: 80%; 
     margin: 0 auto; 
-    transition: width 0.3s ease-in-out; /* تأثير التمدد بسلاسة */
-} 
+    transition: width 0.3s ease-in-out; 
+}*/
 
 .progress-bar {
-    width: 50%; 
+    width: 40%; 
     height: 18px; 
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px); /* تأثير الضبابية */
