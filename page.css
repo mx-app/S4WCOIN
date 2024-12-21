@@ -3,8 +3,8 @@
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    top: 15px;
-    left: 65px; 
+    top: 40px;
+    left: 20px; 
     width: auto;
     height: 30px;
     z-index: 500;
@@ -67,6 +67,8 @@
 }
 
 #energyInfo {
+  margin-left: 5px;
+  margin-right: 5px;
   color: white;
   font-size: 13px;
   font-weight: bold;
