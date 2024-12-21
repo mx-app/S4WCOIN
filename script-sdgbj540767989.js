@@ -757,6 +757,8 @@ img.addEventListener('pointerdown', (event) => {
     }, 300);
 });
 
+
+
 // منطق النقر
 function handleClick(event) {
     event.preventDefault(); // منع السلوك الافتراضي لتجنب التأثيرات الغريبة
@@ -806,6 +808,7 @@ function handleClick(event) {
 }
 
 
+
 function createDiamondCoinEffect(x, y) {
     const diamondText = document.createElement('div');
     diamondText.classList.add('diamond-text');
@@ -825,6 +828,7 @@ function createDiamondCoinEffect(x, y) {
         setTimeout(() => diamondText.remove(), 800);
     }, 50);
 }
+
 
 
 // تحديث الطاقة في قاعدة البيانات
