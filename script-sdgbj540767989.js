@@ -759,6 +759,10 @@ img.addEventListener('pointerdown', (event) => {
 
 // منطق النقر
 function handleClick(event) {
+    // التحقق إذا كان هنالك لمسة واحدة فقط
+    const touchPoints = event.touches ? Array.from(event.touches) : [event];
+    if (touchPoints.length > 1) return; // تجاهل إذا كان هناك أكثر من لمسة
+
     const clickValue = gameState.clickMultiplier; // قيمة النقرة بناءً على الترقيات
     const requiredEnergy = clickValue; // الطاقة المطلوبة تساوي قيمة النقرة
     const currentEnergy = gameState.maxEnergy - localEnergyConsumed;
