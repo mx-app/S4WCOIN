@@ -149,9 +149,9 @@ async function saveGameState() {
         invites: gameState.invites,
       //  tasks_progress: gameState.tasksProgress,
         puzzles_progress: gameState.puzzlesProgress,
-        last_login_date: gameState.lastLoginDate ? new Date(gameState.lastLoginDate).toISOString() : null,
-        consecutive_days: gameState.consecutiveDays,
-        achieved_Levels: gameState.achievedLevels,
+       // last_login_date: gameState.lastLoginDate ? new Date(gameState.lastLoginDate).toISOString() : null,
+       // consecutive_days: gameState.consecutiveDays,
+      //  achieved_Levels: gameState.achievedLevels,
         
     };
 
@@ -1172,9 +1172,9 @@ async function updateUserData() {
            // tasks_progress: gameState.tasksprogress, 
             completed_tasks: gameState.completedTasks, 
             puzzles_progress: gameState.puzzlesprogress, 
-            achieved_Levels: gameState.achievedLevels, 
-            last_login_date: gameState.lastLoginDate ? new Date(gameState.lastLoginDate).toISOString() : null,
-            consecutive_days: gameState.consecutiveDays, 
+          //  achieved_Levels: gameState.achievedLevels, 
+          //  last_login_date: gameState.lastLoginDate ? new Date(gameState.lastLoginDate).toISOString() : null,
+           // consecutive_days: gameState.consecutiveDays, 
      
         })
         .eq('telegram_id', userId);
