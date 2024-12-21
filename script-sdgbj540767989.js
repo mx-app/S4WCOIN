@@ -759,14 +759,22 @@ img.addEventListener('pointerdown', (event) => {
 
 // منطق النقر
 function handleClick(event) {
-    // التحقق إذا كان هنالك لمسة واحدة فقط
+    event.preventDefault(); // منع السلوك الافتراضي لتجنب التأثيرات الغريبة
+
+    // التعامل مع النقاط: إذا كان هناك نقاط متعددة، استخدم النقطة الأولى فقط
     const touchPoints = event.touches ? Array.from(event.touches) : [event];
-    if (touchPoints.length > 1) return; // تجاهل إذا كان هناك أكثر من لمسة
+
+    // التأكد من وجود نقطة واحدة فقط
+    if (touchPoints.length > 1) {
+        console.warn('Multiple touch points detected. Ignoring extra touches.');
+        return;
+    }
 
     const clickValue = gameState.clickMultiplier; // قيمة النقرة بناءً على الترقيات
     const requiredEnergy = clickValue; // الطاقة المطلوبة تساوي قيمة النقرة
     const currentEnergy = gameState.maxEnergy - localEnergyConsumed;
 
+    // تحقق من الطاقة المتوفرة
     if (currentEnergy < requiredEnergy) {
         showNotification(uiElements.purchaseNotification, 'Not enough energy!');
         return;
@@ -782,27 +790,33 @@ function handleClick(event) {
 
     updateClickBalanceUI();
     updateEnergyUI();
-    createDiamondCoinEffect(event.pageX, event.pageY);
 
+    // إنشاء تأثير الألماس بناءً على موقع النقرة
+    createDiamondCoinEffect(touchPoints[0].pageX, touchPoints[0].pageY);
+
+    // تفعيل الاهتزاز إذا كان مفعّلاً
     if (isVibrationEnabled && navigator.vibrate) {
         navigator.vibrate(80);
     }
 
+    // تحديث قاعدة البيانات عند تجاوز الحد الأدنى
     if (localEnergyConsumed >= energyUpdateThreshold && !isUpdatingDatabase) {
         updateEnergyInDatabase();
     }
 }
 
-// تأثير الألماس
+
 function createDiamondCoinEffect(x, y) {
     const diamondText = document.createElement('div');
     diamondText.classList.add('diamond-text');
     diamondText.textContent = `+${gameState.clickMultiplier}`;
     document.body.appendChild(diamondText);
 
+    // وضع التأثير في مكان النقرة
     diamondText.style.left = `${x}px`;
     diamondText.style.top = `${y}px`;
 
+    // تحريك النص نحو عرض الرصيد
     const balanceRect = uiElements.balanceDisplay.getBoundingClientRect();
     setTimeout(() => {
         diamondText.style.transition = 'transform 0.8s ease-out, opacity 0.8s ease-out';
@@ -811,6 +825,7 @@ function createDiamondCoinEffect(x, y) {
         setTimeout(() => diamondText.remove(), 800);
     }, 50);
 }
+
 
 // تحديث الطاقة في قاعدة البيانات
 async function updateEnergyInDatabase() {
