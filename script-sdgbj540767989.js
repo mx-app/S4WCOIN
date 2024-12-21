@@ -697,7 +697,6 @@ function updateVibrationButton() {
 
 
 
-
 // استدعاء الصورة القابلة للنقر
 const img = document.getElementById('clickableImg');
 let localClickBalance = 0; // رصيد النقرات المحلي
@@ -757,17 +756,17 @@ img.addEventListener('pointerdown', (event) => {
     }, 300);
 });
 
-// التعامل مع النقرة الواحدة فقط
+// منطق النقر الفردي
 function handleSingleTouch(event) {
-    // التأكد من أن النقرة تأتي من إصبع واحد فقط
-    if (event.pointerType !== 'touch' && event.pointerType !== 'mouse') return;
+    event.preventDefault();
 
+    // التأكد من أن النقر يتم بواسطة إصبع واحد فقط
     if (event.touches && event.touches.length > 1) {
-        console.warn('Multiple touch points detected. Ignoring.');
-        return; // تجاهل النقرات الجماعية
+        console.warn('Multiple touch points detected. Ignoring extra touches.');
+        return;
     }
 
-    const clickValue = gameState.clickMultiplier || 1; // قيمة النقرة بناءً على الترقيات
+    const clickValue = gameState.clickMultiplier; // قيمة النقرة بناءً على الترقيات
     const requiredEnergy = clickValue; // الطاقة المطلوبة تساوي قيمة النقرة
     const currentEnergy = gameState.maxEnergy - localEnergyConsumed;
 
@@ -802,16 +801,6 @@ function handleSingleTouch(event) {
     }
 }
 
-// منع النقرة الجماعية بالكامل
-img.addEventListener('touchstart', (event) => {
-    if (event.touches.length > 1) {
-        console.warn('Multiple fingers detected. Ignoring.');
-        event.preventDefault();
-    }
-});
-
-
-
 function createDiamondCoinEffect(x, y) {
     const diamondText = document.createElement('div');
     diamondText.classList.add('diamond-text');
@@ -831,8 +820,6 @@ function createDiamondCoinEffect(x, y) {
         setTimeout(() => diamondText.remove(), 800);
     }, 50);
 }
-
-
 
 // تحديث الطاقة في قاعدة البيانات
 async function updateEnergyInDatabase() {
