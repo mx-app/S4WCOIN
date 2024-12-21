@@ -759,14 +759,15 @@ img.addEventListener('pointerdown', (event) => {
 
 // منطق النقر
 function handleClick(event) {
-    event.preventDefault(); // منع السلوك الافتراضي
+    event.preventDefault(); // منع السلوك الافتراضي لتجنب التأثيرات الغريبة
 
-    // التحقق من عدد النقاط
+    // التعامل مع النقاط: إذا كان هناك نقاط متعددة، استخدم النقطة الأولى فقط
     const touchPoints = event.touches ? Array.from(event.touches) : [event];
 
+    // التأكد من وجود نقطة واحدة فقط
     if (touchPoints.length > 1) {
-        console.warn('Multiple touch points detected. Ignoring interaction.');
-        return; // تجاهل إذا كان هناك أكثر من نقطة لمس
+        console.warn('Multiple touch points detected. Ignoring extra touches.');
+        return;
     }
 
     const clickValue = gameState.clickMultiplier; // قيمة النقرة بناءً على الترقيات
@@ -803,6 +804,7 @@ function handleClick(event) {
         updateEnergyInDatabase();
     }
 }
+
 
 function createDiamondCoinEffect(x, y) {
     const diamondText = document.createElement('div');
