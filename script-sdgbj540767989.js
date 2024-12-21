@@ -720,18 +720,24 @@ function updateClickBalanceUI() {
     }
 }
 
-// تحديث واجهة المستخدم لشريط الطاقة
+// تحديث واجهة المستخدم لشريط الطاقة الدائري
 function updateEnergyUI() {
-    const energyBar = document.getElementById('energyBar');
-    const energyInfo = document.getElementById('energyInfo');
+    const energyBar = document.getElementById('energyBar'); // دائرة شريط الطاقة
+    const energyInfo = document.getElementById('energyInfo'); // معلومات الطاقة
 
     const currentEnergy = gameState.maxEnergy - localEnergyConsumed;
 
     if (energyBar) {
-        energyBar.style.width = `${(currentEnergy / gameState.maxEnergy) * 100}%`;
+        const radius = energyBar.r.baseVal.value; // نصف قطر الدائرة
+        const circumference = 2 * Math.PI * radius; // محيط الدائرة
+        const progress = (currentEnergy / gameState.maxEnergy) * circumference;
+
+        energyBar.style.strokeDasharray = `${circumference}`; // إعداد المحيط الكلي
+        energyBar.style.strokeDashoffset = `${circumference - progress}`; // الإزاحة حسب الطاقة المتبقية
     }
+
     if (energyInfo) {
-        energyInfo.innerText = `${currentEnergy}/${gameState.maxEnergy}⚡`;
+        energyInfo.innerText = `${currentEnergy}/${gameState.maxEnergy} ⚡`; // تحديث النص
     }
 }
 
