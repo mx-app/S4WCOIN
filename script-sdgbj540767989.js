@@ -742,7 +742,7 @@ function updateEnergyUI() {
 // التعامل مع النقر
 img.addEventListener('pointerdown', (event) => {
     event.preventDefault();
-    handleClick(event);
+    handleSingleTouch(event);
 
     // تطبيق تأثير الإمالة
     const rect = img.getBoundingClientRect();
@@ -757,22 +757,17 @@ img.addEventListener('pointerdown', (event) => {
     }, 300);
 });
 
+// التعامل مع النقرة الواحدة فقط
+function handleSingleTouch(event) {
+    // التأكد من أن النقرة تأتي من إصبع واحد فقط
+    if (event.pointerType !== 'touch' && event.pointerType !== 'mouse') return;
 
-
-// منطق النقر
-function handleClick(event) {
-    event.preventDefault(); // منع السلوك الافتراضي لتجنب التأثيرات الغريبة
-
-    // التعامل مع النقاط: إذا كان هناك نقاط متعددة، استخدم النقطة الأولى فقط
-    const touchPoints = event.touches ? Array.from(event.touches) : [event];
-
-    // التأكد من وجود نقطة واحدة فقط
-    if (touchPoints.length > 1) {
-        console.warn('Multiple touch points detected. Ignoring extra touches.');
-        return;
+    if (event.touches && event.touches.length > 1) {
+        console.warn('Multiple touch points detected. Ignoring.');
+        return; // تجاهل النقرات الجماعية
     }
 
-    const clickValue = gameState.clickMultiplier; // قيمة النقرة بناءً على الترقيات
+    const clickValue = gameState.clickMultiplier || 1; // قيمة النقرة بناءً على الترقيات
     const requiredEnergy = clickValue; // الطاقة المطلوبة تساوي قيمة النقرة
     const currentEnergy = gameState.maxEnergy - localEnergyConsumed;
 
@@ -794,7 +789,7 @@ function handleClick(event) {
     updateEnergyUI();
 
     // إنشاء تأثير الألماس بناءً على موقع النقرة
-    createDiamondCoinEffect(touchPoints[0].pageX, touchPoints[0].pageY);
+    createDiamondCoinEffect(event.pageX, event.pageY);
 
     // تفعيل الاهتزاز إذا كان مفعّلاً
     if (isVibrationEnabled && navigator.vibrate) {
@@ -806,6 +801,14 @@ function handleClick(event) {
         updateEnergyInDatabase();
     }
 }
+
+// منع النقرة الجماعية بالكامل
+img.addEventListener('touchstart', (event) => {
+    if (event.touches.length > 1) {
+        console.warn('Multiple fingers detected. Ignoring.');
+        event.preventDefault();
+    }
+});
 
 
 
