@@ -4,7 +4,7 @@
     align-items: center;
     position: fixed;
     top: 15px;
-    left: 125px; 
+    left: 120px; 
     width: auto;
     height: 30px;
     z-index: 500;
@@ -89,11 +89,11 @@
 #clickCountDisplay::before {
     content: ""; /* لا نحتاج نصًا هنا */
     display: inline-block;
-    width: 35px; /* تحديد عرض الصورة */
-    height: 35px; /* تحديد ارتفاع الصورة */
-    background-image: url('i/coinnc.png'); /* مسار الصورة */
+    width: 30px; /* تحديد عرض الصورة */
+    height: 30px; /* تحديد ارتفاع الصورة */
+    background-image: url('i/coinss.png'); /* مسار الصورة */
     background-size: cover; /* لتغطية العنصر بالصورة بشكل جيد */
-    margin-right: 5px; /* مسافة بين الصورة والنص */
+    margin-right: 2px; /* مسافة بين الصورة والنص */
     margin-left: 0;
     vertical-align: middle; /* لضبط المحاذاة العمودية */
 }
