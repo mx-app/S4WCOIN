@@ -696,29 +696,31 @@ function updateVibrationButton() {
 
 
 
-    // استدعاء الصورة القابلة للنقر
+
+
+// استدعاء الصورة القابلة للنقر
 const img = document.getElementById('clickableImg');
-let localClickCount = 0; // عداد النقرات المحلي
+let localClickBalance = 0; // رصيد النقرات المحلي
 let localEnergyConsumed = 0; // الطاقة المستهلكة محليًا
 const energyUpdateThreshold = 50; // الحد الأدنى لتحديث الطاقة في قاعدة البيانات
 let isUpdatingDatabase = false; // منع التحديث المتكرر للبيانات
 
 // تحميل البيانات المحلية عند بدء التطبيق
 function loadLocalData() {
-    const storedClicks = localStorage.getItem('clickCount');
+    const storedClicks = localStorage.getItem('clickBalance');
     const storedEnergy = localStorage.getItem('energyConsumed');
-    localClickCount = storedClicks ? parseInt(storedClicks, 10) : 0;
+    localClickBalance = storedClicks ? parseInt(storedClicks, 10) : 0;
     localEnergyConsumed = storedEnergy ? parseInt(storedEnergy, 10) : 0;
 
-    updateClickCountUI();
+    updateClickBalanceUI();
     updateEnergyUI();
 }
 
-// تحديث واجهة المستخدم لعرض عدد النقرات
-function updateClickCountUI() {
+// تحديث واجهة المستخدم لعرض رصيد النقرات
+function updateClickBalanceUI() {
     const clickCountDisplay = document.getElementById('clickCountDisplay');
     if (clickCountDisplay) {
-        clickCountDisplay.innerText = localClickCount.toLocaleString();
+        clickCountDisplay.innerText = localClickBalance.toLocaleString();
     }
 }
 
@@ -757,7 +759,8 @@ img.addEventListener('pointerdown', (event) => {
 
 // منطق النقر
 function handleClick(event) {
-    const requiredEnergy = gameState.clickMultiplier;
+    const clickValue = gameState.clickMultiplier; // قيمة النقرة بناءً على الترقيات
+    const requiredEnergy = clickValue; // الطاقة المطلوبة تساوي قيمة النقرة
     const currentEnergy = gameState.maxEnergy - localEnergyConsumed;
 
     if (currentEnergy < requiredEnergy) {
@@ -765,13 +768,15 @@ function handleClick(event) {
         return;
     }
 
-    localClickCount++;
+    // تحديث رصيد النقرات والطاقة المستهلكة
+    localClickBalance += clickValue;
     localEnergyConsumed += requiredEnergy;
 
-    localStorage.setItem('clickCount', localClickCount);
+    // تخزين البيانات محليًا
+    localStorage.setItem('clickBalance', localClickBalance);
     localStorage.setItem('energyConsumed', localEnergyConsumed);
 
-    updateClickCountUI();
+    updateClickBalanceUI();
     updateEnergyUI();
     createDiamondCoinEffect(event.pageX, event.pageY);
 
@@ -822,12 +827,12 @@ async function updateEnergyInDatabase() {
 
 // التعامل مع زر المطالبة
 async function handleClaim() {
-    if (localClickCount === 0) {
+    if (localClickBalance === 0) {
         showNotification(uiElements.purchaseNotification, 'No clicks to claim.');
         return;
     }
 
-    const totalReward = localClickCount * gameState.clickMultiplier;
+    const totalReward = localClickBalance;
 
     try {
         await updateGameStateInDatabase({
@@ -835,11 +840,11 @@ async function handleClaim() {
         });
 
         gameState.balance += totalReward;
-        localClickCount = 0;
-        localStorage.setItem('clickCount', localClickCount);
+        localClickBalance = 0;
+        localStorage.setItem('clickBalance', localClickBalance);
 
         updateUI();
-        updateClickCountUI();
+        updateClickBalanceUI();
 
         showNotificationWithStatus(uiElements.purchaseNotification, `You claimed ${totalReward} coins!`, 'win');
     } catch (error) {
@@ -857,6 +862,9 @@ document.addEventListener('DOMContentLoaded', () => {
         claimButton.addEventListener('click', handleClaim);
     }
 });
+
+
+
 
 
 
