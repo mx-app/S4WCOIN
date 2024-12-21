@@ -189,9 +189,7 @@ async function restoreEnergy() {
         gameState.lastFillTime = currentTime;
         localStorage.setItem('lastFillTime', gameState.lastFillTime);
 
-        // تحديث واجهة المستخدم
-        updateUI();
-
+        updateEnergyUI();
         // حفظ حالة اللعبة
         await saveGameState(); // حفظ حالة اللعبة (ما عدا lastFillTime)
 
@@ -916,8 +914,7 @@ function startEnergyRecovery() {
             // حفظ وقت آخر ملء للطاقة في التخزين المحلي
             localStorage.setItem('lastFillTime', gameState.lastFillTime);
 
-            // تحديث واجهة المستخدم وحفظ البيانات
-            updateUI();
+            updateEnergyUI();
             saveGameState(); // حفظ حالة اللعبة (ما عدا lastFillTime)
         }
     }, 4000); // تنفيذ الدالة كل 4 ثوانٍ
