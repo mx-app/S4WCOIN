@@ -76,8 +76,8 @@ let gameState = {
     //tasksprogress: [],
     completedTasks: [],
     puzzlesprogress:[], 
-    lastLoginDate: null, 
-    consecutiveDays: 0, 
+   // lastLoginDate: null, 
+    //consecutiveDays: 0, 
 };
 
 //تحديث البيانت من الواجهه الي قاعده البيانات 
