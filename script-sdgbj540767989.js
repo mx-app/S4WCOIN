@@ -765,7 +765,7 @@ function handleSingleTouch(event) {
         return;
     }
 
-    const clickValue = gameState.clickMultiplier; // قيمة النقرة بناءً على الترقيات
+    const clickValue = gameState.clickMultiplier || 1; // قيمة النقرة بناءً على الترقيات
     const requiredEnergy = clickValue; // الطاقة المطلوبة تساوي قيمة النقرة
     const currentEnergy = gameState.maxEnergy - localEnergyConsumed;
 
