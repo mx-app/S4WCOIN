@@ -191,7 +191,7 @@ async function restoreEnergy() {
 
         updateEnergyUI();
         // حفظ حالة اللعبة
-        await saveGameState(); // حفظ حالة اللعبة (ما عدا lastFillTime)
+       // await saveGameState(); // حفظ حالة اللعبة (ما عدا lastFillTime)
 
         console.log('Energy restored successfully.');
     } catch (err) {
@@ -266,7 +266,7 @@ async function checkForLevelUp() {
             // تحديث قاعدة البيانات
             const updatedData = {
                 currentLevel: gameState.currentLevel,
-                achieved_levels: gameState.achievedLevels,
+               // achieved_levels: gameState.achievedLevels,
             };
 
             const isUpdated = await updateGameStateInDatabase(updatedData);
@@ -737,7 +737,7 @@ function updateEnergyUI() {
 
 // التعامل مع النقر
 img.addEventListener('pointerdown', (event) => {
-    event.preventDefault();
+   // event.preventDefault();
     handleSingleTouch(event);
 
     // تطبيق تأثير الإمالة
