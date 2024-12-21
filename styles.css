@@ -324,8 +324,8 @@ img {
     left: 50%;
     transform: translateX(-50%); */
     width: 50%; 
-    /*margin: 0 auto; 
-    transition: width 0.3s ease-in-out; */
+    margin: 0 auto; 
+    transition: width 0.3s ease-in-out; 
 }
 
 .progress-bar {
@@ -401,7 +401,7 @@ img {
     color: transparent;
     font-family: 'Rubik',sans-serif ;
     font-weight: 700;
-   /* font-family: 'JetBrains Mono', monospace;*/
+    font-family: 'JetBrains Mono', monospace;
     font-size: 15px; /* حجم الخط */
     text-align: center; /* المحاذاة لليسار */
     margin-left: 4px;
