@@ -82,10 +82,13 @@
             
             <div id="clickSection">
   <div class="energy-bar-container">
-    <div class="progress-bar">
-      <div id="energyInfo">500/500</div>
-      <div class="progress-bar-inner" id="energyBar"></div>
+    <div class="circular-energy-bar">
+      <div class="energy-icon">⚡</div>
+      <svg class="progress-ring" width="60" height="60">
+        <circle id="energyBar" class="progress-ring__circle" stroke-width="6" fill="transparent" r="26" cx="30" cy="30" />
+      </svg>
     </div>
+    <div id="energyInfo">500/500</div>
   </div>
   <div id="clickDisplay">
     <span>Clicks: </span>
@@ -93,6 +96,7 @@
   </div>
   <button id="claimButton">Claim</button>
 </div>
+
 
 
             
