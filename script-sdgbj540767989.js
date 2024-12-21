@@ -736,9 +736,9 @@ function updateEnergyUI() {
         energyBar.style.strokeDashoffset = `${circumference - progress}`; // الإزاحة حسب الطاقة المتبقية
     }
 
-    if (energyInfo) {
-        energyInfo.innerText = `${currentEnergy}/${gameState.maxEnergy} ⚡`; // تحديث النص
-    }
+     if (energyInfo) {
+      energyInfo.innerText = `${formatNumber(currentEnergy)}/${formatNumber(gameState.maxEnergy)}`;
+   }
 }
 
 // التعامل مع النقر
