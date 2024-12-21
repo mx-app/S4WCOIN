@@ -510,8 +510,8 @@ function formatNumber(value) {
 // تسجيل الأحداث للمستخدم
 function registerEventHandlers() {
     if (uiElements.clickableImg) {
-        uiElements.clickableImg.addEventListener('click', handleClick);
-        uiElements.clickableImg.addEventListener('touchstart', handleClick);
+        uiElements.clickableImg.addEventListener('click', handleSingleTouch);
+        uiElements.clickableImg.addEventListener('touchstart', handleSingleTouch);
     }
 
     if (uiElements.navButtons) {
