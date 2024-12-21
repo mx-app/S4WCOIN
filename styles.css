@@ -390,6 +390,10 @@ img {
 } 
 
 #energyInfo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: transparent;
     background: #fff;
     -webkit-background-clip: text; 
@@ -405,6 +409,7 @@ img {
     margin-bottom: 8px;
     direction: rtl; /* الحفاظ على الاتجاه من اليمين لليسار */
     white-space: nowrap;
+    z-index: 10;
 }
 
  #maxEnergy {
