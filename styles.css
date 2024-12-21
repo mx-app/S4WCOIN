@@ -976,7 +976,7 @@ img {
     padding: 0; /* إزالة الحشوات */
     line-height: 1; /* تقليل المسافة بين الأسطر */
     color: #808080;
-}
+} 
 
 #earningsText {
     font-size: 10px;
@@ -1022,20 +1022,11 @@ img {
     animation: popIn 0.4s ease forwards;
 }
 
-/*.user-details-i {
-    position: absolute; 
-    top: 18px; 
-    left: 24px; 
-    z-index: 100; 
-    animation: popIn 0.4s ease forwards;
-}*/
-
 .userrr-image {
     width: 28px; /* عرض الصورة */
     height: 28px; /* ارتفاع الصورة */
     border-radius: 50%; /* جعل الصورة دائرية */
     object-fit: cover; /* تأكد من احتواء الصورة داخل الدائرة */
-    border: 0.50px solid #161616; /* إضافة إطار أبيض حول الصورة */
 }
 
 
