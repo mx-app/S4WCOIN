@@ -3,8 +3,8 @@
   bottom: 120px;
   left: 50%;
   transform: translateX(-50%);
-  width: 90%;
-  height: 60px;
+  width: 89%;
+  height: 55px;
   background-color: #101010;
   display: flex;
   justify-content: space-between;
@@ -40,12 +40,12 @@
 }
 
 .energy-bar-container {
-  width: 30%;
+  width: 35%;
 }
 
 .progress-bar {
   width: 100%;
-  height: 18px;
+  height: 30px;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50px;
   overflow: hidden;
@@ -63,10 +63,11 @@
   position: absolute;
   left: 50%;
   top: 50%;
+  text-align: center;
   transform: translate(-50%, -50%);
   font-family: 'Rubik', sans-serif;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 13px;
   background: #fff;
   -webkit-background-clip: text;
   background-clip: text;
