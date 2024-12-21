@@ -1015,9 +1015,9 @@ img {
 }
 
 #userName {
-    font-size: 15px;
+    font-size: 13px;
     color: #fff; /* لون أفتح قليلاً لتمييز الاسم */
-    margin-right: 10px;
+    margin-right: 5px;
     margin-left: 5px;
     animation: popIn 0.4s ease forwards;
 }
@@ -1031,11 +1031,11 @@ img {
 }*/
 
 .userrr-image {
-    width: 30px; /* عرض الصورة */
-    height: 30px; /* ارتفاع الصورة */
+    width: 28px; /* عرض الصورة */
+    height: 28px; /* ارتفاع الصورة */
     border-radius: 50%; /* جعل الصورة دائرية */
     object-fit: cover; /* تأكد من احتواء الصورة داخل الدائرة */
-    border: 1px solid #161616; /* إضافة إطار أبيض حول الصورة */
+    border: 0.50px solid #161616; /* إضافة إطار أبيض حول الصورة */
 }
 
 
